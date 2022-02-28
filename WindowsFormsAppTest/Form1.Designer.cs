@@ -33,10 +33,15 @@ namespace WindowsFormsAppTest
             this.label1 = new System.Windows.Forms.Label();
             this.httpTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.ResponseTextBox = new System.Windows.Forms.TextBox();
             this.comboBoxUrls = new System.Windows.Forms.ComboBox();
             this.PasUrlAanButton = new System.Windows.Forms.Button();
             this.UrlChangeTextBox = new System.Windows.Forms.TextBox();
+            this.ResponseTextBox = new System.Windows.Forms.TextBox();
+            this.checkBoxKraanDLL = new System.Windows.Forms.CheckBox();
+            this.checkBoxKraanIni = new System.Windows.Forms.CheckBox();
+            this.checkBoxKraanDatabase = new System.Windows.Forms.CheckBox();
+            this.textBoxWebservice = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // button1
@@ -47,7 +52,7 @@ namespace WindowsFormsAppTest
             this.button1.TabIndex = 0;
             this.button1.Text = "Test Route";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.button1_ClickAsync);
             // 
             // label1
             // 
@@ -77,14 +82,6 @@ namespace WindowsFormsAppTest
             this.label2.TabIndex = 4;
             this.label2.Text = "+";
             // 
-            // ResponseTextBox
-            // 
-            this.ResponseTextBox.Location = new System.Drawing.Point(16, 67);
-            this.ResponseTextBox.Multiline = true;
-            this.ResponseTextBox.Name = "ResponseTextBox";
-            this.ResponseTextBox.Size = new System.Drawing.Size(646, 331);
-            this.ResponseTextBox.TabIndex = 6;
-            // 
             // comboBoxUrls
             // 
             this.comboBoxUrls.FormattingEnabled = true;
@@ -113,11 +110,71 @@ namespace WindowsFormsAppTest
             this.UrlChangeTextBox.TabIndex = 9;
             this.UrlChangeTextBox.TextChanged += new System.EventHandler(this.UrlChangeTextBox_TextChanged);
             // 
+            // ResponseTextBox
+            // 
+            this.ResponseTextBox.Location = new System.Drawing.Point(16, 256);
+            this.ResponseTextBox.Multiline = true;
+            this.ResponseTextBox.Name = "ResponseTextBox";
+            this.ResponseTextBox.Size = new System.Drawing.Size(646, 142);
+            this.ResponseTextBox.TabIndex = 6;
+            // 
+            // checkBoxKraanDLL
+            // 
+            this.checkBoxKraanDLL.AutoSize = true;
+            this.checkBoxKraanDLL.Location = new System.Drawing.Point(16, 101);
+            this.checkBoxKraanDLL.Name = "checkBoxKraanDLL";
+            this.checkBoxKraanDLL.Size = new System.Drawing.Size(74, 17);
+            this.checkBoxKraanDLL.TabIndex = 10;
+            this.checkBoxKraanDLL.Text = "KraanDLL";
+            this.checkBoxKraanDLL.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxKraanIni
+            // 
+            this.checkBoxKraanIni.AutoSize = true;
+            this.checkBoxKraanIni.Location = new System.Drawing.Point(16, 124);
+            this.checkBoxKraanIni.Name = "checkBoxKraanIni";
+            this.checkBoxKraanIni.Size = new System.Drawing.Size(65, 17);
+            this.checkBoxKraanIni.TabIndex = 11;
+            this.checkBoxKraanIni.Text = "KraanIni";
+            this.checkBoxKraanIni.UseVisualStyleBackColor = true;
+            // 
+            // checkBoxKraanDatabase
+            // 
+            this.checkBoxKraanDatabase.AutoSize = true;
+            this.checkBoxKraanDatabase.Location = new System.Drawing.Point(16, 147);
+            this.checkBoxKraanDatabase.Name = "checkBoxKraanDatabase";
+            this.checkBoxKraanDatabase.Size = new System.Drawing.Size(100, 17);
+            this.checkBoxKraanDatabase.TabIndex = 12;
+            this.checkBoxKraanDatabase.Text = "KraanDatabase";
+            this.checkBoxKraanDatabase.UseVisualStyleBackColor = true;
+            // 
+            // textBoxWebservice
+            // 
+            this.textBoxWebservice.Location = new System.Drawing.Point(122, 68);
+            this.textBoxWebservice.Name = "textBoxWebservice";
+            this.textBoxWebservice.Size = new System.Drawing.Size(217, 20);
+            this.textBoxWebservice.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(18, 71);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(98, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Webservice versie:";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 410);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textBoxWebservice);
+            this.Controls.Add(this.checkBoxKraanDatabase);
+            this.Controls.Add(this.checkBoxKraanIni);
+            this.Controls.Add(this.checkBoxKraanDLL);
             this.Controls.Add(this.UrlChangeTextBox);
             this.Controls.Add(this.PasUrlAanButton);
             this.Controls.Add(this.comboBoxUrls);
@@ -140,10 +197,15 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox httpTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox ResponseTextBox;
         private System.Windows.Forms.ComboBox comboBoxUrls;
         private System.Windows.Forms.Button PasUrlAanButton;
         private System.Windows.Forms.TextBox UrlChangeTextBox;
+        private System.Windows.Forms.TextBox ResponseTextBox;
+        private System.Windows.Forms.CheckBox checkBoxKraanDLL;
+        private System.Windows.Forms.CheckBox checkBoxKraanIni;
+        private System.Windows.Forms.CheckBox checkBoxKraanDatabase;
+        private System.Windows.Forms.TextBox textBoxWebservice;
+        private System.Windows.Forms.Label label3;
     }
 }
 
