@@ -29,47 +29,37 @@ namespace WindowsFormsAppTest
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.UrlLbl = new System.Windows.Forms.Label();
             this.httpTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBoxUrls = new System.Windows.Forms.ComboBox();
-            this.PasUrlAanButton = new System.Windows.Forms.Button();
+            this.UrlsCmbx = new System.Windows.Forms.ComboBox();
+            this.PasUrlAanBttn = new System.Windows.Forms.Button();
             this.ResponseTextBox = new System.Windows.Forms.TextBox();
             this.checkBoxKraanDLL = new System.Windows.Forms.CheckBox();
             this.checkBoxKraanIni = new System.Windows.Forms.CheckBox();
             this.checkBoxKraanDatabase = new System.Windows.Forms.CheckBox();
             this.textBoxWebservice = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.WebserviceLbl = new System.Windows.Forms.Label();
             this.AddUrlButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.SecurityEditLbl = new System.Windows.Forms.Label();
+            this.UrlEditLbl = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.UrlChangeTextBox = new System.Windows.Forms.TextBox();
-            this.SecurityChangeTextBox = new System.Windows.Forms.TextBox();
+            this.UrlChangeTxtBx = new System.Windows.Forms.TextBox();
+            this.SecurityChangeTxtBx = new System.Windows.Forms.TextBox();
+            this.DeleteUrlBttn = new System.Windows.Forms.Button();
+            this.TestRouteBtn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // button1
+            // UrlLbl
             // 
-            this.button1.Location = new System.Drawing.Point(676, 356);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(214, 42);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Test Route";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_ClickAsync);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(29, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "URL";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            this.UrlLbl.AutoSize = true;
+            this.UrlLbl.Location = new System.Drawing.Point(13, 9);
+            this.UrlLbl.Name = "UrlLbl";
+            this.UrlLbl.Size = new System.Drawing.Size(29, 13);
+            this.UrlLbl.TabIndex = 2;
+            this.UrlLbl.Text = "URL";
             // 
             // httpTextBox
             // 
@@ -78,7 +68,6 @@ namespace WindowsFormsAppTest
             this.httpTextBox.ReadOnly = true;
             this.httpTextBox.Size = new System.Drawing.Size(144, 20);
             this.httpTextBox.TabIndex = 3;
-            this.httpTextBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label2
             // 
@@ -89,24 +78,26 @@ namespace WindowsFormsAppTest
             this.label2.TabIndex = 4;
             this.label2.Text = "+";
             // 
-            // comboBoxUrls
+            // UrlsCmbx
             // 
-            this.comboBoxUrls.FormattingEnabled = true;
-            this.comboBoxUrls.Location = new System.Drawing.Point(184, 24);
-            this.comboBoxUrls.Name = "comboBoxUrls";
-            this.comboBoxUrls.Size = new System.Drawing.Size(478, 21);
-            this.comboBoxUrls.TabIndex = 7;
-            this.comboBoxUrls.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.UrlsCmbx.FormattingEnabled = true;
+            this.UrlsCmbx.Location = new System.Drawing.Point(184, 24);
+            this.UrlsCmbx.Name = "UrlsCmbx";
+            this.UrlsCmbx.Size = new System.Drawing.Size(478, 21);
+            this.UrlsCmbx.TabIndex = 7;
+            this.UrlsCmbx.SelectedIndexChanged += new System.EventHandler(this.UrlsCmbBx_SelectedIndexChanged);
             // 
-            // PasUrlAanButton
+            // PasUrlAanBttn
             // 
-            this.PasUrlAanButton.Location = new System.Drawing.Point(745, 205);
-            this.PasUrlAanButton.Name = "PasUrlAanButton";
-            this.PasUrlAanButton.Size = new System.Drawing.Size(80, 56);
-            this.PasUrlAanButton.TabIndex = 8;
-            this.PasUrlAanButton.Text = "Pas de gegevens aan";
-            this.PasUrlAanButton.UseVisualStyleBackColor = true;
-            this.PasUrlAanButton.Click += new System.EventHandler(this.PasUrlAanButton_Click);
+            this.PasUrlAanBttn.BackColor = System.Drawing.Color.Green;
+            this.PasUrlAanBttn.Location = new System.Drawing.Point(676, 205);
+            this.PasUrlAanBttn.Margin = new System.Windows.Forms.Padding(0);
+            this.PasUrlAanBttn.Name = "PasUrlAanBttn";
+            this.PasUrlAanBttn.Size = new System.Drawing.Size(108, 56);
+            this.PasUrlAanBttn.TabIndex = 8;
+            this.PasUrlAanBttn.Text = "Pas de gegevens aan";
+            this.PasUrlAanBttn.UseVisualStyleBackColor = false;
+            this.PasUrlAanBttn.Click += new System.EventHandler(this.PasUrlAanBttn_Click);
             // 
             // ResponseTextBox
             // 
@@ -125,6 +116,7 @@ namespace WindowsFormsAppTest
             this.checkBoxKraanDLL.TabIndex = 10;
             this.checkBoxKraanDLL.Text = "KraanDLL";
             this.checkBoxKraanDLL.UseVisualStyleBackColor = true;
+            this.checkBoxKraanDLL.Click += new System.EventHandler(this.checkBoxReadOnly_Click);
             // 
             // checkBoxKraanIni
             // 
@@ -135,6 +127,7 @@ namespace WindowsFormsAppTest
             this.checkBoxKraanIni.TabIndex = 11;
             this.checkBoxKraanIni.Text = "KraanIni";
             this.checkBoxKraanIni.UseVisualStyleBackColor = true;
+            this.checkBoxKraanIni.Click += new System.EventHandler(this.checkBoxReadOnly_Click);
             // 
             // checkBoxKraanDatabase
             // 
@@ -145,23 +138,24 @@ namespace WindowsFormsAppTest
             this.checkBoxKraanDatabase.TabIndex = 12;
             this.checkBoxKraanDatabase.Text = "KraanDatabase";
             this.checkBoxKraanDatabase.UseVisualStyleBackColor = true;
+            this.checkBoxKraanDatabase.Click += new System.EventHandler(this.checkBoxReadOnly_Click);
             // 
             // textBoxWebservice
             // 
             this.textBoxWebservice.Location = new System.Drawing.Point(114, 14);
             this.textBoxWebservice.Name = "textBoxWebservice";
+            this.textBoxWebservice.ReadOnly = true;
             this.textBoxWebservice.Size = new System.Drawing.Size(217, 20);
             this.textBoxWebservice.TabIndex = 13;
             // 
-            // label3
+            // WebserviceLbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Webservice versie:";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.WebserviceLbl.AutoSize = true;
+            this.WebserviceLbl.Location = new System.Drawing.Point(10, 17);
+            this.WebserviceLbl.Name = "WebserviceLbl";
+            this.WebserviceLbl.Size = new System.Drawing.Size(98, 13);
+            this.WebserviceLbl.TabIndex = 14;
+            this.WebserviceLbl.Text = "Webservice versie:";
             // 
             // AddUrlButton
             // 
@@ -171,11 +165,11 @@ namespace WindowsFormsAppTest
             this.AddUrlButton.TabIndex = 15;
             this.AddUrlButton.Text = "Add url";
             this.AddUrlButton.UseVisualStyleBackColor = true;
-            this.AddUrlButton.Click += new System.EventHandler(this.AddUrlButton_Click);
+            this.AddUrlButton.Click += new System.EventHandler(this.AddUrlBttn_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.WebserviceLbl);
             this.groupBox1.Controls.Add(this.textBoxWebservice);
             this.groupBox1.Controls.Add(this.checkBoxKraanDatabase);
             this.groupBox1.Controls.Add(this.checkBoxKraanIni);
@@ -186,25 +180,24 @@ namespace WindowsFormsAppTest
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Results";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // label4
+            // SecurityEditLbl
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(752, 24);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(56, 13);
-            this.label4.TabIndex = 18;
-            this.label4.Text = "SecurityID";
+            this.SecurityEditLbl.AutoSize = true;
+            this.SecurityEditLbl.Location = new System.Drawing.Point(752, 24);
+            this.SecurityEditLbl.Name = "SecurityEditLbl";
+            this.SecurityEditLbl.Size = new System.Drawing.Size(56, 13);
+            this.SecurityEditLbl.TabIndex = 18;
+            this.SecurityEditLbl.Text = "SecurityID";
             // 
-            // label5
+            // UrlEditLbl
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(769, 118);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 13);
-            this.label5.TabIndex = 19;
-            this.label5.Text = "URL";
+            this.UrlEditLbl.AutoSize = true;
+            this.UrlEditLbl.Location = new System.Drawing.Point(769, 118);
+            this.UrlEditLbl.Name = "UrlEditLbl";
+            this.UrlEditLbl.Size = new System.Drawing.Size(29, 13);
+            this.UrlEditLbl.TabIndex = 19;
+            this.UrlEditLbl.Text = "URL";
             // 
             // label6
             // 
@@ -215,42 +208,64 @@ namespace WindowsFormsAppTest
             this.label6.TabIndex = 20;
             this.label6.Text = "Log";
             // 
-            // UrlChangeTextBox
+            // UrlChangeTxtBx
             // 
-            this.UrlChangeTextBox.Location = new System.Drawing.Point(676, 134);
-            this.UrlChangeTextBox.Multiline = true;
-            this.UrlChangeTextBox.Name = "UrlChangeTextBox";
-            this.UrlChangeTextBox.Size = new System.Drawing.Size(214, 65);
-            this.UrlChangeTextBox.TabIndex = 21;
-            this.UrlChangeTextBox.TextChanged += new System.EventHandler(this.UrlChangeTextBox_TextChanged_1);
+            this.UrlChangeTxtBx.Location = new System.Drawing.Point(676, 134);
+            this.UrlChangeTxtBx.Multiline = true;
+            this.UrlChangeTxtBx.Name = "UrlChangeTxtBx";
+            this.UrlChangeTxtBx.Size = new System.Drawing.Size(214, 65);
+            this.UrlChangeTxtBx.TabIndex = 21;
+            this.UrlChangeTxtBx.TextChanged += new System.EventHandler(this.UrlChangeTxtBx_TextChanged);
             // 
-            // SecurityChangeTextBox
+            // SecurityChangeTxtBx
             // 
-            this.SecurityChangeTextBox.Location = new System.Drawing.Point(676, 40);
-            this.SecurityChangeTextBox.Multiline = true;
-            this.SecurityChangeTextBox.Name = "SecurityChangeTextBox";
-            this.SecurityChangeTextBox.Size = new System.Drawing.Size(214, 65);
-            this.SecurityChangeTextBox.TabIndex = 22;
+            this.SecurityChangeTxtBx.Location = new System.Drawing.Point(676, 40);
+            this.SecurityChangeTxtBx.Multiline = true;
+            this.SecurityChangeTxtBx.Name = "SecurityChangeTxtBx";
+            this.SecurityChangeTxtBx.Size = new System.Drawing.Size(214, 65);
+            this.SecurityChangeTxtBx.TabIndex = 22;
+            // 
+            // DeleteUrlBttn
+            // 
+            this.DeleteUrlBttn.BackColor = System.Drawing.Color.Red;
+            this.DeleteUrlBttn.Location = new System.Drawing.Point(790, 205);
+            this.DeleteUrlBttn.Name = "DeleteUrlBttn";
+            this.DeleteUrlBttn.Size = new System.Drawing.Size(100, 56);
+            this.DeleteUrlBttn.TabIndex = 23;
+            this.DeleteUrlBttn.Text = "Delete Url";
+            this.DeleteUrlBttn.UseVisualStyleBackColor = false;
+            this.DeleteUrlBttn.Click += new System.EventHandler(this.DeleteUrlButton_Click);
+            // 
+            // TestRouteBtn
+            // 
+            this.TestRouteBtn.Location = new System.Drawing.Point(676, 356);
+            this.TestRouteBtn.Name = "TestRouteBtn";
+            this.TestRouteBtn.Size = new System.Drawing.Size(214, 44);
+            this.TestRouteBtn.TabIndex = 24;
+            this.TestRouteBtn.Text = "Test route";
+            this.TestRouteBtn.UseVisualStyleBackColor = true;
+            this.TestRouteBtn.Click += new System.EventHandler(this.TestRouteBtn_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 410);
-            this.Controls.Add(this.SecurityChangeTextBox);
-            this.Controls.Add(this.UrlChangeTextBox);
+            this.Controls.Add(this.TestRouteBtn);
+            this.Controls.Add(this.DeleteUrlBttn);
+            this.Controls.Add(this.SecurityChangeTxtBx);
+            this.Controls.Add(this.UrlChangeTxtBx);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.UrlEditLbl);
+            this.Controls.Add(this.SecurityEditLbl);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.AddUrlButton);
-            this.Controls.Add(this.PasUrlAanButton);
-            this.Controls.Add(this.comboBoxUrls);
+            this.Controls.Add(this.PasUrlAanBttn);
+            this.Controls.Add(this.UrlsCmbx);
             this.Controls.Add(this.ResponseTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.httpTextBox);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.UrlLbl);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -262,26 +277,26 @@ namespace WindowsFormsAppTest
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label UrlLbl;
         private System.Windows.Forms.TextBox httpTextBox;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBoxUrls;
-        private System.Windows.Forms.Button PasUrlAanButton;
+        private System.Windows.Forms.ComboBox UrlsCmbx;
+        private System.Windows.Forms.Button PasUrlAanBttn;
         private System.Windows.Forms.TextBox ResponseTextBox;
-        private System.Windows.Forms.CheckBox checkBoxKraanDLL;
-        private System.Windows.Forms.CheckBox checkBoxKraanIni;
-        private System.Windows.Forms.CheckBox checkBoxKraanDatabase;
         private System.Windows.Forms.TextBox textBoxWebservice;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label WebserviceLbl;
         private System.Windows.Forms.Button AddUrlButton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label SecurityEditLbl;
+        private System.Windows.Forms.Label UrlEditLbl;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox UrlChangeTextBox;
-        private System.Windows.Forms.TextBox SecurityChangeTextBox;
+        private System.Windows.Forms.TextBox UrlChangeTxtBx;
+        private System.Windows.Forms.TextBox SecurityChangeTxtBx;
+        private System.Windows.Forms.CheckBox checkBoxKraanIni;
+        private System.Windows.Forms.CheckBox checkBoxKraanDatabase;
+        private System.Windows.Forms.CheckBox checkBoxKraanDLL;
+        private System.Windows.Forms.Button DeleteUrlBttn;
+        private System.Windows.Forms.Button TestRouteBtn;
     }
 }
 

@@ -53,12 +53,12 @@ namespace WindowsFormsAppTest
                     string[] values = new string[dt.Columns.Count];
                     for (int i = 0; i < dt.Columns.Count; ++i)
                     {
-                        values[i] = ((string)dr[i]) ?? ""; // we'll treat nulls as the nil string for the nonce
+                        values[i] = (dr[i].ToString()) ?? ""; // we'll treat nulls as the nil string for the nonce
                     }
 
                     // construct the string to be dumped, quoting each value and doubling any embedded quotes.
                     string data = string.Join(";", values.Select(s => "\"" + s.Replace("\"", "\"\"") + "\""));
-                    arlist.Add(data);
+                    arlist.Add(values);
                 }
                 return arlist;
             }
@@ -77,6 +77,36 @@ namespace WindowsFormsAppTest
 
                     cmd.ExecuteNonQuery();
                 }
+                connection.Close();
+            }
+        }
+
+        public void UpdateUrl(int id, string url, string securityId)
+        {
+            using (SqlConnection connection = new SqlConnection(connectieDB()))
+            {
+                connection.Open();
+                var sql = "UPDATE Url SET Name = @Url, SecurityID = @SecurityID " +  "where id =" + id;
+                using (var cmd = new SqlCommand(sql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Url", url);
+                    cmd.Parameters.AddWithValue("@SecurityID", securityId);
+
+                    cmd.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
+        }
+
+        public void DeleteUrl(int id)
+        {
+            Console.WriteLine(id);
+            using (SqlConnection connection = new SqlConnection(connectieDB()))
+            {
+                connection.Open();
+                var sql = "DELETE FROM url where id =" + id;
+                using (var cmd = new SqlCommand(sql, connection))
+                cmd.ExecuteNonQuery();
                 connection.Close();
             }
         }

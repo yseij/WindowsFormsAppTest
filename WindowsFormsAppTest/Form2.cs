@@ -14,6 +14,7 @@ namespace WindowsFormsAppTest
     {
         private string NewUrl;
         private string NewSecurityID;
+
         public Form2()
         {
             InitializeComponent();
@@ -23,7 +24,7 @@ namespace WindowsFormsAppTest
         {
             UrlTest urltest = new UrlTest();
             urltest.AddUrl(NewUrl, NewSecurityID);
-            this.Close();
+            Close();
         }
 
         private void NewSecurityIdTextBox_TextChanged(object sender, EventArgs e)
