@@ -42,6 +42,13 @@ namespace WindowsFormsAppTest
             this.checkBoxKraanDatabase = new System.Windows.Forms.CheckBox();
             this.textBoxWebservice = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.AddUrlButton = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -93,7 +100,7 @@ namespace WindowsFormsAppTest
             // 
             // PasUrlAanButton
             // 
-            this.PasUrlAanButton.Location = new System.Drawing.Point(745, 195);
+            this.PasUrlAanButton.Location = new System.Drawing.Point(745, 205);
             this.PasUrlAanButton.Name = "PasUrlAanButton";
             this.PasUrlAanButton.Size = new System.Drawing.Size(80, 56);
             this.PasUrlAanButton.TabIndex = 8;
@@ -103,25 +110,25 @@ namespace WindowsFormsAppTest
             // 
             // UrlChangeTextBox
             // 
-            this.UrlChangeTextBox.Location = new System.Drawing.Point(676, 67);
+            this.UrlChangeTextBox.Location = new System.Drawing.Point(676, 42);
             this.UrlChangeTextBox.Multiline = true;
             this.UrlChangeTextBox.Name = "UrlChangeTextBox";
-            this.UrlChangeTextBox.Size = new System.Drawing.Size(214, 122);
+            this.UrlChangeTextBox.Size = new System.Drawing.Size(214, 65);
             this.UrlChangeTextBox.TabIndex = 9;
             this.UrlChangeTextBox.TextChanged += new System.EventHandler(this.UrlChangeTextBox_TextChanged);
             // 
             // ResponseTextBox
             // 
-            this.ResponseTextBox.Location = new System.Drawing.Point(16, 256);
+            this.ResponseTextBox.Location = new System.Drawing.Point(16, 205);
             this.ResponseTextBox.Multiline = true;
             this.ResponseTextBox.Name = "ResponseTextBox";
-            this.ResponseTextBox.Size = new System.Drawing.Size(646, 142);
+            this.ResponseTextBox.Size = new System.Drawing.Size(642, 193);
             this.ResponseTextBox.TabIndex = 6;
             // 
             // checkBoxKraanDLL
             // 
             this.checkBoxKraanDLL.AutoSize = true;
-            this.checkBoxKraanDLL.Location = new System.Drawing.Point(16, 101);
+            this.checkBoxKraanDLL.Location = new System.Drawing.Point(8, 47);
             this.checkBoxKraanDLL.Name = "checkBoxKraanDLL";
             this.checkBoxKraanDLL.Size = new System.Drawing.Size(74, 17);
             this.checkBoxKraanDLL.TabIndex = 10;
@@ -131,7 +138,7 @@ namespace WindowsFormsAppTest
             // checkBoxKraanIni
             // 
             this.checkBoxKraanIni.AutoSize = true;
-            this.checkBoxKraanIni.Location = new System.Drawing.Point(16, 124);
+            this.checkBoxKraanIni.Location = new System.Drawing.Point(8, 70);
             this.checkBoxKraanIni.Name = "checkBoxKraanIni";
             this.checkBoxKraanIni.Size = new System.Drawing.Size(65, 17);
             this.checkBoxKraanIni.TabIndex = 11;
@@ -141,7 +148,7 @@ namespace WindowsFormsAppTest
             // checkBoxKraanDatabase
             // 
             this.checkBoxKraanDatabase.AutoSize = true;
-            this.checkBoxKraanDatabase.Location = new System.Drawing.Point(16, 147);
+            this.checkBoxKraanDatabase.Location = new System.Drawing.Point(8, 93);
             this.checkBoxKraanDatabase.Name = "checkBoxKraanDatabase";
             this.checkBoxKraanDatabase.Size = new System.Drawing.Size(100, 17);
             this.checkBoxKraanDatabase.TabIndex = 12;
@@ -150,7 +157,7 @@ namespace WindowsFormsAppTest
             // 
             // textBoxWebservice
             // 
-            this.textBoxWebservice.Location = new System.Drawing.Point(122, 68);
+            this.textBoxWebservice.Location = new System.Drawing.Point(114, 14);
             this.textBoxWebservice.Name = "textBoxWebservice";
             this.textBoxWebservice.Size = new System.Drawing.Size(217, 20);
             this.textBoxWebservice.TabIndex = 13;
@@ -158,23 +165,84 @@ namespace WindowsFormsAppTest
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 71);
+            this.label3.Location = new System.Drawing.Point(10, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 13);
             this.label3.TabIndex = 14;
             this.label3.Text = "Webservice versie:";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
+            // AddUrlButton
+            // 
+            this.AddUrlButton.Location = new System.Drawing.Point(676, 306);
+            this.AddUrlButton.Name = "AddUrlButton";
+            this.AddUrlButton.Size = new System.Drawing.Size(214, 44);
+            this.AddUrlButton.TabIndex = 15;
+            this.AddUrlButton.Text = "Add url";
+            this.AddUrlButton.UseVisualStyleBackColor = true;
+            this.AddUrlButton.Click += new System.EventHandler(this.AddUrlButton_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.textBoxWebservice);
+            this.groupBox1.Controls.Add(this.checkBoxKraanDatabase);
+            this.groupBox1.Controls.Add(this.checkBoxKraanIni);
+            this.groupBox1.Controls.Add(this.checkBoxKraanDLL);
+            this.groupBox1.Location = new System.Drawing.Point(16, 51);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(339, 126);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Results";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(676, 134);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(214, 65);
+            this.textBox1.TabIndex = 17;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(752, 24);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(56, 13);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "SecurityID";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(769, 118);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(29, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "URL";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 189);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(25, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Log";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 410);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBoxWebservice);
-            this.Controls.Add(this.checkBoxKraanDatabase);
-            this.Controls.Add(this.checkBoxKraanIni);
-            this.Controls.Add(this.checkBoxKraanDLL);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.AddUrlButton);
             this.Controls.Add(this.UrlChangeTextBox);
             this.Controls.Add(this.PasUrlAanButton);
             this.Controls.Add(this.comboBoxUrls);
@@ -186,6 +254,8 @@ namespace WindowsFormsAppTest
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -206,6 +276,12 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.CheckBox checkBoxKraanDatabase;
         private System.Windows.Forms.TextBox textBoxWebservice;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button AddUrlButton;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
     }
 }
 

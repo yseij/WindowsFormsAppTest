@@ -49,6 +49,7 @@ namespace WindowsFormsAppTest
                     if (statusCode >= 100 && statusCode < 400) //Good requests
                     {
                         string data = wc.DownloadString(urlHttp + url);
+                        ResponseTextBox.Text = data;
 
                         positionKraanDll = data.IndexOf("KraanDLL");
                         positionKraanIni = data.IndexOf("Kraan.ini");
@@ -60,9 +61,8 @@ namespace WindowsFormsAppTest
                         kraanIni = data.Substring(positionKraanIni, positionDatabaseConnect - positionKraanIni);
                         kraanDatabase = data.Substring(positionDatabaseConnect, positionDatabaseMelding - positionDatabaseConnect);
 
-                        String[] spearator = {":"};
-                        String[] strlist = webserviceVersie.Split(spearator,
-                        StringSplitOptions.RemoveEmptyEntries);
+
+                        string[] strlist = webserviceVersie.Split(':');
                         textBoxWebservice.Text = strlist[1];
 
                         if (kraanDll.Contains("True"))
@@ -86,7 +86,7 @@ namespace WindowsFormsAppTest
             }
             catch (WebException ex)
             {
-                this.ResponseTextBox.Text = ex.ToString();
+                ResponseTextBox.Text = ex.ToString();
             }
         }
 
@@ -134,6 +134,18 @@ namespace WindowsFormsAppTest
             checkBoxKraanIni.Checked = false;
             textBoxWebservice.Text = string.Empty;
             ResponseTextBox.Text = string.Empty;
+        }
+
+        private void AddUrlButton_Click(object sender, EventArgs e)
+        {
+            var m = new Form2();
+            m.Show();
+            
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
