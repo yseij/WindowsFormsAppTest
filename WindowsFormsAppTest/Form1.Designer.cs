@@ -35,7 +35,6 @@ namespace WindowsFormsAppTest
             this.label2 = new System.Windows.Forms.Label();
             this.comboBoxUrls = new System.Windows.Forms.ComboBox();
             this.PasUrlAanButton = new System.Windows.Forms.Button();
-            this.UrlChangeTextBox = new System.Windows.Forms.TextBox();
             this.ResponseTextBox = new System.Windows.Forms.TextBox();
             this.checkBoxKraanDLL = new System.Windows.Forms.CheckBox();
             this.checkBoxKraanIni = new System.Windows.Forms.CheckBox();
@@ -44,10 +43,11 @@ namespace WindowsFormsAppTest
             this.label3 = new System.Windows.Forms.Label();
             this.AddUrlButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.UrlChangeTextBox = new System.Windows.Forms.TextBox();
+            this.SecurityChangeTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,15 +107,6 @@ namespace WindowsFormsAppTest
             this.PasUrlAanButton.Text = "Pas de gegevens aan";
             this.PasUrlAanButton.UseVisualStyleBackColor = true;
             this.PasUrlAanButton.Click += new System.EventHandler(this.PasUrlAanButton_Click);
-            // 
-            // UrlChangeTextBox
-            // 
-            this.UrlChangeTextBox.Location = new System.Drawing.Point(676, 42);
-            this.UrlChangeTextBox.Multiline = true;
-            this.UrlChangeTextBox.Name = "UrlChangeTextBox";
-            this.UrlChangeTextBox.Size = new System.Drawing.Size(214, 65);
-            this.UrlChangeTextBox.TabIndex = 9;
-            this.UrlChangeTextBox.TextChanged += new System.EventHandler(this.UrlChangeTextBox_TextChanged);
             // 
             // ResponseTextBox
             // 
@@ -197,14 +188,6 @@ namespace WindowsFormsAppTest
             this.groupBox1.Text = "Results";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(676, 134);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(214, 65);
-            this.textBox1.TabIndex = 17;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -232,18 +215,35 @@ namespace WindowsFormsAppTest
             this.label6.TabIndex = 20;
             this.label6.Text = "Log";
             // 
+            // UrlChangeTextBox
+            // 
+            this.UrlChangeTextBox.Location = new System.Drawing.Point(676, 134);
+            this.UrlChangeTextBox.Multiline = true;
+            this.UrlChangeTextBox.Name = "UrlChangeTextBox";
+            this.UrlChangeTextBox.Size = new System.Drawing.Size(214, 65);
+            this.UrlChangeTextBox.TabIndex = 21;
+            this.UrlChangeTextBox.TextChanged += new System.EventHandler(this.UrlChangeTextBox_TextChanged_1);
+            // 
+            // SecurityChangeTextBox
+            // 
+            this.SecurityChangeTextBox.Location = new System.Drawing.Point(676, 40);
+            this.SecurityChangeTextBox.Multiline = true;
+            this.SecurityChangeTextBox.Name = "SecurityChangeTextBox";
+            this.SecurityChangeTextBox.Size = new System.Drawing.Size(214, 65);
+            this.SecurityChangeTextBox.TabIndex = 22;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(902, 410);
+            this.Controls.Add(this.SecurityChangeTextBox);
+            this.Controls.Add(this.UrlChangeTextBox);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.AddUrlButton);
-            this.Controls.Add(this.UrlChangeTextBox);
             this.Controls.Add(this.PasUrlAanButton);
             this.Controls.Add(this.comboBoxUrls);
             this.Controls.Add(this.ResponseTextBox);
@@ -269,7 +269,6 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox comboBoxUrls;
         private System.Windows.Forms.Button PasUrlAanButton;
-        private System.Windows.Forms.TextBox UrlChangeTextBox;
         private System.Windows.Forms.TextBox ResponseTextBox;
         private System.Windows.Forms.CheckBox checkBoxKraanDLL;
         private System.Windows.Forms.CheckBox checkBoxKraanIni;
@@ -278,10 +277,11 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button AddUrlButton;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox UrlChangeTextBox;
+        private System.Windows.Forms.TextBox SecurityChangeTextBox;
     }
 }
 

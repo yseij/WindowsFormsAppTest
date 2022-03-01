@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
@@ -24,6 +25,7 @@ namespace WindowsFormsAppTest
         private int positionDatabaseMelding;
 
         WebClient wc = new WebClient();
+        ArrayList arlist = new ArrayList();
 
         public Form1()
         {
@@ -32,8 +34,14 @@ namespace WindowsFormsAppTest
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            comboBoxUrls.Items.Add("KraanHomeDNA/HomeDna.svc/Getwebserviceversion");
-            this.httpTextBox.Text = urlHttp;
+            UrlTest urltest = new UrlTest();
+            arlist = urltest.GetUrls();
+            foreach (string item in arlist)
+            {
+                string[] strlist = item.Split(';');
+                comboBoxUrls.Items.Add(strlist[0].Replace("\"", ""));
+            }
+            httpTextBox.Text = urlHttp;
         }
 
         private void button1_ClickAsync(object sender, EventArgs e)
@@ -73,7 +81,7 @@ namespace WindowsFormsAppTest
                         {
                             checkBoxKraanIni.Checked = true;
                         }
-                        if(kraanDatabase.Contains("True"))
+                        if (kraanDatabase.Contains("True"))
                         {
                             checkBoxKraanDatabase.Checked = true;
                         }
@@ -105,6 +113,15 @@ namespace WindowsFormsAppTest
             clearBox();
             url = comboBoxUrls.SelectedItem.ToString();
             selectedUrl = url;
+            foreach (string item in arlist)
+            {
+                string[] strlist = item.Split(';');
+                if (strlist[0].Replace("\"", "").Equals(url))
+                {
+                    SecurityChangeTextBox.Text = strlist[1].Replace("\"", "");
+
+                }
+            }
             UrlChangeTextBox.Text = comboBoxUrls.SelectedItem.ToString();
         }
 
@@ -117,7 +134,7 @@ namespace WindowsFormsAppTest
             comboBoxUrls.Items.Add(changedUrl);
         }
 
-        private void UrlChangeTextBox_TextChanged(object sender, EventArgs e)
+        private void UrlChangeTextBox_TextChanged_1(object sender, EventArgs e)
         {
             changedUrl = UrlChangeTextBox.Text.ToString();
         }
@@ -136,16 +153,16 @@ namespace WindowsFormsAppTest
             ResponseTextBox.Text = string.Empty;
         }
 
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        // new Form openen
         private void AddUrlButton_Click(object sender, EventArgs e)
         {
             var m = new Form2();
             m.Show();
-            
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
         }
     }
 }

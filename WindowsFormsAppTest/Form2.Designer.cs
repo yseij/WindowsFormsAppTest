@@ -44,6 +44,7 @@ namespace WindowsFormsAppTest
             this.AddUrlButton.TabIndex = 0;
             this.AddUrlButton.Text = "Add url";
             this.AddUrlButton.UseVisualStyleBackColor = true;
+            this.AddUrlButton.Click += new System.EventHandler(this.AddUrlButton_Click);
             // 
             // label1
             // 
@@ -60,6 +61,7 @@ namespace WindowsFormsAppTest
             this.NewSecurityIdTextBox.Name = "NewSecurityIdTextBox";
             this.NewSecurityIdTextBox.Size = new System.Drawing.Size(551, 20);
             this.NewSecurityIdTextBox.TabIndex = 2;
+            this.NewSecurityIdTextBox.TextChanged += new System.EventHandler(this.NewSecurityIdTextBox_TextChanged);
             // 
             // label2
             // 
@@ -76,6 +78,7 @@ namespace WindowsFormsAppTest
             this.NewUrlTextBox.Name = "NewUrlTextBox";
             this.NewUrlTextBox.Size = new System.Drawing.Size(551, 20);
             this.NewUrlTextBox.TabIndex = 4;
+            this.NewUrlTextBox.TextChanged += new System.EventHandler(this.NewUrlTextBox_TextChanged);
             // 
             // Form2
             // 
