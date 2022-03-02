@@ -30,7 +30,6 @@ namespace WindowsFormsAppTest
         private void InitializeComponent()
         {
             this.UrlLbl = new System.Windows.Forms.Label();
-            this.httpTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.UrlsCmbx = new System.Windows.Forms.ComboBox();
             this.PasUrlAanBttn = new System.Windows.Forms.Button();
@@ -49,6 +48,8 @@ namespace WindowsFormsAppTest
             this.SecurityChangeTxtBx = new System.Windows.Forms.TextBox();
             this.DeleteUrlBttn = new System.Windows.Forms.Button();
             this.TestRouteBtn = new System.Windows.Forms.Button();
+            this.HttpCmbx = new System.Windows.Forms.ComboBox();
+            this.PrgrsBrTestUrl = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,18 +62,10 @@ namespace WindowsFormsAppTest
             this.UrlLbl.TabIndex = 2;
             this.UrlLbl.Text = "URL";
             // 
-            // httpTextBox
-            // 
-            this.httpTextBox.Location = new System.Drawing.Point(16, 25);
-            this.httpTextBox.Name = "httpTextBox";
-            this.httpTextBox.ReadOnly = true;
-            this.httpTextBox.Size = new System.Drawing.Size(144, 20);
-            this.httpTextBox.TabIndex = 3;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(165, 28);
+            this.label2.Location = new System.Drawing.Point(186, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(13, 13);
             this.label2.TabIndex = 4;
@@ -81,9 +74,9 @@ namespace WindowsFormsAppTest
             // UrlsCmbx
             // 
             this.UrlsCmbx.FormattingEnabled = true;
-            this.UrlsCmbx.Location = new System.Drawing.Point(184, 24);
+            this.UrlsCmbx.Location = new System.Drawing.Point(205, 25);
             this.UrlsCmbx.Name = "UrlsCmbx";
-            this.UrlsCmbx.Size = new System.Drawing.Size(478, 21);
+            this.UrlsCmbx.Size = new System.Drawing.Size(453, 21);
             this.UrlsCmbx.TabIndex = 7;
             this.UrlsCmbx.SelectedIndexChanged += new System.EventHandler(this.UrlsCmbBx_SelectedIndexChanged);
             // 
@@ -104,7 +97,8 @@ namespace WindowsFormsAppTest
             this.ResponseTextBox.Location = new System.Drawing.Point(16, 205);
             this.ResponseTextBox.Multiline = true;
             this.ResponseTextBox.Name = "ResponseTextBox";
-            this.ResponseTextBox.Size = new System.Drawing.Size(642, 193);
+            this.ResponseTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ResponseTextBox.Size = new System.Drawing.Size(642, 195);
             this.ResponseTextBox.TabIndex = 6;
             // 
             // checkBoxKraanDLL
@@ -159,7 +153,7 @@ namespace WindowsFormsAppTest
             // 
             // AddUrlButton
             // 
-            this.AddUrlButton.Location = new System.Drawing.Point(676, 306);
+            this.AddUrlButton.Location = new System.Drawing.Point(676, 267);
             this.AddUrlButton.Name = "AddUrlButton";
             this.AddUrlButton.Size = new System.Drawing.Size(214, 44);
             this.AddUrlButton.TabIndex = 15;
@@ -238,7 +232,7 @@ namespace WindowsFormsAppTest
             // 
             // TestRouteBtn
             // 
-            this.TestRouteBtn.Location = new System.Drawing.Point(676, 356);
+            this.TestRouteBtn.Location = new System.Drawing.Point(676, 317);
             this.TestRouteBtn.Name = "TestRouteBtn";
             this.TestRouteBtn.Size = new System.Drawing.Size(214, 44);
             this.TestRouteBtn.TabIndex = 24;
@@ -246,11 +240,30 @@ namespace WindowsFormsAppTest
             this.TestRouteBtn.UseVisualStyleBackColor = true;
             this.TestRouteBtn.Click += new System.EventHandler(this.TestRouteBtn_Click);
             // 
+            // HttpCmbx
+            // 
+            this.HttpCmbx.FormattingEnabled = true;
+            this.HttpCmbx.Location = new System.Drawing.Point(16, 24);
+            this.HttpCmbx.Name = "HttpCmbx";
+            this.HttpCmbx.Size = new System.Drawing.Size(164, 21);
+            this.HttpCmbx.TabIndex = 25;
+            this.HttpCmbx.SelectedIndexChanged += new System.EventHandler(this.HttpCmbx_SelectedIndexChanged);
+            // 
+            // PrgrsBrTestUrl
+            // 
+            this.PrgrsBrTestUrl.Location = new System.Drawing.Point(676, 367);
+            this.PrgrsBrTestUrl.Name = "PrgrsBrTestUrl";
+            this.PrgrsBrTestUrl.Size = new System.Drawing.Size(214, 33);
+            this.PrgrsBrTestUrl.Step = 1;
+            this.PrgrsBrTestUrl.TabIndex = 26;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 410);
+            this.ClientSize = new System.Drawing.Size(901, 410);
+            this.Controls.Add(this.PrgrsBrTestUrl);
+            this.Controls.Add(this.HttpCmbx);
             this.Controls.Add(this.TestRouteBtn);
             this.Controls.Add(this.DeleteUrlBttn);
             this.Controls.Add(this.SecurityChangeTxtBx);
@@ -264,7 +277,6 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.UrlsCmbx);
             this.Controls.Add(this.ResponseTextBox);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.httpTextBox);
             this.Controls.Add(this.UrlLbl);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -278,7 +290,6 @@ namespace WindowsFormsAppTest
 
         #endregion
         private System.Windows.Forms.Label UrlLbl;
-        private System.Windows.Forms.TextBox httpTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox UrlsCmbx;
         private System.Windows.Forms.Button PasUrlAanBttn;
@@ -297,6 +308,8 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.CheckBox checkBoxKraanDLL;
         private System.Windows.Forms.Button DeleteUrlBttn;
         private System.Windows.Forms.Button TestRouteBtn;
+        private System.Windows.Forms.ComboBox HttpCmbx;
+        private System.Windows.Forms.ProgressBar PrgrsBrTestUrl;
     }
 }
 

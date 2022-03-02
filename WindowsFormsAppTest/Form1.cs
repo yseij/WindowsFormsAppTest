@@ -1,19 +1,23 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
+using System.Net;
+using Newtonsoft.Json.Linq;
 
 namespace WindowsFormsAppTest
 {
     public partial class Form1 : Form
     {
         private string url;
-        private string urlHttp = "https://wsdev.kraan.com/";
+        private string urlHttp = "";
+        private string securityId = "";
         private string changedUrl;
-        private string selectedUrl;
         private string webserviceVersie;
         private string kraanDll;
         private string kraanIni;
@@ -33,21 +37,32 @@ namespace WindowsFormsAppTest
         {
             InitializeComponent();
             _wc = new WebClient();
+            _wc.DownloadProgressChanged += _wc_DownloadProgressChanged;
             _urltest = new UrlTest();
             _urlDatas = _urltest.GetUrlDatas();
+        }
+
+        private void _wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            PrgrsBrTestUrl.Value = e.ProgressPercentage;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             getUrls();
-            httpTextBox.Text = urlHttp;
+            fillCmbxUrls();
+            fillCmbxHtpp();
         }
-
 
         private void TestRouteBtn_Click(object sender, EventArgs e)
         {
             clearBox();
             getWebRequest();
+        }
+
+        private void HttpCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            urlHttp = HttpCmbx.Text;
         }
 
         private void UrlsCmbBx_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,7 +74,9 @@ namespace WindowsFormsAppTest
                 UrlData urlData = _urlDatas.Find(u => u.Id == idOfSelected);
                 UrlChangeTxtBx.Text = urlData.Name;
                 SecurityChangeTxtBx.Text = urlData.SecurityId;
-            } 
+                url = UrlsCmbx.Text;
+                securityId = SecurityChangeTxtBx.Text;
+            }
         }
 
         private void UrlChangeTxtBx_TextChanged(object sender, EventArgs e)
@@ -79,8 +96,9 @@ namespace WindowsFormsAppTest
 
         private void DeleteUrlButton_Click(object sender, EventArgs e)
         {
+            clearBox();
             _urltest.DeleteUrl((int)UrlsCmbx.SelectedValue);
-
+            UrlsCmbx.SelectedIndex = 0;
             getUrls();
         }
 
@@ -107,43 +125,82 @@ namespace WindowsFormsAppTest
 
         private void getUrls()
         {
-            UrlsCmbx.DataSource = null;
             _urlDatas = _urltest.GetUrlDatas(true);
+        }
+
+        private void fillCmbxUrls()
+        {
+            UrlsCmbx.DataSource = null;
             UrlsCmbx.DisplayMember = "Name";
             UrlsCmbx.ValueMember = "Id";
             UrlsCmbx.DataSource = _urlDatas;
         }
 
+        private void fillCmbxHtpp()
+        {
+            HttpCmbx.Items.Clear();
+            HttpCmbx.Items.Add("https://wsdev.kraan.com/");
+            HttpCmbx.Items.Add("https://ws.kraan.com:444/");
+            HttpCmbx.SelectedIndex = 0;
+        }
+
         private void getWebRequest()
         {
+            string webRequestUrl = "";
+            if (securityId != string.Empty)
+            {
+                webRequestUrl = urlHttp + url + securityId;
+            }
+            else
+            {
+                webRequestUrl = urlHttp + url;
+            }
             try
             {
-                HttpWebRequest request = HttpWebRequest.Create(urlHttp + url) as HttpWebRequest;
+                HttpWebRequest request = HttpWebRequest.Create(webRequestUrl) as HttpWebRequest;
 
                 using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
                 {
+                    long contentLength = response.ContentLength;
                     int statusCode = (int)response.StatusCode;
+                    Console.WriteLine(response.StatusCode);
                     if (statusCode >= 100 && statusCode < 400) //Good requests
                     {
-                        string data = _wc.DownloadString(urlHttp + url);
-                        ResponseTextBox.Text = data;
+                        string data = _wc.DownloadString(webRequestUrl).Trim('[', ']');
+                        if (data.Count(d => d == '{') > 1)
+                        {
+                            int Pos1 = data.IndexOf('{');
+                            int Pos2 = data.IndexOf("}");
+                            data = data.Substring(Pos1, Pos2 - Pos1 + 1);
+                        }
+                        if (securityId == string.Empty)
+                        {
+                            positionKraanDll = data.IndexOf("KraanDLL");
+                            positionKraanIni = data.IndexOf("Kraan.ini");
+                            positionDatabaseConnect = data.IndexOf("Database connectie");
+                            positionDatabaseMelding = data.IndexOf("Database melding");
 
-                        positionKraanDll = data.IndexOf("KraanDLL");
-                        positionKraanIni = data.IndexOf("Kraan.ini");
-                        positionDatabaseConnect = data.IndexOf("Database connectie");
-                        positionDatabaseMelding = data.IndexOf("Database melding");
+                            webserviceVersie = data.Substring(0, positionKraanDll);
+                            kraanDll = data.Substring(positionKraanDll, positionKraanIni - positionKraanDll);
+                            kraanIni = data.Substring(positionKraanIni, positionDatabaseConnect - positionKraanIni);
+                            kraanDatabase = data.Substring(positionDatabaseConnect, positionDatabaseMelding - positionDatabaseConnect);
 
-                        webserviceVersie = data.Substring(0, positionKraanDll);
-                        kraanDll = data.Substring(positionKraanDll, positionKraanIni - positionKraanDll);
-                        kraanIni = data.Substring(positionKraanIni, positionDatabaseConnect - positionKraanIni);
-                        kraanDatabase = data.Substring(positionDatabaseConnect, positionDatabaseMelding - positionDatabaseConnect);
+                            string[] strlist = webserviceVersie.Split(':');
+                            textBoxWebservice.Text = strlist[1];
 
-                        string[] strlist = webserviceVersie.Split(':');
-                        textBoxWebservice.Text = strlist[1];
-
-                        checkBoxKraanDLL.Checked = kraanDll.Contains("True");
-                        checkBoxKraanIni.Checked = kraanIni.Contains("True");
-                        checkBoxKraanDatabase.Checked = kraanDatabase.Contains("True");
+                            checkBoxKraanDLL.Checked = kraanDll.Contains("True");
+                            checkBoxKraanIni.Checked = kraanIni.Contains("True");
+                            checkBoxKraanDatabase.Checked = kraanDatabase.Contains("True");
+                            ResponseTextBox.Text = data;
+                        }
+                        else
+                        {
+                            dynamic result = JObject.Parse(data);
+                            foreach (JProperty item in result)
+                            {
+                                ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " + item.Value + Environment.NewLine;
+                            }
+                        }
                     }
                     else if (statusCode >= 500 && statusCode <= 510) //Server Errors
                     {
