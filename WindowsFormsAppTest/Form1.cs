@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,35 +12,34 @@ namespace WindowsFormsAppTest
     {
         private string url;
         private string urlHttp = "https://wsdev.kraan.com/";
-        private string selectedUrl;
         private string changedUrl;
+        private string selectedUrl;
         private string webserviceVersie;
         private string kraanDll;
         private string kraanIni;
         private string kraanDatabase;
-
 
         private int positionKraanDll;
         private int positionKraanIni;
         private int positionDatabaseConnect;
         private int positionDatabaseMelding;
 
+        private List<UrlData> _urlDatas = new List<UrlData>();
+
         WebClient _wc;
-        ArrayList _arlist;
         UrlTest _urltest;
 
         public Form1()
         {
             InitializeComponent();
             _wc = new WebClient();
-            _arlist = new ArrayList();
             _urltest = new UrlTest();
+            _urlDatas = _urltest.GetUrlDatas();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             getUrls();
-            TestRouteBtn.Enabled = false;
             httpTextBox.Text = urlHttp;
         }
 
@@ -53,20 +53,13 @@ namespace WindowsFormsAppTest
         private void UrlsCmbBx_SelectedIndexChanged(object sender, EventArgs e)
         {
             clearBox();
-            int selectedIndex = UrlsCmbx.SelectedIndex;
-            var x = UrlsCmbx.SelectedItem;
-            url = UrlsCmbx.SelectedItem.ToString();
-            TestRouteBtn.Enabled = UrlsCmbx.SelectedIndex != -1;
-            selectedUrl = url;
-            UrlChangeTxtBx.Text = UrlsCmbx.SelectedItem.ToString();
-
-            foreach (string[] item in _arlist)
+            if (UrlsCmbx.DataSource != null)
             {
-                if (item[1].Replace("\"", "").Equals(url))
-                {
-                    SecurityChangeTxtBx.Text = item[2].Replace("\"", "");
-                }
-            }
+                int idOfSelected = (int)UrlsCmbx.SelectedValue;
+                UrlData urlData = _urlDatas.Find(u => u.Id == idOfSelected);
+                UrlChangeTxtBx.Text = urlData.Name;
+                SecurityChangeTxtBx.Text = urlData.SecurityId;
+            } 
         }
 
         private void UrlChangeTxtBx_TextChanged(object sender, EventArgs e)
@@ -78,30 +71,17 @@ namespace WindowsFormsAppTest
         {
             clearBox();
             int selectedIndex = UrlsCmbx.SelectedIndex;
-            foreach (string[] item in _arlist)
-            {
-                if (item[0].Replace("\"", "").Equals(_arlist[selectedIndex]))
-                {
-                    _urltest.UpdateUrl(int.Parse(item[0]), changedUrl, SecurityChangeTxtBx.Text);
-                }
-            }
+            int idOfSelected = (int)UrlsCmbx.SelectedValue;
+            _urltest.UpdateUrl(idOfSelected, changedUrl, SecurityChangeTxtBx.Text);
             getUrls();
-            UrlsCmbx.Text = UrlsCmbx.Items[selectedIndex].ToString();
+            UrlsCmbx.SelectedIndex = selectedIndex;
         }
 
         private void DeleteUrlButton_Click(object sender, EventArgs e)
         {
-            foreach (string[] item in _arlist)
-            {
-                if (item[1].Replace("\"", "").Equals(url))
-                {
-                    _urltest.DeleteUrl(int.Parse(item[0]));
-                    SecurityChangeTxtBx.Text = string.Empty;
-                    UrlChangeTxtBx.Text = string.Empty;
-                    UrlChangeTxtBx.Text = string.Empty;
-                    getUrls();
-                }
-            }
+            _urltest.DeleteUrl((int)UrlsCmbx.SelectedValue);
+
+            getUrls();
         }
 
         private void AddUrlBttn_Click(object sender, EventArgs e)
@@ -127,12 +107,11 @@ namespace WindowsFormsAppTest
 
         private void getUrls()
         {
-            UrlsCmbx.Items.Clear();
-            _arlist = _urltest.GetUrls();
-            foreach (string[] item in _arlist)
-            {
-                UrlsCmbx.Items.Add(item[1].Replace("\"", ""));
-            }
+            UrlsCmbx.DataSource = null;
+            _urlDatas = _urltest.GetUrlDatas(true);
+            UrlsCmbx.DisplayMember = "Name";
+            UrlsCmbx.ValueMember = "Id";
+            UrlsCmbx.DataSource = _urlDatas;
         }
 
         private void getWebRequest()

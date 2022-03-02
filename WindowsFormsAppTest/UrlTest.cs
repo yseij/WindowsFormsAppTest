@@ -11,29 +11,34 @@ namespace WindowsFormsAppTest
 {
     class UrlTest
     {
+        private List<UrlData> _urlDatas = new List<UrlData>();
         public UrlTest()
         {
-
+            GetUrls();
         }
 
-        private string Url { get; set; }
-        private string WebserviceVersie { get; set; }
-        private bool KraanDllCorrect { get; set; }
-        private bool KraanIniCorrect { get; set; }
-        private bool KraanDatabase { get; set; }
-        private bool SslCorrect { get; set; }
-
-        public string connectieDB()
+        private string ConnectieDB
         {
-            return (@"data source=(localdb)\MSSQLLocalDB; Initial Catalog=Urls;Integrated Security=True;");
+            get { return (@"data source=(localdb)\MSSQLLocalDB; Initial Catalog=Urls;Integrated Security=True;"); }
         }
-        public ArrayList GetUrls()
+
+        public List<UrlData> GetUrlDatas(bool reload = false)
+        {
+            if (reload)
+            {
+                _urlDatas.Clear();
+                GetUrls();
+            }
+
+            return _urlDatas;
+        }
+        public void GetUrls()
         {
 
             DataTable dt = new DataTable();
             int rows_returned;
 
-            using (SqlConnection connection = new SqlConnection(connectieDB()))
+            using (SqlConnection connection = new SqlConnection(ConnectieDB))
             using (SqlCommand cmd = connection.CreateCommand())
             using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
             {
@@ -44,29 +49,16 @@ namespace WindowsFormsAppTest
                 rows_returned = sda.Fill(dt);
                 connection.Close();
 
-                ArrayList arlist = new ArrayList();
                 foreach (DataRow dr in dt.Rows)
                 {
-
-
-                    // get each rows columns as a string (casting null into the nil (empty) string
-                    string[] values = new string[dt.Columns.Count];
-                    for (int i = 0; i < dt.Columns.Count; ++i)
-                    {
-                        values[i] = (dr[i].ToString()) ?? ""; // we'll treat nulls as the nil string for the nonce
-                    }
-
-                    // construct the string to be dumped, quoting each value and doubling any embedded quotes.
-                    string data = string.Join(";", values.Select(s => "\"" + s.Replace("\"", "\"\"") + "\""));
-                    arlist.Add(values);
+                    _urlDatas.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString()));
                 }
-                return arlist;
             }
         }
 
         public void AddUrl(string url, string securityId)
         {
-            using (SqlConnection connection = new SqlConnection(connectieDB()))
+            using (SqlConnection connection = new SqlConnection(ConnectieDB))
             {
                 connection.Open();
                 var sql = "INSERT INTO [dbo].[Url] ([Name],[SecurityID]) VALUES (@Url, @SecurityID)";
@@ -83,10 +75,10 @@ namespace WindowsFormsAppTest
 
         public void UpdateUrl(int id, string url, string securityId)
         {
-            using (SqlConnection connection = new SqlConnection(connectieDB()))
+            using (SqlConnection connection = new SqlConnection(ConnectieDB))
             {
                 connection.Open();
-                var sql = "UPDATE Url SET Name = @Url, SecurityID = @SecurityID " +  "where id =" + id;
+                var sql = "UPDATE Url SET Name = @Url, SecurityID = @SecurityID " + "where id =" + id;
                 using (var cmd = new SqlCommand(sql, connection))
                 {
                     cmd.Parameters.AddWithValue("@Url", url);
@@ -100,13 +92,12 @@ namespace WindowsFormsAppTest
 
         public void DeleteUrl(int id)
         {
-            Console.WriteLine(id);
-            using (SqlConnection connection = new SqlConnection(connectieDB()))
+            using (SqlConnection connection = new SqlConnection(ConnectieDB))
             {
                 connection.Open();
                 var sql = "DELETE FROM url where id =" + id;
                 using (var cmd = new SqlCommand(sql, connection))
-                cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
                 connection.Close();
             }
         }
