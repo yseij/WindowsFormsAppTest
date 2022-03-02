@@ -27,6 +27,7 @@ namespace WindowsFormsAppTest
         private int positionKraanIni;
         private int positionDatabaseConnect;
         private int positionDatabaseMelding;
+        private int increament = 0;
 
         private List<UrlData> _urlDatas = new List<UrlData>();
 
@@ -37,7 +38,6 @@ namespace WindowsFormsAppTest
         {
             InitializeComponent();
             _wc = new WebClient();
-            _wc.DownloadProgressChanged += _wc_DownloadProgressChanged;
             _urltest = new UrlTest();
             _urlDatas = _urltest.GetUrlDatas();
         }
@@ -57,7 +57,7 @@ namespace WindowsFormsAppTest
         private void TestRouteBtn_Click(object sender, EventArgs e)
         {
             clearBox();
-            getWebRequest();
+            getWebRequestAsync();
         }
 
         private void HttpCmbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -144,9 +144,20 @@ namespace WindowsFormsAppTest
             HttpCmbx.SelectedIndex = 0;
         }
 
-        private void getWebRequest()
+        void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-            string webRequestUrl = "";
+            PrgrsBrTestUrl.Increment(e.ProgressPercentage);
+        }
+
+        void wb_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
+        {
+            PrgrsBrTestUrl.Increment(100);
+        }
+
+        private async Task getWebRequestAsync()
+        {
+            PrgrsBrTestUrl.Value = 0;
+            string webRequestUrl ;
             if (securityId != string.Empty)
             {
                 webRequestUrl = urlHttp + url + securityId;
@@ -155,18 +166,20 @@ namespace WindowsFormsAppTest
             {
                 webRequestUrl = urlHttp + url;
             }
+            Uri uri = new Uri(webRequestUrl);
             try
             {
                 HttpWebRequest request = HttpWebRequest.Create(webRequestUrl) as HttpWebRequest;
 
                 using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
                 {
-                    long contentLength = response.ContentLength;
                     int statusCode = (int)response.StatusCode;
-                    Console.WriteLine(response.StatusCode);
+                    Console.WriteLine(statusCode);
                     if (statusCode >= 100 && statusCode < 400) //Good requests
                     {
-                        string data = _wc.DownloadString(webRequestUrl).Trim('[', ']');
+                        _wc.DownloadProgressChanged += DownloadProgressChanged;
+                        _wc.DownloadStringCompleted += wb_DownloadStringCompleted;
+                        var data = await _wc.DownloadStringTaskAsync(uri);
                         if (data.Count(d => d == '{') > 1)
                         {
                             int Pos1 = data.IndexOf('{');
