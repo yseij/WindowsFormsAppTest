@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
 using System.Net;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
-using System.Net;
 using Newtonsoft.Json.Linq;
+using System.Security.Cryptography.X509Certificates;
 
 namespace WindowsFormsAppTest
 {
@@ -56,7 +53,7 @@ namespace WindowsFormsAppTest
         private void TestRouteBtn_Click(object sender, EventArgs e)
         {
             clearBox();
-            getWebRequestAsync();
+            _ = getWebRequestAsync();
         }
 
         private void HttpCmbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -172,6 +169,7 @@ namespace WindowsFormsAppTest
 
                 using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
                 {
+                    X509Certificate cert = request.ServicePoint.Certificate;
                     int statusCode = (int)response.StatusCode;
                     Console.WriteLine(statusCode);
                     if (statusCode >= 100 && statusCode < 400) //Good requests

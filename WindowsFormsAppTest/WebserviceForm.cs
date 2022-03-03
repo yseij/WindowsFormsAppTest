@@ -97,7 +97,6 @@ namespace WindowsFormsAppTest
                 using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
                 {
                     int statusCode = (int)response.StatusCode;
-                    Console.WriteLine(statusCode);
                     if (statusCode >= 100 && statusCode < 400) //Good requests
                     {
                         var data = _wc.DownloadString(uri);
@@ -132,7 +131,7 @@ namespace WindowsFormsAppTest
                             dynamic result = JObject.Parse(data);
                             foreach (JProperty item in result)
                             {
-                                TrVwAll.Nodes[laatsteNode - 1].Nodes.Add(item.Name + " " + item.Value);
+                                TrVwAll.Nodes[laatsteNode - 1].Nodes.Add(item.Name + " = " + item.Value);
                             }
                         }
                     }

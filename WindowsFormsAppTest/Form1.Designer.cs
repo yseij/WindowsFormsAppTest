@@ -50,6 +50,7 @@ namespace WindowsFormsAppTest
             this.TestRouteBtn = new System.Windows.Forms.Button();
             this.HttpCmbx = new System.Windows.Forms.ComboBox();
             this.PrgrsBrTestUrl = new System.Windows.Forms.ProgressBar();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -163,6 +164,7 @@ namespace WindowsFormsAppTest
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.WebserviceLbl);
             this.groupBox1.Controls.Add(this.textBoxWebservice);
             this.groupBox1.Controls.Add(this.checkBoxKraanDatabase);
@@ -170,7 +172,7 @@ namespace WindowsFormsAppTest
             this.groupBox1.Controls.Add(this.checkBoxKraanDLL);
             this.groupBox1.Location = new System.Drawing.Point(16, 51);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(339, 126);
+            this.groupBox1.Size = new System.Drawing.Size(339, 135);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Results";
@@ -257,6 +259,16 @@ namespace WindowsFormsAppTest
             this.PrgrsBrTestUrl.Step = 1;
             this.PrgrsBrTestUrl.TabIndex = 26;
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(8, 116);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(93, 17);
+            this.checkBox1.TabIndex = 15;
+            this.checkBox1.Text = "SSLCertificaat";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,6 +322,7 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Button TestRouteBtn;
         private System.Windows.Forms.ComboBox HttpCmbx;
         private System.Windows.Forms.ProgressBar PrgrsBrTestUrl;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 
