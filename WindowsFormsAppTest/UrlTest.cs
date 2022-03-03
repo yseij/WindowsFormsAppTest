@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsAppTest
 {
     class UrlTest
     {
         private List<UrlData> _urlDatas = new List<UrlData>();
+        private List<UrlData> _urlDatasByForeignKey = new List<UrlData>();
         public UrlTest()
         {
             GetUrls();
@@ -19,7 +15,7 @@ namespace WindowsFormsAppTest
 
         private string ConnectieDB
         {
-            get { return (@"data source=(localdb)\MSSQLLocalDB; Initial Catalog=Urls;Integrated Security=True;"); }
+            get { return (@"data source=LAPTOP-YOURI-SE; Initial Catalog=Url;Integrated Security=True;"); }
         }
 
         public List<UrlData> GetUrlDatas(bool reload = false)
@@ -51,7 +47,7 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    _urlDatas.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString()));
+                    _urlDatas.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3]));
                 }
             }
         }
@@ -100,6 +96,30 @@ namespace WindowsFormsAppTest
                     cmd.ExecuteNonQuery();
                 connection.Close();
             }
+        }
+
+        public List<UrlData> GetAllUrlsByForeignKey(int webServiceId)
+        {
+            _urlDatasByForeignKey.Clear();
+            DataTable dt = new DataTable();
+            int rows_returned;
+
+            using (SqlConnection connection = new SqlConnection(ConnectieDB))
+            using (SqlCommand cmd = connection.CreateCommand())
+            using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+            {
+                cmd.CommandText = "SELECT * FROM Url where WebserviceId = " + webServiceId;
+                cmd.CommandType = CommandType.Text;
+                connection.Open();
+                rows_returned = sda.Fill(dt);
+                connection.Close();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    _urlDatasByForeignKey.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3]));
+                }
+            }
+            return _urlDatasByForeignKey;
         }
     }
 }

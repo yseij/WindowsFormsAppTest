@@ -27,7 +27,6 @@ namespace WindowsFormsAppTest
         private int positionKraanIni;
         private int positionDatabaseConnect;
         private int positionDatabaseMelding;
-        private int increament = 0;
 
         private List<UrlData> _urlDatas = new List<UrlData>();
 
