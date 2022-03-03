@@ -96,11 +96,12 @@ namespace WindowsFormsAppTest
             _urltest.DeleteUrl((int)UrlsCmbx.SelectedValue);
             UrlsCmbx.SelectedIndex = 0;
             getUrls();
+            fillCmbxUrls();
         }
 
         private void AddUrlBttn_Click(object sender, EventArgs e)
         {
-            var m = new Form2();
+            var m = new AddUrlForm();
             m.FormClosing += new FormClosingEventHandler(ChildFormClosing);
             m.Show();
         }
@@ -153,7 +154,7 @@ namespace WindowsFormsAppTest
         private async Task getWebRequestAsync()
         {
             PrgrsBrTestUrl.Value = 0;
-            string webRequestUrl ;
+            string webRequestUrl;
             if (securityId != string.Empty)
             {
                 webRequestUrl = urlHttp + url + securityId;
@@ -170,6 +171,7 @@ namespace WindowsFormsAppTest
                 using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
                 {
                     X509Certificate cert = request.ServicePoint.Certificate;
+
                     int statusCode = (int)response.StatusCode;
                     Console.WriteLine(statusCode);
                     if (statusCode >= 100 && statusCode < 400) //Good requests

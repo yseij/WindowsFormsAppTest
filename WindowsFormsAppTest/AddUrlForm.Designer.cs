@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsFormsAppTest
 {
-    partial class Form2
+    partial class AddUrlForm
     {
         /// <summary>
         /// Required designer variable.
@@ -34,11 +34,13 @@ namespace WindowsFormsAppTest
             this.NewSecurityIdTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.NewUrlTextBox = new System.Windows.Forms.TextBox();
+            this.WebServiceCmbx = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AddUrlButton
             // 
-            this.AddUrlButton.Location = new System.Drawing.Point(502, 66);
+            this.AddUrlButton.Location = new System.Drawing.Point(348, 93);
             this.AddUrlButton.Name = "AddUrlButton";
             this.AddUrlButton.Size = new System.Drawing.Size(127, 34);
             this.AddUrlButton.TabIndex = 0;
@@ -59,7 +61,7 @@ namespace WindowsFormsAppTest
             // 
             this.NewSecurityIdTextBox.Location = new System.Drawing.Point(78, 13);
             this.NewSecurityIdTextBox.Name = "NewSecurityIdTextBox";
-            this.NewSecurityIdTextBox.Size = new System.Drawing.Size(551, 20);
+            this.NewSecurityIdTextBox.Size = new System.Drawing.Size(397, 20);
             this.NewSecurityIdTextBox.TabIndex = 2;
             this.NewSecurityIdTextBox.TextChanged += new System.EventHandler(this.NewSecurityIdTextBox_TextChanged);
             // 
@@ -76,21 +78,41 @@ namespace WindowsFormsAppTest
             // 
             this.NewUrlTextBox.Location = new System.Drawing.Point(78, 40);
             this.NewUrlTextBox.Name = "NewUrlTextBox";
-            this.NewUrlTextBox.Size = new System.Drawing.Size(551, 20);
+            this.NewUrlTextBox.Size = new System.Drawing.Size(397, 20);
             this.NewUrlTextBox.TabIndex = 4;
             this.NewUrlTextBox.TextChanged += new System.EventHandler(this.NewUrlTextBox_TextChanged);
             // 
-            // Form2
+            // WebServiceCmbx
+            // 
+            this.WebServiceCmbx.FormattingEnabled = true;
+            this.WebServiceCmbx.Location = new System.Drawing.Point(78, 66);
+            this.WebServiceCmbx.Name = "WebServiceCmbx";
+            this.WebServiceCmbx.Size = new System.Drawing.Size(397, 21);
+            this.WebServiceCmbx.TabIndex = 5;
+            this.WebServiceCmbx.SelectedIndexChanged += new System.EventHandler(this.WebServiceCmbx_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 69);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(64, 13);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Webservice";
+            // 
+            // AddUrlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(636, 109);
+            this.ClientSize = new System.Drawing.Size(486, 132);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.WebServiceCmbx);
             this.Controls.Add(this.NewUrlTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NewSecurityIdTextBox);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AddUrlButton);
-            this.Name = "Form2";
+            this.Name = "AddUrlForm";
             this.Text = "Form2";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -104,5 +126,7 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.TextBox NewSecurityIdTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox NewUrlTextBox;
+        private System.Windows.Forms.ComboBox WebServiceCmbx;
+        private System.Windows.Forms.Label label3;
     }
 }
