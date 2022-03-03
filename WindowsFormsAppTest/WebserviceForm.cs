@@ -151,5 +151,9 @@ namespace WindowsFormsAppTest
         {
             //Console.WriteLine(TrVwAll.HitTest(TrVwAll.PointToClient(Cursor.Position)).Node);
         }
+        private void checkBoxReadOnly_Click(object sender, EventArgs e)
+        {
+            (sender as CheckBox).Checked = !(sender as CheckBox).Checked;
+        }
     }
 }
