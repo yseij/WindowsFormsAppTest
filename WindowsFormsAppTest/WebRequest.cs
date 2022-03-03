@@ -24,7 +24,7 @@ namespace WindowsFormsAppTest
             _wc = new WebClient();
         }
 
-        public string GetWebRequest(string urlHttp, string url, string securityId = "")
+        public string GetWebRequest(int id, string urlHttp, string url, string securityId = "")
         {
             string webRequestUrl = urlHttp + url + securityId;
             Uri uri = new Uri(webRequestUrl);
@@ -42,15 +42,18 @@ namespace WindowsFormsAppTest
                         {
                             int Pos1 = data.IndexOf('{');
                             int Pos2 = data.IndexOf("}");
-                            data = data.Substring(Pos1, Pos2 - Pos1 + 1);
+                            data = data.Substring(Pos1 + 2, Pos2 - Pos1 - 1);
                         }
                         if (securityId != string.Empty)
                         {
-                            return data;
+                            int Pos1 = data.IndexOf('{');
+                            int Pos2 = data.IndexOf('}');
+                            data = data.Substring(Pos1 + 1, Pos2 - Pos1 - 1);
+                            return "{" + data + ", id: '" + id + "'}";
                         }
                         else
                         {
-                            return getDataOfWebRequest(data);
+                            return getDataOfWebRequest(data, id);
                         }
                     }
                     else
@@ -66,7 +69,7 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private string getDataOfWebRequest(string data)
+        private string getDataOfWebRequest(string data, int id)
         {
             positionKraanDll = data.IndexOf("KraanDLL");
             positionKraanIni = data.IndexOf("Kraan.ini");

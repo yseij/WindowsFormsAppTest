@@ -44,7 +44,7 @@ namespace WindowsFormsAppTest
         private void TestRouteBtn_Click(object sender, EventArgs e)
         {
             clearBox();
-            var data = _webRequest.GetWebRequest(urlHttp, url, securityId);
+            var data = _webRequest.GetWebRequest((int)UrlsCmbx.SelectedValue, urlHttp, url, securityId);
             dynamic result = JObject.Parse(data);
             foreach (JProperty item in result)
             {

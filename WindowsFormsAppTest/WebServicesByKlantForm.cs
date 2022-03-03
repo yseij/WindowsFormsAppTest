@@ -55,7 +55,8 @@ namespace WindowsFormsAppTest
                 TrVwAll.Nodes.Add(urlData.Name);
                 url = urlData.Name;
                 securityId = urlData.SecurityId;
-                var data = _webRequest.GetWebRequest(urlHttp, url, securityId);
+                var data = _webRequest.GetWebRequest(urlData.Id, urlHttp, url, securityId);
+                
                 dynamic result = JObject.Parse(data);
                 foreach (JProperty item in result)
                 {
@@ -75,7 +76,7 @@ namespace WindowsFormsAppTest
                             checkBoxKraanDatabase.Checked = item.Value.ToString().Contains("True");
                             break;
                         default:
-                            TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " " + item.Value);
+                            TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
                             break;
                     }
                 }

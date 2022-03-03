@@ -9,11 +9,14 @@ namespace WindowsFormsAppTest
     {
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
         private List<UrlData> _urlDatasByForeignKey = new List<UrlData>();
+        private UrlData _urlDataById = new UrlData();
 
         private int selectedWebserviceId;
         private string url;
         private string urlHttp = "https://wsdev.kraan.com/";
         private string securityId = "";
+
+        private dynamic _result;
 
 
         WebserviceTest _webserviceTest;
@@ -55,12 +58,13 @@ namespace WindowsFormsAppTest
             TrVwAll.BeginUpdate();
             foreach (UrlData urlData in _urlDatasByForeignKey)
             {
-                TrVwAll.Nodes.Add(urlData.Name);
-                url = urlData.Name;
-                securityId = urlData.SecurityId;
-                var data = _webRequest.GetWebRequest(urlHttp, url, securityId);
-                dynamic result = JObject.Parse(data);
-                foreach (JProperty item in result)
+                TreeNode node = new TreeNode();
+                node.Text = urlData.Name;
+                node.Tag = urlData.Id;
+                TrVwAll.Nodes.Add(node);
+                var data = _webRequest.GetWebRequest(urlData.Id, urlHttp, urlData.Name, urlData.SecurityId);
+                _result = JObject.Parse(data);
+                foreach (JProperty item in _result)
                 {
                     switch (item.Name)
                     {
@@ -77,12 +81,12 @@ namespace WindowsFormsAppTest
                         case "KraanDatabase":
                             checkBoxKraanDatabase.Checked = item.Value.ToString().Contains("True");
                             break;
+                        case "id":
+                            break;
                         default:
-                            TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " " + item.Value);
+                            TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
                             break;
                     }
-
-
                 }
             }
             TrVwAll.EndUpdate();
@@ -95,7 +99,19 @@ namespace WindowsFormsAppTest
 
         private void TrVwAll_Click(object sender, EventArgs e)
         {
-            //Console.WriteLine(TrVwAll.HitTest(TrVwAll.PointToClient(Cursor.Position)).Node);
+            int id = (int)TrVwAll.HitTest(TrVwAll.PointToClient(Cursor.Position)).Node.Tag;
+            Console.WriteLine(id);
+            foreach (JProperty item in _result)
+            {
+                if (item.Name == "id")
+                {
+                    if ((int)item.Value == id)
+                    {
+                        
+                    }
+                }
+            }
+            ResponseTextBox.Text = _urlDataById.Name + " = " + _urlDataById.SecurityId + Environment.NewLine;
         }
         private void checkBoxReadOnly_Click(object sender, EventArgs e)
         {
