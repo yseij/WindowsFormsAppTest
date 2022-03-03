@@ -31,6 +31,7 @@ namespace WindowsFormsAppTest
         {
             this.OpenTest1UrlBtn = new System.Windows.Forms.Button();
             this.OpenTestWebserviceBtn = new System.Windows.Forms.Button();
+            this.OpenTestWebserviceByKlantBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // OpenTest1UrlBtn
@@ -53,11 +54,22 @@ namespace WindowsFormsAppTest
             this.OpenTestWebserviceBtn.UseVisualStyleBackColor = true;
             this.OpenTestWebserviceBtn.Click += new System.EventHandler(this.OpenTestWebserviceBtn_Click);
             // 
+            // OpenTestWebserviceByKlantBtn
+            // 
+            this.OpenTestWebserviceByKlantBtn.Location = new System.Drawing.Point(299, 12);
+            this.OpenTestWebserviceByKlantBtn.Name = "OpenTestWebserviceByKlantBtn";
+            this.OpenTestWebserviceByKlantBtn.Size = new System.Drawing.Size(127, 106);
+            this.OpenTestWebserviceByKlantBtn.TabIndex = 2;
+            this.OpenTestWebserviceByKlantBtn.Text = "Test Webservice By Klant";
+            this.OpenTestWebserviceByKlantBtn.UseVisualStyleBackColor = true;
+            this.OpenTestWebserviceByKlantBtn.Click += new System.EventHandler(this.OpenTestWebserviceByKlantBtn_Click);
+            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(290, 130);
+            this.ClientSize = new System.Drawing.Size(438, 131);
+            this.Controls.Add(this.OpenTestWebserviceByKlantBtn);
             this.Controls.Add(this.OpenTestWebserviceBtn);
             this.Controls.Add(this.OpenTest1UrlBtn);
             this.Name = "StartForm";
@@ -70,5 +82,6 @@ namespace WindowsFormsAppTest
 
         private System.Windows.Forms.Button OpenTest1UrlBtn;
         private System.Windows.Forms.Button OpenTestWebserviceBtn;
+        private System.Windows.Forms.Button OpenTestWebserviceByKlantBtn;
     }
 }

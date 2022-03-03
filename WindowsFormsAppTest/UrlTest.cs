@@ -7,7 +7,8 @@ namespace WindowsFormsAppTest
     class UrlTest
     {
         private List<UrlData> _urlDatas = new List<UrlData>();
-        private List<UrlData> _urlDatasByForeignKey = new List<UrlData>();
+        private List<UrlData> _urlDatasByForeignKeyWebservice = new List<UrlData>();
+        private List<UrlData> _urlDatasByForeignKeyKlant = new List<UrlData>();
         public UrlTest()
         {
             GetUrls();
@@ -47,7 +48,7 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    _urlDatas.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3]));
+                    _urlDatas.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4]));
                 }
             }
         }
@@ -99,9 +100,9 @@ namespace WindowsFormsAppTest
             }
         }
 
-        public List<UrlData> GetAllUrlsByForeignKey(int webServiceId)
+        public List<UrlData> GetAllUrlsByForeignKeyWebservice(int webServiceId)
         {
-            _urlDatasByForeignKey.Clear();
+            _urlDatasByForeignKeyWebservice.Clear();
             DataTable dt = new DataTable();
             int rows_returned;
 
@@ -117,10 +118,34 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    _urlDatasByForeignKey.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3]));
+                    _urlDatasByForeignKeyWebservice.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4]));
                 }
             }
-            return _urlDatasByForeignKey;
+            return _urlDatasByForeignKeyWebservice;
+        }
+
+        public List<UrlData> GetAllUrlsByForeignKeyKlant(int klantId)
+        {
+            _urlDatasByForeignKeyKlant.Clear();
+            DataTable dt = new DataTable();
+            int rows_returned;
+
+            using (SqlConnection connection = new SqlConnection(ConnectieDB))
+            using (SqlCommand cmd = connection.CreateCommand())
+            using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+            {
+                cmd.CommandText = "SELECT * FROM Url where KlantId = " + klantId;
+                cmd.CommandType = CommandType.Text;
+                connection.Open();
+                rows_returned = sda.Fill(dt);
+                connection.Close();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    _urlDatasByForeignKeyKlant.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4]));
+                }
+            }
+            return _urlDatasByForeignKeyKlant;
         }
     }
 }

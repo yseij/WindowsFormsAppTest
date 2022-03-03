@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsFormsAppTest
 {
-    partial class Form1
+    partial class EenUrlTestForm
     {
         /// <summary>
         /// Required designer variable.

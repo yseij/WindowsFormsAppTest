@@ -5,55 +5,52 @@ using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
 {
-    public partial class WebserviceForm : Form
+    public partial class WebServicesByKlantForm : Form
     {
-        private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
-        private List<UrlData> _urlDatasByForeignKey = new List<UrlData>();
+        private List<KlantData> _klantDatas = new List<KlantData>();
+        private List<UrlData> _urlDatasByForeignKeyKlant = new List<UrlData>();
 
-        private int selectedWebserviceId;
+        private int selectedKlantId;
         private string url;
         private string urlHttp = "https://wsdev.kraan.com/";
         private string securityId = "";
 
-
-        WebserviceTest _webserviceTest;
+        KlantTest _klantTest;
         UrlTest _urltest;
         WebRequest _webRequest;
-
-
-        public WebserviceForm()
+        public WebServicesByKlantForm()
         {
             InitializeComponent();
-            _webserviceTest = new WebserviceTest();
+            _klantTest = new KlantTest();
             _urltest = new UrlTest();
             _webRequest = new WebRequest();
-            _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
+            _klantDatas = _klantTest.GetKlantDatas(true);
         }
 
-        private void WebserviceForm_Load(object sender, EventArgs e)
+        private void WebServicesByKlantForm_Load(object sender, EventArgs e)
         {
-            fillCmbxWebServices();
+            fillCmbxKlanten();
         }
 
-        private void fillCmbxWebServices()
+        private void WebServiceCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            WebServiceCmbx.DataSource = null;
-            WebServiceCmbx.DisplayMember = "Name";
-            WebServiceCmbx.ValueMember = "Id";
-            WebServiceCmbx.DataSource = _webServiceDatas;
+            selectedKlantId = (int)KlantsCmbx.SelectedValue;
         }
 
-        private void TrVwAll_AfterSelect(object sender, TreeViewEventArgs e)
+        private void fillCmbxKlanten()
         {
-
+            KlantsCmbx.DataSource = null;
+            KlantsCmbx.DisplayMember = "Name";
+            KlantsCmbx.ValueMember = "Id";
+            KlantsCmbx.DataSource = _klantDatas;
         }
 
         private void TestAllBtn_Click(object sender, EventArgs e)
         {
-            _urlDatasByForeignKey = _urltest.GetAllUrlsByForeignKeyWebservice(selectedWebserviceId);
+            _urlDatasByForeignKeyKlant = _urltest.GetAllUrlsByForeignKeyKlant(selectedKlantId);
             TrVwAll.Nodes.Clear();
             TrVwAll.BeginUpdate();
-            foreach (UrlData urlData in _urlDatasByForeignKey)
+            foreach (UrlData urlData in _urlDatasByForeignKeyKlant)
             {
                 TrVwAll.Nodes.Add(urlData.Name);
                 url = urlData.Name;
@@ -81,27 +78,9 @@ namespace WindowsFormsAppTest
                             TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " " + item.Value);
                             break;
                     }
-
-
                 }
             }
             TrVwAll.EndUpdate();
         }
-
-        private void WebServiceCmbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            selectedWebserviceId = (int)WebServiceCmbx.SelectedValue;
-        }
-
-        private void TrVwAll_Click(object sender, EventArgs e)
-        {
-            //Console.WriteLine(TrVwAll.HitTest(TrVwAll.PointToClient(Cursor.Position)).Node);
-        }
-        private void checkBoxReadOnly_Click(object sender, EventArgs e)
-        {
-            (sender as CheckBox).Checked = !(sender as CheckBox).Checked;
-        }
-
-
     }
 }

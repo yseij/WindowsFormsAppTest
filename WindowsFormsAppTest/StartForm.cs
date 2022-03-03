@@ -19,13 +19,19 @@ namespace WindowsFormsAppTest
 
         private void OpenTest1UrlBtn_Click(object sender, EventArgs e)
         {
-            var m = new Form1();
+            var m = new EenUrlTestForm();
             m.Show();
         }
 
         private void OpenTestWebserviceBtn_Click(object sender, EventArgs e)
         {
             var m = new WebserviceForm();
+            m.Show();
+        }
+
+        private void OpenTestWebserviceByKlantBtn_Click(object sender, EventArgs e)
+        {
+            var m = new WebServicesByKlantForm();
             m.Show();
         }
     }
