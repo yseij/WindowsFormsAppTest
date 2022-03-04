@@ -14,7 +14,6 @@ namespace WindowsFormsAppTest
         private string url;
         private string urlHttp = "";
         private string securityId = "";
-        private string changedUrl;
 
         private List<UrlData> _urlDatas = new List<UrlData>();
 
@@ -27,11 +26,6 @@ namespace WindowsFormsAppTest
             _urltest = new UrlTest();
             _webRequest = new WebRequest();
             _urlDatas = _urltest.GetUrlDatas();
-        }
-
-        private void _wc_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        {
-            PrgrsBrTestUrl.Value = e.ProgressPercentage;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -94,47 +88,9 @@ namespace WindowsFormsAppTest
             {
                 int idOfSelected = (int)UrlsCmbx.SelectedValue;
                 UrlData urlData = _urlDatas.Find(u => u.Id == idOfSelected);
-                UrlChangeTxtBx.Text = urlData.Name;
-                SecurityChangeTxtBx.Text = urlData.SecurityId;
-                url = UrlsCmbx.Text;
-                securityId = SecurityChangeTxtBx.Text;
+                url = urlData.Name;
+                securityId = urlData.SecurityId;
             }
-        }
-
-        private void UrlChangeTxtBx_TextChanged(object sender, EventArgs e)
-        {
-            changedUrl = UrlChangeTxtBx.Text;
-        }
-
-        private void PasUrlAanBttn_Click(object sender, EventArgs e)
-        {
-            clearBox();
-            int selectedIndex = UrlsCmbx.SelectedIndex;
-            int idOfSelected = (int)UrlsCmbx.SelectedValue;
-            _urltest.UpdateUrl(idOfSelected, changedUrl, SecurityChangeTxtBx.Text);
-            getUrls();
-            UrlsCmbx.SelectedIndex = selectedIndex;
-        }
-
-        private void DeleteUrlButton_Click(object sender, EventArgs e)
-        {
-            clearBox();
-            _urltest.DeleteUrl((int)UrlsCmbx.SelectedValue);
-            UrlsCmbx.SelectedIndex = 0;
-            getUrls();
-            fillCmbxUrls();
-        }
-
-        private void AddUrlBttn_Click(object sender, EventArgs e)
-        {
-            var m = new AddUrlForm();
-            m.FormClosing += new FormClosingEventHandler(ChildFormClosing);
-            m.Show();
-        }
-
-        private void ChildFormClosing(object sender, FormClosingEventArgs e)
-        {
-            getUrls();
         }
 
         private void clearBox()
@@ -167,91 +123,6 @@ namespace WindowsFormsAppTest
             HttpCmbx.Items.Add("https://ws.kraan.com:444/");
             HttpCmbx.SelectedIndex = 0;
         }
-
-        void DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        {
-            PrgrsBrTestUrl.Increment(e.ProgressPercentage);
-        }
-
-        void wb_DownloadStringCompleted(object sender, DownloadStringCompletedEventArgs e)
-        {
-            PrgrsBrTestUrl.Increment(100);
-        }
-
-        //private async Task getWebRequestAsync()
-        //{
-        //    PrgrsBrTestUrl.Value = 0;
-        //    string webRequestUrl;
-        //    if (securityId != string.Empty)
-        //    {
-        //        webRequestUrl = urlHttp + url + securityId;
-        //    }
-        //    else
-        //    {
-        //        webRequestUrl = urlHttp + url;
-        //    }
-        //    Uri uri = new Uri(webRequestUrl);
-        //    try
-        //    {
-        //        HttpWebRequest request = HttpWebRequest.Create(webRequestUrl) as HttpWebRequest;
-
-        //        using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
-        //        {
-        //            X509Certificate cert = request.ServicePoint.Certificate;
-
-        //            int statusCode = (int)response.StatusCode;
-        //            Console.WriteLine(statusCode);
-        //            if (statusCode >= 100 && statusCode < 400) //Good requests
-        //            {
-        //                _wc.DownloadProgressChanged += DownloadProgressChanged;
-        //                _wc.DownloadStringCompleted += wb_DownloadStringCompleted;
-        //                var data = await _wc.DownloadStringTaskAsync(uri);
-        //                if (data.Count(d => d == '{') > 1)
-        //                {
-        //                    int Pos1 = data.IndexOf('{');
-        //                    int Pos2 = data.IndexOf("}");
-        //                    data = data.Substring(Pos1, Pos2 - Pos1 + 1);
-        //                }
-        //                if (securityId == string.Empty)
-        //                {
-        //                    positionKraanDll = data.IndexOf("KraanDLL");
-        //                    positionKraanIni = data.IndexOf("Kraan.ini");
-        //                    positionDatabaseConnect = data.IndexOf("Database connectie");
-        //                    positionDatabaseMelding = data.IndexOf("Database melding");
-
-        //                    webserviceVersie = data.Substring(0, positionKraanDll);
-        //                    kraanDll = data.Substring(positionKraanDll, positionKraanIni - positionKraanDll);
-        //                    kraanIni = data.Substring(positionKraanIni, positionDatabaseConnect - positionKraanIni);
-        //                    kraanDatabase = data.Substring(positionDatabaseConnect, positionDatabaseMelding - positionDatabaseConnect);
-
-        //                    string[] strlist = webserviceVersie.Split(':');
-        //                    textBoxWebservice.Text = strlist[1];
-
-        //                    checkBoxKraanDLL.Checked = kraanDll.Contains("True");
-        //                    checkBoxKraanIni.Checked = kraanIni.Contains("True");
-        //                    checkBoxKraanDatabase.Checked = kraanDatabase.Contains("True");
-        //                    ResponseTextBox.Text = data;
-        //                }
-        //                else
-        //                {
-        //                    dynamic result = JObject.Parse(data);
-        //                    foreach (JProperty item in result)
-        //                    {
-                                
-        //                    }
-        //                }
-        //            }
-        //            else if (statusCode >= 500 && statusCode <= 510) //Server Errors
-        //            {
-        //                ResponseTextBox.Text = "niet goed";
-        //            }
-        //        }
-        //    }
-        //    catch (WebException ex)
-        //    {
-        //        ResponseTextBox.Text = ex.ToString();
-        //    }
-        //}
 
         private void checkBoxReadOnly_Click(object sender, EventArgs e)
         {

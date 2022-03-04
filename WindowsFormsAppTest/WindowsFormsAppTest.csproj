@@ -50,6 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllKlantenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllKlantenForm.Designer.cs">
+      <DependentUpon>AllKlantenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AllUrlsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllUrlsForm.Designer.cs">
+      <DependentUpon>AllUrlsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="EenUrlTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +101,9 @@
       <DependentUpon>WebServicesByKlantForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WebserviceTest.cs" />
+    <EmbeddedResource Include="AllUrlsForm.resx">
+      <DependentUpon>AllUrlsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EenUrlTestForm.resx">
       <DependentUpon>EenUrlTestForm.cs</DependentUpon>
     </EmbeddedResource>

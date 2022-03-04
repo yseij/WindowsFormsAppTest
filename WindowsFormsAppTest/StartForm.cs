@@ -34,5 +34,17 @@ namespace WindowsFormsAppTest
             var m = new WebServicesByKlantForm();
             m.Show();
         }
+
+        private void UrlsBtn_Click(object sender, EventArgs e)
+        {
+            var m = new AllUrlsForm();
+            m.Show();
+        }
+
+        private void KlantenBtn_Click(object sender, EventArgs e)
+        {
+            var m = new AllKlantenForm();
+            m.Show();
+        }
     }
 }

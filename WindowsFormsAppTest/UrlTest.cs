@@ -77,17 +77,18 @@ namespace WindowsFormsAppTest
             return null;
         }
 
-        public void AddUrl(string url, string securityId, int webServiceId)
+        public void AddUrl(string url, int webServiceId, int klantId, string securityId)
         {
             using (SqlConnection connection = new SqlConnection(ConnectieDB))
             {
                 connection.Open();
-                var sql = "INSERT INTO [dbo].[Url] ([Name],[SecurityID],[WebserviceId]) VALUES (@Url, @SecurityID, @WebServiceId)";
+                var sql = "INSERT INTO [dbo].[Url] ([Name],[SecurityID],[WebserviceId],[KlantId]) VALUES (@Url, @SecurityID, @WebServiceId, @KlantId)";
                 using (var cmd = new SqlCommand(sql, connection))
                 {
                     cmd.Parameters.AddWithValue("@Url", url);
                     cmd.Parameters.AddWithValue("@SecurityID", securityId);
                     cmd.Parameters.AddWithValue("@WebServiceId", webServiceId);
+                    cmd.Parameters.AddWithValue("@KlantId", klantId);
 
                     cmd.ExecuteNonQuery();
                 }

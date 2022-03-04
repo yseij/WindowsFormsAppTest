@@ -36,11 +36,13 @@ namespace WindowsFormsAppTest
             this.NewUrlTextBox = new System.Windows.Forms.TextBox();
             this.WebServiceCmbx = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.KlantCmbBx = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // AddUrlButton
             // 
-            this.AddUrlButton.Location = new System.Drawing.Point(348, 93);
+            this.AddUrlButton.Location = new System.Drawing.Point(348, 122);
             this.AddUrlButton.Name = "AddUrlButton";
             this.AddUrlButton.Size = new System.Drawing.Size(127, 34);
             this.AddUrlButton.TabIndex = 0;
@@ -100,11 +102,31 @@ namespace WindowsFormsAppTest
             this.label3.TabIndex = 6;
             this.label3.Text = "Webservice";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 96);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Klant";
+            // 
+            // KlantCmbBx
+            // 
+            this.KlantCmbBx.FormattingEnabled = true;
+            this.KlantCmbBx.Location = new System.Drawing.Point(78, 93);
+            this.KlantCmbBx.Name = "KlantCmbBx";
+            this.KlantCmbBx.Size = new System.Drawing.Size(397, 21);
+            this.KlantCmbBx.TabIndex = 7;
+            this.KlantCmbBx.SelectedIndexChanged += new System.EventHandler(this.KlantCmbBx_SelectedIndexChanged);
+            // 
             // AddUrlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(486, 132);
+            this.ClientSize = new System.Drawing.Size(486, 168);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.KlantCmbBx);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.WebServiceCmbx);
             this.Controls.Add(this.NewUrlTextBox);
@@ -128,5 +150,7 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.TextBox NewUrlTextBox;
         private System.Windows.Forms.ComboBox WebServiceCmbx;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox KlantCmbBx;
     }
 }

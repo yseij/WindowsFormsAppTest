@@ -32,6 +32,8 @@ namespace WindowsFormsAppTest
             this.OpenTest1UrlBtn = new System.Windows.Forms.Button();
             this.OpenTestWebserviceBtn = new System.Windows.Forms.Button();
             this.OpenTestWebserviceByKlantBtn = new System.Windows.Forms.Button();
+            this.UrlsBtn = new System.Windows.Forms.Button();
+            this.KlantenBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // OpenTest1UrlBtn
@@ -64,11 +66,33 @@ namespace WindowsFormsAppTest
             this.OpenTestWebserviceByKlantBtn.UseVisualStyleBackColor = true;
             this.OpenTestWebserviceByKlantBtn.Click += new System.EventHandler(this.OpenTestWebserviceByKlantBtn_Click);
             // 
+            // UrlsBtn
+            // 
+            this.UrlsBtn.Location = new System.Drawing.Point(12, 124);
+            this.UrlsBtn.Name = "UrlsBtn";
+            this.UrlsBtn.Size = new System.Drawing.Size(201, 32);
+            this.UrlsBtn.TabIndex = 3;
+            this.UrlsBtn.Text = "Bekijk alle urls";
+            this.UrlsBtn.UseVisualStyleBackColor = true;
+            this.UrlsBtn.Click += new System.EventHandler(this.UrlsBtn_Click);
+            // 
+            // KlantenBtn
+            // 
+            this.KlantenBtn.Location = new System.Drawing.Point(219, 124);
+            this.KlantenBtn.Name = "KlantenBtn";
+            this.KlantenBtn.Size = new System.Drawing.Size(207, 32);
+            this.KlantenBtn.TabIndex = 4;
+            this.KlantenBtn.Text = "Bekijk alle klanten met urls";
+            this.KlantenBtn.UseVisualStyleBackColor = true;
+            this.KlantenBtn.Click += new System.EventHandler(this.KlantenBtn_Click);
+            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 131);
+            this.ClientSize = new System.Drawing.Size(438, 168);
+            this.Controls.Add(this.KlantenBtn);
+            this.Controls.Add(this.UrlsBtn);
             this.Controls.Add(this.OpenTestWebserviceByKlantBtn);
             this.Controls.Add(this.OpenTestWebserviceBtn);
             this.Controls.Add(this.OpenTest1UrlBtn);
@@ -83,5 +107,7 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Button OpenTest1UrlBtn;
         private System.Windows.Forms.Button OpenTestWebserviceBtn;
         private System.Windows.Forms.Button OpenTestWebserviceByKlantBtn;
+        private System.Windows.Forms.Button UrlsBtn;
+        private System.Windows.Forms.Button KlantenBtn;
     }
 }
