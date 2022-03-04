@@ -50,8 +50,12 @@ namespace WindowsFormsAppTest
             this.TestRouteBtn = new System.Windows.Forms.Button();
             this.HttpCmbx = new System.Windows.Forms.ComboBox();
             this.PrgrsBrTestUrl = new System.Windows.Forms.ProgressBar();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.SllCertificaatVervalDatumTxtBx = new System.Windows.Forms.TextBox();
+            this.SslChckBx = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // UrlLbl
@@ -95,11 +99,11 @@ namespace WindowsFormsAppTest
             // 
             // ResponseTextBox
             // 
-            this.ResponseTextBox.Location = new System.Drawing.Point(16, 205);
+            this.ResponseTextBox.Location = new System.Drawing.Point(16, 267);
             this.ResponseTextBox.Multiline = true;
             this.ResponseTextBox.Name = "ResponseTextBox";
             this.ResponseTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ResponseTextBox.Size = new System.Drawing.Size(642, 195);
+            this.ResponseTextBox.Size = new System.Drawing.Size(642, 225);
             this.ResponseTextBox.TabIndex = 6;
             // 
             // checkBoxKraanDLL
@@ -164,7 +168,6 @@ namespace WindowsFormsAppTest
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Controls.Add(this.WebserviceLbl);
             this.groupBox1.Controls.Add(this.textBoxWebservice);
             this.groupBox1.Controls.Add(this.checkBoxKraanDatabase);
@@ -172,7 +175,7 @@ namespace WindowsFormsAppTest
             this.groupBox1.Controls.Add(this.checkBoxKraanDLL);
             this.groupBox1.Location = new System.Drawing.Point(16, 51);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(339, 135);
+            this.groupBox1.Size = new System.Drawing.Size(339, 115);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Results";
@@ -198,7 +201,7 @@ namespace WindowsFormsAppTest
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 189);
+            this.label6.Location = new System.Drawing.Point(17, 251);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(25, 13);
             this.label6.TabIndex = 20;
@@ -234,7 +237,7 @@ namespace WindowsFormsAppTest
             // 
             // TestRouteBtn
             // 
-            this.TestRouteBtn.Location = new System.Drawing.Point(676, 317);
+            this.TestRouteBtn.Location = new System.Drawing.Point(676, 409);
             this.TestRouteBtn.Name = "TestRouteBtn";
             this.TestRouteBtn.Size = new System.Drawing.Size(214, 44);
             this.TestRouteBtn.TabIndex = 24;
@@ -253,27 +256,57 @@ namespace WindowsFormsAppTest
             // 
             // PrgrsBrTestUrl
             // 
-            this.PrgrsBrTestUrl.Location = new System.Drawing.Point(676, 367);
+            this.PrgrsBrTestUrl.Location = new System.Drawing.Point(676, 459);
             this.PrgrsBrTestUrl.Name = "PrgrsBrTestUrl";
             this.PrgrsBrTestUrl.Size = new System.Drawing.Size(214, 33);
             this.PrgrsBrTestUrl.Step = 1;
             this.PrgrsBrTestUrl.TabIndex = 26;
             // 
-            // checkBox1
+            // groupBox2
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(8, 116);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(93, 17);
-            this.checkBox1.TabIndex = 15;
-            this.checkBox1.Text = "SSLCertificaat";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.SllCertificaatVervalDatumTxtBx);
+            this.groupBox2.Controls.Add(this.SslChckBx);
+            this.groupBox2.Location = new System.Drawing.Point(16, 172);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(339, 67);
+            this.groupBox2.TabIndex = 27;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Results SSL certificaat";
             // 
-            // Form1
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 39);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(118, 13);
+            this.label3.TabIndex = 14;
+            this.label3.Text = "Certificaat vervaldatum:";
+            // 
+            // SllCertificaatVervalDatumTxtBx
+            // 
+            this.SllCertificaatVervalDatumTxtBx.Location = new System.Drawing.Point(159, 36);
+            this.SllCertificaatVervalDatumTxtBx.Name = "SllCertificaatVervalDatumTxtBx";
+            this.SllCertificaatVervalDatumTxtBx.ReadOnly = true;
+            this.SllCertificaatVervalDatumTxtBx.Size = new System.Drawing.Size(172, 20);
+            this.SllCertificaatVervalDatumTxtBx.TabIndex = 13;
+            // 
+            // SslChckBx
+            // 
+            this.SslChckBx.AutoSize = true;
+            this.SslChckBx.Location = new System.Drawing.Point(13, 19);
+            this.SslChckBx.Name = "SslChckBx";
+            this.SslChckBx.Size = new System.Drawing.Size(96, 17);
+            this.SslChckBx.TabIndex = 10;
+            this.SslChckBx.Text = "SSL Certificaat";
+            this.SslChckBx.UseVisualStyleBackColor = true;
+            // 
+            // EenUrlTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(901, 410);
+            this.ClientSize = new System.Drawing.Size(901, 502);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.PrgrsBrTestUrl);
             this.Controls.Add(this.HttpCmbx);
             this.Controls.Add(this.TestRouteBtn);
@@ -290,11 +323,13 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.ResponseTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.UrlLbl);
-            this.Name = "Form1";
+            this.Name = "EenUrlTestForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,7 +357,10 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Button TestRouteBtn;
         private System.Windows.Forms.ComboBox HttpCmbx;
         private System.Windows.Forms.ProgressBar PrgrsBrTestUrl;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox SllCertificaatVervalDatumTxtBx;
+        private System.Windows.Forms.CheckBox SslChckBx;
     }
 }
 

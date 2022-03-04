@@ -11,9 +11,13 @@ namespace WindowsFormsAppTest
         private List<UrlData> _urlDatasByForeignKeyKlant = new List<UrlData>();
 
         private int selectedKlantId;
+        private int aantalLegeUrls;
+
         private string url;
         private string urlHttp = "https://wsdev.kraan.com/";
         private string securityId = "";
+
+        private dynamic _result;
 
         KlantTest _klantTest;
         UrlTest _urltest;
@@ -44,49 +48,101 @@ namespace WindowsFormsAppTest
             KlantsCmbx.ValueMember = "Id";
             KlantsCmbx.DataSource = _klantDatas;
         }
+        private void TrVwAll_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
 
         private void TestAllBtn_Click(object sender, EventArgs e)
         {
             _urlDatasByForeignKeyKlant = _urltest.GetAllUrlsByForeignKeyKlant(selectedKlantId);
             TrVwAll.Nodes.Clear();
             TrVwAll.BeginUpdate();
+            clearBox();
+            LegeUrlsTxtBx.Text = string.Empty;
             foreach (UrlData urlData in _urlDatasByForeignKeyKlant)
             {
-                TrVwAll.Nodes.Add(urlData.Name);
-                url = urlData.Name;
-                securityId = urlData.SecurityId;
-                var data = _webRequest.GetWebRequest(urlData.Id, urlHttp, url, securityId);
-                
-                dynamic result = JObject.Parse(data);
-                foreach (JProperty item in result)
+                TreeNode node = new TreeNode();
+                node.Text = urlData.Name;
+                var data = _webRequest.GetWebRequest(urlData.Id, urlHttp, urlData.Name, urlData.SecurityId);
+                _result = JObject.Parse(data);
+                node.Tag = _result;
+                TrVwAll.Nodes.Add(node);
+                foreach (JProperty item in _result)
                 {
-                    switch (item.Name)
+                    if (item.Name == "ex")
                     {
-                        case "WebserviceVersie":
-                            string[] strlist = item.Value.ToString().Split(':');
-                            textBoxWebservice.Text = strlist[1];
-                            break;
-                        case "KraanDll":
-                            checkBoxKraanDLL.Checked = item.Value.ToString().Contains("True");
-                            break;
-                        case "KraanIni":
-                            checkBoxKraanIni.Checked = item.Value.ToString().Contains("True");
-                            break;
-                        case "KraanDatabase":
-                            checkBoxKraanDatabase.Checked = item.Value.ToString().Contains("True");
-                            break;
-                        default:
-                            TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
-                            break;
+                        ResponseTextBox.Text = item.Value.ToString();
+                        aantalLegeUrls = aantalLegeUrls + 1;
+                        AantalLegeUrlsTxtBx.Text = aantalLegeUrls.ToString();
+                        LegeUrlsTxtBx.Text = LegeUrlsTxtBx.Text + urlData.Name + Environment.NewLine;
+                    }
+                    if (item.Name != "id")
+                    {
+                        TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
                     }
                 }
             }
             TrVwAll.EndUpdate();
         }
+        private void TrVwAll_Click(object sender, EventArgs e)
+        {
+            Console.WriteLine(TrVwAll.HitTest(TrVwAll.PointToClient(Cursor.Position)).Node.Tag);
+            if (!ZetLogVastChkBx.Checked)
+            {
+                if (TrVwAll.HitTest(TrVwAll.PointToClient(Cursor.Position)).Node.Tag != null)
+                {
+                    clearBox();
+                    dynamic UrlData = TrVwAll.HitTest(TrVwAll.PointToClient(Cursor.Position)).Node.Tag;
+                    foreach (JProperty item in UrlData)
+                    {
+                        if (item.Name != "id")
+                        {
+                            ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " + item.Value + Environment.NewLine;
+                        }
+                        switch (item.Name)
+                        {
+                            case "WebserviceVersie":
+                                string[] strlist1 = item.Value.ToString().Split(':');
+                                textBoxWebservice.Text = strlist1[1];
+                                break;
+                            case "certVerValDatum":
+                                if (item.Value.ToString() != "")
+                                {
+                                    SslChckBx.Checked = true;
+                                    SllCertificaatVervalDatumTxtBx.Text = item.Value.ToString();
+                                }
+                                break;
+                            case "KraanDll":
+                                checkBoxKraanDLL.Checked = item.Value.ToString().Contains("True");
+                                break;
+                            case "KraanIni":
+                                checkBoxKraanIni.Checked = item.Value.ToString().Contains("True");
+                                break;
+                            case "KraanDatabase":
+                                checkBoxKraanDatabase.Checked = item.Value.ToString().Contains("True");
+                                break;
+                        }
+                    }
+                }
+            }
+
+        }
 
         private void checkBoxReadOnly_Click(object sender, EventArgs e)
         {
             (sender as CheckBox).Checked = !(sender as CheckBox).Checked;
+        }
+
+        private void clearBox()
+        {
+            checkBoxKraanDatabase.Checked = false;
+            checkBoxKraanDLL.Checked = false;
+            checkBoxKraanIni.Checked = false;
+            textBoxWebservice.Text = string.Empty;
+            ResponseTextBox.Text = string.Empty;
+            SllCertificaatVervalDatumTxtBx.Text = string.Empty;
+            SslChckBx.Checked = false;
         }
     }
 }

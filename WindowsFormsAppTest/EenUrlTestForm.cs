@@ -54,6 +54,13 @@ namespace WindowsFormsAppTest
                         string[] strlist = item.Value.ToString().Split(':');
                         textBoxWebservice.Text = strlist[1];
                         break;
+                    case "certVerValDatum":
+                        if (item.Value != null)
+                        {
+                            SslChckBx.Checked = true;
+                            SllCertificaatVervalDatumTxtBx.Text = item.Value.ToString();
+                        }
+                        break;
                     case "KraanDll":
                         checkBoxKraanDLL.Checked = item.Value.ToString().Contains("True");
                         break;
@@ -62,6 +69,11 @@ namespace WindowsFormsAppTest
                         break;
                     case "KraanDatabase":
                         checkBoxKraanDatabase.Checked = item.Value.ToString().Contains("True");
+                        break;
+                    case "id":
+                        break;
+                    case "ex":
+                        ResponseTextBox.Text = ResponseTextBox.Text + item.Value;
                         break;
                     default:
                         ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " + item.Value + Environment.NewLine;
@@ -132,6 +144,7 @@ namespace WindowsFormsAppTest
             checkBoxKraanIni.Checked = false;
             textBoxWebservice.Text = string.Empty;
             ResponseTextBox.Text = string.Empty;
+            SslChckBx.Checked = false;
         }
 
         private void getUrls()

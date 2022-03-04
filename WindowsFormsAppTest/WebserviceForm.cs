@@ -1,7 +1,6 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -10,7 +9,6 @@ namespace WindowsFormsAppTest
     {
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
         private List<UrlData> _urlDatasByForeignKey = new List<UrlData>();
-        private UrlData _urlDataById = new UrlData();
 
         private int selectedWebserviceId;
         private int aantalLegeUrls;
@@ -32,7 +30,7 @@ namespace WindowsFormsAppTest
             _urltest = new UrlTest();
             _webRequest = new WebRequest();
             _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
-            AantalLegeUrlsTxtBx.Text = 0.ToString();
+            AantalLegeUrlsTxtBx.Text = string.Empty;
         }
 
         private void WebserviceForm_Load(object sender, EventArgs e)
@@ -58,8 +56,9 @@ namespace WindowsFormsAppTest
             _urlDatasByForeignKey = _urltest.GetAllUrlsByForeignKeyWebservice(selectedWebserviceId);
             TrVwAll.Nodes.Clear();
             TrVwAll.BeginUpdate();
-            SslChckBx.Checked = false;
             clearBox();
+            LegeUrlsTxtBx.Text = string.Empty;
+
             foreach (UrlData urlData in _urlDatasByForeignKey)
             {
                 TreeNode node = new TreeNode();
@@ -70,31 +69,6 @@ namespace WindowsFormsAppTest
                 TrVwAll.Nodes.Add(node);
                 foreach (JProperty item in _result)
                 {
-                    //switch (item.Name)
-                    //{
-                    //    case "WebserviceVersie":
-                    //        string[] strlist1 = item.Value.ToString().Split(':');
-                    //        textBoxWebservice.Text = strlist1[1];
-                    //        break;
-                    //    case "certVerValDatum":
-                    //        SslChckBx.Checked = true;
-                    //        SllCertificaatVervalDatumTxtBx.Text = item.Value.ToString();
-                    //        break;
-                    //    case "KraanDll":
-                    //        checkBoxKraanDLL.Checked = item.Value.ToString().Contains("True");
-                    //        break;
-                    //    case "KraanIni":
-                    //        checkBoxKraanIni.Checked = item.Value.ToString().Contains("True");
-                    //        break;
-                    //    case "KraanDatabase":
-                    //        checkBoxKraanDatabase.Checked = item.Value.ToString().Contains("True");
-                    //        break;
-                    //    case "id":
-                    //        break;
-                    //    default:
-                    //        TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
-                    //        break;
-                    //}
                     if (item.Name == "ex")
                     {
                         ResponseTextBox.Text = item.Value.ToString();
@@ -137,8 +111,11 @@ namespace WindowsFormsAppTest
                                 textBoxWebservice.Text = strlist1[1];
                                 break;
                             case "certVerValDatum":
-                                SslChckBx.Checked = true;
-                                SllCertificaatVervalDatumTxtBx.Text = item.Value.ToString();
+                                if (item.Value.ToString() != "")
+                                {
+                                    SslChckBx.Checked = true;
+                                    SllCertificaatVervalDatumTxtBx.Text = item.Value.ToString();
+                                }
                                 break;
                             case "KraanDll":
                                 checkBoxKraanDLL.Checked = item.Value.ToString().Contains("True");
@@ -168,10 +145,6 @@ namespace WindowsFormsAppTest
             ResponseTextBox.Text = string.Empty;
             SllCertificaatVervalDatumTxtBx.Text = string.Empty;
             SslChckBx.Checked = false;
-        }
-        private void ZetLogVastBtn_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
