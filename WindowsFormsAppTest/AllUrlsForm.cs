@@ -14,17 +14,32 @@ namespace WindowsFormsAppTest
     {
         private string changedSecurityId = "";
         private string changedUrl;
+        private int _selectedWebserviceId;
+        private int _selectedKlantId;
 
         private List<UrlData> _urlDatas = new List<UrlData>();
+        private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
+        private List<KlantData> _klantDatas = new List<KlantData>();
 
         UrlTest _urltest;
         WebRequest _webRequest;
+        WebserviceTest _webserviceTest;
+        KlantTest _klantTest;
+
         public AllUrlsForm()
         {
             InitializeComponent();
             _urltest = new UrlTest();
             _webRequest = new WebRequest();
+            _webserviceTest = new WebserviceTest();
+            _klantTest = new KlantTest();
+
+            _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
+            _klantDatas = _klantTest.GetKlantDatas(true);
             _urlDatas = _urltest.GetUrlDatas();
+
+            fillCmbxWebServices();
+            fillCmbxKlanten();
         }
 
         private void AllUrlsForm_Load(object sender, EventArgs e)
@@ -53,6 +68,20 @@ namespace WindowsFormsAppTest
             {
                 int idOfSelected = (int)AllUrlsLstBx.SelectedValue;
                 UrlData urlData = _urlDatas.Find(u => u.Id == idOfSelected);
+                foreach (var webService in _webServiceDatas)
+                {
+                    if (urlData.WebServiceDataId == webService.Id)
+                    {
+                        WebServiceCmbx.SelectedItem = webService;
+                    }
+                }
+                foreach (var klant in _klantDatas)
+                {
+                    if (urlData.KlantDataId == klant.Id)
+                    {
+                        KlantCmbBx.SelectedItem = klant;
+                    }
+                }
                 UrlTxtBx.Text = urlData.Name;
                 SecurityIdTxtBx.Text = urlData.SecurityId;
             }
@@ -103,6 +132,32 @@ namespace WindowsFormsAppTest
         private void ChildFormClosing(object sender, FormClosingEventArgs e)
         {
             getUrls();
+        }
+
+        private void WebServiceCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedWebserviceId = (int)WebServiceCmbx.SelectedValue;
+        }
+
+        private void KlantCmbBx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedKlantId = (int)KlantCmbBx.SelectedValue;
+        }
+
+        private void fillCmbxWebServices()
+        {
+            WebServiceCmbx.DataSource = null;
+            WebServiceCmbx.DisplayMember = "Name";
+            WebServiceCmbx.ValueMember = "Id";
+            WebServiceCmbx.DataSource = _webServiceDatas;
+        }
+
+        private void fillCmbxKlanten()
+        {
+            KlantCmbBx.DataSource = null;
+            KlantCmbBx.DisplayMember = "Name";
+            KlantCmbBx.ValueMember = "Id";
+            KlantCmbBx.DataSource = _klantDatas;
         }
     }
 }

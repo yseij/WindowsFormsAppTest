@@ -38,6 +38,10 @@ namespace WindowsFormsAppTest
             this.label3 = new System.Windows.Forms.Label();
             this.SecurityIdTxtBx = new System.Windows.Forms.TextBox();
             this.DeleteUrlBttn = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.KlantCmbBx = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.WebServiceCmbx = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // AllUrlsLstBx
@@ -71,7 +75,7 @@ namespace WindowsFormsAppTest
             // PasUrlAanBtn
             // 
             this.PasUrlAanBtn.BackColor = System.Drawing.Color.Green;
-            this.PasUrlAanBtn.Location = new System.Drawing.Point(680, 164);
+            this.PasUrlAanBtn.Location = new System.Drawing.Point(680, 218);
             this.PasUrlAanBtn.Margin = new System.Windows.Forms.Padding(0);
             this.PasUrlAanBtn.Name = "PasUrlAanBtn";
             this.PasUrlAanBtn.Size = new System.Drawing.Size(108, 56);
@@ -94,7 +98,7 @@ namespace WindowsFormsAppTest
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(426, 47);
+            this.label2.Location = new System.Drawing.Point(420, 44);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 30;
@@ -103,7 +107,7 @@ namespace WindowsFormsAppTest
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(426, 108);
+            this.label3.Location = new System.Drawing.Point(422, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(29, 13);
             this.label3.TabIndex = 31;
@@ -129,11 +133,51 @@ namespace WindowsFormsAppTest
             this.DeleteUrlBttn.UseVisualStyleBackColor = false;
             this.DeleteUrlBttn.Click += new System.EventHandler(this.DeleteUrlBttn_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(422, 197);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(31, 13);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "Klant";
+            // 
+            // KlantCmbBx
+            // 
+            this.KlantCmbBx.FormattingEnabled = true;
+            this.KlantCmbBx.Location = new System.Drawing.Point(488, 194);
+            this.KlantCmbBx.Name = "KlantCmbBx";
+            this.KlantCmbBx.Size = new System.Drawing.Size(300, 21);
+            this.KlantCmbBx.TabIndex = 37;
+            this.KlantCmbBx.SelectedIndexChanged += new System.EventHandler(this.KlantCmbBx_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(422, 170);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 13);
+            this.label5.TabIndex = 36;
+            this.label5.Text = "Webservice";
+            // 
+            // WebServiceCmbx
+            // 
+            this.WebServiceCmbx.FormattingEnabled = true;
+            this.WebServiceCmbx.Location = new System.Drawing.Point(488, 167);
+            this.WebServiceCmbx.Name = "WebServiceCmbx";
+            this.WebServiceCmbx.Size = new System.Drawing.Size(300, 21);
+            this.WebServiceCmbx.TabIndex = 35;
+            this.WebServiceCmbx.SelectedIndexChanged += new System.EventHandler(this.WebServiceCmbx_SelectedIndexChanged);
+            // 
             // AllUrlsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.KlantCmbBx);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.WebServiceCmbx);
             this.Controls.Add(this.DeleteUrlBttn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SecurityIdTxtBx);
@@ -162,5 +206,9 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox SecurityIdTxtBx;
         private System.Windows.Forms.Button DeleteUrlBttn;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox KlantCmbBx;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox WebServiceCmbx;
     }
 }

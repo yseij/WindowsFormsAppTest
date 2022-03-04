@@ -57,8 +57,9 @@ namespace WindowsFormsAppTest
             TrVwAll.Nodes.Clear();
             TrVwAll.BeginUpdate();
             clearBox();
+            AantalLegeUrlsTxtBx.Text = string.Empty;
             LegeUrlsTxtBx.Text = string.Empty;
-
+            aantalLegeUrls = 0;
             foreach (UrlData urlData in _urlDatasByForeignKey)
             {
                 TreeNode node = new TreeNode();
