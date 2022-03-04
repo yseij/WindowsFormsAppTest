@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace WindowsFormsAppTest
 {
@@ -15,10 +16,7 @@ namespace WindowsFormsAppTest
             GetUrls();
         }
 
-        private string ConnectieDB
-        {
-            get { return (@"data source=LAPTOP-YOURI-SE; Initial Catalog=Url;Integrated Security=True;"); }
-        }
+        private string ConnectieDB => ConfigurationManager.AppSettings["connectieString"];
 
         public List<UrlData> GetUrlDatas(bool reload = false)
         {

@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -12,9 +13,9 @@ namespace WindowsFormsAppTest
         private UrlData _urlDataById = new UrlData();
 
         private int selectedWebserviceId;
-        private string url;
+        private int aantalLegeUrls;
+
         private string urlHttp = "https://wsdev.kraan.com/";
-        private string securityId = "";
 
         private dynamic _result;
 
@@ -31,6 +32,7 @@ namespace WindowsFormsAppTest
             _urltest = new UrlTest();
             _webRequest = new WebRequest();
             _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
+            AantalLegeUrlsTxtBx.Text = 0.ToString();
         }
 
         private void WebserviceForm_Load(object sender, EventArgs e)
@@ -56,36 +58,53 @@ namespace WindowsFormsAppTest
             _urlDatasByForeignKey = _urltest.GetAllUrlsByForeignKeyWebservice(selectedWebserviceId);
             TrVwAll.Nodes.Clear();
             TrVwAll.BeginUpdate();
+            SslChckBx.Checked = false;
+            clearBox();
             foreach (UrlData urlData in _urlDatasByForeignKey)
             {
                 TreeNode node = new TreeNode();
                 node.Text = urlData.Name;
-                node.Tag = urlData.Id;
-                TrVwAll.Nodes.Add(node);
                 var data = _webRequest.GetWebRequest(urlData.Id, urlHttp, urlData.Name, urlData.SecurityId);
                 _result = JObject.Parse(data);
+                node.Tag = _result;
+                TrVwAll.Nodes.Add(node);
                 foreach (JProperty item in _result)
                 {
-                    switch (item.Name)
+                    //switch (item.Name)
+                    //{
+                    //    case "WebserviceVersie":
+                    //        string[] strlist1 = item.Value.ToString().Split(':');
+                    //        textBoxWebservice.Text = strlist1[1];
+                    //        break;
+                    //    case "certVerValDatum":
+                    //        SslChckBx.Checked = true;
+                    //        SllCertificaatVervalDatumTxtBx.Text = item.Value.ToString();
+                    //        break;
+                    //    case "KraanDll":
+                    //        checkBoxKraanDLL.Checked = item.Value.ToString().Contains("True");
+                    //        break;
+                    //    case "KraanIni":
+                    //        checkBoxKraanIni.Checked = item.Value.ToString().Contains("True");
+                    //        break;
+                    //    case "KraanDatabase":
+                    //        checkBoxKraanDatabase.Checked = item.Value.ToString().Contains("True");
+                    //        break;
+                    //    case "id":
+                    //        break;
+                    //    default:
+                    //        TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
+                    //        break;
+                    //}
+                    if (item.Name == "ex")
                     {
-                        case "WebserviceVersie":
-                            string[] strlist = item.Value.ToString().Split(':');
-                            textBoxWebservice.Text = strlist[1];
-                            break;
-                        case "KraanDll":
-                            checkBoxKraanDLL.Checked = item.Value.ToString().Contains("True");
-                            break;
-                        case "KraanIni":
-                            checkBoxKraanIni.Checked = item.Value.ToString().Contains("True");
-                            break;
-                        case "KraanDatabase":
-                            checkBoxKraanDatabase.Checked = item.Value.ToString().Contains("True");
-                            break;
-                        case "id":
-                            break;
-                        default:
-                            TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
-                            break;
+                        ResponseTextBox.Text = item.Value.ToString();
+                        aantalLegeUrls = aantalLegeUrls + 1;
+                        AantalLegeUrlsTxtBx.Text = aantalLegeUrls.ToString();
+                        LegeUrlsTxtBx.Text = LegeUrlsTxtBx.Text + urlData.Name + Environment.NewLine;
+                    }
+                    if (item.Name != "id")
+                    {
+                        TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
                     }
                 }
             }
@@ -99,25 +118,60 @@ namespace WindowsFormsAppTest
 
         private void TrVwAll_Click(object sender, EventArgs e)
         {
-            int id = (int)TrVwAll.HitTest(TrVwAll.PointToClient(Cursor.Position)).Node.Tag;
-            Console.WriteLine(id);
-            foreach (JProperty item in _result)
+            if (!ZetLogVastChkBx.Checked)
             {
-                if (item.Name == "id")
+                if (TrVwAll.HitTest(TrVwAll.PointToClient(Cursor.Position)).Node.Tag != null)
                 {
-                    if ((int)item.Value == id)
+                    clearBox();
+                    dynamic UrlData = TrVwAll.HitTest(TrVwAll.PointToClient(Cursor.Position)).Node.Tag;
+                    foreach (JProperty item in UrlData)
                     {
-                        
+                        if (item.Name != "id")
+                        {
+                            ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " + item.Value + Environment.NewLine;
+                        }
+                        switch (item.Name)
+                        {
+                            case "WebserviceVersie":
+                                string[] strlist1 = item.Value.ToString().Split(':');
+                                textBoxWebservice.Text = strlist1[1];
+                                break;
+                            case "certVerValDatum":
+                                SslChckBx.Checked = true;
+                                SllCertificaatVervalDatumTxtBx.Text = item.Value.ToString();
+                                break;
+                            case "KraanDll":
+                                checkBoxKraanDLL.Checked = item.Value.ToString().Contains("True");
+                                break;
+                            case "KraanIni":
+                                checkBoxKraanIni.Checked = item.Value.ToString().Contains("True");
+                                break;
+                            case "KraanDatabase":
+                                checkBoxKraanDatabase.Checked = item.Value.ToString().Contains("True");
+                                break;
+                        }
                     }
                 }
             }
-            ResponseTextBox.Text = _urlDataById.Name + " = " + _urlDataById.SecurityId + Environment.NewLine;
+
         }
         private void checkBoxReadOnly_Click(object sender, EventArgs e)
         {
             (sender as CheckBox).Checked = !(sender as CheckBox).Checked;
         }
+        private void clearBox()
+        {
+            checkBoxKraanDatabase.Checked = false;
+            checkBoxKraanDLL.Checked = false;
+            checkBoxKraanIni.Checked = false;
+            textBoxWebservice.Text = string.Empty;
+            ResponseTextBox.Text = string.Empty;
+            SllCertificaatVervalDatumTxtBx.Text = string.Empty;
+            SslChckBx.Checked = false;
+        }
+        private void ZetLogVastBtn_Click(object sender, EventArgs e)
+        {
 
-
+        }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -7,10 +8,7 @@ namespace WindowsFormsAppTest
     class WebserviceTest
     {
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
-        private string ConnectieDB
-        {
-            get { return (@"data source=LAPTOP-YOURI-SE; Initial Catalog=Url;Integrated Security=True;"); }
-        }
+        private string ConnectieDB => ConfigurationManager.AppSettings["connectieString"];
 
         public List<WebServiceData> GetWebServiceDatas(bool reload = false)
         {

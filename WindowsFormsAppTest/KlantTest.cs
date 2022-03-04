@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace WindowsFormsAppTest
 {
@@ -17,10 +14,7 @@ namespace WindowsFormsAppTest
             GetKlants();
         }
 
-        private string ConnectieDB
-        {
-            get { return (@"data source=LAPTOP-YOURI-SE; Initial Catalog=Url;Integrated Security=True;"); }
-        }
+        private string ConnectieDB => ConfigurationManager.AppSettings["connectieString"];
 
         public List<KlantData> GetKlantDatas(bool reload = false)
         {

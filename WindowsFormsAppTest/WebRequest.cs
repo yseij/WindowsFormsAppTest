@@ -2,6 +2,7 @@
 using System;
 using System.Linq;
 using System.Net;
+using System.Security.Cryptography.X509Certificates;
 
 namespace WindowsFormsAppTest
 {
@@ -31,7 +32,7 @@ namespace WindowsFormsAppTest
             try
             {
                 HttpWebRequest request = HttpWebRequest.Create(webRequestUrl) as HttpWebRequest;
-
+                X509Certificate cert = request.ServicePoint.Certificate;
                 using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
                 {
                     int statusCode = (int)response.StatusCode;
@@ -49,11 +50,11 @@ namespace WindowsFormsAppTest
                             int Pos1 = data.IndexOf('{');
                             int Pos2 = data.IndexOf('}');
                             data = data.Substring(Pos1 + 1, Pos2 - Pos1 - 1);
-                            return "{" + data + ", id: '" + id + "'}";
+                            return "{" + data + ", id: '" + id + "', certVerValDatum: '" + cert.GetExpirationDateString().ToString() + "'}";
                         }
                         else
                         {
-                            return getDataOfWebRequest(data, id);
+                            return getDataOfWebRequest(data);
                         }
                     }
                     else
@@ -64,12 +65,12 @@ namespace WindowsFormsAppTest
             }
             catch (WebException ex)
             {
-                return "{ex: " + ex.ToString() + "}";
+                return @"{ ex: '" + ex.Message.ToString() + ex.Response.ToString() + "'}";
 
             }
         }
 
-        private string getDataOfWebRequest(string data, int id)
+        private string getDataOfWebRequest(string data)
         {
             positionKraanDll = data.IndexOf("KraanDLL");
             positionKraanIni = data.IndexOf("Kraan.ini");

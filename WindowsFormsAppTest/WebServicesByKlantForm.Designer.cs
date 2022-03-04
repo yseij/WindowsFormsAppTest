@@ -41,11 +41,17 @@ namespace WindowsFormsAppTest
             this.TestAllBtn = new System.Windows.Forms.Button();
             this.KlantsCmbx = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.ZetLogVastChkBx = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.textBox1);
             this.groupBox1.Controls.Add(this.WebserviceLbl);
             this.groupBox1.Controls.Add(this.textBoxWebservice);
             this.groupBox1.Controls.Add(this.checkBoxKraanDatabase);
@@ -53,7 +59,7 @@ namespace WindowsFormsAppTest
             this.groupBox1.Controls.Add(this.checkBoxKraanDLL);
             this.groupBox1.Location = new System.Drawing.Point(12, 84);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(339, 126);
+            this.groupBox1.Size = new System.Drawing.Size(339, 139);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Results";
@@ -69,49 +75,52 @@ namespace WindowsFormsAppTest
             // 
             // textBoxWebservice
             // 
-            this.textBoxWebservice.Location = new System.Drawing.Point(114, 14);
+            this.textBoxWebservice.Location = new System.Drawing.Point(159, 14);
             this.textBoxWebservice.Name = "textBoxWebservice";
             this.textBoxWebservice.ReadOnly = true;
-            this.textBoxWebservice.Size = new System.Drawing.Size(217, 20);
+            this.textBoxWebservice.Size = new System.Drawing.Size(172, 20);
             this.textBoxWebservice.TabIndex = 13;
             // 
             // checkBoxKraanDatabase
             // 
             this.checkBoxKraanDatabase.AutoSize = true;
-            this.checkBoxKraanDatabase.Location = new System.Drawing.Point(8, 93);
+            this.checkBoxKraanDatabase.Location = new System.Drawing.Point(13, 116);
             this.checkBoxKraanDatabase.Name = "checkBoxKraanDatabase";
             this.checkBoxKraanDatabase.Size = new System.Drawing.Size(100, 17);
             this.checkBoxKraanDatabase.TabIndex = 12;
             this.checkBoxKraanDatabase.Text = "KraanDatabase";
             this.checkBoxKraanDatabase.UseVisualStyleBackColor = true;
+            this.checkBoxKraanDatabase.Click += new System.EventHandler(this.checkBoxReadOnly_Click);
             // 
             // checkBoxKraanIni
             // 
             this.checkBoxKraanIni.AutoSize = true;
-            this.checkBoxKraanIni.Location = new System.Drawing.Point(8, 70);
+            this.checkBoxKraanIni.Location = new System.Drawing.Point(13, 93);
             this.checkBoxKraanIni.Name = "checkBoxKraanIni";
             this.checkBoxKraanIni.Size = new System.Drawing.Size(65, 17);
             this.checkBoxKraanIni.TabIndex = 11;
             this.checkBoxKraanIni.Text = "KraanIni";
             this.checkBoxKraanIni.UseVisualStyleBackColor = true;
+            this.checkBoxKraanIni.Click += new System.EventHandler(this.checkBoxReadOnly_Click);
             // 
             // checkBoxKraanDLL
             // 
             this.checkBoxKraanDLL.AutoSize = true;
-            this.checkBoxKraanDLL.Location = new System.Drawing.Point(8, 47);
+            this.checkBoxKraanDLL.Location = new System.Drawing.Point(13, 70);
             this.checkBoxKraanDLL.Name = "checkBoxKraanDLL";
             this.checkBoxKraanDLL.Size = new System.Drawing.Size(74, 17);
             this.checkBoxKraanDLL.TabIndex = 10;
             this.checkBoxKraanDLL.Text = "KraanDLL";
             this.checkBoxKraanDLL.UseVisualStyleBackColor = true;
+            this.checkBoxKraanDLL.Click += new System.EventHandler(this.checkBoxReadOnly_Click);
             // 
             // ResponseTextBox
             // 
-            this.ResponseTextBox.Location = new System.Drawing.Point(12, 229);
+            this.ResponseTextBox.Location = new System.Drawing.Point(12, 252);
             this.ResponseTextBox.Multiline = true;
             this.ResponseTextBox.Name = "ResponseTextBox";
             this.ResponseTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ResponseTextBox.Size = new System.Drawing.Size(339, 207);
+            this.ResponseTextBox.Size = new System.Drawing.Size(339, 184);
             this.ResponseTextBox.TabIndex = 23;
             // 
             // label2
@@ -158,11 +167,49 @@ namespace WindowsFormsAppTest
             this.label1.TabIndex = 18;
             this.label1.Text = "Klanten";
             // 
+            // ZetLogVastChkBx
+            // 
+            this.ZetLogVastChkBx.AutoSize = true;
+            this.ZetLogVastChkBx.Location = new System.Drawing.Point(269, 235);
+            this.ZetLogVastChkBx.Name = "ZetLogVastChkBx";
+            this.ZetLogVastChkBx.Size = new System.Drawing.Size(82, 17);
+            this.ZetLogVastChkBx.TabIndex = 25;
+            this.ZetLogVastChkBx.Text = "Zet log vast";
+            this.ZetLogVastChkBx.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 236);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(25, 13);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Log";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(10, 48);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(143, 13);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "SSL certificaat verval datum:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(159, 45);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(172, 20);
+            this.textBox1.TabIndex = 15;
+            // 
             // WebServicesByKlantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 446);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ZetLogVastChkBx);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.ResponseTextBox);
             this.Controls.Add(this.label2);
@@ -194,5 +241,9 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Button TestAllBtn;
         private System.Windows.Forms.ComboBox KlantsCmbx;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.CheckBox ZetLogVastChkBx;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
