@@ -67,33 +67,32 @@ namespace WindowsFormsAppTest
             }
         }
 
-        //public void UpdateKlant(int id, string url, string securityId)
-        //{
-        //    using (SqlConnection connection = new SqlConnection(ConnectieDB))
-        //    {
-        //        connection.Open();
-        //        var sql = "UPDATE Url SET Name = @Url, SecurityID = @SecurityID " + "where id =" + id;
-        //        using (var cmd = new SqlCommand(sql, connection))
-        //        {
-        //            cmd.Parameters.AddWithValue("@Url", url);
-        //            cmd.Parameters.AddWithValue("@SecurityID", securityId);
+        public void UpdateKlant(int id, string name)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectieDB))
+            {
+                connection.Open();
+                var sql = "UPDATE Klant SET Name = @Name " + "where id =" + id;
+                using (var cmd = new SqlCommand(sql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Name", name);
 
-        //            cmd.ExecuteNonQuery();
-        //        }
-        //        connection.Close();
-        //    }
-        //}
+                    cmd.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
+        }
 
-        //public void DeleteKlant(int id)
-        //{
-        //    using (SqlConnection connection = new SqlConnection(ConnectieDB))
-        //    {
-        //        connection.Open();
-        //        var sql = "DELETE FROM Url where id =" + id;
-        //        using (var cmd = new SqlCommand(sql, connection))
-        //            cmd.ExecuteNonQuery();
-        //        connection.Close();
-        //    }
-        //}
+        public void DeleteKlant(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectieDB))
+            {
+                connection.Open();
+                var sql = "DELETE FROM Klant where id =" + id;
+                using (var cmd = new SqlCommand(sql, connection))
+                    cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
     }
 }
