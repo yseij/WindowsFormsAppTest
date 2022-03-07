@@ -17,15 +17,23 @@ namespace WindowsFormsAppTest
         WebserviceTest _webserviceTest;
         KlantTest _klantTest;
 
+        private int _klantId;
+
         public AddUrlForm()
         {
             InitializeComponent();
+            _klantId = AllKlantenForm.SetValueForKlantId;
             _webserviceTest = new WebserviceTest();
             _klantTest = new KlantTest();
             _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
             _klantDatas = _klantTest.GetKlantDatas(true);
             fillCmbxWebServices();
             fillCmbxKlanten();
+        }
+
+        private void AddUrlForm_Load(object sender, EventArgs e)
+        {
+            
         }
 
         private void AddUrlButton_Click(object sender, EventArgs e)
@@ -69,6 +77,10 @@ namespace WindowsFormsAppTest
             KlantCmbBx.DisplayMember = "Name";
             KlantCmbBx.ValueMember = "Id";
             KlantCmbBx.DataSource = _klantDatas;
+            if (_klantId != 0)
+            {
+                KlantCmbBx.SelectedValue = _klantId;
+            }
         }
     }
 }

@@ -107,6 +107,9 @@
       <DependentUpon>WebServicesByKlantForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WebserviceTest.cs" />
+    <EmbeddedResource Include="AddKlantForm.resx">
+      <DependentUpon>AddKlantForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AllKlantenForm.resx">
       <DependentUpon>AllKlantenForm.cs</DependentUpon>
     </EmbeddedResource>

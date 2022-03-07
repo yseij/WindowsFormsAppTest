@@ -136,6 +136,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.AddUrlButton);
             this.Name = "AddUrlForm";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.AddUrlForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

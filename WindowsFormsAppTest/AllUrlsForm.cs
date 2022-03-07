@@ -109,7 +109,6 @@ namespace WindowsFormsAppTest
             _urltest.DeleteUrl((int)AllUrlsLstBx.SelectedValue);
             AllUrlsLstBx.SelectedIndex = 0;
             getUrls();
-            fillLstBxls();
         }
 
         private void SecurityIdTxtBx_TextChanged(object sender, EventArgs e)

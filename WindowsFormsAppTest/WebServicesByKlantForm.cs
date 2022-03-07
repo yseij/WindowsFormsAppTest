@@ -89,7 +89,6 @@ namespace WindowsFormsAppTest
         }
         private void TrVwAll_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(TrVwAll.HitTest(TrVwAll.PointToClient(Cursor.Position)).Node.Tag);
             if (!ZetLogVastChkBx.Checked)
             {
                 if (TrVwAll.HitTest(TrVwAll.PointToClient(Cursor.Position)).Node.Tag != null)

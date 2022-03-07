@@ -37,14 +37,20 @@ namespace WindowsFormsAppTest
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.UrlsByKlantLstBx = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.DeleteUrlBttn = new System.Windows.Forms.Button();
+            this.UrlTxtBx = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.PasUrlAanBtn = new System.Windows.Forms.Button();
+            this.AddUrlByKlantBttn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.KlantCmbBx = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.WebServiceCmbx = new System.Windows.Forms.ComboBox();
+            this.SecurityIdTxtBx = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -99,6 +105,7 @@ namespace WindowsFormsAppTest
             this.AddUrlBtn.TabIndex = 42;
             this.AddUrlBtn.Text = "Klant toevoegen";
             this.AddUrlBtn.UseVisualStyleBackColor = false;
+            this.AddUrlBtn.Click += new System.EventHandler(this.AddUrlBtn_Click);
             // 
             // label2
             // 
@@ -125,54 +132,59 @@ namespace WindowsFormsAppTest
             this.UrlsByKlantLstBx.Name = "UrlsByKlantLstBx";
             this.UrlsByKlantLstBx.Size = new System.Drawing.Size(402, 225);
             this.UrlsByKlantLstBx.TabIndex = 49;
+            this.UrlsByKlantLstBx.SelectedIndexChanged += new System.EventHandler(this.UrlsByKlantLstBx_SelectedIndexChanged);
             // 
-            // button1
+            // DeleteUrlBttn
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Location = new System.Drawing.Point(9, 170);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 44);
-            this.button1.TabIndex = 56;
-            this.button1.Text = "Url verwijderen";
-            this.button1.UseVisualStyleBackColor = false;
+            this.DeleteUrlBttn.BackColor = System.Drawing.Color.Red;
+            this.DeleteUrlBttn.Location = new System.Drawing.Point(9, 170);
+            this.DeleteUrlBttn.Name = "DeleteUrlBttn";
+            this.DeleteUrlBttn.Size = new System.Drawing.Size(100, 44);
+            this.DeleteUrlBttn.TabIndex = 56;
+            this.DeleteUrlBttn.Text = "Url verwijderen";
+            this.DeleteUrlBttn.UseVisualStyleBackColor = false;
+            this.DeleteUrlBttn.Click += new System.EventHandler(this.DeleteUrlBttn_Click);
             // 
-            // textBox1
+            // UrlTxtBx
             // 
-            this.textBox1.Location = new System.Drawing.Point(62, 32);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 53);
-            this.textBox1.TabIndex = 55;
+            this.UrlTxtBx.Location = new System.Drawing.Point(67, 65);
+            this.UrlTxtBx.Multiline = true;
+            this.UrlTxtBx.Name = "UrlTxtBx";
+            this.UrlTxtBx.Size = new System.Drawing.Size(295, 39);
+            this.UrlTxtBx.TabIndex = 55;
+            this.UrlTxtBx.TextChanged += new System.EventHandler(this.UrlTxtBx_TextChanged_1);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 35);
+            this.label6.Location = new System.Drawing.Point(6, 22);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 13);
+            this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 54;
-            this.label6.Text = "Naam";
+            this.label6.Text = "SecurityId";
             // 
-            // button2
+            // PasUrlAanBtn
             // 
-            this.button2.BackColor = System.Drawing.Color.Green;
-            this.button2.Location = new System.Drawing.Point(254, 88);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(108, 56);
-            this.button2.TabIndex = 52;
-            this.button2.Text = "Pas de gegevens aan";
-            this.button2.UseVisualStyleBackColor = false;
+            this.PasUrlAanBtn.BackColor = System.Drawing.Color.Green;
+            this.PasUrlAanBtn.Location = new System.Drawing.Point(254, 170);
+            this.PasUrlAanBtn.Margin = new System.Windows.Forms.Padding(0);
+            this.PasUrlAanBtn.Name = "PasUrlAanBtn";
+            this.PasUrlAanBtn.Size = new System.Drawing.Size(108, 44);
+            this.PasUrlAanBtn.TabIndex = 52;
+            this.PasUrlAanBtn.Text = "Pas de gegevens aan";
+            this.PasUrlAanBtn.UseVisualStyleBackColor = false;
+            this.PasUrlAanBtn.Click += new System.EventHandler(this.PasUrlAanBtn_Click);
             // 
-            // button3
+            // AddUrlByKlantBttn
             // 
-            this.button3.BackColor = System.Drawing.Color.Green;
-            this.button3.Location = new System.Drawing.Point(115, 170);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(108, 44);
-            this.button3.TabIndex = 53;
-            this.button3.Text = "Url toevoegen";
-            this.button3.UseVisualStyleBackColor = false;
+            this.AddUrlByKlantBttn.BackColor = System.Drawing.Color.Green;
+            this.AddUrlByKlantBttn.Location = new System.Drawing.Point(115, 170);
+            this.AddUrlByKlantBttn.Name = "AddUrlByKlantBttn";
+            this.AddUrlByKlantBttn.Size = new System.Drawing.Size(108, 44);
+            this.AddUrlByKlantBttn.TabIndex = 53;
+            this.AddUrlByKlantBttn.Text = "Url toevoegen";
+            this.AddUrlByKlantBttn.UseVisualStyleBackColor = false;
+            this.AddUrlByKlantBttn.Click += new System.EventHandler(this.AddUrlByKlantBttn_Click);
             // 
             // groupBox1
             // 
@@ -199,17 +211,75 @@ namespace WindowsFormsAppTest
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox1);
-            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.label5);
+            this.groupBox2.Controls.Add(this.KlantCmbBx);
+            this.groupBox2.Controls.Add(this.label7);
+            this.groupBox2.Controls.Add(this.WebServiceCmbx);
+            this.groupBox2.Controls.Add(this.SecurityIdTxtBx);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.UrlTxtBx);
+            this.groupBox2.Controls.Add(this.PasUrlAanBtn);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.button1);
-            this.groupBox2.Controls.Add(this.button3);
+            this.groupBox2.Controls.Add(this.DeleteUrlBttn);
+            this.groupBox2.Controls.Add(this.AddUrlByKlantBttn);
             this.groupBox2.Location = new System.Drawing.Point(427, 210);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(369, 224);
             this.groupBox2.TabIndex = 58;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Url bewerken";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(1, 140);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.TabIndex = 62;
+            this.label5.Text = "Klant";
+            // 
+            // KlantCmbBx
+            // 
+            this.KlantCmbBx.FormattingEnabled = true;
+            this.KlantCmbBx.Location = new System.Drawing.Point(67, 137);
+            this.KlantCmbBx.Name = "KlantCmbBx";
+            this.KlantCmbBx.Size = new System.Drawing.Size(295, 21);
+            this.KlantCmbBx.TabIndex = 61;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(1, 113);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 13);
+            this.label7.TabIndex = 60;
+            this.label7.Text = "Webservice";
+            // 
+            // WebServiceCmbx
+            // 
+            this.WebServiceCmbx.FormattingEnabled = true;
+            this.WebServiceCmbx.Location = new System.Drawing.Point(67, 110);
+            this.WebServiceCmbx.Name = "WebServiceCmbx";
+            this.WebServiceCmbx.Size = new System.Drawing.Size(295, 21);
+            this.WebServiceCmbx.TabIndex = 59;
+            // 
+            // SecurityIdTxtBx
+            // 
+            this.SecurityIdTxtBx.Location = new System.Drawing.Point(67, 19);
+            this.SecurityIdTxtBx.Multiline = true;
+            this.SecurityIdTxtBx.Name = "SecurityIdTxtBx";
+            this.SecurityIdTxtBx.Size = new System.Drawing.Size(295, 40);
+            this.SecurityIdTxtBx.TabIndex = 58;
+            this.SecurityIdTxtBx.TextChanged += new System.EventHandler(this.SecurityIdTxtBx_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(6, 68);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 13);
+            this.label3.TabIndex = 57;
+            this.label3.Text = "Naam";
             // 
             // AllKlantenForm
             // 
@@ -242,13 +312,19 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox UrlsByKlantLstBx;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button DeleteUrlBttn;
+        private System.Windows.Forms.TextBox UrlTxtBx;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button PasUrlAanBtn;
+        private System.Windows.Forms.Button AddUrlByKlantBttn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox SecurityIdTxtBx;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox KlantCmbBx;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ComboBox WebServiceCmbx;
     }
 }
