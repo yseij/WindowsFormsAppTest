@@ -33,7 +33,7 @@ namespace WindowsFormsAppTest
             this.AllKlantLstBx = new System.Windows.Forms.ListBox();
             this.KlantTxtBx = new System.Windows.Forms.TextBox();
             this.PasKlantAanBtn = new System.Windows.Forms.Button();
-            this.AddUrlBtn = new System.Windows.Forms.Button();
+            this.AddKlantBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.UrlsByKlantLstBx = new System.Windows.Forms.ListBox();
@@ -96,16 +96,16 @@ namespace WindowsFormsAppTest
             this.PasKlantAanBtn.UseVisualStyleBackColor = false;
             this.PasKlantAanBtn.Click += new System.EventHandler(this.PasKlantAanBtn_Click);
             // 
-            // AddUrlBtn
+            // AddKlantBtn
             // 
-            this.AddUrlBtn.BackColor = System.Drawing.Color.Green;
-            this.AddUrlBtn.Location = new System.Drawing.Point(110, 96);
-            this.AddUrlBtn.Name = "AddUrlBtn";
-            this.AddUrlBtn.Size = new System.Drawing.Size(108, 44);
-            this.AddUrlBtn.TabIndex = 42;
-            this.AddUrlBtn.Text = "Klant toevoegen";
-            this.AddUrlBtn.UseVisualStyleBackColor = false;
-            this.AddUrlBtn.Click += new System.EventHandler(this.AddUrlBtn_Click);
+            this.AddKlantBtn.BackColor = System.Drawing.Color.Green;
+            this.AddKlantBtn.Location = new System.Drawing.Point(110, 96);
+            this.AddKlantBtn.Name = "AddKlantBtn";
+            this.AddKlantBtn.Size = new System.Drawing.Size(108, 44);
+            this.AddKlantBtn.TabIndex = 42;
+            this.AddKlantBtn.Text = "Klant toevoegen";
+            this.AddKlantBtn.UseVisualStyleBackColor = false;
+            this.AddKlantBtn.Click += new System.EventHandler(this.AddKlantBtn_Click);
             // 
             // label2
             // 
@@ -192,7 +192,7 @@ namespace WindowsFormsAppTest
             this.groupBox1.Controls.Add(this.KlantTxtBx);
             this.groupBox1.Controls.Add(this.PasKlantAanBtn);
             this.groupBox1.Controls.Add(this.DeleteKlantBttn);
-            this.groupBox1.Controls.Add(this.AddUrlBtn);
+            this.groupBox1.Controls.Add(this.AddKlantBtn);
             this.groupBox1.Location = new System.Drawing.Point(427, 34);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(370, 147);
@@ -308,7 +308,7 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.ListBox AllKlantLstBx;
         private System.Windows.Forms.TextBox KlantTxtBx;
         private System.Windows.Forms.Button PasKlantAanBtn;
-        private System.Windows.Forms.Button AddUrlBtn;
+        private System.Windows.Forms.Button AddKlantBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox UrlsByKlantLstBx;

@@ -30,8 +30,8 @@ namespace WindowsFormsAppTest
         private void InitializeComponent()
         {
             this.label2 = new System.Windows.Forms.Label();
-            this.NewSecurityIdTextBox = new System.Windows.Forms.TextBox();
-            this.AddKlantButton = new System.Windows.Forms.Button();
+            this.NewKlantNaamTxtBx = new System.Windows.Forms.TextBox();
+            this.AddKlantBttn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label2
@@ -43,21 +43,23 @@ namespace WindowsFormsAppTest
             this.label2.TabIndex = 12;
             this.label2.Text = "Name";
             // 
-            // NewSecurityIdTextBox
+            // NewKlantNaamTxtBx
             // 
-            this.NewSecurityIdTextBox.Location = new System.Drawing.Point(53, 6);
-            this.NewSecurityIdTextBox.Name = "NewSecurityIdTextBox";
-            this.NewSecurityIdTextBox.Size = new System.Drawing.Size(397, 20);
-            this.NewSecurityIdTextBox.TabIndex = 11;
+            this.NewKlantNaamTxtBx.Location = new System.Drawing.Point(53, 6);
+            this.NewKlantNaamTxtBx.Name = "NewKlantNaamTxtBx";
+            this.NewKlantNaamTxtBx.Size = new System.Drawing.Size(397, 20);
+            this.NewKlantNaamTxtBx.TabIndex = 11;
+            this.NewKlantNaamTxtBx.TextChanged += new System.EventHandler(this.NewSecurityIdTextBox_TextChanged);
             // 
-            // AddKlantButton
+            // AddKlantBttn
             // 
-            this.AddKlantButton.Location = new System.Drawing.Point(323, 30);
-            this.AddKlantButton.Name = "AddKlantButton";
-            this.AddKlantButton.Size = new System.Drawing.Size(127, 34);
-            this.AddKlantButton.TabIndex = 9;
-            this.AddKlantButton.Text = "Add klant";
-            this.AddKlantButton.UseVisualStyleBackColor = true;
+            this.AddKlantBttn.Location = new System.Drawing.Point(323, 30);
+            this.AddKlantBttn.Name = "AddKlantBttn";
+            this.AddKlantBttn.Size = new System.Drawing.Size(127, 34);
+            this.AddKlantBttn.TabIndex = 9;
+            this.AddKlantBttn.Text = "Add klant";
+            this.AddKlantBttn.UseVisualStyleBackColor = true;
+            this.AddKlantBttn.Click += new System.EventHandler(this.AddKlantBttn_Click);
             // 
             // AddKlantForm
             // 
@@ -65,8 +67,8 @@ namespace WindowsFormsAppTest
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(460, 74);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.NewSecurityIdTextBox);
-            this.Controls.Add(this.AddKlantButton);
+            this.Controls.Add(this.NewKlantNaamTxtBx);
+            this.Controls.Add(this.AddKlantBttn);
             this.Name = "AddKlantForm";
             this.Text = "AddKlantForm";
             this.ResumeLayout(false);
@@ -76,7 +78,7 @@ namespace WindowsFormsAppTest
 
         #endregion
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox NewSecurityIdTextBox;
-        private System.Windows.Forms.Button AddKlantButton;
+        private System.Windows.Forms.Button AddKlantBttn;
+        private System.Windows.Forms.TextBox NewKlantNaamTxtBx;
     }
 }

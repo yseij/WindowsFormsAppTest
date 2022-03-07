@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -34,7 +28,6 @@ namespace WindowsFormsAppTest
             _klantTest = new KlantTest();
             _webserviceTest = new WebserviceTest();
 
-
             getKlanten();
             getWebservices();
         }
@@ -44,7 +37,6 @@ namespace WindowsFormsAppTest
             _klantDatas = _klantTest.GetKlantDatas(true);
             fillLstBxKlanten();
             fillCmbxKlanten();
-
         }
 
         private void getUrlsFromKlant(int id)
@@ -60,7 +52,10 @@ namespace WindowsFormsAppTest
         }
         private void fillLstBxKlanten()
         {
-            _selectedKlantId = _klantDatas[0].Id;
+            if (_klantDatas.Count != 0)
+            {
+                _selectedKlantId = _klantDatas[0].Id;
+            }
             AllKlantLstBx.DataSource = null;
             AllKlantLstBx.DisplayMember = "Name";
             AllKlantLstBx.ValueMember = "Id";
@@ -84,8 +79,8 @@ namespace WindowsFormsAppTest
             WebServiceCmbx.DataSource = null;
             WebServiceCmbx.DisplayMember = "Name";
             WebServiceCmbx.ValueMember = "Id";
-            WebServiceCmbx.DataSource = _webServiceDatas;
             WebServiceCmbx.SelectedValue = _webServiceDatas[0].Id;
+            WebServiceCmbx.DataSource = _webServiceDatas;
         }
 
         private void fillCmbxKlanten()
@@ -109,11 +104,6 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void UrlTxtBx_TextChanged(object sender, EventArgs e)
-        {
-            changedKlant = KlantTxtBx.Text;
-        }
-
         private void PasKlantAanBtn_Click(object sender, EventArgs e)
         {
             _klantTest.UpdateKlant((int)AllKlantLstBx.SelectedValue, changedKlant);
@@ -124,6 +114,11 @@ namespace WindowsFormsAppTest
         {
             _klantTest.DeleteKlant((int)AllKlantLstBx.SelectedValue);
             getKlanten();
+        }
+
+        private void UrlTxtBx_TextChanged(object sender, EventArgs e)
+        {
+            changedKlant = KlantTxtBx.Text;
         }
 
         private void UrlsByKlantLstBx_SelectedIndexChanged(object sender, EventArgs e)
@@ -149,7 +144,7 @@ namespace WindowsFormsAppTest
         private void DeleteUrlBttn_Click(object sender, EventArgs e)
         {
             _urltest.DeleteUrl((int)UrlsByKlantLstBx.SelectedValue);
-            //clearBox();
+            clearBox();
             getUrlsFromKlant(_selectedKlantId);
         }
 
@@ -163,9 +158,10 @@ namespace WindowsFormsAppTest
             changedUrl = UrlTxtBx.Text;
         }
 
-        private void AddUrlBtn_Click(object sender, EventArgs e)
+        private void AddKlantBtn_Click(object sender, EventArgs e)
         {
             var m = new AddKlantForm();
+            m.FormClosing += new FormClosingEventHandler(ChildFormClosingAddKlantForm);
             m.Show();
         }
 
@@ -173,13 +169,20 @@ namespace WindowsFormsAppTest
         {
             SetValueForKlantId = _selectedKlantId;
             var m = new AddUrlForm();
-            m.FormClosing += new FormClosingEventHandler(ChildFormClosing);
+            m.FormClosing += new FormClosingEventHandler(ChildFormClosingAddUrlForm);
             m.Show();
         }
 
-        private void ChildFormClosing(object sender, FormClosingEventArgs e)
+        private void ChildFormClosingAddUrlForm(object sender, FormClosingEventArgs e)
         {
             getUrlsFromKlant(SetValueForKlantId);
+        }
+
+        private void ChildFormClosingAddKlantForm(object sender, FormClosingEventArgs e)
+        {
+            getKlanten();
+            AllKlantLstBx.SelectedIndex = AllKlantLstBx.Items.Count - 1;
+            _selectedKlantId = _klantDatas[_klantDatas.Count - 1].Id;
         }
         private void clearBox()
         {

@@ -13,9 +13,7 @@ namespace WindowsFormsAppTest
         private int selectedKlantId;
         private int aantalLegeUrls;
 
-        private string url;
         private string urlHttp = "https://wsdev.kraan.com/";
-        private string securityId = "";
 
         private dynamic _result;
 
