@@ -34,6 +34,7 @@ namespace WindowsFormsAppTest
             this.OpenTestWebserviceByKlantBtn = new System.Windows.Forms.Button();
             this.UrlsBtn = new System.Windows.Forms.Button();
             this.KlantenBtn = new System.Windows.Forms.Button();
+            this.SoapTestBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // OpenTest1UrlBtn
@@ -86,11 +87,22 @@ namespace WindowsFormsAppTest
             this.KlantenBtn.UseVisualStyleBackColor = true;
             this.KlantenBtn.Click += new System.EventHandler(this.KlantenBtn_Click);
             // 
+            // SoapTestBtn
+            // 
+            this.SoapTestBtn.Location = new System.Drawing.Point(115, 164);
+            this.SoapTestBtn.Name = "SoapTestBtn";
+            this.SoapTestBtn.Size = new System.Drawing.Size(201, 32);
+            this.SoapTestBtn.TabIndex = 5;
+            this.SoapTestBtn.Text = "Soap Testen";
+            this.SoapTestBtn.UseVisualStyleBackColor = true;
+            this.SoapTestBtn.Click += new System.EventHandler(this.SoapTestBtn_Click);
+            // 
             // StartForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(438, 168);
+            this.ClientSize = new System.Drawing.Size(438, 208);
+            this.Controls.Add(this.SoapTestBtn);
             this.Controls.Add(this.KlantenBtn);
             this.Controls.Add(this.UrlsBtn);
             this.Controls.Add(this.OpenTestWebserviceByKlantBtn);
@@ -109,5 +121,6 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Button OpenTestWebserviceByKlantBtn;
         private System.Windows.Forms.Button UrlsBtn;
         private System.Windows.Forms.Button KlantenBtn;
+        private System.Windows.Forms.Button SoapTestBtn;
     }
 }

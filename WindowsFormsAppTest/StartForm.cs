@@ -39,5 +39,10 @@ namespace WindowsFormsAppTest
             var m = new AllKlantenForm();
             m.ShowDialog();
         }
+
+        private void SoapTestBtn_Click(object sender, EventArgs e)
+        {
+            SoapRequest soapRequest = new SoapRequest();
+        }
     }
 }
