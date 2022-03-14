@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json.Linq;
-using System.Security.Cryptography.X509Certificates;
 
 namespace WindowsFormsAppTest
 {
@@ -19,12 +15,14 @@ namespace WindowsFormsAppTest
 
         UrlTest _urltest;
         WebRequest _webRequest;
+        TestRoute _testRoute;
 
         public EenUrlTestForm()
         {
             InitializeComponent();
             _urltest = new UrlTest();
             _webRequest = new WebRequest();
+            _testRoute = new TestRoute();
             _urlDatas = _urltest.GetUrlDatas();
         }
 
@@ -40,40 +38,15 @@ namespace WindowsFormsAppTest
             clearBox();
             var data = _webRequest.GetWebRequest((int)UrlsCmbx.SelectedValue, urlHttp, url, securityId);
             dynamic result = JObject.Parse(data);
-            foreach (JProperty item in result)
-            {
-                switch (item.Name)
-                {
-                    case "WebserviceVersie":
-                        string[] strlist = item.Value.ToString().Split(':');
-                        textBoxWebservice.Text = strlist[1];
-                        break;
-                    case "certVerValDatum":
-                        if (item.Value != null)
-                        {
-                            SslChckBx.Checked = true;
-                            SllCertificaatVervalDatumTxtBx.Text = item.Value.ToString();
-                        }
-                        break;
-                    case "KraanDll":
-                        checkBoxKraanDLL.Checked = item.Value.ToString().Contains("True");
-                        break;
-                    case "KraanIni":
-                        checkBoxKraanIni.Checked = item.Value.ToString().Contains("True");
-                        break;
-                    case "KraanDatabase":
-                        checkBoxKraanDatabase.Checked = item.Value.ToString().Contains("True");
-                        break;
-                    case "id":
-                        break;
-                    case "ex":
-                        ResponseTextBox.Text = ResponseTextBox.Text + item.Value;
-                        break;
-                    default:
-                        ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " + item.Value + Environment.NewLine;
-                        break;
-                }
-            }
+            _testRoute.testRoute(result,
+                                 textBoxWebservice,
+                                 SslChckBx,
+                                 SllCertificaatVervalDatumTxtBx,
+                                 checkBoxKraanDLL,
+                                 checkBoxKraanIni,
+                                 checkBoxKraanDatabase,
+                                 ResponseTextBox,
+                                 UrlsCmbx.Text);
         }
 
         private void HttpCmbx_SelectedIndexChanged(object sender, EventArgs e)

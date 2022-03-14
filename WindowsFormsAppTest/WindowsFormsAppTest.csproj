@@ -90,6 +90,7 @@
     <Compile Include="StartForm.Designer.cs">
       <DependentUpon>StartForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="TestRoute.cs" />
     <Compile Include="UrlData.cs" />
     <Compile Include="UrlTest.cs" />
     <Compile Include="WebRequest.cs" />
