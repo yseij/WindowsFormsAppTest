@@ -74,6 +74,7 @@ namespace WindowsFormsAppTest
             textBoxWebservice.Text = string.Empty;
             ResponseTextBox.Text = string.Empty;
             SslChckBx.Checked = false;
+            SllCertificaatVervalDatumTxtBx.Text = string.Empty;
         }
 
         private void getUrls()
@@ -94,6 +95,8 @@ namespace WindowsFormsAppTest
             HttpCmbx.Items.Clear();
             HttpCmbx.Items.Add("https://wsdev.kraan.com/");
             HttpCmbx.Items.Add("https://ws.kraan.com:444/");
+            HttpCmbx.Items.Add("http://");
+            HttpCmbx.Items.Add("https://");
             HttpCmbx.SelectedIndex = 0;
         }
 

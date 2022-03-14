@@ -96,16 +96,18 @@ namespace WindowsFormsAppTest
             }
         }
 
-        public void UpdateUrl(int id, string url, string securityId)
+        public void UpdateUrl(int id, string url, string securityId, int webServiceId, int klantId)
         {
             using (SqlConnection connection = new SqlConnection(ConnectieDB))
             {
                 connection.Open();
-                var sql = "UPDATE Url SET Name = @Url, SecurityID = @SecurityID " + "where id =" + id;
+                var sql = "UPDATE Url SET Name = @Url, SecurityID = @SecurityID, WebServiceId = @WebServiceId, KlantId = @KlantId " + "where id =" + id;
                 using (var cmd = new SqlCommand(sql, connection))
                 {
                     cmd.Parameters.AddWithValue("@Url", url);
                     cmd.Parameters.AddWithValue("@SecurityID", securityId);
+                    cmd.Parameters.AddWithValue("@WebServiceId", webServiceId);
+                    cmd.Parameters.AddWithValue("@KlantId", klantId);
 
                     cmd.ExecuteNonQuery();
                 }

@@ -216,6 +216,7 @@ namespace WindowsFormsAppTest
             this.SslChckBx.TabIndex = 10;
             this.SslChckBx.Text = "SSL Certificaat";
             this.SslChckBx.UseVisualStyleBackColor = true;
+            this.SslChckBx.Click += new System.EventHandler(this.checkBoxReadOnly_Click);
             // 
             // EenUrlTestForm
             // 

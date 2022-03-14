@@ -10,6 +10,8 @@ namespace WindowsFormsAppTest
         private string changedSecurityId = "";
         private string changedUrl = "";
         private int _selectedKlantId;
+        private int _selectedKlantIdForChange;
+        private int _selectedWebserviceId;
         private int _selectedUrlId;
 
         private List<UrlData> _urlDatasByKlant = new List<UrlData>();
@@ -140,7 +142,7 @@ namespace WindowsFormsAppTest
 
         private void PasUrlAanBtn_Click(object sender, EventArgs e)
         {
-            _urltest.UpdateUrl((int)UrlsByKlantLstBx.SelectedValue, changedUrl, changedSecurityId);
+            _urltest.UpdateUrl((int)UrlsByKlantLstBx.SelectedValue, changedUrl, changedSecurityId, _selectedWebserviceId, _selectedKlantId);
             getUrlsFromKlant(_selectedKlantId);
         }
 
@@ -192,6 +194,16 @@ namespace WindowsFormsAppTest
         {
             SecurityIdTxtBx.Text = string.Empty;
             UrlTxtBx.Text = string.Empty;
+        }
+
+        private void WebServiceCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedWebserviceId = (int)WebServiceCmbx.SelectedValue;
+        }
+
+        private void KlantCmbBx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedKlantIdForChange = (int)KlantCmbBx.SelectedValue;
         }
 
         //private void AllKlantLstBx_DataSourceChanged(object sender, EventArgs e)

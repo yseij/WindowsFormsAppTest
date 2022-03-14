@@ -245,6 +245,7 @@ namespace WindowsFormsAppTest
             this.KlantCmbBx.Name = "KlantCmbBx";
             this.KlantCmbBx.Size = new System.Drawing.Size(295, 21);
             this.KlantCmbBx.TabIndex = 61;
+            this.KlantCmbBx.SelectedIndexChanged += new System.EventHandler(this.KlantCmbBx_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -262,6 +263,7 @@ namespace WindowsFormsAppTest
             this.WebServiceCmbx.Name = "WebServiceCmbx";
             this.WebServiceCmbx.Size = new System.Drawing.Size(295, 21);
             this.WebServiceCmbx.TabIndex = 59;
+            this.WebServiceCmbx.SelectedIndexChanged += new System.EventHandler(this.WebServiceCmbx_SelectedIndexChanged);
             // 
             // SecurityIdTxtBx
             // 

@@ -2,10 +2,12 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 
 namespace WindowsFormsAppTest
@@ -37,10 +39,12 @@ namespace WindowsFormsAppTest
         public string GetWebRequest(int id, string urlHttp, string url, string securityId = "")
         {
             string webRequestUrl = urlHttp + url + securityId;
+            //string webRequestUrl = "http://www.djseyo.be";
             Uri uri = new Uri(webRequestUrl);
             try
             {
                 HttpWebRequest request = HttpWebRequest.Create(webRequestUrl) as HttpWebRequest;
+                //request.ServerCertificateValidationCallback += ServerCertificateValidationCallback;
                 X509Certificate cert = request.ServicePoint.Certificate;
                 HttpClient client = new HttpClient();
                 using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
@@ -105,6 +109,27 @@ namespace WindowsFormsAppTest
             kraanDatabase = data.Substring(positionDatabaseConnect, positionDatabaseMelding - positionDatabaseConnect);
 
             return @"{ WebserviceVersie: '" + webserviceVersie + "', KraanDll: '" + kraanDll + "', KraanIni: '" + kraanIni + "', KraanDatabase: '" + kraanDatabase + "', certVerValDatum: '" + verValDatum + "'}";
+        }
+
+        private static bool ServerCertificateValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        {
+            //see: https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x509certificate.getexpirationdatestring?view=netcore-3.1#remarks
+            //Make sure we parse the DateTime.Parse(expirationdate) the same as GetExpirationDateString() does.
+            Console.WriteLine("test");
+            CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
+            var expirationDate = DateTime.Parse(certificate.GetExpirationDateString(), CultureInfo.InvariantCulture);
+            if (expirationDate - DateTime.Today < TimeSpan.FromDays(30))
+            {
+                throw new Exception("Time to renew the certificate!");
+            }
+            if (sslPolicyErrors == SslPolicyErrors.None)
+            {
+                return true;
+            }
+            else
+            {
+                throw new Exception("Cert policy errors: " + sslPolicyErrors.ToString());
+            }
         }
     }
 }

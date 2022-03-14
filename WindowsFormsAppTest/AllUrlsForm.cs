@@ -91,7 +91,7 @@ namespace WindowsFormsAppTest
         {
             int selectedIndex = AllUrlsLstBx.SelectedIndex;
             int idOfSelected = (int)AllUrlsLstBx.SelectedValue;
-            _urltest.UpdateUrl(idOfSelected, changedUrl, changedSecurityId);
+            _urltest.UpdateUrl(idOfSelected, changedUrl, changedSecurityId, _selectedWebserviceId, _selectedKlantId);
             clearBox();
             getUrls();
             AllUrlsLstBx.SelectedIndex = selectedIndex;
