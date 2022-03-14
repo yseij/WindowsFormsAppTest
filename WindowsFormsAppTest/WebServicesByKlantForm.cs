@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -13,7 +14,8 @@ namespace WindowsFormsAppTest
         private int selectedKlantId;
         private int aantalLegeUrls;
 
-        private string urlHttp = "https://wsdev.kraan.com/";
+        private string urlHttp = "https://ws.kraan.com:444/";
+        private string _filePath;
 
         private dynamic _result;
 
@@ -54,6 +56,7 @@ namespace WindowsFormsAppTest
         private void TestAllBtn_Click(object sender, EventArgs e)
         {
             _urlDatasByForeignKeyKlant = _urltest.GetAllUrlsByForeignKeyKlant(selectedKlantId);
+            makeLogFile();
             TrVwAll.Nodes.Clear();
             TrVwAll.BeginUpdate();
             clearBox();
@@ -76,10 +79,12 @@ namespace WindowsFormsAppTest
                         aantalLegeUrls = aantalLegeUrls + 1;
                         AantalLegeUrlsTxtBx.Text = aantalLegeUrls.ToString();
                         LegeUrlsTxtBx.Text = LegeUrlsTxtBx.Text + urlData.Name + Environment.NewLine;
+                        File.AppendAllText(_filePath, item.Name + " = " + item.Value.ToString() + "\n");
                     }
-                    if (item.Name != "id")
+                    else if (item.Name != "id")
                     {
                         TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
+                        File.AppendAllText(_filePath, item.Name + " = " + item.Value.ToString() + "\n");
                     }
                 }
             }
@@ -142,6 +147,15 @@ namespace WindowsFormsAppTest
             ResponseTextBox.Text = string.Empty;
             SllCertificaatVervalDatumTxtBx.Text = string.Empty;
             SslChckBx.Checked = false;
+        }
+
+        private void makeLogFile()
+        {
+            string time = DateTime.Now.ToLongTimeString().Replace(":", "");
+            string date = DateTime.Today.ToString("d").Replace("-", "");
+            _filePath = @"d:\log_van_" + KlantsCmbx.Text.Replace("/", "") + "_op_datum_" + date + time + ".txt";
+            string createText = "Log van " + KlantsCmbx.Text + "op datum " + date + Environment.NewLine;
+            File.WriteAllText(_filePath, createText);
         }
     }
 }

@@ -22,7 +22,7 @@ namespace WindowsFormsAppTest
             string time = DateTime.Now.ToLongTimeString().Replace(":", "");
             string date = DateTime.Today.ToString("d").Replace("-", "");
             _filePath = @"d:\log_van_" + selectedText.Replace("/", "") + "_op_datum_" + date + time + ".txt";
-            string createText = "Log van " + selectedText + date + Environment.NewLine;
+            string createText = "Log van " + selectedText + "op datum " + date + Environment.NewLine;
             File.WriteAllText(_filePath, createText);
             foreach (JProperty item in result)
             {
