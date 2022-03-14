@@ -7,28 +7,17 @@ namespace WindowsFormsAppTest
 {
     class KlantTest
     {
-        private List<KlantData> _klantDatas = new List<KlantData>();
-
         public KlantTest()
         {
-            GetKlants();
+            GetKlantData();
         }
 
         private string ConnectieDB => ConfigurationManager.AppSettings["connectieString"];
 
-        public List<KlantData> GetKlantDatas(bool reload = false)
-        {
-            if (reload)
-            {
-                _klantDatas.Clear();
-                GetKlants();
-            }
 
-            return _klantDatas;
-        }
-
-        public void GetKlants()
+        public List<KlantData> GetKlantData()
         {
+            List<KlantData> klantDatas = new List<KlantData>();
 
             DataTable dt = new DataTable();
             int rows_returned;
@@ -46,9 +35,11 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    _klantDatas.Add(new KlantData((int)dr[0], dr[1].ToString()));
+                    klantDatas.Add(new KlantData((int)dr[0], dr[1].ToString()));
                 }
             }
+
+            return klantDatas;
         }
 
         public void AddKlant(string name)

@@ -26,7 +26,7 @@ namespace WindowsFormsAppTest
             _webserviceTest = new WebserviceTest();
             _klantTest = new KlantTest();
             _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
-            _klantDatas = _klantTest.GetKlantDatas(true);
+            _klantDatas = _klantTest.GetKlantData();
             fillCmbxWebServices();
             fillCmbxKlanten();
         }

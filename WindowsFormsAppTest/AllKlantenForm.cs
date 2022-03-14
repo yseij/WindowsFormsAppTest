@@ -11,11 +11,12 @@ namespace WindowsFormsAppTest
         private string changedUrl = "";
         private int _selectedKlantId;
         private int _selectedKlantIdForChange;
-        private int _selectedWebserviceId;
+        private int _selectedWebserviceIdForChange;
         private int _selectedUrlId;
 
         private List<UrlData> _urlDatasByKlant = new List<UrlData>();
         private List<KlantData> _klantDatas = new List<KlantData>();
+        private List<KlantData> _klantDatasForChange = new List<KlantData>();
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
 
         UrlTest _urltest;
@@ -36,7 +37,8 @@ namespace WindowsFormsAppTest
 
         private void getKlanten()
         {
-            _klantDatas = _klantTest.GetKlantDatas(true);
+            _klantDatas = _klantTest.GetKlantData();
+            _klantDatasForChange = _klantTest.GetKlantData();
             fillLstBxKlanten();
             fillCmbxKlanten();
         }
@@ -91,7 +93,7 @@ namespace WindowsFormsAppTest
         {
             KlantCmbBx.DataSource = null;
             KlantCmbBx.ValueMember = "Id";
-            KlantCmbBx.DataSource = _klantDatas;
+            KlantCmbBx.DataSource = _klantDatasForChange;
             KlantCmbBx.DisplayMember = "Name";
             KlantCmbBx.SelectedValue = _selectedKlantId;
         }
@@ -107,11 +109,14 @@ namespace WindowsFormsAppTest
                 KlantTxtBx.Text = klantData.Name;
             }
         }
+        private void KlantCmbBx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedKlantIdForChange = (int)KlantCmbBx.SelectedValue;
+        }
 
         private void PasKlantAanBtn_Click(object sender, EventArgs e)
         {
             _klantTest.UpdateKlant((int)AllKlantLstBx.SelectedValue, changedKlant);
-
             getKlanten();
         }
 
@@ -142,7 +147,11 @@ namespace WindowsFormsAppTest
 
         private void PasUrlAanBtn_Click(object sender, EventArgs e)
         {
-            _urltest.UpdateUrl((int)UrlsByKlantLstBx.SelectedValue, changedUrl, changedSecurityId, _selectedWebserviceId, _selectedKlantId);
+            _urltest.UpdateUrl((int)UrlsByKlantLstBx.SelectedValue, 
+                                changedUrl, 
+                                changedSecurityId, 
+                                _selectedWebserviceIdForChange, 
+                                _selectedKlantIdForChange);
             getUrlsFromKlant(_selectedKlantId);
         }
 
@@ -198,17 +207,7 @@ namespace WindowsFormsAppTest
 
         private void WebServiceCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _selectedWebserviceId = (int)WebServiceCmbx.SelectedValue;
+            _selectedWebserviceIdForChange = (int)WebServiceCmbx.SelectedValue;
         }
-
-        private void KlantCmbBx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            _selectedKlantIdForChange = (int)KlantCmbBx.SelectedValue;
-        }
-
-        //private void AllKlantLstBx_DataSourceChanged(object sender, EventArgs e)
-        //{
-        //    AllKlantLstBx.Update();
-        //}
     }
 }

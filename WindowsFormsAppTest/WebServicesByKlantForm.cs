@@ -28,7 +28,7 @@ namespace WindowsFormsAppTest
             _klantTest = new KlantTest();
             _urltest = new UrlTest();
             _webRequest = new WebRequest();
-            _klantDatas = _klantTest.GetKlantDatas(true);
+            _klantDatas = _klantTest.GetKlantData();
         }
 
         private void WebServicesByKlantForm_Load(object sender, EventArgs e)
