@@ -165,7 +165,7 @@ namespace WindowsFormsAppTest
         {
             var m = new AddKlantForm();
             m.FormClosing += new FormClosingEventHandler(ChildFormClosingAddKlantForm);
-            m.Show();
+            m.ShowDialog();
         }
 
         private void ChildFormClosingAddKlantForm(object sender, FormClosingEventArgs e)
@@ -180,7 +180,7 @@ namespace WindowsFormsAppTest
             SetValueForKlantId = _selectedKlantId;
             var m = new AddUrlForm();
             m.FormClosing += new FormClosingEventHandler(ChildFormClosingAddUrlForm);
-            m.Show();
+            m.ShowDialog();
         }
 
         private void ChildFormClosingAddUrlForm(object sender, FormClosingEventArgs e)

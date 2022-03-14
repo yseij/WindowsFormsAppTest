@@ -45,11 +45,10 @@ namespace WindowsFormsAppTest
             this.label3 = new System.Windows.Forms.Label();
             this.SllCertificaatVervalDatumTxtBx = new System.Windows.Forms.TextBox();
             this.SslChckBx = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.LegeUrlsTxtBx = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.AantalLegeUrlsTxtBx = new System.Windows.Forms.TextBox();
-            this.LegeUrlsTxtBx = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -172,7 +171,7 @@ namespace WindowsFormsAppTest
             this.ResponseTextBox.Multiline = true;
             this.ResponseTextBox.Name = "ResponseTextBox";
             this.ResponseTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ResponseTextBox.Size = new System.Drawing.Size(508, 188);
+            this.ResponseTextBox.Size = new System.Drawing.Size(508, 208);
             this.ResponseTextBox.TabIndex = 24;
             // 
             // groupBox2
@@ -213,15 +212,7 @@ namespace WindowsFormsAppTest
             this.SslChckBx.TabIndex = 10;
             this.SslChckBx.Text = "SSL Certificaat";
             this.SslChckBx.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(370, 623);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(508, 23);
-            this.button1.TabIndex = 25;
-            this.button1.Text = "Sla log op";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SslChckBx.Click += new System.EventHandler(this.checkBoxReadOnly_Click);
             // 
             // groupBox3
             // 
@@ -234,6 +225,15 @@ namespace WindowsFormsAppTest
             this.groupBox3.TabIndex = 19;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Urls die leeg waren";
+            // 
+            // LegeUrlsTxtBx
+            // 
+            this.LegeUrlsTxtBx.Location = new System.Drawing.Point(13, 39);
+            this.LegeUrlsTxtBx.Multiline = true;
+            this.LegeUrlsTxtBx.Name = "LegeUrlsTxtBx";
+            this.LegeUrlsTxtBx.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.LegeUrlsTxtBx.Size = new System.Drawing.Size(318, 300);
+            this.LegeUrlsTxtBx.TabIndex = 26;
             // 
             // label2
             // 
@@ -252,22 +252,12 @@ namespace WindowsFormsAppTest
             this.AantalLegeUrlsTxtBx.Size = new System.Drawing.Size(172, 20);
             this.AantalLegeUrlsTxtBx.TabIndex = 13;
             // 
-            // LegeUrlsTxtBx
-            // 
-            this.LegeUrlsTxtBx.Location = new System.Drawing.Point(13, 39);
-            this.LegeUrlsTxtBx.Multiline = true;
-            this.LegeUrlsTxtBx.Name = "LegeUrlsTxtBx";
-            this.LegeUrlsTxtBx.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.LegeUrlsTxtBx.Size = new System.Drawing.Size(318, 300);
-            this.LegeUrlsTxtBx.TabIndex = 26;
-            // 
             // WebserviceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 655);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.ResponseTextBox);
             this.Controls.Add(this.ZetLogVastChkBx);
@@ -308,7 +298,6 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox SllCertificaatVervalDatumTxtBx;
         private System.Windows.Forms.CheckBox SslChckBx;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox LegeUrlsTxtBx;
         private System.Windows.Forms.Label label2;

@@ -125,7 +125,7 @@ namespace WindowsFormsAppTest
         {
             var m = new AddUrlForm();
             m.FormClosing += new FormClosingEventHandler(ChildFormClosing);
-            m.Show();
+            m.ShowDialog();
         }
 
         private void ChildFormClosing(object sender, FormClosingEventArgs e)

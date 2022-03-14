@@ -48,7 +48,6 @@ namespace WindowsFormsAppTest
             this.label4 = new System.Windows.Forms.Label();
             this.SllCertificaatVervalDatumTxtBx = new System.Windows.Forms.TextBox();
             this.SslChckBx = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.ResponseTextBox = new System.Windows.Forms.TextBox();
             this.ZetLogVastChkBx = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
@@ -242,15 +241,7 @@ namespace WindowsFormsAppTest
             this.SslChckBx.TabIndex = 10;
             this.SslChckBx.Text = "SSL Certificaat";
             this.SslChckBx.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(366, 620);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(508, 23);
-            this.button1.TabIndex = 28;
-            this.button1.Text = "Sla log op";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SslChckBx.Click += new System.EventHandler(this.checkBoxReadOnly_Click);
             // 
             // ResponseTextBox
             // 
@@ -258,7 +249,7 @@ namespace WindowsFormsAppTest
             this.ResponseTextBox.Multiline = true;
             this.ResponseTextBox.Name = "ResponseTextBox";
             this.ResponseTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ResponseTextBox.Size = new System.Drawing.Size(508, 216);
+            this.ResponseTextBox.Size = new System.Drawing.Size(508, 239);
             this.ResponseTextBox.TabIndex = 27;
             // 
             // ZetLogVastChkBx
@@ -277,7 +268,6 @@ namespace WindowsFormsAppTest
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(887, 649);
             this.Controls.Add(this.ZetLogVastChkBx);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.ResponseTextBox);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -322,7 +312,6 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox SllCertificaatVervalDatumTxtBx;
         private System.Windows.Forms.CheckBox SslChckBx;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox ResponseTextBox;
         private System.Windows.Forms.CheckBox ZetLogVastChkBx;
     }
