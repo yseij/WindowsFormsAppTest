@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
 {
-    public partial class AddUrlForm : Form
+    public partial class AddUrlForm : MaterialForm
     {
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
         private List<KlantData> _klantDatas = new List<KlantData>();
