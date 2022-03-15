@@ -107,14 +107,14 @@ namespace WindowsFormsAppTest
             this.SllCertificaatVervalDatumTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.SllCertificaatVervalDatumTxtBx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.SllCertificaatVervalDatumTxtBx.LeadingIcon = null;
-            this.SllCertificaatVervalDatumTxtBx.Location = new System.Drawing.Point(144, 22);
+            this.SllCertificaatVervalDatumTxtBx.Location = new System.Drawing.Point(180, 22);
             this.SllCertificaatVervalDatumTxtBx.MaximumSize = new System.Drawing.Size(500, 50);
             this.SllCertificaatVervalDatumTxtBx.MaxLength = 150;
             this.SllCertificaatVervalDatumTxtBx.MouseState = MaterialSkin.MouseState.OUT;
             this.SllCertificaatVervalDatumTxtBx.Multiline = false;
             this.SllCertificaatVervalDatumTxtBx.Name = "SllCertificaatVervalDatumTxtBx";
             this.SllCertificaatVervalDatumTxtBx.ReadOnly = true;
-            this.SllCertificaatVervalDatumTxtBx.Size = new System.Drawing.Size(272, 50);
+            this.SllCertificaatVervalDatumTxtBx.Size = new System.Drawing.Size(236, 50);
             this.SllCertificaatVervalDatumTxtBx.TabIndex = 7;
             this.SllCertificaatVervalDatumTxtBx.Text = "";
             this.SllCertificaatVervalDatumTxtBx.TrailingIcon = null;
@@ -129,9 +129,9 @@ namespace WindowsFormsAppTest
             this.LblCertificaatVervalDatum.Location = new System.Drawing.Point(8, 24);
             this.LblCertificaatVervalDatum.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblCertificaatVervalDatum.Name = "LblCertificaatVervalDatum";
-            this.LblCertificaatVervalDatum.Size = new System.Drawing.Size(130, 19);
+            this.LblCertificaatVervalDatum.Size = new System.Drawing.Size(170, 19);
             this.LblCertificaatVervalDatum.TabIndex = 6;
-            this.LblCertificaatVervalDatum.Text = "Webservice versie:";
+            this.LblCertificaatVervalDatum.Text = "Certificaat vervaldatum:";
             // 
             // HttpCmbx
             // 

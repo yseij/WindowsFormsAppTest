@@ -1,12 +1,14 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using MaterialSkin.Controls;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
 {
-    public partial class WebserviceForm : Form
+    public partial class WebserviceForm : MaterialForm
     {
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
         private List<UrlData> _urlDatasByForeignKey = new List<UrlData>();
@@ -19,11 +21,9 @@ namespace WindowsFormsAppTest
 
         private dynamic _result;
 
-
         WebserviceTest _webserviceTest;
         UrlTest _urltest;
         WebRequest _webRequest;
-
 
         public WebserviceForm()
         {
@@ -53,8 +53,10 @@ namespace WindowsFormsAppTest
 
         }
 
-        private void TestAllBtn_Click(object sender, EventArgs e)
+        private void TestAllBtn_Click_1(object sender, EventArgs e)
         {
+            int teller = 0;
+
             _urlDatasByForeignKey = _urltest.GetAllUrlsByForeignKeyWebservice(selectedWebserviceId);
             makeLogFile();
             TrVwAll.Nodes.Clear();
@@ -67,21 +69,27 @@ namespace WindowsFormsAppTest
             {
                 TreeNode node = new TreeNode();
                 node.Text = urlData.Name;
-                File.AppendAllText(_filePath,"\n");
+                File.AppendAllText(_filePath, "\n");
                 File.AppendAllText(_filePath, urlData.Name + "\n");
                 var data = _webRequest.GetWebRequest(urlData.Id, urlHttp, urlData.Name, urlData.SecurityId);
                 _result = JObject.Parse(data);
                 node.Tag = _result;
-                TrVwAll.Nodes.Add(node);
                 foreach (JProperty item in _result)
                 {
                     if (item.Name == "ex")
                     {
+                        node.ForeColor = Color.FromArgb(255, 0, 0);
+                        TrVwAll.Nodes.Add(node);
                         ResponseTextBox.Text = item.Value.ToString();
                         aantalLegeUrls = aantalLegeUrls + 1;
                         AantalLegeUrlsTxtBx.Text = aantalLegeUrls.ToString();
-                        LegeUrlsTxtBx.Text = LegeUrlsTxtBx.Text + urlData.Name + Environment.NewLine;
+                        LegeUrlsTxtBx.Text = LegeUrlsTxtBx.Text + " -- " + urlData.Name + Environment.NewLine;
                         File.AppendAllText(_filePath, item.Name + " = " + item.Value.ToString() + "\n");
+                    }
+                    else if (teller == 0)
+                    {
+                        TrVwAll.Nodes.Add(node);
+                        teller = teller + 1;
                     }
                     else if (item.Name != "id")
                     {
@@ -92,8 +100,7 @@ namespace WindowsFormsAppTest
             }
             TrVwAll.EndUpdate();
         }
-
-        private void WebServiceCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        private void WebServiceCmbx_SelectedIndexChanged_1(object sender, EventArgs e)
         {
             selectedWebserviceId = (int)WebServiceCmbx.SelectedValue;
         }

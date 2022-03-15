@@ -33,5 +33,11 @@ namespace WindowsFormsAppTest
             var m = new EenUrlTestForm();
             m.ShowDialog();
         }
+
+        private void BttnWebservice_Click(object sender, EventArgs e)
+        {
+            var m = new WebserviceForm();
+            m.ShowDialog();
+        }
     }
 }

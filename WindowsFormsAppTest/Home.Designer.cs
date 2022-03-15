@@ -108,6 +108,7 @@ namespace WindowsFormsAppTest
             this.BttnWebservice.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.BttnWebservice.UseAccentColor = false;
             this.BttnWebservice.UseVisualStyleBackColor = true;
+            this.BttnWebservice.Click += new System.EventHandler(this.BttnWebservice_Click);
             // 
             // BtnKlant
             // 
