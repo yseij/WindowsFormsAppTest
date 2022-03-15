@@ -47,7 +47,7 @@ namespace WindowsFormsAppTest
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.LegeUrlsTxtBx = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.AantalLegeUrlsTxtBx = new MaterialSkin.Controls.MaterialTextBox();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.LblAantalLegeUrls = new MaterialSkin.Controls.MaterialLabel();
             this.ResponseTextBox = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -319,7 +319,7 @@ namespace WindowsFormsAppTest
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.groupBox2.Controls.Add(this.LegeUrlsTxtBx);
             this.groupBox2.Controls.Add(this.AantalLegeUrlsTxtBx);
-            this.groupBox2.Controls.Add(this.materialLabel1);
+            this.groupBox2.Controls.Add(this.LblAantalLegeUrls);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.groupBox2.Location = new System.Drawing.Point(21, 552);
@@ -375,19 +375,19 @@ namespace WindowsFormsAppTest
             this.AantalLegeUrlsTxtBx.Text = "";
             this.AantalLegeUrlsTxtBx.TrailingIcon = null;
             // 
-            // materialLabel1
+            // LblAantalLegeUrls
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(8, 24);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(51, 19);
-            this.materialLabel1.TabIndex = 6;
-            this.materialLabel1.Text = "Aantal:";
+            this.LblAantalLegeUrls.AutoSize = true;
+            this.LblAantalLegeUrls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.LblAantalLegeUrls.Depth = 0;
+            this.LblAantalLegeUrls.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.LblAantalLegeUrls.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblAantalLegeUrls.Location = new System.Drawing.Point(8, 24);
+            this.LblAantalLegeUrls.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LblAantalLegeUrls.Name = "LblAantalLegeUrls";
+            this.LblAantalLegeUrls.Size = new System.Drawing.Size(51, 19);
+            this.LblAantalLegeUrls.TabIndex = 6;
+            this.LblAantalLegeUrls.Text = "Aantal:";
             // 
             // ResponseTextBox
             // 
@@ -431,7 +431,8 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.TrVwAll);
             this.Name = "WebserviceForm";
             this.Sizable = false;
-            this.Text = "WebserviceForm";
+            this.Text = "Per Webservice Testen";
+            this.TopMost = true;
             this.Load += new System.EventHandler(this.WebserviceForm_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -463,7 +464,7 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.GroupBox groupBox2;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 LegeUrlsTxtBx;
         private MaterialSkin.Controls.MaterialTextBox AantalLegeUrlsTxtBx;
-        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialLabel LblAantalLegeUrls;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 ResponseTextBox;
     }
 }

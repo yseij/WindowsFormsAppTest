@@ -130,6 +130,7 @@ namespace WindowsFormsAppTest
             this.BtnKlant.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.BtnKlant.UseAccentColor = false;
             this.BtnKlant.UseVisualStyleBackColor = true;
+            this.BtnKlant.Click += new System.EventHandler(this.BtnKlant_Click);
             // 
             // materialDivider1
             // 

@@ -1,12 +1,14 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using MaterialSkin.Controls;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
 {
-    public partial class WebServicesByKlantForm : Form
+    public partial class WebServicesByKlantForm : MaterialForm
     {
         private List<KlantData> _klantDatas = new List<KlantData>();
         private List<UrlData> _urlDatasByForeignKeyKlant = new List<UrlData>();
@@ -36,7 +38,7 @@ namespace WindowsFormsAppTest
             fillCmbxKlanten();
         }
 
-        private void WebServiceCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        private void KlantsCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedKlantId = (int)KlantsCmbx.SelectedValue;
         }
@@ -48,13 +50,11 @@ namespace WindowsFormsAppTest
             KlantsCmbx.ValueMember = "Id";
             KlantsCmbx.DataSource = _klantDatas;
         }
-        private void TrVwAll_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
-        }
 
         private void TestAllBtn_Click(object sender, EventArgs e)
         {
+            int teller = 0;
+
             _urlDatasByForeignKeyKlant = _urltest.GetAllUrlsByForeignKeyKlant(selectedKlantId);
             makeLogFile();
             TrVwAll.Nodes.Clear();
@@ -70,16 +70,22 @@ namespace WindowsFormsAppTest
                 var data = _webRequest.GetWebRequest(urlData.Id, urlHttp, urlData.Name, urlData.SecurityId);
                 _result = JObject.Parse(data);
                 node.Tag = _result;
-                TrVwAll.Nodes.Add(node);
                 foreach (JProperty item in _result)
                 {
                     if (item.Name == "ex")
                     {
+                        node.ForeColor = Color.FromArgb(255, 0, 0);
+                        TrVwAll.Nodes.Add(node);
                         ResponseTextBox.Text = item.Value.ToString();
                         aantalLegeUrls = aantalLegeUrls + 1;
                         AantalLegeUrlsTxtBx.Text = aantalLegeUrls.ToString();
                         LegeUrlsTxtBx.Text = LegeUrlsTxtBx.Text + urlData.Name + Environment.NewLine;
                         File.AppendAllText(_filePath, item.Name + " = " + item.Value.ToString() + "\n");
+                    }
+                    else if (teller == 0)
+                    {
+                        TrVwAll.Nodes.Add(node);
+                        teller = teller + 1;
                     }
                     else if (item.Name != "id")
                     {
@@ -90,6 +96,7 @@ namespace WindowsFormsAppTest
             }
             TrVwAll.EndUpdate();
         }
+
         private void TrVwAll_Click(object sender, EventArgs e)
         {
             if (!ZetLogVastChkBx.Checked)
@@ -130,7 +137,6 @@ namespace WindowsFormsAppTest
                     }
                 }
             }
-
         }
 
         private void checkBoxReadOnly_Click(object sender, EventArgs e)
