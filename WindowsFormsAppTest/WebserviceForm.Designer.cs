@@ -419,7 +419,7 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1071, 871);
+            this.ClientSize = new System.Drawing.Size(1063, 875);
             this.Controls.Add(this.ResponseTextBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);

@@ -52,6 +52,7 @@ namespace WindowsFormsAppTest
             this.AddKlantBttn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.AddKlantBttn.UseAccentColor = false;
             this.AddKlantBttn.UseVisualStyleBackColor = true;
+            this.AddKlantBttn.Click += new System.EventHandler(this.AddKlantBttn_Click);
             // 
             // NewKlantNaamTxtBx
             // 
@@ -93,6 +94,7 @@ namespace WindowsFormsAppTest
             this.NewKlantNaamTxtBx.TrailingIcon = null;
             this.NewKlantNaamTxtBx.UseSystemPasswordChar = false;
             this.NewKlantNaamTxtBx.ValidatingType = null;
+            this.NewKlantNaamTxtBx.Click += new System.EventHandler(this.NewKlantNaamTxtBx_Click);
             // 
             // LblName
             // 
@@ -115,7 +117,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.NewKlantNaamTxtBx);
             this.Controls.Add(this.AddKlantBttn);
             this.Name = "AddKlantForm";
-            this.Text = "AddKlantForm";
+            this.Text = "Klant toevoegen";
             this.ResumeLayout(false);
             this.PerformLayout();
 

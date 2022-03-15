@@ -1,7 +1,6 @@
 ﻿using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
 {
@@ -44,26 +43,6 @@ namespace WindowsFormsAppTest
             Close();
         }
 
-        private void NewSecurityIdTextBox_TextChanged(object sender, EventArgs e)
-        {
-            _newSecurityId = NewSecurityIdTextBox.Text;
-        }
-
-        private void NewUrlTextBox_TextChanged(object sender, EventArgs e)
-        {
-            _newUrl = NewUrlTextBox.Text;
-        }
-
-        private void WebServiceCmbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            _selectedWebserviceId = (int)WebServiceCmbx.SelectedValue;
-        }
-
-        private void KlantCmbBx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            _selectedKlantId = (int)KlantCmbBx.SelectedValue;
-        }
-
         private void fillCmbxWebServices()
         {
             WebServiceCmbx.DataSource = null;
@@ -82,6 +61,26 @@ namespace WindowsFormsAppTest
             {
                 KlantCmbBx.SelectedValue = _klantId;
             }
+        }
+
+        private void NewSecurityIdTxtBx_Click(object sender, EventArgs e)
+        {
+            _newSecurityId = NewSecurityIdTxtBx.Text;
+        }
+
+        private void NewUrlTxtBx_Click(object sender, EventArgs e)
+        {
+            _newUrl = NewUrlTxtBx.Text;
+        }
+
+        private void WebServiceCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedWebserviceId = (int)WebServiceCmbx.SelectedValue;
+        }
+
+        private void KlantCmbBx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedKlantId = (int)KlantCmbBx.SelectedValue;
         }
     }
 }

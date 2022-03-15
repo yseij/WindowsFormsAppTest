@@ -1,16 +1,11 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
 {
-    public partial class AllUrlsForm : Form
+    public partial class AllUrlsForm : MaterialForm
     {
         private string changedSecurityId = "";
         private string changedUrl;
@@ -79,7 +74,7 @@ namespace WindowsFormsAppTest
                 {
                     if (urlData.KlantDataId == klant.Id)
                     {
-                        KlantCmbBx.SelectedItem = klant;
+                        materialComboBox2.SelectedItem = klant;
                     }
                 }
                 UrlTxtBx.Text = urlData.Name;
@@ -140,7 +135,7 @@ namespace WindowsFormsAppTest
 
         private void KlantCmbBx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _selectedKlantId = (int)KlantCmbBx.SelectedValue;
+            _selectedKlantId = (int)materialComboBox2.SelectedValue;
         }
 
         private void fillCmbxWebServices()
@@ -153,10 +148,10 @@ namespace WindowsFormsAppTest
 
         private void fillCmbxKlanten()
         {
-            KlantCmbBx.DataSource = null;
-            KlantCmbBx.DisplayMember = "Name";
-            KlantCmbBx.ValueMember = "Id";
-            KlantCmbBx.DataSource = _klantDatas;
+            materialComboBox2.DataSource = null;
+            materialComboBox2.DisplayMember = "Name";
+            materialComboBox2.ValueMember = "Id";
+            materialComboBox2.DataSource = _klantDatas;
         }
     }
 }

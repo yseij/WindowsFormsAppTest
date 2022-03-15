@@ -30,8 +30,8 @@ namespace WindowsFormsAppTest
         private void InitializeComponent()
         {
             this.AddUrlButton = new MaterialSkin.Controls.MaterialButton();
-            this.NewUrlTextBox = new MaterialSkin.Controls.MaterialMaskedTextBox();
-            this.NewSecurityIdTextBox = new MaterialSkin.Controls.MaterialMaskedTextBox();
+            this.NewUrlTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
+            this.NewSecurityIdTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.LblSecurityID = new MaterialSkin.Controls.MaterialLabel();
             this.LblUrl = new MaterialSkin.Controls.MaterialLabel();
             this.LblWebservice = new MaterialSkin.Controls.MaterialLabel();
@@ -58,88 +58,91 @@ namespace WindowsFormsAppTest
             this.AddUrlButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.AddUrlButton.UseAccentColor = false;
             this.AddUrlButton.UseVisualStyleBackColor = true;
+            this.AddUrlButton.Click += new System.EventHandler(this.AddUrlButton_Click);
             // 
-            // NewUrlTextBox
+            // NewUrlTxtBx
             // 
-            this.NewUrlTextBox.AllowPromptAsInput = true;
-            this.NewUrlTextBox.AnimateReadOnly = false;
-            this.NewUrlTextBox.AsciiOnly = false;
-            this.NewUrlTextBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.NewUrlTextBox.BeepOnError = false;
-            this.NewUrlTextBox.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.NewUrlTextBox.Depth = 0;
-            this.NewUrlTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.NewUrlTextBox.HidePromptOnLeave = false;
-            this.NewUrlTextBox.HideSelection = true;
-            this.NewUrlTextBox.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
-            this.NewUrlTextBox.LeadingIcon = null;
-            this.NewUrlTextBox.Location = new System.Drawing.Point(101, 121);
-            this.NewUrlTextBox.Mask = "";
-            this.NewUrlTextBox.MaxLength = 32767;
-            this.NewUrlTextBox.MouseState = MaterialSkin.MouseState.OUT;
-            this.NewUrlTextBox.Name = "NewUrlTextBox";
-            this.NewUrlTextBox.PasswordChar = '\0';
-            this.NewUrlTextBox.PrefixSuffixText = null;
-            this.NewUrlTextBox.PromptChar = '_';
-            this.NewUrlTextBox.ReadOnly = false;
-            this.NewUrlTextBox.RejectInputOnFirstFailure = false;
-            this.NewUrlTextBox.ResetOnPrompt = true;
-            this.NewUrlTextBox.ResetOnSpace = true;
-            this.NewUrlTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.NewUrlTextBox.SelectedText = "";
-            this.NewUrlTextBox.SelectionLength = 0;
-            this.NewUrlTextBox.SelectionStart = 0;
-            this.NewUrlTextBox.ShortcutsEnabled = true;
-            this.NewUrlTextBox.Size = new System.Drawing.Size(370, 48);
-            this.NewUrlTextBox.SkipLiterals = true;
-            this.NewUrlTextBox.TabIndex = 18;
-            this.NewUrlTextBox.TabStop = false;
-            this.NewUrlTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.NewUrlTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.NewUrlTextBox.TrailingIcon = null;
-            this.NewUrlTextBox.UseSystemPasswordChar = false;
-            this.NewUrlTextBox.ValidatingType = null;
+            this.NewUrlTxtBx.AllowPromptAsInput = true;
+            this.NewUrlTxtBx.AnimateReadOnly = false;
+            this.NewUrlTxtBx.AsciiOnly = false;
+            this.NewUrlTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.NewUrlTxtBx.BeepOnError = false;
+            this.NewUrlTxtBx.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.NewUrlTxtBx.Depth = 0;
+            this.NewUrlTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.NewUrlTxtBx.HidePromptOnLeave = false;
+            this.NewUrlTxtBx.HideSelection = true;
+            this.NewUrlTxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
+            this.NewUrlTxtBx.LeadingIcon = null;
+            this.NewUrlTxtBx.Location = new System.Drawing.Point(101, 121);
+            this.NewUrlTxtBx.Mask = "";
+            this.NewUrlTxtBx.MaxLength = 32767;
+            this.NewUrlTxtBx.MouseState = MaterialSkin.MouseState.OUT;
+            this.NewUrlTxtBx.Name = "NewUrlTxtBx";
+            this.NewUrlTxtBx.PasswordChar = '\0';
+            this.NewUrlTxtBx.PrefixSuffixText = null;
+            this.NewUrlTxtBx.PromptChar = '_';
+            this.NewUrlTxtBx.ReadOnly = false;
+            this.NewUrlTxtBx.RejectInputOnFirstFailure = false;
+            this.NewUrlTxtBx.ResetOnPrompt = true;
+            this.NewUrlTxtBx.ResetOnSpace = true;
+            this.NewUrlTxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.NewUrlTxtBx.SelectedText = "";
+            this.NewUrlTxtBx.SelectionLength = 0;
+            this.NewUrlTxtBx.SelectionStart = 0;
+            this.NewUrlTxtBx.ShortcutsEnabled = true;
+            this.NewUrlTxtBx.Size = new System.Drawing.Size(370, 48);
+            this.NewUrlTxtBx.SkipLiterals = true;
+            this.NewUrlTxtBx.TabIndex = 18;
+            this.NewUrlTxtBx.TabStop = false;
+            this.NewUrlTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.NewUrlTxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.NewUrlTxtBx.TrailingIcon = null;
+            this.NewUrlTxtBx.UseSystemPasswordChar = false;
+            this.NewUrlTxtBx.ValidatingType = null;
+            this.NewUrlTxtBx.Click += new System.EventHandler(this.NewUrlTxtBx_Click);
             // 
-            // NewSecurityIdTextBox
+            // NewSecurityIdTxtBx
             // 
-            this.NewSecurityIdTextBox.AllowPromptAsInput = true;
-            this.NewSecurityIdTextBox.AnimateReadOnly = false;
-            this.NewSecurityIdTextBox.AsciiOnly = false;
-            this.NewSecurityIdTextBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.NewSecurityIdTextBox.BeepOnError = false;
-            this.NewSecurityIdTextBox.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.NewSecurityIdTextBox.Depth = 0;
-            this.NewSecurityIdTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.NewSecurityIdTextBox.HidePromptOnLeave = false;
-            this.NewSecurityIdTextBox.HideSelection = true;
-            this.NewSecurityIdTextBox.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
-            this.NewSecurityIdTextBox.LeadingIcon = null;
-            this.NewSecurityIdTextBox.Location = new System.Drawing.Point(100, 67);
-            this.NewSecurityIdTextBox.Mask = "";
-            this.NewSecurityIdTextBox.MaxLength = 32767;
-            this.NewSecurityIdTextBox.MouseState = MaterialSkin.MouseState.OUT;
-            this.NewSecurityIdTextBox.Name = "NewSecurityIdTextBox";
-            this.NewSecurityIdTextBox.PasswordChar = '\0';
-            this.NewSecurityIdTextBox.PrefixSuffixText = null;
-            this.NewSecurityIdTextBox.PromptChar = '_';
-            this.NewSecurityIdTextBox.ReadOnly = false;
-            this.NewSecurityIdTextBox.RejectInputOnFirstFailure = false;
-            this.NewSecurityIdTextBox.ResetOnPrompt = true;
-            this.NewSecurityIdTextBox.ResetOnSpace = true;
-            this.NewSecurityIdTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.NewSecurityIdTextBox.SelectedText = "";
-            this.NewSecurityIdTextBox.SelectionLength = 0;
-            this.NewSecurityIdTextBox.SelectionStart = 0;
-            this.NewSecurityIdTextBox.ShortcutsEnabled = true;
-            this.NewSecurityIdTextBox.Size = new System.Drawing.Size(370, 48);
-            this.NewSecurityIdTextBox.SkipLiterals = true;
-            this.NewSecurityIdTextBox.TabIndex = 19;
-            this.NewSecurityIdTextBox.TabStop = false;
-            this.NewSecurityIdTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.NewSecurityIdTextBox.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.NewSecurityIdTextBox.TrailingIcon = null;
-            this.NewSecurityIdTextBox.UseSystemPasswordChar = false;
-            this.NewSecurityIdTextBox.ValidatingType = null;
+            this.NewSecurityIdTxtBx.AllowPromptAsInput = true;
+            this.NewSecurityIdTxtBx.AnimateReadOnly = false;
+            this.NewSecurityIdTxtBx.AsciiOnly = false;
+            this.NewSecurityIdTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.NewSecurityIdTxtBx.BeepOnError = false;
+            this.NewSecurityIdTxtBx.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.NewSecurityIdTxtBx.Depth = 0;
+            this.NewSecurityIdTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.NewSecurityIdTxtBx.HidePromptOnLeave = false;
+            this.NewSecurityIdTxtBx.HideSelection = true;
+            this.NewSecurityIdTxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
+            this.NewSecurityIdTxtBx.LeadingIcon = null;
+            this.NewSecurityIdTxtBx.Location = new System.Drawing.Point(100, 67);
+            this.NewSecurityIdTxtBx.Mask = "";
+            this.NewSecurityIdTxtBx.MaxLength = 32767;
+            this.NewSecurityIdTxtBx.MouseState = MaterialSkin.MouseState.OUT;
+            this.NewSecurityIdTxtBx.Name = "NewSecurityIdTxtBx";
+            this.NewSecurityIdTxtBx.PasswordChar = '\0';
+            this.NewSecurityIdTxtBx.PrefixSuffixText = null;
+            this.NewSecurityIdTxtBx.PromptChar = '_';
+            this.NewSecurityIdTxtBx.ReadOnly = false;
+            this.NewSecurityIdTxtBx.RejectInputOnFirstFailure = false;
+            this.NewSecurityIdTxtBx.ResetOnPrompt = true;
+            this.NewSecurityIdTxtBx.ResetOnSpace = true;
+            this.NewSecurityIdTxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.NewSecurityIdTxtBx.SelectedText = "";
+            this.NewSecurityIdTxtBx.SelectionLength = 0;
+            this.NewSecurityIdTxtBx.SelectionStart = 0;
+            this.NewSecurityIdTxtBx.ShortcutsEnabled = true;
+            this.NewSecurityIdTxtBx.Size = new System.Drawing.Size(370, 48);
+            this.NewSecurityIdTxtBx.SkipLiterals = true;
+            this.NewSecurityIdTxtBx.TabIndex = 19;
+            this.NewSecurityIdTxtBx.TabStop = false;
+            this.NewSecurityIdTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.NewSecurityIdTxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.NewSecurityIdTxtBx.TrailingIcon = null;
+            this.NewSecurityIdTxtBx.UseSystemPasswordChar = false;
+            this.NewSecurityIdTxtBx.ValidatingType = null;
+            this.NewSecurityIdTxtBx.Click += new System.EventHandler(this.NewSecurityIdTxtBx_Click);
             // 
             // LblSecurityID
             // 
@@ -210,6 +213,7 @@ namespace WindowsFormsAppTest
             this.WebServiceCmbx.Size = new System.Drawing.Size(370, 49);
             this.WebServiceCmbx.StartIndex = 0;
             this.WebServiceCmbx.TabIndex = 23;
+            this.WebServiceCmbx.SelectedIndexChanged += new System.EventHandler(this.WebServiceCmbx_SelectedIndexChanged);
             // 
             // KlantCmbBx
             // 
@@ -232,6 +236,7 @@ namespace WindowsFormsAppTest
             this.KlantCmbBx.Size = new System.Drawing.Size(370, 49);
             this.KlantCmbBx.StartIndex = 0;
             this.KlantCmbBx.TabIndex = 24;
+            this.KlantCmbBx.SelectedIndexChanged += new System.EventHandler(this.KlantCmbBx_SelectedIndexChanged);
             // 
             // AddUrlForm
             // 
@@ -244,11 +249,11 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.LblWebservice);
             this.Controls.Add(this.LblUrl);
             this.Controls.Add(this.LblSecurityID);
-            this.Controls.Add(this.NewSecurityIdTextBox);
-            this.Controls.Add(this.NewUrlTextBox);
+            this.Controls.Add(this.NewSecurityIdTxtBx);
+            this.Controls.Add(this.NewUrlTxtBx);
             this.Controls.Add(this.AddUrlButton);
             this.Name = "AddUrlForm";
-            this.Text = "Form2";
+            this.Text = "Url toevoegen";
             this.Load += new System.EventHandler(this.AddUrlForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -257,8 +262,8 @@ namespace WindowsFormsAppTest
 
         #endregion
         private MaterialSkin.Controls.MaterialButton AddUrlButton;
-        private MaterialSkin.Controls.MaterialMaskedTextBox NewUrlTextBox;
-        private MaterialSkin.Controls.MaterialMaskedTextBox NewSecurityIdTextBox;
+        private MaterialSkin.Controls.MaterialMaskedTextBox NewUrlTxtBx;
+        private MaterialSkin.Controls.MaterialMaskedTextBox NewSecurityIdTxtBx;
         private MaterialSkin.Controls.MaterialLabel LblSecurityID;
         private MaterialSkin.Controls.MaterialLabel LblUrl;
         private MaterialSkin.Controls.MaterialLabel LblWebservice;

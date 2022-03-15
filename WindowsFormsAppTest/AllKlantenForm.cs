@@ -1,10 +1,11 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
 {
-    public partial class AllKlantenForm : Form
+    public partial class AllKlantenForm : MaterialForm
     {
         private string changedKlant = "";
         private string changedSecurityId = "";
@@ -208,6 +209,11 @@ namespace WindowsFormsAppTest
         private void WebServiceCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             _selectedWebserviceIdForChange = (int)WebServiceCmbx.SelectedValue;
+        }
+
+        private void AllKlantenForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

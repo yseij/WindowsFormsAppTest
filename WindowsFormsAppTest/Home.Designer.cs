@@ -175,6 +175,7 @@ namespace WindowsFormsAppTest
             this.BtnShowKlanten.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.BtnShowKlanten.UseAccentColor = false;
             this.BtnShowKlanten.UseVisualStyleBackColor = true;
+            this.BtnShowKlanten.Click += new System.EventHandler(this.BtnShowKlanten_Click);
             // 
             // BtnShowWebservices
             // 
@@ -196,6 +197,7 @@ namespace WindowsFormsAppTest
             this.BtnShowWebservices.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.BtnShowWebservices.UseAccentColor = false;
             this.BtnShowWebservices.UseVisualStyleBackColor = true;
+            this.BtnShowWebservices.Click += new System.EventHandler(this.BtnShowWebservices_Click);
             // 
             // BtnShowUrls
             // 
@@ -217,6 +219,7 @@ namespace WindowsFormsAppTest
             this.BtnShowUrls.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.BtnShowUrls.UseAccentColor = false;
             this.BtnShowUrls.UseVisualStyleBackColor = true;
+            this.BtnShowUrls.Click += new System.EventHandler(this.BtnShowUrls_Click);
             // 
             // Home
             // 
