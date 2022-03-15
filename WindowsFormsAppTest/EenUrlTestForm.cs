@@ -1,11 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using MaterialSkin.Controls;
 using Newtonsoft.Json.Linq;
 
 namespace WindowsFormsAppTest
 {
-    public partial class EenUrlTestForm : Form
+    public partial class EenUrlTestForm : MaterialForm
     {
         private string url;
         private string urlHttp = "";
@@ -54,7 +55,7 @@ namespace WindowsFormsAppTest
             urlHttp = HttpCmbx.Text;
         }
 
-        private void UrlsCmbBx_SelectedIndexChanged(object sender, EventArgs e)
+        private void UrlsCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             clearBox();
             if (UrlsCmbx.DataSource != null)

@@ -29,239 +29,404 @@ namespace WindowsFormsAppTest
         /// </summary>
         private void InitializeComponent()
         {
-            this.UrlLbl = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.UrlsCmbx = new System.Windows.Forms.ComboBox();
-            this.ResponseTextBox = new System.Windows.Forms.TextBox();
-            this.checkBoxKraanDLL = new System.Windows.Forms.CheckBox();
-            this.checkBoxKraanIni = new System.Windows.Forms.CheckBox();
-            this.checkBoxKraanDatabase = new System.Windows.Forms.CheckBox();
-            this.textBoxWebservice = new System.Windows.Forms.TextBox();
-            this.WebserviceLbl = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.TestRouteBtn = new System.Windows.Forms.Button();
-            this.HttpCmbx = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.SllCertificaatVervalDatumTxtBx = new System.Windows.Forms.TextBox();
-            this.SslChckBx = new System.Windows.Forms.CheckBox();
-            this.groupBox1.SuspendLayout();
+            this.SslChckBx = new MaterialSkin.Controls.MaterialCheckbox();
+            this.SllCertificaatVervalDatumTxtBx = new MaterialSkin.Controls.MaterialTextBox();
+            this.LblCertificaatVervalDatum = new MaterialSkin.Controls.MaterialLabel();
+            this.HttpCmbx = new MaterialSkin.Controls.MaterialComboBox();
+            this.UrlsCmbx = new MaterialSkin.Controls.MaterialComboBox();
+            this.LblUrl = new MaterialSkin.Controls.MaterialLabel();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.textBoxWebservice = new MaterialSkin.Controls.MaterialTextBox();
+            this.checkBoxKraanDatabase = new MaterialSkin.Controls.MaterialCheckbox();
+            this.checkBoxKraanIni = new MaterialSkin.Controls.MaterialCheckbox();
+            this.checkBoxKraanDLL = new MaterialSkin.Controls.MaterialCheckbox();
+            this.LblWebserviceVersie = new MaterialSkin.Controls.MaterialLabel();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            this.ResponseTextBox = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.TestRouteBtn = new MaterialSkin.Controls.MaterialButton();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // UrlLbl
-            // 
-            this.UrlLbl.AutoSize = true;
-            this.UrlLbl.Location = new System.Drawing.Point(13, 9);
-            this.UrlLbl.Name = "UrlLbl";
-            this.UrlLbl.Size = new System.Drawing.Size(29, 13);
-            this.UrlLbl.TabIndex = 2;
-            this.UrlLbl.Text = "URL";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(186, 28);
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label2.Location = new System.Drawing.Point(282, 125);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(13, 13);
+            this.label2.Size = new System.Drawing.Size(16, 17);
             this.label2.TabIndex = 4;
             this.label2.Text = "+";
             // 
-            // UrlsCmbx
-            // 
-            this.UrlsCmbx.FormattingEnabled = true;
-            this.UrlsCmbx.Location = new System.Drawing.Point(205, 25);
-            this.UrlsCmbx.Name = "UrlsCmbx";
-            this.UrlsCmbx.Size = new System.Drawing.Size(453, 21);
-            this.UrlsCmbx.TabIndex = 7;
-            this.UrlsCmbx.SelectedIndexChanged += new System.EventHandler(this.UrlsCmbBx_SelectedIndexChanged);
-            // 
-            // ResponseTextBox
-            // 
-            this.ResponseTextBox.Location = new System.Drawing.Point(16, 267);
-            this.ResponseTextBox.Multiline = true;
-            this.ResponseTextBox.Name = "ResponseTextBox";
-            this.ResponseTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ResponseTextBox.Size = new System.Drawing.Size(642, 225);
-            this.ResponseTextBox.TabIndex = 6;
-            // 
-            // checkBoxKraanDLL
-            // 
-            this.checkBoxKraanDLL.AutoSize = true;
-            this.checkBoxKraanDLL.Location = new System.Drawing.Point(8, 47);
-            this.checkBoxKraanDLL.Name = "checkBoxKraanDLL";
-            this.checkBoxKraanDLL.Size = new System.Drawing.Size(74, 17);
-            this.checkBoxKraanDLL.TabIndex = 10;
-            this.checkBoxKraanDLL.Text = "KraanDLL";
-            this.checkBoxKraanDLL.UseVisualStyleBackColor = true;
-            this.checkBoxKraanDLL.Click += new System.EventHandler(this.checkBoxReadOnly_Click);
-            // 
-            // checkBoxKraanIni
-            // 
-            this.checkBoxKraanIni.AutoSize = true;
-            this.checkBoxKraanIni.Location = new System.Drawing.Point(8, 70);
-            this.checkBoxKraanIni.Name = "checkBoxKraanIni";
-            this.checkBoxKraanIni.Size = new System.Drawing.Size(65, 17);
-            this.checkBoxKraanIni.TabIndex = 11;
-            this.checkBoxKraanIni.Text = "KraanIni";
-            this.checkBoxKraanIni.UseVisualStyleBackColor = true;
-            this.checkBoxKraanIni.Click += new System.EventHandler(this.checkBoxReadOnly_Click);
-            // 
-            // checkBoxKraanDatabase
-            // 
-            this.checkBoxKraanDatabase.AutoSize = true;
-            this.checkBoxKraanDatabase.Location = new System.Drawing.Point(8, 93);
-            this.checkBoxKraanDatabase.Name = "checkBoxKraanDatabase";
-            this.checkBoxKraanDatabase.Size = new System.Drawing.Size(100, 17);
-            this.checkBoxKraanDatabase.TabIndex = 12;
-            this.checkBoxKraanDatabase.Text = "KraanDatabase";
-            this.checkBoxKraanDatabase.UseVisualStyleBackColor = true;
-            this.checkBoxKraanDatabase.Click += new System.EventHandler(this.checkBoxReadOnly_Click);
-            // 
-            // textBoxWebservice
-            // 
-            this.textBoxWebservice.Location = new System.Drawing.Point(114, 14);
-            this.textBoxWebservice.Name = "textBoxWebservice";
-            this.textBoxWebservice.ReadOnly = true;
-            this.textBoxWebservice.Size = new System.Drawing.Size(217, 20);
-            this.textBoxWebservice.TabIndex = 13;
-            // 
-            // WebserviceLbl
-            // 
-            this.WebserviceLbl.AutoSize = true;
-            this.WebserviceLbl.Location = new System.Drawing.Point(10, 17);
-            this.WebserviceLbl.Name = "WebserviceLbl";
-            this.WebserviceLbl.Size = new System.Drawing.Size(98, 13);
-            this.WebserviceLbl.TabIndex = 14;
-            this.WebserviceLbl.Text = "Webservice versie:";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.WebserviceLbl);
-            this.groupBox1.Controls.Add(this.textBoxWebservice);
-            this.groupBox1.Controls.Add(this.checkBoxKraanDatabase);
-            this.groupBox1.Controls.Add(this.checkBoxKraanIni);
-            this.groupBox1.Controls.Add(this.checkBoxKraanDLL);
-            this.groupBox1.Location = new System.Drawing.Point(16, 51);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(339, 115);
-            this.groupBox1.TabIndex = 16;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Results";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 251);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(25, 13);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Log";
-            // 
-            // TestRouteBtn
-            // 
-            this.TestRouteBtn.Location = new System.Drawing.Point(444, 195);
-            this.TestRouteBtn.Name = "TestRouteBtn";
-            this.TestRouteBtn.Size = new System.Drawing.Size(214, 44);
-            this.TestRouteBtn.TabIndex = 24;
-            this.TestRouteBtn.Text = "Test route";
-            this.TestRouteBtn.UseVisualStyleBackColor = true;
-            this.TestRouteBtn.Click += new System.EventHandler(this.TestRouteBtn_Click);
-            // 
-            // HttpCmbx
-            // 
-            this.HttpCmbx.FormattingEnabled = true;
-            this.HttpCmbx.Location = new System.Drawing.Point(16, 24);
-            this.HttpCmbx.Name = "HttpCmbx";
-            this.HttpCmbx.Size = new System.Drawing.Size(164, 21);
-            this.HttpCmbx.TabIndex = 25;
-            this.HttpCmbx.SelectedIndexChanged += new System.EventHandler(this.HttpCmbx_SelectedIndexChanged);
-            // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Controls.Add(this.SllCertificaatVervalDatumTxtBx);
+            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.groupBox2.Controls.Add(this.SslChckBx);
-            this.groupBox2.Location = new System.Drawing.Point(16, 172);
+            this.groupBox2.Controls.Add(this.SllCertificaatVervalDatumTxtBx);
+            this.groupBox2.Controls.Add(this.LblCertificaatVervalDatum);
+            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.groupBox2.Location = new System.Drawing.Point(500, 159);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(339, 67);
+            this.groupBox2.Size = new System.Drawing.Size(447, 144);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Results SSL certificaat";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 39);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 13);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Certificaat vervaldatum:";
-            // 
-            // SllCertificaatVervalDatumTxtBx
-            // 
-            this.SllCertificaatVervalDatumTxtBx.Location = new System.Drawing.Point(159, 36);
-            this.SllCertificaatVervalDatumTxtBx.Name = "SllCertificaatVervalDatumTxtBx";
-            this.SllCertificaatVervalDatumTxtBx.ReadOnly = true;
-            this.SllCertificaatVervalDatumTxtBx.Size = new System.Drawing.Size(172, 20);
-            this.SllCertificaatVervalDatumTxtBx.TabIndex = 13;
-            // 
             // SslChckBx
             // 
             this.SslChckBx.AutoSize = true;
-            this.SslChckBx.Location = new System.Drawing.Point(13, 19);
+            this.SslChckBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.SslChckBx.Depth = 0;
+            this.SslChckBx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.SslChckBx.Location = new System.Drawing.Point(11, 104);
+            this.SslChckBx.Margin = new System.Windows.Forms.Padding(0);
+            this.SslChckBx.MaximumSize = new System.Drawing.Size(500, 50);
+            this.SslChckBx.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.SslChckBx.MouseState = MaterialSkin.MouseState.HOVER;
             this.SslChckBx.Name = "SslChckBx";
-            this.SslChckBx.Size = new System.Drawing.Size(96, 17);
-            this.SslChckBx.TabIndex = 10;
+            this.SslChckBx.ReadOnly = true;
+            this.SslChckBx.Ripple = true;
+            this.SslChckBx.Size = new System.Drawing.Size(141, 37);
+            this.SslChckBx.TabIndex = 6;
             this.SslChckBx.Text = "SSL Certificaat";
-            this.SslChckBx.UseVisualStyleBackColor = true;
+            this.SslChckBx.UseVisualStyleBackColor = false;
             this.SslChckBx.Click += new System.EventHandler(this.checkBoxReadOnly_Click);
+            // 
+            // SllCertificaatVervalDatumTxtBx
+            // 
+            this.SllCertificaatVervalDatumTxtBx.AnimateReadOnly = false;
+            this.SllCertificaatVervalDatumTxtBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.SllCertificaatVervalDatumTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SllCertificaatVervalDatumTxtBx.Depth = 0;
+            this.SllCertificaatVervalDatumTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.SllCertificaatVervalDatumTxtBx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.SllCertificaatVervalDatumTxtBx.LeadingIcon = null;
+            this.SllCertificaatVervalDatumTxtBx.Location = new System.Drawing.Point(144, 22);
+            this.SllCertificaatVervalDatumTxtBx.MaximumSize = new System.Drawing.Size(500, 50);
+            this.SllCertificaatVervalDatumTxtBx.MaxLength = 150;
+            this.SllCertificaatVervalDatumTxtBx.MouseState = MaterialSkin.MouseState.OUT;
+            this.SllCertificaatVervalDatumTxtBx.Multiline = false;
+            this.SllCertificaatVervalDatumTxtBx.Name = "SllCertificaatVervalDatumTxtBx";
+            this.SllCertificaatVervalDatumTxtBx.ReadOnly = true;
+            this.SllCertificaatVervalDatumTxtBx.Size = new System.Drawing.Size(272, 50);
+            this.SllCertificaatVervalDatumTxtBx.TabIndex = 7;
+            this.SllCertificaatVervalDatumTxtBx.Text = "";
+            this.SllCertificaatVervalDatumTxtBx.TrailingIcon = null;
+            // 
+            // LblCertificaatVervalDatum
+            // 
+            this.LblCertificaatVervalDatum.AutoSize = true;
+            this.LblCertificaatVervalDatum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.LblCertificaatVervalDatum.Depth = 0;
+            this.LblCertificaatVervalDatum.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.LblCertificaatVervalDatum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblCertificaatVervalDatum.Location = new System.Drawing.Point(8, 24);
+            this.LblCertificaatVervalDatum.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LblCertificaatVervalDatum.Name = "LblCertificaatVervalDatum";
+            this.LblCertificaatVervalDatum.Size = new System.Drawing.Size(130, 19);
+            this.LblCertificaatVervalDatum.TabIndex = 6;
+            this.LblCertificaatVervalDatum.Text = "Webservice versie:";
+            // 
+            // HttpCmbx
+            // 
+            this.HttpCmbx.AutoResize = false;
+            this.HttpCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.HttpCmbx.Depth = 0;
+            this.HttpCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.HttpCmbx.DropDownHeight = 174;
+            this.HttpCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.HttpCmbx.DropDownWidth = 121;
+            this.HttpCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.HttpCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.HttpCmbx.FormattingEnabled = true;
+            this.HttpCmbx.IntegralHeight = false;
+            this.HttpCmbx.ItemHeight = 43;
+            this.HttpCmbx.Location = new System.Drawing.Point(22, 107);
+            this.HttpCmbx.Margin = new System.Windows.Forms.Padding(0);
+            this.HttpCmbx.MaxDropDownItems = 4;
+            this.HttpCmbx.MouseState = MaterialSkin.MouseState.OUT;
+            this.HttpCmbx.Name = "HttpCmbx";
+            this.HttpCmbx.Size = new System.Drawing.Size(257, 49);
+            this.HttpCmbx.StartIndex = 0;
+            this.HttpCmbx.TabIndex = 28;
+            this.HttpCmbx.SelectedIndexChanged += new System.EventHandler(this.HttpCmbx_SelectedIndexChanged);
+            // 
+            // UrlsCmbx
+            // 
+            this.UrlsCmbx.AutoResize = false;
+            this.UrlsCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.UrlsCmbx.Depth = 0;
+            this.UrlsCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.UrlsCmbx.DropDownHeight = 174;
+            this.UrlsCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.UrlsCmbx.DropDownWidth = 121;
+            this.UrlsCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.UrlsCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.UrlsCmbx.FormattingEnabled = true;
+            this.UrlsCmbx.IntegralHeight = false;
+            this.UrlsCmbx.ItemHeight = 43;
+            this.UrlsCmbx.Location = new System.Drawing.Point(301, 107);
+            this.UrlsCmbx.Margin = new System.Windows.Forms.Padding(0);
+            this.UrlsCmbx.MaxDropDownItems = 4;
+            this.UrlsCmbx.MouseState = MaterialSkin.MouseState.OUT;
+            this.UrlsCmbx.Name = "UrlsCmbx";
+            this.UrlsCmbx.Size = new System.Drawing.Size(646, 49);
+            this.UrlsCmbx.StartIndex = 0;
+            this.UrlsCmbx.TabIndex = 1;
+            this.UrlsCmbx.SelectedIndexChanged += new System.EventHandler(this.UrlsCmbx_SelectedIndexChanged);
+            // 
+            // LblUrl
+            // 
+            this.LblUrl.AutoSize = true;
+            this.LblUrl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.LblUrl.Depth = 0;
+            this.LblUrl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.LblUrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblUrl.Location = new System.Drawing.Point(22, 81);
+            this.LblUrl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LblUrl.Name = "LblUrl";
+            this.LblUrl.Size = new System.Drawing.Size(20, 19);
+            this.LblUrl.TabIndex = 1;
+            this.LblUrl.Text = "Url";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.groupBox3.Controls.Add(this.textBoxWebservice);
+            this.groupBox3.Controls.Add(this.checkBoxKraanDatabase);
+            this.groupBox3.Controls.Add(this.checkBoxKraanIni);
+            this.groupBox3.Controls.Add(this.checkBoxKraanDLL);
+            this.groupBox3.Controls.Add(this.LblWebserviceVersie);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.groupBox3.Location = new System.Drawing.Point(20, 159);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(439, 144);
+            this.groupBox3.TabIndex = 17;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Results Webservice";
+            // 
+            // textBoxWebservice
+            // 
+            this.textBoxWebservice.AnimateReadOnly = false;
+            this.textBoxWebservice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.textBoxWebservice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxWebservice.Depth = 0;
+            this.textBoxWebservice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxWebservice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.textBoxWebservice.LeadingIcon = null;
+            this.textBoxWebservice.Location = new System.Drawing.Point(142, 19);
+            this.textBoxWebservice.Margin = new System.Windows.Forms.Padding(0);
+            this.textBoxWebservice.MaximumSize = new System.Drawing.Size(500, 50);
+            this.textBoxWebservice.MaxLength = 150;
+            this.textBoxWebservice.MouseState = MaterialSkin.MouseState.OUT;
+            this.textBoxWebservice.Multiline = false;
+            this.textBoxWebservice.Name = "textBoxWebservice";
+            this.textBoxWebservice.ReadOnly = true;
+            this.textBoxWebservice.Size = new System.Drawing.Size(272, 50);
+            this.textBoxWebservice.TabIndex = 5;
+            this.textBoxWebservice.Text = "";
+            this.textBoxWebservice.TrailingIcon = null;
+            // 
+            // checkBoxKraanDatabase
+            // 
+            this.checkBoxKraanDatabase.AutoSize = true;
+            this.checkBoxKraanDatabase.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.checkBoxKraanDatabase.Depth = 0;
+            this.checkBoxKraanDatabase.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.checkBoxKraanDatabase.Location = new System.Drawing.Point(265, 104);
+            this.checkBoxKraanDatabase.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxKraanDatabase.MaximumSize = new System.Drawing.Size(500, 50);
+            this.checkBoxKraanDatabase.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.checkBoxKraanDatabase.MouseState = MaterialSkin.MouseState.HOVER;
+            this.checkBoxKraanDatabase.Name = "checkBoxKraanDatabase";
+            this.checkBoxKraanDatabase.ReadOnly = true;
+            this.checkBoxKraanDatabase.Ripple = true;
+            this.checkBoxKraanDatabase.Size = new System.Drawing.Size(149, 37);
+            this.checkBoxKraanDatabase.TabIndex = 4;
+            this.checkBoxKraanDatabase.Text = "Kraan Database";
+            this.checkBoxKraanDatabase.UseVisualStyleBackColor = false;
+            this.checkBoxKraanDatabase.Click += new System.EventHandler(this.checkBoxReadOnly_Click);
+            // 
+            // checkBoxKraanIni
+            // 
+            this.checkBoxKraanIni.AutoSize = true;
+            this.checkBoxKraanIni.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.checkBoxKraanIni.Depth = 0;
+            this.checkBoxKraanIni.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.checkBoxKraanIni.Location = new System.Drawing.Point(142, 104);
+            this.checkBoxKraanIni.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxKraanIni.MaximumSize = new System.Drawing.Size(500, 50);
+            this.checkBoxKraanIni.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.checkBoxKraanIni.MouseState = MaterialSkin.MouseState.HOVER;
+            this.checkBoxKraanIni.Name = "checkBoxKraanIni";
+            this.checkBoxKraanIni.ReadOnly = true;
+            this.checkBoxKraanIni.Ripple = true;
+            this.checkBoxKraanIni.Size = new System.Drawing.Size(98, 37);
+            this.checkBoxKraanIni.TabIndex = 3;
+            this.checkBoxKraanIni.Text = "Kraan Ini";
+            this.checkBoxKraanIni.UseVisualStyleBackColor = false;
+            this.checkBoxKraanIni.Click += new System.EventHandler(this.checkBoxReadOnly_Click);
+            // 
+            // checkBoxKraanDLL
+            // 
+            this.checkBoxKraanDLL.AutoSize = true;
+            this.checkBoxKraanDLL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.checkBoxKraanDLL.Depth = 0;
+            this.checkBoxKraanDLL.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.checkBoxKraanDLL.Location = new System.Drawing.Point(5, 104);
+            this.checkBoxKraanDLL.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxKraanDLL.MaximumSize = new System.Drawing.Size(500, 50);
+            this.checkBoxKraanDLL.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.checkBoxKraanDLL.MouseState = MaterialSkin.MouseState.HOVER;
+            this.checkBoxKraanDLL.Name = "checkBoxKraanDLL";
+            this.checkBoxKraanDLL.ReadOnly = true;
+            this.checkBoxKraanDLL.Ripple = true;
+            this.checkBoxKraanDLL.Size = new System.Drawing.Size(112, 37);
+            this.checkBoxKraanDLL.TabIndex = 2;
+            this.checkBoxKraanDLL.Text = "Kraan DDL";
+            this.checkBoxKraanDLL.UseVisualStyleBackColor = false;
+            this.checkBoxKraanDLL.Click += new System.EventHandler(this.checkBoxReadOnly_Click);
+            // 
+            // LblWebserviceVersie
+            // 
+            this.LblWebserviceVersie.AutoSize = true;
+            this.LblWebserviceVersie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.LblWebserviceVersie.Depth = 0;
+            this.LblWebserviceVersie.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.LblWebserviceVersie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblWebserviceVersie.Location = new System.Drawing.Point(6, 21);
+            this.LblWebserviceVersie.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LblWebserviceVersie.Name = "LblWebserviceVersie";
+            this.LblWebserviceVersie.Size = new System.Drawing.Size(130, 19);
+            this.LblWebserviceVersie.TabIndex = 0;
+            this.LblWebserviceVersie.Text = "Webservice versie:";
+            // 
+            // materialDivider1
+            // 
+            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider1.Depth = 0;
+            this.materialDivider1.Location = new System.Drawing.Point(465, 159);
+            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider1.Name = "materialDivider1";
+            this.materialDivider1.Size = new System.Drawing.Size(29, 152);
+            this.materialDivider1.TabIndex = 31;
+            this.materialDivider1.Text = "materialDivider1";
+            // 
+            // ResponseTextBox
+            // 
+            this.ResponseTextBox.AnimateReadOnly = false;
+            this.ResponseTextBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ResponseTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.ResponseTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ResponseTextBox.Depth = 0;
+            this.ResponseTextBox.Enabled = false;
+            this.ResponseTextBox.HideSelection = true;
+            this.ResponseTextBox.Location = new System.Drawing.Point(25, 338);
+            this.ResponseTextBox.MaxLength = 32767;
+            this.ResponseTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.ResponseTextBox.Name = "ResponseTextBox";
+            this.ResponseTextBox.PasswordChar = '\0';
+            this.ResponseTextBox.ReadOnly = false;
+            this.ResponseTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.ResponseTextBox.SelectedText = "";
+            this.ResponseTextBox.SelectionLength = 0;
+            this.ResponseTextBox.SelectionStart = 0;
+            this.ResponseTextBox.ShortcutsEnabled = true;
+            this.ResponseTextBox.Size = new System.Drawing.Size(925, 196);
+            this.ResponseTextBox.TabIndex = 32;
+            this.ResponseTextBox.TabStop = false;
+            this.ResponseTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ResponseTextBox.UseSystemPasswordChar = false;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(29, 316);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(28, 19);
+            this.materialLabel1.TabIndex = 33;
+            this.materialLabel1.Text = "Log";
+            // 
+            // TestRouteBtn
+            // 
+            this.TestRouteBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.TestRouteBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.TestRouteBtn.Depth = 0;
+            this.TestRouteBtn.HighEmphasis = true;
+            this.TestRouteBtn.Icon = null;
+            this.TestRouteBtn.Location = new System.Drawing.Point(436, 543);
+            this.TestRouteBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.TestRouteBtn.MinimumSize = new System.Drawing.Size(50, 0);
+            this.TestRouteBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TestRouteBtn.Name = "TestRouteBtn";
+            this.TestRouteBtn.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.TestRouteBtn.Size = new System.Drawing.Size(106, 36);
+            this.TestRouteBtn.TabIndex = 34;
+            this.TestRouteBtn.Text = "Test Route";
+            this.TestRouteBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.TestRouteBtn.UseAccentColor = false;
+            this.TestRouteBtn.UseVisualStyleBackColor = true;
+            this.TestRouteBtn.Click += new System.EventHandler(this.TestRouteBtn_Click);
             // 
             // EenUrlTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(672, 502);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.HttpCmbx);
+            this.ClientSize = new System.Drawing.Size(976, 590);
             this.Controls.Add(this.TestRouteBtn);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.UrlsCmbx);
+            this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.ResponseTextBox);
+            this.Controls.Add(this.materialDivider1);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.LblUrl);
+            this.Controls.Add(this.UrlsCmbx);
+            this.Controls.Add(this.HttpCmbx);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.UrlLbl);
             this.Name = "EenUrlTestForm";
-            this.Text = "Form1";
+            this.Sizable = false;
+            this.Text = "Test Url";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.Label UrlLbl;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox UrlsCmbx;
-        private System.Windows.Forms.TextBox ResponseTextBox;
-        private System.Windows.Forms.TextBox textBoxWebservice;
-        private System.Windows.Forms.Label WebserviceLbl;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.CheckBox checkBoxKraanIni;
-        private System.Windows.Forms.CheckBox checkBoxKraanDatabase;
-        private System.Windows.Forms.CheckBox checkBoxKraanDLL;
-        private System.Windows.Forms.Button TestRouteBtn;
-        private System.Windows.Forms.ComboBox HttpCmbx;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox SllCertificaatVervalDatumTxtBx;
-        private System.Windows.Forms.CheckBox SslChckBx;
+        private MaterialSkin.Controls.MaterialComboBox HttpCmbx;
+        private MaterialSkin.Controls.MaterialComboBox UrlsCmbx;
+        private MaterialSkin.Controls.MaterialLabel LblUrl;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private MaterialSkin.Controls.MaterialLabel LblWebserviceVersie;
+        private MaterialSkin.Controls.MaterialCheckbox checkBoxKraanDLL;
+        private MaterialSkin.Controls.MaterialCheckbox checkBoxKraanIni;
+        private MaterialSkin.Controls.MaterialCheckbox checkBoxKraanDatabase;
+        private MaterialSkin.Controls.MaterialTextBox textBoxWebservice;
+        private MaterialSkin.Controls.MaterialLabel LblCertificaatVervalDatum;
+        private MaterialSkin.Controls.MaterialTextBox SllCertificaatVervalDatumTxtBx;
+        private MaterialSkin.Controls.MaterialDivider materialDivider1;
+        private MaterialSkin.Controls.MaterialCheckbox SslChckBx;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox2 ResponseTextBox;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialButton TestRouteBtn;
     }
 }
 

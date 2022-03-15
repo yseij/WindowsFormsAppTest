@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json.Linq;
+﻿using MaterialSkin.Controls;
+using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
 using System.Windows.Forms;
@@ -9,14 +10,14 @@ namespace WindowsFormsAppTest
     {
         private string _filePath;
         
-        public void testRoute(dynamic result, 
-                              TextBox textBoxWebservice,
+        public void testRoute(dynamic result,
+                              MaterialTextBox textBoxWebservice,
                               CheckBox sslChckBx,
-                              TextBox sllCertificaatVervalDatumTxtBx,
+                              MaterialTextBox sllCertificaatVervalDatumTxtBx,
                               CheckBox checkBoxKraanDLL,
                               CheckBox checkBoxKraanIni,
                               CheckBox checkBoxKraanDatabase,
-                              TextBox ResponseTextBox,
+                              MaterialMultiLineTextBox2 ResponseTextBox,
                               string selectedText)
         {
             string time = DateTime.Now.ToLongTimeString().Replace(":", "");
