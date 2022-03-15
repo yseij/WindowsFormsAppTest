@@ -62,7 +62,7 @@ namespace WindowsFormsAppTest
             this.AllKlantLstBx.Location = new System.Drawing.Point(6, 90);
             this.AllKlantLstBx.Name = "AllKlantLstBx";
             this.AllKlantLstBx.Size = new System.Drawing.Size(402, 147);
-            this.AllKlantLstBx.TabIndex = 39;
+            this.AllKlantLstBx.TabIndex = 1;
             this.AllKlantLstBx.SelectedIndexChanged += new System.EventHandler(this.AllKlantLstBx_SelectedIndexChanged);
             // 
             // UrlsByKlantLstBx
@@ -71,7 +71,7 @@ namespace WindowsFormsAppTest
             this.UrlsByKlantLstBx.Location = new System.Drawing.Point(5, 294);
             this.UrlsByKlantLstBx.Name = "UrlsByKlantLstBx";
             this.UrlsByKlantLstBx.Size = new System.Drawing.Size(402, 290);
-            this.UrlsByKlantLstBx.TabIndex = 49;
+            this.UrlsByKlantLstBx.TabIndex = 6;
             this.UrlsByKlantLstBx.SelectedIndexChanged += new System.EventHandler(this.UrlsByKlantLstBx_SelectedIndexChanged);
             // 
             // groupBox1
@@ -103,7 +103,7 @@ namespace WindowsFormsAppTest
             this.PasKlantAanBtn.Name = "PasKlantAanBtn";
             this.PasKlantAanBtn.NoAccentTextColor = System.Drawing.Color.Empty;
             this.PasKlantAanBtn.Size = new System.Drawing.Size(161, 36);
-            this.PasKlantAanBtn.TabIndex = 66;
+            this.PasKlantAanBtn.TabIndex = 5;
             this.PasKlantAanBtn.Text = "Pas gegevens aan";
             this.PasKlantAanBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.PasKlantAanBtn.UseAccentColor = false;
@@ -143,7 +143,7 @@ namespace WindowsFormsAppTest
             this.KlantTxtBx.ShortcutsEnabled = true;
             this.KlantTxtBx.Size = new System.Drawing.Size(326, 48);
             this.KlantTxtBx.SkipLiterals = true;
-            this.KlantTxtBx.TabIndex = 62;
+            this.KlantTxtBx.TabIndex = 2;
             this.KlantTxtBx.TabStop = false;
             this.KlantTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.KlantTxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
@@ -167,7 +167,7 @@ namespace WindowsFormsAppTest
             this.AddKlantBtn.Name = "AddKlantBtn";
             this.AddKlantBtn.NoAccentTextColor = System.Drawing.Color.Empty;
             this.AddKlantBtn.Size = new System.Drawing.Size(100, 36);
-            this.AddKlantBtn.TabIndex = 65;
+            this.AddKlantBtn.TabIndex = 4;
             this.AddKlantBtn.Text = "Klant toevoegen";
             this.AddKlantBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.AddKlantBtn.UseAccentColor = false;
@@ -201,7 +201,7 @@ namespace WindowsFormsAppTest
             this.DeleteKlantBttn.Name = "DeleteKlantBttn";
             this.DeleteKlantBttn.NoAccentTextColor = System.Drawing.Color.Empty;
             this.DeleteKlantBttn.Size = new System.Drawing.Size(100, 36);
-            this.DeleteKlantBttn.TabIndex = 64;
+            this.DeleteKlantBttn.TabIndex = 3;
             this.DeleteKlantBttn.Text = "Klant verwijderen";
             this.DeleteKlantBttn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.DeleteKlantBttn.UseAccentColor = false;
@@ -276,7 +276,7 @@ namespace WindowsFormsAppTest
             this.SecurityIdTxtBx.ShortcutsEnabled = true;
             this.SecurityIdTxtBx.Size = new System.Drawing.Size(289, 48);
             this.SecurityIdTxtBx.SkipLiterals = true;
-            this.SecurityIdTxtBx.TabIndex = 68;
+            this.SecurityIdTxtBx.TabIndex = 7;
             this.SecurityIdTxtBx.TabStop = false;
             this.SecurityIdTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.SecurityIdTxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
@@ -330,7 +330,7 @@ namespace WindowsFormsAppTest
             this.UrlTxtBx.ShortcutsEnabled = true;
             this.UrlTxtBx.Size = new System.Drawing.Size(289, 48);
             this.UrlTxtBx.SkipLiterals = true;
-            this.UrlTxtBx.TabIndex = 70;
+            this.UrlTxtBx.TabIndex = 8;
             this.UrlTxtBx.TabStop = false;
             this.UrlTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.UrlTxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
@@ -456,7 +456,7 @@ namespace WindowsFormsAppTest
             this.PasUrlAanBtn.Name = "PasUrlAanBtn";
             this.PasUrlAanBtn.NoAccentTextColor = System.Drawing.Color.Empty;
             this.PasUrlAanBtn.Size = new System.Drawing.Size(161, 36);
-            this.PasUrlAanBtn.TabIndex = 69;
+            this.PasUrlAanBtn.TabIndex = 11;
             this.PasUrlAanBtn.Text = "Pas gegevens aan";
             this.PasUrlAanBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.PasUrlAanBtn.UseAccentColor = false;
@@ -478,7 +478,7 @@ namespace WindowsFormsAppTest
             this.AddUrlByKlantBttn.Name = "AddUrlByKlantBttn";
             this.AddUrlByKlantBttn.NoAccentTextColor = System.Drawing.Color.Empty;
             this.AddUrlByKlantBttn.Size = new System.Drawing.Size(100, 36);
-            this.AddUrlByKlantBttn.TabIndex = 68;
+            this.AddUrlByKlantBttn.TabIndex = 10;
             this.AddUrlByKlantBttn.Text = "Url toevoegen";
             this.AddUrlByKlantBttn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.AddUrlByKlantBttn.UseAccentColor = false;
@@ -500,7 +500,7 @@ namespace WindowsFormsAppTest
             this.DeleteUrlBttn.Name = "DeleteUrlBttn";
             this.DeleteUrlBttn.NoAccentTextColor = System.Drawing.Color.Empty;
             this.DeleteUrlBttn.Size = new System.Drawing.Size(100, 36);
-            this.DeleteUrlBttn.TabIndex = 67;
+            this.DeleteUrlBttn.TabIndex = 9;
             this.DeleteUrlBttn.Text = "Url verwijderen";
             this.DeleteUrlBttn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.DeleteUrlBttn.UseAccentColor = false;

@@ -53,7 +53,7 @@ namespace WindowsFormsAppTest
             this.AddUrlButton.Name = "AddUrlButton";
             this.AddUrlButton.NoAccentTextColor = System.Drawing.Color.Empty;
             this.AddUrlButton.Size = new System.Drawing.Size(136, 36);
-            this.AddUrlButton.TabIndex = 16;
+            this.AddUrlButton.TabIndex = 8;
             this.AddUrlButton.Text = "Url toevoegen";
             this.AddUrlButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.AddUrlButton.UseAccentColor = false;
@@ -93,7 +93,7 @@ namespace WindowsFormsAppTest
             this.NewUrlTxtBx.ShortcutsEnabled = true;
             this.NewUrlTxtBx.Size = new System.Drawing.Size(370, 48);
             this.NewUrlTxtBx.SkipLiterals = true;
-            this.NewUrlTxtBx.TabIndex = 18;
+            this.NewUrlTxtBx.TabIndex = 2;
             this.NewUrlTxtBx.TabStop = false;
             this.NewUrlTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.NewUrlTxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
@@ -135,7 +135,7 @@ namespace WindowsFormsAppTest
             this.NewSecurityIdTxtBx.ShortcutsEnabled = true;
             this.NewSecurityIdTxtBx.Size = new System.Drawing.Size(370, 48);
             this.NewSecurityIdTxtBx.SkipLiterals = true;
-            this.NewSecurityIdTxtBx.TabIndex = 19;
+            this.NewSecurityIdTxtBx.TabIndex = 1;
             this.NewSecurityIdTxtBx.TabStop = false;
             this.NewSecurityIdTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.NewSecurityIdTxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
@@ -153,7 +153,7 @@ namespace WindowsFormsAppTest
             this.LblSecurityID.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblSecurityID.Name = "LblSecurityID";
             this.LblSecurityID.Size = new System.Drawing.Size(77, 19);
-            this.LblSecurityID.TabIndex = 16;
+            this.LblSecurityID.TabIndex = 1;
             this.LblSecurityID.Text = "SecurityID:";
             // 
             // LblUrl
@@ -165,7 +165,7 @@ namespace WindowsFormsAppTest
             this.LblUrl.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblUrl.Name = "LblUrl";
             this.LblUrl.Size = new System.Drawing.Size(24, 19);
-            this.LblUrl.TabIndex = 20;
+            this.LblUrl.TabIndex = 3;
             this.LblUrl.Text = "Url:";
             // 
             // LblWebservice
@@ -177,7 +177,7 @@ namespace WindowsFormsAppTest
             this.LblWebservice.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblWebservice.Name = "LblWebservice";
             this.LblWebservice.Size = new System.Drawing.Size(85, 19);
-            this.LblWebservice.TabIndex = 21;
+            this.LblWebservice.TabIndex = 5;
             this.LblWebservice.Text = "Webservice:";
             // 
             // LblKlant
@@ -189,7 +189,7 @@ namespace WindowsFormsAppTest
             this.LblKlant.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblKlant.Name = "LblKlant";
             this.LblKlant.Size = new System.Drawing.Size(42, 19);
-            this.LblKlant.TabIndex = 22;
+            this.LblKlant.TabIndex = 7;
             this.LblKlant.Text = "Klant:";
             // 
             // WebServiceCmbx

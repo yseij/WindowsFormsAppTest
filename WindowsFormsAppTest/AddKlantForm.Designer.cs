@@ -47,7 +47,7 @@ namespace WindowsFormsAppTest
             this.AddKlantBttn.Name = "AddKlantBttn";
             this.AddKlantBttn.NoAccentTextColor = System.Drawing.Color.Empty;
             this.AddKlantBttn.Size = new System.Drawing.Size(156, 36);
-            this.AddKlantBttn.TabIndex = 13;
+            this.AddKlantBttn.TabIndex = 3;
             this.AddKlantBttn.Text = "Klant toevoegen";
             this.AddKlantBttn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.AddKlantBttn.UseAccentColor = false;
@@ -87,7 +87,7 @@ namespace WindowsFormsAppTest
             this.NewKlantNaamTxtBx.ShortcutsEnabled = true;
             this.NewKlantNaamTxtBx.Size = new System.Drawing.Size(383, 48);
             this.NewKlantNaamTxtBx.SkipLiterals = true;
-            this.NewKlantNaamTxtBx.TabIndex = 14;
+            this.NewKlantNaamTxtBx.TabIndex = 2;
             this.NewKlantNaamTxtBx.TabStop = false;
             this.NewKlantNaamTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.NewKlantNaamTxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
@@ -105,7 +105,7 @@ namespace WindowsFormsAppTest
             this.LblName.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblName.Name = "LblName";
             this.LblName.Size = new System.Drawing.Size(48, 19);
-            this.LblName.TabIndex = 15;
+            this.LblName.TabIndex = 1;
             this.LblName.Text = "Naam:";
             // 
             // AddKlantForm
