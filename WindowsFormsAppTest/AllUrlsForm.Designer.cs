@@ -84,6 +84,7 @@ namespace WindowsFormsAppTest
             this.SecurityIdTxtBx.TabIndex = 43;
             this.SecurityIdTxtBx.Text = "";
             this.SecurityIdTxtBx.TrailingIcon = null;
+            this.SecurityIdTxtBx.TextChanged += new System.EventHandler(this.SecurityIdTxtBx_TextChanged);
             // 
             // UrlTxtBx
             // 
@@ -101,6 +102,7 @@ namespace WindowsFormsAppTest
             this.UrlTxtBx.TabIndex = 45;
             this.UrlTxtBx.Text = "";
             this.UrlTxtBx.TrailingIcon = null;
+            this.UrlTxtBx.TextChanged += new System.EventHandler(this.UrlTxtBx_TextChanged);
             // 
             // LblUrl
             // 
@@ -135,6 +137,7 @@ namespace WindowsFormsAppTest
             this.WebServiceCmbx.Size = new System.Drawing.Size(282, 49);
             this.WebServiceCmbx.StartIndex = 0;
             this.WebServiceCmbx.TabIndex = 46;
+            this.WebServiceCmbx.SelectedIndexChanged += new System.EventHandler(this.WebServiceCmbx_SelectedIndexChanged);
             // 
             // materialComboBox2
             // 
@@ -157,6 +160,7 @@ namespace WindowsFormsAppTest
             this.materialComboBox2.Size = new System.Drawing.Size(282, 49);
             this.materialComboBox2.StartIndex = 0;
             this.materialComboBox2.TabIndex = 47;
+            this.materialComboBox2.SelectedIndexChanged += new System.EventHandler(this.materialComboBox2_SelectedIndexChanged);
             // 
             // materialLabel3
             // 
@@ -189,6 +193,7 @@ namespace WindowsFormsAppTest
             this.AllUrlsLstBx.Name = "AllUrlsLstBx";
             this.AllUrlsLstBx.Size = new System.Drawing.Size(399, 342);
             this.AllUrlsLstBx.TabIndex = 50;
+            this.AllUrlsLstBx.SelectedIndexChanged += new System.EventHandler(this.AllUrlsLstBx_SelectedIndexChanged);
             // 
             // DeleteUrlBttn
             // 
@@ -210,6 +215,7 @@ namespace WindowsFormsAppTest
             this.DeleteUrlBttn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.DeleteUrlBttn.UseAccentColor = false;
             this.DeleteUrlBttn.UseVisualStyleBackColor = true;
+            this.DeleteUrlBttn.Click += new System.EventHandler(this.DeleteUrlBttn_Click);
             // 
             // AddUrlBtn
             // 
@@ -231,6 +237,7 @@ namespace WindowsFormsAppTest
             this.AddUrlBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.AddUrlBtn.UseAccentColor = false;
             this.AddUrlBtn.UseVisualStyleBackColor = true;
+            this.AddUrlBtn.Click += new System.EventHandler(this.AddUrlBtn_Click);
             // 
             // PasUrlAanBtn
             // 
@@ -252,6 +259,7 @@ namespace WindowsFormsAppTest
             this.PasUrlAanBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.PasUrlAanBtn.UseAccentColor = false;
             this.PasUrlAanBtn.UseVisualStyleBackColor = true;
+            this.PasUrlAanBtn.Click += new System.EventHandler(this.PasUrlAanBtn_Click);
             // 
             // AllUrlsForm
             // 

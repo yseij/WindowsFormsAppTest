@@ -7,9 +7,9 @@ namespace WindowsFormsAppTest
 {
     public partial class AllKlantenForm : MaterialForm
     {
-        private string changedKlant = "";
-        private string changedSecurityId = "";
-        private string changedUrl = "";
+        private string _changedKlant = "";
+        private string _changedSecurityId = "";
+        private string _changedUrl = "";
         private int _selectedKlantId;
         private int _selectedKlantIdForChange;
         private int _selectedWebserviceIdForChange;
@@ -110,14 +110,23 @@ namespace WindowsFormsAppTest
                 KlantTxtBx.Text = klantData.Name;
             }
         }
-        private void KlantCmbBx_SelectedIndexChanged(object sender, EventArgs e)
+
+        private void KlantTxtBx_TextChanged(object sender, EventArgs e)
         {
-            _selectedKlantIdForChange = (int)KlantCmbBx.SelectedValue;
+            _changedKlant = KlantTxtBx.Text;
+        }
+
+
+        private void AddKlantBtn_Click(object sender, EventArgs e)
+        {
+            var m = new AddKlantForm();
+            m.FormClosing += new FormClosingEventHandler(ChildFormClosingAddKlantForm);
+            m.ShowDialog();
         }
 
         private void PasKlantAanBtn_Click(object sender, EventArgs e)
         {
-            _klantTest.UpdateKlant((int)AllKlantLstBx.SelectedValue, changedKlant);
+            _klantTest.UpdateKlant((int)AllKlantLstBx.SelectedValue, _changedKlant);
             getKlanten();
         }
 
@@ -125,11 +134,6 @@ namespace WindowsFormsAppTest
         {
             _klantTest.DeleteKlant((int)AllKlantLstBx.SelectedValue);
             getKlanten();
-        }
-
-        private void UrlTxtBx_TextChanged(object sender, EventArgs e)
-        {
-            changedKlant = KlantTxtBx.Text;
         }
 
         private void UrlsByKlantLstBx_SelectedIndexChanged(object sender, EventArgs e)
@@ -146,13 +150,44 @@ namespace WindowsFormsAppTest
             }
         }
 
+        private void SecurityIdTxtBx_TextChanged(object sender, EventArgs e)
+        {
+            _changedSecurityId = SecurityIdTxtBx.Text;
+        }
+
+        private void UrlTxtBx_TextChanged(object sender, EventArgs e)
+        {
+            _changedUrl = UrlTxtBx.Text;
+        }
+
+        private void WebServiceCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedWebserviceIdForChange = (int)WebServiceCmbx.SelectedValue;
+        }
+
+        private void KlantCmbBx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (KlantCmbBx.DataSource != null)
+            {
+                _selectedKlantIdForChange = (int)KlantCmbBx.SelectedValue;
+            }
+        }
+
+        private void AddUrlByKlantBttn_Click(object sender, EventArgs e)
+        {
+            SetValueForKlantId = _selectedKlantId;
+            var m = new AddUrlForm();
+            m.FormClosing += new FormClosingEventHandler(ChildFormClosingAddUrlForm);
+            m.ShowDialog();
+        }
+
         private void PasUrlAanBtn_Click(object sender, EventArgs e)
         {
-            _urltest.UpdateUrl((int)UrlsByKlantLstBx.SelectedValue, 
-                                changedUrl, 
-                                changedSecurityId, 
-                                _selectedWebserviceIdForChange, 
-                                _selectedKlantIdForChange);
+            _urltest.UpdateUrl((int)UrlsByKlantLstBx.SelectedValue,
+                    _changedUrl,
+                    _changedSecurityId,
+                    _selectedWebserviceIdForChange,
+                    _selectedKlantIdForChange);
             getUrlsFromKlant(_selectedKlantId);
         }
 
@@ -163,36 +198,11 @@ namespace WindowsFormsAppTest
             getUrlsFromKlant(_selectedKlantId);
         }
 
-        private void SecurityIdTxtBx_TextChanged(object sender, EventArgs e)
-        {
-            changedSecurityId = SecurityIdTxtBx.Text;
-        }
-
-        private void UrlTxtBx_TextChanged_1(object sender, EventArgs e)
-        {
-            changedUrl = UrlTxtBx.Text;
-        }
-
-        private void AddKlantBtn_Click(object sender, EventArgs e)
-        {
-            var m = new AddKlantForm();
-            m.FormClosing += new FormClosingEventHandler(ChildFormClosingAddKlantForm);
-            m.ShowDialog();
-        }
-
         private void ChildFormClosingAddKlantForm(object sender, FormClosingEventArgs e)
         {
             getKlanten();
             AllKlantLstBx.SelectedIndex = AllKlantLstBx.Items.Count - 1;
             _selectedKlantId = _klantDatas[_klantDatas.Count - 1].Id;
-        }
-
-        private void AddUrlByKlantBttn_Click(object sender, EventArgs e)
-        {
-            SetValueForKlantId = _selectedKlantId;
-            var m = new AddUrlForm();
-            m.FormClosing += new FormClosingEventHandler(ChildFormClosingAddUrlForm);
-            m.ShowDialog();
         }
 
         private void ChildFormClosingAddUrlForm(object sender, FormClosingEventArgs e)
@@ -204,11 +214,6 @@ namespace WindowsFormsAppTest
         {
             SecurityIdTxtBx.Text = string.Empty;
             UrlTxtBx.Text = string.Empty;
-        }
-
-        private void WebServiceCmbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            _selectedWebserviceIdForChange = (int)WebServiceCmbx.SelectedValue;
         }
 
         private void AllKlantenForm_Load(object sender, EventArgs e)

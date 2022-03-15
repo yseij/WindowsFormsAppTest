@@ -20,7 +20,7 @@ namespace WindowsFormsAppTest
             Close();
         }
 
-        private void NewKlantNaamTxtBx_Click(object sender, EventArgs e)
+        private void NewKlantNaamTxtBx_TextChanged(object sender, EventArgs e)
         {
             _newKlantNaam = NewKlantNaamTxtBx.Text;
         }

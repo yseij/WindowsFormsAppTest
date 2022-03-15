@@ -100,7 +100,7 @@ namespace WindowsFormsAppTest
             this.NewUrlTxtBx.TrailingIcon = null;
             this.NewUrlTxtBx.UseSystemPasswordChar = false;
             this.NewUrlTxtBx.ValidatingType = null;
-            this.NewUrlTxtBx.Click += new System.EventHandler(this.NewUrlTxtBx_Click);
+            this.NewUrlTxtBx.TextChanged += new System.EventHandler(this.NewUrlTxtBx_TextChanged);
             // 
             // NewSecurityIdTxtBx
             // 
@@ -142,7 +142,7 @@ namespace WindowsFormsAppTest
             this.NewSecurityIdTxtBx.TrailingIcon = null;
             this.NewSecurityIdTxtBx.UseSystemPasswordChar = false;
             this.NewSecurityIdTxtBx.ValidatingType = null;
-            this.NewSecurityIdTxtBx.Click += new System.EventHandler(this.NewSecurityIdTxtBx_Click);
+            this.NewSecurityIdTxtBx.TextChanged += new System.EventHandler(this.NewSecurityIdTxtBx_TextChanged);
             // 
             // LblSecurityID
             // 

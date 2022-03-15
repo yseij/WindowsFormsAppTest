@@ -108,6 +108,7 @@ namespace WindowsFormsAppTest
             this.PasKlantAanBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.PasKlantAanBtn.UseAccentColor = false;
             this.PasKlantAanBtn.UseVisualStyleBackColor = true;
+            this.PasKlantAanBtn.Click += new System.EventHandler(this.PasKlantAanBtn_Click);
             // 
             // KlantTxtBx
             // 
@@ -149,6 +150,7 @@ namespace WindowsFormsAppTest
             this.KlantTxtBx.TrailingIcon = null;
             this.KlantTxtBx.UseSystemPasswordChar = false;
             this.KlantTxtBx.ValidatingType = null;
+            this.KlantTxtBx.TextChanged += new System.EventHandler(this.KlantTxtBx_TextChanged);
             // 
             // AddKlantBtn
             // 
@@ -170,6 +172,7 @@ namespace WindowsFormsAppTest
             this.AddKlantBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.AddKlantBtn.UseAccentColor = false;
             this.AddKlantBtn.UseVisualStyleBackColor = true;
+            this.AddKlantBtn.Click += new System.EventHandler(this.AddKlantBtn_Click);
             // 
             // LblNaam
             // 
@@ -203,6 +206,7 @@ namespace WindowsFormsAppTest
             this.DeleteKlantBttn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.DeleteKlantBttn.UseAccentColor = false;
             this.DeleteKlantBttn.UseVisualStyleBackColor = true;
+            this.DeleteKlantBttn.Click += new System.EventHandler(this.DeleteKlantBttn_Click);
             // 
             // LblKlant
             // 
@@ -279,6 +283,7 @@ namespace WindowsFormsAppTest
             this.SecurityIdTxtBx.TrailingIcon = null;
             this.SecurityIdTxtBx.UseSystemPasswordChar = false;
             this.SecurityIdTxtBx.ValidatingType = null;
+            this.SecurityIdTxtBx.TextChanged += new System.EventHandler(this.SecurityIdTxtBx_TextChanged);
             // 
             // LblSecurityID
             // 
@@ -332,6 +337,7 @@ namespace WindowsFormsAppTest
             this.UrlTxtBx.TrailingIcon = null;
             this.UrlTxtBx.UseSystemPasswordChar = false;
             this.UrlTxtBx.ValidatingType = null;
+            this.UrlTxtBx.TextChanged += new System.EventHandler(this.UrlTxtBx_TextChanged);
             // 
             // LblNaamUrl
             // 
@@ -390,6 +396,7 @@ namespace WindowsFormsAppTest
             this.WebServiceCmbx.Size = new System.Drawing.Size(289, 49);
             this.WebServiceCmbx.StartIndex = 0;
             this.WebServiceCmbx.TabIndex = 74;
+            this.WebServiceCmbx.SelectedIndexChanged += new System.EventHandler(this.WebServiceCmbx_SelectedIndexChanged);
             // 
             // KlantCmbBx
             // 
@@ -412,6 +419,7 @@ namespace WindowsFormsAppTest
             this.KlantCmbBx.Size = new System.Drawing.Size(289, 49);
             this.KlantCmbBx.StartIndex = 0;
             this.KlantCmbBx.TabIndex = 75;
+            this.KlantCmbBx.SelectedIndexChanged += new System.EventHandler(this.KlantCmbBx_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -453,6 +461,7 @@ namespace WindowsFormsAppTest
             this.PasUrlAanBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.PasUrlAanBtn.UseAccentColor = false;
             this.PasUrlAanBtn.UseVisualStyleBackColor = true;
+            this.PasUrlAanBtn.Click += new System.EventHandler(this.PasUrlAanBtn_Click);
             // 
             // AddUrlByKlantBttn
             // 
@@ -470,10 +479,11 @@ namespace WindowsFormsAppTest
             this.AddUrlByKlantBttn.NoAccentTextColor = System.Drawing.Color.Empty;
             this.AddUrlByKlantBttn.Size = new System.Drawing.Size(100, 36);
             this.AddUrlByKlantBttn.TabIndex = 68;
-            this.AddUrlByKlantBttn.Text = "Klant toevoegen";
+            this.AddUrlByKlantBttn.Text = "Url toevoegen";
             this.AddUrlByKlantBttn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.AddUrlByKlantBttn.UseAccentColor = false;
             this.AddUrlByKlantBttn.UseVisualStyleBackColor = true;
+            this.AddUrlByKlantBttn.Click += new System.EventHandler(this.AddUrlByKlantBttn_Click);
             // 
             // DeleteUrlBttn
             // 
@@ -491,10 +501,11 @@ namespace WindowsFormsAppTest
             this.DeleteUrlBttn.NoAccentTextColor = System.Drawing.Color.Empty;
             this.DeleteUrlBttn.Size = new System.Drawing.Size(100, 36);
             this.DeleteUrlBttn.TabIndex = 67;
-            this.DeleteUrlBttn.Text = "Klant verwijderen";
+            this.DeleteUrlBttn.Text = "Url verwijderen";
             this.DeleteUrlBttn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.DeleteUrlBttn.UseAccentColor = false;
             this.DeleteUrlBttn.UseVisualStyleBackColor = true;
+            this.DeleteUrlBttn.Click += new System.EventHandler(this.DeleteUrlBttn_Click);
             // 
             // AllKlantenForm
             // 

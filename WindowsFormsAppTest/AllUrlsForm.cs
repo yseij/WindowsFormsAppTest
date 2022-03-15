@@ -56,6 +56,7 @@ namespace WindowsFormsAppTest
             AllUrlsLstBx.DataSource = _urlDatas;
         }
 
+
         private void AllUrlsLstBx_SelectedIndexChanged(object sender, EventArgs e)
         {
             clearBox();
@@ -92,28 +93,12 @@ namespace WindowsFormsAppTest
             AllUrlsLstBx.SelectedIndex = selectedIndex;
         }
 
-        private void clearBox()
-        {
-            SecurityIdTxtBx.Text = string.Empty;
-            UrlTxtBx.Text = string.Empty;
-        }
-
         private void DeleteUrlBttn_Click(object sender, EventArgs e)
         {
             clearBox();
             _urltest.DeleteUrl((int)AllUrlsLstBx.SelectedValue);
             AllUrlsLstBx.SelectedIndex = 0;
             getUrls();
-        }
-
-        private void SecurityIdTxtBx_TextChanged(object sender, EventArgs e)
-        {
-            changedSecurityId = SecurityIdTxtBx.Text;
-        }
-
-        private void UrlTxtBx_TextChanged(object sender, EventArgs e)
-        {
-            changedUrl = UrlTxtBx.Text;
         }
 
         private void AddUrlBtn_Click(object sender, EventArgs e)
@@ -128,14 +113,30 @@ namespace WindowsFormsAppTest
             getUrls();
         }
 
+        private void SecurityIdTxtBx_TextChanged(object sender, EventArgs e)
+        {
+            changedSecurityId = SecurityIdTxtBx.Text;
+        }
+
+        private void UrlTxtBx_TextChanged(object sender, EventArgs e)
+        {
+            changedUrl = UrlTxtBx.Text;
+        }
+
         private void WebServiceCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             _selectedWebserviceId = (int)WebServiceCmbx.SelectedValue;
         }
 
-        private void KlantCmbBx_SelectedIndexChanged(object sender, EventArgs e)
+        private void materialComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
             _selectedKlantId = (int)materialComboBox2.SelectedValue;
+        }
+
+        private void clearBox()
+        {
+            SecurityIdTxtBx.Text = string.Empty;
+            UrlTxtBx.Text = string.Empty;
         }
 
         private void fillCmbxWebServices()

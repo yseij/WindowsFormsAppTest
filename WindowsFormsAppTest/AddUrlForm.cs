@@ -62,13 +62,12 @@ namespace WindowsFormsAppTest
                 KlantCmbBx.SelectedValue = _klantId;
             }
         }
-
-        private void NewSecurityIdTxtBx_Click(object sender, EventArgs e)
+        private void NewSecurityIdTxtBx_TextChanged(object sender, EventArgs e)
         {
             _newSecurityId = NewSecurityIdTxtBx.Text;
         }
 
-        private void NewUrlTxtBx_Click(object sender, EventArgs e)
+        private void NewUrlTxtBx_TextChanged(object sender, EventArgs e)
         {
             _newUrl = NewUrlTxtBx.Text;
         }
