@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -16,7 +17,7 @@ namespace WindowsFormsAppTest
         private int selectedWebserviceId;
         private int aantalLegeUrls;
 
-        private string urlHttp = "https://ws.kraan.com:444/";
+        private string urlHttp = ConfigurationManager.AppSettings["http"];
         private string _filePath;
 
         private dynamic _result;

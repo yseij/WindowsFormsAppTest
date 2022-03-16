@@ -22,7 +22,7 @@ namespace WindowsFormsAppTest
                               MaterialMultiLineTextBox2 ResponseTextBox,
                               string selectedText)
         {
-            //string slech = "\\";
+            
             string time = DateTime.Now.ToLongTimeString().Replace(":", "");
             string date = DateTime.Today.ToString("d").Replace("-", "");
             _filePath = @"" + _filePlace + "\\" + selectedText.Replace("/", "") + "_op_datum_" + date + time + ".txt";
