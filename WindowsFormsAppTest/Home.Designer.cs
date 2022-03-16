@@ -40,6 +40,13 @@ namespace WindowsFormsAppTest
             this.BtnShowKlanten = new MaterialSkin.Controls.MaterialButton();
             this.BtnShowWebservices = new MaterialSkin.Controls.MaterialButton();
             this.BtnShowUrls = new MaterialSkin.Controls.MaterialButton();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.logFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.soortHttpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.httpswskraancom444ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.httpswsdevkraancomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
             // urlsToolStripMenuItem
@@ -221,11 +228,58 @@ namespace WindowsFormsAppTest
             this.BtnShowUrls.UseVisualStyleBackColor = true;
             this.BtnShowUrls.Click += new System.EventHandler(this.BtnShowUrls_Click);
             // 
+            // menuStrip
+            // 
+            this.menuStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logFileToolStripMenuItem,
+            this.testToolStripMenuItem,
+            this.soortHttpToolStripMenuItem});
+            this.menuStrip.Location = new System.Drawing.Point(3, 460);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.menuStrip.Size = new System.Drawing.Size(476, 24);
+            this.menuStrip.TabIndex = 9;
+            this.menuStrip.Text = "menuStrip1";
+            // 
+            // logFileToolStripMenuItem
+            // 
+            this.logFileToolStripMenuItem.Name = "logFileToolStripMenuItem";
+            this.logFileToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
+            this.logFileToolStripMenuItem.Text = "Log file";
+            // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.testToolStripMenuItem.Text = "Test tijd";
+            // 
+            // soortHttpToolStripMenuItem
+            // 
+            this.soortHttpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.httpswskraancom444ToolStripMenuItem,
+            this.httpswsdevkraancomToolStripMenuItem});
+            this.soortHttpToolStripMenuItem.Name = "soortHttpToolStripMenuItem";
+            this.soortHttpToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.soortHttpToolStripMenuItem.Text = "Soort http";
+            // 
+            // httpswskraancom444ToolStripMenuItem
+            // 
+            this.httpswskraancom444ToolStripMenuItem.Name = "httpswskraancom444ToolStripMenuItem";
+            this.httpswskraancom444ToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.httpswskraancom444ToolStripMenuItem.Text = "https://ws.kraan.com:444/";
+            // 
+            // httpswsdevkraancomToolStripMenuItem
+            // 
+            this.httpswsdevkraancomToolStripMenuItem.Name = "httpswsdevkraancomToolStripMenuItem";
+            this.httpswsdevkraancomToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.httpswsdevkraancomToolStripMenuItem.Text = "https://wsdev.kraan.com/";
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(482, 464);
+            this.ClientSize = new System.Drawing.Size(482, 487);
             this.Controls.Add(this.BtnShowKlanten);
             this.Controls.Add(this.BtnShowWebservices);
             this.Controls.Add(this.BtnShowUrls);
@@ -235,10 +289,14 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.BttnWebservice);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.BttnUrl);
+            this.Controls.Add(this.menuStrip);
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "Home";
             this.Sizable = false;
             this.Text = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -256,5 +314,11 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialButton BtnShowKlanten;
         private MaterialSkin.Controls.MaterialButton BtnShowWebservices;
         private MaterialSkin.Controls.MaterialButton BtnShowUrls;
+        private System.Windows.Forms.MenuStrip menuStrip;
+        private System.Windows.Forms.ToolStripMenuItem logFileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem soortHttpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem httpswsdevkraancomToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem httpswskraancom444ToolStripMenuItem;
     }
 }

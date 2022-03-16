@@ -1,6 +1,7 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -21,6 +22,8 @@ namespace WindowsFormsAppTest
                 Primary.Blue500, Accent.LightBlue200,
                 TextShade.WHITE
             );
+
+            menuStrip.ForeColor = Color.FromArgb(0, 0, 0);
         }
 
         private void Home_Load(object sender, EventArgs e)
