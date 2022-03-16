@@ -10,7 +10,6 @@ namespace WindowsFormsAppTest
     class TestRoute
     {
         private string _filePath;
-        private string _filePlace => ConfigurationManager.AppSettings["opslaanLogFile"];
 
         public void testRoute(dynamic result,
                               MaterialTextBox textBoxWebservice,
@@ -22,13 +21,8 @@ namespace WindowsFormsAppTest
                               MaterialMultiLineTextBox2 ResponseTextBox,
                               string selectedText)
         {
-            
-            string time = DateTime.Now.ToLongTimeString().Replace(":", "");
-            string date = DateTime.Today.ToString("d").Replace("-", "");
-            _filePath = @"" + _filePlace + "\\" + selectedText.Replace("/", "") + "_op_datum_" + date + time + ".txt";
-
-            string createText = "Log van " + selectedText + "op datum " + date + Environment.NewLine;
-            File.WriteAllText(_filePath, createText);
+            LogFile logFile = new LogFile();
+            logFile.makeLogFile(selectedText);
             foreach (JProperty item in result)
             {
                 switch (item.Name)
@@ -36,27 +30,27 @@ namespace WindowsFormsAppTest
                     case "WebserviceVersie":
                         string[] strlist = item.Value.ToString().Split(':');
                         textBoxWebservice.Text = strlist[1];
-                        File.AppendAllText(_filePath, "WebserviceVersie = " + strlist[1] + "\n");
+                        logFile.addTextToLogFile("WebserviceVersie = " + strlist[1] + "\n");
                         break;
                     case "certVerValDatum":
                         if (item.Value != null)
                         {
                             sslChckBx.Checked = true;
                             sllCertificaatVervalDatumTxtBx.Text = item.Value.ToString();
-                            File.AppendAllText(_filePath, "certVerValDatum = " + item.Value.ToString() + "\n");
+                            logFile.addTextToLogFile("certVerValDatum = " + item.Value.ToString() + "\n");
                         }
                         break;
                     case "KraanDll":
                         checkBoxKraanDLL.Checked = item.Value.ToString().Contains("True");
-                        File.AppendAllText(_filePath, "KraanDll = " + item.Value.ToString().Contains("True") + "\n");
+                        logFile.addTextToLogFile("KraanDll = " + item.Value.ToString().Contains("True") + "\n");
                         break;
                     case "KraanIni":
                         checkBoxKraanIni.Checked = item.Value.ToString().Contains("True");
-                        File.AppendAllText(_filePath, "KraanIni = " + item.Value.ToString().Contains("True") + "\n");
+                        logFile.addTextToLogFile("KraanIni = " + item.Value.ToString().Contains("True") + "\n");
                         break;
                     case "KraanDatabase":
                         checkBoxKraanDatabase.Checked = item.Value.ToString().Contains("True");
-                        File.AppendAllText(_filePath, "KraanDatabase = " + item.Value.ToString().Contains("True") + "\n");
+                        logFile.addTextToLogFile("KraanDatabase = " + item.Value.ToString().Contains("True") + "\n");
                         break;
                     case "id":
                         break;

@@ -111,25 +111,25 @@ namespace WindowsFormsAppTest
             return @"{ WebserviceVersie: '" + webserviceVersie + "', KraanDll: '" + kraanDll + "', KraanIni: '" + kraanIni + "', KraanDatabase: '" + kraanDatabase + "', certVerValDatum: '" + verValDatum + "'}";
         }
 
-        private static bool ServerCertificateValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
-        {
-            //see: https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x509certificate.getexpirationdatestring?view=netcore-3.1#remarks
-            //Make sure we parse the DateTime.Parse(expirationdate) the same as GetExpirationDateString() does.
-            Console.WriteLine("test");
-            CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
-            var expirationDate = DateTime.Parse(certificate.GetExpirationDateString(), CultureInfo.InvariantCulture);
-            if (expirationDate - DateTime.Today < TimeSpan.FromDays(30))
-            {
-                throw new Exception("Time to renew the certificate!");
-            }
-            if (sslPolicyErrors == SslPolicyErrors.None)
-            {
-                return true;
-            }
-            else
-            {
-                throw new Exception("Cert policy errors: " + sslPolicyErrors.ToString());
-            }
-        }
+        //private static bool ServerCertificateValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
+        //{
+        //    //see: https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x509certificate.getexpirationdatestring?view=netcore-3.1#remarks
+        //    //Make sure we parse the DateTime.Parse(expirationdate) the same as GetExpirationDateString() does.
+        //    Console.WriteLine("test");
+        //    CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
+        //    var expirationDate = DateTime.Parse(certificate.GetExpirationDateString(), CultureInfo.InvariantCulture);
+        //    if (expirationDate - DateTime.Today < TimeSpan.FromDays(30))
+        //    {
+        //        throw new Exception("Time to renew the certificate!");
+        //    }
+        //    if (sslPolicyErrors == SslPolicyErrors.None)
+        //    {
+        //        return true;
+        //    }
+        //    else
+        //    {
+        //        throw new Exception("Cert policy errors: " + sslPolicyErrors.ToString());
+        //    }
+        //}
     }
 }

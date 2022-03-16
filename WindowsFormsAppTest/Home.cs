@@ -307,18 +307,15 @@ namespace WindowsFormsAppTest
                         {
                             if (item.Name == "ex")
                             {
-                                string time = DateTime.Now.ToLongTimeString().Replace(":", "");
-                                string date = DateTime.Today.ToString("d").Replace("-", "");
+                                LogFile logFile = new LogFile();
                                 if (teller == 0)
                                 {
                                     teller = teller + 1;
-                                    _filePath = @"" + ConfigurationManager.AppSettings["opslaanLogFile"] + "\\" + _webserviceKeuzeNaam + "_op_datum_" + date + time + ".txt";
-                                    string newText = "Log van " + _webserviceKeuzeNaam + "op datum " + date + Environment.NewLine;
-                                    File.AppendAllText(_filePath, newText);
+                                    logFile.makeLogFile(_webserviceKeuzeNaam);
                                 }
                                 else
                                 {
-                                    File.AppendAllText(_filePath, urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine);
+                                    logFile.addTextToLogFile(urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine);
                                 }
                             }
                         }
@@ -335,18 +332,15 @@ namespace WindowsFormsAppTest
                         {
                             if (item.Name == "ex")
                             {
-                                string time = DateTime.Now.ToLongTimeString().Replace(":", "");
-                                string date = DateTime.Today.ToString("d").Replace("-", "");
+                                LogFile logFile = new LogFile();
                                 if (teller == 0)
                                 {
                                     teller = teller + 1;
-                                    _filePath = @"" + ConfigurationManager.AppSettings["opslaanLogFile"] + "\\" + _klantKeuzeNaam + "_op_datum_" + date + time + ".txt";
-                                    string newText = "Log van " + _klantKeuzeNaam + "op datum " + date + Environment.NewLine;
-                                    File.AppendAllText(_filePath, newText);
+                                    logFile.makeLogFile(_klantKeuzeNaam);
                                 }
                                 else
                                 {
-                                    File.AppendAllText(_filePath, urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine);
+                                    logFile.addTextToLogFile(urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine);
                                 }
                             }
                         }

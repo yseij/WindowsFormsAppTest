@@ -59,7 +59,8 @@ namespace WindowsFormsAppTest
             int teller = 0;
 
             _urlDatasByForeignKey = _urltest.GetAllUrlsByForeignKeyWebservice(selectedWebserviceId);
-            makeLogFile();
+            LogFile logFile = new LogFile();
+            logFile.makeLogFile(WebServiceCmbx.Text);
             TrVwAll.Nodes.Clear();
             TrVwAll.BeginUpdate();
             clearBox();
@@ -70,8 +71,8 @@ namespace WindowsFormsAppTest
             {
                 TreeNode node = new TreeNode();
                 node.Text = urlData.Name;
-                File.AppendAllText(_filePath, "\n");
-                File.AppendAllText(_filePath, urlData.Name + "\n");
+                logFile.addTextToLogFile("\n");
+                logFile.addTextToLogFile(urlData.Name + "\n");
                 var data = _webRequest.GetWebRequest(urlData.Id, urlHttp, urlData.Name, urlData.SecurityId);
                 _result = JObject.Parse(data);
                 node.Tag = _result;
@@ -85,7 +86,7 @@ namespace WindowsFormsAppTest
                         aantalLegeUrls = aantalLegeUrls + 1;
                         AantalLegeUrlsTxtBx.Text = aantalLegeUrls.ToString();
                         LegeUrlsTxtBx.Text = LegeUrlsTxtBx.Text + " -- " + urlData.Name + Environment.NewLine;
-                        File.AppendAllText(_filePath, item.Name + " = " + item.Value.ToString() + "\n");
+                        logFile.addTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
                     }
                     else if (teller == 0)
                     {
@@ -95,7 +96,7 @@ namespace WindowsFormsAppTest
                     else if (item.Name != "id")
                     {
                         TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
-                        File.AppendAllText(_filePath, item.Name + " = " + item.Value.ToString() + "\n");
+                        logFile.addTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
                     }
                 }
             }
@@ -165,11 +166,7 @@ namespace WindowsFormsAppTest
 
         private void makeLogFile()
         {
-            string time = DateTime.Now.ToLongTimeString().Replace(":", "");
-            string date = DateTime.Today.ToString("d").Replace("-", "");
-            _filePath = @"d:\log_van_" + WebServiceCmbx.Text.Replace("/", "") + "_op_datum_" + date + time + ".txt";
-            string createText = "Log van " + WebServiceCmbx.Text + "op datum " + date + Environment.NewLine;
-            File.WriteAllText(_filePath, createText);
+            
         }
     }
 }

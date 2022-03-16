@@ -136,6 +136,7 @@
     </Compile>
     <Compile Include="KlantData.cs" />
     <Compile Include="KlantTest.cs" />
+    <Compile Include="LogFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SoapRequest.cs" />
