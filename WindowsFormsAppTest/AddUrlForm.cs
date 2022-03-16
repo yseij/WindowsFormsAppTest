@@ -45,18 +45,14 @@ namespace WindowsFormsAppTest
 
         private void fillCmbxWebServices()
         {
-            WebServiceCmbx.DataSource = null;
-            WebServiceCmbx.DisplayMember = "Name";
-            WebServiceCmbx.ValueMember = "Id";
-            WebServiceCmbx.DataSource = _webServiceDatas;
+            Combobox combobox = new Combobox(WebServiceCmbx);
+            combobox.fillCmbBoxWebservice(_webServiceDatas);
         }
 
         private void fillCmbxKlanten()
         {
-            KlantCmbBx.DataSource = null;
-            KlantCmbBx.DisplayMember = "Name";
-            KlantCmbBx.ValueMember = "Id";
-            KlantCmbBx.DataSource = _klantDatas;
+            Combobox combobox = new Combobox(KlantCmbBx);
+            combobox.fillCmbBoxKlant(_klantDatas);
             if (_klantId != 0)
             {
                 KlantCmbBx.SelectedValue = _klantId;

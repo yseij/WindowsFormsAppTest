@@ -69,13 +69,15 @@ namespace WindowsFormsAppTest
                     if (urlData.WebServiceDataId == webService.Id)
                     {
                         WebServiceCmbx.SelectedItem = webService;
+                        WebServiceCmbx.Refresh();
                     }
                 }
                 foreach (var klant in _klantDatas)
                 {
                     if (urlData.KlantDataId == klant.Id)
                     {
-                        materialComboBox2.SelectedItem = klant;
+                        KlantCmbx.SelectedItem = klant;
+                        KlantCmbx.Refresh();
                     }
                 }
                 UrlTxtBx.Text = urlData.Name;
@@ -130,7 +132,7 @@ namespace WindowsFormsAppTest
 
         private void materialComboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _selectedKlantId = (int)materialComboBox2.SelectedValue;
+            _selectedKlantId = (int)KlantCmbx.SelectedValue;
         }
 
         private void clearBox()
@@ -149,10 +151,10 @@ namespace WindowsFormsAppTest
 
         private void fillCmbxKlanten()
         {
-            materialComboBox2.DataSource = null;
-            materialComboBox2.DisplayMember = "Name";
-            materialComboBox2.ValueMember = "Id";
-            materialComboBox2.DataSource = _klantDatas;
+            KlantCmbx.DataSource = null;
+            KlantCmbx.DisplayMember = "Name";
+            KlantCmbx.ValueMember = "Id";
+            KlantCmbx.DataSource = _klantDatas;
         }
     }
 }

@@ -83,19 +83,15 @@ namespace WindowsFormsAppTest
 
         private void fillCmbxWebServices()
         {
+            Combobox combobox = new Combobox(WebServiceCmbx);
+            combobox.fillCmbBoxWebservice(_webServiceDatas);
             WebServiceCmbx.SelectedValue = _webServiceDatas[0].Id;
-            WebServiceCmbx.DataSource = null;
-            WebServiceCmbx.ValueMember = "Id";
-            WebServiceCmbx.DataSource = _webServiceDatas;
-            WebServiceCmbx.DisplayMember = "Name";
         }
 
         private void fillCmbxKlanten()
         {
-            KlantCmbBx.DataSource = null;
-            KlantCmbBx.ValueMember = "Id";
-            KlantCmbBx.DataSource = _klantDatasForChange;
-            KlantCmbBx.DisplayMember = "Name";
+            Combobox combobox = new Combobox(KlantCmbBx);
+            combobox.fillCmbBoxKlant(_klantDatasForChange);
             KlantCmbBx.SelectedValue = _selectedKlantId;
         }
 
@@ -108,6 +104,8 @@ namespace WindowsFormsAppTest
                 getUrlsFromKlant(idOfSelected);
                 KlantData klantData = _klantDatas.Find(k => k.Id == idOfSelected);
                 KlantTxtBx.Text = klantData.Name;
+                WebServiceCmbx.Refresh();
+                KlantCmbBx.Refresh();
             }
         }
 
@@ -147,6 +145,8 @@ namespace WindowsFormsAppTest
                 SecurityIdTxtBx.Text = urlData.SecurityId;
                 WebServiceCmbx.SelectedValue = urlData.WebServiceDataId;
                 KlantCmbBx.SelectedValue = urlData.KlantDataId;
+                WebServiceCmbx.Refresh();
+                KlantCmbBx.Refresh();
             }
         }
 

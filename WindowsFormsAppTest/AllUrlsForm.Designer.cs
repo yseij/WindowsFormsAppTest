@@ -35,7 +35,7 @@ namespace WindowsFormsAppTest
             this.UrlTxtBx = new MaterialSkin.Controls.MaterialTextBox();
             this.LblUrl = new MaterialSkin.Controls.MaterialLabel();
             this.WebServiceCmbx = new MaterialSkin.Controls.MaterialComboBox();
-            this.materialComboBox2 = new MaterialSkin.Controls.MaterialComboBox();
+            this.KlantCmbx = new MaterialSkin.Controls.MaterialComboBox();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.LblKlant = new MaterialSkin.Controls.MaterialLabel();
             this.AllUrlsLstBx = new System.Windows.Forms.ListBox();
@@ -139,28 +139,28 @@ namespace WindowsFormsAppTest
             this.WebServiceCmbx.TabIndex = 46;
             this.WebServiceCmbx.SelectedIndexChanged += new System.EventHandler(this.WebServiceCmbx_SelectedIndexChanged);
             // 
-            // materialComboBox2
+            // KlantCmbx
             // 
-            this.materialComboBox2.AutoResize = false;
-            this.materialComboBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.materialComboBox2.Depth = 0;
-            this.materialComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.materialComboBox2.DropDownHeight = 174;
-            this.materialComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.materialComboBox2.DropDownWidth = 121;
-            this.materialComboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.materialComboBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialComboBox2.FormattingEnabled = true;
-            this.materialComboBox2.IntegralHeight = false;
-            this.materialComboBox2.ItemHeight = 43;
-            this.materialComboBox2.Location = new System.Drawing.Point(507, 255);
-            this.materialComboBox2.MaxDropDownItems = 4;
-            this.materialComboBox2.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialComboBox2.Name = "materialComboBox2";
-            this.materialComboBox2.Size = new System.Drawing.Size(282, 49);
-            this.materialComboBox2.StartIndex = 0;
-            this.materialComboBox2.TabIndex = 47;
-            this.materialComboBox2.SelectedIndexChanged += new System.EventHandler(this.materialComboBox2_SelectedIndexChanged);
+            this.KlantCmbx.AutoResize = false;
+            this.KlantCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.KlantCmbx.Depth = 0;
+            this.KlantCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.KlantCmbx.DropDownHeight = 174;
+            this.KlantCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.KlantCmbx.DropDownWidth = 121;
+            this.KlantCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.KlantCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.KlantCmbx.FormattingEnabled = true;
+            this.KlantCmbx.IntegralHeight = false;
+            this.KlantCmbx.ItemHeight = 43;
+            this.KlantCmbx.Location = new System.Drawing.Point(507, 255);
+            this.KlantCmbx.MaxDropDownItems = 4;
+            this.KlantCmbx.MouseState = MaterialSkin.MouseState.OUT;
+            this.KlantCmbx.Name = "KlantCmbx";
+            this.KlantCmbx.Size = new System.Drawing.Size(282, 49);
+            this.KlantCmbx.StartIndex = 0;
+            this.KlantCmbx.TabIndex = 47;
+            this.KlantCmbx.SelectedIndexChanged += new System.EventHandler(this.materialComboBox2_SelectedIndexChanged);
             // 
             // materialLabel3
             // 
@@ -272,7 +272,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.AllUrlsLstBx);
             this.Controls.Add(this.LblKlant);
             this.Controls.Add(this.materialLabel3);
-            this.Controls.Add(this.materialComboBox2);
+            this.Controls.Add(this.KlantCmbx);
             this.Controls.Add(this.WebServiceCmbx);
             this.Controls.Add(this.UrlTxtBx);
             this.Controls.Add(this.LblUrl);
@@ -294,7 +294,7 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialTextBox UrlTxtBx;
         private MaterialSkin.Controls.MaterialLabel LblUrl;
         private MaterialSkin.Controls.MaterialComboBox WebServiceCmbx;
-        private MaterialSkin.Controls.MaterialComboBox materialComboBox2;
+        private MaterialSkin.Controls.MaterialComboBox KlantCmbx;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialLabel LblKlant;
         private System.Windows.Forms.ListBox AllUrlsLstBx;
