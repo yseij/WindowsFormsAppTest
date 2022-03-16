@@ -41,9 +41,10 @@ namespace WindowsFormsAppTest
             this.BtnShowWebservices = new MaterialSkin.Controls.MaterialButton();
             this.BtnShowUrls = new MaterialSkin.Controls.MaterialButton();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
-            this.logFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.soortHttpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.StripMenuItemLogFile = new System.Windows.Forms.ToolStripMenuItem();
+            this.plaatsOpslaanLogFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.StripMenuItemTestTijd = new System.Windows.Forms.ToolStripMenuItem();
+            this.StripMenuItemSoortHttp = new System.Windows.Forms.ToolStripMenuItem();
             this.httpswskraancom444ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.httpswsdevkraancomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
@@ -232,9 +233,9 @@ namespace WindowsFormsAppTest
             // 
             this.menuStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.logFileToolStripMenuItem,
-            this.testToolStripMenuItem,
-            this.soortHttpToolStripMenuItem});
+            this.StripMenuItemLogFile,
+            this.StripMenuItemTestTijd,
+            this.StripMenuItemSoortHttp});
             this.menuStrip.Location = new System.Drawing.Point(3, 460);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
@@ -242,26 +243,36 @@ namespace WindowsFormsAppTest
             this.menuStrip.TabIndex = 9;
             this.menuStrip.Text = "menuStrip1";
             // 
-            // logFileToolStripMenuItem
+            // StripMenuItemLogFile
             // 
-            this.logFileToolStripMenuItem.Name = "logFileToolStripMenuItem";
-            this.logFileToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
-            this.logFileToolStripMenuItem.Text = "Log file";
+            this.StripMenuItemLogFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.plaatsOpslaanLogFileToolStripMenuItem});
+            this.StripMenuItemLogFile.Name = "StripMenuItemLogFile";
+            this.StripMenuItemLogFile.Size = new System.Drawing.Size(58, 20);
+            this.StripMenuItemLogFile.Text = "Log file";
             // 
-            // testToolStripMenuItem
+            // plaatsOpslaanLogFileToolStripMenuItem
             // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.testToolStripMenuItem.Text = "Test tijd";
+            this.plaatsOpslaanLogFileToolStripMenuItem.Name = "plaatsOpslaanLogFileToolStripMenuItem";
+            this.plaatsOpslaanLogFileToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.plaatsOpslaanLogFileToolStripMenuItem.Text = "Plaats opslaan log file";
+            this.plaatsOpslaanLogFileToolStripMenuItem.Click += new System.EventHandler(this.plaatsOpslaanLogFileToolStripMenuItem_Click);
             // 
-            // soortHttpToolStripMenuItem
+            // StripMenuItemTestTijd
             // 
-            this.soortHttpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StripMenuItemTestTijd.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.StripMenuItemTestTijd.Name = "StripMenuItemTestTijd";
+            this.StripMenuItemTestTijd.Size = new System.Drawing.Size(59, 20);
+            this.StripMenuItemTestTijd.Text = "Test tijd";
+            // 
+            // StripMenuItemSoortHttp
+            // 
+            this.StripMenuItemSoortHttp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.httpswskraancom444ToolStripMenuItem,
             this.httpswsdevkraancomToolStripMenuItem});
-            this.soortHttpToolStripMenuItem.Name = "soortHttpToolStripMenuItem";
-            this.soortHttpToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
-            this.soortHttpToolStripMenuItem.Text = "Soort http";
+            this.StripMenuItemSoortHttp.Name = "StripMenuItemSoortHttp";
+            this.StripMenuItemSoortHttp.Size = new System.Drawing.Size(72, 20);
+            this.StripMenuItemSoortHttp.Text = "Soort http";
             // 
             // httpswskraancom444ToolStripMenuItem
             // 
@@ -315,10 +326,11 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialButton BtnShowWebservices;
         private MaterialSkin.Controls.MaterialButton BtnShowUrls;
         private System.Windows.Forms.MenuStrip menuStrip;
-        private System.Windows.Forms.ToolStripMenuItem logFileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem soortHttpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem StripMenuItemLogFile;
+        private System.Windows.Forms.ToolStripMenuItem StripMenuItemTestTijd;
+        private System.Windows.Forms.ToolStripMenuItem StripMenuItemSoortHttp;
         private System.Windows.Forms.ToolStripMenuItem httpswsdevkraancomToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem httpswskraancom444ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem plaatsOpslaanLogFileToolStripMenuItem;
     }
 }

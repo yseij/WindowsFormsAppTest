@@ -1,6 +1,8 @@
 ﻿using MaterialSkin;
 using MaterialSkin.Controls;
 using System;
+using System.Configuration;
+using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -8,6 +10,7 @@ namespace WindowsFormsAppTest
 {
     public partial class Home : MaterialForm
     {
+        private string _opslaanLogFile => ConfigurationManager.AppSettings["opslaanLogFile"];
         public Home()
         {
             InitializeComponent();
@@ -22,9 +25,8 @@ namespace WindowsFormsAppTest
                 Primary.Blue500, Accent.LightBlue200,
                 TextShade.WHITE
             );
-
             menuStrip.ForeColor = Color.FromArgb(0, 0, 0);
-        }
+    }
 
         private void Home_Load(object sender, EventArgs e)
         {
@@ -64,6 +66,18 @@ namespace WindowsFormsAppTest
         {
             var m = new AllKlantenForm();
             m.ShowDialog();
+        }
+
+        private void plaatsOpslaanLogFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.Description = "Custom Description";
+
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                string SelectedPath = fbd.SelectedPath;
+                ConfigurationManager.AppSettings["opslaanLogFile"] = SelectedPath;
+            } 
         }
     }
 }

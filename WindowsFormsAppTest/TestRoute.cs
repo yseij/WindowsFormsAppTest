@@ -1,6 +1,7 @@
 ﻿using MaterialSkin.Controls;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Configuration;
 using System.IO;
 using System.Windows.Forms;
 
@@ -9,7 +10,8 @@ namespace WindowsFormsAppTest
     class TestRoute
     {
         private string _filePath;
-        
+        private string _filePlace => ConfigurationManager.AppSettings["opslaanLogFile"];
+
         public void testRoute(dynamic result,
                               MaterialTextBox textBoxWebservice,
                               CheckBox sslChckBx,
@@ -20,9 +22,11 @@ namespace WindowsFormsAppTest
                               MaterialMultiLineTextBox2 ResponseTextBox,
                               string selectedText)
         {
+            //string slech = "\\";
             string time = DateTime.Now.ToLongTimeString().Replace(":", "");
             string date = DateTime.Today.ToString("d").Replace("-", "");
-            _filePath = @"d:\log_van_" + selectedText.Replace("/", "") + "_op_datum_" + date + time + ".txt";
+            _filePath = @"" + _filePlace + "\\" + selectedText.Replace("/", "") + "_op_datum_" + date + time + ".txt";
+
             string createText = "Log van " + selectedText + "op datum " + date + Environment.NewLine;
             File.WriteAllText(_filePath, createText);
             foreach (JProperty item in result)
