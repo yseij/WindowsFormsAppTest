@@ -1,17 +1,24 @@
 ﻿using MaterialSkin.Controls;
 using Newtonsoft.Json.Linq;
 using System;
+using System.Collections.Generic;
 using System.Configuration;
-using System.IO;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
 {
     class TestRoute
     {
-        private string _filePath;
+        private string urlHttp = ConfigurationManager.AppSettings["http"];
+        private dynamic _result;
 
-        public void testRoute(dynamic result,
+        WebRequest _webRequest;
+        public TestRoute()
+        {
+            _webRequest = new WebRequest();
+        }
+        public void TestOneRoute(dynamic result,
                               MaterialTextBox textBoxWebservice,
                               CheckBox sslChckBx,
                               MaterialTextBox sllCertificaatVervalDatumTxtBx,
@@ -62,6 +69,57 @@ namespace WindowsFormsAppTest
                         break;
                 }
             }
+        }
+
+        public void TestMoreRoutes(string selectedKlant,
+                                   TreeView TrVwAll,
+                                   int aantalLegeUrls,
+                                   List<UrlData> urlDatas,
+                                   MaterialMultiLineTextBox2 ResponseTextBox,
+                                   MaterialTextBox AantalLegeUrlsTxtBx,
+                                   MaterialMultiLineTextBox2 LegeUrlsTxtBx)
+        {
+            int teller = 0;
+
+            LogFile logFile = new LogFile();
+            logFile.makeLogFile(selectedKlant);
+            TrVwAll.Nodes.Clear();
+            TrVwAll.BeginUpdate();
+            aantalLegeUrls = 0;
+            foreach (UrlData urlData in urlDatas)
+            {
+                TreeNode node = new TreeNode();
+                node.Text = urlData.Name;
+                logFile.addTextToLogFile("\n");
+                logFile.addTextToLogFile(urlData.Name + "\n");
+                var data = _webRequest.GetWebRequest(urlData.Id, urlHttp, urlData.Name, urlData.SecurityId);
+                _result = JObject.Parse(data);
+                node.Tag = _result;
+                teller = 0;
+                foreach (JProperty item in _result)
+                {
+                    if (teller == 0)
+                    {
+                        TrVwAll.Nodes.Add(node);
+                        teller = teller + 1;
+                    }
+                    if (item.Name == "ex")
+                    {
+                        node.ForeColor = Color.FromArgb(255, 0, 0);
+                        ResponseTextBox.Text = item.Value.ToString();
+                        aantalLegeUrls = aantalLegeUrls + 1;
+                        AantalLegeUrlsTxtBx.Text = aantalLegeUrls.ToString();
+                        LegeUrlsTxtBx.Text = LegeUrlsTxtBx.Text + urlData.Name + Environment.NewLine;
+                        logFile.addTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
+                    }
+                    else if (item.Name != "id")
+                    {
+                        TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
+                        logFile.addTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
+                    }
+                }
+            }
+            TrVwAll.EndUpdate();
         }
     }
 }

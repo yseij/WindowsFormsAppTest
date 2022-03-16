@@ -17,7 +17,7 @@ namespace WindowsFormsAppTest
 
         public void makeLogFile(string Name)
         {
-            FilePath = @""+ ConfigurationManager.AppSettings["opslaanLogFile"] + "\\" + Name.Replace(" / ", "") + "_op_datum_" + Date + Time + ".txt";
+            FilePath = @""+ ConfigurationManager.AppSettings["opslaanLogFile"] + "\\" + Name.Replace("/", "") + "_op_datum_" + Date + Time + ".txt";
             string createText = "Log van " + Name + "op datum " + Date + Environment.NewLine;
             File.WriteAllText(FilePath, createText);
         }

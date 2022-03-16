@@ -39,15 +39,15 @@ namespace WindowsFormsAppTest
             clearBox();
             var data = _webRequest.GetWebRequest((int)UrlsCmbx.SelectedValue, urlHttp, url, securityId);
             dynamic result = JObject.Parse(data);
-            _testRoute.testRoute(result,
-                                 textBoxWebservice,
-                                 SslChckBx,
-                                 SllCertificaatVervalDatumTxtBx,
-                                 checkBoxKraanDLL,
-                                 checkBoxKraanIni,
-                                 checkBoxKraanDatabase,
-                                 ResponseTextBox,
-                                 UrlsCmbx.Text);
+            _testRoute.TestOneRoute(result,
+                                    textBoxWebservice,
+                                    SslChckBx,
+                                    SllCertificaatVervalDatumTxtBx,
+                                    checkBoxKraanDLL,
+                                    checkBoxKraanIni,
+                                    checkBoxKraanDatabase,
+                                    ResponseTextBox,
+                                    UrlsCmbx.Text);
         }
 
         private void HttpCmbx_SelectedIndexChanged(object sender, EventArgs e)

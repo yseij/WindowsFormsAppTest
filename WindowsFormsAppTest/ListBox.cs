@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WindowsFormsAppTest
+﻿namespace WindowsFormsAppTest
 {
     class ListBox
     {
@@ -13,6 +7,11 @@ namespace WindowsFormsAppTest
         public ListBox(ListBox listBox)
         {
             ListBoxItem = listBox;
+        }
+
+        private void fillLstBxBase()
+        {
+
         }
     }
 }

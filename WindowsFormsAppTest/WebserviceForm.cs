@@ -18,13 +18,13 @@ namespace WindowsFormsAppTest
         private int aantalLegeUrls;
 
         private string urlHttp = ConfigurationManager.AppSettings["http"];
-        private string _filePath;
 
         private dynamic _result;
 
         WebserviceTest _webserviceTest;
         UrlTest _urltest;
         WebRequest _webRequest;
+        TestRoute _testRoute;
 
         public WebserviceForm()
         {
@@ -32,6 +32,7 @@ namespace WindowsFormsAppTest
             _webserviceTest = new WebserviceTest();
             _urltest = new UrlTest();
             _webRequest = new WebRequest();
+            _testRoute = new TestRoute();
             _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
             AantalLegeUrlsTxtBx.Text = string.Empty;
         }
@@ -43,10 +44,8 @@ namespace WindowsFormsAppTest
 
         private void fillCmbxWebServices()
         {
-            WebServiceCmbx.DataSource = null;
-            WebServiceCmbx.DisplayMember = "Name";
-            WebServiceCmbx.ValueMember = "Id";
-            WebServiceCmbx.DataSource = _webServiceDatas;
+            Combobox combobox = new Combobox(WebServiceCmbx);
+            combobox.fillCmbBoxWebservice(_webServiceDatas);
         }
 
         private void TrVwAll_AfterSelect(object sender, TreeViewEventArgs e)
@@ -56,51 +55,15 @@ namespace WindowsFormsAppTest
 
         private void TestAllBtn_Click_1(object sender, EventArgs e)
         {
-            int teller = 0;
-
-            _urlDatasByForeignKey = _urltest.GetAllUrlsByForeignKeyWebservice(selectedWebserviceId);
-            LogFile logFile = new LogFile();
-            logFile.makeLogFile(WebServiceCmbx.Text);
-            TrVwAll.Nodes.Clear();
-            TrVwAll.BeginUpdate();
             clearBox();
-            AantalLegeUrlsTxtBx.Text = string.Empty;
-            LegeUrlsTxtBx.Text = string.Empty;
-            aantalLegeUrls = 0;
-            foreach (UrlData urlData in _urlDatasByForeignKey)
-            {
-                TreeNode node = new TreeNode();
-                node.Text = urlData.Name;
-                logFile.addTextToLogFile("\n");
-                logFile.addTextToLogFile(urlData.Name + "\n");
-                var data = _webRequest.GetWebRequest(urlData.Id, urlHttp, urlData.Name, urlData.SecurityId);
-                _result = JObject.Parse(data);
-                node.Tag = _result;
-                foreach (JProperty item in _result)
-                {
-                    if (item.Name == "ex")
-                    {
-                        node.ForeColor = Color.FromArgb(255, 0, 0);
-                        TrVwAll.Nodes.Add(node);
-                        ResponseTextBox.Text = item.Value.ToString();
-                        aantalLegeUrls = aantalLegeUrls + 1;
-                        AantalLegeUrlsTxtBx.Text = aantalLegeUrls.ToString();
-                        LegeUrlsTxtBx.Text = LegeUrlsTxtBx.Text + " -- " + urlData.Name + Environment.NewLine;
-                        logFile.addTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
-                    }
-                    else if (teller == 0)
-                    {
-                        TrVwAll.Nodes.Add(node);
-                        teller = teller + 1;
-                    }
-                    else if (item.Name != "id")
-                    {
-                        TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
-                        logFile.addTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
-                    }
-                }
-            }
-            TrVwAll.EndUpdate();
+            _urlDatasByForeignKey = _urltest.GetAllUrlsByForeignKeyWebservice(selectedWebserviceId);
+            _testRoute.TestMoreRoutes(WebServiceCmbx.Text,
+                                      TrVwAll,
+                                      aantalLegeUrls,
+                                      _urlDatasByForeignKey,
+                                      ResponseTextBox,
+                                      AantalLegeUrlsTxtBx,
+                                      LegeUrlsTxtBx);
         }
         private void WebServiceCmbx_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -162,11 +125,6 @@ namespace WindowsFormsAppTest
             ResponseTextBox.Text = string.Empty;
             SllCertificaatVervalDatumTxtBx.Text = string.Empty;
             SslChckBx.Checked = false;
-        }
-
-        private void makeLogFile()
-        {
-            
         }
     }
 }

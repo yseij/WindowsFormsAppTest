@@ -25,12 +25,15 @@ namespace WindowsFormsAppTest
         KlantTest _klantTest;
         UrlTest _urltest;
         WebRequest _webRequest;
+        TestRoute _testRoute;
+
         public WebServicesByKlantForm()
         {
             InitializeComponent();
             _klantTest = new KlantTest();
             _urltest = new UrlTest();
             _webRequest = new WebRequest();
+            _testRoute = new TestRoute();
             _klantDatas = _klantTest.GetKlantData();
         }
 
@@ -54,48 +57,17 @@ namespace WindowsFormsAppTest
 
         private void TestAllBtn_Click(object sender, EventArgs e)
         {
-            int teller = 0;
-
-            _urlDatasByForeignKeyKlant = _urltest.GetAllUrlsByForeignKeyKlant(selectedKlantId);
-            makeLogFile();
-            TrVwAll.Nodes.Clear();
-            TrVwAll.BeginUpdate();
             clearBox();
             AantalLegeUrlsTxtBx.Text = string.Empty;
             LegeUrlsTxtBx.Text = string.Empty;
-            aantalLegeUrls = 0;
-            foreach (UrlData urlData in _urlDatasByForeignKeyKlant)
-            {
-                TreeNode node = new TreeNode();
-                node.Text = urlData.Name;
-                var data = _webRequest.GetWebRequest(urlData.Id, urlHttp, urlData.Name, urlData.SecurityId);
-                _result = JObject.Parse(data);
-                node.Tag = _result;
-                foreach (JProperty item in _result)
-                {
-                    if (item.Name == "ex")
-                    {
-                        node.ForeColor = Color.FromArgb(255, 0, 0);
-                        TrVwAll.Nodes.Add(node);
-                        ResponseTextBox.Text = item.Value.ToString();
-                        aantalLegeUrls = aantalLegeUrls + 1;
-                        AantalLegeUrlsTxtBx.Text = aantalLegeUrls.ToString();
-                        LegeUrlsTxtBx.Text = LegeUrlsTxtBx.Text + urlData.Name + Environment.NewLine;
-                        File.AppendAllText(_filePath, item.Name + " = " + item.Value.ToString() + "\n");
-                    }
-                    else if (teller == 0)
-                    {
-                        TrVwAll.Nodes.Add(node);
-                        teller = teller + 1;
-                    }
-                    else if (item.Name != "id")
-                    {
-                        TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
-                        File.AppendAllText(_filePath, item.Name + " = " + item.Value.ToString() + "\n");
-                    }
-                }
-            }
-            TrVwAll.EndUpdate();
+            _urlDatasByForeignKeyKlant = _urltest.GetAllUrlsByForeignKeyKlant(selectedKlantId);
+            _testRoute.TestMoreRoutes(KlantsCmbx.Text,
+                                      TrVwAll,
+                                      aantalLegeUrls,
+                                      _urlDatasByForeignKeyKlant,
+                                      ResponseTextBox,
+                                      AantalLegeUrlsTxtBx,
+                                      LegeUrlsTxtBx);
         }
 
         private void TrVwAll_Click(object sender, EventArgs e)
@@ -154,15 +126,6 @@ namespace WindowsFormsAppTest
             ResponseTextBox.Text = string.Empty;
             SllCertificaatVervalDatumTxtBx.Text = string.Empty;
             SslChckBx.Checked = false;
-        }
-
-        private void makeLogFile()
-        {
-            string time = DateTime.Now.ToLongTimeString().Replace(":", "");
-            string date = DateTime.Today.ToString("d").Replace("-", "");
-            _filePath = @"d:\log_van_" + KlantsCmbx.Text.Replace("/", "") + "_op_datum_" + date + time + ".txt";
-            string createText = "Log van " + KlantsCmbx.Text + "op datum " + date + Environment.NewLine;
-            File.WriteAllText(_filePath, createText);
         }
     }
 }
