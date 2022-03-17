@@ -58,7 +58,7 @@ namespace WindowsFormsAppTest
         }
         private void fillLstBxKlanten()
         {
-            AllKlantKrMaterialLstBx.Clear();
+            AllKlantKrMaterialLstBx.ClearListBox();
             if (_klantDatas.Count != 0)
             {
                 _selectedKlantId = _klantDatas[0].Id;
@@ -74,7 +74,7 @@ namespace WindowsFormsAppTest
 
         private void fillLstBxUlsFromKlant()
         {
-            AllUrlsKrMaterialLstBx.Clear();
+            AllUrlsKrMaterialLstBx.ClearListBox();
             if (_urlDatasByKlant.Count != 0)
             {
                 _selectedUrlId = _urlDatasByKlant[0].Id;

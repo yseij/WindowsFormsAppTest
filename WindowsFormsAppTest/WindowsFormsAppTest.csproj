@@ -142,6 +142,7 @@
     <Compile Include="KrMaterialListBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="KrMaterialListBoxItem.cs" />
     <Compile Include="LogFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

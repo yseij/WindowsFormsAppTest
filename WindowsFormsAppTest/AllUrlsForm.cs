@@ -51,14 +51,9 @@ namespace WindowsFormsAppTest
 
         private void fillLstBxls()
         {
-            AllUrlsKrMaterialLstBx.Clear();
-            foreach (UrlData urlData in _urlDatas)
-            {
-                MaterialListBoxItem item = new MaterialListBoxItem();
-                item.Tag = urlData.Id;
-                item.Text = urlData.Name;
-                AllUrlsKrMaterialLstBx.AddItem(item);
-            }
+            AllUrlsKrMaterialLstBx.ClearListBox();
+            AllUrlsKrMaterialLstBx.fillListBoxUrlData(_urlDatas);
+
         }
 
         private void AllUrlsKrMaterialLstBx_SelectedIndexChanged(object sender, MaterialListBoxItem selectedItem)
