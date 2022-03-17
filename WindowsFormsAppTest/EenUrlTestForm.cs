@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Windows.Forms;
 using MaterialSkin;
 using MaterialSkin.Controls;
@@ -58,7 +59,7 @@ namespace WindowsFormsAppTest
 
         private void HttpKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            urlHttp = (string)HttpKrMaterialCmbx.Text;
+            urlHttp = HttpKrMaterialCmbx.Text;
         }
 
         private void UrlKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -97,6 +98,7 @@ namespace WindowsFormsAppTest
                 "https://ws.kraan.com:444/"
             };
             HttpKrMaterialCmbx.fillCmbBoxRest(listOfNames);
+            HttpKrMaterialCmbx.SelectedItem = ConfigurationManager.AppSettings["http"];
         }
 
         private void checkBoxReadOnly_Click(object sender, EventArgs e)

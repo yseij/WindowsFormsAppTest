@@ -53,7 +53,6 @@ namespace WindowsFormsAppTest
         {
             AllUrlsKrMaterialLstBx.ClearListBox();
             AllUrlsKrMaterialLstBx.fillListBoxUrlData(_urlDatas);
-
         }
 
         private void AllUrlsKrMaterialLstBx_SelectedIndexChanged(object sender, MaterialListBoxItem selectedItem)
