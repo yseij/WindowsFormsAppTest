@@ -26,24 +26,36 @@ namespace WindowsFormsAppTest
             _urltest = new UrlTest();
             _webRequest = new WebRequest();
             _testRoute = new TestRoute();
-            _urlDatas = _urltest.GetUrlDatas();
+
+            GetUrls();
+            FillCmbxUrls();
+            FillCmbxHtpp();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            getUrls();
-            fillCmbxUrls();
-            fillCmbxHtpp();
-        }
-
-        private void getUrls()
+        private void GetUrls()
         {
             _urlDatas = _urltest.GetUrlDatas(true);
         }
 
+        private void FillCmbxUrls()
+        {
+            UrlKrMaterialCmbx.FillCmbBoxUrl(_urlDatas);
+        }
+
+        private void FillCmbxHtpp()
+        {
+            List<string> listOfNames = new List<string>()
+            {
+                "https://wsdev.kraan.com/",
+                "https://ws.kraan.com:444/"
+            };
+            HttpKrMaterialCmbx.FillCmbBoxRest(listOfNames);
+            HttpKrMaterialCmbx.SelectedItem = ConfigurationManager.AppSettings["http"];
+        }
+
         private void TestRouteBtn_Click(object sender, EventArgs e)
         {
-            clearBox();
+            ClearBox();
             var data = _webRequest.GetWebRequest((int)UrlKrMaterialCmbx.SelectedValue, urlHttp, url, securityId);
             dynamic result = JObject.Parse(data);
             _testRoute.TestOneRoute(result,
@@ -64,7 +76,7 @@ namespace WindowsFormsAppTest
 
         private void UrlKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            clearBox();
+            ClearBox();
             if (UrlKrMaterialCmbx.DataSource != null)
             {
                 int idOfSelected = (int)UrlKrMaterialCmbx.SelectedValue;
@@ -74,7 +86,12 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void clearBox()
+        private void checkBoxReadOnly_Click(object sender, EventArgs e)
+        {
+            (sender as CheckBox).Checked = !(sender as CheckBox).Checked;
+        }
+
+        private void ClearBox()
         {
             checkBoxKraanDatabase.Checked = false;
             checkBoxKraanDLL.Checked = false;
@@ -83,27 +100,6 @@ namespace WindowsFormsAppTest
             ResponseTextBox.Text = string.Empty;
             SslChckBx.Checked = false;
             SllCertificaatVervalDatumTxtBx.Text = string.Empty;
-        }
-
-        private void fillCmbxUrls()
-        {
-            UrlKrMaterialCmbx.fillCmbBoxUrl(_urlDatas);
-        }
-
-        private void fillCmbxHtpp()
-        {
-            List<string> listOfNames = new List<string>()
-            {
-                "https://wsdev.kraan.com/",
-                "https://ws.kraan.com:444/"
-            };
-            HttpKrMaterialCmbx.fillCmbBoxRest(listOfNames);
-            HttpKrMaterialCmbx.SelectedItem = ConfigurationManager.AppSettings["http"];
-        }
-
-        private void checkBoxReadOnly_Click(object sender, EventArgs e)
-        {
-            (sender as CheckBox).Checked = !(sender as CheckBox).Checked;
         }
     }
 }

@@ -29,7 +29,7 @@ namespace WindowsFormsAppTest
                               string selectedText)
         {
             LogFile logFile = new LogFile();
-            logFile.makeLogFile(selectedText);
+            logFile.MakeLogFile(selectedText);
             foreach (JProperty item in result)
             {
                 switch (item.Name)
@@ -37,27 +37,27 @@ namespace WindowsFormsAppTest
                     case "WebserviceVersie":
                         string[] strlist = item.Value.ToString().Split(':');
                         textBoxWebservice.Text = strlist[1];
-                        logFile.addTextToLogFile("WebserviceVersie = " + strlist[1] + "\n");
+                        logFile.AddTextToLogFile("WebserviceVersie = " + strlist[1] + "\n");
                         break;
                     case "certVerValDatum":
                         if (item.Value != null)
                         {
                             sslChckBx.Checked = true;
                             sllCertificaatVervalDatumTxtBx.Text = item.Value.ToString();
-                            logFile.addTextToLogFile("certVerValDatum = " + item.Value.ToString() + "\n");
+                            logFile.AddTextToLogFile("certVerValDatum = " + item.Value.ToString() + "\n");
                         }
                         break;
                     case "KraanDll":
                         checkBoxKraanDLL.Checked = item.Value.ToString().Contains("True");
-                        logFile.addTextToLogFile("KraanDll = " + item.Value.ToString().Contains("True") + "\n");
+                        logFile.AddTextToLogFile("KraanDll = " + item.Value.ToString().Contains("True") + "\n");
                         break;
                     case "KraanIni":
                         checkBoxKraanIni.Checked = item.Value.ToString().Contains("True");
-                        logFile.addTextToLogFile("KraanIni = " + item.Value.ToString().Contains("True") + "\n");
+                        logFile.AddTextToLogFile("KraanIni = " + item.Value.ToString().Contains("True") + "\n");
                         break;
                     case "KraanDatabase":
                         checkBoxKraanDatabase.Checked = item.Value.ToString().Contains("True");
-                        logFile.addTextToLogFile("KraanDatabase = " + item.Value.ToString().Contains("True") + "\n");
+                        logFile.AddTextToLogFile("KraanDatabase = " + item.Value.ToString().Contains("True") + "\n");
                         break;
                     case "id":
                         break;
@@ -82,7 +82,7 @@ namespace WindowsFormsAppTest
             int teller = 0;
 
             LogFile logFile = new LogFile();
-            logFile.makeLogFile(selectedKlant);
+            logFile.MakeLogFile(selectedKlant);
             TrVwAll.Nodes.Clear();
             TrVwAll.BeginUpdate();
             aantalLegeUrls = 0;
@@ -90,8 +90,8 @@ namespace WindowsFormsAppTest
             {
                 TreeNode node = new TreeNode();
                 node.Text = urlData.Name;
-                logFile.addTextToLogFile("\n");
-                logFile.addTextToLogFile(urlData.Name + "\n");
+                logFile.AddTextToLogFile("\n");
+                logFile.AddTextToLogFile(urlData.Name + "\n");
                 var data = _webRequest.GetWebRequest(urlData.Id, urlHttp, urlData.Name, urlData.SecurityId);
                 _result = JObject.Parse(data);
                 node.Tag = _result;
@@ -110,12 +110,12 @@ namespace WindowsFormsAppTest
                         aantalLegeUrls = aantalLegeUrls + 1;
                         AantalLegeUrlsTxtBx.Text = aantalLegeUrls.ToString();
                         LegeUrlsTxtBx.Text = LegeUrlsTxtBx.Text + urlData.Name + Environment.NewLine;
-                        logFile.addTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
+                        logFile.AddTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
                     }
                     else if (item.Name != "id")
                     {
                         TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
-                        logFile.addTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
+                        logFile.AddTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
                     }
                 }
             }

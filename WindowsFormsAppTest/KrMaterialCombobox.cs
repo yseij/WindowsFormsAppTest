@@ -18,26 +18,26 @@ namespace WindowsFormsAppTest
             DataSource = null;
         }
 
-        public void fillCmbBoxUrl(List<UrlData> urlDatas)
+        public void FillCmbBoxUrl(List<UrlData> urlDatas)
         {
             ClearDataSource();
             DataSource = urlDatas;
         }
 
-        public void fillCmbBoxWebservice(List<WebServiceData> webServiceDatas)
+        public void FillCmbBoxWebservice(List<WebServiceData> webServiceDatas)
         {
             ClearDataSource();
             DataSource = webServiceDatas;
             
         }
 
-        public void fillCmbBoxKlant(List<KlantData> klantDatas)
+        public void FillCmbBoxKlant(List<KlantData> klantDatas)
         {
             ClearDataSource();
             DataSource = klantDatas;
         }
 
-        public void fillCmbBoxRest(List<string> data)
+        public void FillCmbBoxRest(List<string> data)
         {
             ClearDataSource();
             DataSource = data;

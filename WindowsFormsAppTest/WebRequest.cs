@@ -65,11 +65,11 @@ namespace WindowsFormsAppTest
                             {
                                 if (cert != null)
                                 {
-                                    return getDataOfWebRequest(data, cert.GetExpirationDateString().ToString());
+                                    return GetDataOfWebRequest(data, cert.GetExpirationDateString().ToString());
                                 }
                                 else
                                 {
-                                    return getDataOfWebRequest(data, "");
+                                    return GetDataOfWebRequest(data, "");
                                 }
                             }
                             int Pos1 = data.IndexOf('{');
@@ -96,7 +96,7 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private string getDataOfWebRequest(string data, string verValDatum = "")
+        private string GetDataOfWebRequest(string data, string verValDatum = "")
         {
             positionKraanDll = data.IndexOf("KraanDLL");
             positionKraanIni = data.IndexOf("Kraan.ini");

@@ -48,21 +48,16 @@ namespace WindowsFormsAppTest
             );
             menuStrip.ForeColor = Color.FromArgb(0, 0, 0);
 
-            toolStripMenuItem1.Enabled = false;
+            ToolStripMenuItem1.Enabled = false;
 
-            fillKlantenDropDown();
-            fillWebserviceDropDown();
+            FillKlantenDropDown();
+            FillWebserviceDropDown();
 
             GetSettings();
 
-            testTijdCheck();
-            aanOfUitCheck();
-            httpCheck();
-        }
-
-        private void Home_Load(object sender, EventArgs e)
-        {
-
+            TestTijdCheck();
+            AanOfUitCheck();
+            HttpCheck();
         }
 
         private void GetSettings()
@@ -75,9 +70,9 @@ namespace WindowsFormsAppTest
             int klantKeuze = Properties.Settings.Default.KlantKeuze;
             if (klantKeuze != 0)
             {
-                webserviceKeuzeToolStripMenuItem.Enabled = false;
-                toolStripMenuItem1.Enabled = true;
-                foreach (ToolStripMenuItem toolStripMenuItem in klantKeuzeToolStripMenuItem.DropDownItems)
+                WebserviceKeuzeToolStripMenuItem.Enabled = false;
+                ToolStripMenuItem1.Enabled = true;
+                foreach (ToolStripMenuItem toolStripMenuItem in KlantKeuzeToolStripMenuItem.DropDownItems)
                 {
                     if ((int)toolStripMenuItem.Tag == klantKeuze)
                     {
@@ -95,9 +90,9 @@ namespace WindowsFormsAppTest
             int webserviceKeuze = Properties.Settings.Default.WebserviceKeuze;
             if (webserviceKeuze != 0)
             {
-                toolStripMenuItem1.Enabled = true;
-                klantKeuzeToolStripMenuItem.Enabled = false;
-                foreach (ToolStripMenuItem toolStripMenuItem in webserviceKeuzeToolStripMenuItem.DropDownItems)
+                ToolStripMenuItem1.Enabled = true;
+                KlantKeuzeToolStripMenuItem.Enabled = false;
+                foreach (ToolStripMenuItem toolStripMenuItem in WebserviceKeuzeToolStripMenuItem.DropDownItems)
                 {
                     if ((int)toolStripMenuItem.Tag == webserviceKeuze)
                     {
@@ -148,7 +143,7 @@ namespace WindowsFormsAppTest
             m.ShowDialog();
         }
 
-        private void plaatsOpslaanLogFileToolStripMenuItem_Click(object sender, EventArgs e)
+        private void PlaatsOpslaanLogFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.Description = "Custom Description";
@@ -161,102 +156,102 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void minToolStripMenuItem_Click(object sender, EventArgs e)
+        private void MinToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurationManager.AppSettings["testTijd"] = "15";
             Properties.Settings.Default.Tijd = "15";
-            testTijdCheck();
+            TestTijdCheck();
         }
 
-        private void minToolStripMenuItem1_Click(object sender, EventArgs e)
+        private void MinToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ConfigurationManager.AppSettings["testTijd"] = "30";
             Properties.Settings.Default.Tijd = "30";
-            testTijdCheck();
+            TestTijdCheck();
         }
 
-        private void minToolStripMenuItem2_Click(object sender, EventArgs e)
+        private void MinToolStripMenuItem2_Click(object sender, EventArgs e)
         {
             ConfigurationManager.AppSettings["testTijd"] = "60";
             Properties.Settings.Default.Tijd = "60";
-            testTijdCheck();
+            TestTijdCheck();
         }
 
-        private void httpswskraancom444ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void Httpswskraancom444ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurationManager.AppSettings["http"] = "https://ws.kraan.com:444/";
             Properties.Settings.Default.SoortHttp = "https://ws.kraan.com:444/";
-            httpCheck();
+            HttpCheck();
         }
 
-        private void httpswsdevkraancomToolStripMenuItem_Click(object sender, EventArgs e)
+        private void HttpswsdevkraancomToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurationManager.AppSettings["http"] = "https://wsdev.kraan.com/";
             Properties.Settings.Default.SoortHttp = "https://wsdev.kraan.com/";
-            httpCheck();
+            HttpCheck();
         }
 
-        private void aanToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AanToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurationManager.AppSettings["testTijdAanOfUit"] = "aan";
             Properties.Settings.Default.AanOfUit = "aan";
-            aanOfUitCheck();
+            AanOfUitCheck();
         }
 
-        private void uitToolStripMenuItem_Click(object sender, EventArgs e)
+        private void UitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ConfigurationManager.AppSettings["testTijdAanOfUit"] = "uit";
             Properties.Settings.Default.AanOfUit = "uit";
-            aanOfUitCheck();
+            AanOfUitCheck();
         }
 
-        private void plaatsOpslaanLogFileToolStripMenuItem_MouseHover(object sender, EventArgs e)
+        private void PlaatsOpslaanLogFileToolStripMenuItem_MouseHover(object sender, EventArgs e)
         {
             plaatsOpslaanLogFileToolStripMenuItem.ToolTipText = ConfigurationManager.AppSettings["opslaanLogFile"]; ;
         }
 
-        private void testTijdCheck()
+        private void TestTijdCheck()
         {
             switch (ConfigurationManager.AppSettings["testTijd"])
             {
                 case "15":
-                    minToolStripMenuItem.Checked = true;
-                    minToolStripMenuItem1.Checked = false;
-                    minToolStripMenuItem2.Checked = false;
+                    MinToolStripMenuItem.Checked = true;
+                    MinToolStripMenuItem1.Checked = false;
+                    MinToolStripMenuItem2.Checked = false;
                     break;
                 case "30":
-                    minToolStripMenuItem.Checked = false;
-                    minToolStripMenuItem1.Checked = true;
-                    minToolStripMenuItem2.Checked = false;
+                    MinToolStripMenuItem.Checked = false;
+                    MinToolStripMenuItem1.Checked = true;
+                    MinToolStripMenuItem2.Checked = false;
                     break;
                 case "60":
-                    minToolStripMenuItem.Checked = false;
-                    minToolStripMenuItem1.Checked = false;
-                    minToolStripMenuItem2.Checked = true;
+                    MinToolStripMenuItem.Checked = false;
+                    MinToolStripMenuItem1.Checked = false;
+                    MinToolStripMenuItem2.Checked = true;
                     break;
                 default:
                     break;
             }
         }
 
-        private void aanOfUitCheck()
+        private void AanOfUitCheck()
         {
             switch (ConfigurationManager.AppSettings["testTijdAanOfUit"])
             {
                 case "aan":
-                    aanToolStripMenuItem.Checked = true;
-                    uitToolStripMenuItem.Checked = false;
+                    AanToolStripMenuItem.Checked = true;
+                    UitToolStripMenuItem.Checked = false;
                     break;
                 case "uit":
-                    aanToolStripMenuItem.Checked = false;
-                    uitToolStripMenuItem.Checked = true;
+                    AanToolStripMenuItem.Checked = false;
+                    UitToolStripMenuItem.Checked = true;
                     break;
                 default:
                     break;
             }
         }
 
-        private void httpCheck()
+        private void HttpCheck()
         {
             switch (ConfigurationManager.AppSettings["http"])
             {
@@ -273,7 +268,7 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void fillKlantenDropDown()
+        private void FillKlantenDropDown()
         {
             _klantDatas = _klantTest.GetKlantData();
             foreach (KlantData klantData in _klantDatas)
@@ -281,7 +276,7 @@ namespace WindowsFormsAppTest
                 ToolStripMenuItem item = new ToolStripMenuItem();
                 item.Tag = klantData.Id;
                 item.Text = klantData.Name;
-                klantKeuzeToolStripMenuItem.DropDownItems.Add(item);
+                KlantKeuzeToolStripMenuItem.DropDownItems.Add(item);
 
                 item.Click += new EventHandler(ClickItemDropdownKlant);
             }
@@ -289,7 +284,7 @@ namespace WindowsFormsAppTest
 
         private void ClickItemDropdownKlant(object sender, EventArgs e)
         {
-            foreach (ToolStripMenuItem toolStripMenuItem in klantKeuzeToolStripMenuItem.DropDownItems)
+            foreach (ToolStripMenuItem toolStripMenuItem in KlantKeuzeToolStripMenuItem.DropDownItems)
             {
                 toolStripMenuItem.Checked = false;
             }
@@ -298,8 +293,8 @@ namespace WindowsFormsAppTest
             if (_klantKeuzeId == (int)item.Tag)
             {
                 _klantKeuzeId = 0;
-                webserviceKeuzeToolStripMenuItem.Enabled = true;
-                toolStripMenuItem1.Enabled = false;
+                WebserviceKeuzeToolStripMenuItem.Enabled = true;
+                ToolStripMenuItem1.Enabled = false;
             }
             else
             {
@@ -307,13 +302,13 @@ namespace WindowsFormsAppTest
                 _klantKeuzeId = (int)item.Tag;
                 _klantKeuzeNaam = item.Text;
                 item.Checked = true;
-                toolStripMenuItem1.Enabled = true;
-                webserviceKeuzeToolStripMenuItem.Enabled = false;
+                ToolStripMenuItem1.Enabled = true;
+                WebserviceKeuzeToolStripMenuItem.Enabled = false;
             }
             Properties.Settings.Default.KlantKeuze = _klantKeuzeId;
         }
 
-        private void fillWebserviceDropDown()
+        private void FillWebserviceDropDown()
         {
             _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
             foreach (WebServiceData webServiceData in _webServiceDatas)
@@ -321,7 +316,7 @@ namespace WindowsFormsAppTest
                 ToolStripMenuItem item = new ToolStripMenuItem();
                 item.Tag = webServiceData.Id;
                 item.Text = webServiceData.Name;
-                webserviceKeuzeToolStripMenuItem.DropDownItems.Add(item);
+                WebserviceKeuzeToolStripMenuItem.DropDownItems.Add(item);
 
                 item.Click += new EventHandler(ClickItemDropdownWebservice);
             }
@@ -329,7 +324,7 @@ namespace WindowsFormsAppTest
 
         private void ClickItemDropdownWebservice(object sender, EventArgs e)
         {
-            foreach (ToolStripMenuItem toolStripMenuItem in webserviceKeuzeToolStripMenuItem.DropDownItems)
+            foreach (ToolStripMenuItem toolStripMenuItem in WebserviceKeuzeToolStripMenuItem.DropDownItems)
             {
                 toolStripMenuItem.Checked = false;
             }
@@ -338,21 +333,21 @@ namespace WindowsFormsAppTest
             if (_webserviceKeuzeId == (int)item.Tag)
             {
                 _webserviceKeuzeId = 0;
-                klantKeuzeToolStripMenuItem.Enabled = true;
-                toolStripMenuItem1.Enabled = false;
+                KlantKeuzeToolStripMenuItem.Enabled = true;
+                ToolStripMenuItem1.Enabled = false;
             }
             else
             {
                 _webserviceKeuzeId = (int)item.Tag;
                 _webserviceKeuzeNaam = item.Text;
                 item.Checked = true;
-                toolStripMenuItem1.Enabled = true;
-                klantKeuzeToolStripMenuItem.Enabled = false;
+                ToolStripMenuItem1.Enabled = true;
+                KlantKeuzeToolStripMenuItem.Enabled = false;
             }
             Properties.Settings.Default.WebserviceKeuze = _webserviceKeuzeId;
         }
 
-        public void routeTest()
+        public void RouteTest()
         {
             if (ConfigurationManager.AppSettings["testTijdAanOfUit"] == "aan")
             {
@@ -372,9 +367,9 @@ namespace WindowsFormsAppTest
                                 if (teller == 0)
                                 {
                                     teller = teller + 1;
-                                    logFile.makeLogFile(_webserviceKeuzeNaam);
+                                    logFile.MakeLogFile(_webserviceKeuzeNaam);
                                 }
-                                    logFile.addTextToLogFile(urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine);
+                                    logFile.AddTextToLogFile(urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine);
                             }
                         }
                     }
@@ -394,9 +389,9 @@ namespace WindowsFormsAppTest
                                 if (teller == 0)
                                 {
                                     teller = teller + 1;
-                                    logFile.makeLogFile(_klantKeuzeNaam);
+                                    logFile.MakeLogFile(_klantKeuzeNaam);
                                 }
-                                logFile.addTextToLogFile(urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine);
+                                logFile.AddTextToLogFile(urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine);
                             }
                         }
                     }

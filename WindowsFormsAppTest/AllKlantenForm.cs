@@ -33,70 +33,59 @@ namespace WindowsFormsAppTest
             _klantTest = new KlantTest();
             _webserviceTest = new WebserviceTest();
 
-            getKlanten();
-            getWebservices();
+            GetKlanten();
+            GetWebservices();
         }
 
-        private void getKlanten()
+        private void GetKlanten()
         {
             _klantDatas = _klantTest.GetKlantData();
             _klantDatasForChange = _klantTest.GetKlantData();
-            fillLstBxKlanten();
-            fillCmbxKlanten();
+            FillLstBxKlanten();
+            FillCmbxKlanten();
         }
 
-        private void getUrlsFromKlant(int id)
+        private void GetUrlsFromKlant(int id)
         {
             _urlDatasByKlant = _urltest.GetAllUrlsByForeignKeyKlant(id);
-            fillLstBxUlsFromKlant();
+            FillLstBxUlsFromKlant();
         }
 
-        private void getWebservices()
+        private void GetWebservices()
         {
             _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
-            fillCmbxWebServices();
+            FillCmbxWebServices();
         }
-        private void fillLstBxKlanten()
+        private void FillLstBxKlanten()
         {
-            AllKlantKrMaterialLstBx.ClearListBox();
             if (_klantDatas.Count != 0)
             {
                 _selectedKlantId = _klantDatas[0].Id;
             }
-            foreach (KlantData klantData in _klantDatas)
-            {
-                MaterialListBoxItem item = new MaterialListBoxItem();
-                item.Tag = klantData.Id;
-                item.Text = klantData.Name;
-                AllKlantKrMaterialLstBx.AddItem(item);
-            }
+            AllKlantKrMaterialLstBx.ClearListBox();
+            AllKlantKrMaterialLstBx.FillListBoxKlantData(_klantDatas);
         }
 
-        private void fillLstBxUlsFromKlant()
+        private void FillLstBxUlsFromKlant()
         {
-            AllUrlsKrMaterialLstBx.ClearListBox();
             if (_urlDatasByKlant.Count != 0)
             {
                 _selectedUrlId = _urlDatasByKlant[0].Id;
             }
-            foreach (UrlData urlData in _urlDatasByKlant)
-            {
-                MaterialListBoxItem item = new MaterialListBoxItem();
-                item.Tag = urlData.Id;
-                item.Text = urlData.Name;
-                AllUrlsKrMaterialLstBx.AddItem(item);
-            }
+            AllUrlsKrMaterialLstBx.ClearListBox();
+            AllUrlsKrMaterialLstBx.FillListBoxUrlData(_urlDatasByKlant);
+
         }
 
-        private void fillCmbxWebServices()
+        private void FillCmbxWebServices()
         {
-            WebserviceKrMaterialCmbx.fillCmbBoxWebservice(_webServiceDatas);
+            WebserviceKrMaterialCmbx.FillCmbBoxWebservice(_webServiceDatas);
             WebserviceKrMaterialCmbx.SelectedValue = _webServiceDatas[0].Id;
         }
 
-        private void fillCmbxKlanten()
+        private void FillCmbxKlanten()
         {
-            KlantKrMaterialCmbx.fillCmbBoxKlant(_klantDatasForChange);
+            KlantKrMaterialCmbx.FillCmbBoxKlant(_klantDatasForChange);
             KlantKrMaterialCmbx.SelectedValue = _selectedKlantId;
         }
 
@@ -106,9 +95,10 @@ namespace WindowsFormsAppTest
             {
                 int idOfSelected = (int)AllKlantKrMaterialLstBx.SelectedItem.Tag;
                 _selectedKlantId = idOfSelected;
-                getUrlsFromKlant(idOfSelected);
+                GetUrlsFromKlant(idOfSelected);
                 KlantData klantData = _klantDatas.Find(k => k.Id == idOfSelected);
                 KlantTxtBx.Text = klantData.Name;
+
                 WebserviceKrMaterialCmbx.Refresh();
                 KlantKrMaterialCmbx.Refresh();
             }
@@ -118,7 +108,6 @@ namespace WindowsFormsAppTest
         {
             _changedKlant = KlantTxtBx.Text;
         }
-
 
         private void AddKlantBtn_Click(object sender, EventArgs e)
         {
@@ -130,13 +119,13 @@ namespace WindowsFormsAppTest
         private void PasKlantAanBtn_Click(object sender, EventArgs e)
         {
             _klantTest.UpdateKlant((int)AllKlantKrMaterialLstBx.SelectedItem.Tag, _changedKlant);
-            getKlanten();
+            GetKlanten();
         }
 
         private void DeleteKlantBttn_Click(object sender, EventArgs e)
         {
             _klantTest.DeleteKlant((int)AllKlantKrMaterialLstBx.SelectedItem.Tag);
-            getKlanten();
+            GetKlanten();
         }
 
         private void AllUrlsKrMaterialLstBx_SelectedIndexChanged(object sender, MaterialListBoxItem selectedItem)
@@ -150,6 +139,7 @@ namespace WindowsFormsAppTest
                 SecurityIdTxtBx.Text = urlData.SecurityId;
                 WebserviceKrMaterialCmbx.SelectedValue = urlData.WebServiceDataId;
                 KlantKrMaterialCmbx.SelectedValue = urlData.KlantDataId;
+
                 WebserviceKrMaterialCmbx.Refresh();
                 KlantKrMaterialCmbx.Refresh();
             }
@@ -193,37 +183,32 @@ namespace WindowsFormsAppTest
                     _changedSecurityId,
                     _selectedWebserviceIdForChange,
                     _selectedKlantIdForChange);
-            getUrlsFromKlant(_selectedKlantId);
+            GetUrlsFromKlant(_selectedKlantId);
         }
 
         private void DeleteUrlBttn_Click(object sender, EventArgs e)
         {
             _urltest.DeleteUrl((int)AllUrlsKrMaterialLstBx.SelectedItem.Tag);
-            clearBox();
-            getUrlsFromKlant(_selectedKlantId);
+            ClearBox();
+            GetUrlsFromKlant(_selectedKlantId);
         }
 
         private void ChildFormClosingAddKlantForm(object sender, FormClosingEventArgs e)
         {
-            getKlanten();
+            GetKlanten();
             AllKlantKrMaterialLstBx.SelectedIndex = AllKlantKrMaterialLstBx.Items.Count - 1;
             _selectedKlantId = _klantDatas[_klantDatas.Count - 1].Id;
         }
 
         private void ChildFormClosingAddUrlForm(object sender, FormClosingEventArgs e)
         {
-            getUrlsFromKlant(SetValueForKlantId);
+            GetUrlsFromKlant(SetValueForKlantId);
         }
 
-        private void clearBox()
+        private void ClearBox()
         {
             SecurityIdTxtBx.Text = string.Empty;
             UrlTxtBx.Text = string.Empty;
-        }
-
-        private void AllKlantenForm_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

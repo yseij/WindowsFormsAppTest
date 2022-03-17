@@ -20,7 +20,7 @@ namespace WindowsFormsAppTest
 
             var timer = new System.Threading.Timer((e) =>
             {
-                home.routeTest();
+                home.RouteTest();
             }, null, startTimeSpan, periodTimeSpan);
 
             Application.Run(home);

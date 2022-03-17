@@ -27,8 +27,8 @@ namespace WindowsFormsAppTest
             _klantTest = new KlantTest();
             _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
             _klantDatas = _klantTest.GetKlantData();
-            fillCmbxWebServices();
-            fillCmbxKlanten();
+            FillCmbxWebServices();
+            FillCmbxKlanten();
         }
 
         private void AddUrlForm_Load(object sender, EventArgs e)
@@ -43,14 +43,14 @@ namespace WindowsFormsAppTest
             Close();
         }
 
-        private void fillCmbxWebServices()
+        private void FillCmbxWebServices()
         {
-            WebserviceKrMaterialCmbx.fillCmbBoxWebservice(_webServiceDatas);
+            WebserviceKrMaterialCmbx.FillCmbBoxWebservice(_webServiceDatas);
         }
 
-        private void fillCmbxKlanten()
+        private void FillCmbxKlanten()
         {
-            KlantenKrMaterialCmbx.fillCmbBoxKlant(_klantDatas);
+            KlantenKrMaterialCmbx.FillCmbBoxKlant(_klantDatas);
             if (_klantId != 0)
             {
                 KlantenKrMaterialCmbx.SelectedValue = _klantId;

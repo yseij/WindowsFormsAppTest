@@ -41,30 +41,30 @@ namespace WindowsFormsAppTest
                 Text = "Per Klant testen";
                 LblWebserviceOfKlant.Text = "Klanten";
                 _klantenDatas = _klantTest.GetKlantData();
-                fillCmbxKlanten();
+                FillCmbxKlanten();
             }
             else
             {
                 Text = "Per Webservice testen";
                 LblWebserviceOfKlant.Text = "Webservice";
                 _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
-                fillCmbxWebServices();
+                FillCmbxWebServices();
             }
         }
 
-        private void fillCmbxWebServices()
+        private void FillCmbxWebServices()
         {
-            WebserviceOfKlantKrMaterialCmbx.fillCmbBoxWebservice(_webServiceDatas);
+            WebserviceOfKlantKrMaterialCmbx.FillCmbBoxWebservice(_webServiceDatas);
         }
 
-        private void fillCmbxKlanten()
+        private void FillCmbxKlanten()
         {
-            WebserviceOfKlantKrMaterialCmbx.fillCmbBoxKlant(_klantenDatas);
+            WebserviceOfKlantKrMaterialCmbx.FillCmbBoxKlant(_klantenDatas);
         }
 
         private void TestAllBtn_Click_1(object sender, EventArgs e)
         {
-            clearBox();
+            ClearBox();
             AantalLegeUrlsTxtBx.Text = string.Empty;
             LegeUrlsTxtBx.Text = string.Empty;
             if (_klant)
@@ -96,7 +96,7 @@ namespace WindowsFormsAppTest
             {
                 if (TrVwAll.HitTest(TrVwAll.PointToClient(Cursor.Position)).Node.Tag != null)
                 {
-                    clearBox();
+                    ClearBox();
                     dynamic UrlData = TrVwAll.HitTest(TrVwAll.PointToClient(Cursor.Position)).Node.Tag;
                     foreach (JProperty item in UrlData)
                     {
@@ -132,11 +132,11 @@ namespace WindowsFormsAppTest
             }
 
         }
-        private void checkBoxReadOnly_Click(object sender, EventArgs e)
+        private void CheckBoxReadOnly_Click(object sender, EventArgs e)
         {
             (sender as CheckBox).Checked = !(sender as CheckBox).Checked;
         }
-        private void clearBox()
+        private void ClearBox()
         {
             checkBoxKraanDatabase.Checked = false;
             checkBoxKraanDLL.Checked = false;

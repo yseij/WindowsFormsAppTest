@@ -291,7 +291,6 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.LblBewerken);
             this.Name = "AllUrlsForm";
             this.Text = "Urls beheren";
-            this.Load += new System.EventHandler(this.AllUrlsForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

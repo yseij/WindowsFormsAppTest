@@ -400,7 +400,6 @@ namespace WindowsFormsAppTest
             this.Name = "EenUrlTestForm";
             this.Sizable = false;
             this.Text = "Test Url";
-            this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
