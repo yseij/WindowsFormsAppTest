@@ -305,22 +305,22 @@ namespace WindowsFormsAppTest
             // minToolStripMenuItem
             // 
             this.minToolStripMenuItem.Name = "minToolStripMenuItem";
-            this.minToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
-            this.minToolStripMenuItem.Text = "15min";
+            this.minToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.minToolStripMenuItem.Text = "15Sec";
             this.minToolStripMenuItem.Click += new System.EventHandler(this.minToolStripMenuItem_Click);
             // 
             // minToolStripMenuItem1
             // 
             this.minToolStripMenuItem1.Name = "minToolStripMenuItem1";
-            this.minToolStripMenuItem1.Size = new System.Drawing.Size(107, 22);
-            this.minToolStripMenuItem1.Text = "30min";
+            this.minToolStripMenuItem1.Size = new System.Drawing.Size(104, 22);
+            this.minToolStripMenuItem1.Text = "30Sec";
             this.minToolStripMenuItem1.Click += new System.EventHandler(this.minToolStripMenuItem1_Click);
             // 
             // minToolStripMenuItem2
             // 
             this.minToolStripMenuItem2.Name = "minToolStripMenuItem2";
-            this.minToolStripMenuItem2.Size = new System.Drawing.Size(107, 22);
-            this.minToolStripMenuItem2.Text = "60min";
+            this.minToolStripMenuItem2.Size = new System.Drawing.Size(104, 22);
+            this.minToolStripMenuItem2.Text = "60Sec";
             this.minToolStripMenuItem2.Click += new System.EventHandler(this.minToolStripMenuItem2_Click);
             // 
             // toolStripMenuItem1
@@ -388,6 +388,7 @@ namespace WindowsFormsAppTest
             this.Name = "Home";
             this.Sizable = false;
             this.Text = "Home";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Home_FormClosing);
             this.Load += new System.EventHandler(this.Home_Load);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
