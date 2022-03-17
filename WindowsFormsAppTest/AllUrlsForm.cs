@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿using MaterialSkin;
+using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -50,19 +51,26 @@ namespace WindowsFormsAppTest
 
         private void fillLstBxls()
         {
-            AllUrlsLstBx.DataSource = null;
-            AllUrlsLstBx.DisplayMember = "Name";
-            AllUrlsLstBx.ValueMember = "Id";
-            AllUrlsLstBx.DataSource = _urlDatas;
+            //AllUrlsLstBx.DataSource = null;
+            //AllUrlsLstBx.DisplayMember = "Name";
+            //AllUrlsLstBx.ValueMember = "Id";
+            //AllUrlsLstBx.DataSource = _urlDatas;
+
+            foreach (UrlData urlData in _urlDatas)
+            {
+                MaterialListBoxItem item = new MaterialListBoxItem();
+                item.Tag = urlData.Id;
+                item.Text = urlData.Name;
+                AllUrlsKrMaterialLstBx.AddItem(item);
+            }
         }
 
-
-        private void AllUrlsLstBx_SelectedIndexChanged(object sender, EventArgs e)
+        private void AllUrlsKrMaterialLstBx_SelectedIndexChanged(object sender, MaterialListBoxItem selectedItem)
         {
             clearBox();
-            if (AllUrlsLstBx.DataSource != null)
+            if (AllUrlsKrMaterialLstBx.Items != null)
             {
-                int idOfSelected = (int)AllUrlsLstBx.SelectedValue;
+                int idOfSelected = (int)AllUrlsKrMaterialLstBx.SelectedItem.Tag;
                 UrlData urlData = _urlDatas.Find(u => u.Id == idOfSelected);
                 foreach (var webService in _webServiceDatas)
                 {
@@ -85,21 +93,49 @@ namespace WindowsFormsAppTest
             }
         }
 
+        //private void AllUrlsLstBx_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    clearBox();
+        //    if (AllUrlsLstBx.DataSource != null)
+        //    {
+        //        int idOfSelected = (int)AllUrlsLstBx.SelectedValue;
+        //        UrlData urlData = _urlDatas.Find(u => u.Id == idOfSelected);
+        //        foreach (var webService in _webServiceDatas)
+        //        {
+        //            if (urlData.WebServiceDataId == webService.Id)
+        //            {
+        //                WebServiceCmbx.SelectedItem = webService;
+        //                WebServiceCmbx.Refresh();
+        //            }
+        //        }
+        //        foreach (var klant in _klantDatas)
+        //        {
+        //            if (urlData.KlantDataId == klant.Id)
+        //            {
+        //                KlantCmbx.SelectedItem = klant;
+        //                KlantCmbx.Refresh();
+        //            }
+        //        }
+        //        UrlTxtBx.Text = urlData.Name;
+        //        SecurityIdTxtBx.Text = urlData.SecurityId;
+        //    }
+        //}
+
         private void PasUrlAanBtn_Click(object sender, EventArgs e)
         {
-            int selectedIndex = AllUrlsLstBx.SelectedIndex;
-            int idOfSelected = (int)AllUrlsLstBx.SelectedValue;
+            int selectedIndex = AllUrlsKrMaterialLstBx.SelectedIndex;
+            int idOfSelected = (int)AllUrlsKrMaterialLstBx.SelectedValue;
             _urltest.UpdateUrl(idOfSelected, changedUrl, changedSecurityId, _selectedWebserviceId, _selectedKlantId);
             clearBox();
             getUrls();
-            AllUrlsLstBx.SelectedIndex = selectedIndex;
+            AllUrlsKrMaterialLstBx.SelectedIndex = selectedIndex;
         }
 
         private void DeleteUrlBttn_Click(object sender, EventArgs e)
         {
             clearBox();
-            _urltest.DeleteUrl((int)AllUrlsLstBx.SelectedValue);
-            AllUrlsLstBx.SelectedIndex = 0;
+            _urltest.DeleteUrl((int)AllUrlsKrMaterialLstBx.SelectedValue);
+            AllUrlsKrMaterialLstBx.SelectedIndex = 0;
             getUrls();
         }
 

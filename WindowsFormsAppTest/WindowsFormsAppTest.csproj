@@ -111,7 +111,6 @@
     <Compile Include="AllUrlsForm.Designer.cs">
       <DependentUpon>AllUrlsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ComboboxTest.cs" />
     <Compile Include="Connected Services\WebserviceYouri\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -140,7 +139,9 @@
     <Compile Include="KrMaterialCombobox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="ListBox.cs" />
+    <Compile Include="KrMaterialListBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="LogFile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -151,17 +152,11 @@
     <Compile Include="UrlTest.cs" />
     <Compile Include="WebRequest.cs" />
     <Compile Include="WebServiceData.cs" />
-    <Compile Include="WebserviceForm.cs">
+    <Compile Include="WebserviceOfKlantForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WebserviceForm.Designer.cs">
-      <DependentUpon>WebserviceForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="WebServicesByKlantForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WebServicesByKlantForm.Designer.cs">
-      <DependentUpon>WebServicesByKlantForm.cs</DependentUpon>
+    <Compile Include="WebserviceOfKlantForm.Designer.cs">
+      <DependentUpon>WebserviceOfKlantForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WebserviceTest.cs" />
     <EmbeddedResource Include="AddKlantForm.resx">
@@ -191,11 +186,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="WebserviceForm.resx">
-      <DependentUpon>WebserviceForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WebServicesByKlantForm.resx">
-      <DependentUpon>WebServicesByKlantForm.cs</DependentUpon>
+    <EmbeddedResource Include="WebserviceOfKlantForm.resx">
+      <DependentUpon>WebserviceOfKlantForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Connected Services\WebserviceYouri\CrmService.wsdl" />
     <None Include="Connected Services\WebserviceYouri\CrmService.xsd">

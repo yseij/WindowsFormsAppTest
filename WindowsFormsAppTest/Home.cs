@@ -121,13 +121,13 @@ namespace WindowsFormsAppTest
 
         private void BttnWebservice_Click(object sender, EventArgs e)
         {
-            var m = new WebserviceForm();
+            var m = new WebserviceOfKlantForm(false);
             m.ShowDialog();
         }
 
         private void BtnKlant_Click(object sender, EventArgs e)
         {
-            var m = new WebServicesByKlantForm();
+            var m = new WebserviceOfKlantForm(true);
             m.ShowDialog();
         }
 

@@ -2,72 +2,92 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
-using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
 {
-    public partial class WebServicesByKlantForm : MaterialForm
+    public partial class WebserviceOfKlantForm : MaterialForm
     {
-        private List<KlantData> _klantDatas = new List<KlantData>();
-        private List<UrlData> _urlDatasByForeignKeyKlant = new List<UrlData>();
+        private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
+        private List<KlantData> _klantenDatas = new List<KlantData>();
+        private List<UrlData> _urlData = new List<UrlData>();
 
-        private int selectedKlantId;
+        private int selectedWebserviceIdOfKlantId;
         private int aantalLegeUrls;
 
-        private string urlHttp = ConfigurationManager.AppSettings["http"];
-        private string _filePath;
+        private bool _klant;
 
-        private dynamic _result;
-
-        KlantTest _klantTest;
+        WebserviceTest _webserviceTest;
         UrlTest _urltest;
+        KlantTest _klantTest;
         WebRequest _webRequest;
         TestRoute _testRoute;
 
-        public WebServicesByKlantForm()
+        public WebserviceOfKlantForm(bool isKlant)
         {
             InitializeComponent();
-            _klantTest = new KlantTest();
+            _webserviceTest = new WebserviceTest();
             _urltest = new UrlTest();
+            _klantTest = new KlantTest();
             _webRequest = new WebRequest();
             _testRoute = new TestRoute();
-            _klantDatas = _klantTest.GetKlantData();
+            _klant = isKlant;
+
+
+            AantalLegeUrlsTxtBx.Text = string.Empty;
+
+            if (isKlant)
+            {
+                Text = "Per Klant testen";
+                LblWebserviceOfKlant.Text = "Klanten";
+                _klantenDatas = _klantTest.GetKlantData();
+                fillCmbxKlanten();
+            }
+            else
+            {
+                Text = "Per Webservice testen";
+                LblWebserviceOfKlant.Text = "Webservice";
+                _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
+                fillCmbxWebServices();
+            }
         }
 
-        private void WebServicesByKlantForm_Load(object sender, EventArgs e)
+        private void fillCmbxWebServices()
         {
-            fillCmbxKlanten();
-        }
-
-        private void KlantsCmbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            selectedKlantId = (int)KlantsCmbx.SelectedValue;
+            WebserviceOfKlantKrMaterialCmbx.fillCmbBoxWebservice(_webServiceDatas);
         }
 
         private void fillCmbxKlanten()
         {
-            KlantsCmbx.DataSource = null;
-            KlantsCmbx.DisplayMember = "Name";
-            KlantsCmbx.ValueMember = "Id";
-            KlantsCmbx.DataSource = _klantDatas;
+            WebserviceOfKlantKrMaterialCmbx.fillCmbBoxKlant(_klantenDatas);
         }
 
-        private void TestAllBtn_Click(object sender, EventArgs e)
+        private void TestAllBtn_Click_1(object sender, EventArgs e)
         {
             clearBox();
             AantalLegeUrlsTxtBx.Text = string.Empty;
             LegeUrlsTxtBx.Text = string.Empty;
-            _urlDatasByForeignKeyKlant = _urltest.GetAllUrlsByForeignKeyKlant(selectedKlantId);
-            _testRoute.TestMoreRoutes(KlantsCmbx.Text,
+            if (_klant)
+            {
+                _urlData = _urltest.GetAllUrlsByForeignKeyKlant(selectedWebserviceIdOfKlantId);
+            }
+            else
+            {
+                _urlData = _urltest.GetAllUrlsByForeignKeyWebservice(selectedWebserviceIdOfKlantId);
+            }
+            
+            _testRoute.TestMoreRoutes(WebserviceOfKlantKrMaterialCmbx.Text,
                                       TrVwAll,
                                       aantalLegeUrls,
-                                      _urlDatasByForeignKeyKlant,
+                                      _urlData,
                                       ResponseTextBox,
                                       AantalLegeUrlsTxtBx,
                                       LegeUrlsTxtBx);
+        }
+
+        private void WebserviceOfKlantKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            selectedWebserviceIdOfKlantId = (int)WebserviceOfKlantKrMaterialCmbx.SelectedValue;
         }
 
         private void TrVwAll_Click(object sender, EventArgs e)
@@ -110,13 +130,12 @@ namespace WindowsFormsAppTest
                     }
                 }
             }
-        }
 
+        }
         private void checkBoxReadOnly_Click(object sender, EventArgs e)
         {
             (sender as CheckBox).Checked = !(sender as CheckBox).Checked;
         }
-
         private void clearBox()
         {
             checkBoxKraanDatabase.Checked = false;

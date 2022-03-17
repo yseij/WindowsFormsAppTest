@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsFormsAppTest
 {
-    partial class WebserviceForm
+    partial class WebserviceOfKlantForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,8 +30,7 @@ namespace WindowsFormsAppTest
         private void InitializeComponent()
         {
             this.TrVwAll = new System.Windows.Forms.TreeView();
-            this.LblWebservice = new MaterialSkin.Controls.MaterialLabel();
-            this.WebServiceCmbx = new MaterialSkin.Controls.MaterialComboBox();
+            this.LblWebserviceOfKlant = new MaterialSkin.Controls.MaterialLabel();
             this.TestAllBtn = new MaterialSkin.Controls.MaterialButton();
             this.ZetLogVastChkBx = new MaterialSkin.Controls.MaterialCheckbox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -49,6 +48,7 @@ namespace WindowsFormsAppTest
             this.AantalLegeUrlsTxtBx = new MaterialSkin.Controls.MaterialTextBox();
             this.LblAantalLegeUrls = new MaterialSkin.Controls.MaterialLabel();
             this.ResponseTextBox = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
+            this.WebserviceOfKlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -60,43 +60,19 @@ namespace WindowsFormsAppTest
             this.TrVwAll.Name = "TrVwAll";
             this.TrVwAll.Size = new System.Drawing.Size(577, 434);
             this.TrVwAll.TabIndex = 3;
-            this.TrVwAll.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TrVwAll_AfterSelect);
             this.TrVwAll.Click += new System.EventHandler(this.TrVwAll_Click);
             // 
-            // LblWebservice
+            // LblWebserviceOfKlant
             // 
-            this.LblWebservice.AutoSize = true;
-            this.LblWebservice.Depth = 0;
-            this.LblWebservice.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblWebservice.Location = new System.Drawing.Point(16, 75);
-            this.LblWebservice.MouseState = MaterialSkin.MouseState.HOVER;
-            this.LblWebservice.Name = "LblWebservice";
-            this.LblWebservice.Size = new System.Drawing.Size(81, 19);
-            this.LblWebservice.TabIndex = 25;
-            this.LblWebservice.Text = "Webservice";
-            // 
-            // WebServiceCmbx
-            // 
-            this.WebServiceCmbx.AutoResize = false;
-            this.WebServiceCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.WebServiceCmbx.Depth = 0;
-            this.WebServiceCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.WebServiceCmbx.DropDownHeight = 174;
-            this.WebServiceCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.WebServiceCmbx.DropDownWidth = 121;
-            this.WebServiceCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.WebServiceCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.WebServiceCmbx.FormattingEnabled = true;
-            this.WebServiceCmbx.IntegralHeight = false;
-            this.WebServiceCmbx.ItemHeight = 43;
-            this.WebServiceCmbx.Location = new System.Drawing.Point(19, 98);
-            this.WebServiceCmbx.MaxDropDownItems = 4;
-            this.WebServiceCmbx.MouseState = MaterialSkin.MouseState.OUT;
-            this.WebServiceCmbx.Name = "WebServiceCmbx";
-            this.WebServiceCmbx.Size = new System.Drawing.Size(440, 49);
-            this.WebServiceCmbx.StartIndex = 0;
-            this.WebServiceCmbx.TabIndex = 26;
-            this.WebServiceCmbx.SelectedIndexChanged += new System.EventHandler(this.WebServiceCmbx_SelectedIndexChanged_1);
+            this.LblWebserviceOfKlant.AutoSize = true;
+            this.LblWebserviceOfKlant.Depth = 0;
+            this.LblWebserviceOfKlant.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.LblWebserviceOfKlant.Location = new System.Drawing.Point(16, 75);
+            this.LblWebserviceOfKlant.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LblWebserviceOfKlant.Name = "LblWebserviceOfKlant";
+            this.LblWebserviceOfKlant.Size = new System.Drawing.Size(81, 19);
+            this.LblWebserviceOfKlant.TabIndex = 25;
+            this.LblWebserviceOfKlant.Text = "Webservice";
             // 
             // TestAllBtn
             // 
@@ -158,7 +134,7 @@ namespace WindowsFormsAppTest
             this.textBoxWebservice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.textBoxWebservice.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxWebservice.Depth = 0;
-            this.textBoxWebservice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxWebservice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.textBoxWebservice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.textBoxWebservice.LeadingIcon = null;
             this.textBoxWebservice.Location = new System.Drawing.Point(142, 19);
@@ -285,7 +261,7 @@ namespace WindowsFormsAppTest
             this.SllCertificaatVervalDatumTxtBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.SllCertificaatVervalDatumTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SllCertificaatVervalDatumTxtBx.Depth = 0;
-            this.SllCertificaatVervalDatumTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.SllCertificaatVervalDatumTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.SllCertificaatVervalDatumTxtBx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.SllCertificaatVervalDatumTxtBx.LeadingIcon = null;
             this.SllCertificaatVervalDatumTxtBx.Location = new System.Drawing.Point(189, 22);
@@ -360,7 +336,7 @@ namespace WindowsFormsAppTest
             this.AantalLegeUrlsTxtBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.AantalLegeUrlsTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AantalLegeUrlsTxtBx.Depth = 0;
-            this.AantalLegeUrlsTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.AantalLegeUrlsTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.AantalLegeUrlsTxtBx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.AantalLegeUrlsTxtBx.LeadingIcon = null;
             this.AantalLegeUrlsTxtBx.Location = new System.Drawing.Point(65, 22);
@@ -415,25 +391,49 @@ namespace WindowsFormsAppTest
             this.ResponseTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.ResponseTextBox.UseSystemPasswordChar = false;
             // 
+            // WebserviceOfKlantKrMaterialCmbx
+            // 
+            this.WebserviceOfKlantKrMaterialCmbx.AutoResize = false;
+            this.WebserviceOfKlantKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.WebserviceOfKlantKrMaterialCmbx.Depth = 0;
+            this.WebserviceOfKlantKrMaterialCmbx.DisplayMember = "Name";
+            this.WebserviceOfKlantKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.WebserviceOfKlantKrMaterialCmbx.DropDownHeight = 174;
+            this.WebserviceOfKlantKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.WebserviceOfKlantKrMaterialCmbx.DropDownWidth = 121;
+            this.WebserviceOfKlantKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.WebserviceOfKlantKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.WebserviceOfKlantKrMaterialCmbx.FormattingEnabled = true;
+            this.WebserviceOfKlantKrMaterialCmbx.IntegralHeight = false;
+            this.WebserviceOfKlantKrMaterialCmbx.ItemHeight = 43;
+            this.WebserviceOfKlantKrMaterialCmbx.Location = new System.Drawing.Point(21, 98);
+            this.WebserviceOfKlantKrMaterialCmbx.MaxDropDownItems = 4;
+            this.WebserviceOfKlantKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
+            this.WebserviceOfKlantKrMaterialCmbx.Name = "WebserviceOfKlantKrMaterialCmbx";
+            this.WebserviceOfKlantKrMaterialCmbx.Size = new System.Drawing.Size(439, 49);
+            this.WebserviceOfKlantKrMaterialCmbx.StartIndex = 0;
+            this.WebserviceOfKlantKrMaterialCmbx.TabIndex = 33;
+            this.WebserviceOfKlantKrMaterialCmbx.ValueMember = "Id";
+            this.WebserviceOfKlantKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.WebserviceOfKlantKrMaterialCmbx_SelectedIndexChanged);
+            // 
             // WebserviceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1063, 875);
+            this.Controls.Add(this.WebserviceOfKlantKrMaterialCmbx);
             this.Controls.Add(this.ResponseTextBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.ZetLogVastChkBx);
             this.Controls.Add(this.TestAllBtn);
-            this.Controls.Add(this.WebServiceCmbx);
-            this.Controls.Add(this.LblWebservice);
+            this.Controls.Add(this.LblWebserviceOfKlant);
             this.Controls.Add(this.TrVwAll);
             this.Name = "WebserviceForm";
             this.Sizable = false;
             this.Text = "Per Webservice Testen";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.WebserviceForm_Load);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -447,8 +447,7 @@ namespace WindowsFormsAppTest
 
         #endregion
         private System.Windows.Forms.TreeView TrVwAll;
-        private MaterialSkin.Controls.MaterialLabel LblWebservice;
-        private MaterialSkin.Controls.MaterialComboBox WebServiceCmbx;
+        private MaterialSkin.Controls.MaterialLabel LblWebserviceOfKlant;
         private MaterialSkin.Controls.MaterialButton TestAllBtn;
         private MaterialSkin.Controls.MaterialCheckbox ZetLogVastChkBx;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -466,5 +465,6 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialTextBox AantalLegeUrlsTxtBx;
         private MaterialSkin.Controls.MaterialLabel LblAantalLegeUrls;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 ResponseTextBox;
+        private KrMaterialCombobox WebserviceOfKlantKrMaterialCmbx;
     }
 }
