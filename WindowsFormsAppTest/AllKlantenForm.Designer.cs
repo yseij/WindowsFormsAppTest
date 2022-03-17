@@ -46,12 +46,12 @@ namespace WindowsFormsAppTest
             this.LblNaamUrl = new MaterialSkin.Controls.MaterialLabel();
             this.LblWebservice = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.WebServiceCmbx = new MaterialSkin.Controls.MaterialComboBox();
-            this.KlantCmbBx = new MaterialSkin.Controls.MaterialComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.PasUrlAanBtn = new MaterialSkin.Controls.MaterialButton();
             this.AddUrlByKlantBttn = new MaterialSkin.Controls.MaterialButton();
             this.DeleteUrlBttn = new MaterialSkin.Controls.MaterialButton();
+            this.WebserviceKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
+            this.KlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -375,62 +375,16 @@ namespace WindowsFormsAppTest
             this.materialLabel4.TabIndex = 73;
             this.materialLabel4.Text = "Klant";
             // 
-            // WebServiceCmbx
-            // 
-            this.WebServiceCmbx.AutoResize = false;
-            this.WebServiceCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.WebServiceCmbx.Depth = 0;
-            this.WebServiceCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.WebServiceCmbx.DropDownHeight = 174;
-            this.WebServiceCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.WebServiceCmbx.DropDownWidth = 121;
-            this.WebServiceCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.WebServiceCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.WebServiceCmbx.FormattingEnabled = true;
-            this.WebServiceCmbx.IntegralHeight = false;
-            this.WebServiceCmbx.ItemHeight = 43;
-            this.WebServiceCmbx.Location = new System.Drawing.Point(98, 127);
-            this.WebServiceCmbx.MaxDropDownItems = 4;
-            this.WebServiceCmbx.MouseState = MaterialSkin.MouseState.OUT;
-            this.WebServiceCmbx.Name = "WebServiceCmbx";
-            this.WebServiceCmbx.Size = new System.Drawing.Size(289, 49);
-            this.WebServiceCmbx.StartIndex = 0;
-            this.WebServiceCmbx.TabIndex = 74;
-            this.WebServiceCmbx.SelectedIndexChanged += new System.EventHandler(this.WebServiceCmbx_SelectedIndexChanged);
-            // 
-            // KlantCmbBx
-            // 
-            this.KlantCmbBx.AutoResize = false;
-            this.KlantCmbBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.KlantCmbBx.Depth = 0;
-            this.KlantCmbBx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.KlantCmbBx.DropDownHeight = 174;
-            this.KlantCmbBx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.KlantCmbBx.DropDownWidth = 121;
-            this.KlantCmbBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.KlantCmbBx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.KlantCmbBx.FormattingEnabled = true;
-            this.KlantCmbBx.IntegralHeight = false;
-            this.KlantCmbBx.ItemHeight = 43;
-            this.KlantCmbBx.Location = new System.Drawing.Point(98, 182);
-            this.KlantCmbBx.MaxDropDownItems = 4;
-            this.KlantCmbBx.MouseState = MaterialSkin.MouseState.OUT;
-            this.KlantCmbBx.Name = "KlantCmbBx";
-            this.KlantCmbBx.Size = new System.Drawing.Size(289, 49);
-            this.KlantCmbBx.StartIndex = 0;
-            this.KlantCmbBx.TabIndex = 75;
-            this.KlantCmbBx.SelectedIndexChanged += new System.EventHandler(this.KlantCmbBx_SelectedIndexChanged);
-            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.KlantKrMaterialCmbx);
+            this.groupBox2.Controls.Add(this.WebserviceKrMaterialCmbx);
             this.groupBox2.Controls.Add(this.PasUrlAanBtn);
             this.groupBox2.Controls.Add(this.AddUrlByKlantBttn);
             this.groupBox2.Controls.Add(this.SecurityIdTxtBx);
             this.groupBox2.Controls.Add(this.DeleteUrlBttn);
-            this.groupBox2.Controls.Add(this.KlantCmbBx);
             this.groupBox2.Controls.Add(this.LblSecurityID);
             this.groupBox2.Controls.Add(this.LblNaamUrl);
-            this.groupBox2.Controls.Add(this.WebServiceCmbx);
             this.groupBox2.Controls.Add(this.UrlTxtBx);
             this.groupBox2.Controls.Add(this.LblWebservice);
             this.groupBox2.Controls.Add(this.materialLabel4);
@@ -507,6 +461,54 @@ namespace WindowsFormsAppTest
             this.DeleteUrlBttn.UseVisualStyleBackColor = true;
             this.DeleteUrlBttn.Click += new System.EventHandler(this.DeleteUrlBttn_Click);
             // 
+            // WebserviceKrMaterialCmbx
+            // 
+            this.WebserviceKrMaterialCmbx.AutoResize = false;
+            this.WebserviceKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.WebserviceKrMaterialCmbx.Depth = 0;
+            this.WebserviceKrMaterialCmbx.DisplayMember = "Name";
+            this.WebserviceKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.WebserviceKrMaterialCmbx.DropDownHeight = 174;
+            this.WebserviceKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.WebserviceKrMaterialCmbx.DropDownWidth = 121;
+            this.WebserviceKrMaterialCmbx.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.WebserviceKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.WebserviceKrMaterialCmbx.FormattingEnabled = true;
+            this.WebserviceKrMaterialCmbx.IntegralHeight = false;
+            this.WebserviceKrMaterialCmbx.ItemHeight = 43;
+            this.WebserviceKrMaterialCmbx.Location = new System.Drawing.Point(98, 127);
+            this.WebserviceKrMaterialCmbx.MaxDropDownItems = 4;
+            this.WebserviceKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
+            this.WebserviceKrMaterialCmbx.Name = "WebserviceKrMaterialCmbx";
+            this.WebserviceKrMaterialCmbx.Size = new System.Drawing.Size(288, 49);
+            this.WebserviceKrMaterialCmbx.StartIndex = 0;
+            this.WebserviceKrMaterialCmbx.TabIndex = 74;
+            this.WebserviceKrMaterialCmbx.ValueMember = "Id";
+            // 
+            // KlantKrMaterialCmbx
+            // 
+            this.KlantKrMaterialCmbx.AutoResize = false;
+            this.KlantKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.KlantKrMaterialCmbx.Depth = 0;
+            this.KlantKrMaterialCmbx.DisplayMember = "Name";
+            this.KlantKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.KlantKrMaterialCmbx.DropDownHeight = 174;
+            this.KlantKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.KlantKrMaterialCmbx.DropDownWidth = 121;
+            this.KlantKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.KlantKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.KlantKrMaterialCmbx.FormattingEnabled = true;
+            this.KlantKrMaterialCmbx.IntegralHeight = false;
+            this.KlantKrMaterialCmbx.ItemHeight = 43;
+            this.KlantKrMaterialCmbx.Location = new System.Drawing.Point(98, 182);
+            this.KlantKrMaterialCmbx.MaxDropDownItems = 4;
+            this.KlantKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
+            this.KlantKrMaterialCmbx.Name = "KlantKrMaterialCmbx";
+            this.KlantKrMaterialCmbx.Size = new System.Drawing.Size(288, 49);
+            this.KlantKrMaterialCmbx.StartIndex = 0;
+            this.KlantKrMaterialCmbx.TabIndex = 75;
+            this.KlantKrMaterialCmbx.ValueMember = "Id";
+            // 
             // AllKlantenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -549,11 +551,11 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialLabel LblNaamUrl;
         private MaterialSkin.Controls.MaterialLabel LblWebservice;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
-        private MaterialSkin.Controls.MaterialComboBox WebServiceCmbx;
-        private MaterialSkin.Controls.MaterialComboBox KlantCmbBx;
         private System.Windows.Forms.GroupBox groupBox2;
         private MaterialSkin.Controls.MaterialButton PasUrlAanBtn;
         private MaterialSkin.Controls.MaterialButton AddUrlByKlantBttn;
         private MaterialSkin.Controls.MaterialButton DeleteUrlBttn;
+        private KrMaterialCombobox KlantKrMaterialCmbx;
+        private KrMaterialCombobox WebserviceKrMaterialCmbx;
     }
 }

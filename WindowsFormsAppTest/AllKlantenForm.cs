@@ -83,16 +83,14 @@ namespace WindowsFormsAppTest
 
         private void fillCmbxWebServices()
         {
-            Combobox combobox = new Combobox(WebServiceCmbx);
-            combobox.fillCmbBoxWebservice(_webServiceDatas);
-            WebServiceCmbx.SelectedValue = _webServiceDatas[0].Id;
+            WebserviceKrMaterialCmbx.fillCmbBoxWebservice(_webServiceDatas);
+            WebserviceKrMaterialCmbx.SelectedValue = _webServiceDatas[0].Id;
         }
 
         private void fillCmbxKlanten()
         {
-            Combobox combobox = new Combobox(KlantCmbBx);
-            combobox.fillCmbBoxKlant(_klantDatasForChange);
-            KlantCmbBx.SelectedValue = _selectedKlantId;
+            KlantKrMaterialCmbx.fillCmbBoxKlant(_klantDatasForChange);
+            KlantKrMaterialCmbx.SelectedValue = _selectedKlantId;
         }
 
         private void AllKlantLstBx_SelectedIndexChanged(object sender, EventArgs e)
@@ -104,8 +102,8 @@ namespace WindowsFormsAppTest
                 getUrlsFromKlant(idOfSelected);
                 KlantData klantData = _klantDatas.Find(k => k.Id == idOfSelected);
                 KlantTxtBx.Text = klantData.Name;
-                WebServiceCmbx.Refresh();
-                KlantCmbBx.Refresh();
+                WebserviceKrMaterialCmbx.Refresh();
+                KlantKrMaterialCmbx.Refresh();
             }
         }
 
@@ -143,10 +141,10 @@ namespace WindowsFormsAppTest
                 UrlData urlData = _urlDatasByKlant.Find(k => k.Id == idOfSelected);
                 UrlTxtBx.Text = urlData.Name;
                 SecurityIdTxtBx.Text = urlData.SecurityId;
-                WebServiceCmbx.SelectedValue = urlData.WebServiceDataId;
-                KlantCmbBx.SelectedValue = urlData.KlantDataId;
-                WebServiceCmbx.Refresh();
-                KlantCmbBx.Refresh();
+                WebserviceKrMaterialCmbx.SelectedValue = urlData.WebServiceDataId;
+                KlantKrMaterialCmbx.SelectedValue = urlData.KlantDataId;
+                WebserviceKrMaterialCmbx.Refresh();
+                KlantKrMaterialCmbx.Refresh();
             }
         }
 
@@ -162,14 +160,14 @@ namespace WindowsFormsAppTest
 
         private void WebServiceCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _selectedWebserviceIdForChange = (int)WebServiceCmbx.SelectedValue;
+            _selectedWebserviceIdForChange = (int)WebserviceKrMaterialCmbx.SelectedValue;
         }
 
         private void KlantCmbBx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (KlantCmbBx.DataSource != null)
+            if (KlantKrMaterialCmbx.DataSource != null)
             {
-                _selectedKlantIdForChange = (int)KlantCmbBx.SelectedValue;
+                _selectedKlantIdForChange = (int)KlantKrMaterialCmbx.SelectedValue;
             }
         }
 

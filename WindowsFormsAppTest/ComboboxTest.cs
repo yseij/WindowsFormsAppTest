@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace WindowsFormsAppTest
 {
-    class Combobox
+    class ComboboxTest
     {
         private MaterialComboBox ComboBox;
-        public Combobox(MaterialComboBox comboBox)
+        public ComboboxTest(MaterialComboBox comboBox)
         {
             ComboBox = comboBox;
         }

@@ -44,7 +44,7 @@ namespace WindowsFormsAppTest
 
         private void fillCmbxWebServices()
         {
-            Combobox combobox = new Combobox(WebServiceCmbx);
+            ComboboxTest combobox = new ComboboxTest(WebServiceCmbx);
             combobox.fillCmbBoxWebservice(_webServiceDatas);
         }
 

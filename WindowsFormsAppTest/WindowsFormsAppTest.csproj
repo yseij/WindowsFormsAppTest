@@ -111,7 +111,7 @@
     <Compile Include="AllUrlsForm.Designer.cs">
       <DependentUpon>AllUrlsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Combobox.cs" />
+    <Compile Include="ComboboxTest.cs" />
     <Compile Include="Connected Services\WebserviceYouri\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -137,6 +137,9 @@
     </Compile>
     <Compile Include="KlantData.cs" />
     <Compile Include="KlantTest.cs" />
+    <Compile Include="KrMaterialCombobox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ListBox.cs" />
     <Compile Include="LogFile.cs" />
     <Compile Include="Program.cs" />

@@ -45,17 +45,15 @@ namespace WindowsFormsAppTest
 
         private void fillCmbxWebServices()
         {
-            Combobox combobox = new Combobox(WebServiceCmbx);
-            combobox.fillCmbBoxWebservice(_webServiceDatas);
+            WebserviceKrMaterialCmbx.fillCmbBoxWebservice(_webServiceDatas);
         }
 
         private void fillCmbxKlanten()
         {
-            Combobox combobox = new Combobox(KlantCmbBx);
-            combobox.fillCmbBoxKlant(_klantDatas);
+            KlantenKrMaterialCmbx.fillCmbBoxKlant(_klantDatas);
             if (_klantId != 0)
             {
-                KlantCmbBx.SelectedValue = _klantId;
+                KlantenKrMaterialCmbx.SelectedValue = _klantId;
             }
         }
         private void NewSecurityIdTxtBx_TextChanged(object sender, EventArgs e)
@@ -68,14 +66,14 @@ namespace WindowsFormsAppTest
             _newUrl = NewUrlTxtBx.Text;
         }
 
-        private void WebServiceCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        private void WebserviceKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _selectedWebserviceId = (int)WebServiceCmbx.SelectedValue;
+            _selectedWebserviceId = (int)WebserviceKrMaterialCmbx.SelectedValue;
         }
 
-        private void KlantCmbBx_SelectedIndexChanged(object sender, EventArgs e)
+        private void KlantenKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _selectedKlantId = (int)KlantCmbBx.SelectedValue;
+            _selectedKlantId = (int)KlantenKrMaterialCmbx.SelectedValue;
         }
     }
 }
