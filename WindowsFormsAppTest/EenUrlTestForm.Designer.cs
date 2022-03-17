@@ -34,8 +34,6 @@ namespace WindowsFormsAppTest
             this.SslChckBx = new MaterialSkin.Controls.MaterialCheckbox();
             this.SllCertificaatVervalDatumTxtBx = new MaterialSkin.Controls.MaterialTextBox();
             this.LblCertificaatVervalDatum = new MaterialSkin.Controls.MaterialLabel();
-            this.HttpCmbx = new MaterialSkin.Controls.MaterialComboBox();
-            this.UrlsCmbx = new MaterialSkin.Controls.MaterialComboBox();
             this.LblUrl = new MaterialSkin.Controls.MaterialLabel();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.textBoxWebservice = new MaterialSkin.Controls.MaterialTextBox();
@@ -47,6 +45,8 @@ namespace WindowsFormsAppTest
             this.ResponseTextBox = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.TestRouteBtn = new MaterialSkin.Controls.MaterialButton();
+            this.HttpKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
+            this.UrlKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -133,54 +133,6 @@ namespace WindowsFormsAppTest
             this.LblCertificaatVervalDatum.TabIndex = 6;
             this.LblCertificaatVervalDatum.Text = "Certificaat vervaldatum:";
             // 
-            // HttpCmbx
-            // 
-            this.HttpCmbx.AutoResize = false;
-            this.HttpCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.HttpCmbx.Depth = 0;
-            this.HttpCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.HttpCmbx.DropDownHeight = 174;
-            this.HttpCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.HttpCmbx.DropDownWidth = 121;
-            this.HttpCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.HttpCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.HttpCmbx.FormattingEnabled = true;
-            this.HttpCmbx.IntegralHeight = false;
-            this.HttpCmbx.ItemHeight = 43;
-            this.HttpCmbx.Location = new System.Drawing.Point(22, 107);
-            this.HttpCmbx.Margin = new System.Windows.Forms.Padding(0);
-            this.HttpCmbx.MaxDropDownItems = 4;
-            this.HttpCmbx.MouseState = MaterialSkin.MouseState.OUT;
-            this.HttpCmbx.Name = "HttpCmbx";
-            this.HttpCmbx.Size = new System.Drawing.Size(257, 49);
-            this.HttpCmbx.StartIndex = 0;
-            this.HttpCmbx.TabIndex = 28;
-            this.HttpCmbx.SelectedIndexChanged += new System.EventHandler(this.HttpCmbx_SelectedIndexChanged);
-            // 
-            // UrlsCmbx
-            // 
-            this.UrlsCmbx.AutoResize = false;
-            this.UrlsCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.UrlsCmbx.Depth = 0;
-            this.UrlsCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.UrlsCmbx.DropDownHeight = 174;
-            this.UrlsCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.UrlsCmbx.DropDownWidth = 121;
-            this.UrlsCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.UrlsCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.UrlsCmbx.FormattingEnabled = true;
-            this.UrlsCmbx.IntegralHeight = false;
-            this.UrlsCmbx.ItemHeight = 43;
-            this.UrlsCmbx.Location = new System.Drawing.Point(301, 107);
-            this.UrlsCmbx.Margin = new System.Windows.Forms.Padding(0);
-            this.UrlsCmbx.MaxDropDownItems = 4;
-            this.UrlsCmbx.MouseState = MaterialSkin.MouseState.OUT;
-            this.UrlsCmbx.Name = "UrlsCmbx";
-            this.UrlsCmbx.Size = new System.Drawing.Size(646, 49);
-            this.UrlsCmbx.StartIndex = 0;
-            this.UrlsCmbx.TabIndex = 1;
-            this.UrlsCmbx.SelectedIndexChanged += new System.EventHandler(this.UrlsCmbx_SelectedIndexChanged);
-            // 
             // LblUrl
             // 
             this.LblUrl.AutoSize = true;
@@ -205,9 +157,9 @@ namespace WindowsFormsAppTest
             this.groupBox3.Controls.Add(this.LblWebserviceVersie);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox3.Location = new System.Drawing.Point(20, 159);
+            this.groupBox3.Location = new System.Drawing.Point(25, 159);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(439, 144);
+            this.groupBox3.Size = new System.Drawing.Size(434, 144);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Results Webservice";
@@ -380,19 +332,69 @@ namespace WindowsFormsAppTest
             this.TestRouteBtn.UseVisualStyleBackColor = true;
             this.TestRouteBtn.Click += new System.EventHandler(this.TestRouteBtn_Click);
             // 
+            // HttpKrMaterialCmbx
+            // 
+            this.HttpKrMaterialCmbx.AutoResize = false;
+            this.HttpKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.HttpKrMaterialCmbx.Depth = 0;
+            this.HttpKrMaterialCmbx.DisplayMember = "Name";
+            this.HttpKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.HttpKrMaterialCmbx.DropDownHeight = 174;
+            this.HttpKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.HttpKrMaterialCmbx.DropDownWidth = 121;
+            this.HttpKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.HttpKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.HttpKrMaterialCmbx.FormattingEnabled = true;
+            this.HttpKrMaterialCmbx.IntegralHeight = false;
+            this.HttpKrMaterialCmbx.ItemHeight = 43;
+            this.HttpKrMaterialCmbx.Location = new System.Drawing.Point(25, 104);
+            this.HttpKrMaterialCmbx.MaxDropDownItems = 4;
+            this.HttpKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
+            this.HttpKrMaterialCmbx.Name = "HttpKrMaterialCmbx";
+            this.HttpKrMaterialCmbx.Size = new System.Drawing.Size(251, 49);
+            this.HttpKrMaterialCmbx.StartIndex = 0;
+            this.HttpKrMaterialCmbx.TabIndex = 35;
+            this.HttpKrMaterialCmbx.ValueMember = "Id";
+            this.HttpKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.HttpKrMaterialCmbx_SelectedIndexChanged);
+            // 
+            // UrlKrMaterialCmbx
+            // 
+            this.UrlKrMaterialCmbx.AutoResize = false;
+            this.UrlKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.UrlKrMaterialCmbx.Depth = 0;
+            this.UrlKrMaterialCmbx.DisplayMember = "Name";
+            this.UrlKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.UrlKrMaterialCmbx.DropDownHeight = 174;
+            this.UrlKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.UrlKrMaterialCmbx.DropDownWidth = 121;
+            this.UrlKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.UrlKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.UrlKrMaterialCmbx.FormattingEnabled = true;
+            this.UrlKrMaterialCmbx.IntegralHeight = false;
+            this.UrlKrMaterialCmbx.ItemHeight = 43;
+            this.UrlKrMaterialCmbx.Location = new System.Drawing.Point(304, 104);
+            this.UrlKrMaterialCmbx.MaxDropDownItems = 4;
+            this.UrlKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
+            this.UrlKrMaterialCmbx.Name = "UrlKrMaterialCmbx";
+            this.UrlKrMaterialCmbx.Size = new System.Drawing.Size(643, 49);
+            this.UrlKrMaterialCmbx.StartIndex = 0;
+            this.UrlKrMaterialCmbx.TabIndex = 36;
+            this.UrlKrMaterialCmbx.ValueMember = "Id";
+            this.UrlKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.UrlKrMaterialCmbx_SelectedIndexChanged);
+            // 
             // EenUrlTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 590);
+            this.Controls.Add(this.UrlKrMaterialCmbx);
+            this.Controls.Add(this.HttpKrMaterialCmbx);
             this.Controls.Add(this.TestRouteBtn);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.ResponseTextBox);
             this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.LblUrl);
-            this.Controls.Add(this.UrlsCmbx);
-            this.Controls.Add(this.HttpCmbx);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label2);
             this.Name = "EenUrlTestForm";
@@ -411,8 +413,6 @@ namespace WindowsFormsAppTest
         #endregion
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private MaterialSkin.Controls.MaterialComboBox HttpCmbx;
-        private MaterialSkin.Controls.MaterialComboBox UrlsCmbx;
         private MaterialSkin.Controls.MaterialLabel LblUrl;
         private System.Windows.Forms.GroupBox groupBox3;
         private MaterialSkin.Controls.MaterialLabel LblWebserviceVersie;
@@ -427,6 +427,8 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 ResponseTextBox;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialButton TestRouteBtn;
+        private KrMaterialCombobox HttpKrMaterialCmbx;
+        private KrMaterialCombobox UrlKrMaterialCmbx;
     }
 }
 

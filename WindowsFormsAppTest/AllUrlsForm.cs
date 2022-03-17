@@ -51,11 +51,7 @@ namespace WindowsFormsAppTest
 
         private void fillLstBxls()
         {
-            //AllUrlsLstBx.DataSource = null;
-            //AllUrlsLstBx.DisplayMember = "Name";
-            //AllUrlsLstBx.ValueMember = "Id";
-            //AllUrlsLstBx.DataSource = _urlDatas;
-
+            AllUrlsKrMaterialLstBx.Clear();
             foreach (UrlData urlData in _urlDatas)
             {
                 MaterialListBoxItem item = new MaterialListBoxItem();
@@ -76,16 +72,16 @@ namespace WindowsFormsAppTest
                 {
                     if (urlData.WebServiceDataId == webService.Id)
                     {
-                        WebServiceCmbx.SelectedItem = webService;
-                        WebServiceCmbx.Refresh();
+                        WebserviceKrMaterialCmbx.SelectedItem = webService;
+                        WebserviceKrMaterialCmbx.Refresh();
                     }
                 }
                 foreach (var klant in _klantDatas)
                 {
                     if (urlData.KlantDataId == klant.Id)
                     {
-                        KlantCmbx.SelectedItem = klant;
-                        KlantCmbx.Refresh();
+                        KlantKrMaterialCmbx.SelectedItem = klant;
+                        KlantKrMaterialCmbx.Refresh();
                     }
                 }
                 UrlTxtBx.Text = urlData.Name;
@@ -93,38 +89,10 @@ namespace WindowsFormsAppTest
             }
         }
 
-        //private void AllUrlsLstBx_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    clearBox();
-        //    if (AllUrlsLstBx.DataSource != null)
-        //    {
-        //        int idOfSelected = (int)AllUrlsLstBx.SelectedValue;
-        //        UrlData urlData = _urlDatas.Find(u => u.Id == idOfSelected);
-        //        foreach (var webService in _webServiceDatas)
-        //        {
-        //            if (urlData.WebServiceDataId == webService.Id)
-        //            {
-        //                WebServiceCmbx.SelectedItem = webService;
-        //                WebServiceCmbx.Refresh();
-        //            }
-        //        }
-        //        foreach (var klant in _klantDatas)
-        //        {
-        //            if (urlData.KlantDataId == klant.Id)
-        //            {
-        //                KlantCmbx.SelectedItem = klant;
-        //                KlantCmbx.Refresh();
-        //            }
-        //        }
-        //        UrlTxtBx.Text = urlData.Name;
-        //        SecurityIdTxtBx.Text = urlData.SecurityId;
-        //    }
-        //}
-
         private void PasUrlAanBtn_Click(object sender, EventArgs e)
         {
             int selectedIndex = AllUrlsKrMaterialLstBx.SelectedIndex;
-            int idOfSelected = (int)AllUrlsKrMaterialLstBx.SelectedValue;
+            int idOfSelected = (int)AllUrlsKrMaterialLstBx.SelectedItem.Tag;
             _urltest.UpdateUrl(idOfSelected, changedUrl, changedSecurityId, _selectedWebserviceId, _selectedKlantId);
             clearBox();
             getUrls();
@@ -134,7 +102,7 @@ namespace WindowsFormsAppTest
         private void DeleteUrlBttn_Click(object sender, EventArgs e)
         {
             clearBox();
-            _urltest.DeleteUrl((int)AllUrlsKrMaterialLstBx.SelectedValue);
+            _urltest.DeleteUrl((int)AllUrlsKrMaterialLstBx.SelectedItem.Tag);
             AllUrlsKrMaterialLstBx.SelectedIndex = 0;
             getUrls();
         }
@@ -161,14 +129,14 @@ namespace WindowsFormsAppTest
             changedUrl = UrlTxtBx.Text;
         }
 
-        private void WebServiceCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        private void WebserviceKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _selectedWebserviceId = (int)WebServiceCmbx.SelectedValue;
+            _selectedWebserviceId = (int)WebserviceKrMaterialCmbx.SelectedValue;
         }
 
-        private void materialComboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        private void KlantKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _selectedKlantId = (int)KlantCmbx.SelectedValue;
+            _selectedKlantId = (int)KlantKrMaterialCmbx.SelectedValue;
         }
 
         private void clearBox()
@@ -179,18 +147,12 @@ namespace WindowsFormsAppTest
 
         private void fillCmbxWebServices()
         {
-            WebServiceCmbx.DataSource = null;
-            WebServiceCmbx.DisplayMember = "Name";
-            WebServiceCmbx.ValueMember = "Id";
-            WebServiceCmbx.DataSource = _webServiceDatas;
+            WebserviceKrMaterialCmbx.fillCmbBoxWebservice(_webServiceDatas);
         }
 
         private void fillCmbxKlanten()
         {
-            KlantCmbx.DataSource = null;
-            KlantCmbx.DisplayMember = "Name";
-            KlantCmbx.ValueMember = "Id";
-            KlantCmbx.DataSource = _klantDatas;
+            KlantKrMaterialCmbx.fillCmbBoxKlant(_klantDatas);
         }
     }
 }

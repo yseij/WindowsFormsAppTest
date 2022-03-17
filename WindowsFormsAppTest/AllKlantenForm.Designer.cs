@@ -29,8 +29,6 @@ namespace WindowsFormsAppTest
         /// </summary>
         private void InitializeComponent()
         {
-            this.AllKlantLstBx = new System.Windows.Forms.ListBox();
-            this.UrlsByKlantLstBx = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.PasKlantAanBtn = new MaterialSkin.Controls.MaterialButton();
             this.KlantTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
@@ -50,29 +48,13 @@ namespace WindowsFormsAppTest
             this.PasUrlAanBtn = new MaterialSkin.Controls.MaterialButton();
             this.AddUrlByKlantBttn = new MaterialSkin.Controls.MaterialButton();
             this.DeleteUrlBttn = new MaterialSkin.Controls.MaterialButton();
-            this.WebserviceKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
+            this.AllUrlsKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
+            this.AllKlantKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.KlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
+            this.WebserviceKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // AllKlantLstBx
-            // 
-            this.AllKlantLstBx.FormattingEnabled = true;
-            this.AllKlantLstBx.Location = new System.Drawing.Point(6, 90);
-            this.AllKlantLstBx.Name = "AllKlantLstBx";
-            this.AllKlantLstBx.Size = new System.Drawing.Size(402, 147);
-            this.AllKlantLstBx.TabIndex = 1;
-            this.AllKlantLstBx.SelectedIndexChanged += new System.EventHandler(this.AllKlantLstBx_SelectedIndexChanged);
-            // 
-            // UrlsByKlantLstBx
-            // 
-            this.UrlsByKlantLstBx.FormattingEnabled = true;
-            this.UrlsByKlantLstBx.Location = new System.Drawing.Point(5, 294);
-            this.UrlsByKlantLstBx.Name = "UrlsByKlantLstBx";
-            this.UrlsByKlantLstBx.Size = new System.Drawing.Size(402, 290);
-            this.UrlsByKlantLstBx.TabIndex = 6;
-            this.UrlsByKlantLstBx.SelectedIndexChanged += new System.EventHandler(this.UrlsByKlantLstBx_SelectedIndexChanged);
             // 
             // groupBox1
             // 
@@ -81,9 +63,9 @@ namespace WindowsFormsAppTest
             this.groupBox1.Controls.Add(this.AddKlantBtn);
             this.groupBox1.Controls.Add(this.LblNaam);
             this.groupBox1.Controls.Add(this.DeleteKlantBttn);
-            this.groupBox1.Location = new System.Drawing.Point(414, 90);
+            this.groupBox1.Location = new System.Drawing.Point(755, 91);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(399, 147);
+            this.groupBox1.Size = new System.Drawing.Size(472, 147);
             this.groupBox1.TabIndex = 57;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Klant bewerken";
@@ -95,7 +77,7 @@ namespace WindowsFormsAppTest
             this.PasKlantAanBtn.Depth = 0;
             this.PasKlantAanBtn.HighEmphasis = true;
             this.PasKlantAanBtn.Icon = null;
-            this.PasKlantAanBtn.Location = new System.Drawing.Point(226, 102);
+            this.PasKlantAanBtn.Location = new System.Drawing.Point(305, 102);
             this.PasKlantAanBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.PasKlantAanBtn.MaximumSize = new System.Drawing.Size(282, 0);
             this.PasKlantAanBtn.MinimumSize = new System.Drawing.Size(150, 0);
@@ -141,7 +123,7 @@ namespace WindowsFormsAppTest
             this.KlantTxtBx.SelectionLength = 0;
             this.KlantTxtBx.SelectionStart = 0;
             this.KlantTxtBx.ShortcutsEnabled = true;
-            this.KlantTxtBx.Size = new System.Drawing.Size(326, 48);
+            this.KlantTxtBx.Size = new System.Drawing.Size(405, 48);
             this.KlantTxtBx.SkipLiterals = true;
             this.KlantTxtBx.TabIndex = 2;
             this.KlantTxtBx.TabStop = false;
@@ -159,7 +141,7 @@ namespace WindowsFormsAppTest
             this.AddKlantBtn.Depth = 0;
             this.AddKlantBtn.HighEmphasis = true;
             this.AddKlantBtn.Icon = null;
-            this.AddKlantBtn.Location = new System.Drawing.Point(118, 102);
+            this.AddKlantBtn.Location = new System.Drawing.Point(196, 102);
             this.AddKlantBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.AddKlantBtn.MaximumSize = new System.Drawing.Size(100, 0);
             this.AddKlantBtn.MinimumSize = new System.Drawing.Size(100, 0);
@@ -239,7 +221,7 @@ namespace WindowsFormsAppTest
             this.materialDivider1.Location = new System.Drawing.Point(6, 244);
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(807, 23);
+            this.materialDivider1.Size = new System.Drawing.Size(1221, 23);
             this.materialDivider1.TabIndex = 63;
             this.materialDivider1.Text = "materialDivider1";
             // 
@@ -274,7 +256,7 @@ namespace WindowsFormsAppTest
             this.SecurityIdTxtBx.SelectionLength = 0;
             this.SecurityIdTxtBx.SelectionStart = 0;
             this.SecurityIdTxtBx.ShortcutsEnabled = true;
-            this.SecurityIdTxtBx.Size = new System.Drawing.Size(289, 48);
+            this.SecurityIdTxtBx.Size = new System.Drawing.Size(368, 48);
             this.SecurityIdTxtBx.SkipLiterals = true;
             this.SecurityIdTxtBx.TabIndex = 7;
             this.SecurityIdTxtBx.TabStop = false;
@@ -328,7 +310,7 @@ namespace WindowsFormsAppTest
             this.UrlTxtBx.SelectionLength = 0;
             this.UrlTxtBx.SelectionStart = 0;
             this.UrlTxtBx.ShortcutsEnabled = true;
-            this.UrlTxtBx.Size = new System.Drawing.Size(289, 48);
+            this.UrlTxtBx.Size = new System.Drawing.Size(368, 48);
             this.UrlTxtBx.SkipLiterals = true;
             this.UrlTxtBx.TabIndex = 8;
             this.UrlTxtBx.TabStop = false;
@@ -388,9 +370,9 @@ namespace WindowsFormsAppTest
             this.groupBox2.Controls.Add(this.UrlTxtBx);
             this.groupBox2.Controls.Add(this.LblWebservice);
             this.groupBox2.Controls.Add(this.materialLabel4);
-            this.groupBox2.Location = new System.Drawing.Point(414, 294);
+            this.groupBox2.Location = new System.Drawing.Point(755, 294);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(399, 290);
+            this.groupBox2.Size = new System.Drawing.Size(472, 290);
             this.groupBox2.TabIndex = 58;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Url bewerken";
@@ -402,7 +384,7 @@ namespace WindowsFormsAppTest
             this.PasUrlAanBtn.Depth = 0;
             this.PasUrlAanBtn.HighEmphasis = true;
             this.PasUrlAanBtn.Icon = null;
-            this.PasUrlAanBtn.Location = new System.Drawing.Point(226, 240);
+            this.PasUrlAanBtn.Location = new System.Drawing.Point(304, 245);
             this.PasUrlAanBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.PasUrlAanBtn.MaximumSize = new System.Drawing.Size(282, 0);
             this.PasUrlAanBtn.MinimumSize = new System.Drawing.Size(150, 0);
@@ -424,7 +406,7 @@ namespace WindowsFormsAppTest
             this.AddUrlByKlantBttn.Depth = 0;
             this.AddUrlByKlantBttn.HighEmphasis = true;
             this.AddUrlByKlantBttn.Icon = null;
-            this.AddUrlByKlantBttn.Location = new System.Drawing.Point(118, 240);
+            this.AddUrlByKlantBttn.Location = new System.Drawing.Point(196, 245);
             this.AddUrlByKlantBttn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.AddUrlByKlantBttn.MaximumSize = new System.Drawing.Size(100, 0);
             this.AddUrlByKlantBttn.MinimumSize = new System.Drawing.Size(100, 0);
@@ -446,7 +428,7 @@ namespace WindowsFormsAppTest
             this.DeleteUrlBttn.Depth = 0;
             this.DeleteUrlBttn.HighEmphasis = true;
             this.DeleteUrlBttn.Icon = null;
-            this.DeleteUrlBttn.Location = new System.Drawing.Point(10, 240);
+            this.DeleteUrlBttn.Location = new System.Drawing.Point(7, 245);
             this.DeleteUrlBttn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.DeleteUrlBttn.MaximumSize = new System.Drawing.Size(100, 0);
             this.DeleteUrlBttn.MinimumSize = new System.Drawing.Size(100, 0);
@@ -461,29 +443,35 @@ namespace WindowsFormsAppTest
             this.DeleteUrlBttn.UseVisualStyleBackColor = true;
             this.DeleteUrlBttn.Click += new System.EventHandler(this.DeleteUrlBttn_Click);
             // 
-            // WebserviceKrMaterialCmbx
+            // AllUrlsKrMaterialLstBx
             // 
-            this.WebserviceKrMaterialCmbx.AutoResize = false;
-            this.WebserviceKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.WebserviceKrMaterialCmbx.Depth = 0;
-            this.WebserviceKrMaterialCmbx.DisplayMember = "Name";
-            this.WebserviceKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.WebserviceKrMaterialCmbx.DropDownHeight = 174;
-            this.WebserviceKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.WebserviceKrMaterialCmbx.DropDownWidth = 121;
-            this.WebserviceKrMaterialCmbx.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.WebserviceKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.WebserviceKrMaterialCmbx.FormattingEnabled = true;
-            this.WebserviceKrMaterialCmbx.IntegralHeight = false;
-            this.WebserviceKrMaterialCmbx.ItemHeight = 43;
-            this.WebserviceKrMaterialCmbx.Location = new System.Drawing.Point(98, 127);
-            this.WebserviceKrMaterialCmbx.MaxDropDownItems = 4;
-            this.WebserviceKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
-            this.WebserviceKrMaterialCmbx.Name = "WebserviceKrMaterialCmbx";
-            this.WebserviceKrMaterialCmbx.Size = new System.Drawing.Size(288, 49);
-            this.WebserviceKrMaterialCmbx.StartIndex = 0;
-            this.WebserviceKrMaterialCmbx.TabIndex = 74;
-            this.WebserviceKrMaterialCmbx.ValueMember = "Id";
+            this.AllUrlsKrMaterialLstBx.BackColor = System.Drawing.Color.White;
+            this.AllUrlsKrMaterialLstBx.BorderColor = System.Drawing.Color.LightGray;
+            this.AllUrlsKrMaterialLstBx.Depth = 0;
+            this.AllUrlsKrMaterialLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.AllUrlsKrMaterialLstBx.Location = new System.Drawing.Point(6, 292);
+            this.AllUrlsKrMaterialLstBx.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AllUrlsKrMaterialLstBx.Name = "AllUrlsKrMaterialLstBx";
+            this.AllUrlsKrMaterialLstBx.SelectedIndex = -1;
+            this.AllUrlsKrMaterialLstBx.SelectedItem = null;
+            this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(742, 292);
+            this.AllUrlsKrMaterialLstBx.TabIndex = 65;
+            this.AllUrlsKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllUrlsKrMaterialLstBx_SelectedIndexChanged);
+            // 
+            // AllKlantKrMaterialLstBx
+            // 
+            this.AllKlantKrMaterialLstBx.BackColor = System.Drawing.Color.White;
+            this.AllKlantKrMaterialLstBx.BorderColor = System.Drawing.Color.LightGray;
+            this.AllKlantKrMaterialLstBx.Depth = 0;
+            this.AllKlantKrMaterialLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.AllKlantKrMaterialLstBx.Location = new System.Drawing.Point(6, 90);
+            this.AllKlantKrMaterialLstBx.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AllKlantKrMaterialLstBx.Name = "AllKlantKrMaterialLstBx";
+            this.AllKlantKrMaterialLstBx.SelectedIndex = -1;
+            this.AllKlantKrMaterialLstBx.SelectedItem = null;
+            this.AllKlantKrMaterialLstBx.Size = new System.Drawing.Size(742, 148);
+            this.AllKlantKrMaterialLstBx.TabIndex = 64;
+            this.AllKlantKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllKlantKrMaterialLstBx_SelectedIndexChanged);
             // 
             // KlantKrMaterialCmbx
             // 
@@ -504,23 +492,47 @@ namespace WindowsFormsAppTest
             this.KlantKrMaterialCmbx.MaxDropDownItems = 4;
             this.KlantKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
             this.KlantKrMaterialCmbx.Name = "KlantKrMaterialCmbx";
-            this.KlantKrMaterialCmbx.Size = new System.Drawing.Size(288, 49);
+            this.KlantKrMaterialCmbx.Size = new System.Drawing.Size(368, 49);
             this.KlantKrMaterialCmbx.StartIndex = 0;
             this.KlantKrMaterialCmbx.TabIndex = 75;
             this.KlantKrMaterialCmbx.ValueMember = "Id";
+            // 
+            // WebserviceKrMaterialCmbx
+            // 
+            this.WebserviceKrMaterialCmbx.AutoResize = false;
+            this.WebserviceKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.WebserviceKrMaterialCmbx.Depth = 0;
+            this.WebserviceKrMaterialCmbx.DisplayMember = "Name";
+            this.WebserviceKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.WebserviceKrMaterialCmbx.DropDownHeight = 174;
+            this.WebserviceKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.WebserviceKrMaterialCmbx.DropDownWidth = 121;
+            this.WebserviceKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.WebserviceKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.WebserviceKrMaterialCmbx.FormattingEnabled = true;
+            this.WebserviceKrMaterialCmbx.IntegralHeight = false;
+            this.WebserviceKrMaterialCmbx.ItemHeight = 43;
+            this.WebserviceKrMaterialCmbx.Location = new System.Drawing.Point(98, 127);
+            this.WebserviceKrMaterialCmbx.MaxDropDownItems = 4;
+            this.WebserviceKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
+            this.WebserviceKrMaterialCmbx.Name = "WebserviceKrMaterialCmbx";
+            this.WebserviceKrMaterialCmbx.Size = new System.Drawing.Size(368, 49);
+            this.WebserviceKrMaterialCmbx.StartIndex = 0;
+            this.WebserviceKrMaterialCmbx.TabIndex = 74;
+            this.WebserviceKrMaterialCmbx.ValueMember = "Id";
             // 
             // AllKlantenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 595);
+            this.ClientSize = new System.Drawing.Size(1233, 595);
+            this.Controls.Add(this.AllUrlsKrMaterialLstBx);
+            this.Controls.Add(this.AllKlantKrMaterialLstBx);
             this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.LblUrlsByKlant);
             this.Controls.Add(this.LblKlant);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.UrlsByKlantLstBx);
-            this.Controls.Add(this.AllKlantLstBx);
             this.Name = "AllKlantenForm";
             this.Text = "Klanten beheren";
             this.Load += new System.EventHandler(this.AllKlantenForm_Load);
@@ -534,8 +546,6 @@ namespace WindowsFormsAppTest
         }
 
         #endregion
-        private System.Windows.Forms.ListBox AllKlantLstBx;
-        private System.Windows.Forms.ListBox UrlsByKlantLstBx;
         private System.Windows.Forms.GroupBox groupBox1;
         private MaterialSkin.Controls.MaterialMaskedTextBox KlantTxtBx;
         private MaterialSkin.Controls.MaterialLabel LblNaam;
@@ -557,5 +567,7 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialButton DeleteUrlBttn;
         private KrMaterialCombobox KlantKrMaterialCmbx;
         private KrMaterialCombobox WebserviceKrMaterialCmbx;
+        private KrMaterialListBox AllKlantKrMaterialLstBx;
+        private KrMaterialListBox AllUrlsKrMaterialLstBx;
     }
 }

@@ -1,4 +1,5 @@
-﻿using MaterialSkin.Controls;
+﻿
+using MaterialSkin.Controls;
 using System.Collections.Generic;
 
 
@@ -34,6 +35,12 @@ namespace WindowsFormsAppTest
         {
             ClearDataSource();
             DataSource = klantDatas;
+        }
+
+        public void fillCmbBoxRest(List<string> data)
+        {
+            ClearDataSource();
+            DataSource = data;
         }
     }
 }

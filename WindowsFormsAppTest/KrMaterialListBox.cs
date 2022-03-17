@@ -6,13 +6,6 @@ namespace WindowsFormsAppTest
     {
         public KrMaterialListBox()
         {
-            //DisplayMember = "Name";
-            //ValueMember = "Id";
-        }
-
-        private void ClearDataSource()
-        {
-
         }
     }
 }

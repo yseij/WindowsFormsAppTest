@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
+using MaterialSkin;
 using MaterialSkin.Controls;
 using Newtonsoft.Json.Linq;
 
@@ -34,10 +35,15 @@ namespace WindowsFormsAppTest
             fillCmbxHtpp();
         }
 
+        private void getUrls()
+        {
+            _urlDatas = _urltest.GetUrlDatas(true);
+        }
+
         private void TestRouteBtn_Click(object sender, EventArgs e)
         {
             clearBox();
-            var data = _webRequest.GetWebRequest((int)UrlsCmbx.SelectedValue, urlHttp, url, securityId);
+            var data = _webRequest.GetWebRequest((int)UrlKrMaterialCmbx.SelectedValue, urlHttp, url, securityId);
             dynamic result = JObject.Parse(data);
             _testRoute.TestOneRoute(result,
                                     textBoxWebservice,
@@ -47,20 +53,20 @@ namespace WindowsFormsAppTest
                                     checkBoxKraanIni,
                                     checkBoxKraanDatabase,
                                     ResponseTextBox,
-                                    UrlsCmbx.Text);
+                                    UrlKrMaterialCmbx.Text);
         }
 
-        private void HttpCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        private void HttpKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            urlHttp = HttpCmbx.Text;
+            urlHttp = (string)HttpKrMaterialCmbx.Text;
         }
 
-        private void UrlsCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        private void UrlKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             clearBox();
-            if (UrlsCmbx.DataSource != null)
+            if (UrlKrMaterialCmbx.DataSource != null)
             {
-                int idOfSelected = (int)UrlsCmbx.SelectedValue;
+                int idOfSelected = (int)UrlKrMaterialCmbx.SelectedValue;
                 UrlData urlData = _urlDatas.Find(u => u.Id == idOfSelected);
                 url = urlData.Name;
                 securityId = urlData.SecurityId;
@@ -78,25 +84,19 @@ namespace WindowsFormsAppTest
             SllCertificaatVervalDatumTxtBx.Text = string.Empty;
         }
 
-        private void getUrls()
-        {
-            _urlDatas = _urltest.GetUrlDatas(true);
-        }
-
         private void fillCmbxUrls()
         {
-            UrlsCmbx.DataSource = null;
-            UrlsCmbx.DisplayMember = "Name";
-            UrlsCmbx.ValueMember = "Id";
-            UrlsCmbx.DataSource = _urlDatas;
+            UrlKrMaterialCmbx.fillCmbBoxUrl(_urlDatas);
         }
 
         private void fillCmbxHtpp()
         {
-            HttpCmbx.Items.Clear();
-            HttpCmbx.Items.Add("https://wsdev.kraan.com/");
-            HttpCmbx.Items.Add("https://ws.kraan.com:444/");
-            HttpCmbx.SelectedIndex = 0;
+            List<string> listOfNames = new List<string>()
+            {
+                "https://wsdev.kraan.com/",
+                "https://ws.kraan.com:444/"
+            };
+            HttpKrMaterialCmbx.fillCmbBoxRest(listOfNames);
         }
 
         private void checkBoxReadOnly_Click(object sender, EventArgs e)
