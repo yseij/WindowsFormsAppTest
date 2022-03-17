@@ -283,13 +283,13 @@ namespace WindowsFormsAppTest
             // webserviceKeuzeToolStripMenuItem
             // 
             this.webserviceKeuzeToolStripMenuItem.Name = "webserviceKeuzeToolStripMenuItem";
-            this.webserviceKeuzeToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.webserviceKeuzeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.webserviceKeuzeToolStripMenuItem.Text = "Webservice keuze";
             // 
             // klantKeuzeToolStripMenuItem
             // 
             this.klantKeuzeToolStripMenuItem.Name = "klantKeuzeToolStripMenuItem";
-            this.klantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.klantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.klantKeuzeToolStripMenuItem.Text = "Klant keuze";
             // 
             // tijdToolStripMenuItem
@@ -299,7 +299,7 @@ namespace WindowsFormsAppTest
             this.minToolStripMenuItem1,
             this.minToolStripMenuItem2});
             this.tijdToolStripMenuItem.Name = "tijdToolStripMenuItem";
-            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tijdToolStripMenuItem.Text = "Tijd";
             // 
             // minToolStripMenuItem
@@ -329,20 +329,20 @@ namespace WindowsFormsAppTest
             this.aanToolStripMenuItem,
             this.uitToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.toolStripMenuItem1.Text = "Aan of Uit";
             // 
             // aanToolStripMenuItem
             // 
             this.aanToolStripMenuItem.Name = "aanToolStripMenuItem";
-            this.aanToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
+            this.aanToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.aanToolStripMenuItem.Text = "Aan";
             this.aanToolStripMenuItem.Click += new System.EventHandler(this.aanToolStripMenuItem_Click);
             // 
             // uitToolStripMenuItem
             // 
             this.uitToolStripMenuItem.Name = "uitToolStripMenuItem";
-            this.uitToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
+            this.uitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.uitToolStripMenuItem.Text = "Uit";
             this.uitToolStripMenuItem.Click += new System.EventHandler(this.uitToolStripMenuItem_Click);
             // 

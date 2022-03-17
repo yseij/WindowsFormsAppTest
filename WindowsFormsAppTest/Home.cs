@@ -11,8 +11,6 @@ namespace WindowsFormsAppTest
 {
     public partial class Home : MaterialForm
     {
-        private string _filePath;
-
         private int _webserviceKeuzeId = 0;
         private string _webserviceKeuzeNaam = "";
         private int _klantKeuzeId = 0;
@@ -50,6 +48,8 @@ namespace WindowsFormsAppTest
             );
             menuStrip.ForeColor = Color.FromArgb(0, 0, 0);
 
+            toolStripMenuItem1.Enabled = false;
+
             fillKlantenDropDown();
             fillWebserviceDropDown();
 
@@ -76,6 +76,7 @@ namespace WindowsFormsAppTest
             if (klantKeuze != 0)
             {
                 webserviceKeuzeToolStripMenuItem.Enabled = false;
+                toolStripMenuItem1.Enabled = true;
                 foreach (ToolStripMenuItem toolStripMenuItem in klantKeuzeToolStripMenuItem.DropDownItems)
                 {
                     if ((int)toolStripMenuItem.Tag == klantKeuze)
@@ -94,6 +95,7 @@ namespace WindowsFormsAppTest
             int webserviceKeuze = Properties.Settings.Default.WebserviceKeuze;
             if (webserviceKeuze != 0)
             {
+                toolStripMenuItem1.Enabled = true;
                 klantKeuzeToolStripMenuItem.Enabled = false;
                 foreach (ToolStripMenuItem toolStripMenuItem in webserviceKeuzeToolStripMenuItem.DropDownItems)
                 {
@@ -297,12 +299,15 @@ namespace WindowsFormsAppTest
             {
                 _klantKeuzeId = 0;
                 webserviceKeuzeToolStripMenuItem.Enabled = true;
+                toolStripMenuItem1.Enabled = false;
             }
             else
             {
+
                 _klantKeuzeId = (int)item.Tag;
                 _klantKeuzeNaam = item.Text;
                 item.Checked = true;
+                toolStripMenuItem1.Enabled = true;
                 webserviceKeuzeToolStripMenuItem.Enabled = false;
             }
             Properties.Settings.Default.KlantKeuze = _klantKeuzeId;
@@ -334,12 +339,14 @@ namespace WindowsFormsAppTest
             {
                 _webserviceKeuzeId = 0;
                 klantKeuzeToolStripMenuItem.Enabled = true;
+                toolStripMenuItem1.Enabled = false;
             }
             else
             {
                 _webserviceKeuzeId = (int)item.Tag;
                 _webserviceKeuzeNaam = item.Text;
                 item.Checked = true;
+                toolStripMenuItem1.Enabled = true;
                 klantKeuzeToolStripMenuItem.Enabled = false;
             }
             Properties.Settings.Default.WebserviceKeuze = _webserviceKeuzeId;
@@ -367,10 +374,7 @@ namespace WindowsFormsAppTest
                                     teller = teller + 1;
                                     logFile.makeLogFile(_webserviceKeuzeNaam);
                                 }
-                                else
-                                {
                                     logFile.addTextToLogFile(urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine);
-                                }
                             }
                         }
                     }
@@ -392,10 +396,7 @@ namespace WindowsFormsAppTest
                                     teller = teller + 1;
                                     logFile.makeLogFile(_klantKeuzeNaam);
                                 }
-                                else
-                                {
-                                    logFile.addTextToLogFile(urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine);
-                                }
+                                logFile.addTextToLogFile(urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine);
                             }
                         }
                     }

@@ -22,6 +22,7 @@ namespace WindowsFormsAppTest
             {
                 home.routeTest();
             }, null, startTimeSpan, periodTimeSpan);
+
             Application.Run(home);
         }
     }
