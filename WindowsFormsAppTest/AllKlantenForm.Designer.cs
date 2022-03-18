@@ -400,6 +400,7 @@ namespace WindowsFormsAppTest
             this.KlantKrMaterialCmbx.StartIndex = 0;
             this.KlantKrMaterialCmbx.TabIndex = 75;
             this.KlantKrMaterialCmbx.ValueMember = "Id";
+            this.KlantKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.KlantKrMaterialCmbx_SelectedIndexChanged);
             // 
             // WebserviceKrMaterialCmbx
             // 
@@ -424,6 +425,7 @@ namespace WindowsFormsAppTest
             this.WebserviceKrMaterialCmbx.StartIndex = 0;
             this.WebserviceKrMaterialCmbx.TabIndex = 74;
             this.WebserviceKrMaterialCmbx.ValueMember = "Id";
+            this.WebserviceKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.WebserviceKrMaterialCmbx_SelectedIndexChanged);
             // 
             // PasUrlAanBtn
             // 
