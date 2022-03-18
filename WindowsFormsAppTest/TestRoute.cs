@@ -40,7 +40,7 @@ namespace WindowsFormsAppTest
                         logFile.AddTextToLogFile("WebserviceVersie = " + strlist[1] + "\n");
                         break;
                     case "certVerValDatum":
-                        if (item.Value != null)
+                        if (item.Value.ToString() != "")
                         {
                             sslChckBx.Checked = true;
                             sllCertificaatVervalDatumTxtBx.Text = item.Value.ToString();

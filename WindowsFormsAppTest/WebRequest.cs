@@ -1,13 +1,7 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
+﻿using System;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
-using System.Net.Security;
 using System.Security.Cryptography.X509Certificates;
 
 namespace WindowsFormsAppTest
@@ -24,16 +18,13 @@ namespace WindowsFormsAppTest
         private int positionDatabaseConnect;
         private int positionDatabaseMelding;
 
+        private bool certIsGoed = false;
+
         WebClient _wc;
 
         public WebRequest()
         {
             _wc = new WebClient();
-        }
-
-        public class DataObject
-        {
-            public string Name { get; set; }
         }
 
         public string GetWebRequest(int id, string urlHttp, string url, string securityId = "")
@@ -44,11 +35,16 @@ namespace WindowsFormsAppTest
             try
             {
                 HttpWebRequest request = HttpWebRequest.Create(webRequestUrl) as HttpWebRequest;
-                //request.ServerCertificateValidationCallback += ServerCertificateValidationCallback;
-                X509Certificate cert = request.ServicePoint.Certificate;
                 HttpClient client = new HttpClient();
                 using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
                 {
+                    X509Certificate cert = request.ServicePoint.Certificate;
+                    X509Certificate2 cert2 = null;
+                    if (cert != null)
+                    {
+                        cert2 = new X509Certificate2(cert);
+                        certIsGoed = cert2.Verify();
+                    }
                     int statusCode = (int)response.StatusCode;
                     if (statusCode >= 100 && statusCode < 400) //Good requests
                     {
@@ -63,7 +59,7 @@ namespace WindowsFormsAppTest
                             string data = response1.Content.ReadAsStringAsync().Result; //Make sure to add a reference to System.Net.Http.Formatting.dll
                             if (securityId == string.Empty)
                             {
-                                if (cert != null)
+                                if (certIsGoed)
                                 {
                                     return GetDataOfWebRequest(data, cert.GetExpirationDateString().ToString());
                                 }
@@ -75,7 +71,7 @@ namespace WindowsFormsAppTest
                             int Pos1 = data.IndexOf('{');
                             int Pos2 = data.IndexOf('}');
                             data = data.Substring(Pos1 + 1, Pos2 - Pos1 - 1);
-                            if (cert != null)
+                            if (certIsGoed)
                             {
                                 return "{" + data + ", id: '" + id + "', certVerValDatum: '" + cert.GetExpirationDateString().ToString() + "'}";
                             }
@@ -110,26 +106,5 @@ namespace WindowsFormsAppTest
 
             return @"{ WebserviceVersie: '" + webserviceVersie + "', KraanDll: '" + kraanDll + "', KraanIni: '" + kraanIni + "', KraanDatabase: '" + kraanDatabase + "', certVerValDatum: '" + verValDatum + "'}";
         }
-
-        //private static bool ServerCertificateValidationCallback(object sender, X509Certificate certificate, X509Chain chain, SslPolicyErrors sslPolicyErrors)
-        //{
-        //    //see: https://docs.microsoft.com/en-us/dotnet/api/system.security.cryptography.x509certificates.x509certificate.getexpirationdatestring?view=netcore-3.1#remarks
-        //    //Make sure we parse the DateTime.Parse(expirationdate) the same as GetExpirationDateString() does.
-        //    Console.WriteLine("test");
-        //    CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
-        //    var expirationDate = DateTime.Parse(certificate.GetExpirationDateString(), CultureInfo.InvariantCulture);
-        //    if (expirationDate - DateTime.Today < TimeSpan.FromDays(30))
-        //    {
-        //        throw new Exception("Time to renew the certificate!");
-        //    }
-        //    if (sslPolicyErrors == SslPolicyErrors.None)
-        //    {
-        //        return true;
-        //    }
-        //    else
-        //    {
-        //        throw new Exception("Cert policy errors: " + sslPolicyErrors.ToString());
-        //    }
-        //}
     }
 }
