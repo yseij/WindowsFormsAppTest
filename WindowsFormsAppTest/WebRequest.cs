@@ -30,7 +30,6 @@ namespace WindowsFormsAppTest
         public string GetWebRequest(int id, string urlHttp, string url, string securityId = "")
         {
             string webRequestUrl = urlHttp + url + securityId;
-            //string webRequestUrl = "http://www.djseyo.be";
             Uri uri = new Uri(webRequestUrl);
             try
             {
