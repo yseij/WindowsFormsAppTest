@@ -51,6 +51,7 @@ namespace WindowsFormsAppTest
             };
             HttpKrMaterialCmbx.FillCmbBoxRest(listOfNames);
             HttpKrMaterialCmbx.SelectedItem = ConfigurationManager.AppSettings["http"];
+            urlHttp = ConfigurationManager.AppSettings["http"];
         }
 
         private void TestRouteBtn_Click(object sender, EventArgs e)

@@ -134,7 +134,7 @@ namespace WindowsFormsAppTest
             this.textBoxWebservice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.textBoxWebservice.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxWebservice.Depth = 0;
-            this.textBoxWebservice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxWebservice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.textBoxWebservice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.textBoxWebservice.LeadingIcon = null;
             this.textBoxWebservice.Location = new System.Drawing.Point(142, 19);
@@ -261,7 +261,7 @@ namespace WindowsFormsAppTest
             this.SllCertificaatVervalDatumTxtBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.SllCertificaatVervalDatumTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SllCertificaatVervalDatumTxtBx.Depth = 0;
-            this.SllCertificaatVervalDatumTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.SllCertificaatVervalDatumTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.SllCertificaatVervalDatumTxtBx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.SllCertificaatVervalDatumTxtBx.LeadingIcon = null;
             this.SllCertificaatVervalDatumTxtBx.Location = new System.Drawing.Point(189, 22);
@@ -336,7 +336,7 @@ namespace WindowsFormsAppTest
             this.AantalLegeUrlsTxtBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.AantalLegeUrlsTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AantalLegeUrlsTxtBx.Depth = 0;
-            this.AantalLegeUrlsTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.AantalLegeUrlsTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.AantalLegeUrlsTxtBx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.AantalLegeUrlsTxtBx.LeadingIcon = null;
             this.AantalLegeUrlsTxtBx.Location = new System.Drawing.Point(65, 22);
@@ -416,7 +416,7 @@ namespace WindowsFormsAppTest
             this.WebserviceOfKlantKrMaterialCmbx.ValueMember = "Id";
             this.WebserviceOfKlantKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.WebserviceOfKlantKrMaterialCmbx_SelectedIndexChanged);
             // 
-            // WebserviceForm
+            // WebserviceOfKlantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -430,7 +430,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.TestAllBtn);
             this.Controls.Add(this.LblWebserviceOfKlant);
             this.Controls.Add(this.TrVwAll);
-            this.Name = "WebserviceForm";
+            this.Name = "WebserviceOfKlantForm";
             this.Sizable = false;
             this.Text = "Per Webservice Testen";
             this.TopMost = true;
