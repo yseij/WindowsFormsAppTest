@@ -158,50 +158,43 @@ namespace WindowsFormsAppTest
 
         private void MinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfigurationManager.AppSettings["testTijd"] = "15";
-            Properties.Settings.Default.Tijd = "15";
+            ZetConfEnProp("testTijd", "15");
             TestTijdCheck();
         }
 
         private void MinToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ConfigurationManager.AppSettings["testTijd"] = "30";
-            Properties.Settings.Default.Tijd = "30";
+            ZetConfEnProp("testTijd", "30");
             TestTijdCheck();
         }
 
         private void MinToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            ConfigurationManager.AppSettings["testTijd"] = "60";
-            Properties.Settings.Default.Tijd = "60";
+            ZetConfEnProp("testTijd", "60");
             TestTijdCheck();
         }
 
         private void Httpswskraancom444ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfigurationManager.AppSettings["http"] = "https://ws.kraan.com:444/";
-            Properties.Settings.Default.SoortHttp = "https://ws.kraan.com:444/";
+            ZetConfEnProp("http", "https://ws.kraan.com:444/");
             HttpCheck();
         }
 
         private void HttpswsdevkraancomToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfigurationManager.AppSettings["http"] = "https://wsdev.kraan.com/";
-            Properties.Settings.Default.SoortHttp = "https://wsdev.kraan.com/";
+            ZetConfEnProp("http", "https://wsdev.kraan.com/");
             HttpCheck();
         }
 
         private void AanToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfigurationManager.AppSettings["testTijdAanOfUit"] = "aan";
-            Properties.Settings.Default.AanOfUit = "aan";
+            ZetConfEnProp("testTijdAanOfUit", "aan");
             AanOfUitCheck();
         }
 
         private void UitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ConfigurationManager.AppSettings["testTijdAanOfUit"] = "uit";
-            Properties.Settings.Default.AanOfUit = "uit";
+            ZetConfEnProp("testTijdAanOfUit", "uit");
             AanOfUitCheck();
         }
 
