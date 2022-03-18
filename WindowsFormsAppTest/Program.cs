@@ -15,6 +15,7 @@ namespace WindowsFormsAppTest
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Home home = new Home();
+            //SoapRequestForm home = new SoapRequestForm();
             var startTimeSpan = TimeSpan.Zero;
             var periodTimeSpan = TimeSpan.FromSeconds(int.Parse(ConfigurationManager.AppSettings["testTijd"]));
 

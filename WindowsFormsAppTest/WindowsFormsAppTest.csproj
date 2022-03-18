@@ -148,6 +148,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="SoapRequest.cs" />
+    <Compile Include="SoapRequestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SoapRequestForm.Designer.cs">
+      <DependentUpon>SoapRequestForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="TestRoute.cs" />
     <Compile Include="UrlData.cs" />
     <Compile Include="UrlTest.cs" />
@@ -187,6 +193,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SoapRequestForm.resx">
+      <DependentUpon>SoapRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="WebserviceOfKlantForm.resx">
       <DependentUpon>WebserviceOfKlantForm.cs</DependentUpon>
     </EmbeddedResource>
