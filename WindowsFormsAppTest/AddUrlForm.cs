@@ -31,18 +31,6 @@ namespace WindowsFormsAppTest
             FillCmbxKlanten();
         }
 
-        private void AddUrlForm_Load(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void AddUrlButton_Click(object sender, EventArgs e)
-        {
-            UrlTest urltest = new UrlTest();
-            urltest.AddUrl(_newUrl, _selectedWebserviceId, _selectedKlantId, _newSecurityId);
-            Close();
-        }
-
         private void FillCmbxWebServices()
         {
             WebserviceKrMaterialCmbx.FillCmbBoxWebservice(_webServiceDatas);
@@ -56,6 +44,14 @@ namespace WindowsFormsAppTest
                 KlantenKrMaterialCmbx.SelectedValue = _klantId;
             }
         }
+
+        private void AddUrlButton_Click(object sender, EventArgs e)
+        {
+            UrlTest urltest = new UrlTest();
+            urltest.AddUrl(_newUrl, _selectedWebserviceId, _selectedKlantId, _newSecurityId);
+            Close();
+        }
+
         private void NewSecurityIdTxtBx_TextChanged(object sender, EventArgs e)
         {
             _newSecurityId = NewSecurityIdTxtBx.Text;

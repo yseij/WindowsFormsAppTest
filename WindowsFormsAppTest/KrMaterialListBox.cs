@@ -17,6 +17,7 @@ namespace WindowsFormsAppTest
 
         public void FillListBoxUrlData(List<UrlData> urlDatas)
         {
+            ClearListBox();
             foreach (UrlData urlData in urlDatas)
             {
                 KrMaterialListBoxItem krMaterialListBoxItem = new KrMaterialListBoxItem(urlData.Id, urlData.Name);
@@ -26,6 +27,7 @@ namespace WindowsFormsAppTest
 
         public void FillListBoxKlantData(List<KlantData> klantDatas)
         {
+            ClearListBox();
             foreach (KlantData klantData in klantDatas)
             {
                 KrMaterialListBoxItem krMaterialListBoxItem = new KrMaterialListBoxItem(klantData.Id, klantData.Name);

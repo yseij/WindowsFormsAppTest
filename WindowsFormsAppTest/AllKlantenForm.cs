@@ -62,7 +62,6 @@ namespace WindowsFormsAppTest
             {
                 _selectedKlantId = _klantDatas[0].Id;
             }
-            AllKlantKrMaterialLstBx.ClearListBox();
             AllKlantKrMaterialLstBx.FillListBoxKlantData(_klantDatas);
         }
 
@@ -72,9 +71,7 @@ namespace WindowsFormsAppTest
             {
                 _selectedUrlId = _urlDatasByKlant[0].Id;
             }
-            AllUrlsKrMaterialLstBx.ClearListBox();
             AllUrlsKrMaterialLstBx.FillListBoxUrlData(_urlDatasByKlant);
-
         }
 
         private void FillCmbxWebServices()

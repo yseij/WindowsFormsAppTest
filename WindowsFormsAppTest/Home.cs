@@ -15,14 +15,14 @@ namespace WindowsFormsAppTest
         private string _webserviceKeuzeNaam = "";
         private int _klantKeuzeId = 0;
         private string _klantKeuzeNaam = "";
+        private string _keuzeNaam = "";
 
         private dynamic _result;
 
         private List<KlantData> _klantDatas = new List<KlantData>();
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
 
-        private List<UrlData> _urlDatasByForeignKey = new List<UrlData>();
-        private List<UrlData> _urlDatasByForeignKeyKlant = new List<UrlData>();
+        private List<UrlData> _urlDatas = new List<UrlData>();
 
         KlantTest _klantTest;
         WebserviceTest _webserviceTest;
@@ -205,6 +205,12 @@ namespace WindowsFormsAppTest
             AanOfUitCheck();
         }
 
+        private void ZetConfEnProp(string name, string waarde)
+        {
+            ConfigurationManager.AppSettings[name] = waarde;
+            Properties.Settings.Default.AanOfUit = waarde;
+        }
+
         private void PlaatsOpslaanLogFileToolStripMenuItem_MouseHover(object sender, EventArgs e)
         {
             plaatsOpslaanLogFileToolStripMenuItem.ToolTipText = ConfigurationManager.AppSettings["opslaanLogFile"]; ;
@@ -293,6 +299,7 @@ namespace WindowsFormsAppTest
             if (_klantKeuzeId == (int)item.Tag)
             {
                 _klantKeuzeId = 0;
+
                 WebserviceKeuzeToolStripMenuItem.Enabled = true;
                 ToolStripMenuItem1.Enabled = false;
             }
@@ -302,6 +309,7 @@ namespace WindowsFormsAppTest
                 _klantKeuzeId = (int)item.Tag;
                 _klantKeuzeNaam = item.Text;
                 item.Checked = true;
+
                 ToolStripMenuItem1.Enabled = true;
                 WebserviceKeuzeToolStripMenuItem.Enabled = false;
             }
@@ -333,6 +341,7 @@ namespace WindowsFormsAppTest
             if (_webserviceKeuzeId == (int)item.Tag)
             {
                 _webserviceKeuzeId = 0;
+
                 KlantKeuzeToolStripMenuItem.Enabled = true;
                 ToolStripMenuItem1.Enabled = false;
             }
@@ -341,6 +350,7 @@ namespace WindowsFormsAppTest
                 _webserviceKeuzeId = (int)item.Tag;
                 _webserviceKeuzeNaam = item.Text;
                 item.Checked = true;
+
                 ToolStripMenuItem1.Enabled = true;
                 KlantKeuzeToolStripMenuItem.Enabled = false;
             }
@@ -351,52 +361,43 @@ namespace WindowsFormsAppTest
         {
             if (ConfigurationManager.AppSettings["testTijdAanOfUit"] == "aan")
             {
-                int teller = 0;
                 if (_webserviceKeuzeId != 0)
                 {
-                    _urlDatasByForeignKey = _urltest.GetAllUrlsByForeignKeyWebservice(_webserviceKeuzeId);
-                    foreach (UrlData urlData in _urlDatasByForeignKey)
-                    {
-                        var data = _webRequest.GetWebRequest(urlData.Id, ConfigurationManager.AppSettings["http"], urlData.Name, urlData.SecurityId);
-                        _result = JObject.Parse(data);
-                        foreach (JProperty item in _result)
-                        {
-                            if (item.Name == "ex")
-                            {
-                                LogFile logFile = new LogFile();
-                                if (teller == 0)
-                                {
-                                    teller = teller + 1;
-                                    logFile.MakeLogFile(_webserviceKeuzeNaam);
-                                }
-                                    logFile.AddTextToLogFile(urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine);
-                            }
-                        }
-                    }
+                    _urlDatas = _urltest.GetAllUrlsByForeignKeyWebservice(_webserviceKeuzeId);
+                    _keuzeNaam = _webserviceKeuzeNaam;
+
+
                 }
                 else if(_klantKeuzeId != 0)
                 {
-                    _urlDatasByForeignKeyKlant = _urltest.GetAllUrlsByForeignKeyKlant(_klantKeuzeId);
-                    foreach (UrlData urlData in _urlDatasByForeignKeyKlant)
+                    _urlDatas = _urltest.GetAllUrlsByForeignKeyKlant(_klantKeuzeId);
+                    _keuzeNaam = _klantKeuzeNaam;
+                }
+                RouteTestAfterKeuze(_urlDatas, _keuzeNaam);
+            } 
+        }
+
+        private void RouteTestAfterKeuze(List<UrlData> urlDatas, string keuzeNaam)
+        {
+            int teller = 0;
+            foreach (UrlData urlData in urlDatas)
+            {
+                var data = _webRequest.GetWebRequest(urlData.Id, ConfigurationManager.AppSettings["http"], urlData.Name, urlData.SecurityId);
+                _result = JObject.Parse(data);
+                foreach (JProperty item in _result)
+                {
+                    if (item.Name == "ex")
                     {
-                        var data = _webRequest.GetWebRequest(urlData.Id, ConfigurationManager.AppSettings["http"], urlData.Name, urlData.SecurityId);
-                        _result = JObject.Parse(data);
-                        foreach (JProperty item in _result)
+                        LogFile logFile = new LogFile();
+                        if (teller == 0)
                         {
-                            if (item.Name == "ex")
-                            {
-                                LogFile logFile = new LogFile();
-                                if (teller == 0)
-                                {
-                                    teller = teller + 1;
-                                    logFile.MakeLogFile(_klantKeuzeNaam);
-                                }
-                                logFile.AddTextToLogFile(urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine);
-                            }
+                            teller = teller + 1;
+                            logFile.MakeLogFile(keuzeNaam);
                         }
+                        logFile.AddTextToLogFile(urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine);
                     }
                 }
-            } 
+            }
         }
 
         private void Home_FormClosing(object sender, FormClosingEventArgs e)

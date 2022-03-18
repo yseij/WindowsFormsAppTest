@@ -48,7 +48,6 @@ namespace WindowsFormsAppTest
 
         private void FillLstBxls()
         {
-            AllUrlsKrMaterialLstBx.ClearListBox();
             AllUrlsKrMaterialLstBx.FillListBoxUrlData(_urlDatas);
         }
 
