@@ -158,6 +158,12 @@
     <Compile Include="TestRoute.cs" />
     <Compile Include="UrlData.cs" />
     <Compile Include="UrlTest.cs" />
+    <Compile Include="UserForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForm.Designer.cs">
+      <DependentUpon>UserForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="WebRequest.cs" />
     <Compile Include="WebServiceData.cs" />
     <Compile Include="WebserviceOfKlantForm.cs">
@@ -196,6 +202,9 @@
     </Compile>
     <EmbeddedResource Include="SoapRequestForm.resx">
       <DependentUpon>SoapRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForm.resx">
+      <DependentUpon>UserForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WebserviceOfKlantForm.resx">
       <DependentUpon>WebserviceOfKlantForm.cs</DependentUpon>

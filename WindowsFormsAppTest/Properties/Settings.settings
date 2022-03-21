@@ -20,5 +20,8 @@
     <Setting Name="Http" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://wsdev.kraan.com/</Value>
     </Setting>
+    <Setting Name="Email" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>

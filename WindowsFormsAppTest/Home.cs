@@ -107,7 +107,9 @@ namespace WindowsFormsAppTest
                         toolStripMenuItem.Checked = false;
                     }
                 }
-            }   
+            }
+
+            ToolStripMenuItem1.Enabled = (_klantKeuzeId != 0 || _webserviceKeuzeId != 0) && Properties.Settings.Default.Email != "";
         }
 
         private void BttnUrl_Click(object sender, EventArgs e)
@@ -145,6 +147,17 @@ namespace WindowsFormsAppTest
             m.ShowDialog();
         }
 
+        private void EmailTlStrpMnItm_Click(object sender, EventArgs e)
+        {
+            var m = new UserForm();
+            m.FormClosing += new FormClosingEventHandler(ChildFormClosingSetEmail);
+            m.ShowDialog();
+        }
+
+        private void ChildFormClosingSetEmail(object sender, FormClosingEventArgs e)
+        {
+            ToolStripMenuItem1.Enabled = (_klantKeuzeId != 0 || _webserviceKeuzeId != 0) && Properties.Settings.Default.Email != "";
+        }
         private void PlaatsOpslaanLogFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
@@ -309,8 +322,12 @@ namespace WindowsFormsAppTest
                 _klantKeuzeNaam = item.Text;
                 item.Checked = true;
 
-                ToolStripMenuItem1.Enabled = true;
                 WebserviceKeuzeToolStripMenuItem.Enabled = false;
+
+                if (Properties.Settings.Default.Email != "")
+                {
+                    ToolStripMenuItem1.Enabled = true;
+                }
             }
             Properties.Settings.Default.KlantKeuze = _klantKeuzeId;
         }
@@ -350,8 +367,12 @@ namespace WindowsFormsAppTest
                 _webserviceKeuzeNaam = item.Text;
                 item.Checked = true;
 
-                ToolStripMenuItem1.Enabled = true;
                 KlantKeuzeToolStripMenuItem.Enabled = false;
+
+                if (Properties.Settings.Default.Email != "")
+                {
+                    ToolStripMenuItem1.Enabled = true;
+                }
             }
             Properties.Settings.Default.WebserviceKeuze = _webserviceKeuzeId;
         }
@@ -367,13 +388,13 @@ namespace WindowsFormsAppTest
 
 
                 }
-                else if(_klantKeuzeId != 0)
+                else if (_klantKeuzeId != 0)
                 {
                     _urlDatas = _urltest.GetAllUrlsByForeignKeyKlant(_klantKeuzeId);
                     _keuzeNaam = _klantKeuzeNaam;
                 }
                 RouteTestAfterKeuze(_urlDatas, _keuzeNaam);
-            } 
+            }
         }
 
         private void RouteTestAfterKeuze(List<UrlData> urlDatas, string keuzeNaam)

@@ -53,6 +53,7 @@ namespace WindowsFormsAppTest
             this.ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.AanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EmailTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.StripMenuItemSoortHttp = new System.Windows.Forms.ToolStripMenuItem();
             this.httpswskraancom444ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.httpswsdevkraancomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -275,21 +276,22 @@ namespace WindowsFormsAppTest
             this.WebserviceKeuzeToolStripMenuItem,
             this.KlantKeuzeToolStripMenuItem,
             this.tijdToolStripMenuItem,
+            this.EmailTlStrpMnItm,
             this.ToolStripMenuItem1});
             this.StripMenuItemTestTijd.Name = "StripMenuItemTestTijd";
-            this.StripMenuItemTestTijd.Size = new System.Drawing.Size(59, 20);
-            this.StripMenuItemTestTijd.Text = "Test tijd";
+            this.StripMenuItemTestTijd.Size = new System.Drawing.Size(39, 20);
+            this.StripMenuItemTestTijd.Text = "Test";
             // 
             // WebserviceKeuzeToolStripMenuItem
             // 
             this.WebserviceKeuzeToolStripMenuItem.Name = "WebserviceKeuzeToolStripMenuItem";
-            this.WebserviceKeuzeToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.WebserviceKeuzeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.WebserviceKeuzeToolStripMenuItem.Text = "Webservice keuze";
             // 
             // KlantKeuzeToolStripMenuItem
             // 
             this.KlantKeuzeToolStripMenuItem.Name = "KlantKeuzeToolStripMenuItem";
-            this.KlantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.KlantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.KlantKeuzeToolStripMenuItem.Text = "Klant keuze";
             // 
             // tijdToolStripMenuItem
@@ -299,7 +301,7 @@ namespace WindowsFormsAppTest
             this.MinToolStripMenuItem1,
             this.MinToolStripMenuItem2});
             this.tijdToolStripMenuItem.Name = "tijdToolStripMenuItem";
-            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tijdToolStripMenuItem.Text = "Tijd";
             // 
             // MinToolStripMenuItem
@@ -329,7 +331,7 @@ namespace WindowsFormsAppTest
             this.AanToolStripMenuItem,
             this.UitToolStripMenuItem});
             this.ToolStripMenuItem1.Name = "ToolStripMenuItem1";
-            this.ToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
+            this.ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem1.Text = "Aan of Uit";
             // 
             // AanToolStripMenuItem
@@ -345,6 +347,13 @@ namespace WindowsFormsAppTest
             this.UitToolStripMenuItem.Size = new System.Drawing.Size(95, 22);
             this.UitToolStripMenuItem.Text = "Uit";
             this.UitToolStripMenuItem.Click += new System.EventHandler(this.UitToolStripMenuItem_Click);
+            // 
+            // EmailTlStrpMnItm
+            // 
+            this.EmailTlStrpMnItm.Name = "EmailTlStrpMnItm";
+            this.EmailTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
+            this.EmailTlStrpMnItm.Text = "Email";
+            this.EmailTlStrpMnItm.Click += new System.EventHandler(this.EmailTlStrpMnItm_Click);
             // 
             // StripMenuItemSoortHttp
             // 
@@ -424,5 +433,6 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.ToolStripMenuItem UitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem WebserviceKeuzeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem KlantKeuzeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem EmailTlStrpMnItm;
     }
 }

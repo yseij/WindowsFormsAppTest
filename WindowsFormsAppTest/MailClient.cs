@@ -28,6 +28,7 @@ namespace WindowsFormsAppTest
 
         public static void TestMail(string title, string text, string FilePath)
         {
+            string UserEmail = Properties.Settings.Default.Email;
             // Command-line argument must be the SMTP host.
             SmtpClient client = new SmtpClient("mailrelay.kraan.com", 25);
             // Specify the email sender.
@@ -37,12 +38,12 @@ namespace WindowsFormsAppTest
                "Foutmelding " +  title,
             System.Text.Encoding.UTF8);
             // Set destinations for the email message.
-            MailAddress to = new MailAddress("yseijkens@kraan.com");
+            MailAddress to = new MailAddress(UserEmail);
             // Specify the message content.
             MailMessage message = new MailMessage(from, to);
             // Include some non-ASCII characters in body and subject.
             message.Body = text;
-            message.Subject = "Foutmelding" + title;
+            message.Subject = "Foutmelding " + title;
             message.Attachments.Add(new Attachment(FilePath));
             message.BodyEncoding = System.Text.Encoding.UTF8;
             message.SubjectEncoding = System.Text.Encoding.UTF8;
