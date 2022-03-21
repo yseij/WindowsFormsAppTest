@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="0dbafc7c-2598-480f-b0c7-1cb8f4aef34e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="D:\School\Stage\Kraan.Sales.ConnectionTester\Service References\Sales31\Messageservice_messageservice31.wsdl" Protocol="file" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MessageServiceTypes_MessageService31.xsd" MetadataType="Schema" ID="d48ea8d9-8c54-4ff4-a54b-6355766a694e" SourceId="1" SourceUrl="file:///D:/School/Stage/Kraan.Sales.ConnectionTester/Service References/Sales31/MessageServiceTypes_MessageService31.xsd" />
+    <MetadataFile FileName="Messageservice_messageservice31.wsdl" MetadataType="Wsdl" ID="44bc5228-a0a4-436d-a2e2-c783939de3a8" SourceId="1" SourceUrl="file:///D:/School/Stage/Kraan.Sales.ConnectionTester/Service References/Sales31/Messageservice_messageservice31.wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

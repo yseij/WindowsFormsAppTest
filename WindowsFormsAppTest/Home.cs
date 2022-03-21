@@ -147,10 +147,18 @@ namespace WindowsFormsAppTest
             m.ShowDialog();
         }
 
+
         private void EmailTlStrpMnItm_Click(object sender, EventArgs e)
         {
             var m = new UserForm();
             m.FormClosing += new FormClosingEventHandler(ChildFormClosingSetEmail);
+            m.ShowDialog();
+        }
+
+
+        private void BtnSales24En31_Click(object sender, EventArgs e)
+        {
+            var m = new WebserviceTestFormSoap();
             m.ShowDialog();
         }
 

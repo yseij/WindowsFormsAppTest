@@ -111,6 +111,16 @@
     <Compile Include="AllUrlsForm.Designer.cs">
       <DependentUpon>AllUrlsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\Sales24\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\Sales31\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\WebserviceYouri\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -173,6 +183,12 @@
       <DependentUpon>WebserviceOfKlantForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WebserviceTest.cs" />
+    <Compile Include="WebserviceTestFormSoap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WebserviceTestFormSoap.designer.cs">
+      <DependentUpon>WebserviceTestFormSoap.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AddKlantForm.resx">
       <DependentUpon>AddKlantForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -209,6 +225,50 @@
     <EmbeddedResource Include="WebserviceOfKlantForm.resx">
       <DependentUpon>WebserviceOfKlantForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="WebserviceTestFormSoap.resx">
+      <DependentUpon>WebserviceTestFormSoap.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Connected Services\Sales24\messageservice.wsdl" />
+    <None Include="Connected Services\Sales24\WindowsFormsAppTest.Sales24.DeleteMessageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Sales24\WindowsFormsAppTest.Sales24.GetAvailableMessagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Sales24\WindowsFormsAppTest.Sales24.GetMessageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Sales24\WindowsFormsAppTest.Sales24.MessageServiceAvailableMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Sales24\WindowsFormsAppTest.Sales24.MessageServiceMessage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Sales24\WindowsFormsAppTest.Sales24.PostMessageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Sales31\MessageServiceTypes_MessageService31.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\Sales31\Messageservice_messageservice31.wsdl" />
+    <None Include="Connected Services\Sales31\WindowsFormsAppTest.Sales31.DeleteMessageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Sales31\WindowsFormsAppTest.Sales31.GetAvailableMessagesResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Sales31\WindowsFormsAppTest.Sales31.GetMessageResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Sales31\WindowsFormsAppTest.Sales31.MessagePropertiesType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Sales31\WindowsFormsAppTest.Sales31.MessageRequestResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\Sales31\WindowsFormsAppTest.Sales31.MessageResponseType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\WebserviceYouri\CrmService.wsdl" />
     <None Include="Connected Services\WebserviceYouri\CrmService.xsd">
       <SubType>Designer</SubType>
@@ -255,6 +315,8 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\Sales24\" />
+    <WCFMetadataStorage Include="Connected Services\Sales31\" />
     <WCFMetadataStorage Include="Connected Services\WebserviceYouri\" />
   </ItemGroup>
   <ItemGroup>
@@ -283,6 +345,30 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Sales24\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Sales24\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Sales24\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Sales31\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Sales31\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\Sales31\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -50,6 +50,7 @@ namespace WindowsFormsAppTest
             this.MinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MinToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MinToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.UurTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.EmailTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.AanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -57,7 +58,10 @@ namespace WindowsFormsAppTest
             this.StripMenuItemSoortHttp = new System.Windows.Forms.ToolStripMenuItem();
             this.httpswskraancom444ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.httpswsdevkraancomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.UurTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
+            this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.BtnSales24En31 = new MaterialSkin.Controls.MaterialButton();
+            this.materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -103,9 +107,9 @@ namespace WindowsFormsAppTest
             this.materialLabel1.Location = new System.Drawing.Point(6, 69);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(63, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(98, 19);
             this.materialLabel1.TabIndex = 1;
-            this.materialLabel1.Text = "Test Urls";
+            this.materialLabel1.Text = "Test Urls Rest";
             // 
             // BttnWebservice
             // 
@@ -250,7 +254,7 @@ namespace WindowsFormsAppTest
             this.menuStrip.Location = new System.Drawing.Point(3, 461);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip.Size = new System.Drawing.Size(479, 24);
+            this.menuStrip.Size = new System.Drawing.Size(665, 24);
             this.menuStrip.TabIndex = 9;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -286,13 +290,13 @@ namespace WindowsFormsAppTest
             // WebserviceKeuzeToolStripMenuItem
             // 
             this.WebserviceKeuzeToolStripMenuItem.Name = "WebserviceKeuzeToolStripMenuItem";
-            this.WebserviceKeuzeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.WebserviceKeuzeToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.WebserviceKeuzeToolStripMenuItem.Text = "Webservice keuze";
             // 
             // KlantKeuzeToolStripMenuItem
             // 
             this.KlantKeuzeToolStripMenuItem.Name = "KlantKeuzeToolStripMenuItem";
-            this.KlantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.KlantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.KlantKeuzeToolStripMenuItem.Text = "Klant keuze";
             // 
             // tijdToolStripMenuItem
@@ -303,34 +307,41 @@ namespace WindowsFormsAppTest
             this.MinToolStripMenuItem2,
             this.UurTlStrpMnItm});
             this.tijdToolStripMenuItem.Name = "tijdToolStripMenuItem";
-            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.tijdToolStripMenuItem.Text = "Tijd";
             // 
             // MinToolStripMenuItem
             // 
             this.MinToolStripMenuItem.Name = "MinToolStripMenuItem";
-            this.MinToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.MinToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
             this.MinToolStripMenuItem.Text = "15Sec";
             this.MinToolStripMenuItem.Click += new System.EventHandler(this.MinToolStripMenuItem_Click);
             // 
             // MinToolStripMenuItem1
             // 
             this.MinToolStripMenuItem1.Name = "MinToolStripMenuItem1";
-            this.MinToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.MinToolStripMenuItem1.Size = new System.Drawing.Size(104, 22);
             this.MinToolStripMenuItem1.Text = "30Sec";
             this.MinToolStripMenuItem1.Click += new System.EventHandler(this.MinToolStripMenuItem1_Click);
             // 
             // MinToolStripMenuItem2
             // 
             this.MinToolStripMenuItem2.Name = "MinToolStripMenuItem2";
-            this.MinToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
+            this.MinToolStripMenuItem2.Size = new System.Drawing.Size(104, 22);
             this.MinToolStripMenuItem2.Text = "60Sec";
             this.MinToolStripMenuItem2.Click += new System.EventHandler(this.MinToolStripMenuItem2_Click);
+            // 
+            // UurTlStrpMnItm
+            // 
+            this.UurTlStrpMnItm.Name = "UurTlStrpMnItm";
+            this.UurTlStrpMnItm.Size = new System.Drawing.Size(104, 22);
+            this.UurTlStrpMnItm.Text = "1Uur";
+            this.UurTlStrpMnItm.Click += new System.EventHandler(this.uurTlStrpMnItm_Click);
             // 
             // EmailTlStrpMnItm
             // 
             this.EmailTlStrpMnItm.Name = "EmailTlStrpMnItm";
-            this.EmailTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
+            this.EmailTlStrpMnItm.Size = new System.Drawing.Size(167, 22);
             this.EmailTlStrpMnItm.Text = "Email";
             this.EmailTlStrpMnItm.Click += new System.EventHandler(this.EmailTlStrpMnItm_Click);
             // 
@@ -340,7 +351,7 @@ namespace WindowsFormsAppTest
             this.AanToolStripMenuItem,
             this.UitToolStripMenuItem});
             this.ToolStripMenuItem1.Name = "ToolStripMenuItem1";
-            this.ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
             this.ToolStripMenuItem1.Text = "Aan of Uit";
             // 
             // AanToolStripMenuItem
@@ -380,18 +391,71 @@ namespace WindowsFormsAppTest
             this.httpswsdevkraancomToolStripMenuItem.Text = "https://wsdev.kraan.com/";
             this.httpswsdevkraancomToolStripMenuItem.Click += new System.EventHandler(this.HttpswsdevkraancomToolStripMenuItem_Click);
             // 
-            // UurTlStrpMnItm
+            // materialDivider2
             // 
-            this.UurTlStrpMnItm.Name = "UurTlStrpMnItm";
-            this.UurTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
-            this.UurTlStrpMnItm.Text = "1Uur";
-            this.UurTlStrpMnItm.Click += new System.EventHandler(this.uurTlStrpMnItm_Click);
+            this.materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider2.Depth = 0;
+            this.materialDivider2.Location = new System.Drawing.Point(480, 67);
+            this.materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider2.Name = "materialDivider2";
+            this.materialDivider2.Size = new System.Drawing.Size(22, 415);
+            this.materialDivider2.TabIndex = 10;
+            this.materialDivider2.Text = "materialDivider2";
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.Location = new System.Drawing.Point(508, 69);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(104, 19);
+            this.materialLabel3.TabIndex = 11;
+            this.materialLabel3.Text = "Test Urls Soap";
+            // 
+            // BtnSales24En31
+            // 
+            this.BtnSales24En31.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnSales24En31.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.BtnSales24En31.Depth = 0;
+            this.BtnSales24En31.HighEmphasis = true;
+            this.BtnSales24En31.Icon = null;
+            this.BtnSales24En31.Location = new System.Drawing.Point(511, 94);
+            this.BtnSales24En31.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.BtnSales24En31.MaximumSize = new System.Drawing.Size(150, 150);
+            this.BtnSales24En31.MinimumSize = new System.Drawing.Size(150, 150);
+            this.BtnSales24En31.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnSales24En31.Name = "BtnSales24En31";
+            this.BtnSales24En31.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.BtnSales24En31.Size = new System.Drawing.Size(150, 150);
+            this.BtnSales24En31.TabIndex = 12;
+            this.BtnSales24En31.Text = "Test Sales 24 en 31";
+            this.BtnSales24En31.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.BtnSales24En31.UseAccentColor = false;
+            this.BtnSales24En31.UseVisualStyleBackColor = true;
+            this.BtnSales24En31.Click += new System.EventHandler(this.BtnSales24En31_Click);
+            // 
+            // materialDivider3
+            // 
+            this.materialDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider3.Depth = 0;
+            this.materialDivider3.Location = new System.Drawing.Point(511, 253);
+            this.materialDivider3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider3.Name = "materialDivider3";
+            this.materialDivider3.Size = new System.Drawing.Size(150, 23);
+            this.materialDivider3.TabIndex = 13;
+            this.materialDivider3.Text = "materialDivider3";
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 488);
+            this.ClientSize = new System.Drawing.Size(671, 488);
+            this.Controls.Add(this.materialDivider3);
+            this.Controls.Add(this.BtnSales24En31);
+            this.Controls.Add(this.materialLabel3);
+            this.Controls.Add(this.materialDivider2);
             this.Controls.Add(this.BtnShowKlanten);
             this.Controls.Add(this.BtnShowWebservices);
             this.Controls.Add(this.BtnShowUrls);
@@ -444,5 +508,9 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.ToolStripMenuItem KlantKeuzeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EmailTlStrpMnItm;
         private System.Windows.Forms.ToolStripMenuItem UurTlStrpMnItm;
+        private MaterialSkin.Controls.MaterialDivider materialDivider2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private MaterialSkin.Controls.MaterialButton BtnSales24En31;
+        private MaterialSkin.Controls.MaterialDivider materialDivider3;
     }
 }
