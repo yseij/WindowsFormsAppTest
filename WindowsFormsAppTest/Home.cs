@@ -172,19 +172,25 @@ namespace WindowsFormsAppTest
 
         private void MinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ZetConfEnProp("Tijd", "15");
+            ZetConfEnProp("Tijd", "15000");
             TijdCheck();
         }
 
         private void MinToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ZetConfEnProp("Tijd", "30");
+            ZetConfEnProp("Tijd", "30000");
             TijdCheck();
         }
 
         private void MinToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            ZetConfEnProp("Tijd", "60");
+            ZetConfEnProp("Tijd", "60000");
+            TijdCheck();
+        }
+
+        private void uurTlStrpMnItm_Click(object sender, EventArgs e)
+        {
+            ZetConfEnProp("Tijd", "3600000");
             TijdCheck();
         }
 
@@ -228,23 +234,33 @@ namespace WindowsFormsAppTest
             _MyTimer.Stop();
             switch (ConfigurationManager.AppSettings["Tijd"])
             {
-                case "15":
+                case "15000":
                     MinToolStripMenuItem.Checked = true;
                     MinToolStripMenuItem1.Checked = false;
                     MinToolStripMenuItem2.Checked = false;
+                    UurTlStrpMnItm.Checked = false;
                     _MyTimer.Interval = 15000;
                     break;
-                case "30":
+                case "30000":
                     MinToolStripMenuItem.Checked = false;
                     MinToolStripMenuItem1.Checked = true;
                     MinToolStripMenuItem2.Checked = false;
+                    UurTlStrpMnItm.Checked = false;
                     _MyTimer.Interval = 30000;
                     break;
-                case "60":
+                case "60000":
                     MinToolStripMenuItem.Checked = false;
                     MinToolStripMenuItem1.Checked = false;
                     MinToolStripMenuItem2.Checked = true;
+                    UurTlStrpMnItm.Checked = false;
                     _MyTimer.Interval = 60000;
+                    break;
+                case "3600000":
+                    MinToolStripMenuItem.Checked = false;
+                    MinToolStripMenuItem1.Checked = false;
+                    MinToolStripMenuItem2.Checked = false;
+                    UurTlStrpMnItm.Checked = true;
+                    _MyTimer.Interval = 3600000;
                     break;
                 default:
                     break;
@@ -434,7 +450,7 @@ namespace WindowsFormsAppTest
 
         public void HomeTest()
         {
-            _MyTimer.Interval = int.Parse(Properties.Settings.Default.Tijd + "000");
+            _MyTimer.Interval = int.Parse(Properties.Settings.Default.Tijd);
             _MyTimer.Tick += new EventHandler(MyTimer_Tick);
             _MyTimer.Start();
         }

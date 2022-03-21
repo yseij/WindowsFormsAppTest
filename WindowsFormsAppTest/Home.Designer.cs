@@ -50,13 +50,14 @@ namespace WindowsFormsAppTest
             this.MinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MinToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MinToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.EmailTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.AanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.EmailTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.StripMenuItemSoortHttp = new System.Windows.Forms.ToolStripMenuItem();
             this.httpswskraancom444ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.httpswsdevkraancomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.UurTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -299,7 +300,8 @@ namespace WindowsFormsAppTest
             this.tijdToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.MinToolStripMenuItem,
             this.MinToolStripMenuItem1,
-            this.MinToolStripMenuItem2});
+            this.MinToolStripMenuItem2,
+            this.UurTlStrpMnItm});
             this.tijdToolStripMenuItem.Name = "tijdToolStripMenuItem";
             this.tijdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tijdToolStripMenuItem.Text = "Tijd";
@@ -307,23 +309,30 @@ namespace WindowsFormsAppTest
             // MinToolStripMenuItem
             // 
             this.MinToolStripMenuItem.Name = "MinToolStripMenuItem";
-            this.MinToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.MinToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.MinToolStripMenuItem.Text = "15Sec";
             this.MinToolStripMenuItem.Click += new System.EventHandler(this.MinToolStripMenuItem_Click);
             // 
             // MinToolStripMenuItem1
             // 
             this.MinToolStripMenuItem1.Name = "MinToolStripMenuItem1";
-            this.MinToolStripMenuItem1.Size = new System.Drawing.Size(104, 22);
+            this.MinToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.MinToolStripMenuItem1.Text = "30Sec";
             this.MinToolStripMenuItem1.Click += new System.EventHandler(this.MinToolStripMenuItem1_Click);
             // 
             // MinToolStripMenuItem2
             // 
             this.MinToolStripMenuItem2.Name = "MinToolStripMenuItem2";
-            this.MinToolStripMenuItem2.Size = new System.Drawing.Size(104, 22);
+            this.MinToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.MinToolStripMenuItem2.Text = "60Sec";
             this.MinToolStripMenuItem2.Click += new System.EventHandler(this.MinToolStripMenuItem2_Click);
+            // 
+            // EmailTlStrpMnItm
+            // 
+            this.EmailTlStrpMnItm.Name = "EmailTlStrpMnItm";
+            this.EmailTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
+            this.EmailTlStrpMnItm.Text = "Email";
+            this.EmailTlStrpMnItm.Click += new System.EventHandler(this.EmailTlStrpMnItm_Click);
             // 
             // ToolStripMenuItem1
             // 
@@ -348,13 +357,6 @@ namespace WindowsFormsAppTest
             this.UitToolStripMenuItem.Text = "Uit";
             this.UitToolStripMenuItem.Click += new System.EventHandler(this.UitToolStripMenuItem_Click);
             // 
-            // EmailTlStrpMnItm
-            // 
-            this.EmailTlStrpMnItm.Name = "EmailTlStrpMnItm";
-            this.EmailTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
-            this.EmailTlStrpMnItm.Text = "Email";
-            this.EmailTlStrpMnItm.Click += new System.EventHandler(this.EmailTlStrpMnItm_Click);
-            // 
             // StripMenuItemSoortHttp
             // 
             this.StripMenuItemSoortHttp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -377,6 +379,13 @@ namespace WindowsFormsAppTest
             this.httpswsdevkraancomToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
             this.httpswsdevkraancomToolStripMenuItem.Text = "https://wsdev.kraan.com/";
             this.httpswsdevkraancomToolStripMenuItem.Click += new System.EventHandler(this.HttpswsdevkraancomToolStripMenuItem_Click);
+            // 
+            // UurTlStrpMnItm
+            // 
+            this.UurTlStrpMnItm.Name = "UurTlStrpMnItm";
+            this.UurTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
+            this.UurTlStrpMnItm.Text = "1Uur";
+            this.UurTlStrpMnItm.Click += new System.EventHandler(this.uurTlStrpMnItm_Click);
             // 
             // Home
             // 
@@ -434,5 +443,6 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.ToolStripMenuItem WebserviceKeuzeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem KlantKeuzeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EmailTlStrpMnItm;
+        private System.Windows.Forms.ToolStripMenuItem UurTlStrpMnItm;
     }
 }
