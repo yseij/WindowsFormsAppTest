@@ -379,6 +379,8 @@ namespace WindowsFormsAppTest
         private void RouteTestAfterKeuze(List<UrlData> urlDatas, string keuzeNaam)
         {
             int teller = 0;
+            string text = "";
+            LogFile logFile = new LogFile();
             foreach (UrlData urlData in urlDatas)
             {
                 var data = _webRequest.GetWebRequest(urlData.Id, ConfigurationManager.AppSettings["Http"], urlData.Name, urlData.SecurityId);
@@ -387,15 +389,20 @@ namespace WindowsFormsAppTest
                 {
                     if (item.Name == "ex")
                     {
-                        LogFile logFile = new LogFile();
                         if (teller == 0)
                         {
                             teller = teller + 1;
+                            text += keuzeNaam + Environment.NewLine + Environment.NewLine;
                             logFile.MakeLogFile(keuzeNaam);
                         }
+                        text += urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine;
                         logFile.AddTextToLogFile(urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine);
                     }
                 }
+            }
+            if (text != "")
+            {
+                MailClient.TestMail(keuzeNaam, text, logFile.FilePath);
             }
         }
 

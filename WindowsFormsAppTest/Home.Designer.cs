@@ -245,7 +245,7 @@ namespace WindowsFormsAppTest
             this.StripMenuItemLogFile,
             this.StripMenuItemTestTijd,
             this.StripMenuItemSoortHttp});
-            this.menuStrip.Location = new System.Drawing.Point(3, 460);
+            this.menuStrip.Location = new System.Drawing.Point(3, 461);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
             this.menuStrip.Size = new System.Drawing.Size(479, 24);
@@ -373,7 +373,7 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(485, 487);
+            this.ClientSize = new System.Drawing.Size(485, 488);
             this.Controls.Add(this.BtnShowKlanten);
             this.Controls.Add(this.BtnShowWebservices);
             this.Controls.Add(this.BtnShowUrls);
