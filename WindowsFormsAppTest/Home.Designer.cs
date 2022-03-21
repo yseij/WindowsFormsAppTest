@@ -283,13 +283,13 @@ namespace WindowsFormsAppTest
             // WebserviceKeuzeToolStripMenuItem
             // 
             this.WebserviceKeuzeToolStripMenuItem.Name = "WebserviceKeuzeToolStripMenuItem";
-            this.WebserviceKeuzeToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.WebserviceKeuzeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.WebserviceKeuzeToolStripMenuItem.Text = "Webservice keuze";
             // 
             // KlantKeuzeToolStripMenuItem
             // 
             this.KlantKeuzeToolStripMenuItem.Name = "KlantKeuzeToolStripMenuItem";
-            this.KlantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.KlantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.KlantKeuzeToolStripMenuItem.Text = "Klant keuze";
             // 
             // tijdToolStripMenuItem
@@ -299,27 +299,27 @@ namespace WindowsFormsAppTest
             this.MinToolStripMenuItem1,
             this.MinToolStripMenuItem2});
             this.tijdToolStripMenuItem.Name = "tijdToolStripMenuItem";
-            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tijdToolStripMenuItem.Text = "Tijd";
             // 
             // MinToolStripMenuItem
             // 
             this.MinToolStripMenuItem.Name = "MinToolStripMenuItem";
-            this.MinToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.MinToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.MinToolStripMenuItem.Text = "15Sec";
             this.MinToolStripMenuItem.Click += new System.EventHandler(this.MinToolStripMenuItem_Click);
             // 
             // MinToolStripMenuItem1
             // 
             this.MinToolStripMenuItem1.Name = "MinToolStripMenuItem1";
-            this.MinToolStripMenuItem1.Size = new System.Drawing.Size(104, 22);
+            this.MinToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.MinToolStripMenuItem1.Text = "30Sec";
             this.MinToolStripMenuItem1.Click += new System.EventHandler(this.MinToolStripMenuItem1_Click);
             // 
             // MinToolStripMenuItem2
             // 
             this.MinToolStripMenuItem2.Name = "MinToolStripMenuItem2";
-            this.MinToolStripMenuItem2.Size = new System.Drawing.Size(104, 22);
+            this.MinToolStripMenuItem2.Size = new System.Drawing.Size(180, 22);
             this.MinToolStripMenuItem2.Text = "60Sec";
             this.MinToolStripMenuItem2.Click += new System.EventHandler(this.MinToolStripMenuItem2_Click);
             // 
@@ -329,7 +329,7 @@ namespace WindowsFormsAppTest
             this.AanToolStripMenuItem,
             this.UitToolStripMenuItem});
             this.ToolStripMenuItem1.Name = "ToolStripMenuItem1";
-            this.ToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
+            this.ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem1.Text = "Aan of Uit";
             // 
             // AanToolStripMenuItem

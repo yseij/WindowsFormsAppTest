@@ -74,24 +74,24 @@ namespace WindowsFormsAppTest.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("uit")]
-        public string AanOfUit {
+        public string TestAanOfUit {
             get {
-                return ((string)(this["AanOfUit"]));
+                return ((string)(this["TestAanOfUit"]));
             }
             set {
-                this["AanOfUit"] = value;
+                this["TestAanOfUit"] = value;
             }
         }
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("https://wsdev.kraan.com/")]
-        public string SoortHttp {
+        public string Http {
             get {
-                return ((string)(this["SoortHttp"]));
+                return ((string)(this["Http"]));
             }
             set {
-                this["SoortHttp"] = value;
+                this["Http"] = value;
             }
         }
     }

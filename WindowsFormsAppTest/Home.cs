@@ -24,6 +24,8 @@ namespace WindowsFormsAppTest
 
         private List<UrlData> _urlDatas = new List<UrlData>();
 
+        Timer _MyTimer = new Timer();
+
         KlantTest _klantTest;
         WebserviceTest _webserviceTest;
         UrlTest _urltest;
@@ -55,17 +57,17 @@ namespace WindowsFormsAppTest
 
             GetSettings();
 
-            TestTijdCheck();
+            TijdCheck();
             AanOfUitCheck();
             HttpCheck();
         }
 
         private void GetSettings()
         {
-            ConfigurationManager.AppSettings["testTijd"] = Properties.Settings.Default.Tijd;
-            ConfigurationManager.AppSettings["http"] = Properties.Settings.Default.SoortHttp;
-            ConfigurationManager.AppSettings["testTijdAanOfUit"] = Properties.Settings.Default.AanOfUit;
-            ConfigurationManager.AppSettings["opslaanLogFile"] = Properties.Settings.Default.SaveLogFilePlace;
+            ConfigurationManager.AppSettings["Tijd"] = Properties.Settings.Default.Tijd;
+            ConfigurationManager.AppSettings["Http"] = Properties.Settings.Default.Http;
+            ConfigurationManager.AppSettings["TestAanOfUit"] = Properties.Settings.Default.TestAanOfUit;
+            ConfigurationManager.AppSettings["SaveLogFilePlace"] = Properties.Settings.Default.SaveLogFilePlace;
 
             int klantKeuze = Properties.Settings.Default.KlantKeuze;
             if (klantKeuze != 0)
@@ -151,91 +153,95 @@ namespace WindowsFormsAppTest
             if (fbd.ShowDialog() == DialogResult.OK)
             {
                 string SelectedPath = fbd.SelectedPath;
-                ConfigurationManager.AppSettings["opslaanLogFile"] = SelectedPath;
-                Properties.Settings.Default.SaveLogFilePlace = SelectedPath;
+                ZetConfEnProp("SaveLogFilePlace", SelectedPath);
             }
         }
 
         private void MinToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ZetConfEnProp("testTijd", "15");
-            TestTijdCheck();
+            ZetConfEnProp("Tijd", "15");
+            TijdCheck();
         }
 
         private void MinToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ZetConfEnProp("testTijd", "30");
-            TestTijdCheck();
+            ZetConfEnProp("Tijd", "30");
+            TijdCheck();
         }
 
         private void MinToolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            ZetConfEnProp("testTijd", "60");
-            TestTijdCheck();
+            ZetConfEnProp("Tijd", "60");
+            TijdCheck();
         }
 
         private void Httpswskraancom444ToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ZetConfEnProp("http", "https://ws.kraan.com:444/");
+            ZetConfEnProp("Http", "https://ws.kraan.com:444/");
             HttpCheck();
         }
 
         private void HttpswsdevkraancomToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ZetConfEnProp("http", "https://wsdev.kraan.com/");
+            ZetConfEnProp("Http", "https://wsdev.kraan.com/");
             HttpCheck();
         }
 
         private void AanToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ZetConfEnProp("testTijdAanOfUit", "aan");
+            ZetConfEnProp("TestAanOfUit", "aan");
             AanOfUitCheck();
         }
 
         private void UitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ZetConfEnProp("testTijdAanOfUit", "uit");
+            ZetConfEnProp("TestAanOfUit", "uit");
             AanOfUitCheck();
         }
 
         private void ZetConfEnProp(string name, string waarde)
         {
             ConfigurationManager.AppSettings[name] = waarde;
-            Properties.Settings.Default.AanOfUit = waarde;
+            Properties.Settings.Default[name] = waarde;
         }
 
         private void PlaatsOpslaanLogFileToolStripMenuItem_MouseHover(object sender, EventArgs e)
         {
-            plaatsOpslaanLogFileToolStripMenuItem.ToolTipText = ConfigurationManager.AppSettings["opslaanLogFile"]; ;
+            plaatsOpslaanLogFileToolStripMenuItem.ToolTipText = ConfigurationManager.AppSettings["SaveLogFilePlace"]; ;
         }
 
-        private void TestTijdCheck()
+        private void TijdCheck()
         {
-            switch (ConfigurationManager.AppSettings["testTijd"])
+            _MyTimer.Stop();
+            switch (ConfigurationManager.AppSettings["Tijd"])
             {
                 case "15":
                     MinToolStripMenuItem.Checked = true;
                     MinToolStripMenuItem1.Checked = false;
                     MinToolStripMenuItem2.Checked = false;
+                    _MyTimer.Interval = 15000;
                     break;
                 case "30":
                     MinToolStripMenuItem.Checked = false;
                     MinToolStripMenuItem1.Checked = true;
                     MinToolStripMenuItem2.Checked = false;
+                    _MyTimer.Interval = 30000;
                     break;
                 case "60":
                     MinToolStripMenuItem.Checked = false;
                     MinToolStripMenuItem1.Checked = false;
                     MinToolStripMenuItem2.Checked = true;
+                    _MyTimer.Interval = 60000;
                     break;
                 default:
                     break;
             }
+            _MyTimer.Start();
         }
 
         private void AanOfUitCheck()
         {
-            switch (ConfigurationManager.AppSettings["testTijdAanOfUit"])
+            switch (ConfigurationManager.AppSettings["TestAanOfUit"])
             {
                 case "aan":
                     AanToolStripMenuItem.Checked = true;
@@ -252,7 +258,7 @@ namespace WindowsFormsAppTest
 
         private void HttpCheck()
         {
-            switch (ConfigurationManager.AppSettings["http"])
+            switch (ConfigurationManager.AppSettings["Http"])
             {
                 case "https://ws.kraan.com:444/":
                     httpswskraancom444ToolStripMenuItem.Checked = true;
@@ -352,7 +358,7 @@ namespace WindowsFormsAppTest
 
         public void RouteTest()
         {
-            if (ConfigurationManager.AppSettings["testTijdAanOfUit"] == "aan")
+            if (ConfigurationManager.AppSettings["TestAanOfUit"] == "aan")
             {
                 if (_webserviceKeuzeId != 0)
                 {
@@ -375,7 +381,7 @@ namespace WindowsFormsAppTest
             int teller = 0;
             foreach (UrlData urlData in urlDatas)
             {
-                var data = _webRequest.GetWebRequest(urlData.Id, ConfigurationManager.AppSettings["http"], urlData.Name, urlData.SecurityId);
+                var data = _webRequest.GetWebRequest(urlData.Id, ConfigurationManager.AppSettings["Http"], urlData.Name, urlData.SecurityId);
                 _result = JObject.Parse(data);
                 foreach (JProperty item in _result)
                 {
@@ -396,6 +402,18 @@ namespace WindowsFormsAppTest
         private void Home_FormClosing(object sender, FormClosingEventArgs e)
         {
             Properties.Settings.Default.Save();
+        }
+
+        public void HomeTest()
+        {
+            _MyTimer.Interval = int.Parse(Properties.Settings.Default.Tijd + "000");
+            _MyTimer.Tick += new EventHandler(MyTimer_Tick);
+            _MyTimer.Start();
+        }
+
+        private void MyTimer_Tick(object sender, EventArgs e)
+        {
+            RouteTest();
         }
     }
 }

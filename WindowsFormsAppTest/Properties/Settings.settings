@@ -14,10 +14,10 @@
     <Setting Name="Tijd" Type="System.String" Scope="User">
       <Value Profile="(Default)">15</Value>
     </Setting>
-    <Setting Name="AanOfUit" Type="System.String" Scope="User">
+    <Setting Name="TestAanOfUit" Type="System.String" Scope="User">
       <Value Profile="(Default)">uit</Value>
     </Setting>
-    <Setting Name="SoortHttp" Type="System.String" Scope="User">
+    <Setting Name="Http" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://wsdev.kraan.com/</Value>
     </Setting>
   </Settings>

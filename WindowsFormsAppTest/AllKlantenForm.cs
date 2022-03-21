@@ -68,7 +68,11 @@ namespace WindowsFormsAppTest
         private void FillLstBxUlsFromKlant()
         {
             AllUrlsKrMaterialLstBx.FillListBoxUrlData(_urlDatasByKlant);
-            AllUrlsKrMaterialLstBx.SelectedIndex = 0;
+            if (_urlDatasByKlant.Count > 0)
+            {
+                AllUrlsKrMaterialLstBx.FillListBoxUrlData(_urlDatasByKlant);
+                AllUrlsKrMaterialLstBx.SelectedIndex = 0;
+            }
             if (_urlDatasByKlant.Count != 0)
             {
                 _selectedUrlId = _urlDatasByKlant[0].Id;
@@ -97,8 +101,11 @@ namespace WindowsFormsAppTest
                 KlantData klantData = _klantDatas.Find(k => k.Id == idOfSelected);
                 KlantTxtBx.Text = klantData.Name;
 
-                UrlData urlData = _urlDatasByKlant[0];
-                FillUrlData(urlData);
+                if (_urlDatasByKlant.Count > 0)
+                {
+                    UrlData urlData = _urlDatasByKlant[0];
+                    FillUrlData(urlData);
+                }
             }
         }
 
