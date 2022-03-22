@@ -99,6 +99,12 @@
     <Compile Include="AddKlantForm.Designer.cs">
       <DependentUpon>AddKlantForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AddWebserviceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddWebserviceForm.Designer.cs">
+      <DependentUpon>AddWebserviceForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AllKlantenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,12 @@
     </Compile>
     <Compile Include="AllUrlsForm.Designer.cs">
       <DependentUpon>AllUrlsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AllWebserviceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllWebserviceForm.Designer.cs">
+      <DependentUpon>AllWebserviceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\Sales24\Reference.cs">
       <AutoGen>True</AutoGen>
@@ -197,6 +209,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AllUrlsForm.resx">
       <DependentUpon>AllUrlsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AllWebserviceForm.resx">
+      <DependentUpon>AllWebserviceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EenUrlTestForm.resx">
       <DependentUpon>EenUrlTestForm.cs</DependentUpon>

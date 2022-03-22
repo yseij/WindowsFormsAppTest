@@ -34,5 +34,15 @@ namespace WindowsFormsAppTest
                 AddItem(krMaterialListBoxItem);
             }
         }
+
+        public void FillListBoxWebserviceData(List<WebServiceData> webServiceDatas)
+        {
+            ClearListBox();
+            foreach (WebServiceData webServiceData in webServiceDatas)
+            {
+                KrMaterialListBoxItem krMaterialListBoxItem = new KrMaterialListBoxItem(webServiceData.Id, webServiceData.Name);
+                AddItem(krMaterialListBoxItem);
+            }
+        }
     }
 }

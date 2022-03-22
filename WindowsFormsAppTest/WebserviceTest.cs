@@ -44,5 +44,47 @@ namespace WindowsFormsAppTest
                 }
             }
         }
+
+        public void AddWebService(string name)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectieDB))
+            {
+                connection.Open();
+                var sql = "INSERT INTO [dbo].[Webservice] ([Name]) VALUES (@Name)";
+                using (var cmd = new SqlCommand(sql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
+        }
+
+        public void UpdateWebService(int id, string name)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectieDB))
+            {
+                connection.Open();
+                var sql = "UPDATE Webservice SET Name = @Name " + "where id =" + id;
+                using (var cmd = new SqlCommand(sql, connection))
+                {
+                    cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.ExecuteNonQuery();
+                }
+                connection.Close();
+            }
+        }
+
+        public void DeleteWebService(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectieDB))
+            {
+                connection.Open();
+                var sql = "DELETE FROM Webservice where id =" + id;
+                using (var cmd = new SqlCommand(sql, connection))
+                    cmd.ExecuteNonQuery();
+                connection.Close();
+            }
+        }
     }
 }

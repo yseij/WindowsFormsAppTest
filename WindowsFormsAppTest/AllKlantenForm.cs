@@ -43,6 +43,9 @@ namespace WindowsFormsAppTest
             _klantDatasForChange = _klantTest.GetKlantData();
             FillLstBxKlanten();
             FillCmbxKlanten();
+
+            KlantTxtBx.Text = _klantDatas[0].Name;
+            AllKlantKrMaterialLstBx.SelectedIndex = 0;
         }
 
         private void GetUrlsFromKlant(int id)
@@ -56,6 +59,7 @@ namespace WindowsFormsAppTest
             _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
             FillCmbxWebServices();
         }
+
         private void FillLstBxKlanten()
         {
             AllKlantKrMaterialLstBx.FillListBoxKlantData(_klantDatas);

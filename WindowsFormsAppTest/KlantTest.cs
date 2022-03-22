@@ -51,7 +51,6 @@ namespace WindowsFormsAppTest
                 using (var cmd = new SqlCommand(sql, connection))
                 {
                     cmd.Parameters.AddWithValue("@Name", name);
-
                     cmd.ExecuteNonQuery();
                 }
                 connection.Close();
@@ -67,7 +66,6 @@ namespace WindowsFormsAppTest
                 using (var cmd = new SqlCommand(sql, connection))
                 {
                     cmd.Parameters.AddWithValue("@Name", name);
-
                     cmd.ExecuteNonQuery();
                 }
                 connection.Close();

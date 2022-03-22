@@ -138,7 +138,8 @@ namespace WindowsFormsAppTest
 
         private void BtnShowWebservices_Click(object sender, EventArgs e)
         {
-
+            var m = new AllWebserviceForm();
+            m.ShowDialog();
         }
 
         private void BtnShowKlanten_Click(object sender, EventArgs e)
