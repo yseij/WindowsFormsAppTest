@@ -47,10 +47,10 @@ namespace WindowsFormsAppTest
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.AllUrlsKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.KlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.WebserviceKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.AllUrlsKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.AllWebserviceKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -65,7 +65,7 @@ namespace WindowsFormsAppTest
             this.groupBox1.Controls.Add(this.DeleteWebserviceBttn);
             this.groupBox1.Location = new System.Drawing.Point(755, 87);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(472, 147);
+            this.groupBox1.Size = new System.Drawing.Size(472, 198);
             this.groupBox1.TabIndex = 65;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Webservice bewerken";
@@ -77,14 +77,14 @@ namespace WindowsFormsAppTest
             this.PasWebserviceAanBtn.Depth = 0;
             this.PasWebserviceAanBtn.HighEmphasis = true;
             this.PasWebserviceAanBtn.Icon = null;
-            this.PasWebserviceAanBtn.Location = new System.Drawing.Point(305, 102);
+            this.PasWebserviceAanBtn.Location = new System.Drawing.Point(305, 153);
             this.PasWebserviceAanBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.PasWebserviceAanBtn.MaximumSize = new System.Drawing.Size(282, 0);
             this.PasWebserviceAanBtn.MinimumSize = new System.Drawing.Size(150, 0);
             this.PasWebserviceAanBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.PasWebserviceAanBtn.Name = "PasWebserviceAanBtn";
             this.PasWebserviceAanBtn.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.PasWebserviceAanBtn.Size = new System.Drawing.Size(161, 0);
+            this.PasWebserviceAanBtn.Size = new System.Drawing.Size(161, 36);
             this.PasWebserviceAanBtn.TabIndex = 5;
             this.PasWebserviceAanBtn.Text = "Pas gegevens aan";
             this.PasWebserviceAanBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -141,14 +141,14 @@ namespace WindowsFormsAppTest
             this.AddWebserviceBtn.Depth = 0;
             this.AddWebserviceBtn.HighEmphasis = true;
             this.AddWebserviceBtn.Icon = null;
-            this.AddWebserviceBtn.Location = new System.Drawing.Point(196, 102);
+            this.AddWebserviceBtn.Location = new System.Drawing.Point(196, 153);
             this.AddWebserviceBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.AddWebserviceBtn.MaximumSize = new System.Drawing.Size(100, 0);
             this.AddWebserviceBtn.MinimumSize = new System.Drawing.Size(100, 0);
             this.AddWebserviceBtn.MouseState = MaterialSkin.MouseState.HOVER;
             this.AddWebserviceBtn.Name = "AddWebserviceBtn";
             this.AddWebserviceBtn.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.AddWebserviceBtn.Size = new System.Drawing.Size(100, 0);
+            this.AddWebserviceBtn.Size = new System.Drawing.Size(100, 36);
             this.AddWebserviceBtn.TabIndex = 4;
             this.AddWebserviceBtn.Text = "Webservice toevoegen";
             this.AddWebserviceBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -175,14 +175,14 @@ namespace WindowsFormsAppTest
             this.DeleteWebserviceBttn.Depth = 0;
             this.DeleteWebserviceBttn.HighEmphasis = true;
             this.DeleteWebserviceBttn.Icon = null;
-            this.DeleteWebserviceBttn.Location = new System.Drawing.Point(10, 102);
+            this.DeleteWebserviceBttn.Location = new System.Drawing.Point(10, 153);
             this.DeleteWebserviceBttn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.DeleteWebserviceBttn.MaximumSize = new System.Drawing.Size(100, 0);
             this.DeleteWebserviceBttn.MinimumSize = new System.Drawing.Size(100, 0);
             this.DeleteWebserviceBttn.MouseState = MaterialSkin.MouseState.HOVER;
             this.DeleteWebserviceBttn.Name = "DeleteWebserviceBttn";
             this.DeleteWebserviceBttn.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.DeleteWebserviceBttn.Size = new System.Drawing.Size(100, 0);
+            this.DeleteWebserviceBttn.Size = new System.Drawing.Size(100, 36);
             this.DeleteWebserviceBttn.TabIndex = 3;
             this.DeleteWebserviceBttn.Text = "Webservice verwijderen";
             this.DeleteWebserviceBttn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -206,7 +206,7 @@ namespace WindowsFormsAppTest
             // 
             this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(6, 240);
+            this.materialDivider1.Location = new System.Drawing.Point(6, 291);
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
             this.materialDivider1.Size = new System.Drawing.Size(1221, 23);
@@ -227,7 +227,7 @@ namespace WindowsFormsAppTest
             this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton1.Name = "materialButton1";
             this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton1.Size = new System.Drawing.Size(161, 0);
+            this.materialButton1.Size = new System.Drawing.Size(161, 36);
             this.materialButton1.TabIndex = 11;
             this.materialButton1.Text = "Pas gegevens aan";
             this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -248,7 +248,7 @@ namespace WindowsFormsAppTest
             this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton2.Name = "materialButton2";
             this.materialButton2.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton2.Size = new System.Drawing.Size(100, 0);
+            this.materialButton2.Size = new System.Drawing.Size(100, 36);
             this.materialButton2.TabIndex = 10;
             this.materialButton2.Text = "Url toevoegen";
             this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -310,7 +310,7 @@ namespace WindowsFormsAppTest
             this.materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialButton3.Name = "materialButton3";
             this.materialButton3.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton3.Size = new System.Drawing.Size(100, 0);
+            this.materialButton3.Size = new System.Drawing.Size(100, 36);
             this.materialButton3.TabIndex = 9;
             this.materialButton3.Text = "Url verwijderen";
             this.materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
@@ -419,38 +419,12 @@ namespace WindowsFormsAppTest
             this.groupBox2.Controls.Add(this.UrlTxtBx);
             this.groupBox2.Controls.Add(this.materialLabel4);
             this.groupBox2.Controls.Add(this.materialLabel5);
-            this.groupBox2.Location = new System.Drawing.Point(755, 288);
+            this.groupBox2.Location = new System.Drawing.Point(755, 337);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(472, 293);
             this.groupBox2.TabIndex = 76;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Url bewerken";
-            // 
-            // materialLabel6
-            // 
-            this.materialLabel6.AutoSize = true;
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel6.Location = new System.Drawing.Point(6, 266);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(194, 19);
-            this.materialLabel6.TabIndex = 78;
-            this.materialLabel6.Text = "Urls bij gekozen webservice";
-            // 
-            // AllUrlsKrMaterialLstBx
-            // 
-            this.AllUrlsKrMaterialLstBx.BackColor = System.Drawing.Color.White;
-            this.AllUrlsKrMaterialLstBx.BorderColor = System.Drawing.Color.LightGray;
-            this.AllUrlsKrMaterialLstBx.Depth = 0;
-            this.AllUrlsKrMaterialLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.AllUrlsKrMaterialLstBx.Location = new System.Drawing.Point(7, 288);
-            this.AllUrlsKrMaterialLstBx.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AllUrlsKrMaterialLstBx.Name = "AllUrlsKrMaterialLstBx";
-            this.AllUrlsKrMaterialLstBx.SelectedIndex = -1;
-            this.AllUrlsKrMaterialLstBx.SelectedItem = null;
-            this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(742, 292);
-            this.AllUrlsKrMaterialLstBx.TabIndex = 77;
             // 
             // KlantKrMaterialCmbx
             // 
@@ -500,6 +474,32 @@ namespace WindowsFormsAppTest
             this.WebserviceKrMaterialCmbx.TabIndex = 74;
             this.WebserviceKrMaterialCmbx.ValueMember = "Id";
             // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.Location = new System.Drawing.Point(6, 315);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(194, 19);
+            this.materialLabel6.TabIndex = 78;
+            this.materialLabel6.Text = "Urls bij gekozen webservice";
+            // 
+            // AllUrlsKrMaterialLstBx
+            // 
+            this.AllUrlsKrMaterialLstBx.BackColor = System.Drawing.Color.White;
+            this.AllUrlsKrMaterialLstBx.BorderColor = System.Drawing.Color.LightGray;
+            this.AllUrlsKrMaterialLstBx.Depth = 0;
+            this.AllUrlsKrMaterialLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.AllUrlsKrMaterialLstBx.Location = new System.Drawing.Point(7, 337);
+            this.AllUrlsKrMaterialLstBx.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AllUrlsKrMaterialLstBx.Name = "AllUrlsKrMaterialLstBx";
+            this.AllUrlsKrMaterialLstBx.SelectedIndex = -1;
+            this.AllUrlsKrMaterialLstBx.SelectedItem = null;
+            this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(742, 292);
+            this.AllUrlsKrMaterialLstBx.TabIndex = 77;
+            // 
             // AllWebserviceKrMaterialLstBx
             // 
             this.AllWebserviceKrMaterialLstBx.BackColor = System.Drawing.Color.White;
@@ -511,7 +511,8 @@ namespace WindowsFormsAppTest
             this.AllWebserviceKrMaterialLstBx.Name = "AllWebserviceKrMaterialLstBx";
             this.AllWebserviceKrMaterialLstBx.SelectedIndex = -1;
             this.AllWebserviceKrMaterialLstBx.SelectedItem = null;
-            this.AllWebserviceKrMaterialLstBx.Size = new System.Drawing.Size(742, 148);
+            this.AllWebserviceKrMaterialLstBx.ShowScrollBar = true;
+            this.AllWebserviceKrMaterialLstBx.Size = new System.Drawing.Size(742, 199);
             this.AllWebserviceKrMaterialLstBx.TabIndex = 66;
             this.AllWebserviceKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllWebserviceKrMaterialLstBx_SelectedIndexChanged);
             // 
@@ -519,7 +520,7 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1236, 587);
+            this.ClientSize = new System.Drawing.Size(1248, 637);
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.AllUrlsKrMaterialLstBx);
             this.Controls.Add(this.groupBox2);

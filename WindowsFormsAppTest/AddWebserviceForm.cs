@@ -3,9 +3,24 @@ namespace WindowsFormsAppTest
 {
     public partial class AddWebserviceForm : MaterialForm
     {
+        private string _newWebserviceNaam;
+
+        WebserviceTest _webserviceTest;
         public AddWebserviceForm()
         {
             InitializeComponent();
+            _webserviceTest = new WebserviceTest();
+        }
+
+        private void AddWebserviceBttn_Click(object sender, System.EventArgs e)
+        {
+            _webserviceTest.AddWebService(_newWebserviceNaam);
+            Close();
+        }
+
+        private void NewKlantNaamTxtBx_TextChanged(object sender, System.EventArgs e)
+        {
+            _newWebserviceNaam = NewKlantNaamTxtBx.Text;
         }
     }
 }

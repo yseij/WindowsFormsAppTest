@@ -131,7 +131,7 @@ namespace WindowsFormsAppTest
 
         private void AddWebserviceBtn_Click(object sender, System.EventArgs e)
         {
-            var m = new AllWebserviceForm();
+            var m = new AddWebserviceForm();
             m.FormClosing += new FormClosingEventHandler(ChildFormClosingAddWebserviceForm);
             m.ShowDialog();
         }

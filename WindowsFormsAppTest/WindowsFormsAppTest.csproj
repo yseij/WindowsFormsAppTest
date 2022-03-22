@@ -204,6 +204,9 @@
     <EmbeddedResource Include="AddKlantForm.resx">
       <DependentUpon>AddKlantForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AddWebserviceForm.resx">
+      <DependentUpon>AddWebserviceForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AllKlantenForm.resx">
       <DependentUpon>AllKlantenForm.cs</DependentUpon>
     </EmbeddedResource>
