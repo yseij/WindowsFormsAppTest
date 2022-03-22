@@ -28,7 +28,6 @@ namespace WindowsFormsAppTest
         {
             ClearDataSource();
             DataSource = webServiceDatas;
-            
         }
 
         public void FillCmbBoxKlant(List<KlantData> klantDatas)

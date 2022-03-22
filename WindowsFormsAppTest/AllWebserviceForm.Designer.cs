@@ -37,20 +37,20 @@ namespace WindowsFormsAppTest
             this.DeleteWebserviceBttn = new MaterialSkin.Controls.MaterialButton();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
-            this.materialButton1 = new MaterialSkin.Controls.MaterialButton();
-            this.materialButton2 = new MaterialSkin.Controls.MaterialButton();
+            this.PasUrlAanBtn = new MaterialSkin.Controls.MaterialButton();
+            this.AddUrlByWebserviceBttn = new MaterialSkin.Controls.MaterialButton();
             this.SecurityIdTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
-            this.materialButton3 = new MaterialSkin.Controls.MaterialButton();
+            this.DeleteUrlBttn = new MaterialSkin.Controls.MaterialButton();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.UrlTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.KlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
-            this.WebserviceKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.AllUrlsKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
+            this.KlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
+            this.WebserviceKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.AllWebserviceKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -213,47 +213,49 @@ namespace WindowsFormsAppTest
             this.materialDivider1.TabIndex = 67;
             this.materialDivider1.Text = "materialDivider1";
             // 
-            // materialButton1
+            // PasUrlAanBtn
             // 
-            this.materialButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton1.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton1.Depth = 0;
-            this.materialButton1.HighEmphasis = true;
-            this.materialButton1.Icon = null;
-            this.materialButton1.Location = new System.Drawing.Point(304, 245);
-            this.materialButton1.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton1.MaximumSize = new System.Drawing.Size(282, 0);
-            this.materialButton1.MinimumSize = new System.Drawing.Size(150, 0);
-            this.materialButton1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton1.Name = "materialButton1";
-            this.materialButton1.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton1.Size = new System.Drawing.Size(161, 36);
-            this.materialButton1.TabIndex = 11;
-            this.materialButton1.Text = "Pas gegevens aan";
-            this.materialButton1.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton1.UseAccentColor = false;
-            this.materialButton1.UseVisualStyleBackColor = true;
+            this.PasUrlAanBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.PasUrlAanBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.PasUrlAanBtn.Depth = 0;
+            this.PasUrlAanBtn.HighEmphasis = true;
+            this.PasUrlAanBtn.Icon = null;
+            this.PasUrlAanBtn.Location = new System.Drawing.Point(304, 245);
+            this.PasUrlAanBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.PasUrlAanBtn.MaximumSize = new System.Drawing.Size(282, 0);
+            this.PasUrlAanBtn.MinimumSize = new System.Drawing.Size(150, 0);
+            this.PasUrlAanBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.PasUrlAanBtn.Name = "PasUrlAanBtn";
+            this.PasUrlAanBtn.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.PasUrlAanBtn.Size = new System.Drawing.Size(161, 36);
+            this.PasUrlAanBtn.TabIndex = 11;
+            this.PasUrlAanBtn.Text = "Pas gegevens aan";
+            this.PasUrlAanBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.PasUrlAanBtn.UseAccentColor = false;
+            this.PasUrlAanBtn.UseVisualStyleBackColor = true;
+            this.PasUrlAanBtn.Click += new System.EventHandler(this.PasUrlAanBtn_Click);
             // 
-            // materialButton2
+            // AddUrlByWebserviceBttn
             // 
-            this.materialButton2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton2.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton2.Depth = 0;
-            this.materialButton2.HighEmphasis = true;
-            this.materialButton2.Icon = null;
-            this.materialButton2.Location = new System.Drawing.Point(196, 245);
-            this.materialButton2.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton2.MaximumSize = new System.Drawing.Size(100, 0);
-            this.materialButton2.MinimumSize = new System.Drawing.Size(100, 0);
-            this.materialButton2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton2.Name = "materialButton2";
-            this.materialButton2.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton2.Size = new System.Drawing.Size(100, 36);
-            this.materialButton2.TabIndex = 10;
-            this.materialButton2.Text = "Url toevoegen";
-            this.materialButton2.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton2.UseAccentColor = false;
-            this.materialButton2.UseVisualStyleBackColor = true;
+            this.AddUrlByWebserviceBttn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.AddUrlByWebserviceBttn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.AddUrlByWebserviceBttn.Depth = 0;
+            this.AddUrlByWebserviceBttn.HighEmphasis = true;
+            this.AddUrlByWebserviceBttn.Icon = null;
+            this.AddUrlByWebserviceBttn.Location = new System.Drawing.Point(196, 245);
+            this.AddUrlByWebserviceBttn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.AddUrlByWebserviceBttn.MaximumSize = new System.Drawing.Size(100, 0);
+            this.AddUrlByWebserviceBttn.MinimumSize = new System.Drawing.Size(100, 0);
+            this.AddUrlByWebserviceBttn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AddUrlByWebserviceBttn.Name = "AddUrlByWebserviceBttn";
+            this.AddUrlByWebserviceBttn.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.AddUrlByWebserviceBttn.Size = new System.Drawing.Size(100, 36);
+            this.AddUrlByWebserviceBttn.TabIndex = 10;
+            this.AddUrlByWebserviceBttn.Text = "Url toevoegen";
+            this.AddUrlByWebserviceBttn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.AddUrlByWebserviceBttn.UseAccentColor = false;
+            this.AddUrlByWebserviceBttn.UseVisualStyleBackColor = true;
+            this.AddUrlByWebserviceBttn.Click += new System.EventHandler(this.AddUrlByWebserviceBttn_Click);
             // 
             // SecurityIdTxtBx
             // 
@@ -295,27 +297,29 @@ namespace WindowsFormsAppTest
             this.SecurityIdTxtBx.TrailingIcon = null;
             this.SecurityIdTxtBx.UseSystemPasswordChar = false;
             this.SecurityIdTxtBx.ValidatingType = null;
+            this.SecurityIdTxtBx.TextChanged += new System.EventHandler(this.SecurityIdTxtBx_TextChanged);
             // 
-            // materialButton3
+            // DeleteUrlBttn
             // 
-            this.materialButton3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.materialButton3.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.materialButton3.Depth = 0;
-            this.materialButton3.HighEmphasis = true;
-            this.materialButton3.Icon = null;
-            this.materialButton3.Location = new System.Drawing.Point(7, 245);
-            this.materialButton3.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.materialButton3.MaximumSize = new System.Drawing.Size(100, 0);
-            this.materialButton3.MinimumSize = new System.Drawing.Size(100, 0);
-            this.materialButton3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialButton3.Name = "materialButton3";
-            this.materialButton3.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.materialButton3.Size = new System.Drawing.Size(100, 36);
-            this.materialButton3.TabIndex = 9;
-            this.materialButton3.Text = "Url verwijderen";
-            this.materialButton3.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.materialButton3.UseAccentColor = false;
-            this.materialButton3.UseVisualStyleBackColor = true;
+            this.DeleteUrlBttn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.DeleteUrlBttn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.DeleteUrlBttn.Depth = 0;
+            this.DeleteUrlBttn.HighEmphasis = true;
+            this.DeleteUrlBttn.Icon = null;
+            this.DeleteUrlBttn.Location = new System.Drawing.Point(7, 245);
+            this.DeleteUrlBttn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.DeleteUrlBttn.MaximumSize = new System.Drawing.Size(100, 0);
+            this.DeleteUrlBttn.MinimumSize = new System.Drawing.Size(100, 0);
+            this.DeleteUrlBttn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.DeleteUrlBttn.Name = "DeleteUrlBttn";
+            this.DeleteUrlBttn.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.DeleteUrlBttn.Size = new System.Drawing.Size(100, 36);
+            this.DeleteUrlBttn.TabIndex = 9;
+            this.DeleteUrlBttn.Text = "Url verwijderen";
+            this.DeleteUrlBttn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.DeleteUrlBttn.UseAccentColor = false;
+            this.DeleteUrlBttn.UseVisualStyleBackColor = true;
+            this.DeleteUrlBttn.Click += new System.EventHandler(this.DeleteUrlBttn_Click);
             // 
             // materialLabel2
             // 
@@ -381,6 +385,7 @@ namespace WindowsFormsAppTest
             this.UrlTxtBx.TrailingIcon = null;
             this.UrlTxtBx.UseSystemPasswordChar = false;
             this.UrlTxtBx.ValidatingType = null;
+            this.UrlTxtBx.TextChanged += new System.EventHandler(this.UrlTxtBx_TextChanged);
             // 
             // materialLabel4
             // 
@@ -410,10 +415,10 @@ namespace WindowsFormsAppTest
             // 
             this.groupBox2.Controls.Add(this.KlantKrMaterialCmbx);
             this.groupBox2.Controls.Add(this.WebserviceKrMaterialCmbx);
-            this.groupBox2.Controls.Add(this.materialButton1);
-            this.groupBox2.Controls.Add(this.materialButton2);
+            this.groupBox2.Controls.Add(this.PasUrlAanBtn);
+            this.groupBox2.Controls.Add(this.AddUrlByWebserviceBttn);
             this.groupBox2.Controls.Add(this.SecurityIdTxtBx);
-            this.groupBox2.Controls.Add(this.materialButton3);
+            this.groupBox2.Controls.Add(this.DeleteUrlBttn);
             this.groupBox2.Controls.Add(this.materialLabel2);
             this.groupBox2.Controls.Add(this.materialLabel3);
             this.groupBox2.Controls.Add(this.UrlTxtBx);
@@ -421,58 +426,10 @@ namespace WindowsFormsAppTest
             this.groupBox2.Controls.Add(this.materialLabel5);
             this.groupBox2.Location = new System.Drawing.Point(755, 337);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(472, 293);
+            this.groupBox2.Size = new System.Drawing.Size(472, 292);
             this.groupBox2.TabIndex = 76;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Url bewerken";
-            // 
-            // KlantKrMaterialCmbx
-            // 
-            this.KlantKrMaterialCmbx.AutoResize = false;
-            this.KlantKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.KlantKrMaterialCmbx.Depth = 0;
-            this.KlantKrMaterialCmbx.DisplayMember = "Name";
-            this.KlantKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.KlantKrMaterialCmbx.DropDownHeight = 174;
-            this.KlantKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.KlantKrMaterialCmbx.DropDownWidth = 121;
-            this.KlantKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.KlantKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.KlantKrMaterialCmbx.FormattingEnabled = true;
-            this.KlantKrMaterialCmbx.IntegralHeight = false;
-            this.KlantKrMaterialCmbx.ItemHeight = 43;
-            this.KlantKrMaterialCmbx.Location = new System.Drawing.Point(98, 182);
-            this.KlantKrMaterialCmbx.MaxDropDownItems = 4;
-            this.KlantKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
-            this.KlantKrMaterialCmbx.Name = "KlantKrMaterialCmbx";
-            this.KlantKrMaterialCmbx.Size = new System.Drawing.Size(368, 49);
-            this.KlantKrMaterialCmbx.StartIndex = 0;
-            this.KlantKrMaterialCmbx.TabIndex = 75;
-            this.KlantKrMaterialCmbx.ValueMember = "Id";
-            // 
-            // WebserviceKrMaterialCmbx
-            // 
-            this.WebserviceKrMaterialCmbx.AutoResize = false;
-            this.WebserviceKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.WebserviceKrMaterialCmbx.Depth = 0;
-            this.WebserviceKrMaterialCmbx.DisplayMember = "Name";
-            this.WebserviceKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.WebserviceKrMaterialCmbx.DropDownHeight = 174;
-            this.WebserviceKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.WebserviceKrMaterialCmbx.DropDownWidth = 121;
-            this.WebserviceKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.WebserviceKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.WebserviceKrMaterialCmbx.FormattingEnabled = true;
-            this.WebserviceKrMaterialCmbx.IntegralHeight = false;
-            this.WebserviceKrMaterialCmbx.ItemHeight = 43;
-            this.WebserviceKrMaterialCmbx.Location = new System.Drawing.Point(98, 127);
-            this.WebserviceKrMaterialCmbx.MaxDropDownItems = 4;
-            this.WebserviceKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
-            this.WebserviceKrMaterialCmbx.Name = "WebserviceKrMaterialCmbx";
-            this.WebserviceKrMaterialCmbx.Size = new System.Drawing.Size(368, 49);
-            this.WebserviceKrMaterialCmbx.StartIndex = 0;
-            this.WebserviceKrMaterialCmbx.TabIndex = 74;
-            this.WebserviceKrMaterialCmbx.ValueMember = "Id";
             // 
             // materialLabel6
             // 
@@ -499,6 +456,57 @@ namespace WindowsFormsAppTest
             this.AllUrlsKrMaterialLstBx.SelectedItem = null;
             this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(742, 292);
             this.AllUrlsKrMaterialLstBx.TabIndex = 77;
+            this.AllUrlsKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllUrlsKrMaterialLstBx_SelectedIndexChanged);
+            // 
+            // KlantKrMaterialCmbx
+            // 
+            this.KlantKrMaterialCmbx.AutoResize = false;
+            this.KlantKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.KlantKrMaterialCmbx.Depth = 0;
+            this.KlantKrMaterialCmbx.DisplayMember = "Name";
+            this.KlantKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.KlantKrMaterialCmbx.DropDownHeight = 174;
+            this.KlantKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.KlantKrMaterialCmbx.DropDownWidth = 121;
+            this.KlantKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.KlantKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.KlantKrMaterialCmbx.FormattingEnabled = true;
+            this.KlantKrMaterialCmbx.IntegralHeight = false;
+            this.KlantKrMaterialCmbx.ItemHeight = 43;
+            this.KlantKrMaterialCmbx.Location = new System.Drawing.Point(98, 182);
+            this.KlantKrMaterialCmbx.MaxDropDownItems = 4;
+            this.KlantKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
+            this.KlantKrMaterialCmbx.Name = "KlantKrMaterialCmbx";
+            this.KlantKrMaterialCmbx.Size = new System.Drawing.Size(368, 49);
+            this.KlantKrMaterialCmbx.StartIndex = 0;
+            this.KlantKrMaterialCmbx.TabIndex = 75;
+            this.KlantKrMaterialCmbx.ValueMember = "Id";
+            this.KlantKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.KlantKrMaterialCmbx_SelectedIndexChanged);
+            // 
+            // WebserviceKrMaterialCmbx
+            // 
+            this.WebserviceKrMaterialCmbx.AutoResize = false;
+            this.WebserviceKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.WebserviceKrMaterialCmbx.Depth = 0;
+            this.WebserviceKrMaterialCmbx.DisplayMember = "Name";
+            this.WebserviceKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.WebserviceKrMaterialCmbx.DropDownHeight = 174;
+            this.WebserviceKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.WebserviceKrMaterialCmbx.DropDownWidth = 121;
+            this.WebserviceKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.WebserviceKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.WebserviceKrMaterialCmbx.FormattingEnabled = true;
+            this.WebserviceKrMaterialCmbx.IntegralHeight = false;
+            this.WebserviceKrMaterialCmbx.ItemHeight = 43;
+            this.WebserviceKrMaterialCmbx.Location = new System.Drawing.Point(98, 127);
+            this.WebserviceKrMaterialCmbx.MaxDropDownItems = 4;
+            this.WebserviceKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
+            this.WebserviceKrMaterialCmbx.Name = "WebserviceKrMaterialCmbx";
+            this.WebserviceKrMaterialCmbx.Size = new System.Drawing.Size(368, 49);
+            this.WebserviceKrMaterialCmbx.StartIndex = 0;
+            this.WebserviceKrMaterialCmbx.TabIndex = 74;
+            this.WebserviceKrMaterialCmbx.ValueMember = "Id";
+            this.WebserviceKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.WebserviceKrMaterialCmbx_SelectedIndexChanged);
             // 
             // AllWebserviceKrMaterialLstBx
             // 
@@ -520,7 +528,7 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1248, 637);
+            this.ClientSize = new System.Drawing.Size(1234, 635);
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.AllUrlsKrMaterialLstBx);
             this.Controls.Add(this.groupBox2);
@@ -552,10 +560,10 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private KrMaterialCombobox KlantKrMaterialCmbx;
         private KrMaterialCombobox WebserviceKrMaterialCmbx;
-        private MaterialSkin.Controls.MaterialButton materialButton1;
-        private MaterialSkin.Controls.MaterialButton materialButton2;
+        private MaterialSkin.Controls.MaterialButton PasUrlAanBtn;
+        private MaterialSkin.Controls.MaterialButton AddUrlByWebserviceBttn;
         private MaterialSkin.Controls.MaterialMaskedTextBox SecurityIdTxtBx;
-        private MaterialSkin.Controls.MaterialButton materialButton3;
+        private MaterialSkin.Controls.MaterialButton DeleteUrlBttn;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialMaskedTextBox UrlTxtBx;
