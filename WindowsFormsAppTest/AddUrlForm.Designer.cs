@@ -29,7 +29,6 @@ namespace WindowsFormsAppTest
         /// </summary>
         private void InitializeComponent()
         {
-            this.AddUrlButton = new MaterialSkin.Controls.MaterialButton();
             this.NewUrlTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.NewSecurityIdTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.LblSecurityID = new MaterialSkin.Controls.MaterialLabel();
@@ -38,31 +37,14 @@ namespace WindowsFormsAppTest
             this.LblKlant = new MaterialSkin.Controls.MaterialLabel();
             this.KlantenKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.WebserviceKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
+            this.AddUrlButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // AddUrlButton
-            // 
-            this.AddUrlButton.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.AddUrlButton.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.AddUrlButton.Depth = 0;
-            this.AddUrlButton.HighEmphasis = true;
-            this.AddUrlButton.Icon = null;
-            this.AddUrlButton.Location = new System.Drawing.Point(334, 286);
-            this.AddUrlButton.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.AddUrlButton.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AddUrlButton.Name = "AddUrlButton";
-            this.AddUrlButton.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.AddUrlButton.Size = new System.Drawing.Size(136, 36);
-            this.AddUrlButton.TabIndex = 8;
-            this.AddUrlButton.Text = "Url toevoegen";
-            this.AddUrlButton.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.AddUrlButton.UseAccentColor = false;
-            this.AddUrlButton.UseVisualStyleBackColor = true;
-            this.AddUrlButton.Click += new System.EventHandler(this.AddUrlButton_Click);
             // 
             // NewUrlTxtBx
             // 
             this.NewUrlTxtBx.AllowPromptAsInput = true;
+            this.NewUrlTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NewUrlTxtBx.AnimateReadOnly = false;
             this.NewUrlTxtBx.AsciiOnly = false;
             this.NewUrlTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -105,6 +87,8 @@ namespace WindowsFormsAppTest
             // NewSecurityIdTxtBx
             // 
             this.NewSecurityIdTxtBx.AllowPromptAsInput = true;
+            this.NewSecurityIdTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NewSecurityIdTxtBx.AnimateReadOnly = false;
             this.NewSecurityIdTxtBx.AsciiOnly = false;
             this.NewSecurityIdTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -194,6 +178,8 @@ namespace WindowsFormsAppTest
             // 
             // KlantenKrMaterialCmbx
             // 
+            this.KlantenKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.KlantenKrMaterialCmbx.AutoResize = false;
             this.KlantenKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.KlantenKrMaterialCmbx.Depth = 0;
@@ -219,6 +205,8 @@ namespace WindowsFormsAppTest
             // 
             // WebserviceKrMaterialCmbx
             // 
+            this.WebserviceKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.WebserviceKrMaterialCmbx.AutoResize = false;
             this.WebserviceKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.WebserviceKrMaterialCmbx.Depth = 0;
@@ -242,11 +230,27 @@ namespace WindowsFormsAppTest
             this.WebserviceKrMaterialCmbx.ValueMember = "Id";
             this.WebserviceKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.WebserviceKrMaterialCmbx_SelectedIndexChanged);
             // 
+            // AddUrlButton
+            // 
+            this.AddUrlButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddUrlButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.AddUrlButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddUrlButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddUrlButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.AddUrlButton.Location = new System.Drawing.Point(331, 285);
+            this.AddUrlButton.Name = "AddUrlButton";
+            this.AddUrlButton.Size = new System.Drawing.Size(140, 43);
+            this.AddUrlButton.TabIndex = 27;
+            this.AddUrlButton.Text = "URL TOEVOEGEN";
+            this.AddUrlButton.UseVisualStyleBackColor = false;
+            this.AddUrlButton.Click += new System.EventHandler(this.AddUrlButton_Click);
+            // 
             // AddUrlForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(482, 334);
+            this.Controls.Add(this.AddUrlButton);
             this.Controls.Add(this.KlantenKrMaterialCmbx);
             this.Controls.Add(this.WebserviceKrMaterialCmbx);
             this.Controls.Add(this.LblKlant);
@@ -255,7 +259,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.LblSecurityID);
             this.Controls.Add(this.NewSecurityIdTxtBx);
             this.Controls.Add(this.NewUrlTxtBx);
-            this.Controls.Add(this.AddUrlButton);
+            this.MinimumSize = new System.Drawing.Size(482, 334);
             this.Name = "AddUrlForm";
             this.Text = "Url toevoegen";
             this.ResumeLayout(false);
@@ -264,7 +268,6 @@ namespace WindowsFormsAppTest
         }
 
         #endregion
-        private MaterialSkin.Controls.MaterialButton AddUrlButton;
         private MaterialSkin.Controls.MaterialMaskedTextBox NewUrlTxtBx;
         private MaterialSkin.Controls.MaterialMaskedTextBox NewSecurityIdTxtBx;
         private MaterialSkin.Controls.MaterialLabel LblSecurityID;
@@ -273,5 +276,6 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialLabel LblKlant;
         private KrMaterialCombobox WebserviceKrMaterialCmbx;
         private KrMaterialCombobox KlantenKrMaterialCmbx;
+        private System.Windows.Forms.Button AddUrlButton;
     }
 }

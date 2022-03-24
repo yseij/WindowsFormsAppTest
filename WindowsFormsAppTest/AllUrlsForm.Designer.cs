@@ -36,12 +36,12 @@ namespace WindowsFormsAppTest
             this.LblUrl = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.LblKlant = new MaterialSkin.Controls.MaterialLabel();
-            this.DeleteUrlBttn = new MaterialSkin.Controls.MaterialButton();
-            this.AddUrlBtn = new MaterialSkin.Controls.MaterialButton();
-            this.PasUrlAanBtn = new MaterialSkin.Controls.MaterialButton();
             this.AllUrlsKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.WebserviceKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.KlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
+            this.DeleteUrlBttn = new System.Windows.Forms.Button();
+            this.AddUrlBtn = new System.Windows.Forms.Button();
+            this.PasUrlAanBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblBewerken
@@ -70,6 +70,8 @@ namespace WindowsFormsAppTest
             // 
             // SecurityIdTxtBx
             // 
+            this.SecurityIdTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SecurityIdTxtBx.AnimateReadOnly = false;
             this.SecurityIdTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SecurityIdTxtBx.Depth = 0;
@@ -88,6 +90,8 @@ namespace WindowsFormsAppTest
             // 
             // UrlTxtBx
             // 
+            this.UrlTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.UrlTxtBx.AnimateReadOnly = false;
             this.UrlTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UrlTxtBx.Depth = 0;
@@ -140,74 +144,10 @@ namespace WindowsFormsAppTest
             this.LblKlant.TabIndex = 49;
             this.LblKlant.Text = "Klant";
             // 
-            // DeleteUrlBttn
-            // 
-            this.DeleteUrlBttn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.DeleteUrlBttn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.DeleteUrlBttn.Depth = 0;
-            this.DeleteUrlBttn.HighEmphasis = true;
-            this.DeleteUrlBttn.Icon = null;
-            this.DeleteUrlBttn.Location = new System.Drawing.Point(788, 375);
-            this.DeleteUrlBttn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.DeleteUrlBttn.MaximumSize = new System.Drawing.Size(100, 0);
-            this.DeleteUrlBttn.MinimumSize = new System.Drawing.Size(100, 0);
-            this.DeleteUrlBttn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.DeleteUrlBttn.Name = "DeleteUrlBttn";
-            this.DeleteUrlBttn.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.DeleteUrlBttn.Size = new System.Drawing.Size(100, 36);
-            this.DeleteUrlBttn.TabIndex = 51;
-            this.DeleteUrlBttn.Text = "Url verwijderen";
-            this.DeleteUrlBttn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.DeleteUrlBttn.UseAccentColor = false;
-            this.DeleteUrlBttn.UseVisualStyleBackColor = true;
-            this.DeleteUrlBttn.Click += new System.EventHandler(this.DeleteUrlBttn_Click);
-            // 
-            // AddUrlBtn
-            // 
-            this.AddUrlBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.AddUrlBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.AddUrlBtn.Depth = 0;
-            this.AddUrlBtn.HighEmphasis = true;
-            this.AddUrlBtn.Icon = null;
-            this.AddUrlBtn.Location = new System.Drawing.Point(1088, 375);
-            this.AddUrlBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.AddUrlBtn.MaximumSize = new System.Drawing.Size(100, 0);
-            this.AddUrlBtn.MinimumSize = new System.Drawing.Size(100, 0);
-            this.AddUrlBtn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AddUrlBtn.Name = "AddUrlBtn";
-            this.AddUrlBtn.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.AddUrlBtn.Size = new System.Drawing.Size(100, 36);
-            this.AddUrlBtn.TabIndex = 52;
-            this.AddUrlBtn.Text = "Url toevoegen";
-            this.AddUrlBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.AddUrlBtn.UseAccentColor = false;
-            this.AddUrlBtn.UseVisualStyleBackColor = true;
-            this.AddUrlBtn.Click += new System.EventHandler(this.AddUrlBtn_Click);
-            // 
-            // PasUrlAanBtn
-            // 
-            this.PasUrlAanBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.PasUrlAanBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.PasUrlAanBtn.Depth = 0;
-            this.PasUrlAanBtn.HighEmphasis = true;
-            this.PasUrlAanBtn.Icon = null;
-            this.PasUrlAanBtn.Location = new System.Drawing.Point(788, 315);
-            this.PasUrlAanBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.PasUrlAanBtn.MaximumSize = new System.Drawing.Size(400, 0);
-            this.PasUrlAanBtn.MinimumSize = new System.Drawing.Size(400, 0);
-            this.PasUrlAanBtn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.PasUrlAanBtn.Name = "PasUrlAanBtn";
-            this.PasUrlAanBtn.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.PasUrlAanBtn.Size = new System.Drawing.Size(400, 36);
-            this.PasUrlAanBtn.TabIndex = 53;
-            this.PasUrlAanBtn.Text = "Pas gegevens aan";
-            this.PasUrlAanBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.PasUrlAanBtn.UseAccentColor = false;
-            this.PasUrlAanBtn.UseVisualStyleBackColor = true;
-            this.PasUrlAanBtn.Click += new System.EventHandler(this.PasUrlAanBtn_Click);
-            // 
             // AllUrlsKrMaterialLstBx
             // 
+            this.AllUrlsKrMaterialLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.AllUrlsKrMaterialLstBx.BackColor = System.Drawing.Color.White;
             this.AllUrlsKrMaterialLstBx.BorderColor = System.Drawing.Color.LightGray;
             this.AllUrlsKrMaterialLstBx.Depth = 0;
@@ -217,12 +157,14 @@ namespace WindowsFormsAppTest
             this.AllUrlsKrMaterialLstBx.Name = "AllUrlsKrMaterialLstBx";
             this.AllUrlsKrMaterialLstBx.SelectedIndex = -1;
             this.AllUrlsKrMaterialLstBx.SelectedItem = null;
-            this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(680, 341);
+            this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(680, 289);
             this.AllUrlsKrMaterialLstBx.TabIndex = 54;
             this.AllUrlsKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllUrlsKrMaterialLstBx_SelectedIndexChanged);
             // 
             // WebserviceKrMaterialCmbx
             // 
+            this.WebserviceKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.WebserviceKrMaterialCmbx.AutoResize = false;
             this.WebserviceKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.WebserviceKrMaterialCmbx.Depth = 0;
@@ -248,6 +190,8 @@ namespace WindowsFormsAppTest
             // 
             // KlantKrMaterialCmbx
             // 
+            this.KlantKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.KlantKrMaterialCmbx.AutoResize = false;
             this.KlantKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.KlantKrMaterialCmbx.Depth = 0;
@@ -271,17 +215,61 @@ namespace WindowsFormsAppTest
             this.KlantKrMaterialCmbx.ValueMember = "Id";
             this.KlantKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.KlantKrMaterialCmbx_SelectedIndexChanged);
             // 
+            // DeleteUrlBttn
+            // 
+            this.DeleteUrlBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteUrlBttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.DeleteUrlBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteUrlBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteUrlBttn.ForeColor = System.Drawing.SystemColors.Control;
+            this.DeleteUrlBttn.Location = new System.Drawing.Point(693, 314);
+            this.DeleteUrlBttn.Name = "DeleteUrlBttn";
+            this.DeleteUrlBttn.Size = new System.Drawing.Size(112, 43);
+            this.DeleteUrlBttn.TabIndex = 57;
+            this.DeleteUrlBttn.Text = "URL VERWIJDEREN";
+            this.DeleteUrlBttn.UseVisualStyleBackColor = false;
+            this.DeleteUrlBttn.Click += new System.EventHandler(this.DeleteUrlBttn_Click);
+            // 
+            // AddUrlBtn
+            // 
+            this.AddUrlBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddUrlBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.AddUrlBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddUrlBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddUrlBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.AddUrlBtn.Location = new System.Drawing.Point(962, 315);
+            this.AddUrlBtn.Name = "AddUrlBtn";
+            this.AddUrlBtn.Size = new System.Drawing.Size(112, 43);
+            this.AddUrlBtn.TabIndex = 58;
+            this.AddUrlBtn.Text = "URL TOEVOEGEN";
+            this.AddUrlBtn.UseVisualStyleBackColor = false;
+            // 
+            // PasUrlAanBtn
+            // 
+            this.PasUrlAanBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasUrlAanBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.PasUrlAanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PasUrlAanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasUrlAanBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.PasUrlAanBtn.Location = new System.Drawing.Point(1080, 314);
+            this.PasUrlAanBtn.Name = "PasUrlAanBtn";
+            this.PasUrlAanBtn.Size = new System.Drawing.Size(112, 43);
+            this.PasUrlAanBtn.TabIndex = 59;
+            this.PasUrlAanBtn.Text = "URL AANPASSEN";
+            this.PasUrlAanBtn.UseVisualStyleBackColor = false;
+            this.PasUrlAanBtn.Click += new System.EventHandler(this.PasUrlAanBtn_Click);
+            // 
             // AllUrlsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1194, 418);
-            this.Controls.Add(this.KlantKrMaterialCmbx);
-            this.Controls.Add(this.WebserviceKrMaterialCmbx);
-            this.Controls.Add(this.AllUrlsKrMaterialLstBx);
+            this.ClientSize = new System.Drawing.Size(1201, 364);
             this.Controls.Add(this.PasUrlAanBtn);
             this.Controls.Add(this.AddUrlBtn);
             this.Controls.Add(this.DeleteUrlBttn);
+            this.Controls.Add(this.KlantKrMaterialCmbx);
+            this.Controls.Add(this.WebserviceKrMaterialCmbx);
+            this.Controls.Add(this.AllUrlsKrMaterialLstBx);
             this.Controls.Add(this.LblKlant);
             this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.UrlTxtBx);
@@ -289,6 +277,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.SecurityIdTxtBx);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.LblBewerken);
+            this.MinimumSize = new System.Drawing.Size(1201, 364);
             this.Name = "AllUrlsForm";
             this.Text = "Urls beheren";
             this.ResumeLayout(false);
@@ -304,11 +293,11 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialLabel LblUrl;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialLabel LblKlant;
-        private MaterialSkin.Controls.MaterialButton DeleteUrlBttn;
-        private MaterialSkin.Controls.MaterialButton AddUrlBtn;
-        private MaterialSkin.Controls.MaterialButton PasUrlAanBtn;
         private KrMaterialListBox AllUrlsKrMaterialLstBx;
         private KrMaterialCombobox WebserviceKrMaterialCmbx;
         private KrMaterialCombobox KlantKrMaterialCmbx;
+        private System.Windows.Forms.Button DeleteUrlBttn;
+        private System.Windows.Forms.Button AddUrlBtn;
+        private System.Windows.Forms.Button PasUrlAanBtn;
     }
 }
