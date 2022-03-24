@@ -39,7 +39,7 @@ namespace WindowsFormsAppTest
             _webRequest = new WebRequest();
 
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.AddFormToManage(this);
+            //materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
 
             // Configure color schema

@@ -31,15 +31,8 @@ namespace WindowsFormsAppTest
         {
             this.urlsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.webservicesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BttnUrl = new MaterialSkin.Controls.MaterialButton();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.BttnWebservice = new MaterialSkin.Controls.MaterialButton();
-            this.BtnKlant = new MaterialSkin.Controls.MaterialButton();
-            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.BtnShowKlanten = new MaterialSkin.Controls.MaterialButton();
-            this.BtnShowWebservices = new MaterialSkin.Controls.MaterialButton();
-            this.BtnShowUrls = new MaterialSkin.Controls.MaterialButton();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.StripMenuItemLogFile = new System.Windows.Forms.ToolStripMenuItem();
             this.plaatsOpslaanLogFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -58,10 +51,17 @@ namespace WindowsFormsAppTest
             this.StripMenuItemSoortHttp = new System.Windows.Forms.ToolStripMenuItem();
             this.httpswskraancom444ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.httpswsdevkraancomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.BtnSales24En31 = new MaterialSkin.Controls.MaterialButton();
-            this.materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
+            this.BttnUrl = new System.Windows.Forms.Button();
+            this.BttnWebservice = new System.Windows.Forms.Button();
+            this.BtnKlant = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.BtnShowUrls = new System.Windows.Forms.Button();
+            this.BtnShowWebservices = new System.Windows.Forms.Button();
+            this.BtnShowKlanten = new System.Windows.Forms.Button();
+            this.BtnSales24En31 = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -77,28 +77,6 @@ namespace WindowsFormsAppTest
             this.webservicesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.webservicesToolStripMenuItem.Text = "Webservices";
             // 
-            // BttnUrl
-            // 
-            this.BttnUrl.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BttnUrl.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.BttnUrl.Depth = 0;
-            this.BttnUrl.HighEmphasis = true;
-            this.BttnUrl.Icon = null;
-            this.BttnUrl.Location = new System.Drawing.Point(7, 94);
-            this.BttnUrl.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.BttnUrl.MaximumSize = new System.Drawing.Size(150, 150);
-            this.BttnUrl.MinimumSize = new System.Drawing.Size(150, 150);
-            this.BttnUrl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.BttnUrl.Name = "BttnUrl";
-            this.BttnUrl.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.BttnUrl.Size = new System.Drawing.Size(150, 150);
-            this.BttnUrl.TabIndex = 0;
-            this.BttnUrl.Text = "Test 1 Url";
-            this.BttnUrl.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.BttnUrl.UseAccentColor = false;
-            this.BttnUrl.UseVisualStyleBackColor = true;
-            this.BttnUrl.Click += new System.EventHandler(this.BttnUrl_Click);
-            // 
             // materialLabel1
             // 
             this.materialLabel1.AutoSize = true;
@@ -111,150 +89,30 @@ namespace WindowsFormsAppTest
             this.materialLabel1.TabIndex = 1;
             this.materialLabel1.Text = "Test Urls Rest";
             // 
-            // BttnWebservice
-            // 
-            this.BttnWebservice.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BttnWebservice.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.BttnWebservice.Depth = 0;
-            this.BttnWebservice.HighEmphasis = true;
-            this.BttnWebservice.Icon = null;
-            this.BttnWebservice.Location = new System.Drawing.Point(165, 94);
-            this.BttnWebservice.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.BttnWebservice.MaximumSize = new System.Drawing.Size(150, 150);
-            this.BttnWebservice.MinimumSize = new System.Drawing.Size(150, 150);
-            this.BttnWebservice.MouseState = MaterialSkin.MouseState.HOVER;
-            this.BttnWebservice.Name = "BttnWebservice";
-            this.BttnWebservice.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.BttnWebservice.Size = new System.Drawing.Size(150, 150);
-            this.BttnWebservice.TabIndex = 2;
-            this.BttnWebservice.Text = "Test bij webservices";
-            this.BttnWebservice.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.BttnWebservice.UseAccentColor = false;
-            this.BttnWebservice.UseVisualStyleBackColor = true;
-            this.BttnWebservice.Click += new System.EventHandler(this.BttnWebservice_Click);
-            // 
-            // BtnKlant
-            // 
-            this.BtnKlant.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BtnKlant.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.BtnKlant.Depth = 0;
-            this.BtnKlant.HighEmphasis = true;
-            this.BtnKlant.Icon = null;
-            this.BtnKlant.Location = new System.Drawing.Point(323, 94);
-            this.BtnKlant.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.BtnKlant.MaximumSize = new System.Drawing.Size(150, 150);
-            this.BtnKlant.MinimumSize = new System.Drawing.Size(150, 150);
-            this.BtnKlant.MouseState = MaterialSkin.MouseState.HOVER;
-            this.BtnKlant.Name = "BtnKlant";
-            this.BtnKlant.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.BtnKlant.Size = new System.Drawing.Size(150, 150);
-            this.BtnKlant.TabIndex = 3;
-            this.BtnKlant.Text = "Test bij klanten";
-            this.BtnKlant.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.BtnKlant.UseAccentColor = false;
-            this.BtnKlant.UseVisualStyleBackColor = true;
-            this.BtnKlant.Click += new System.EventHandler(this.BtnKlant_Click);
-            // 
-            // materialDivider1
-            // 
-            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(7, 254);
-            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(466, 23);
-            this.materialDivider1.TabIndex = 4;
-            this.materialDivider1.Text = "materialDivider1";
-            // 
             // materialLabel2
             // 
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(6, 280);
+            this.materialLabel2.Location = new System.Drawing.Point(6, 253);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(132, 19);
+            this.materialLabel2.Size = new System.Drawing.Size(130, 19);
             this.materialLabel2.TabIndex = 5;
-            this.materialLabel2.Text = "Gegevens bekijken";
-            // 
-            // BtnShowKlanten
-            // 
-            this.BtnShowKlanten.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BtnShowKlanten.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.BtnShowKlanten.Depth = 0;
-            this.BtnShowKlanten.HighEmphasis = true;
-            this.BtnShowKlanten.Icon = null;
-            this.BtnShowKlanten.Location = new System.Drawing.Point(325, 305);
-            this.BtnShowKlanten.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.BtnShowKlanten.MaximumSize = new System.Drawing.Size(150, 150);
-            this.BtnShowKlanten.MinimumSize = new System.Drawing.Size(150, 150);
-            this.BtnShowKlanten.MouseState = MaterialSkin.MouseState.HOVER;
-            this.BtnShowKlanten.Name = "BtnShowKlanten";
-            this.BtnShowKlanten.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.BtnShowKlanten.Size = new System.Drawing.Size(150, 150);
-            this.BtnShowKlanten.TabIndex = 8;
-            this.BtnShowKlanten.Text = "Klanten";
-            this.BtnShowKlanten.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.BtnShowKlanten.UseAccentColor = false;
-            this.BtnShowKlanten.UseVisualStyleBackColor = true;
-            this.BtnShowKlanten.Click += new System.EventHandler(this.BtnShowKlanten_Click);
-            // 
-            // BtnShowWebservices
-            // 
-            this.BtnShowWebservices.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BtnShowWebservices.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.BtnShowWebservices.Depth = 0;
-            this.BtnShowWebservices.HighEmphasis = true;
-            this.BtnShowWebservices.Icon = null;
-            this.BtnShowWebservices.Location = new System.Drawing.Point(167, 305);
-            this.BtnShowWebservices.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.BtnShowWebservices.MaximumSize = new System.Drawing.Size(150, 150);
-            this.BtnShowWebservices.MinimumSize = new System.Drawing.Size(150, 150);
-            this.BtnShowWebservices.MouseState = MaterialSkin.MouseState.HOVER;
-            this.BtnShowWebservices.Name = "BtnShowWebservices";
-            this.BtnShowWebservices.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.BtnShowWebservices.Size = new System.Drawing.Size(150, 150);
-            this.BtnShowWebservices.TabIndex = 7;
-            this.BtnShowWebservices.Text = "Webservices";
-            this.BtnShowWebservices.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.BtnShowWebservices.UseAccentColor = false;
-            this.BtnShowWebservices.UseVisualStyleBackColor = true;
-            this.BtnShowWebservices.Click += new System.EventHandler(this.BtnShowWebservices_Click);
-            // 
-            // BtnShowUrls
-            // 
-            this.BtnShowUrls.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BtnShowUrls.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.BtnShowUrls.Depth = 0;
-            this.BtnShowUrls.HighEmphasis = true;
-            this.BtnShowUrls.Icon = null;
-            this.BtnShowUrls.Location = new System.Drawing.Point(9, 305);
-            this.BtnShowUrls.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.BtnShowUrls.MaximumSize = new System.Drawing.Size(150, 150);
-            this.BtnShowUrls.MinimumSize = new System.Drawing.Size(150, 150);
-            this.BtnShowUrls.MouseState = MaterialSkin.MouseState.HOVER;
-            this.BtnShowUrls.Name = "BtnShowUrls";
-            this.BtnShowUrls.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.BtnShowUrls.Size = new System.Drawing.Size(150, 150);
-            this.BtnShowUrls.TabIndex = 6;
-            this.BtnShowUrls.Text = "Urls";
-            this.BtnShowUrls.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.BtnShowUrls.UseAccentColor = false;
-            this.BtnShowUrls.UseVisualStyleBackColor = true;
-            this.BtnShowUrls.Click += new System.EventHandler(this.BtnShowUrls_Click);
+            this.materialLabel2.Text = "Gegevens beheren";
             // 
             // menuStrip
             // 
-            this.menuStrip.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.menuStrip.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.menuStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StripMenuItemLogFile,
             this.StripMenuItemTestTijd,
             this.StripMenuItemSoortHttp});
-            this.menuStrip.Location = new System.Drawing.Point(3, 461);
+            this.menuStrip.Location = new System.Drawing.Point(3, 429);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip.Size = new System.Drawing.Size(665, 24);
+            this.menuStrip.Size = new System.Drawing.Size(177, 24);
             this.menuStrip.TabIndex = 9;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -391,82 +249,162 @@ namespace WindowsFormsAppTest
             this.httpswsdevkraancomToolStripMenuItem.Text = "https://wsdev.kraan.com/";
             this.httpswsdevkraancomToolStripMenuItem.Click += new System.EventHandler(this.HttpswsdevkraancomToolStripMenuItem_Click);
             // 
-            // materialDivider2
-            // 
-            this.materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider2.Depth = 0;
-            this.materialDivider2.Location = new System.Drawing.Point(480, 67);
-            this.materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider2.Name = "materialDivider2";
-            this.materialDivider2.Size = new System.Drawing.Size(22, 415);
-            this.materialDivider2.TabIndex = 10;
-            this.materialDivider2.Text = "materialDivider2";
-            // 
             // materialLabel3
             // 
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(508, 69);
+            this.materialLabel3.Location = new System.Drawing.Point(487, 69);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(104, 19);
             this.materialLabel3.TabIndex = 11;
             this.materialLabel3.Text = "Test Urls Soap";
             // 
+            // BttnUrl
+            // 
+            this.BttnUrl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.BttnUrl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BttnUrl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BttnUrl.ForeColor = System.Drawing.SystemColors.Control;
+            this.BttnUrl.Location = new System.Drawing.Point(7, 94);
+            this.BttnUrl.Name = "BttnUrl";
+            this.BttnUrl.Size = new System.Drawing.Size(150, 150);
+            this.BttnUrl.TabIndex = 14;
+            this.BttnUrl.Text = "TEST 1 URL";
+            this.BttnUrl.UseVisualStyleBackColor = false;
+            this.BttnUrl.Click += new System.EventHandler(this.BttnUrl_Click);
+            // 
+            // BttnWebservice
+            // 
+            this.BttnWebservice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.BttnWebservice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BttnWebservice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BttnWebservice.ForeColor = System.Drawing.SystemColors.Control;
+            this.BttnWebservice.Location = new System.Drawing.Point(167, 94);
+            this.BttnWebservice.Name = "BttnWebservice";
+            this.BttnWebservice.Size = new System.Drawing.Size(150, 150);
+            this.BttnWebservice.TabIndex = 15;
+            this.BttnWebservice.Text = "TEST BIJ WEBSERVICES";
+            this.BttnWebservice.UseVisualStyleBackColor = false;
+            this.BttnWebservice.Click += new System.EventHandler(this.BttnWebservice_Click);
+            // 
+            // BtnKlant
+            // 
+            this.BtnKlant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.BtnKlant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnKlant.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnKlant.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnKlant.Location = new System.Drawing.Point(325, 94);
+            this.BtnKlant.Name = "BtnKlant";
+            this.BtnKlant.Size = new System.Drawing.Size(150, 150);
+            this.BtnKlant.TabIndex = 16;
+            this.BtnKlant.Text = "TEST BIJ KLANTEN";
+            this.BtnKlant.UseVisualStyleBackColor = false;
+            this.BtnKlant.Click += new System.EventHandler(this.BtnKlant_Click);
+            // 
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Location = new System.Drawing.Point(7, 251);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(468, 2);
+            this.label1.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label2.Location = new System.Drawing.Point(482, 94);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(2, 331);
+            this.label2.TabIndex = 18;
+            // 
+            // BtnShowUrls
+            // 
+            this.BtnShowUrls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.BtnShowUrls.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShowUrls.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnShowUrls.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnShowUrls.Location = new System.Drawing.Point(6, 275);
+            this.BtnShowUrls.Name = "BtnShowUrls";
+            this.BtnShowUrls.Size = new System.Drawing.Size(150, 150);
+            this.BtnShowUrls.TabIndex = 19;
+            this.BtnShowUrls.Text = "URLS";
+            this.BtnShowUrls.UseVisualStyleBackColor = false;
+            this.BtnShowUrls.Click += new System.EventHandler(this.BtnShowUrls_Click);
+            // 
+            // BtnShowWebservices
+            // 
+            this.BtnShowWebservices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.BtnShowWebservices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShowWebservices.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnShowWebservices.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnShowWebservices.Location = new System.Drawing.Point(167, 275);
+            this.BtnShowWebservices.Name = "BtnShowWebservices";
+            this.BtnShowWebservices.Size = new System.Drawing.Size(150, 150);
+            this.BtnShowWebservices.TabIndex = 20;
+            this.BtnShowWebservices.Text = "WEBSERVICES";
+            this.BtnShowWebservices.UseVisualStyleBackColor = false;
+            this.BtnShowWebservices.Click += new System.EventHandler(this.BtnShowWebservices_Click);
+            // 
+            // BtnShowKlanten
+            // 
+            this.BtnShowKlanten.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.BtnShowKlanten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShowKlanten.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnShowKlanten.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnShowKlanten.Location = new System.Drawing.Point(325, 275);
+            this.BtnShowKlanten.Name = "BtnShowKlanten";
+            this.BtnShowKlanten.Size = new System.Drawing.Size(150, 150);
+            this.BtnShowKlanten.TabIndex = 21;
+            this.BtnShowKlanten.Text = "KLANTEN";
+            this.BtnShowKlanten.UseVisualStyleBackColor = false;
+            this.BtnShowKlanten.Click += new System.EventHandler(this.BtnShowKlanten_Click);
+            // 
             // BtnSales24En31
             // 
-            this.BtnSales24En31.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BtnSales24En31.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.BtnSales24En31.Depth = 0;
-            this.BtnSales24En31.HighEmphasis = true;
-            this.BtnSales24En31.Icon = null;
-            this.BtnSales24En31.Location = new System.Drawing.Point(511, 94);
-            this.BtnSales24En31.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.BtnSales24En31.MaximumSize = new System.Drawing.Size(150, 150);
-            this.BtnSales24En31.MinimumSize = new System.Drawing.Size(150, 150);
-            this.BtnSales24En31.MouseState = MaterialSkin.MouseState.HOVER;
+            this.BtnSales24En31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.BtnSales24En31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSales24En31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSales24En31.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnSales24En31.Location = new System.Drawing.Point(490, 94);
             this.BtnSales24En31.Name = "BtnSales24En31";
-            this.BtnSales24En31.NoAccentTextColor = System.Drawing.Color.Empty;
             this.BtnSales24En31.Size = new System.Drawing.Size(150, 150);
-            this.BtnSales24En31.TabIndex = 12;
-            this.BtnSales24En31.Text = "Test Sales 24 en 31";
-            this.BtnSales24En31.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.BtnSales24En31.UseAccentColor = false;
-            this.BtnSales24En31.UseVisualStyleBackColor = true;
+            this.BtnSales24En31.TabIndex = 22;
+            this.BtnSales24En31.Text = "TEST SALES 24 EN 31";
+            this.BtnSales24En31.UseVisualStyleBackColor = false;
             this.BtnSales24En31.Click += new System.EventHandler(this.BtnSales24En31_Click);
             // 
-            // materialDivider3
+            // label3
             // 
-            this.materialDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider3.Depth = 0;
-            this.materialDivider3.Location = new System.Drawing.Point(511, 253);
-            this.materialDivider3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider3.Name = "materialDivider3";
-            this.materialDivider3.Size = new System.Drawing.Size(150, 23);
-            this.materialDivider3.TabIndex = 13;
-            this.materialDivider3.Text = "materialDivider3";
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label3.Location = new System.Drawing.Point(490, 251);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(150, 2);
+            this.label3.TabIndex = 23;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(671, 488);
-            this.Controls.Add(this.materialDivider3);
+            this.ClientSize = new System.Drawing.Size(649, 456);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.BtnSales24En31);
-            this.Controls.Add(this.materialLabel3);
-            this.Controls.Add(this.materialDivider2);
             this.Controls.Add(this.BtnShowKlanten);
             this.Controls.Add(this.BtnShowWebservices);
             this.Controls.Add(this.BtnShowUrls);
-            this.Controls.Add(this.materialLabel2);
-            this.Controls.Add(this.materialDivider1);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnKlant);
             this.Controls.Add(this.BttnWebservice);
-            this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.BttnUrl);
+            this.Controls.Add(this.materialLabel3);
+            this.Controls.Add(this.materialLabel2);
+            this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
+            this.MaximumSize = new System.Drawing.Size(649, 456);
+            this.MinimumSize = new System.Drawing.Size(649, 456);
             this.Name = "Home";
             this.Sizable = false;
             this.Text = "Home";
@@ -481,15 +419,8 @@ namespace WindowsFormsAppTest
         #endregion
         private System.Windows.Forms.ToolStripMenuItem urlsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem webservicesToolStripMenuItem;
-        private MaterialSkin.Controls.MaterialButton BttnUrl;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialButton BttnWebservice;
-        private MaterialSkin.Controls.MaterialButton BtnKlant;
-        private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MaterialSkin.Controls.MaterialButton BtnShowKlanten;
-        private MaterialSkin.Controls.MaterialButton BtnShowWebservices;
-        private MaterialSkin.Controls.MaterialButton BtnShowUrls;
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem StripMenuItemLogFile;
         private System.Windows.Forms.ToolStripMenuItem StripMenuItemTestTijd;
@@ -508,9 +439,16 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.ToolStripMenuItem KlantKeuzeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem EmailTlStrpMnItm;
         private System.Windows.Forms.ToolStripMenuItem UurTlStrpMnItm;
-        private MaterialSkin.Controls.MaterialDivider materialDivider2;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
-        private MaterialSkin.Controls.MaterialButton BtnSales24En31;
-        private MaterialSkin.Controls.MaterialDivider materialDivider3;
+        private System.Windows.Forms.Button BttnUrl;
+        private System.Windows.Forms.Button BttnWebservice;
+        private System.Windows.Forms.Button BtnKlant;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button BtnShowUrls;
+        private System.Windows.Forms.Button BtnShowWebservices;
+        private System.Windows.Forms.Button BtnShowKlanten;
+        private System.Windows.Forms.Button BtnSales24En31;
+        private System.Windows.Forms.Label label3;
     }
 }
