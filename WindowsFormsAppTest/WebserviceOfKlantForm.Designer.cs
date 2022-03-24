@@ -31,7 +31,6 @@ namespace WindowsFormsAppTest
         {
             this.TrVwAll = new System.Windows.Forms.TreeView();
             this.LblWebserviceOfKlant = new MaterialSkin.Controls.MaterialLabel();
-            this.TestAllBtn = new MaterialSkin.Controls.MaterialButton();
             this.ZetLogVastChkBx = new MaterialSkin.Controls.MaterialCheckbox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.textBoxWebservice = new MaterialSkin.Controls.MaterialTextBox();
@@ -49,6 +48,7 @@ namespace WindowsFormsAppTest
             this.LblAantalLegeUrls = new MaterialSkin.Controls.MaterialLabel();
             this.ResponseTextBox = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.WebserviceOfKlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
+            this.TestAllBtn = new System.Windows.Forms.Button();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -56,9 +56,11 @@ namespace WindowsFormsAppTest
             // 
             // TrVwAll
             // 
+            this.TrVwAll.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TrVwAll.Location = new System.Drawing.Point(476, 98);
             this.TrVwAll.Name = "TrVwAll";
-            this.TrVwAll.Size = new System.Drawing.Size(577, 434);
+            this.TrVwAll.Size = new System.Drawing.Size(450, 431);
             this.TrVwAll.TabIndex = 3;
             this.TrVwAll.Click += new System.EventHandler(this.TrVwAll_Click);
             // 
@@ -67,33 +69,12 @@ namespace WindowsFormsAppTest
             this.LblWebserviceOfKlant.AutoSize = true;
             this.LblWebserviceOfKlant.Depth = 0;
             this.LblWebserviceOfKlant.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblWebserviceOfKlant.Location = new System.Drawing.Point(16, 75);
+            this.LblWebserviceOfKlant.Location = new System.Drawing.Point(22, 76);
             this.LblWebserviceOfKlant.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblWebserviceOfKlant.Name = "LblWebserviceOfKlant";
             this.LblWebserviceOfKlant.Size = new System.Drawing.Size(81, 19);
             this.LblWebserviceOfKlant.TabIndex = 25;
             this.LblWebserviceOfKlant.Text = "Webservice";
-            // 
-            // TestAllBtn
-            // 
-            this.TestAllBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.TestAllBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.TestAllBtn.Depth = 0;
-            this.TestAllBtn.HighEmphasis = true;
-            this.TestAllBtn.Icon = null;
-            this.TestAllBtn.Location = new System.Drawing.Point(20, 156);
-            this.TestAllBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.TestAllBtn.MinimumSize = new System.Drawing.Size(440, 35);
-            this.TestAllBtn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.TestAllBtn.Name = "TestAllBtn";
-            this.TestAllBtn.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.TestAllBtn.Size = new System.Drawing.Size(440, 36);
-            this.TestAllBtn.TabIndex = 27;
-            this.TestAllBtn.Text = "Test all";
-            this.TestAllBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.TestAllBtn.UseAccentColor = false;
-            this.TestAllBtn.UseVisualStyleBackColor = true;
-            this.TestAllBtn.Click += new System.EventHandler(this.TestAllBtn_Click_1);
             // 
             // ZetLogVastChkBx
             // 
@@ -121,7 +102,7 @@ namespace WindowsFormsAppTest
             this.groupBox4.Controls.Add(this.LblWebserviceVersie);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.groupBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox4.Location = new System.Drawing.Point(20, 238);
+            this.groupBox4.Location = new System.Drawing.Point(20, 235);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(439, 144);
             this.groupBox4.TabIndex = 29;
@@ -229,7 +210,7 @@ namespace WindowsFormsAppTest
             this.groupBox1.Controls.Add(this.LblCertificaatVervalDatum);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox1.Location = new System.Drawing.Point(20, 388);
+            this.groupBox1.Location = new System.Drawing.Point(20, 385);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(439, 144);
             this.groupBox1.TabIndex = 30;
@@ -292,21 +273,25 @@ namespace WindowsFormsAppTest
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.groupBox2.Controls.Add(this.LegeUrlsTxtBx);
             this.groupBox2.Controls.Add(this.AantalLegeUrlsTxtBx);
             this.groupBox2.Controls.Add(this.LblAantalLegeUrls);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox2.Location = new System.Drawing.Point(21, 552);
+            this.groupBox2.Location = new System.Drawing.Point(21, 549);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(439, 317);
+            this.groupBox2.Size = new System.Drawing.Size(439, 272);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Urls die niet goed gingen";
             // 
             // LegeUrlsTxtBx
             // 
+            this.LegeUrlsTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.LegeUrlsTxtBx.AnimateReadOnly = false;
             this.LegeUrlsTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.LegeUrlsTxtBx.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
@@ -324,7 +309,7 @@ namespace WindowsFormsAppTest
             this.LegeUrlsTxtBx.SelectionLength = 0;
             this.LegeUrlsTxtBx.SelectionStart = 0;
             this.LegeUrlsTxtBx.ShortcutsEnabled = true;
-            this.LegeUrlsTxtBx.Size = new System.Drawing.Size(415, 233);
+            this.LegeUrlsTxtBx.Size = new System.Drawing.Size(415, 188);
             this.LegeUrlsTxtBx.TabIndex = 32;
             this.LegeUrlsTxtBx.TabStop = false;
             this.LegeUrlsTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -332,6 +317,7 @@ namespace WindowsFormsAppTest
             // 
             // AantalLegeUrlsTxtBx
             // 
+            this.AantalLegeUrlsTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.AantalLegeUrlsTxtBx.AnimateReadOnly = false;
             this.AantalLegeUrlsTxtBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.AantalLegeUrlsTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -367,13 +353,16 @@ namespace WindowsFormsAppTest
             // 
             // ResponseTextBox
             // 
+            this.ResponseTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ResponseTextBox.AnimateReadOnly = false;
             this.ResponseTextBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ResponseTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
             this.ResponseTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.ResponseTextBox.Depth = 0;
             this.ResponseTextBox.HideSelection = true;
-            this.ResponseTextBox.Location = new System.Drawing.Point(476, 563);
+            this.ResponseTextBox.Location = new System.Drawing.Point(476, 560);
             this.ResponseTextBox.MaxLength = 32767;
             this.ResponseTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.ResponseTextBox.Name = "ResponseTextBox";
@@ -384,7 +373,7 @@ namespace WindowsFormsAppTest
             this.ResponseTextBox.SelectionLength = 0;
             this.ResponseTextBox.SelectionStart = 0;
             this.ResponseTextBox.ShortcutsEnabled = true;
-            this.ResponseTextBox.Size = new System.Drawing.Size(577, 306);
+            this.ResponseTextBox.Size = new System.Drawing.Size(450, 261);
             this.ResponseTextBox.TabIndex = 32;
             this.ResponseTextBox.TabStop = false;
             this.ResponseTextBox.Text = "materialMultiLineTextBox21";
@@ -416,22 +405,37 @@ namespace WindowsFormsAppTest
             this.WebserviceOfKlantKrMaterialCmbx.ValueMember = "Id";
             this.WebserviceOfKlantKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.WebserviceOfKlantKrMaterialCmbx_SelectedIndexChanged);
             // 
+            // TestAllBtn
+            // 
+            this.TestAllBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.TestAllBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.TestAllBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TestAllBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestAllBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.TestAllBtn.Location = new System.Drawing.Point(21, 152);
+            this.TestAllBtn.Name = "TestAllBtn";
+            this.TestAllBtn.Size = new System.Drawing.Size(439, 43);
+            this.TestAllBtn.TabIndex = 65;
+            this.TestAllBtn.Text = "Test Alles";
+            this.TestAllBtn.UseVisualStyleBackColor = false;
+            this.TestAllBtn.Click += new System.EventHandler(this.TestAllBtn_Click_1);
+            // 
             // WebserviceOfKlantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1063, 875);
+            this.ClientSize = new System.Drawing.Size(936, 827);
+            this.Controls.Add(this.TestAllBtn);
             this.Controls.Add(this.WebserviceOfKlantKrMaterialCmbx);
             this.Controls.Add(this.ResponseTextBox);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.ZetLogVastChkBx);
-            this.Controls.Add(this.TestAllBtn);
             this.Controls.Add(this.LblWebserviceOfKlant);
             this.Controls.Add(this.TrVwAll);
+            this.MinimumSize = new System.Drawing.Size(936, 827);
             this.Name = "WebserviceOfKlantForm";
-            this.Sizable = false;
             this.Text = "Per Webservice Testen";
             this.TopMost = true;
             this.groupBox4.ResumeLayout(false);
@@ -448,7 +452,6 @@ namespace WindowsFormsAppTest
         #endregion
         private System.Windows.Forms.TreeView TrVwAll;
         private MaterialSkin.Controls.MaterialLabel LblWebserviceOfKlant;
-        private MaterialSkin.Controls.MaterialButton TestAllBtn;
         private MaterialSkin.Controls.MaterialCheckbox ZetLogVastChkBx;
         private System.Windows.Forms.GroupBox groupBox4;
         private MaterialSkin.Controls.MaterialTextBox textBoxWebservice;
@@ -466,5 +469,6 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialLabel LblAantalLegeUrls;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 ResponseTextBox;
         private KrMaterialCombobox WebserviceOfKlantKrMaterialCmbx;
+        private System.Windows.Forms.Button TestAllBtn;
     }
 }

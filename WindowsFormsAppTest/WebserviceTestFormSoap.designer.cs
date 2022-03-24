@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WebserviceTestFormSoap));
             this.labelHttpsText = new System.Windows.Forms.Label();
-            this.BtnTestWebservice = new MaterialSkin.Controls.MaterialButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.HttpKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.label2 = new System.Windows.Forms.Label();
@@ -77,6 +76,7 @@
             this.ChkBxKraanIni3_1 = new MaterialSkin.Controls.MaterialCheckbox();
             this.ChkBxKraanDLL3_1 = new MaterialSkin.Controls.MaterialCheckbox();
             this.LblKraanDLL3_1 = new MaterialSkin.Controls.MaterialLabel();
+            this.BtnTestWebservice = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -94,30 +94,12 @@
             this.labelHttpsText.Text = "Let op!: Om verbinding te kunnen maken met Kraan Sales dient bij Message Service " +
     "versie 3.1 inlog gegevens te worden geconfigureerd.";
             // 
-            // BtnTestWebservice
-            // 
-            this.BtnTestWebservice.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.BtnTestWebservice.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.BtnTestWebservice.Depth = 0;
-            this.BtnTestWebservice.HighEmphasis = true;
-            this.BtnTestWebservice.Icon = null;
-            this.BtnTestWebservice.Location = new System.Drawing.Point(668, 16);
-            this.BtnTestWebservice.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.BtnTestWebservice.MinimumSize = new System.Drawing.Size(158, 160);
-            this.BtnTestWebservice.MouseState = MaterialSkin.MouseState.HOVER;
-            this.BtnTestWebservice.Name = "BtnTestWebservice";
-            this.BtnTestWebservice.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.BtnTestWebservice.Size = new System.Drawing.Size(158, 160);
-            this.BtnTestWebservice.TabIndex = 37;
-            this.BtnTestWebservice.Text = "Test Webservices";
-            this.BtnTestWebservice.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.BtnTestWebservice.UseAccentColor = false;
-            this.BtnTestWebservice.UseVisualStyleBackColor = true;
-            this.BtnTestWebservice.Click += new System.EventHandler(this.BtnTestWebservice_Click);
-            // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox2.Controls.Add(this.BtnTestWebservice);
             this.groupBox2.Controls.Add(this.HttpKrMaterialCmbx);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.WebserviceKrMaterialCmbx);
@@ -126,7 +108,6 @@
             this.groupBox2.Controls.Add(this.materialLabel3);
             this.groupBox2.Controls.Add(this.materialLabel2);
             this.groupBox2.Controls.Add(this.materialLabel1);
-            this.groupBox2.Controls.Add(this.BtnTestWebservice);
             this.groupBox2.Controls.Add(this.labelHttpsText);
             this.groupBox2.Location = new System.Drawing.Point(10, 74);
             this.groupBox2.Name = "groupBox2";
@@ -173,6 +154,8 @@
             // 
             // WebserviceKrMaterialCmbx
             // 
+            this.WebserviceKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.WebserviceKrMaterialCmbx.AutoResize = false;
             this.WebserviceKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.WebserviceKrMaterialCmbx.Depth = 0;
@@ -198,6 +181,8 @@
             // TxtBxPassword
             // 
             this.TxtBxPassword.AllowPromptAsInput = true;
+            this.TxtBxPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtBxPassword.AnimateReadOnly = false;
             this.TxtBxPassword.AsciiOnly = false;
             this.TxtBxPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -239,6 +224,8 @@
             // TxtBxUsername
             // 
             this.TxtBxUsername.AllowPromptAsInput = true;
+            this.TxtBxUsername.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtBxUsername.AnimateReadOnly = false;
             this.TxtBxUsername.AsciiOnly = false;
             this.TxtBxUsername.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -315,8 +302,9 @@
             // 
             // txtTestResultaat
             // 
-            this.txtTestResultaat.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txtTestResultaat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTestResultaat.AnimateReadOnly = false;
             this.txtTestResultaat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.txtTestResultaat.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
@@ -334,7 +322,7 @@
             this.txtTestResultaat.SelectionLength = 0;
             this.txtTestResultaat.SelectionStart = 0;
             this.txtTestResultaat.ShortcutsEnabled = true;
-            this.txtTestResultaat.Size = new System.Drawing.Size(836, 304);
+            this.txtTestResultaat.Size = new System.Drawing.Size(836, 65);
             this.txtTestResultaat.TabIndex = 42;
             this.txtTestResultaat.TabStop = false;
             this.txtTestResultaat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -680,6 +668,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.groupBox3.Controls.Add(this.TxtBxMessageVersie3_1);
             this.groupBox3.Controls.Add(this.LblVersieMessageService3_1);
@@ -1016,12 +1005,28 @@
             this.LblKraanDLL3_1.TabIndex = 0;
             this.LblKraanDLL3_1.Text = "Kraan DLL versie:";
             // 
+            // BtnTestWebservice
+            // 
+            this.BtnTestWebservice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnTestWebservice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.BtnTestWebservice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTestWebservice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTestWebservice.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnTestWebservice.Location = new System.Drawing.Point(667, 16);
+            this.BtnTestWebservice.Name = "BtnTestWebservice";
+            this.BtnTestWebservice.Size = new System.Drawing.Size(163, 159);
+            this.BtnTestWebservice.TabIndex = 66;
+            this.BtnTestWebservice.Text = "Test Webservice";
+            this.BtnTestWebservice.UseVisualStyleBackColor = false;
+            this.BtnTestWebservice.Click += new System.EventHandler(this.BtnTestWebservice_Click);
+            // 
             // WebserviceTestFormSoap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(854, 1100);
+            this.ClientSize = new System.Drawing.Size(854, 861);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtTestResultaat);
@@ -1043,7 +1048,6 @@
 
         #endregion
         private System.Windows.Forms.Label labelHttpsText;
-        private MaterialSkin.Controls.MaterialButton BtnTestWebservice;
         private System.Windows.Forms.GroupBox groupBox2;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
@@ -1090,6 +1094,7 @@
         private MaterialSkin.Controls.MaterialCheckbox ChkBxKraanDLL3_1;
         private MaterialSkin.Controls.MaterialLabel LblKraanDLL3_1;
         private MaterialSkin.Controls.MaterialTextBox TxtBxMessageVersie3_1;
+        private System.Windows.Forms.Button BtnTestWebservice;
     }
 }
 

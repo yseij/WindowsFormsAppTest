@@ -31,11 +31,13 @@ namespace WindowsFormsAppTest
         {
             this.UserEmailTxtBx = new MaterialSkin.Controls.MaterialTextBox2();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.GegevensOpslaanBtn = new MaterialSkin.Controls.MaterialButton();
+            this.GegevensOpslaanBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // UserEmailTxtBx
             // 
+            this.UserEmailTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.UserEmailTxtBx.AnimateReadOnly = false;
             this.UserEmailTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.UserEmailTxtBx.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
@@ -76,32 +78,28 @@ namespace WindowsFormsAppTest
             // 
             // GegevensOpslaanBtn
             // 
-            this.GegevensOpslaanBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.GegevensOpslaanBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.GegevensOpslaanBtn.Depth = 0;
-            this.GegevensOpslaanBtn.HighEmphasis = true;
-            this.GegevensOpslaanBtn.Icon = null;
-            this.GegevensOpslaanBtn.Location = new System.Drawing.Point(141, 124);
-            this.GegevensOpslaanBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.GegevensOpslaanBtn.MouseState = MaterialSkin.MouseState.HOVER;
+            this.GegevensOpslaanBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.GegevensOpslaanBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.GegevensOpslaanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GegevensOpslaanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GegevensOpslaanBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.GegevensOpslaanBtn.Location = new System.Drawing.Point(185, 121);
             this.GegevensOpslaanBtn.Name = "GegevensOpslaanBtn";
-            this.GegevensOpslaanBtn.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.GegevensOpslaanBtn.Size = new System.Drawing.Size(166, 36);
-            this.GegevensOpslaanBtn.TabIndex = 6;
+            this.GegevensOpslaanBtn.Size = new System.Drawing.Size(122, 43);
+            this.GegevensOpslaanBtn.TabIndex = 64;
             this.GegevensOpslaanBtn.Text = "Gegevens opslaan";
-            this.GegevensOpslaanBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.GegevensOpslaanBtn.UseAccentColor = false;
-            this.GegevensOpslaanBtn.UseVisualStyleBackColor = true;
+            this.GegevensOpslaanBtn.UseVisualStyleBackColor = false;
             this.GegevensOpslaanBtn.Click += new System.EventHandler(this.GegevensOpslaanBtn_Click);
             // 
             // UserForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(317, 169);
+            this.ClientSize = new System.Drawing.Size(313, 169);
             this.Controls.Add(this.GegevensOpslaanBtn);
             this.Controls.Add(this.UserEmailTxtBx);
             this.Controls.Add(this.materialLabel2);
+            this.MinimumSize = new System.Drawing.Size(313, 169);
             this.Name = "UserForm";
             this.Text = "UserForm";
             this.ResumeLayout(false);
@@ -112,6 +110,6 @@ namespace WindowsFormsAppTest
         #endregion
         private MaterialSkin.Controls.MaterialTextBox2 UserEmailTxtBx;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MaterialSkin.Controls.MaterialButton GegevensOpslaanBtn;
+        private System.Windows.Forms.Button GegevensOpslaanBtn;
     }
 }
