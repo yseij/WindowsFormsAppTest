@@ -407,7 +407,6 @@ namespace WindowsFormsAppTest
             // 
             // TestAllBtn
             // 
-            this.TestAllBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.TestAllBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
             this.TestAllBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TestAllBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

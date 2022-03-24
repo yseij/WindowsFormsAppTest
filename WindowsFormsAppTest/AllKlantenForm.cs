@@ -46,6 +46,8 @@ namespace WindowsFormsAppTest
 
             KlantTxtBx.Text = _klantDatas[0].Name;
             AllKlantKrMaterialLstBx.SelectedIndex = 0;
+
+            GetUrlsFromKlant(_klantDatas[0].Id);
         }
 
         private void GetUrlsFromKlant(int id)
@@ -74,12 +76,19 @@ namespace WindowsFormsAppTest
             AllUrlsKrMaterialLstBx.FillListBoxUrlData(_urlDatasByKlant);
             if (_urlDatasByKlant.Count > 0)
             {
-                AllUrlsKrMaterialLstBx.FillListBoxUrlData(_urlDatasByKlant);
                 AllUrlsKrMaterialLstBx.SelectedIndex = 0;
-            }
-            if (_urlDatasByKlant.Count != 0)
-            {
                 _selectedUrlId = _urlDatasByKlant[0].Id;
+
+                PasUrlAanBtn.Enabled = true;
+                DeleteUrlBttn.Enabled = true;
+            }
+            else
+            {
+                SecurityIdTxtBx.Text = string.Empty;
+                UrlTxtBx.Text = string.Empty;
+                _selectedUrlId = 0;
+                PasUrlAanBtn.Enabled = false;
+                DeleteUrlBttn.Enabled = false;
             }
         }
 

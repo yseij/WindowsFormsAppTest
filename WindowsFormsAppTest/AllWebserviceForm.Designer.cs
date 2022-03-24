@@ -64,7 +64,7 @@ namespace WindowsFormsAppTest
             this.groupBox1.Controls.Add(this.DeleteWebserviceBttn);
             this.groupBox1.Controls.Add(this.WebserviceTxtBx);
             this.groupBox1.Controls.Add(this.LblNaam);
-            this.groupBox1.Location = new System.Drawing.Point(755, 87);
+            this.groupBox1.Location = new System.Drawing.Point(427, 87);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(472, 198);
             this.groupBox1.TabIndex = 65;
@@ -331,9 +331,9 @@ namespace WindowsFormsAppTest
             this.groupBox2.Controls.Add(this.UrlTxtBx);
             this.groupBox2.Controls.Add(this.materialLabel4);
             this.groupBox2.Controls.Add(this.materialLabel5);
-            this.groupBox2.Location = new System.Drawing.Point(755, 312);
+            this.groupBox2.Location = new System.Drawing.Point(427, 312);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(472, 317);
+            this.groupBox2.Size = new System.Drawing.Size(472, 312);
             this.groupBox2.TabIndex = 76;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Url bewerken";
@@ -345,7 +345,7 @@ namespace WindowsFormsAppTest
             this.PasUrlAanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PasUrlAanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasUrlAanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.PasUrlAanBtn.Location = new System.Drawing.Point(354, 268);
+            this.PasUrlAanBtn.Location = new System.Drawing.Point(354, 263);
             this.PasUrlAanBtn.Name = "PasUrlAanBtn";
             this.PasUrlAanBtn.Size = new System.Drawing.Size(112, 43);
             this.PasUrlAanBtn.TabIndex = 64;
@@ -386,7 +386,7 @@ namespace WindowsFormsAppTest
             this.AddUrlByWebserviceBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddUrlByWebserviceBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddUrlByWebserviceBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddUrlByWebserviceBttn.Location = new System.Drawing.Point(236, 268);
+            this.AddUrlByWebserviceBttn.Location = new System.Drawing.Point(236, 263);
             this.AddUrlByWebserviceBttn.Name = "AddUrlByWebserviceBttn";
             this.AddUrlByWebserviceBttn.Size = new System.Drawing.Size(112, 43);
             this.AddUrlByWebserviceBttn.TabIndex = 63;
@@ -427,7 +427,7 @@ namespace WindowsFormsAppTest
             this.DeleteUrlBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteUrlBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteUrlBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.DeleteUrlBttn.Location = new System.Drawing.Point(10, 268);
+            this.DeleteUrlBttn.Location = new System.Drawing.Point(10, 263);
             this.DeleteUrlBttn.Name = "DeleteUrlBttn";
             this.DeleteUrlBttn.Size = new System.Drawing.Size(112, 43);
             this.DeleteUrlBttn.TabIndex = 62;
@@ -461,7 +461,7 @@ namespace WindowsFormsAppTest
             this.AllUrlsKrMaterialLstBx.Name = "AllUrlsKrMaterialLstBx";
             this.AllUrlsKrMaterialLstBx.SelectedIndex = -1;
             this.AllUrlsKrMaterialLstBx.SelectedItem = null;
-            this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(742, 317);
+            this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(414, 312);
             this.AllUrlsKrMaterialLstBx.TabIndex = 77;
             this.AllUrlsKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllUrlsKrMaterialLstBx_SelectedIndexChanged);
             // 
@@ -479,7 +479,7 @@ namespace WindowsFormsAppTest
             this.AllWebserviceKrMaterialLstBx.SelectedIndex = -1;
             this.AllWebserviceKrMaterialLstBx.SelectedItem = null;
             this.AllWebserviceKrMaterialLstBx.ShowScrollBar = true;
-            this.AllWebserviceKrMaterialLstBx.Size = new System.Drawing.Size(742, 199);
+            this.AllWebserviceKrMaterialLstBx.Size = new System.Drawing.Size(414, 199);
             this.AllWebserviceKrMaterialLstBx.TabIndex = 66;
             this.AllWebserviceKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllWebserviceKrMaterialLstBx_SelectedIndexChanged);
             // 
@@ -490,14 +490,14 @@ namespace WindowsFormsAppTest
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label3.Location = new System.Drawing.Point(6, 288);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(1221, 2);
+            this.label3.Size = new System.Drawing.Size(893, 2);
             this.label3.TabIndex = 79;
             // 
             // AllWebserviceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1234, 637);
+            this.ClientSize = new System.Drawing.Size(906, 632);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.materialLabel6);
             this.Controls.Add(this.AllUrlsKrMaterialLstBx);
@@ -505,7 +505,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.AllWebserviceKrMaterialLstBx);
             this.Controls.Add(this.groupBox1);
-            this.MinimumSize = new System.Drawing.Size(1234, 637);
+            this.MinimumSize = new System.Drawing.Size(906, 632);
             this.Name = "AllWebserviceForm";
             this.Text = "Webservices beheren";
             this.Load += new System.EventHandler(this.AllWebserviceForm_Load);

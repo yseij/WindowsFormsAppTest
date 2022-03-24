@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WebserviceTestFormSoap));
             this.labelHttpsText = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.BtnTestWebservice = new System.Windows.Forms.Button();
             this.HttpKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.label2 = new System.Windows.Forms.Label();
             this.WebserviceKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
@@ -76,7 +77,6 @@
             this.ChkBxKraanIni3_1 = new MaterialSkin.Controls.MaterialCheckbox();
             this.ChkBxKraanDLL3_1 = new MaterialSkin.Controls.MaterialCheckbox();
             this.LblKraanDLL3_1 = new MaterialSkin.Controls.MaterialLabel();
-            this.BtnTestWebservice = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -115,6 +115,22 @@
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Https";
+            // 
+            // BtnTestWebservice
+            // 
+            this.BtnTestWebservice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnTestWebservice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.BtnTestWebservice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTestWebservice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTestWebservice.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnTestWebservice.Location = new System.Drawing.Point(667, 16);
+            this.BtnTestWebservice.Name = "BtnTestWebservice";
+            this.BtnTestWebservice.Size = new System.Drawing.Size(163, 159);
+            this.BtnTestWebservice.TabIndex = 66;
+            this.BtnTestWebservice.Text = "Test Webservice";
+            this.BtnTestWebservice.UseVisualStyleBackColor = false;
+            this.BtnTestWebservice.Click += new System.EventHandler(this.BtnTestWebservice_Click);
             // 
             // HttpKrMaterialCmbx
             // 
@@ -423,6 +439,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.groupBox1.Controls.Add(this.TxtBxMessageVersie2_4);
             this.groupBox1.Controls.Add(this.LblVersieMessageService2_4);
@@ -669,6 +686,7 @@
             // groupBox3
             // 
             this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.groupBox3.Controls.Add(this.TxtBxMessageVersie3_1);
             this.groupBox3.Controls.Add(this.LblVersieMessageService3_1);
@@ -689,9 +707,9 @@
             this.groupBox3.Controls.Add(this.LblKraanDLL3_1);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox3.Location = new System.Drawing.Point(444, 294);
+            this.groupBox3.Location = new System.Drawing.Point(437, 294);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(402, 490);
+            this.groupBox3.Size = new System.Drawing.Size(409, 490);
             this.groupBox3.TabIndex = 31;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Results Sales 3.1";
@@ -1005,22 +1023,6 @@
             this.LblKraanDLL3_1.TabIndex = 0;
             this.LblKraanDLL3_1.Text = "Kraan DLL versie:";
             // 
-            // BtnTestWebservice
-            // 
-            this.BtnTestWebservice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnTestWebservice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.BtnTestWebservice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTestWebservice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTestWebservice.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnTestWebservice.Location = new System.Drawing.Point(667, 16);
-            this.BtnTestWebservice.Name = "BtnTestWebservice";
-            this.BtnTestWebservice.Size = new System.Drawing.Size(163, 159);
-            this.BtnTestWebservice.TabIndex = 66;
-            this.BtnTestWebservice.Text = "Test Webservice";
-            this.BtnTestWebservice.UseVisualStyleBackColor = false;
-            this.BtnTestWebservice.Click += new System.EventHandler(this.BtnTestWebservice_Click);
-            // 
             // WebserviceTestFormSoap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1032,6 +1034,7 @@
             this.Controls.Add(this.txtTestResultaat);
             this.Controls.Add(this.groupBox2);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(854, 861);
             this.Name = "WebserviceTestFormSoap";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.Text = "Sales test Soap";
