@@ -36,6 +36,7 @@ namespace WindowsFormsAppTest
             // 
             // AddKlantBttn
             // 
+            this.AddKlantBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.AddKlantBttn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.AddKlantBttn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.AddKlantBttn.Depth = 0;
@@ -57,6 +58,8 @@ namespace WindowsFormsAppTest
             // NewKlantNaamTxtBx
             // 
             this.NewKlantNaamTxtBx.AllowPromptAsInput = true;
+            this.NewKlantNaamTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NewKlantNaamTxtBx.AnimateReadOnly = false;
             this.NewKlantNaamTxtBx.AsciiOnly = false;
             this.NewKlantNaamTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -116,6 +119,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.NewKlantNaamTxtBx);
             this.Controls.Add(this.AddKlantBttn);
+            this.MinimumSize = new System.Drawing.Size(455, 169);
             this.Name = "AddKlantForm";
             this.Text = "Klant toevoegen";
             this.ResumeLayout(false);
