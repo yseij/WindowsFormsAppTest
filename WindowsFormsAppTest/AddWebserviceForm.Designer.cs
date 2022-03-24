@@ -31,7 +31,7 @@ namespace WindowsFormsAppTest
         {
             this.LblName = new MaterialSkin.Controls.MaterialLabel();
             this.NewKlantNaamTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
-            this.AddWebserviceBttn = new MaterialSkin.Controls.MaterialButton();
+            this.AddKlantBttn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // LblName
@@ -88,35 +88,30 @@ namespace WindowsFormsAppTest
             this.NewKlantNaamTxtBx.ValidatingType = null;
             this.NewKlantNaamTxtBx.TextChanged += new System.EventHandler(this.NewKlantNaamTxtBx_TextChanged);
             // 
-            // AddWebserviceBttn
+            // AddKlantBttn
             // 
-            this.AddWebserviceBttn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.AddWebserviceBttn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.AddWebserviceBttn.Depth = 0;
-            this.AddWebserviceBttn.HighEmphasis = true;
-            this.AddWebserviceBttn.Icon = null;
-            this.AddWebserviceBttn.Location = new System.Drawing.Point(244, 124);
-            this.AddWebserviceBttn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.AddWebserviceBttn.MinimumSize = new System.Drawing.Size(180, 36);
-            this.AddWebserviceBttn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AddWebserviceBttn.Name = "AddWebserviceBttn";
-            this.AddWebserviceBttn.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.AddWebserviceBttn.Size = new System.Drawing.Size(199, 36);
-            this.AddWebserviceBttn.TabIndex = 6;
-            this.AddWebserviceBttn.Text = "Webservice toevoegen";
-            this.AddWebserviceBttn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.AddWebserviceBttn.UseAccentColor = false;
-            this.AddWebserviceBttn.UseVisualStyleBackColor = true;
-            this.AddWebserviceBttn.Click += new System.EventHandler(this.AddWebserviceBttn_Click);
+            this.AddKlantBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddKlantBttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.AddKlantBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddKlantBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddKlantBttn.ForeColor = System.Drawing.SystemColors.Control;
+            this.AddKlantBttn.Location = new System.Drawing.Point(252, 121);
+            this.AddKlantBttn.MinimumSize = new System.Drawing.Size(191, 43);
+            this.AddKlantBttn.Name = "AddKlantBttn";
+            this.AddKlantBttn.Size = new System.Drawing.Size(191, 43);
+            this.AddKlantBttn.TabIndex = 29;
+            this.AddKlantBttn.Text = "WEBSERVICE TOEVOEGEN";
+            this.AddKlantBttn.UseVisualStyleBackColor = false;
+            this.AddKlantBttn.Click += new System.EventHandler(this.AddWebserviceBttn_Click);
             // 
             // AddWebserviceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(449, 169);
+            this.Controls.Add(this.AddKlantBttn);
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.NewKlantNaamTxtBx);
-            this.Controls.Add(this.AddWebserviceBttn);
             this.Name = "AddWebserviceForm";
             this.Text = "AddWebserviceForm";
             this.ResumeLayout(false);
@@ -128,6 +123,6 @@ namespace WindowsFormsAppTest
 
         private MaterialSkin.Controls.MaterialLabel LblName;
         private MaterialSkin.Controls.MaterialMaskedTextBox NewKlantNaamTxtBx;
-        private MaterialSkin.Controls.MaterialButton AddWebserviceBttn;
+        private System.Windows.Forms.Button AddKlantBttn;
     }
 }

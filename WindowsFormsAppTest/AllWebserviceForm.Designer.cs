@@ -30,6 +30,9 @@ namespace WindowsFormsAppTest
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.PasWebserviceAanBtn = new System.Windows.Forms.Button();
+            this.AddWebserviceBtn = new System.Windows.Forms.Button();
+            this.DeleteWebserviceBttn = new System.Windows.Forms.Button();
             this.WebserviceTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.LblNaam = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
@@ -40,18 +43,15 @@ namespace WindowsFormsAppTest
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.PasUrlAanBtn = new System.Windows.Forms.Button();
             this.KlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
+            this.AddUrlByWebserviceBttn = new System.Windows.Forms.Button();
             this.WebserviceKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
+            this.DeleteUrlBttn = new System.Windows.Forms.Button();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
             this.AllUrlsKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.AllWebserviceKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
-            this.PasUrlAanBtn = new System.Windows.Forms.Button();
-            this.AddUrlByWebserviceBttn = new System.Windows.Forms.Button();
-            this.DeleteUrlBttn = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.PasWebserviceAanBtn = new System.Windows.Forms.Button();
-            this.AddWebserviceBtn = new System.Windows.Forms.Button();
-            this.DeleteWebserviceBttn = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +70,51 @@ namespace WindowsFormsAppTest
             this.groupBox1.TabIndex = 65;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Webservice bewerken";
+            // 
+            // PasWebserviceAanBtn
+            // 
+            this.PasWebserviceAanBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasWebserviceAanBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.PasWebserviceAanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PasWebserviceAanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasWebserviceAanBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.PasWebserviceAanBtn.Location = new System.Drawing.Point(354, 149);
+            this.PasWebserviceAanBtn.Name = "PasWebserviceAanBtn";
+            this.PasWebserviceAanBtn.Size = new System.Drawing.Size(112, 43);
+            this.PasWebserviceAanBtn.TabIndex = 78;
+            this.PasWebserviceAanBtn.Text = "WEBSERVICE AANPASSEN";
+            this.PasWebserviceAanBtn.UseVisualStyleBackColor = false;
+            this.PasWebserviceAanBtn.Click += new System.EventHandler(this.PasWebserviceAanBtn_Click);
+            // 
+            // AddWebserviceBtn
+            // 
+            this.AddWebserviceBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddWebserviceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.AddWebserviceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddWebserviceBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddWebserviceBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.AddWebserviceBtn.Location = new System.Drawing.Point(236, 149);
+            this.AddWebserviceBtn.Name = "AddWebserviceBtn";
+            this.AddWebserviceBtn.Size = new System.Drawing.Size(112, 43);
+            this.AddWebserviceBtn.TabIndex = 77;
+            this.AddWebserviceBtn.Text = "WEBSERVICE TOEVOEGEN";
+            this.AddWebserviceBtn.UseVisualStyleBackColor = false;
+            this.AddWebserviceBtn.Click += new System.EventHandler(this.AddWebserviceBtn_Click);
+            // 
+            // DeleteWebserviceBttn
+            // 
+            this.DeleteWebserviceBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteWebserviceBttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.DeleteWebserviceBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteWebserviceBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteWebserviceBttn.ForeColor = System.Drawing.SystemColors.Control;
+            this.DeleteWebserviceBttn.Location = new System.Drawing.Point(10, 149);
+            this.DeleteWebserviceBttn.Name = "DeleteWebserviceBttn";
+            this.DeleteWebserviceBttn.Size = new System.Drawing.Size(112, 43);
+            this.DeleteWebserviceBttn.TabIndex = 76;
+            this.DeleteWebserviceBttn.Text = "WEBSERVICE VERWIJDEREN";
+            this.DeleteWebserviceBttn.UseVisualStyleBackColor = false;
+            this.DeleteWebserviceBttn.Click += new System.EventHandler(this.DeleteWebserviceBttn_Click);
             // 
             // WebserviceTxtBx
             // 
@@ -293,6 +338,21 @@ namespace WindowsFormsAppTest
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Url bewerken";
             // 
+            // PasUrlAanBtn
+            // 
+            this.PasUrlAanBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.PasUrlAanBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.PasUrlAanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PasUrlAanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PasUrlAanBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.PasUrlAanBtn.Location = new System.Drawing.Point(354, 268);
+            this.PasUrlAanBtn.Name = "PasUrlAanBtn";
+            this.PasUrlAanBtn.Size = new System.Drawing.Size(112, 43);
+            this.PasUrlAanBtn.TabIndex = 64;
+            this.PasUrlAanBtn.Text = "URL AANPASSEN";
+            this.PasUrlAanBtn.UseVisualStyleBackColor = false;
+            this.PasUrlAanBtn.Click += new System.EventHandler(this.PasUrlAanBtn_Click);
+            // 
             // KlantKrMaterialCmbx
             // 
             this.KlantKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -319,6 +379,21 @@ namespace WindowsFormsAppTest
             this.KlantKrMaterialCmbx.ValueMember = "Id";
             this.KlantKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.KlantKrMaterialCmbx_SelectedIndexChanged);
             // 
+            // AddUrlByWebserviceBttn
+            // 
+            this.AddUrlByWebserviceBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddUrlByWebserviceBttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.AddUrlByWebserviceBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddUrlByWebserviceBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddUrlByWebserviceBttn.ForeColor = System.Drawing.SystemColors.Control;
+            this.AddUrlByWebserviceBttn.Location = new System.Drawing.Point(236, 268);
+            this.AddUrlByWebserviceBttn.Name = "AddUrlByWebserviceBttn";
+            this.AddUrlByWebserviceBttn.Size = new System.Drawing.Size(112, 43);
+            this.AddUrlByWebserviceBttn.TabIndex = 63;
+            this.AddUrlByWebserviceBttn.Text = "URL TOEVOEGEN";
+            this.AddUrlByWebserviceBttn.UseVisualStyleBackColor = false;
+            this.AddUrlByWebserviceBttn.Click += new System.EventHandler(this.AddUrlByWebserviceBttn_Click);
+            // 
             // WebserviceKrMaterialCmbx
             // 
             this.WebserviceKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -344,6 +419,21 @@ namespace WindowsFormsAppTest
             this.WebserviceKrMaterialCmbx.TabIndex = 74;
             this.WebserviceKrMaterialCmbx.ValueMember = "Id";
             this.WebserviceKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.WebserviceKrMaterialCmbx_SelectedIndexChanged);
+            // 
+            // DeleteUrlBttn
+            // 
+            this.DeleteUrlBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.DeleteUrlBttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.DeleteUrlBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.DeleteUrlBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeleteUrlBttn.ForeColor = System.Drawing.SystemColors.Control;
+            this.DeleteUrlBttn.Location = new System.Drawing.Point(10, 268);
+            this.DeleteUrlBttn.Name = "DeleteUrlBttn";
+            this.DeleteUrlBttn.Size = new System.Drawing.Size(112, 43);
+            this.DeleteUrlBttn.TabIndex = 62;
+            this.DeleteUrlBttn.Text = "URL VERWIJDEREN";
+            this.DeleteUrlBttn.UseVisualStyleBackColor = false;
+            this.DeleteUrlBttn.Click += new System.EventHandler(this.DeleteUrlBttn_Click);
             // 
             // materialLabel6
             // 
@@ -393,51 +483,6 @@ namespace WindowsFormsAppTest
             this.AllWebserviceKrMaterialLstBx.TabIndex = 66;
             this.AllWebserviceKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllWebserviceKrMaterialLstBx_SelectedIndexChanged);
             // 
-            // PasUrlAanBtn
-            // 
-            this.PasUrlAanBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.PasUrlAanBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.PasUrlAanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PasUrlAanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasUrlAanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.PasUrlAanBtn.Location = new System.Drawing.Point(354, 268);
-            this.PasUrlAanBtn.Name = "PasUrlAanBtn";
-            this.PasUrlAanBtn.Size = new System.Drawing.Size(112, 43);
-            this.PasUrlAanBtn.TabIndex = 64;
-            this.PasUrlAanBtn.Text = "URL AANPASSEN";
-            this.PasUrlAanBtn.UseVisualStyleBackColor = false;
-            this.PasUrlAanBtn.Click += new System.EventHandler(this.PasUrlAanBtn_Click);
-            // 
-            // AddUrlByWebserviceBttn
-            // 
-            this.AddUrlByWebserviceBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddUrlByWebserviceBttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.AddUrlByWebserviceBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddUrlByWebserviceBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddUrlByWebserviceBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddUrlByWebserviceBttn.Location = new System.Drawing.Point(236, 268);
-            this.AddUrlByWebserviceBttn.Name = "AddUrlByWebserviceBttn";
-            this.AddUrlByWebserviceBttn.Size = new System.Drawing.Size(112, 43);
-            this.AddUrlByWebserviceBttn.TabIndex = 63;
-            this.AddUrlByWebserviceBttn.Text = "URL TOEVOEGEN";
-            this.AddUrlByWebserviceBttn.UseVisualStyleBackColor = false;
-            this.AddUrlByWebserviceBttn.Click += new System.EventHandler(this.AddUrlByWebserviceBttn_Click);
-            // 
-            // DeleteUrlBttn
-            // 
-            this.DeleteUrlBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteUrlBttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.DeleteUrlBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteUrlBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteUrlBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.DeleteUrlBttn.Location = new System.Drawing.Point(10, 268);
-            this.DeleteUrlBttn.Name = "DeleteUrlBttn";
-            this.DeleteUrlBttn.Size = new System.Drawing.Size(112, 43);
-            this.DeleteUrlBttn.TabIndex = 62;
-            this.DeleteUrlBttn.Text = "URL VERWIJDEREN";
-            this.DeleteUrlBttn.UseVisualStyleBackColor = false;
-            this.DeleteUrlBttn.Click += new System.EventHandler(this.DeleteUrlBttn_Click);
-            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -447,51 +492,6 @@ namespace WindowsFormsAppTest
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(1221, 2);
             this.label3.TabIndex = 79;
-            // 
-            // PasWebserviceAanBtn
-            // 
-            this.PasWebserviceAanBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.PasWebserviceAanBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.PasWebserviceAanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PasWebserviceAanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasWebserviceAanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.PasWebserviceAanBtn.Location = new System.Drawing.Point(354, 149);
-            this.PasWebserviceAanBtn.Name = "PasWebserviceAanBtn";
-            this.PasWebserviceAanBtn.Size = new System.Drawing.Size(112, 43);
-            this.PasWebserviceAanBtn.TabIndex = 78;
-            this.PasWebserviceAanBtn.Text = "WEBSERVICE AANPASSEN";
-            this.PasWebserviceAanBtn.UseVisualStyleBackColor = false;
-            this.PasWebserviceAanBtn.Click += new System.EventHandler(this.PasWebserviceAanBtn_Click);
-            // 
-            // AddWebserviceBtn
-            // 
-            this.AddWebserviceBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddWebserviceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.AddWebserviceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddWebserviceBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddWebserviceBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddWebserviceBtn.Location = new System.Drawing.Point(236, 149);
-            this.AddWebserviceBtn.Name = "AddWebserviceBtn";
-            this.AddWebserviceBtn.Size = new System.Drawing.Size(112, 43);
-            this.AddWebserviceBtn.TabIndex = 77;
-            this.AddWebserviceBtn.Text = "WEBSERVICE TOEVOEGEN";
-            this.AddWebserviceBtn.UseVisualStyleBackColor = false;
-            this.AddWebserviceBtn.Click += new System.EventHandler(this.AddWebserviceBtn_Click);
-            // 
-            // DeleteWebserviceBttn
-            // 
-            this.DeleteWebserviceBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteWebserviceBttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.DeleteWebserviceBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteWebserviceBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteWebserviceBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.DeleteWebserviceBttn.Location = new System.Drawing.Point(10, 149);
-            this.DeleteWebserviceBttn.Name = "DeleteWebserviceBttn";
-            this.DeleteWebserviceBttn.Size = new System.Drawing.Size(112, 43);
-            this.DeleteWebserviceBttn.TabIndex = 76;
-            this.DeleteWebserviceBttn.Text = "WEBSERVICE VERWIJDEREN";
-            this.DeleteWebserviceBttn.UseVisualStyleBackColor = false;
-            this.DeleteWebserviceBttn.Click += new System.EventHandler(this.DeleteWebserviceBttn_Click);
             // 
             // AllWebserviceForm
             // 
@@ -505,6 +505,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.AllWebserviceKrMaterialLstBx);
             this.Controls.Add(this.groupBox1);
+            this.MinimumSize = new System.Drawing.Size(1234, 637);
             this.Name = "AllWebserviceForm";
             this.Text = "Webservices beheren";
             this.Load += new System.EventHandler(this.AllWebserviceForm_Load);

@@ -41,12 +41,12 @@ namespace WindowsFormsAppTest
             this.checkBoxKraanIni = new MaterialSkin.Controls.MaterialCheckbox();
             this.checkBoxKraanDLL = new MaterialSkin.Controls.MaterialCheckbox();
             this.LblWebserviceVersie = new MaterialSkin.Controls.MaterialLabel();
-            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.ResponseTextBox = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.TestRouteBtn = new MaterialSkin.Controls.MaterialButton();
             this.HttpKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.UrlKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
+            this.TestRouteBtn = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -65,15 +65,17 @@ namespace WindowsFormsAppTest
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.groupBox2.Controls.Add(this.SslChckBx);
             this.groupBox2.Controls.Add(this.SllCertificaatVervalDatumTxtBx);
             this.groupBox2.Controls.Add(this.LblCertificaatVervalDatum);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox2.Location = new System.Drawing.Point(500, 159);
+            this.groupBox2.Location = new System.Drawing.Point(486, 159);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(447, 144);
+            this.groupBox2.Size = new System.Drawing.Size(461, 144);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Results SSL certificaat";
@@ -149,6 +151,8 @@ namespace WindowsFormsAppTest
             // 
             // groupBox3
             // 
+            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.groupBox3.Controls.Add(this.textBoxWebservice);
             this.groupBox3.Controls.Add(this.checkBoxKraanDatabase);
@@ -159,13 +163,15 @@ namespace WindowsFormsAppTest
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.groupBox3.Location = new System.Drawing.Point(25, 159);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(434, 144);
+            this.groupBox3.Size = new System.Drawing.Size(447, 144);
             this.groupBox3.TabIndex = 17;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Results Webservice";
             // 
             // textBoxWebservice
             // 
+            this.textBoxWebservice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxWebservice.AnimateReadOnly = false;
             this.textBoxWebservice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.textBoxWebservice.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -181,7 +187,7 @@ namespace WindowsFormsAppTest
             this.textBoxWebservice.Multiline = false;
             this.textBoxWebservice.Name = "textBoxWebservice";
             this.textBoxWebservice.ReadOnly = true;
-            this.textBoxWebservice.Size = new System.Drawing.Size(272, 50);
+            this.textBoxWebservice.Size = new System.Drawing.Size(291, 50);
             this.textBoxWebservice.TabIndex = 5;
             this.textBoxWebservice.Text = "";
             this.textBoxWebservice.TrailingIcon = null;
@@ -260,19 +266,10 @@ namespace WindowsFormsAppTest
             this.LblWebserviceVersie.TabIndex = 0;
             this.LblWebserviceVersie.Text = "Webservice versie:";
             // 
-            // materialDivider1
-            // 
-            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(465, 159);
-            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(29, 152);
-            this.materialDivider1.TabIndex = 31;
-            this.materialDivider1.Text = "materialDivider1";
-            // 
             // ResponseTextBox
             // 
+            this.ResponseTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ResponseTextBox.AnimateReadOnly = false;
             this.ResponseTextBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ResponseTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
@@ -299,6 +296,7 @@ namespace WindowsFormsAppTest
             // 
             // materialLabel1
             // 
+            this.materialLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.materialLabel1.Depth = 0;
@@ -310,27 +308,6 @@ namespace WindowsFormsAppTest
             this.materialLabel1.Size = new System.Drawing.Size(28, 19);
             this.materialLabel1.TabIndex = 33;
             this.materialLabel1.Text = "Log";
-            // 
-            // TestRouteBtn
-            // 
-            this.TestRouteBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.TestRouteBtn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.TestRouteBtn.Depth = 0;
-            this.TestRouteBtn.HighEmphasis = true;
-            this.TestRouteBtn.Icon = null;
-            this.TestRouteBtn.Location = new System.Drawing.Point(436, 543);
-            this.TestRouteBtn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.TestRouteBtn.MinimumSize = new System.Drawing.Size(50, 0);
-            this.TestRouteBtn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.TestRouteBtn.Name = "TestRouteBtn";
-            this.TestRouteBtn.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.TestRouteBtn.Size = new System.Drawing.Size(106, 36);
-            this.TestRouteBtn.TabIndex = 34;
-            this.TestRouteBtn.Text = "Test Route";
-            this.TestRouteBtn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.TestRouteBtn.UseAccentColor = false;
-            this.TestRouteBtn.UseVisualStyleBackColor = true;
-            this.TestRouteBtn.Click += new System.EventHandler(this.TestRouteBtn_Click);
             // 
             // HttpKrMaterialCmbx
             // 
@@ -359,6 +336,8 @@ namespace WindowsFormsAppTest
             // 
             // UrlKrMaterialCmbx
             // 
+            this.UrlKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.UrlKrMaterialCmbx.AutoResize = false;
             this.UrlKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.UrlKrMaterialCmbx.Depth = 0;
@@ -382,17 +361,41 @@ namespace WindowsFormsAppTest
             this.UrlKrMaterialCmbx.ValueMember = "Id";
             this.UrlKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.UrlKrMaterialCmbx_SelectedIndexChanged);
             // 
+            // TestRouteBtn
+            // 
+            this.TestRouteBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.TestRouteBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.TestRouteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TestRouteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestRouteBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.TestRouteBtn.Location = new System.Drawing.Point(429, 541);
+            this.TestRouteBtn.Name = "TestRouteBtn";
+            this.TestRouteBtn.Size = new System.Drawing.Size(112, 43);
+            this.TestRouteBtn.TabIndex = 63;
+            this.TestRouteBtn.Text = "TEST ROUTE";
+            this.TestRouteBtn.UseVisualStyleBackColor = false;
+            this.TestRouteBtn.Click += new System.EventHandler(this.TestRouteBtn_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Location = new System.Drawing.Point(478, 164);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(2, 139);
+            this.label1.TabIndex = 64;
+            // 
             // EenUrlTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(976, 590);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TestRouteBtn);
             this.Controls.Add(this.UrlKrMaterialCmbx);
             this.Controls.Add(this.HttpKrMaterialCmbx);
-            this.Controls.Add(this.TestRouteBtn);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.ResponseTextBox);
-            this.Controls.Add(this.materialDivider1);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.LblUrl);
             this.Controls.Add(this.groupBox2);
@@ -421,13 +424,13 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialTextBox textBoxWebservice;
         private MaterialSkin.Controls.MaterialLabel LblCertificaatVervalDatum;
         private MaterialSkin.Controls.MaterialTextBox SllCertificaatVervalDatumTxtBx;
-        private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialCheckbox SslChckBx;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 ResponseTextBox;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialButton TestRouteBtn;
         private KrMaterialCombobox HttpKrMaterialCmbx;
         private KrMaterialCombobox UrlKrMaterialCmbx;
+        private System.Windows.Forms.Button TestRouteBtn;
+        private System.Windows.Forms.Label label1;
     }
 }
 

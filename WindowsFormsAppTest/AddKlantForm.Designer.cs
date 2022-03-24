@@ -29,31 +29,10 @@ namespace WindowsFormsAppTest
         /// </summary>
         private void InitializeComponent()
         {
-            this.AddKlantBttn = new MaterialSkin.Controls.MaterialButton();
             this.NewKlantNaamTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.LblName = new MaterialSkin.Controls.MaterialLabel();
+            this.AddKlantBttn = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // AddKlantBttn
-            // 
-            this.AddKlantBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddKlantBttn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.AddKlantBttn.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
-            this.AddKlantBttn.Depth = 0;
-            this.AddKlantBttn.HighEmphasis = true;
-            this.AddKlantBttn.Icon = null;
-            this.AddKlantBttn.Location = new System.Drawing.Point(288, 124);
-            this.AddKlantBttn.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.AddKlantBttn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AddKlantBttn.Name = "AddKlantBttn";
-            this.AddKlantBttn.NoAccentTextColor = System.Drawing.Color.Empty;
-            this.AddKlantBttn.Size = new System.Drawing.Size(156, 36);
-            this.AddKlantBttn.TabIndex = 3;
-            this.AddKlantBttn.Text = "Klant toevoegen";
-            this.AddKlantBttn.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
-            this.AddKlantBttn.UseAccentColor = false;
-            this.AddKlantBttn.UseVisualStyleBackColor = true;
-            this.AddKlantBttn.Click += new System.EventHandler(this.AddKlantBttn_Click);
             // 
             // NewKlantNaamTxtBx
             // 
@@ -111,14 +90,30 @@ namespace WindowsFormsAppTest
             this.LblName.TabIndex = 1;
             this.LblName.Text = "Naam:";
             // 
+            // AddKlantBttn
+            // 
+            this.AddKlantBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddKlantBttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.AddKlantBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddKlantBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddKlantBttn.ForeColor = System.Drawing.SystemColors.Control;
+            this.AddKlantBttn.Location = new System.Drawing.Point(304, 121);
+            this.AddKlantBttn.Name = "AddKlantBttn";
+            this.AddKlantBttn.Size = new System.Drawing.Size(140, 43);
+            this.AddKlantBttn.TabIndex = 28;
+            this.AddKlantBttn.Text = "KLANT TOEVOEGEN";
+            this.AddKlantBttn.UseVisualStyleBackColor = false;
+            this.AddKlantBttn.Click += new System.EventHandler(this.AddKlantBttn_Click);
+            // 
             // AddKlantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(455, 169);
+            this.Controls.Add(this.AddKlantBttn);
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.NewKlantNaamTxtBx);
-            this.Controls.Add(this.AddKlantBttn);
+            this.MaximumSize = new System.Drawing.Size(455, 169);
             this.MinimumSize = new System.Drawing.Size(455, 169);
             this.Name = "AddKlantForm";
             this.Text = "Klant toevoegen";
@@ -128,9 +123,8 @@ namespace WindowsFormsAppTest
         }
 
         #endregion
-
-        private MaterialSkin.Controls.MaterialButton AddKlantBttn;
         private MaterialSkin.Controls.MaterialMaskedTextBox NewKlantNaamTxtBx;
         private MaterialSkin.Controls.MaterialLabel LblName;
+        private System.Windows.Forms.Button AddKlantBttn;
     }
 }

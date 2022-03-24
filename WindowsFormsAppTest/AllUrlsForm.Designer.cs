@@ -46,10 +46,11 @@ namespace WindowsFormsAppTest
             // 
             // LblBewerken
             // 
+            this.LblBewerken.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LblBewerken.AutoSize = true;
             this.LblBewerken.Depth = 0;
             this.LblBewerken.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblBewerken.Location = new System.Drawing.Point(692, 70);
+            this.LblBewerken.Location = new System.Drawing.Point(491, 70);
             this.LblBewerken.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblBewerken.Name = "LblBewerken";
             this.LblBewerken.Size = new System.Drawing.Size(91, 19);
@@ -58,10 +59,11 @@ namespace WindowsFormsAppTest
             // 
             // materialLabel1
             // 
+            this.materialLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(692, 93);
+            this.materialLabel1.Location = new System.Drawing.Point(491, 93);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(77, 19);
@@ -70,14 +72,13 @@ namespace WindowsFormsAppTest
             // 
             // SecurityIdTxtBx
             // 
-            this.SecurityIdTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SecurityIdTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.SecurityIdTxtBx.AnimateReadOnly = false;
             this.SecurityIdTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SecurityIdTxtBx.Depth = 0;
             this.SecurityIdTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.SecurityIdTxtBx.LeadingIcon = null;
-            this.SecurityIdTxtBx.Location = new System.Drawing.Point(788, 90);
+            this.SecurityIdTxtBx.Location = new System.Drawing.Point(587, 90);
             this.SecurityIdTxtBx.MaxLength = 50;
             this.SecurityIdTxtBx.MouseState = MaterialSkin.MouseState.OUT;
             this.SecurityIdTxtBx.Multiline = false;
@@ -90,14 +91,13 @@ namespace WindowsFormsAppTest
             // 
             // UrlTxtBx
             // 
-            this.UrlTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.UrlTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.UrlTxtBx.AnimateReadOnly = false;
             this.UrlTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UrlTxtBx.Depth = 0;
             this.UrlTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.UrlTxtBx.LeadingIcon = null;
-            this.UrlTxtBx.Location = new System.Drawing.Point(788, 146);
+            this.UrlTxtBx.Location = new System.Drawing.Point(587, 146);
             this.UrlTxtBx.MaxLength = 50;
             this.UrlTxtBx.MouseState = MaterialSkin.MouseState.OUT;
             this.UrlTxtBx.Multiline = false;
@@ -110,10 +110,11 @@ namespace WindowsFormsAppTest
             // 
             // LblUrl
             // 
+            this.LblUrl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LblUrl.AutoSize = true;
             this.LblUrl.Depth = 0;
             this.LblUrl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblUrl.Location = new System.Drawing.Point(692, 152);
+            this.LblUrl.Location = new System.Drawing.Point(491, 152);
             this.LblUrl.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblUrl.Name = "LblUrl";
             this.LblUrl.Size = new System.Drawing.Size(24, 19);
@@ -122,10 +123,11 @@ namespace WindowsFormsAppTest
             // 
             // materialLabel3
             // 
+            this.materialLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(692, 204);
+            this.materialLabel3.Location = new System.Drawing.Point(491, 204);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(85, 19);
@@ -134,10 +136,11 @@ namespace WindowsFormsAppTest
             // 
             // LblKlant
             // 
+            this.LblKlant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.LblKlant.AutoSize = true;
             this.LblKlant.Depth = 0;
             this.LblKlant.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblKlant.Location = new System.Drawing.Point(692, 259);
+            this.LblKlant.Location = new System.Drawing.Point(491, 259);
             this.LblKlant.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblKlant.Name = "LblKlant";
             this.LblKlant.Size = new System.Drawing.Size(38, 19);
@@ -146,8 +149,9 @@ namespace WindowsFormsAppTest
             // 
             // AllUrlsKrMaterialLstBx
             // 
-            this.AllUrlsKrMaterialLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.AllUrlsKrMaterialLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.AllUrlsKrMaterialLstBx.BackColor = System.Drawing.Color.White;
             this.AllUrlsKrMaterialLstBx.BorderColor = System.Drawing.Color.LightGray;
             this.AllUrlsKrMaterialLstBx.Depth = 0;
@@ -157,14 +161,13 @@ namespace WindowsFormsAppTest
             this.AllUrlsKrMaterialLstBx.Name = "AllUrlsKrMaterialLstBx";
             this.AllUrlsKrMaterialLstBx.SelectedIndex = -1;
             this.AllUrlsKrMaterialLstBx.SelectedItem = null;
-            this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(680, 289);
+            this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(479, 291);
             this.AllUrlsKrMaterialLstBx.TabIndex = 54;
             this.AllUrlsKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllUrlsKrMaterialLstBx_SelectedIndexChanged);
             // 
             // WebserviceKrMaterialCmbx
             // 
-            this.WebserviceKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.WebserviceKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.WebserviceKrMaterialCmbx.AutoResize = false;
             this.WebserviceKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.WebserviceKrMaterialCmbx.Depth = 0;
@@ -178,7 +181,7 @@ namespace WindowsFormsAppTest
             this.WebserviceKrMaterialCmbx.FormattingEnabled = true;
             this.WebserviceKrMaterialCmbx.IntegralHeight = false;
             this.WebserviceKrMaterialCmbx.ItemHeight = 43;
-            this.WebserviceKrMaterialCmbx.Location = new System.Drawing.Point(788, 203);
+            this.WebserviceKrMaterialCmbx.Location = new System.Drawing.Point(587, 203);
             this.WebserviceKrMaterialCmbx.MaxDropDownItems = 4;
             this.WebserviceKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
             this.WebserviceKrMaterialCmbx.Name = "WebserviceKrMaterialCmbx";
@@ -190,8 +193,7 @@ namespace WindowsFormsAppTest
             // 
             // KlantKrMaterialCmbx
             // 
-            this.KlantKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.KlantKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.KlantKrMaterialCmbx.AutoResize = false;
             this.KlantKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.KlantKrMaterialCmbx.Depth = 0;
@@ -205,7 +207,7 @@ namespace WindowsFormsAppTest
             this.KlantKrMaterialCmbx.FormattingEnabled = true;
             this.KlantKrMaterialCmbx.IntegralHeight = false;
             this.KlantKrMaterialCmbx.ItemHeight = 43;
-            this.KlantKrMaterialCmbx.Location = new System.Drawing.Point(788, 259);
+            this.KlantKrMaterialCmbx.Location = new System.Drawing.Point(587, 259);
             this.KlantKrMaterialCmbx.MaxDropDownItems = 4;
             this.KlantKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
             this.KlantKrMaterialCmbx.Name = "KlantKrMaterialCmbx";
@@ -222,7 +224,7 @@ namespace WindowsFormsAppTest
             this.DeleteUrlBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteUrlBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteUrlBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.DeleteUrlBttn.Location = new System.Drawing.Point(693, 314);
+            this.DeleteUrlBttn.Location = new System.Drawing.Point(492, 316);
             this.DeleteUrlBttn.Name = "DeleteUrlBttn";
             this.DeleteUrlBttn.Size = new System.Drawing.Size(112, 43);
             this.DeleteUrlBttn.TabIndex = 57;
@@ -237,7 +239,7 @@ namespace WindowsFormsAppTest
             this.AddUrlBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddUrlBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddUrlBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddUrlBtn.Location = new System.Drawing.Point(962, 315);
+            this.AddUrlBtn.Location = new System.Drawing.Point(761, 317);
             this.AddUrlBtn.Name = "AddUrlBtn";
             this.AddUrlBtn.Size = new System.Drawing.Size(112, 43);
             this.AddUrlBtn.TabIndex = 58;
@@ -251,7 +253,7 @@ namespace WindowsFormsAppTest
             this.PasUrlAanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PasUrlAanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasUrlAanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.PasUrlAanBtn.Location = new System.Drawing.Point(1080, 314);
+            this.PasUrlAanBtn.Location = new System.Drawing.Point(879, 316);
             this.PasUrlAanBtn.Name = "PasUrlAanBtn";
             this.PasUrlAanBtn.Size = new System.Drawing.Size(112, 43);
             this.PasUrlAanBtn.TabIndex = 59;
@@ -263,7 +265,7 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1201, 364);
+            this.ClientSize = new System.Drawing.Size(1000, 366);
             this.Controls.Add(this.PasUrlAanBtn);
             this.Controls.Add(this.AddUrlBtn);
             this.Controls.Add(this.DeleteUrlBttn);
@@ -277,7 +279,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.SecurityIdTxtBx);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.LblBewerken);
-            this.MinimumSize = new System.Drawing.Size(1201, 364);
+            this.MinimumSize = new System.Drawing.Size(1000, 364);
             this.Name = "AllUrlsForm";
             this.Text = "Urls beheren";
             this.ResumeLayout(false);
