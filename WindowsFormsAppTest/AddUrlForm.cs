@@ -18,11 +18,13 @@ namespace WindowsFormsAppTest
         KlantTest _klantTest;
 
         private int _klantId;
+        private int _webserviceId;
 
         public AddUrlForm()
         {
             InitializeComponent();
             _klantId = AllKlantenForm.SetValueForKlantId;
+            _webserviceId = AllWebserviceForm.SetValueForWeberviceId;
             _webserviceTest = new WebserviceTest();
             _klantTest = new KlantTest();
             _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
@@ -34,6 +36,10 @@ namespace WindowsFormsAppTest
         private void FillCmbxWebServices()
         {
             WebserviceKrMaterialCmbx.FillCmbBoxWebservice(_webServiceDatas);
+            if (_webserviceId != 0)
+            {
+                WebserviceKrMaterialCmbx.SelectedValue = _webserviceId;
+            }
         }
 
         private void FillCmbxKlanten()

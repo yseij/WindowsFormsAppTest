@@ -47,10 +47,10 @@ namespace WindowsFormsAppTest
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.AllUrlsKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.KlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.WebserviceKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
+            this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
+            this.AllUrlsKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.AllWebserviceKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -431,33 +431,6 @@ namespace WindowsFormsAppTest
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Url bewerken";
             // 
-            // materialLabel6
-            // 
-            this.materialLabel6.AutoSize = true;
-            this.materialLabel6.Depth = 0;
-            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel6.Location = new System.Drawing.Point(6, 315);
-            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel6.Name = "materialLabel6";
-            this.materialLabel6.Size = new System.Drawing.Size(194, 19);
-            this.materialLabel6.TabIndex = 78;
-            this.materialLabel6.Text = "Urls bij gekozen webservice";
-            // 
-            // AllUrlsKrMaterialLstBx
-            // 
-            this.AllUrlsKrMaterialLstBx.BackColor = System.Drawing.Color.White;
-            this.AllUrlsKrMaterialLstBx.BorderColor = System.Drawing.Color.LightGray;
-            this.AllUrlsKrMaterialLstBx.Depth = 0;
-            this.AllUrlsKrMaterialLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.AllUrlsKrMaterialLstBx.Location = new System.Drawing.Point(7, 337);
-            this.AllUrlsKrMaterialLstBx.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AllUrlsKrMaterialLstBx.Name = "AllUrlsKrMaterialLstBx";
-            this.AllUrlsKrMaterialLstBx.SelectedIndex = -1;
-            this.AllUrlsKrMaterialLstBx.SelectedItem = null;
-            this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(742, 292);
-            this.AllUrlsKrMaterialLstBx.TabIndex = 77;
-            this.AllUrlsKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllUrlsKrMaterialLstBx_SelectedIndexChanged);
-            // 
             // KlantKrMaterialCmbx
             // 
             this.KlantKrMaterialCmbx.AutoResize = false;
@@ -508,6 +481,33 @@ namespace WindowsFormsAppTest
             this.WebserviceKrMaterialCmbx.ValueMember = "Id";
             this.WebserviceKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.WebserviceKrMaterialCmbx_SelectedIndexChanged);
             // 
+            // materialLabel6
+            // 
+            this.materialLabel6.AutoSize = true;
+            this.materialLabel6.Depth = 0;
+            this.materialLabel6.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel6.Location = new System.Drawing.Point(6, 315);
+            this.materialLabel6.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel6.Name = "materialLabel6";
+            this.materialLabel6.Size = new System.Drawing.Size(194, 19);
+            this.materialLabel6.TabIndex = 78;
+            this.materialLabel6.Text = "Urls bij gekozen webservice";
+            // 
+            // AllUrlsKrMaterialLstBx
+            // 
+            this.AllUrlsKrMaterialLstBx.BackColor = System.Drawing.Color.White;
+            this.AllUrlsKrMaterialLstBx.BorderColor = System.Drawing.Color.LightGray;
+            this.AllUrlsKrMaterialLstBx.Depth = 0;
+            this.AllUrlsKrMaterialLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.AllUrlsKrMaterialLstBx.Location = new System.Drawing.Point(7, 337);
+            this.AllUrlsKrMaterialLstBx.MouseState = MaterialSkin.MouseState.HOVER;
+            this.AllUrlsKrMaterialLstBx.Name = "AllUrlsKrMaterialLstBx";
+            this.AllUrlsKrMaterialLstBx.SelectedIndex = -1;
+            this.AllUrlsKrMaterialLstBx.SelectedItem = null;
+            this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(742, 292);
+            this.AllUrlsKrMaterialLstBx.TabIndex = 77;
+            this.AllUrlsKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllUrlsKrMaterialLstBx_SelectedIndexChanged);
+            // 
             // AllWebserviceKrMaterialLstBx
             // 
             this.AllWebserviceKrMaterialLstBx.BackColor = System.Drawing.Color.White;
@@ -538,6 +538,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.groupBox1);
             this.Name = "AllWebserviceForm";
             this.Text = "Webservices beheren";
+            this.Load += new System.EventHandler(this.AllWebserviceForm_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

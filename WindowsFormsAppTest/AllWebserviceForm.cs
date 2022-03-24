@@ -234,5 +234,10 @@ namespace WindowsFormsAppTest
             SecurityIdTxtBx.Text = string.Empty;
             UrlTxtBx.Text = string.Empty;
         }
+
+        private void AllWebserviceForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
