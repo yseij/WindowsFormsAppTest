@@ -11,6 +11,7 @@ namespace WindowsFormsAppTest
         private string _changedKlant = "";
         private string _changedSecurityId = "";
         private string _changedUrl = "";
+        private string _zoekOpKlantNaam = "";
         private int _selectedKlantId;
         private int _selectedKlantIdForChange;
         private int _selectedWebserviceIdForChange;
@@ -33,14 +34,29 @@ namespace WindowsFormsAppTest
             _klantTest = new KlantTest();
             _webserviceTest = new WebserviceTest();
 
-            GetKlanten();
+
+
+            GetKlantenIfZoekOpNaamIsLeeg();
             GetWebservices();
         }
 
-        private void GetKlanten()
+        private void GetKlantenIfZoekOpNaamIsLeeg()
         {
             _klantDatas = _klantTest.GetKlantData();
             _klantDatasForChange = _klantTest.GetKlantData();
+            FillLstBxKlanten();
+            FillCmbxKlanten();
+
+            KlantTxtBx.Text = _klantDatas[0].Name;
+            AllKlantKrMaterialLstBx.SelectedIndex = 0;
+
+            GetUrlsFromKlant(_klantDatas[0].Id);
+        }
+
+        private void GetKlantenIfZoekOpNaamIsGevuld()
+        {
+            _klantDatas = _klantTest.GetKlantDataByKlantName(_zoekOpKlantNaam);
+            _klantDatasForChange = _klantTest.GetKlantDataByKlantName(_zoekOpKlantNaam);
             FillLstBxKlanten();
             FillCmbxKlanten();
 
@@ -137,13 +153,13 @@ namespace WindowsFormsAppTest
         private void PasKlantAanBtn_Click(object sender, EventArgs e)
         {
             _klantTest.UpdateKlant((int)AllKlantKrMaterialLstBx.SelectedItem.Tag, _changedKlant);
-            GetKlanten();
+            GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
         private void DeleteKlantBttn_Click(object sender, EventArgs e)
         {
             _klantTest.DeleteKlant((int)AllKlantKrMaterialLstBx.SelectedItem.Tag);
-            GetKlanten();
+            GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
         private void AllUrlsKrMaterialLstBx_SelectedIndexChanged(object sender, MaterialListBoxItem selectedItem)
@@ -207,7 +223,7 @@ namespace WindowsFormsAppTest
 
         private void ChildFormClosingAddKlantForm(object sender, FormClosingEventArgs e)
         {
-            GetKlanten();
+            GetKlantenIfZoekOpKlantenNaamIsGevuld();
             AllKlantKrMaterialLstBx.SelectedIndex = AllKlantKrMaterialLstBx.Items.Count - 1;
             _selectedKlantId = _klantDatas[_klantDatas.Count - 1].Id;
         }
@@ -233,19 +249,22 @@ namespace WindowsFormsAppTest
             UrlTxtBx.Text = string.Empty;
         }
 
-        private void groupBox2_Enter(object sender, EventArgs e)
+        private void GetKlantenIfZoekOpKlantenNaamIsGevuld()
         {
-
+            if (_zoekOpKlantNaam != string.Empty)
+            {
+                GetKlantenIfZoekOpNaamIsGevuld();
+            }
+            else
+            {
+                GetKlantenIfZoekOpNaamIsLeeg();
+            }
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void ZoekOpKlantNaamTxtBx_TextChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
+            _zoekOpKlantNaam = ZoekOpKlantNaamTxtBx.Text;
+            GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
     }
 }

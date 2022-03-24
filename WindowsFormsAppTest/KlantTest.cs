@@ -9,7 +9,7 @@ namespace WindowsFormsAppTest
     {
         public KlantTest()
         {
-            GetKlantData();
+
         }
 
         private string ConnectieDB => ConfigurationManager.AppSettings["connectieString"];
@@ -29,6 +29,32 @@ namespace WindowsFormsAppTest
 
                 cmd.CommandText = "SELECT * FROM Klant";
                 cmd.CommandType = CommandType.Text;
+                connection.Open();
+                rows_returned = sda.Fill(dt);
+                connection.Close();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    klantDatas.Add(new KlantData((int)dr[0], dr[1].ToString()));
+                }
+            }
+
+            return klantDatas;
+        }
+
+        public List<KlantData> GetKlantDataByKlantName(string name)
+        {
+            List<KlantData> klantDatas = new List<KlantData>();
+
+            DataTable dt = new DataTable();
+            int rows_returned;
+
+            using (SqlConnection connection = new SqlConnection(ConnectieDB))
+            {
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM Klant where name like '%" + name + "%'";
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
                 connection.Open();
                 rows_returned = sda.Fill(dt);
                 connection.Close();
