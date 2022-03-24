@@ -64,12 +64,13 @@ namespace WindowsFormsAppTest
             this.groupBox1.Controls.Add(this.KlantTxtBx);
             this.groupBox1.Controls.Add(this.DeleteKlantBttn);
             this.groupBox1.Controls.Add(this.LblNaam);
-            this.groupBox1.Location = new System.Drawing.Point(376, 91);
+            this.groupBox1.Location = new System.Drawing.Point(514, 175);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(472, 198);
             this.groupBox1.TabIndex = 57;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Klant bewerken";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // PasKlantAanBtn
             // 
@@ -177,7 +178,7 @@ namespace WindowsFormsAppTest
             this.LblKlant.AutoSize = true;
             this.LblKlant.Depth = 0;
             this.LblKlant.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblKlant.Location = new System.Drawing.Point(7, 68);
+            this.LblKlant.Location = new System.Drawing.Point(4, 152);
             this.LblKlant.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblKlant.Name = "LblKlant";
             this.LblKlant.Size = new System.Drawing.Size(55, 19);
@@ -189,7 +190,7 @@ namespace WindowsFormsAppTest
             this.LblUrlsByKlant.AutoSize = true;
             this.LblUrlsByKlant.Depth = 0;
             this.LblUrlsByKlant.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblUrlsByKlant.Location = new System.Drawing.Point(7, 294);
+            this.LblUrlsByKlant.Location = new System.Drawing.Point(6, 386);
             this.LblUrlsByKlant.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblUrlsByKlant.Name = "LblUrlsByKlant";
             this.LblUrlsByKlant.Size = new System.Drawing.Size(172, 19);
@@ -347,12 +348,13 @@ namespace WindowsFormsAppTest
             this.groupBox2.Controls.Add(this.UrlTxtBx);
             this.groupBox2.Controls.Add(this.LblWebservice);
             this.groupBox2.Controls.Add(this.materialLabel4);
-            this.groupBox2.Location = new System.Drawing.Point(377, 316);
+            this.groupBox2.Location = new System.Drawing.Point(518, 408);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(472, 286);
+            this.groupBox2.Size = new System.Drawing.Size(472, 304);
             this.groupBox2.TabIndex = 58;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Url bewerken";
+            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // PasUrlAanBtn
             // 
@@ -361,7 +363,7 @@ namespace WindowsFormsAppTest
             this.PasUrlAanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PasUrlAanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasUrlAanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.PasUrlAanBtn.Location = new System.Drawing.Point(354, 240);
+            this.PasUrlAanBtn.Location = new System.Drawing.Point(354, 258);
             this.PasUrlAanBtn.Name = "PasUrlAanBtn";
             this.PasUrlAanBtn.Size = new System.Drawing.Size(112, 43);
             this.PasUrlAanBtn.TabIndex = 83;
@@ -375,7 +377,7 @@ namespace WindowsFormsAppTest
             this.AddUrlByWebserviceBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddUrlByWebserviceBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddUrlByWebserviceBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddUrlByWebserviceBttn.Location = new System.Drawing.Point(236, 240);
+            this.AddUrlByWebserviceBttn.Location = new System.Drawing.Point(236, 258);
             this.AddUrlByWebserviceBttn.Name = "AddUrlByWebserviceBttn";
             this.AddUrlByWebserviceBttn.Size = new System.Drawing.Size(112, 43);
             this.AddUrlByWebserviceBttn.TabIndex = 82;
@@ -416,7 +418,7 @@ namespace WindowsFormsAppTest
             this.DeleteUrlBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteUrlBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteUrlBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.DeleteUrlBttn.Location = new System.Drawing.Point(6, 240);
+            this.DeleteUrlBttn.Location = new System.Drawing.Point(6, 258);
             this.DeleteUrlBttn.Name = "DeleteUrlBttn";
             this.DeleteUrlBttn.Size = new System.Drawing.Size(112, 43);
             this.DeleteUrlBttn.TabIndex = 81;
@@ -459,12 +461,12 @@ namespace WindowsFormsAppTest
             this.AllUrlsKrMaterialLstBx.BorderColor = System.Drawing.Color.LightGray;
             this.AllUrlsKrMaterialLstBx.Depth = 0;
             this.AllUrlsKrMaterialLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.AllUrlsKrMaterialLstBx.Location = new System.Drawing.Point(7, 316);
+            this.AllUrlsKrMaterialLstBx.Location = new System.Drawing.Point(7, 408);
             this.AllUrlsKrMaterialLstBx.MouseState = MaterialSkin.MouseState.HOVER;
             this.AllUrlsKrMaterialLstBx.Name = "AllUrlsKrMaterialLstBx";
             this.AllUrlsKrMaterialLstBx.SelectedIndex = -1;
             this.AllUrlsKrMaterialLstBx.SelectedItem = null;
-            this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(363, 286);
+            this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(504, 304);
             this.AllUrlsKrMaterialLstBx.TabIndex = 65;
             this.AllUrlsKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllUrlsKrMaterialLstBx_SelectedIndexChanged);
             // 
@@ -476,12 +478,12 @@ namespace WindowsFormsAppTest
             this.AllKlantKrMaterialLstBx.BorderColor = System.Drawing.Color.LightGray;
             this.AllKlantKrMaterialLstBx.Depth = 0;
             this.AllKlantKrMaterialLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.AllKlantKrMaterialLstBx.Location = new System.Drawing.Point(6, 90);
+            this.AllKlantKrMaterialLstBx.Location = new System.Drawing.Point(3, 174);
             this.AllKlantKrMaterialLstBx.MouseState = MaterialSkin.MouseState.HOVER;
             this.AllKlantKrMaterialLstBx.Name = "AllKlantKrMaterialLstBx";
             this.AllKlantKrMaterialLstBx.SelectedIndex = -1;
             this.AllKlantKrMaterialLstBx.SelectedItem = null;
-            this.AllKlantKrMaterialLstBx.Size = new System.Drawing.Size(363, 199);
+            this.AllKlantKrMaterialLstBx.Size = new System.Drawing.Size(504, 199);
             this.AllKlantKrMaterialLstBx.TabIndex = 64;
             this.AllKlantKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllKlantKrMaterialLstBx_SelectedIndexChanged);
             // 
@@ -490,16 +492,17 @@ namespace WindowsFormsAppTest
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Location = new System.Drawing.Point(6, 292);
+            this.label3.Location = new System.Drawing.Point(3, 376);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(842, 2);
+            this.label3.Size = new System.Drawing.Size(983, 2);
             this.label3.TabIndex = 80;
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // AllKlantenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(854, 605);
+            this.ClientSize = new System.Drawing.Size(995, 715);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.AllUrlsKrMaterialLstBx);
             this.Controls.Add(this.AllKlantKrMaterialLstBx);

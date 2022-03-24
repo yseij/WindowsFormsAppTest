@@ -282,8 +282,8 @@ namespace WindowsFormsAppTest
             this.ResponseTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.ResponseTextBox.Name = "ResponseTextBox";
             this.ResponseTextBox.PasswordChar = '\0';
-            this.ResponseTextBox.ReadOnly = false;
-            this.ResponseTextBox.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.ResponseTextBox.ReadOnly = true;
+            this.ResponseTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ResponseTextBox.SelectedText = "";
             this.ResponseTextBox.SelectionLength = 0;
             this.ResponseTextBox.SelectionStart = 0;

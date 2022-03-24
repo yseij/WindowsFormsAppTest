@@ -232,5 +232,20 @@ namespace WindowsFormsAppTest
             SecurityIdTxtBx.Text = string.Empty;
             UrlTxtBx.Text = string.Empty;
         }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

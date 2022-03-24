@@ -332,7 +332,7 @@
             this.txtTestResultaat.MouseState = MaterialSkin.MouseState.OUT;
             this.txtTestResultaat.Name = "txtTestResultaat";
             this.txtTestResultaat.PasswordChar = '\0';
-            this.txtTestResultaat.ReadOnly = false;
+            this.txtTestResultaat.ReadOnly = true;
             this.txtTestResultaat.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtTestResultaat.SelectedText = "";
             this.txtTestResultaat.SelectionLength = 0;
