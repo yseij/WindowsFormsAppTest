@@ -9,8 +9,7 @@ namespace WindowsFormsAppTest
     {
         public KrMaterialCombobox()
         {
-            ValueMember = "Id";
-            DisplayMember = "Name";
+
         }
 
         private void ClearDataSource()
@@ -18,28 +17,38 @@ namespace WindowsFormsAppTest
             DataSource = null;
         }
 
+        private void SetDisplayAndValueMember()
+        {
+            ValueMember = "Id";
+            DisplayMember = "Name";
+        }
+
         public void FillCmbBoxUrl(List<UrlData> urlDatas)
         {
             ClearDataSource();
             DataSource = urlDatas;
+            SetDisplayAndValueMember();
         }
 
         public void FillCmbBoxWebservice(List<WebServiceData> webServiceDatas)
         {
             ClearDataSource();
             DataSource = webServiceDatas;
+            SetDisplayAndValueMember();
         }
 
         public void FillCmbBoxKlant(List<KlantData> klantDatas)
         {
             ClearDataSource();
             DataSource = klantDatas;
+            SetDisplayAndValueMember();
         }
 
         public void FillCmbBoxRest(List<string> data)
         {
             ClearDataSource();
             DataSource = data;
+            SetDisplayAndValueMember();
         }
     }
 }

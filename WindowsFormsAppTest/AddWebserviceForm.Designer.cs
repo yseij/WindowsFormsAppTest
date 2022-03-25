@@ -113,7 +113,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.NewKlantNaamTxtBx);
             this.Name = "AddWebserviceForm";
-            this.Text = "AddWebserviceForm";
+            this.Text = "Webservice toevoegen";
             this.ResumeLayout(false);
             this.PerformLayout();
 

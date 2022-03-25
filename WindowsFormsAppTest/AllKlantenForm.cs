@@ -34,8 +34,6 @@ namespace WindowsFormsAppTest
             _klantTest = new KlantTest();
             _webserviceTest = new WebserviceTest();
 
-
-
             GetKlantenIfZoekOpNaamIsLeeg();
             GetWebservices();
         }
@@ -56,14 +54,19 @@ namespace WindowsFormsAppTest
         private void GetKlantenIfZoekOpNaamIsGevuld()
         {
             _klantDatas = _klantTest.GetKlantDataByKlantName(_zoekOpKlantNaam);
-            _klantDatasForChange = _klantTest.GetKlantDataByKlantName(_zoekOpKlantNaam);
-            FillLstBxKlanten();
-            FillCmbxKlanten();
+            _klantDatasForChange = _klantTest.GetKlantData();
 
-            KlantTxtBx.Text = _klantDatas[0].Name;
-            AllKlantKrMaterialLstBx.SelectedIndex = 0;
-
-            GetUrlsFromKlant(_klantDatas[0].Id);
+            if (_klantDatas.Count > 0)
+            {
+                FillLstBxKlanten();
+                FillCmbxKlanten();
+                GetUrlsFromKlant(_klantDatas[0].Id);
+            }
+            else
+            {
+                AllUrlsKrMaterialLstBx.ClearListBox();
+                AllKlantKrMaterialLstBx.ClearListBox();
+            }
         }
 
         private void GetUrlsFromKlant(int id)
@@ -89,11 +92,12 @@ namespace WindowsFormsAppTest
 
         private void FillLstBxUlsFromKlant()
         {
-            AllUrlsKrMaterialLstBx.FillListBoxUrlData(_urlDatasByKlant);
-            if (_urlDatasByKlant.Count > 0)
+           AllUrlsKrMaterialLstBx.FillListBoxUrlData(_urlDatasByKlant);
+           if (_urlDatasByKlant.Count > 0)
             {
                 AllUrlsKrMaterialLstBx.SelectedIndex = 0;
                 _selectedUrlId = _urlDatasByKlant[0].Id;
+                FillUrlData(_urlDatasByKlant[0]);
 
                 PasUrlAanBtn.Enabled = true;
                 DeleteUrlBttn.Enabled = true;

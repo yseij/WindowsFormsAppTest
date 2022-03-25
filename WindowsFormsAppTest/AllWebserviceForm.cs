@@ -97,7 +97,6 @@ namespace WindowsFormsAppTest
         {
             WebserviceKrMaterialCmbx.FillCmbBoxWebservice(_WebserviceDatasForChange);
             WebserviceKrMaterialCmbx.SelectedValue = _selectedWebserviceId;
-            WebserviceKrMaterialCmbx.DisplayMember = "Name";
         }
 
         private void FillCmbxKlanten()
