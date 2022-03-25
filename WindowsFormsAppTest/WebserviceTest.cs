@@ -53,7 +53,7 @@ namespace WindowsFormsAppTest
             int rows_returned;
 
             using (SqlConnection connection = new SqlConnection(ConnectieDB))
-            //{
+            {
                 SqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = "SELECT * FROM WebService where name like '%" + name + "%'";
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
