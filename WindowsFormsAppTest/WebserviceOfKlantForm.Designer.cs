@@ -47,8 +47,8 @@ namespace WindowsFormsAppTest
             this.AantalLegeUrlsTxtBx = new MaterialSkin.Controls.MaterialTextBox();
             this.LblAantalLegeUrls = new MaterialSkin.Controls.MaterialLabel();
             this.ResponseTextBox = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
-            this.WebserviceOfKlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.TestAllBtn = new System.Windows.Forms.Button();
+            this.WebserviceOfKlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -115,7 +115,7 @@ namespace WindowsFormsAppTest
             this.textBoxWebservice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.textBoxWebservice.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxWebservice.Depth = 0;
-            this.textBoxWebservice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxWebservice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.textBoxWebservice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.textBoxWebservice.LeadingIcon = null;
             this.textBoxWebservice.Location = new System.Drawing.Point(142, 19);
@@ -242,7 +242,7 @@ namespace WindowsFormsAppTest
             this.SllCertificaatVervalDatumTxtBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.SllCertificaatVervalDatumTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SllCertificaatVervalDatumTxtBx.Depth = 0;
-            this.SllCertificaatVervalDatumTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.SllCertificaatVervalDatumTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.SllCertificaatVervalDatumTxtBx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.SllCertificaatVervalDatumTxtBx.LeadingIcon = null;
             this.SllCertificaatVervalDatumTxtBx.Location = new System.Drawing.Point(189, 22);
@@ -322,7 +322,7 @@ namespace WindowsFormsAppTest
             this.AantalLegeUrlsTxtBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.AantalLegeUrlsTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AantalLegeUrlsTxtBx.Depth = 0;
-            this.AantalLegeUrlsTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.AantalLegeUrlsTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.AantalLegeUrlsTxtBx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.AantalLegeUrlsTxtBx.LeadingIcon = null;
             this.AantalLegeUrlsTxtBx.Location = new System.Drawing.Point(65, 22);
@@ -376,9 +376,22 @@ namespace WindowsFormsAppTest
             this.ResponseTextBox.Size = new System.Drawing.Size(450, 261);
             this.ResponseTextBox.TabIndex = 32;
             this.ResponseTextBox.TabStop = false;
-            this.ResponseTextBox.Text = "materialMultiLineTextBox21";
             this.ResponseTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.ResponseTextBox.UseSystemPasswordChar = false;
+            // 
+            // TestAllBtn
+            // 
+            this.TestAllBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.TestAllBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TestAllBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestAllBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.TestAllBtn.Location = new System.Drawing.Point(21, 152);
+            this.TestAllBtn.Name = "TestAllBtn";
+            this.TestAllBtn.Size = new System.Drawing.Size(439, 43);
+            this.TestAllBtn.TabIndex = 65;
+            this.TestAllBtn.Text = "Test Alles";
+            this.TestAllBtn.UseVisualStyleBackColor = false;
+            this.TestAllBtn.Click += new System.EventHandler(this.TestAllBtn_Click_1);
             // 
             // WebserviceOfKlantKrMaterialCmbx
             // 
@@ -404,20 +417,6 @@ namespace WindowsFormsAppTest
             this.WebserviceOfKlantKrMaterialCmbx.TabIndex = 33;
             this.WebserviceOfKlantKrMaterialCmbx.ValueMember = "Id";
             this.WebserviceOfKlantKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.WebserviceOfKlantKrMaterialCmbx_SelectedIndexChanged);
-            // 
-            // TestAllBtn
-            // 
-            this.TestAllBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.TestAllBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.TestAllBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TestAllBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.TestAllBtn.Location = new System.Drawing.Point(21, 152);
-            this.TestAllBtn.Name = "TestAllBtn";
-            this.TestAllBtn.Size = new System.Drawing.Size(439, 43);
-            this.TestAllBtn.TabIndex = 65;
-            this.TestAllBtn.Text = "Test Alles";
-            this.TestAllBtn.UseVisualStyleBackColor = false;
-            this.TestAllBtn.Click += new System.EventHandler(this.TestAllBtn_Click_1);
             // 
             // WebserviceOfKlantForm
             // 

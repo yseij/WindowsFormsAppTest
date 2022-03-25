@@ -55,6 +55,7 @@ namespace WindowsFormsAppTest
             this.label1 = new System.Windows.Forms.Label();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.ZoekOpWebserviceNaamTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
+            this.SoapWebserviceChkBx = new MaterialSkin.Controls.MaterialCheckbox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -62,6 +63,7 @@ namespace WindowsFormsAppTest
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.SoapWebserviceChkBx);
             this.groupBox1.Controls.Add(this.PasWebserviceAanBtn);
             this.groupBox1.Controls.Add(this.AddWebserviceBtn);
             this.groupBox1.Controls.Add(this.DeleteWebserviceBttn);
@@ -551,7 +553,7 @@ namespace WindowsFormsAppTest
             this.ZoekOpWebserviceNaamTxtBx.ShortcutsEnabled = true;
             this.ZoekOpWebserviceNaamTxtBx.Size = new System.Drawing.Size(363, 48);
             this.ZoekOpWebserviceNaamTxtBx.SkipLiterals = true;
-            this.ZoekOpWebserviceNaamTxtBx.TabIndex = 86;
+            this.ZoekOpWebserviceNaamTxtBx.TabIndex = 1;
             this.ZoekOpWebserviceNaamTxtBx.TabStop = false;
             this.ZoekOpWebserviceNaamTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.ZoekOpWebserviceNaamTxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
@@ -559,6 +561,24 @@ namespace WindowsFormsAppTest
             this.ZoekOpWebserviceNaamTxtBx.UseSystemPasswordChar = false;
             this.ZoekOpWebserviceNaamTxtBx.ValidatingType = null;
             this.ZoekOpWebserviceNaamTxtBx.TextChanged += new System.EventHandler(this.ZoekOpWebserviceNaamTxtBx_TextChanged);
+            // 
+            // SoapWebserviceChkBx
+            // 
+            this.SoapWebserviceChkBx.AutoSize = true;
+            this.SoapWebserviceChkBx.Depth = 0;
+            this.SoapWebserviceChkBx.Location = new System.Drawing.Point(61, 70);
+            this.SoapWebserviceChkBx.Margin = new System.Windows.Forms.Padding(0);
+            this.SoapWebserviceChkBx.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.SoapWebserviceChkBx.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SoapWebserviceChkBx.Name = "SoapWebserviceChkBx";
+            this.SoapWebserviceChkBx.ReadOnly = false;
+            this.SoapWebserviceChkBx.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SoapWebserviceChkBx.Ripple = true;
+            this.SoapWebserviceChkBx.Size = new System.Drawing.Size(154, 37);
+            this.SoapWebserviceChkBx.TabIndex = 89;
+            this.SoapWebserviceChkBx.Text = "Soap webservice";
+            this.SoapWebserviceChkBx.UseVisualStyleBackColor = true;
+            this.SoapWebserviceChkBx.CheckedChanged += new System.EventHandler(this.SoapWebserviceChkBx_CheckedChanged);
             // 
             // AllWebserviceForm
             // 
@@ -615,5 +635,6 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Label label1;
         private MaterialSkin.Controls.MaterialLabel materialLabel7;
         private MaterialSkin.Controls.MaterialMaskedTextBox ZoekOpWebserviceNaamTxtBx;
+        private MaterialSkin.Controls.MaterialCheckbox SoapWebserviceChkBx;
     }
 }

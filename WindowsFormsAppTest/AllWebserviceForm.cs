@@ -16,6 +16,8 @@ namespace WindowsFormsAppTest
         private int _selectedUrlId;
         private int _selectedKlantIdForChange;
         private int _selectedWebserviceIdForChange;
+        private bool _isSoap;
+
 
         private List<UrlData> _urlDatasByWebservice = new List<UrlData>();
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
@@ -125,7 +127,7 @@ namespace WindowsFormsAppTest
             KlantKrMaterialCmbx.SelectedValue = _klantDatas[0].Id;
         }
 
-        private void AllWebserviceKrMaterialLstBx_SelectedIndexChanged(object sender, MaterialSkin.MaterialListBoxItem selectedItem)
+        private void AllWebserviceKrMaterialLstBx_SelectedIndexChanged(object sender, MaterialListBoxItem selectedItem)
         {
             if (AllWebserviceKrMaterialLstBx.Items != null)
             {
@@ -134,6 +136,7 @@ namespace WindowsFormsAppTest
                 GetUrlsFromWebservice(idOfSelected);
                 WebServiceData webServiceData = _webServiceDatas.Find(k => k.Id == idOfSelected);
                 WebserviceTxtBx.Text = webServiceData.Name;
+                SoapWebserviceChkBx.Checked = webServiceData.Soap;
 
                 if (_urlDatasByWebservice.Count > 0)
                 {
@@ -143,14 +146,19 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void WebserviceTxtBx_TextChanged(object sender, System.EventArgs e)
+        private void WebserviceTxtBx_TextChanged(object sender, EventArgs e)
         {
             _changedWebservice = WebserviceTxtBx.Text;
         }
 
-        private void PasWebserviceAanBtn_Click(object sender, System.EventArgs e)
+        private void SoapWebserviceChkBx_CheckedChanged(object sender, EventArgs e)
         {
-            _webserviceTest.UpdateWebService((int)AllWebserviceKrMaterialLstBx.SelectedItem.Tag, _changedWebservice);
+            _isSoap = SoapWebserviceChkBx.Checked;
+        }
+
+        private void PasWebserviceAanBtn_Click(object sender, EventArgs e)
+        {
+            _webserviceTest.UpdateWebService((int)AllWebserviceKrMaterialLstBx.SelectedItem.Tag, _changedWebservice, _isSoap);
             GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 

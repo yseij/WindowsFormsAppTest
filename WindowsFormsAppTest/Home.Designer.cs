@@ -62,6 +62,10 @@ namespace WindowsFormsAppTest
             this.BtnShowKlanten = new System.Windows.Forms.Button();
             this.BtnSales24En31 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.BtnTestAlleWebservices = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -383,11 +387,56 @@ namespace WindowsFormsAppTest
             this.label3.Size = new System.Drawing.Size(150, 2);
             this.label3.TabIndex = 23;
             // 
+            // label4
+            // 
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label4.Location = new System.Drawing.Point(646, 94);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(2, 331);
+            this.label4.TabIndex = 24;
+            // 
+            // materialLabel4
+            // 
+            this.materialLabel4.AutoSize = true;
+            this.materialLabel4.Depth = 0;
+            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel4.Location = new System.Drawing.Point(651, 69);
+            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel4.Name = "materialLabel4";
+            this.materialLabel4.Size = new System.Drawing.Size(70, 19);
+            this.materialLabel4.TabIndex = 25;
+            this.materialLabel4.Text = "Test Alles";
+            // 
+            // BtnTestAlleWebservices
+            // 
+            this.BtnTestAlleWebservices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.BtnTestAlleWebservices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnTestAlleWebservices.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnTestAlleWebservices.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnTestAlleWebservices.Location = new System.Drawing.Point(654, 94);
+            this.BtnTestAlleWebservices.Name = "BtnTestAlleWebservices";
+            this.BtnTestAlleWebservices.Size = new System.Drawing.Size(150, 150);
+            this.BtnTestAlleWebservices.TabIndex = 26;
+            this.BtnTestAlleWebservices.Text = "TEST ALLE WEBSERVICES";
+            this.BtnTestAlleWebservices.UseVisualStyleBackColor = false;
+            // 
+            // label5
+            // 
+            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label5.Location = new System.Drawing.Point(654, 251);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(150, 2);
+            this.label5.TabIndex = 27;
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 456);
+            this.ClientSize = new System.Drawing.Size(814, 456);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.BtnTestAlleWebservices);
+            this.Controls.Add(this.materialLabel4);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BtnSales24En31);
             this.Controls.Add(this.BtnShowKlanten);
@@ -403,10 +452,8 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
-            this.MaximumSize = new System.Drawing.Size(649, 456);
             this.MinimumSize = new System.Drawing.Size(649, 456);
             this.Name = "Home";
-            this.Sizable = false;
             this.Text = "Home";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Home_FormClosing);
             this.menuStrip.ResumeLayout(false);
@@ -450,5 +497,9 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Button BtnShowKlanten;
         private System.Windows.Forms.Button BtnSales24En31;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private System.Windows.Forms.Button BtnTestAlleWebservices;
+        private System.Windows.Forms.Label label5;
     }
 }

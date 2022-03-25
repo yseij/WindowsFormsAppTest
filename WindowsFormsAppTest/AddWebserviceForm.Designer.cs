@@ -32,6 +32,7 @@ namespace WindowsFormsAppTest
             this.LblName = new MaterialSkin.Controls.MaterialLabel();
             this.NewKlantNaamTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.AddKlantBttn = new System.Windows.Forms.Button();
+            this.SoapWebserviceChkBx = new MaterialSkin.Controls.MaterialCheckbox();
             this.SuspendLayout();
             // 
             // LblName
@@ -95,7 +96,7 @@ namespace WindowsFormsAppTest
             this.AddKlantBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddKlantBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddKlantBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddKlantBttn.Location = new System.Drawing.Point(252, 121);
+            this.AddKlantBttn.Location = new System.Drawing.Point(252, 168);
             this.AddKlantBttn.MinimumSize = new System.Drawing.Size(191, 43);
             this.AddKlantBttn.Name = "AddKlantBttn";
             this.AddKlantBttn.Size = new System.Drawing.Size(191, 43);
@@ -104,11 +105,30 @@ namespace WindowsFormsAppTest
             this.AddKlantBttn.UseVisualStyleBackColor = false;
             this.AddKlantBttn.Click += new System.EventHandler(this.AddWebserviceBttn_Click);
             // 
+            // SoapWebserviceChkBx
+            // 
+            this.SoapWebserviceChkBx.AutoSize = true;
+            this.SoapWebserviceChkBx.Depth = 0;
+            this.SoapWebserviceChkBx.Location = new System.Drawing.Point(60, 118);
+            this.SoapWebserviceChkBx.Margin = new System.Windows.Forms.Padding(0);
+            this.SoapWebserviceChkBx.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.SoapWebserviceChkBx.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SoapWebserviceChkBx.Name = "SoapWebserviceChkBx";
+            this.SoapWebserviceChkBx.ReadOnly = false;
+            this.SoapWebserviceChkBx.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SoapWebserviceChkBx.Ripple = true;
+            this.SoapWebserviceChkBx.Size = new System.Drawing.Size(154, 37);
+            this.SoapWebserviceChkBx.TabIndex = 30;
+            this.SoapWebserviceChkBx.Text = "Soap webservice";
+            this.SoapWebserviceChkBx.UseVisualStyleBackColor = true;
+            this.SoapWebserviceChkBx.CheckedChanged += new System.EventHandler(this.SoapWebserviceChkBx_CheckedChanged);
+            // 
             // AddWebserviceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 169);
+            this.ClientSize = new System.Drawing.Size(449, 216);
+            this.Controls.Add(this.SoapWebserviceChkBx);
             this.Controls.Add(this.AddKlantBttn);
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.NewKlantNaamTxtBx);
@@ -124,5 +144,6 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialLabel LblName;
         private MaterialSkin.Controls.MaterialMaskedTextBox NewKlantNaamTxtBx;
         private System.Windows.Forms.Button AddKlantBttn;
+        private MaterialSkin.Controls.MaterialCheckbox SoapWebserviceChkBx;
     }
 }

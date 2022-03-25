@@ -235,7 +235,7 @@ namespace WindowsFormsAppTest
 
         private void PlaatsOpslaanLogFileToolStripMenuItem_MouseHover(object sender, EventArgs e)
         {
-            plaatsOpslaanLogFileToolStripMenuItem.ToolTipText = ConfigurationManager.AppSettings["SaveLogFilePlace"]; ;
+            plaatsOpslaanLogFileToolStripMenuItem.ToolTipText = ConfigurationManager.AppSettings["SaveLogFilePlace"];
         }
 
         private void TijdCheck()

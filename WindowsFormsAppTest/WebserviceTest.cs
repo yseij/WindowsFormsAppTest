@@ -40,7 +40,7 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    _webServiceDatas.Add(new WebServiceData((int)dr[0], dr[1].ToString()));
+                    _webServiceDatas.Add(new WebServiceData((int)dr[0], dr[1].ToString(), (bool)dr[2]));
                 }
             }
         }
@@ -64,36 +64,38 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    webServiceDatas.Add(new WebServiceData((int)dr[0], dr[1].ToString()));
+                    webServiceDatas.Add(new WebServiceData((int)dr[0], dr[1].ToString(), (bool)dr[2]));
                 }
             }
             return webServiceDatas;
         }
 
-        public void AddWebService(string name)
+        public void AddWebService(string name, bool soap)
         {
             using (SqlConnection connection = new SqlConnection(ConnectieDB))
             {
                 connection.Open();
-                var sql = "INSERT INTO [dbo].[Webservice] ([Name]) VALUES (@Name)";
+                var sql = "INSERT INTO [dbo].[Webservice] ([Name], [SOAP]) VALUES (@Name, @Soap)";
                 using (var cmd = new SqlCommand(sql, connection))
                 {
                     cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.Parameters.AddWithValue("@Soap", soap);
                     cmd.ExecuteNonQuery();
                 }
                 connection.Close();
             }
         }
 
-        public void UpdateWebService(int id, string name)
+        public void UpdateWebService(int id, string name, bool soap)
         {
             using (SqlConnection connection = new SqlConnection(ConnectieDB))
             {
                 connection.Open();
-                var sql = "UPDATE Webservice SET Name = @Name " + "where id =" + id;
+                var sql = "UPDATE Webservice SET Name = @Name, Soap = @Soap where id =" + id;
                 using (var cmd = new SqlCommand(sql, connection))
                 {
                     cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.Parameters.AddWithValue("@Soap", soap);
                     cmd.ExecuteNonQuery();
                 }
                 connection.Close();
