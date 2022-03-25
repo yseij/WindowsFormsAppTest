@@ -11,6 +11,7 @@ namespace WindowsFormsAppTest
         private string _changedWebservice = "";
         private string _changedSecurityId = "";
         private string _changedUrl = "";
+        private string _zoekOpWebserviceNaam = "";
         private int _selectedWebserviceId;
         private int _selectedUrlId;
         private int _selectedKlantIdForChange;
@@ -34,10 +35,10 @@ namespace WindowsFormsAppTest
             _webserviceTest = new WebserviceTest();
 
             GetKlanten();
-            GetWebservices();
+            GetWebservicesIfZoekOpNaamIsLeeg();
         }
 
-        private void GetWebservices()
+        private void GetWebservicesIfZoekOpNaamIsLeeg()
         {
             _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
             _WebserviceDatasForChange = _webserviceTest.GetWebServiceDatas(true);
@@ -48,6 +49,24 @@ namespace WindowsFormsAppTest
             AllWebserviceKrMaterialLstBx.SelectedIndex = 0;
 
             GetUrlsFromWebservice(_webServiceDatas[0].Id);
+        }
+
+        private void GetWebservicesIfZoekOpNaamIsGevuld()
+        {
+            _webServiceDatas = _webserviceTest.GetWebServicesByWebserviceName(_zoekOpWebserviceNaam);
+            _WebserviceDatasForChange = _webserviceTest.GetWebServicesByWebserviceName(_zoekOpWebserviceNaam);
+
+            if (_webServiceDatas.Count > 0)
+            {
+                FillLstBxWebServices();
+                FillCmbxWebServices();
+                GetUrlsFromWebservice(_webServiceDatas[0].Id);
+            }
+            else
+            {
+                AllUrlsKrMaterialLstBx.ClearListBox();
+                AllWebserviceKrMaterialLstBx.ClearListBox();
+            }
         }
 
         private void GetUrlsFromWebservice(int id)
@@ -69,6 +88,7 @@ namespace WindowsFormsAppTest
             {
                 AllUrlsKrMaterialLstBx.SelectedIndex = 0;
                 _selectedUrlId = _urlDatasByWebservice[0].Id;
+                FillUrlData(_urlDatasByWebservice[0]);
 
                 PasUrlAanBtn.Enabled = true;
                 DeleteUrlBttn.Enabled = true;
@@ -131,7 +151,7 @@ namespace WindowsFormsAppTest
         private void PasWebserviceAanBtn_Click(object sender, System.EventArgs e)
         {
             _webserviceTest.UpdateWebService((int)AllWebserviceKrMaterialLstBx.SelectedItem.Tag, _changedWebservice);
-            GetWebservices();
+            GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
         private void AddWebserviceBtn_Click(object sender, EventArgs e)
@@ -144,12 +164,12 @@ namespace WindowsFormsAppTest
         private void DeleteWebserviceBttn_Click(object sender, EventArgs e)
         {
             _webserviceTest.DeleteWebService((int)AllWebserviceKrMaterialLstBx.SelectedItem.Tag);
-            GetWebservices();
+            GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
         private void ChildFormClosingAddWebserviceForm(object sender, FormClosingEventArgs e)
         {
-            GetWebservices();
+            GetKlantenIfZoekOpKlantenNaamIsGevuld();
             AllWebserviceKrMaterialLstBx.SelectedIndex = AllWebserviceKrMaterialLstBx.Items.Count - 1;
             _selectedWebserviceId = _webServiceDatas[_webServiceDatas.Count - 1].Id;
         }
@@ -234,9 +254,22 @@ namespace WindowsFormsAppTest
             UrlTxtBx.Text = string.Empty;
         }
 
-        private void AllWebserviceForm_Load(object sender, EventArgs e)
+        private void GetKlantenIfZoekOpKlantenNaamIsGevuld()
         {
+            if (_zoekOpWebserviceNaam != string.Empty)
+            {
+                GetWebservicesIfZoekOpNaamIsGevuld();
+            }
+            else
+            {
+                GetWebservicesIfZoekOpNaamIsLeeg();
+            }
+        }
 
+        private void ZoekOpWebserviceNaamTxtBx_TextChanged(object sender, EventArgs e)
+        {
+            _zoekOpWebserviceNaam = ZoekOpWebserviceNaamTxtBx.Text;
+            GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
     }
 }

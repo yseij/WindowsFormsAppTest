@@ -45,6 +45,31 @@ namespace WindowsFormsAppTest
             }
         }
 
+        public List<WebServiceData> GetWebServicesByWebserviceName(string name)
+        {
+            List<WebServiceData> webServiceDatas = new List<WebServiceData>();
+
+            DataTable dt = new DataTable();
+            int rows_returned;
+
+            using (SqlConnection connection = new SqlConnection(ConnectieDB))
+            //{
+                SqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM WebService where name like '%" + name + "%'";
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+
+                connection.Open();
+                rows_returned = sda.Fill(dt);
+                connection.Close();
+
+                foreach (DataRow dr in dt.Rows)
+                {
+                    webServiceDatas.Add(new WebServiceData((int)dr[0], dr[1].ToString()));
+                }
+            }
+            return webServiceDatas;
+        }
+
         public void AddWebService(string name)
         {
             using (SqlConnection connection = new SqlConnection(ConnectieDB))
