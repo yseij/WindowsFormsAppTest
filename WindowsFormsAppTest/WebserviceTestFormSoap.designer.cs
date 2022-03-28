@@ -155,6 +155,7 @@
             this.HttpKrMaterialCmbx.StartIndex = 0;
             this.HttpKrMaterialCmbx.TabIndex = 45;
             this.HttpKrMaterialCmbx.ValueMember = "Id";
+            this.HttpKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.HttpKrMaterialCmbx_SelectedIndexChanged);
             // 
             // label2
             // 

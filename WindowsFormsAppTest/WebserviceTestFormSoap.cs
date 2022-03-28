@@ -45,7 +45,8 @@ namespace WindowsFormsAppTest
             List<string> listOfNames = new List<string>()
             {
                 "https://wsdev.kraan.com/",
-                "https://ws.kraan.com:444/"
+                "https://ws.kraan.com:444/",
+                "https://wsdev.kraan.com:1234/release/MessageServiceSoap31.svc"
             };
             HttpKrMaterialCmbx.FillCmbBoxRest(listOfNames);
             HttpKrMaterialCmbx.SelectedItem = ConfigurationManager.AppSettings["http"];
@@ -108,7 +109,7 @@ namespace WindowsFormsAppTest
             txtTestResultaat.Refresh();
 
             string host = HttpKrMaterialCmbx.Text.Trim();
-            host += WebserviceKrMaterialCmbx.Text;
+            //host += WebserviceKrMaterialCmbx.Text;
 
             if (string.IsNullOrWhiteSpace(host))
             {
@@ -179,7 +180,20 @@ namespace WindowsFormsAppTest
                                     testResultaat = "Er is een beveiligde verbinding gemaakt met de Sales Messageservice ..." + Environment.NewLine;
                                     testResultaat += "\r\nURL: " + CreateEndpointAddress(host, "messageservicesoap31.svc").Uri;
                                     testResultaat = testResultaat + antwoord.Message.MsgContent;
-                                    //CheckData(result, WebserviceKrMaterialCmbx.Text, 3.1);
+                                    testResultaat = antwoord.Message.MsgContent;
+
+                                    var data = "{\""
+                                        + antwoord.Message.MsgContent.Trim()
+                                        .Replace("\r\n", "\", \"")
+                                        .Replace(": ", "\": \"")
+                                        .Replace(@"\", " ")
+                                        .Replace("application\": \"", "application: ")
+                                        .Replace("Versie\": \"", "Versie: ")
+                                        + "\"}";
+
+                                    dynamic result = JObject.Parse(data);
+
+                                    CheckData(result, WebserviceKrMaterialCmbx.Text, 3.1);
                                 }
                                 else
                                 {
@@ -291,7 +305,7 @@ namespace WindowsFormsAppTest
                 TxtBxKraan1DatabaseVersie2_4.Text = TxtBxKraan1DatabaseVersie;
                 TxtBxKraan2DatabaseVersie2_4.Text = TxtBxKraan2DatabaseVersie;
             }
-            else if(soort == 3.1)
+            else if (soort == 3.1)
             {
                 TxtBxMessageVersie3_1.Text = TxtBxMessageVersie;
                 ChkBxKraanDLL3_1.Checked = ChkBxKraanDLL;
@@ -313,6 +327,11 @@ namespace WindowsFormsAppTest
             logFile.AddTextToLogFile("MSSQL catalog = " + TxtBxMssqlCatalog + "\n");
             logFile.AddTextToLogFile("Kraan 1 databaseversie = " + TxtBxKraan1DatabaseVersie + "\n");
             logFile.AddTextToLogFile("Kraan 2 databaseversie = " + TxtBxKraan2DatabaseVersie + "\n");
+        }
+
+        private void HttpKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            urlHttp = HttpKrMaterialCmbx.SelectedText;
         }
     }
 }
