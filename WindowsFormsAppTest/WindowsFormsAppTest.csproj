@@ -157,6 +157,7 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
+    <Compile Include="IBaseData.cs" />
     <Compile Include="KlantData.cs" />
     <Compile Include="KlantTest.cs" />
     <Compile Include="KrMaterialCombobox.cs">

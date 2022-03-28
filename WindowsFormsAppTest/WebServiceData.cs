@@ -1,20 +1,16 @@
 ﻿namespace WindowsFormsAppTest
 {
-    class WebServiceData
+    class WebServiceData : IBaseData
     {
-        public WebServiceData()
-        {
-        }
-
         public WebServiceData(int id, string name, bool soap)
-            : this()
+
         {
             Id = id;
             Name = name;
             Soap = soap;
         }
 
-        public int Id { get; }
+        public int Id { get; set; }
         public string Name { get; set; }
 
         public bool Soap { get; set; }

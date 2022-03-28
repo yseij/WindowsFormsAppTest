@@ -2,14 +2,14 @@
 
 namespace WindowsFormsAppTest
 {
-    public class UrlData
+    public class UrlData : IBaseData
     {
         public UrlData()
         {
+
         }
 
         public UrlData(int id, string name)
-            : this()
         {
             Id = id;
             Name = name;
@@ -23,7 +23,7 @@ namespace WindowsFormsAppTest
             KlantDataId = klantDataId;
         }
 
-        public int Id { get; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public string SecurityId { get; set; }
         public int WebServiceDataId { get; set; }

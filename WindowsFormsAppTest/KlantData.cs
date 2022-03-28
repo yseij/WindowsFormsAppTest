@@ -6,20 +6,15 @@ using System.Threading.Tasks;
 
 namespace WindowsFormsAppTest
 {
-    class KlantData
+    class KlantData : IBaseData
     {
-        public KlantData()
-        {
-        }
-
         public KlantData(int id, string name)
-            : this()
         {
             Id = id;
             Name = name;
         }
 
-        public int Id { get; }
+        public int Id { get; set; }
         public string Name { get; set; }
     }
 }
