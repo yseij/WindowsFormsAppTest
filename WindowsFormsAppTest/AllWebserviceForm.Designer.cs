@@ -30,6 +30,7 @@ namespace WindowsFormsAppTest
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.SoapWebserviceChkBx = new MaterialSkin.Controls.MaterialCheckbox();
             this.PasWebserviceAanBtn = new System.Windows.Forms.Button();
             this.AddWebserviceBtn = new System.Windows.Forms.Button();
             this.DeleteWebserviceBttn = new System.Windows.Forms.Button();
@@ -55,7 +56,6 @@ namespace WindowsFormsAppTest
             this.label1 = new System.Windows.Forms.Label();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.ZoekOpWebserviceNaamTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
-            this.SoapWebserviceChkBx = new MaterialSkin.Controls.MaterialCheckbox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +75,24 @@ namespace WindowsFormsAppTest
             this.groupBox1.TabIndex = 65;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Webservice bewerken";
+            // 
+            // SoapWebserviceChkBx
+            // 
+            this.SoapWebserviceChkBx.AutoSize = true;
+            this.SoapWebserviceChkBx.Depth = 0;
+            this.SoapWebserviceChkBx.Location = new System.Drawing.Point(61, 70);
+            this.SoapWebserviceChkBx.Margin = new System.Windows.Forms.Padding(0);
+            this.SoapWebserviceChkBx.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.SoapWebserviceChkBx.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SoapWebserviceChkBx.Name = "SoapWebserviceChkBx";
+            this.SoapWebserviceChkBx.ReadOnly = false;
+            this.SoapWebserviceChkBx.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SoapWebserviceChkBx.Ripple = true;
+            this.SoapWebserviceChkBx.Size = new System.Drawing.Size(154, 37);
+            this.SoapWebserviceChkBx.TabIndex = 89;
+            this.SoapWebserviceChkBx.Text = "Soap webservice";
+            this.SoapWebserviceChkBx.UseVisualStyleBackColor = true;
+            this.SoapWebserviceChkBx.CheckedChanged += new System.EventHandler(this.SoapWebserviceChkBx_CheckedChanged);
             // 
             // PasWebserviceAanBtn
             // 
@@ -505,7 +523,7 @@ namespace WindowsFormsAppTest
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Location = new System.Drawing.Point(7, 170);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(842, 2);
+            this.label1.Size = new System.Drawing.Size(925, 2);
             this.label1.TabIndex = 88;
             // 
             // materialLabel7
@@ -561,24 +579,6 @@ namespace WindowsFormsAppTest
             this.ZoekOpWebserviceNaamTxtBx.UseSystemPasswordChar = false;
             this.ZoekOpWebserviceNaamTxtBx.ValidatingType = null;
             this.ZoekOpWebserviceNaamTxtBx.TextChanged += new System.EventHandler(this.ZoekOpWebserviceNaamTxtBx_TextChanged);
-            // 
-            // SoapWebserviceChkBx
-            // 
-            this.SoapWebserviceChkBx.AutoSize = true;
-            this.SoapWebserviceChkBx.Depth = 0;
-            this.SoapWebserviceChkBx.Location = new System.Drawing.Point(61, 70);
-            this.SoapWebserviceChkBx.Margin = new System.Windows.Forms.Padding(0);
-            this.SoapWebserviceChkBx.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.SoapWebserviceChkBx.MouseState = MaterialSkin.MouseState.HOVER;
-            this.SoapWebserviceChkBx.Name = "SoapWebserviceChkBx";
-            this.SoapWebserviceChkBx.ReadOnly = false;
-            this.SoapWebserviceChkBx.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SoapWebserviceChkBx.Ripple = true;
-            this.SoapWebserviceChkBx.Size = new System.Drawing.Size(154, 37);
-            this.SoapWebserviceChkBx.TabIndex = 89;
-            this.SoapWebserviceChkBx.Text = "Soap webservice";
-            this.SoapWebserviceChkBx.UseVisualStyleBackColor = true;
-            this.SoapWebserviceChkBx.CheckedChanged += new System.EventHandler(this.SoapWebserviceChkBx_CheckedChanged);
             // 
             // AllWebserviceForm
             // 

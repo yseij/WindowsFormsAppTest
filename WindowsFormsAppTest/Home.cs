@@ -148,14 +148,12 @@ namespace WindowsFormsAppTest
             m.ShowDialog();
         }
 
-
         private void EmailTlStrpMnItm_Click(object sender, EventArgs e)
         {
             var m = new UserForm();
             m.FormClosing += new FormClosingEventHandler(ChildFormClosingSetEmail);
             m.ShowDialog();
         }
-
 
         private void BtnSales24En31_Click(object sender, EventArgs e)
         {
@@ -171,6 +169,7 @@ namespace WindowsFormsAppTest
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.Description = "Custom Description";
+            fbd.SelectedPath = Properties.Settings.Default.SaveLogFilePlace;
 
             if (fbd.ShowDialog() == DialogResult.OK)
             {

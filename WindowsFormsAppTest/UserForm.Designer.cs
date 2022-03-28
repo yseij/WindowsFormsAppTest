@@ -101,7 +101,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.materialLabel2);
             this.MinimumSize = new System.Drawing.Size(313, 169);
             this.Name = "UserForm";
-            this.Text = "UserForm";
+            this.Text = "Mail";
             this.ResumeLayout(false);
             this.PerformLayout();
 
