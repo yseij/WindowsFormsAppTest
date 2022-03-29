@@ -109,7 +109,7 @@ namespace WindowsFormsAppTest
             txtTestResultaat.Refresh();
 
             string host = HttpKrMaterialCmbx.Text.Trim();
-            host += WebserviceKrMaterialCmbx.Text;
+            //host += WebserviceKrMaterialCmbx.Text;
 
             if (string.IsNullOrWhiteSpace(host))
             {

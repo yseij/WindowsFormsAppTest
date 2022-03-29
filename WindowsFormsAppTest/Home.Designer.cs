@@ -419,6 +419,7 @@ namespace WindowsFormsAppTest
             this.BtnTestAlleWebservices.TabIndex = 26;
             this.BtnTestAlleWebservices.Text = "TEST ALLE WEBSERVICES";
             this.BtnTestAlleWebservices.UseVisualStyleBackColor = false;
+            this.BtnTestAlleWebservices.Click += new System.EventHandler(this.BtnTestAlleWebservices_Click);
             // 
             // label5
             // 

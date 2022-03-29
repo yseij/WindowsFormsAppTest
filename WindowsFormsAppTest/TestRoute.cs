@@ -10,13 +10,16 @@ namespace WindowsFormsAppTest
 {
     class TestRoute
     {
+        private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
         private string urlHttp = ConfigurationManager.AppSettings["http"];
         private dynamic _result;
 
         WebRequest _webRequest;
+        WebserviceTest _webserviceTest;
         public TestRoute()
         {
             _webRequest = new WebRequest();
+            _webserviceTest = new WebserviceTest();
         }
         public void TestOneRoute(dynamic result,
                               MaterialTextBox textBoxWebservice,
@@ -79,21 +82,45 @@ namespace WindowsFormsAppTest
                                    MaterialTextBox AantalLegeUrlsTxtBx,
                                    MaterialMultiLineTextBox2 LegeUrlsTxtBx)
         {
+            bool isSoap = false;
+            var data = "";
+
             int teller = 0;
+            GetWebservices();
 
             LogFile logFile = new LogFile();
-            logFile.MakeLogFile(selectedKlant);
+            if (selectedKlant == string.Empty)
+            {
+                logFile.MakeLogFile("Alle_webservices_getest");
+            }
+            else
+            {
+                logFile.MakeLogFile(selectedKlant);
+            }
             TrVwAll.Nodes.Clear();
             TrVwAll.BeginUpdate();
             aantalLegeUrls = 0;
             foreach (UrlData urlData in urlDatas)
             {
+                foreach (WebServiceData webServiceData in _webServiceDatas)
+                {
+                    if (webServiceData.Id == urlData.Id)
+                    {
+                        isSoap = webServiceData.Soap;
+                    }
+                }
                 TreeNode node = new TreeNode();
                 node.Text = urlData.Name;
                 logFile.AddTextToLogFile("\n");
                 logFile.AddTextToLogFile(urlData.Name + "\n");
-                var data = _webRequest.GetWebRequest(urlData.Id, urlHttp, urlData.Name, urlData.SecurityId);
-                _result = JObject.Parse(data);
+                if (isSoap)
+                {
+                    _result = _webRequest.GetWebRequest(urlData.Id, urlHttp, urlData.Name, urlData.SecurityId);
+                }
+                else
+                {
+                    _result = JObject.Parse(_webRequest.GetWebRequest(urlData.Id, urlHttp, urlData.Name, urlData.SecurityId));
+                }
                 node.Tag = _result;
                 teller = 0;
                 foreach (JProperty item in _result)
@@ -120,6 +147,11 @@ namespace WindowsFormsAppTest
                 }
             }
             TrVwAll.EndUpdate();
+        }
+
+        private void GetWebservices()
+        {
+            _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
         }
     }
 }
