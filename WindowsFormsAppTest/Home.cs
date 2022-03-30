@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -30,6 +31,8 @@ namespace WindowsFormsAppTest
         WebserviceTest _webserviceTest;
         UrlTest _urltest;
         WebRequest _webRequest;
+        KrXml _krXml;
+
         public Home()
         {
             InitializeComponent();
@@ -37,6 +40,7 @@ namespace WindowsFormsAppTest
             _webserviceTest = new WebserviceTest();
             _urltest = new UrlTest();
             _webRequest = new WebRequest();
+            _krXml = new KrXml();
 
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             //materialSkinManager.AddFormToManage(this);
@@ -58,8 +62,12 @@ namespace WindowsFormsAppTest
             GetSettings();
 
             TijdCheck();
+            TijdCheckService();
             AanOfUitCheck();
+            AanOfUitCheckService();
             HttpCheck();
+
+            _krXml.MakeXmlFile();
         }
 
         private void GetSettings()
@@ -68,6 +76,8 @@ namespace WindowsFormsAppTest
             ConfigurationManager.AppSettings["Http"] = Properties.Settings.Default.Http;
             ConfigurationManager.AppSettings["TestAanOfUit"] = Properties.Settings.Default.TestAanOfUit;
             ConfigurationManager.AppSettings["SaveLogFilePlace"] = Properties.Settings.Default.SaveLogFilePlace;
+            ConfigurationManager.AppSettings["TijdService"] = Properties.Settings.Default.TijdService;
+            ConfigurationManager.AppSettings["ServiceAanOfUit"] = Properties.Settings.Default.ServiceAanOfUit;
 
             int klantKeuze = Properties.Settings.Default.KlantKeuze;
             if (klantKeuze != 0)
@@ -148,13 +158,6 @@ namespace WindowsFormsAppTest
             m.ShowDialog();
         }
 
-        private void EmailTlStrpMnItm_Click(object sender, EventArgs e)
-        {
-            var m = new UserForm();
-            m.FormClosing += new FormClosingEventHandler(ChildFormClosingSetEmail);
-            m.ShowDialog();
-        }
-
         private void BtnSales24En31_Click(object sender, EventArgs e)
         {
             var m = new WebserviceTestFormSoap();
@@ -165,6 +168,13 @@ namespace WindowsFormsAppTest
         {
             //var m = new AllWebserviceTestForm();
             //m.ShowDialog();
+        }
+
+        private void EmailTlStrpMnItm_Click_1(object sender, EventArgs e)
+        {
+            var m = new UserForm();
+            m.FormClosing += new FormClosingEventHandler(ChildFormClosingSetEmail);
+            m.ShowDialog();
         }
 
         private void ChildFormClosingSetEmail(object sender, FormClosingEventArgs e)
@@ -232,6 +242,41 @@ namespace WindowsFormsAppTest
             AanOfUitCheck();
         }
 
+        private void min15ByServiceTlStrpMnItm_Click(object sender, EventArgs e)
+        {
+            ZetConfEnProp("TijdService", "900000");
+            TijdCheckService();
+            _krXml.UpdateXmlFile();
+        }
+
+        private void min30ByServiceTlStrpMnItm_Click(object sender, EventArgs e)
+        {
+            ZetConfEnProp("TijdService", "1800000");
+            TijdCheckService();
+            _krXml.UpdateXmlFile();
+        }
+
+        private void min60ByServiceTlStrpMnItm_Click(object sender, EventArgs e)
+        {
+            ZetConfEnProp("TijdService", "3600000");
+            TijdCheckService();
+            _krXml.UpdateXmlFile();
+        }
+
+        private void AanByServiceTlStrpMnItm_Click(object sender, EventArgs e)
+        {
+            ZetConfEnProp("ServiceAanOfUit", "aan");
+            AanOfUitCheckService();
+            _krXml.UpdateXmlFile();
+        }
+
+        private void UitByServiceTlStrpMnItm_Click(object sender, EventArgs e)
+        {
+            ZetConfEnProp("ServiceAanOfUit", "uit");
+            AanOfUitCheckService();
+            _krXml.UpdateXmlFile();
+        }
+
         private void ZetConfEnProp(string name, string waarde)
         {
             ConfigurationManager.AppSettings[name] = waarde;
@@ -282,6 +327,30 @@ namespace WindowsFormsAppTest
             _MyTimer.Start();
         }
 
+        private void TijdCheckService()
+        {
+            switch (ConfigurationManager.AppSettings["TijdService"])
+            {
+                case "900000":
+                    min15ByServiceTlStrpMnItm.Checked = true;
+                    min30ByServiceTlStrpMnItm.Checked = false;
+                    min60ByServiceTlStrpMnItm.Checked = false;
+                    break;
+                case "1800000":
+                    min15ByServiceTlStrpMnItm.Checked = false;
+                    min30ByServiceTlStrpMnItm.Checked = true;
+                    min60ByServiceTlStrpMnItm.Checked = false;
+                    break;
+                case "3600000":
+                    min15ByServiceTlStrpMnItm.Checked = false;
+                    min30ByServiceTlStrpMnItm.Checked = false;
+                    min60ByServiceTlStrpMnItm.Checked = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+
         private void AanOfUitCheck()
         {
             switch (ConfigurationManager.AppSettings["TestAanOfUit"])
@@ -293,6 +362,23 @@ namespace WindowsFormsAppTest
                 case "uit":
                     AanToolStripMenuItem.Checked = false;
                     UitToolStripMenuItem.Checked = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void AanOfUitCheckService()
+        {
+            switch (ConfigurationManager.AppSettings["ServiceAanOfUit"])
+            {
+                case "aan":
+                    AanByServiceTlStrpMnItm.Checked = true;
+                    UitByServiceTlStrpMnItm.Checked = false;
+                    break;
+                case "uit":
+                    AanByServiceTlStrpMnItm.Checked = false;
+                    UitByServiceTlStrpMnItm.Checked = true;
                     break;
                 default:
                     break;

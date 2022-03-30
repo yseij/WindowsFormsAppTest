@@ -61,7 +61,7 @@ namespace WindowsFormsAppTest.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("15")]
+        [global::System.Configuration.DefaultSettingValueAttribute("15000")]
         public string Tijd {
             get {
                 return ((string)(this["Tijd"]));
@@ -104,6 +104,30 @@ namespace WindowsFormsAppTest.Properties {
             }
             set {
                 this["Email"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("900000")]
+        public string TijdService {
+            get {
+                return ((string)(this["TijdService"]));
+            }
+            set {
+                this["TijdService"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("uit")]
+        public string ServiceAanOfUit {
+            get {
+                return ((string)(this["ServiceAanOfUit"]));
+            }
+            set {
+                this["ServiceAanOfUit"] = value;
             }
         }
     }

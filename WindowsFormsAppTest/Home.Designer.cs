@@ -36,6 +36,9 @@ namespace WindowsFormsAppTest
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.StripMenuItemLogFile = new System.Windows.Forms.ToolStripMenuItem();
             this.plaatsOpslaanLogFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.StripMenuItemSoortHttp = new System.Windows.Forms.ToolStripMenuItem();
+            this.httpswskraancom444ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.httpswsdevkraancomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StripMenuItemTestTijd = new System.Windows.Forms.ToolStripMenuItem();
             this.WebserviceKeuzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KlantKeuzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -44,13 +47,18 @@ namespace WindowsFormsAppTest
             this.MinToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.MinToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.UurTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
-            this.EmailTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.ToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.AanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.UitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.StripMenuItemSoortHttp = new System.Windows.Forms.ToolStripMenuItem();
-            this.httpswskraancom444ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.httpswsdevkraancomToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ServiceTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
+            this.TijdByServiceTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
+            this.min15ByServiceTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
+            this.min30ByServiceTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
+            this.min60ByServiceTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
+            this.AanOfUitByServiceTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
+            this.AanByServiceTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
+            this.UitByServiceTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
+            this.EmailTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.BttnUrl = new System.Windows.Forms.Button();
             this.BttnWebservice = new System.Windows.Forms.Button();
@@ -111,12 +119,14 @@ namespace WindowsFormsAppTest
             this.menuStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StripMenuItemLogFile,
+            this.StripMenuItemSoortHttp,
             this.StripMenuItemTestTijd,
-            this.StripMenuItemSoortHttp});
+            this.ServiceTlStrpMnItm,
+            this.EmailTlStrpMnItm});
             this.menuStrip.Location = new System.Drawing.Point(3, 429);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip.Size = new System.Drawing.Size(177, 24);
+            this.menuStrip.Size = new System.Drawing.Size(401, 24);
             this.menuStrip.TabIndex = 9;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -136,6 +146,29 @@ namespace WindowsFormsAppTest
             this.plaatsOpslaanLogFileToolStripMenuItem.Click += new System.EventHandler(this.PlaatsOpslaanLogFileToolStripMenuItem_Click);
             this.plaatsOpslaanLogFileToolStripMenuItem.MouseHover += new System.EventHandler(this.PlaatsOpslaanLogFileToolStripMenuItem_MouseHover);
             // 
+            // StripMenuItemSoortHttp
+            // 
+            this.StripMenuItemSoortHttp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.httpswskraancom444ToolStripMenuItem,
+            this.httpswsdevkraancomToolStripMenuItem});
+            this.StripMenuItemSoortHttp.Name = "StripMenuItemSoortHttp";
+            this.StripMenuItemSoortHttp.Size = new System.Drawing.Size(72, 20);
+            this.StripMenuItemSoortHttp.Text = "Soort http";
+            // 
+            // httpswskraancom444ToolStripMenuItem
+            // 
+            this.httpswskraancom444ToolStripMenuItem.Name = "httpswskraancom444ToolStripMenuItem";
+            this.httpswskraancom444ToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.httpswskraancom444ToolStripMenuItem.Text = "https://ws.kraan.com:444/";
+            this.httpswskraancom444ToolStripMenuItem.Click += new System.EventHandler(this.Httpswskraancom444ToolStripMenuItem_Click);
+            // 
+            // httpswsdevkraancomToolStripMenuItem
+            // 
+            this.httpswsdevkraancomToolStripMenuItem.Name = "httpswsdevkraancomToolStripMenuItem";
+            this.httpswsdevkraancomToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.httpswsdevkraancomToolStripMenuItem.Text = "https://wsdev.kraan.com/";
+            this.httpswsdevkraancomToolStripMenuItem.Click += new System.EventHandler(this.HttpswsdevkraancomToolStripMenuItem_Click);
+            // 
             // StripMenuItemTestTijd
             // 
             this.StripMenuItemTestTijd.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -143,7 +176,6 @@ namespace WindowsFormsAppTest
             this.WebserviceKeuzeToolStripMenuItem,
             this.KlantKeuzeToolStripMenuItem,
             this.tijdToolStripMenuItem,
-            this.EmailTlStrpMnItm,
             this.ToolStripMenuItem1});
             this.StripMenuItemTestTijd.Name = "StripMenuItemTestTijd";
             this.StripMenuItemTestTijd.Size = new System.Drawing.Size(39, 20);
@@ -200,13 +232,6 @@ namespace WindowsFormsAppTest
             this.UurTlStrpMnItm.Text = "1Uur";
             this.UurTlStrpMnItm.Click += new System.EventHandler(this.uurTlStrpMnItm_Click);
             // 
-            // EmailTlStrpMnItm
-            // 
-            this.EmailTlStrpMnItm.Name = "EmailTlStrpMnItm";
-            this.EmailTlStrpMnItm.Size = new System.Drawing.Size(167, 22);
-            this.EmailTlStrpMnItm.Text = "Email";
-            this.EmailTlStrpMnItm.Click += new System.EventHandler(this.EmailTlStrpMnItm_Click);
-            // 
             // ToolStripMenuItem1
             // 
             this.ToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -230,28 +255,75 @@ namespace WindowsFormsAppTest
             this.UitToolStripMenuItem.Text = "Uit";
             this.UitToolStripMenuItem.Click += new System.EventHandler(this.UitToolStripMenuItem_Click);
             // 
-            // StripMenuItemSoortHttp
+            // ServiceTlStrpMnItm
             // 
-            this.StripMenuItemSoortHttp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.httpswskraancom444ToolStripMenuItem,
-            this.httpswsdevkraancomToolStripMenuItem});
-            this.StripMenuItemSoortHttp.Name = "StripMenuItemSoortHttp";
-            this.StripMenuItemSoortHttp.Size = new System.Drawing.Size(72, 20);
-            this.StripMenuItemSoortHttp.Text = "Soort http";
+            this.ServiceTlStrpMnItm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.TijdByServiceTlStrpMnItm,
+            this.AanOfUitByServiceTlStrpMnItm});
+            this.ServiceTlStrpMnItm.Name = "ServiceTlStrpMnItm";
+            this.ServiceTlStrpMnItm.Size = new System.Drawing.Size(56, 20);
+            this.ServiceTlStrpMnItm.Text = "Service";
             // 
-            // httpswskraancom444ToolStripMenuItem
+            // TijdByServiceTlStrpMnItm
             // 
-            this.httpswskraancom444ToolStripMenuItem.Name = "httpswskraancom444ToolStripMenuItem";
-            this.httpswskraancom444ToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.httpswskraancom444ToolStripMenuItem.Text = "https://ws.kraan.com:444/";
-            this.httpswskraancom444ToolStripMenuItem.Click += new System.EventHandler(this.Httpswskraancom444ToolStripMenuItem_Click);
+            this.TijdByServiceTlStrpMnItm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.min15ByServiceTlStrpMnItm,
+            this.min30ByServiceTlStrpMnItm,
+            this.min60ByServiceTlStrpMnItm});
+            this.TijdByServiceTlStrpMnItm.Name = "TijdByServiceTlStrpMnItm";
+            this.TijdByServiceTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
+            this.TijdByServiceTlStrpMnItm.Text = "Tijd";
             // 
-            // httpswsdevkraancomToolStripMenuItem
+            // min15ByServiceTlStrpMnItm
             // 
-            this.httpswsdevkraancomToolStripMenuItem.Name = "httpswsdevkraancomToolStripMenuItem";
-            this.httpswsdevkraancomToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
-            this.httpswsdevkraancomToolStripMenuItem.Text = "https://wsdev.kraan.com/";
-            this.httpswsdevkraancomToolStripMenuItem.Click += new System.EventHandler(this.HttpswsdevkraancomToolStripMenuItem_Click);
+            this.min15ByServiceTlStrpMnItm.Name = "min15ByServiceTlStrpMnItm";
+            this.min15ByServiceTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
+            this.min15ByServiceTlStrpMnItm.Text = "15min";
+            this.min15ByServiceTlStrpMnItm.Click += new System.EventHandler(this.min15ByServiceTlStrpMnItm_Click);
+            // 
+            // min30ByServiceTlStrpMnItm
+            // 
+            this.min30ByServiceTlStrpMnItm.Name = "min30ByServiceTlStrpMnItm";
+            this.min30ByServiceTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
+            this.min30ByServiceTlStrpMnItm.Text = "30min";
+            this.min30ByServiceTlStrpMnItm.Click += new System.EventHandler(this.min30ByServiceTlStrpMnItm_Click);
+            // 
+            // min60ByServiceTlStrpMnItm
+            // 
+            this.min60ByServiceTlStrpMnItm.Name = "min60ByServiceTlStrpMnItm";
+            this.min60ByServiceTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
+            this.min60ByServiceTlStrpMnItm.Text = "60min";
+            this.min60ByServiceTlStrpMnItm.Click += new System.EventHandler(this.min60ByServiceTlStrpMnItm_Click);
+            // 
+            // AanOfUitByServiceTlStrpMnItm
+            // 
+            this.AanOfUitByServiceTlStrpMnItm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AanByServiceTlStrpMnItm,
+            this.UitByServiceTlStrpMnItm});
+            this.AanOfUitByServiceTlStrpMnItm.Name = "AanOfUitByServiceTlStrpMnItm";
+            this.AanOfUitByServiceTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
+            this.AanOfUitByServiceTlStrpMnItm.Text = "Aan of Uit";
+            // 
+            // AanByServiceTlStrpMnItm
+            // 
+            this.AanByServiceTlStrpMnItm.Name = "AanByServiceTlStrpMnItm";
+            this.AanByServiceTlStrpMnItm.Size = new System.Drawing.Size(95, 22);
+            this.AanByServiceTlStrpMnItm.Text = "Aan";
+            this.AanByServiceTlStrpMnItm.Click += new System.EventHandler(this.AanByServiceTlStrpMnItm_Click);
+            // 
+            // UitByServiceTlStrpMnItm
+            // 
+            this.UitByServiceTlStrpMnItm.Name = "UitByServiceTlStrpMnItm";
+            this.UitByServiceTlStrpMnItm.Size = new System.Drawing.Size(95, 22);
+            this.UitByServiceTlStrpMnItm.Text = "Uit";
+            this.UitByServiceTlStrpMnItm.Click += new System.EventHandler(this.UitByServiceTlStrpMnItm_Click);
+            // 
+            // EmailTlStrpMnItm
+            // 
+            this.EmailTlStrpMnItm.Name = "EmailTlStrpMnItm";
+            this.EmailTlStrpMnItm.Size = new System.Drawing.Size(48, 20);
+            this.EmailTlStrpMnItm.Text = "Email";
+            this.EmailTlStrpMnItm.Click += new System.EventHandler(this.EmailTlStrpMnItm_Click_1);
             // 
             // materialLabel3
             // 
@@ -485,7 +557,6 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.ToolStripMenuItem UitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem WebserviceKeuzeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem KlantKeuzeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem EmailTlStrpMnItm;
         private System.Windows.Forms.ToolStripMenuItem UurTlStrpMnItm;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private System.Windows.Forms.Button BttnUrl;
@@ -502,5 +573,14 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private System.Windows.Forms.Button BtnTestAlleWebservices;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ToolStripMenuItem ServiceTlStrpMnItm;
+        private System.Windows.Forms.ToolStripMenuItem TijdByServiceTlStrpMnItm;
+        private System.Windows.Forms.ToolStripMenuItem min15ByServiceTlStrpMnItm;
+        private System.Windows.Forms.ToolStripMenuItem min30ByServiceTlStrpMnItm;
+        private System.Windows.Forms.ToolStripMenuItem min60ByServiceTlStrpMnItm;
+        private System.Windows.Forms.ToolStripMenuItem AanOfUitByServiceTlStrpMnItm;
+        private System.Windows.Forms.ToolStripMenuItem AanByServiceTlStrpMnItm;
+        private System.Windows.Forms.ToolStripMenuItem UitByServiceTlStrpMnItm;
+        private System.Windows.Forms.ToolStripMenuItem EmailTlStrpMnItm;
     }
 }

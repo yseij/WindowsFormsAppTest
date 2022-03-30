@@ -12,7 +12,7 @@
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="Tijd" Type="System.String" Scope="User">
-      <Value Profile="(Default)">15</Value>
+      <Value Profile="(Default)">15000</Value>
     </Setting>
     <Setting Name="TestAanOfUit" Type="System.String" Scope="User">
       <Value Profile="(Default)">uit</Value>
@@ -22,6 +22,12 @@
     </Setting>
     <Setting Name="Email" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TijdService" Type="System.String" Scope="User">
+      <Value Profile="(Default)">900000</Value>
+    </Setting>
+    <Setting Name="ServiceAanOfUit" Type="System.String" Scope="User">
+      <Value Profile="(Default)">uit</Value>
     </Setting>
   </Settings>
 </SettingsFile>
