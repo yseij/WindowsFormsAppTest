@@ -5,7 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
-using System.IO;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -43,7 +42,6 @@ namespace WindowsFormsAppTest
             _krXml = new KrXml();
 
             MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
-            //materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
 
             // Configure color schema
