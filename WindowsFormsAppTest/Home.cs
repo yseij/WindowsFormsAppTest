@@ -244,21 +244,21 @@ namespace WindowsFormsAppTest
 
         private void min15ByServiceTlStrpMnItm_Click(object sender, EventArgs e)
         {
-            ZetConfEnProp("TijdService", "900000");
+            ZetConfEnProp("TijdService", "15000");
             TijdCheckService();
             _krXml.UpdateXmlFile();
         }
 
         private void min30ByServiceTlStrpMnItm_Click(object sender, EventArgs e)
         {
-            ZetConfEnProp("TijdService", "1800000");
+            ZetConfEnProp("TijdService", "30000");
             TijdCheckService();
             _krXml.UpdateXmlFile();
         }
 
         private void min60ByServiceTlStrpMnItm_Click(object sender, EventArgs e)
         {
-            ZetConfEnProp("TijdService", "3600000");
+            ZetConfEnProp("TijdService", "60000");
             TijdCheckService();
             _krXml.UpdateXmlFile();
         }
@@ -331,17 +331,17 @@ namespace WindowsFormsAppTest
         {
             switch (ConfigurationManager.AppSettings["TijdService"])
             {
-                case "900000":
+                case "15000":
                     min15ByServiceTlStrpMnItm.Checked = true;
                     min30ByServiceTlStrpMnItm.Checked = false;
                     min60ByServiceTlStrpMnItm.Checked = false;
                     break;
-                case "1800000":
+                case "30000":
                     min15ByServiceTlStrpMnItm.Checked = false;
                     min30ByServiceTlStrpMnItm.Checked = true;
                     min60ByServiceTlStrpMnItm.Checked = false;
                     break;
-                case "3600000":
+                case "60000":
                     min15ByServiceTlStrpMnItm.Checked = false;
                     min30ByServiceTlStrpMnItm.Checked = false;
                     min60ByServiceTlStrpMnItm.Checked = true;
