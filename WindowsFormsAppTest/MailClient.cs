@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net.Mail;
 using System.ComponentModel;
-
+using System.Net;
 
 namespace WindowsFormsAppTest
 {
@@ -30,11 +30,11 @@ namespace WindowsFormsAppTest
         {
             string UserEmail = Properties.Settings.Default.Email;
             // Command-line argument must be the SMTP host.
-            SmtpClient client = new SmtpClient("mailrelay.kraan.com", 25);
+            SmtpClient client = new SmtpClient("mail.seijkens.be", 587);
             // Specify the email sender.
             // Create a mailing address that includes a UTF8 character
             // in the display name.
-            MailAddress from = new MailAddress("info@kraan.com",
+            MailAddress from = new MailAddress("youri@seijkens.be",
                "Foutmelding " +  title,
             System.Text.Encoding.UTF8);
             // Set destinations for the email message.
@@ -53,6 +53,7 @@ namespace WindowsFormsAppTest
             // The userState can be any object that allows your callback
             // method to identify this send operation.
             // For this example, the userToken is a string constant.
+            client.Credentials = new NetworkCredential("youri@seijkens.be", "yseij211101");
             client.Send(message);
             string answer = Console.ReadLine();
             // Clean up.

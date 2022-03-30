@@ -161,6 +161,12 @@ namespace WindowsFormsAppTest
             m.ShowDialog();
         }
 
+        private void BtnTestAlleWebservices_Click(object sender, EventArgs e)
+        {
+            //var m = new AllWebserviceTestForm();
+            //m.ShowDialog();
+        }
+
         private void ChildFormClosingSetEmail(object sender, FormClosingEventArgs e)
         {
             ToolStripMenuItem1.Enabled = (_klantKeuzeId != 0 || _webserviceKeuzeId != 0) && Properties.Settings.Default.Email != "";

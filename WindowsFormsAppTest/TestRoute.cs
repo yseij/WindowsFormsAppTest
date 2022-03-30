@@ -83,9 +83,7 @@ namespace WindowsFormsAppTest
                                    MaterialMultiLineTextBox2 LegeUrlsTxtBx)
         {
             bool isSoap = false;
-            var data = "";
-
-            int teller = 0;
+            int teller;
             GetWebservices();
 
             LogFile logFile = new LogFile();

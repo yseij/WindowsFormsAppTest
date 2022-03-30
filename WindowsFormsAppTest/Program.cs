@@ -15,6 +15,7 @@ namespace WindowsFormsAppTest
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Home home = new Home();
+            home.HomeTest();
             Application.Run(home);
         }
     }
