@@ -126,7 +126,7 @@ namespace WindowsFormsAppTest
             this.menuStrip.Location = new System.Drawing.Point(3, 429);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip.Size = new System.Drawing.Size(401, 24);
+            this.menuStrip.Size = new System.Drawing.Size(281, 24);
             this.menuStrip.TabIndex = 9;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -271,27 +271,27 @@ namespace WindowsFormsAppTest
             this.min30ByServiceTlStrpMnItm,
             this.min60ByServiceTlStrpMnItm});
             this.TijdByServiceTlStrpMnItm.Name = "TijdByServiceTlStrpMnItm";
-            this.TijdByServiceTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
+            this.TijdByServiceTlStrpMnItm.Size = new System.Drawing.Size(127, 22);
             this.TijdByServiceTlStrpMnItm.Text = "Tijd";
             // 
             // min15ByServiceTlStrpMnItm
             // 
             this.min15ByServiceTlStrpMnItm.Name = "min15ByServiceTlStrpMnItm";
-            this.min15ByServiceTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
+            this.min15ByServiceTlStrpMnItm.Size = new System.Drawing.Size(107, 22);
             this.min15ByServiceTlStrpMnItm.Text = "15min";
             this.min15ByServiceTlStrpMnItm.Click += new System.EventHandler(this.min15ByServiceTlStrpMnItm_Click);
             // 
             // min30ByServiceTlStrpMnItm
             // 
             this.min30ByServiceTlStrpMnItm.Name = "min30ByServiceTlStrpMnItm";
-            this.min30ByServiceTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
+            this.min30ByServiceTlStrpMnItm.Size = new System.Drawing.Size(107, 22);
             this.min30ByServiceTlStrpMnItm.Text = "30min";
             this.min30ByServiceTlStrpMnItm.Click += new System.EventHandler(this.min30ByServiceTlStrpMnItm_Click);
             // 
             // min60ByServiceTlStrpMnItm
             // 
             this.min60ByServiceTlStrpMnItm.Name = "min60ByServiceTlStrpMnItm";
-            this.min60ByServiceTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
+            this.min60ByServiceTlStrpMnItm.Size = new System.Drawing.Size(107, 22);
             this.min60ByServiceTlStrpMnItm.Text = "60min";
             this.min60ByServiceTlStrpMnItm.Click += new System.EventHandler(this.min60ByServiceTlStrpMnItm_Click);
             // 
@@ -301,7 +301,7 @@ namespace WindowsFormsAppTest
             this.AanByServiceTlStrpMnItm,
             this.UitByServiceTlStrpMnItm});
             this.AanOfUitByServiceTlStrpMnItm.Name = "AanOfUitByServiceTlStrpMnItm";
-            this.AanOfUitByServiceTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
+            this.AanOfUitByServiceTlStrpMnItm.Size = new System.Drawing.Size(127, 22);
             this.AanOfUitByServiceTlStrpMnItm.Text = "Aan of Uit";
             // 
             // AanByServiceTlStrpMnItm
@@ -447,7 +447,7 @@ namespace WindowsFormsAppTest
             this.BtnSales24En31.Name = "BtnSales24En31";
             this.BtnSales24En31.Size = new System.Drawing.Size(150, 150);
             this.BtnSales24En31.TabIndex = 22;
-            this.BtnSales24En31.Text = "TEST SALES 24 EN 31";
+            this.BtnSales24En31.Text = "TEST";
             this.BtnSales24En31.UseVisualStyleBackColor = false;
             this.BtnSales24En31.Click += new System.EventHandler(this.BtnSales24En31_Click);
             // 
@@ -505,7 +505,7 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(814, 456);
+            this.ClientSize = new System.Drawing.Size(817, 456);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.BtnTestAlleWebservices);
             this.Controls.Add(this.materialLabel4);

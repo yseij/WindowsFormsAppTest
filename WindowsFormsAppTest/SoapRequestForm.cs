@@ -37,12 +37,12 @@ namespace WindowsFormsAppTest
             return epa;
         }
 
-        private WebserviceYouri.CrmServiceClient NewCrmService(string host)
+        private YouriWebserviceCrm.CrmServiceClient NewCrmService(string host)
         {
             BasicHttpBinding binding = CreateBinding("CrmService");
             EndpointAddress epa = CreateEndpointAddress(host, "CrmService.svc");
 
-            return new WebserviceYouri.CrmServiceClient(binding, epa);
+            return new YouriWebserviceCrm.CrmServiceClient(binding, epa);
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -61,18 +61,18 @@ namespace WindowsFormsAppTest
 
             try
             {
-                using (WebserviceYouri.CrmServiceClient client = NewCrmService(host))
+                using (YouriWebserviceCrm.CrmServiceClient client = NewCrmService(host))
                 {
                     string testResultaat = "Geen verbinding mogelijk.";
 
                     try
                     {
                         client.Open();
-                        WebserviceYouri.RequestSearch RequestSearch = new WebserviceYouri.RequestSearch();
+                        YouriWebserviceCrm.RequestSearch RequestSearch = new YouriWebserviceCrm.RequestSearch();
                         RequestSearch.ZoekString = "a";
-                        WebserviceYouri.RelatieLijstModel relatieLijstModel = client.GetFilterdListProject(RequestSearch);
+                        YouriWebserviceCrm.RelatieLijstModel relatieLijstModel = client.GetFilterdListProject(RequestSearch);
 
-                        //string result = client.GetVersion();
+                        string result = client.GetVersion();
 
                         testResultaat = "Er is een beveiligde verbinding gemaakt met de Crmservice ..." + Environment.NewLine;
                         testResultaat += "\r\nURL: " + CreateEndpointAddress(host, "crmservice.svc").Uri + Environment.NewLine;

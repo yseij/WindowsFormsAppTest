@@ -83,6 +83,7 @@ namespace WindowsFormsAppTest
                                    MaterialMultiLineTextBox2 LegeUrlsTxtBx)
         {
             bool isSoap = false;
+            string webservice = ""; ;
             int teller;
             GetWebservices();
 
@@ -102,9 +103,10 @@ namespace WindowsFormsAppTest
             {
                 foreach (WebServiceData webServiceData in _webServiceDatas)
                 {
-                    if (webServiceData.Id == urlData.Id)
+                    if (webServiceData.Id == urlData.WebServiceDataId)
                     {
                         isSoap = webServiceData.Soap;
+                        webservice = webServiceData.Name;
                     }
                 }
                 TreeNode node = new TreeNode();
@@ -113,11 +115,11 @@ namespace WindowsFormsAppTest
                 logFile.AddTextToLogFile(urlData.Name + "\n");
                 if (isSoap)
                 {
-                    _result = _webRequest.GetWebRequest(urlData.Id, urlHttp, urlData.Name, urlData.SecurityId);
+                    _result = _webRequest.GetWebRequestSoap(webservice, urlData.Name);
                 }
                 else
                 {
-                    _result = JObject.Parse(_webRequest.GetWebRequest(urlData.Id, urlHttp, urlData.Name, urlData.SecurityId));
+                    _result = JObject.Parse(_webRequest.GetWebRequestRest(urlData.Id, urlHttp, webservice, urlData.Name, urlData.SecurityId));
                 }
                 node.Tag = _result;
                 teller = 0;

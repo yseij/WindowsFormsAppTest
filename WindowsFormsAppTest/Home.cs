@@ -518,7 +518,7 @@ namespace WindowsFormsAppTest
             LogFile logFile = new LogFile();
             foreach (UrlData urlData in urlDatas)
             {
-                var data = _webRequest.GetWebRequest(urlData.Id, ConfigurationManager.AppSettings["Http"], urlData.Name, urlData.SecurityId);
+                var data = _webRequest.GetWebRequestRest(urlData.Id, ConfigurationManager.AppSettings["Http"], urlData.Name, urlData.SecurityId);
                 _result = JObject.Parse(data);
                 foreach (JProperty item in _result)
                 {

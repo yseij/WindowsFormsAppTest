@@ -44,10 +44,10 @@ namespace WindowsFormsAppTest
             SetDisplayAndValueMember();
         }
 
-        public void FillCmbBoxRest(List<string> data)
+        public void FillCmbBoxHttp(List<HttpData> httpDatas)
         {
             ClearDataSource();
-            DataSource = data;
+            DataSource = httpDatas;
             SetDisplayAndValueMember();
         }
     }

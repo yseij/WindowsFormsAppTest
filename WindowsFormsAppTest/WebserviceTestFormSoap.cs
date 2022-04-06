@@ -18,15 +18,19 @@ namespace WindowsFormsAppTest
     {
         private string urlHttp = "";
 
+        private List<HttpData> _httpDatas = new List<HttpData>();
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
 
+        HttpTest _httptest;
         WebserviceTest _webserviceTest;
 
         public WebserviceTestFormSoap()
         {
             InitializeComponent();
             _webserviceTest = new WebserviceTest();
+            _httptest = new HttpTest();
             _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
+            GetHttps();
         }
 
         private void WebserviceTestForm_Load(object sender, EventArgs e)
@@ -35,20 +39,24 @@ namespace WindowsFormsAppTest
             FillCmbxHtpp();
         }
 
+        private void GetHttps()
+        {
+            _httpDatas = _httptest.GetHttpData();
+        }
+
         private void FillCmbxWebServices()
         {
             WebserviceKrMaterialCmbx.FillCmbBoxWebservice(_webServiceDatas);
         }
 
+        private void HttpKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            urlHttp = HttpKrMaterialCmbx.SelectedText;
+        }
+
         private void FillCmbxHtpp()
         {
-            List<string> listOfNames = new List<string>()
-            {
-                "https://wsdev.kraan.com/",
-                "https://ws.kraan.com:444/",
-                "https://wsdev.kraan.com:1234/release/MessageServiceSoap31.svc"
-            };
-            HttpKrMaterialCmbx.FillCmbBoxRest(listOfNames);
+            HttpKrMaterialCmbx.FillCmbBoxHttp(_httpDatas);
             HttpKrMaterialCmbx.SelectedItem = ConfigurationManager.AppSettings["http"];
             urlHttp = ConfigurationManager.AppSettings["http"];
         }
@@ -62,7 +70,7 @@ namespace WindowsFormsAppTest
             return serviceBinding;
         }
 
-        private EndpointAddress CreateEndpointAddress(string host, string endPointName)
+        private EndpointAddress CreateEndpointAddress(string host, string endPointName = "")
         {
             string endPointString = host;
             if (host.ToLower().Contains("messageservicesoap.svc") || host.ToLower().Contains("messageservicesoap31.svc"))
@@ -109,7 +117,7 @@ namespace WindowsFormsAppTest
             txtTestResultaat.Refresh();
 
             string host = HttpKrMaterialCmbx.Text.Trim();
-            //host += WebserviceKrMaterialCmbx.Text;
+            host += WebserviceKrMaterialCmbx.Text;
 
             if (string.IsNullOrWhiteSpace(host))
             {
@@ -134,7 +142,8 @@ namespace WindowsFormsAppTest
 
 
                             testResultaat = "Er is een beveiligde verbinding gemaakt met de Sales Messageservice ..." + Environment.NewLine;
-                            testResultaat += "\r\nURL: " + CreateEndpointAddress(host, "messageservicesoap.svc").Uri + Environment.NewLine;
+                            //testResultaat += "\r\nURL: " + CreateEndpointAddress(host, "messageservicesoap.svc").Uri + Environment.NewLine;
+                            testResultaat += "\r\nURL: " + CreateEndpointAddress(host).Uri + Environment.NewLine;
                             testResultaat = testResultaat + message.Text[0];
 
                             var data = "{\"" + message.Text[0]
@@ -327,11 +336,6 @@ namespace WindowsFormsAppTest
             logFile.AddTextToLogFile("MSSQL catalog = " + TxtBxMssqlCatalog + "\n");
             logFile.AddTextToLogFile("Kraan 1 databaseversie = " + TxtBxKraan1DatabaseVersie + "\n");
             logFile.AddTextToLogFile("Kraan 2 databaseversie = " + TxtBxKraan2DatabaseVersie + "\n");
-        }
-
-        private void HttpKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            urlHttp = HttpKrMaterialCmbx.SelectedText;
         }
     }
 }

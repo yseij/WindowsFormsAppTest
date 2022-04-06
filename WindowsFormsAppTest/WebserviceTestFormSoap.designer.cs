@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WebserviceTestFormSoap));
             this.labelHttpsText = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.krMaterialCombobox1 = new WindowsFormsAppTest.KrMaterialCombobox();
             this.BtnTestWebservice = new System.Windows.Forms.Button();
             this.HttpKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.label2 = new System.Windows.Forms.Label();
@@ -89,7 +91,7 @@
             this.labelHttpsText.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelHttpsText.Location = new System.Drawing.Point(6, 188);
             this.labelHttpsText.Name = "labelHttpsText";
-            this.labelHttpsText.Size = new System.Drawing.Size(655, 21);
+            this.labelHttpsText.Size = new System.Drawing.Size(1671, 21);
             this.labelHttpsText.TabIndex = 36;
             this.labelHttpsText.Text = "Let op!: Om verbinding te kunnen maken met Kraan Sales dient bij Message Service " +
     "versie 3.1 inlog gegevens te worden geconfigureerd.";
@@ -99,6 +101,8 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.groupBox2.Controls.Add(this.label1);
+            this.groupBox2.Controls.Add(this.krMaterialCombobox1);
             this.groupBox2.Controls.Add(this.BtnTestWebservice);
             this.groupBox2.Controls.Add(this.HttpKrMaterialCmbx);
             this.groupBox2.Controls.Add(this.label2);
@@ -111,10 +115,48 @@
             this.groupBox2.Controls.Add(this.labelHttpsText);
             this.groupBox2.Location = new System.Drawing.Point(10, 74);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(836, 214);
+            this.groupBox2.Size = new System.Drawing.Size(1852, 214);
             this.groupBox2.TabIndex = 41;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Https";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label1.Location = new System.Drawing.Point(1196, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(16, 17);
+            this.label1.TabIndex = 68;
+            this.label1.Text = "+";
+            // 
+            // krMaterialCombobox1
+            // 
+            this.krMaterialCombobox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.krMaterialCombobox1.AutoResize = false;
+            this.krMaterialCombobox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.krMaterialCombobox1.Depth = 0;
+            this.krMaterialCombobox1.DisplayMember = "Name";
+            this.krMaterialCombobox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.krMaterialCombobox1.DropDownHeight = 174;
+            this.krMaterialCombobox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.krMaterialCombobox1.DropDownWidth = 121;
+            this.krMaterialCombobox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.krMaterialCombobox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.krMaterialCombobox1.FormattingEnabled = true;
+            this.krMaterialCombobox1.IntegralHeight = false;
+            this.krMaterialCombobox1.ItemHeight = 43;
+            this.krMaterialCombobox1.Location = new System.Drawing.Point(1218, 19);
+            this.krMaterialCombobox1.MaxDropDownItems = 4;
+            this.krMaterialCombobox1.MouseState = MaterialSkin.MouseState.OUT;
+            this.krMaterialCombobox1.Name = "krMaterialCombobox1";
+            this.krMaterialCombobox1.Size = new System.Drawing.Size(628, 49);
+            this.krMaterialCombobox1.StartIndex = 0;
+            this.krMaterialCombobox1.TabIndex = 67;
+            this.krMaterialCombobox1.ValueMember = "Id";
             // 
             // BtnTestWebservice
             // 
@@ -124,9 +166,9 @@
             this.BtnTestWebservice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnTestWebservice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnTestWebservice.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnTestWebservice.Location = new System.Drawing.Point(667, 16);
+            this.BtnTestWebservice.Location = new System.Drawing.Point(1683, 73);
             this.BtnTestWebservice.Name = "BtnTestWebservice";
-            this.BtnTestWebservice.Size = new System.Drawing.Size(163, 159);
+            this.BtnTestWebservice.Size = new System.Drawing.Size(163, 102);
             this.BtnTestWebservice.TabIndex = 66;
             this.BtnTestWebservice.Text = "Test Webservice";
             this.BtnTestWebservice.UseVisualStyleBackColor = false;
@@ -151,7 +193,7 @@
             this.HttpKrMaterialCmbx.MaxDropDownItems = 4;
             this.HttpKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
             this.HttpKrMaterialCmbx.Name = "HttpKrMaterialCmbx";
-            this.HttpKrMaterialCmbx.Size = new System.Drawing.Size(251, 49);
+            this.HttpKrMaterialCmbx.Size = new System.Drawing.Size(421, 49);
             this.HttpKrMaterialCmbx.StartIndex = 0;
             this.HttpKrMaterialCmbx.TabIndex = 45;
             this.HttpKrMaterialCmbx.ValueMember = "Id";
@@ -163,7 +205,7 @@
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(386, 33);
+            this.label2.Location = new System.Drawing.Point(556, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(16, 17);
             this.label2.TabIndex = 44;
@@ -171,8 +213,6 @@
             // 
             // WebserviceKrMaterialCmbx
             // 
-            this.WebserviceKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.WebserviceKrMaterialCmbx.AutoResize = false;
             this.WebserviceKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.WebserviceKrMaterialCmbx.Depth = 0;
@@ -186,11 +226,11 @@
             this.WebserviceKrMaterialCmbx.FormattingEnabled = true;
             this.WebserviceKrMaterialCmbx.IntegralHeight = false;
             this.WebserviceKrMaterialCmbx.ItemHeight = 43;
-            this.WebserviceKrMaterialCmbx.Location = new System.Drawing.Point(408, 18);
+            this.WebserviceKrMaterialCmbx.Location = new System.Drawing.Point(578, 18);
             this.WebserviceKrMaterialCmbx.MaxDropDownItems = 4;
             this.WebserviceKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
             this.WebserviceKrMaterialCmbx.Name = "WebserviceKrMaterialCmbx";
-            this.WebserviceKrMaterialCmbx.Size = new System.Drawing.Size(253, 49);
+            this.WebserviceKrMaterialCmbx.Size = new System.Drawing.Size(612, 49);
             this.WebserviceKrMaterialCmbx.StartIndex = 0;
             this.WebserviceKrMaterialCmbx.TabIndex = 34;
             this.WebserviceKrMaterialCmbx.ValueMember = "Id";
@@ -228,7 +268,7 @@
             this.TxtBxPassword.SelectionLength = 0;
             this.TxtBxPassword.SelectionStart = 0;
             this.TxtBxPassword.ShortcutsEnabled = true;
-            this.TxtBxPassword.Size = new System.Drawing.Size(532, 48);
+            this.TxtBxPassword.Size = new System.Drawing.Size(1548, 48);
             this.TxtBxPassword.SkipLiterals = true;
             this.TxtBxPassword.TabIndex = 43;
             this.TxtBxPassword.TabStop = false;
@@ -271,7 +311,7 @@
             this.TxtBxUsername.SelectionLength = 0;
             this.TxtBxUsername.SelectionStart = 0;
             this.TxtBxUsername.ShortcutsEnabled = true;
-            this.TxtBxUsername.Size = new System.Drawing.Size(532, 48);
+            this.TxtBxUsername.Size = new System.Drawing.Size(1548, 48);
             this.TxtBxUsername.SkipLiterals = true;
             this.TxtBxUsername.TabIndex = 42;
             this.TxtBxUsername.TabStop = false;
@@ -339,7 +379,7 @@
             this.txtTestResultaat.SelectionLength = 0;
             this.txtTestResultaat.SelectionStart = 0;
             this.txtTestResultaat.ShortcutsEnabled = true;
-            this.txtTestResultaat.Size = new System.Drawing.Size(836, 65);
+            this.txtTestResultaat.Size = new System.Drawing.Size(1852, 65);
             this.txtTestResultaat.TabIndex = 42;
             this.txtTestResultaat.TabStop = false;
             this.txtTestResultaat.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -708,7 +748,7 @@
             this.groupBox3.Controls.Add(this.LblKraanDLL3_1);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.groupBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.groupBox3.Location = new System.Drawing.Point(437, 294);
+            this.groupBox3.Location = new System.Drawing.Point(1453, 294);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(409, 490);
             this.groupBox3.TabIndex = 31;
@@ -1029,7 +1069,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(854, 861);
+            this.ClientSize = new System.Drawing.Size(1870, 861);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.txtTestResultaat);
@@ -1099,6 +1139,8 @@
         private MaterialSkin.Controls.MaterialLabel LblKraanDLL3_1;
         private MaterialSkin.Controls.MaterialTextBox TxtBxMessageVersie3_1;
         private System.Windows.Forms.Button BtnTestWebservice;
+        private System.Windows.Forms.Label label1;
+        private KrMaterialCombobox krMaterialCombobox1;
     }
 }
 

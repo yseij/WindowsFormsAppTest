@@ -1,8 +1,10 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using System;
 using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
+using System.ServiceModel;
 
 namespace WindowsFormsAppTest
 {
@@ -27,9 +29,10 @@ namespace WindowsFormsAppTest
             _wc = new WebClient();
         }
 
-        public string GetWebRequest(int id, string urlHttp, string url, string securityId = "")
+        //REST
+        public string GetWebRequestRest(int id, string http, string webservice, string url, string securityId = "")
         {
-            string webRequestUrl = urlHttp + url + securityId;
+            string webRequestUrl = http + webservice + '/' + url + securityId;
             Uri uri = new Uri(webRequestUrl);
             try
             {
@@ -75,7 +78,7 @@ namespace WindowsFormsAppTest
                                 return "{" + data + ", id: '" + id + "', certVerValDatum: '" + cert.GetExpirationDateString().ToString() + "'}";
                             }
                             return "{" + data + ", id: '" + id + "'}";
-                            
+
                         }
                         return null;
                     }
@@ -104,6 +107,79 @@ namespace WindowsFormsAppTest
             kraanDatabase = data.Substring(positionDatabaseConnect, positionDatabaseMelding - positionDatabaseConnect);
 
             return @"{ WebserviceVersie: '" + webserviceVersie + "', KraanDll: '" + kraanDll + "', KraanIni: '" + kraanIni + "', KraanDatabase: '" + kraanDatabase + "', certVerValDatum: '" + verValDatum + "'}";
+        }
+
+        //SOAP
+        public string GetWebRequestSoap(string host, string service)
+        {
+            YouriWebserviceCrm.CrmServiceClient client;
+            string result = "";
+            switch (service)
+            {
+                case "CrmService.svc":
+                    client = NewCrmService(host);
+                    client.Open();
+                    result = client.GetVersion().ToString();
+                    client.Close();
+                    break;
+            }
+            return result;
+        }
+
+        //private YouriWebserviceAuth.AuthServiceClient NewAuthService(string host)
+        //{
+        //    BasicHttpBinding binding = CreateBinding("AuthService");
+        //    EndpointAddress epa = CreateEndpointAddress(host, "AuthService.svc");
+
+        //    return new YouriWebserviceAuth.AuthServiceClient(binding, epa);
+        //}
+
+        private YouriWebserviceCrm.CrmServiceClient NewCrmService(string host)
+        {
+            BasicHttpBinding binding = CreateBinding("CrmService");
+            EndpointAddress epa = CreateEndpointAddress(host, "CrmService.svc");
+
+            return new YouriWebserviceCrm.CrmServiceClient(binding, epa);
+        }
+
+        private YouriWebserviceMaterieel.MaterieelServiceClient NewMateriaalService(string host)
+        {
+            BasicHttpBinding binding = CreateBinding("MaterieelService");
+            EndpointAddress epa = CreateEndpointAddress(host, "MaterieelService.svc");
+
+            return new YouriWebserviceMaterieel.MaterieelServiceClient(binding, epa);
+        }
+
+        private YouriWebserviceUren.UrenServiceClient NewUrenService(string host)
+        {
+            BasicHttpBinding binding = CreateBinding("UrenService");
+            EndpointAddress epa = CreateEndpointAddress(host, "UrenService.svc");
+
+            return new YouriWebserviceUren.UrenServiceClient(binding, epa);
+        }
+
+        private YouriWebserviceWorkFlow.WorkflowServiceClient NewWorkFlowService(string host)
+        {
+            BasicHttpBinding binding = CreateBinding("WorkflowService");
+            EndpointAddress epa = CreateEndpointAddress(host, "WorkflowService.svc");
+
+            return new YouriWebserviceWorkFlow.WorkflowServiceClient(binding, epa);
+        }
+
+        private BasicHttpBinding CreateBinding(string bindingName)
+        {
+            BasicHttpBinding serviceBinding = new BasicHttpBinding();
+            serviceBinding.Name = bindingName;
+            serviceBinding.Security.Mode = BasicHttpSecurityMode.Transport;
+            serviceBinding.Security.Transport.ClientCredentialType = HttpClientCredentialType.None;
+            return serviceBinding;
+        }
+
+        private EndpointAddress CreateEndpointAddress(string host, string endPointName)
+        {
+            string endPointString = host + endPointName;
+            EndpointAddress epa = new EndpointAddress(endPointString);
+            return epa;
         }
     }
 }

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WindowsFormsAppTest.WebserviceYouri {
+namespace WindowsFormsAppTest.YouriWebserviceCrm {
     using System.Runtime.Serialization;
     using System;
     
@@ -251,7 +251,7 @@ namespace WindowsFormsAppTest.WebserviceYouri {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RequestAuth", Namespace="http://schemas.datacontract.org/2004/07/Kraan.WebservicesTemplate")]
     [System.SerializableAttribute()]
-    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WindowsFormsAppTest.WebserviceYouri.RequestSearch))]
+    [System.Runtime.Serialization.KnownTypeAttribute(typeof(WindowsFormsAppTest.YouriWebserviceCrm.RequestSearch))]
     public partial class RequestAuth : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
         [System.NonSerializedAttribute()]
@@ -409,7 +409,7 @@ namespace WindowsFormsAppTest.WebserviceYouri {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="RequestSearch", Namespace="http://schemas.datacontract.org/2004/07/Kraan2.Webservices.Model")]
     [System.SerializableAttribute()]
-    public partial class RequestSearch : WindowsFormsAppTest.WebserviceYouri.RequestAuth {
+    public partial class RequestSearch : WindowsFormsAppTest.YouriWebserviceCrm.RequestAuth {
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string ZoekStringField;
@@ -518,7 +518,7 @@ namespace WindowsFormsAppTest.WebserviceYouri {
         private bool LoginSuccesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsFormsAppTest.WebserviceYouri.Relatie[] RelatiesField;
+        private WindowsFormsAppTest.YouriWebserviceCrm.Relatie[] RelatiesField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -544,7 +544,7 @@ namespace WindowsFormsAppTest.WebserviceYouri {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsFormsAppTest.WebserviceYouri.Relatie[] Relaties {
+        public WindowsFormsAppTest.YouriWebserviceCrm.Relatie[] Relaties {
             get {
                 return this.RelatiesField;
             }
@@ -579,10 +579,10 @@ namespace WindowsFormsAppTest.WebserviceYouri {
         private string CodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsFormsAppTest.WebserviceYouri.ContactPersoon[] ContactpersonenField;
+        private WindowsFormsAppTest.YouriWebserviceCrm.ContactPersoon[] ContactpersonenField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsFormsAppTest.WebserviceYouri.Document[] DocumentenField;
+        private WindowsFormsAppTest.YouriWebserviceCrm.Document[] DocumentenField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string EmailField;
@@ -683,7 +683,7 @@ namespace WindowsFormsAppTest.WebserviceYouri {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsFormsAppTest.WebserviceYouri.ContactPersoon[] Contactpersonen {
+        public WindowsFormsAppTest.YouriWebserviceCrm.ContactPersoon[] Contactpersonen {
             get {
                 return this.ContactpersonenField;
             }
@@ -696,7 +696,7 @@ namespace WindowsFormsAppTest.WebserviceYouri {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsFormsAppTest.WebserviceYouri.Document[] Documenten {
+        public WindowsFormsAppTest.YouriWebserviceCrm.Document[] Documenten {
             get {
                 return this.DocumentenField;
             }
@@ -1306,7 +1306,7 @@ namespace WindowsFormsAppTest.WebserviceYouri {
         private bool LoginSuccesField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsFormsAppTest.WebserviceYouri.Relatie RelatieField;
+        private WindowsFormsAppTest.YouriWebserviceCrm.Relatie RelatieField;
         
         [global::System.ComponentModel.BrowsableAttribute(false)]
         public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
@@ -1332,7 +1332,7 @@ namespace WindowsFormsAppTest.WebserviceYouri {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsFormsAppTest.WebserviceYouri.Relatie Relatie {
+        public WindowsFormsAppTest.YouriWebserviceCrm.Relatie Relatie {
             get {
                 return this.RelatieField;
             }
@@ -1385,7 +1385,7 @@ namespace WindowsFormsAppTest.WebserviceYouri {
         private string ProjectCodeField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private WindowsFormsAppTest.WebserviceYouri.RequestAuth RequestField;
+        private WindowsFormsAppTest.YouriWebserviceCrm.RequestAuth RequestField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string WerkboncodeField;
@@ -1492,7 +1492,7 @@ namespace WindowsFormsAppTest.WebserviceYouri {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
-        public WindowsFormsAppTest.WebserviceYouri.RequestAuth Request {
+        public WindowsFormsAppTest.YouriWebserviceCrm.RequestAuth Request {
             get {
                 return this.RequestField;
             }
@@ -1528,7 +1528,7 @@ namespace WindowsFormsAppTest.WebserviceYouri {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="WebserviceYouri.ICrmService")]
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="YouriWebserviceCrm.ICrmService")]
     public interface ICrmService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthWebservice/GetVersion", ReplyAction="http://tempuri.org/IAuthWebservice/GetVersionResponse")]
@@ -1538,22 +1538,22 @@ namespace WindowsFormsAppTest.WebserviceYouri {
         System.Threading.Tasks.Task<string> GetVersionAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthWebservice/RegisterUser", ReplyAction="http://tempuri.org/IAuthWebservice/RegisterUserResponse")]
-        WindowsFormsAppTest.WebserviceYouri.LoginRegistratie RegisterUser(WindowsFormsAppTest.WebserviceYouri.Login login);
+        WindowsFormsAppTest.YouriWebserviceCrm.LoginRegistratie RegisterUser(WindowsFormsAppTest.YouriWebserviceCrm.Login login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthWebservice/RegisterUser", ReplyAction="http://tempuri.org/IAuthWebservice/RegisterUserResponse")]
-        System.Threading.Tasks.Task<WindowsFormsAppTest.WebserviceYouri.LoginRegistratie> RegisterUserAsync(WindowsFormsAppTest.WebserviceYouri.Login login);
+        System.Threading.Tasks.Task<WindowsFormsAppTest.YouriWebserviceCrm.LoginRegistratie> RegisterUserAsync(WindowsFormsAppTest.YouriWebserviceCrm.Login login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthWebservice/UnRegisterUser", ReplyAction="http://tempuri.org/IAuthWebservice/UnRegisterUserResponse")]
-        WindowsFormsAppTest.WebserviceYouri.LoginRegistratie UnRegisterUser(WindowsFormsAppTest.WebserviceYouri.Login login);
+        WindowsFormsAppTest.YouriWebserviceCrm.LoginRegistratie UnRegisterUser(WindowsFormsAppTest.YouriWebserviceCrm.Login login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthWebservice/UnRegisterUser", ReplyAction="http://tempuri.org/IAuthWebservice/UnRegisterUserResponse")]
-        System.Threading.Tasks.Task<WindowsFormsAppTest.WebserviceYouri.LoginRegistratie> UnRegisterUserAsync(WindowsFormsAppTest.WebserviceYouri.Login login);
+        System.Threading.Tasks.Task<WindowsFormsAppTest.YouriWebserviceCrm.LoginRegistratie> UnRegisterUserAsync(WindowsFormsAppTest.YouriWebserviceCrm.Login login);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthWebservice/CheckLogin", ReplyAction="http://tempuri.org/IAuthWebservice/CheckLoginResponse")]
-        WindowsFormsAppTest.WebserviceYouri.LoginRegistratie CheckLogin(WindowsFormsAppTest.WebserviceYouri.RequestAuth request);
+        WindowsFormsAppTest.YouriWebserviceCrm.LoginRegistratie CheckLogin(WindowsFormsAppTest.YouriWebserviceCrm.RequestAuth request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthWebservice/CheckLogin", ReplyAction="http://tempuri.org/IAuthWebservice/CheckLoginResponse")]
-        System.Threading.Tasks.Task<WindowsFormsAppTest.WebserviceYouri.LoginRegistratie> CheckLoginAsync(WindowsFormsAppTest.WebserviceYouri.RequestAuth request);
+        System.Threading.Tasks.Task<WindowsFormsAppTest.YouriWebserviceCrm.LoginRegistratie> CheckLoginAsync(WindowsFormsAppTest.YouriWebserviceCrm.RequestAuth request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthWebservice/DownloadLogFiles", ReplyAction="http://tempuri.org/IAuthWebservice/DownloadLogFilesResponse")]
         byte[] DownloadLogFiles();
@@ -1562,43 +1562,43 @@ namespace WindowsFormsAppTest.WebserviceYouri {
         System.Threading.Tasks.Task<byte[]> DownloadLogFilesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthWebservice/SaveException", ReplyAction="http://tempuri.org/IAuthWebservice/SaveExceptionResponse")]
-        void SaveException(WindowsFormsAppTest.WebserviceYouri.ExceptionMelding exception);
+        void SaveException(WindowsFormsAppTest.YouriWebserviceCrm.ExceptionMelding exception);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IAuthWebservice/SaveException", ReplyAction="http://tempuri.org/IAuthWebservice/SaveExceptionResponse")]
-        System.Threading.Tasks.Task SaveExceptionAsync(WindowsFormsAppTest.WebserviceYouri.ExceptionMelding exception);
+        System.Threading.Tasks.Task SaveExceptionAsync(WindowsFormsAppTest.YouriWebserviceCrm.ExceptionMelding exception);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrmService/GetFilterdListRelatie", ReplyAction="http://tempuri.org/ICrmService/GetFilterdListRelatieResponse")]
-        WindowsFormsAppTest.WebserviceYouri.RelatieLijstModel GetFilterdListRelatie(WindowsFormsAppTest.WebserviceYouri.RequestSearch request);
+        WindowsFormsAppTest.YouriWebserviceCrm.RelatieLijstModel GetFilterdListRelatie(WindowsFormsAppTest.YouriWebserviceCrm.RequestSearch request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrmService/GetFilterdListRelatie", ReplyAction="http://tempuri.org/ICrmService/GetFilterdListRelatieResponse")]
-        System.Threading.Tasks.Task<WindowsFormsAppTest.WebserviceYouri.RelatieLijstModel> GetFilterdListRelatieAsync(WindowsFormsAppTest.WebserviceYouri.RequestSearch request);
+        System.Threading.Tasks.Task<WindowsFormsAppTest.YouriWebserviceCrm.RelatieLijstModel> GetFilterdListRelatieAsync(WindowsFormsAppTest.YouriWebserviceCrm.RequestSearch request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrmService/GetFilterdListProject", ReplyAction="http://tempuri.org/ICrmService/GetFilterdListProjectResponse")]
-        WindowsFormsAppTest.WebserviceYouri.RelatieLijstModel GetFilterdListProject(WindowsFormsAppTest.WebserviceYouri.RequestSearch request);
+        WindowsFormsAppTest.YouriWebserviceCrm.RelatieLijstModel GetFilterdListProject(WindowsFormsAppTest.YouriWebserviceCrm.RequestSearch request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrmService/GetFilterdListProject", ReplyAction="http://tempuri.org/ICrmService/GetFilterdListProjectResponse")]
-        System.Threading.Tasks.Task<WindowsFormsAppTest.WebserviceYouri.RelatieLijstModel> GetFilterdListProjectAsync(WindowsFormsAppTest.WebserviceYouri.RequestSearch request);
+        System.Threading.Tasks.Task<WindowsFormsAppTest.YouriWebserviceCrm.RelatieLijstModel> GetFilterdListProjectAsync(WindowsFormsAppTest.YouriWebserviceCrm.RequestSearch request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrmService/GetRelatie", ReplyAction="http://tempuri.org/ICrmService/GetRelatieResponse")]
-        WindowsFormsAppTest.WebserviceYouri.RelatieSingleModel GetRelatie(WindowsFormsAppTest.WebserviceYouri.RequestSearch request);
+        WindowsFormsAppTest.YouriWebserviceCrm.RelatieSingleModel GetRelatie(WindowsFormsAppTest.YouriWebserviceCrm.RequestSearch request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrmService/GetRelatie", ReplyAction="http://tempuri.org/ICrmService/GetRelatieResponse")]
-        System.Threading.Tasks.Task<WindowsFormsAppTest.WebserviceYouri.RelatieSingleModel> GetRelatieAsync(WindowsFormsAppTest.WebserviceYouri.RequestSearch request);
+        System.Threading.Tasks.Task<WindowsFormsAppTest.YouriWebserviceCrm.RelatieSingleModel> GetRelatieAsync(WindowsFormsAppTest.YouriWebserviceCrm.RequestSearch request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrmService/GetFileStream", ReplyAction="http://tempuri.org/ICrmService/GetFileStreamResponse")]
-        System.IO.Stream GetFileStream(WindowsFormsAppTest.WebserviceYouri.DownloadRequest request);
+        System.IO.Stream GetFileStream(WindowsFormsAppTest.YouriWebserviceCrm.DownloadRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICrmService/GetFileStream", ReplyAction="http://tempuri.org/ICrmService/GetFileStreamResponse")]
-        System.Threading.Tasks.Task<System.IO.Stream> GetFileStreamAsync(WindowsFormsAppTest.WebserviceYouri.DownloadRequest request);
+        System.Threading.Tasks.Task<System.IO.Stream> GetFileStreamAsync(WindowsFormsAppTest.YouriWebserviceCrm.DownloadRequest request);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface ICrmServiceChannel : WindowsFormsAppTest.WebserviceYouri.ICrmService, System.ServiceModel.IClientChannel {
+    public interface ICrmServiceChannel : WindowsFormsAppTest.YouriWebserviceCrm.ICrmService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class CrmServiceClient : System.ServiceModel.ClientBase<WindowsFormsAppTest.WebserviceYouri.ICrmService>, WindowsFormsAppTest.WebserviceYouri.ICrmService {
+    public partial class CrmServiceClient : System.ServiceModel.ClientBase<WindowsFormsAppTest.YouriWebserviceCrm.ICrmService>, WindowsFormsAppTest.YouriWebserviceCrm.ICrmService {
         
         public CrmServiceClient() {
         }
@@ -1627,27 +1627,27 @@ namespace WindowsFormsAppTest.WebserviceYouri {
             return base.Channel.GetVersionAsync();
         }
         
-        public WindowsFormsAppTest.WebserviceYouri.LoginRegistratie RegisterUser(WindowsFormsAppTest.WebserviceYouri.Login login) {
+        public WindowsFormsAppTest.YouriWebserviceCrm.LoginRegistratie RegisterUser(WindowsFormsAppTest.YouriWebserviceCrm.Login login) {
             return base.Channel.RegisterUser(login);
         }
         
-        public System.Threading.Tasks.Task<WindowsFormsAppTest.WebserviceYouri.LoginRegistratie> RegisterUserAsync(WindowsFormsAppTest.WebserviceYouri.Login login) {
+        public System.Threading.Tasks.Task<WindowsFormsAppTest.YouriWebserviceCrm.LoginRegistratie> RegisterUserAsync(WindowsFormsAppTest.YouriWebserviceCrm.Login login) {
             return base.Channel.RegisterUserAsync(login);
         }
         
-        public WindowsFormsAppTest.WebserviceYouri.LoginRegistratie UnRegisterUser(WindowsFormsAppTest.WebserviceYouri.Login login) {
+        public WindowsFormsAppTest.YouriWebserviceCrm.LoginRegistratie UnRegisterUser(WindowsFormsAppTest.YouriWebserviceCrm.Login login) {
             return base.Channel.UnRegisterUser(login);
         }
         
-        public System.Threading.Tasks.Task<WindowsFormsAppTest.WebserviceYouri.LoginRegistratie> UnRegisterUserAsync(WindowsFormsAppTest.WebserviceYouri.Login login) {
+        public System.Threading.Tasks.Task<WindowsFormsAppTest.YouriWebserviceCrm.LoginRegistratie> UnRegisterUserAsync(WindowsFormsAppTest.YouriWebserviceCrm.Login login) {
             return base.Channel.UnRegisterUserAsync(login);
         }
         
-        public WindowsFormsAppTest.WebserviceYouri.LoginRegistratie CheckLogin(WindowsFormsAppTest.WebserviceYouri.RequestAuth request) {
+        public WindowsFormsAppTest.YouriWebserviceCrm.LoginRegistratie CheckLogin(WindowsFormsAppTest.YouriWebserviceCrm.RequestAuth request) {
             return base.Channel.CheckLogin(request);
         }
         
-        public System.Threading.Tasks.Task<WindowsFormsAppTest.WebserviceYouri.LoginRegistratie> CheckLoginAsync(WindowsFormsAppTest.WebserviceYouri.RequestAuth request) {
+        public System.Threading.Tasks.Task<WindowsFormsAppTest.YouriWebserviceCrm.LoginRegistratie> CheckLoginAsync(WindowsFormsAppTest.YouriWebserviceCrm.RequestAuth request) {
             return base.Channel.CheckLoginAsync(request);
         }
         
@@ -1659,43 +1659,43 @@ namespace WindowsFormsAppTest.WebserviceYouri {
             return base.Channel.DownloadLogFilesAsync();
         }
         
-        public void SaveException(WindowsFormsAppTest.WebserviceYouri.ExceptionMelding exception) {
+        public void SaveException(WindowsFormsAppTest.YouriWebserviceCrm.ExceptionMelding exception) {
             base.Channel.SaveException(exception);
         }
         
-        public System.Threading.Tasks.Task SaveExceptionAsync(WindowsFormsAppTest.WebserviceYouri.ExceptionMelding exception) {
+        public System.Threading.Tasks.Task SaveExceptionAsync(WindowsFormsAppTest.YouriWebserviceCrm.ExceptionMelding exception) {
             return base.Channel.SaveExceptionAsync(exception);
         }
         
-        public WindowsFormsAppTest.WebserviceYouri.RelatieLijstModel GetFilterdListRelatie(WindowsFormsAppTest.WebserviceYouri.RequestSearch request) {
+        public WindowsFormsAppTest.YouriWebserviceCrm.RelatieLijstModel GetFilterdListRelatie(WindowsFormsAppTest.YouriWebserviceCrm.RequestSearch request) {
             return base.Channel.GetFilterdListRelatie(request);
         }
         
-        public System.Threading.Tasks.Task<WindowsFormsAppTest.WebserviceYouri.RelatieLijstModel> GetFilterdListRelatieAsync(WindowsFormsAppTest.WebserviceYouri.RequestSearch request) {
+        public System.Threading.Tasks.Task<WindowsFormsAppTest.YouriWebserviceCrm.RelatieLijstModel> GetFilterdListRelatieAsync(WindowsFormsAppTest.YouriWebserviceCrm.RequestSearch request) {
             return base.Channel.GetFilterdListRelatieAsync(request);
         }
         
-        public WindowsFormsAppTest.WebserviceYouri.RelatieLijstModel GetFilterdListProject(WindowsFormsAppTest.WebserviceYouri.RequestSearch request) {
+        public WindowsFormsAppTest.YouriWebserviceCrm.RelatieLijstModel GetFilterdListProject(WindowsFormsAppTest.YouriWebserviceCrm.RequestSearch request) {
             return base.Channel.GetFilterdListProject(request);
         }
         
-        public System.Threading.Tasks.Task<WindowsFormsAppTest.WebserviceYouri.RelatieLijstModel> GetFilterdListProjectAsync(WindowsFormsAppTest.WebserviceYouri.RequestSearch request) {
+        public System.Threading.Tasks.Task<WindowsFormsAppTest.YouriWebserviceCrm.RelatieLijstModel> GetFilterdListProjectAsync(WindowsFormsAppTest.YouriWebserviceCrm.RequestSearch request) {
             return base.Channel.GetFilterdListProjectAsync(request);
         }
         
-        public WindowsFormsAppTest.WebserviceYouri.RelatieSingleModel GetRelatie(WindowsFormsAppTest.WebserviceYouri.RequestSearch request) {
+        public WindowsFormsAppTest.YouriWebserviceCrm.RelatieSingleModel GetRelatie(WindowsFormsAppTest.YouriWebserviceCrm.RequestSearch request) {
             return base.Channel.GetRelatie(request);
         }
         
-        public System.Threading.Tasks.Task<WindowsFormsAppTest.WebserviceYouri.RelatieSingleModel> GetRelatieAsync(WindowsFormsAppTest.WebserviceYouri.RequestSearch request) {
+        public System.Threading.Tasks.Task<WindowsFormsAppTest.YouriWebserviceCrm.RelatieSingleModel> GetRelatieAsync(WindowsFormsAppTest.YouriWebserviceCrm.RequestSearch request) {
             return base.Channel.GetRelatieAsync(request);
         }
         
-        public System.IO.Stream GetFileStream(WindowsFormsAppTest.WebserviceYouri.DownloadRequest request) {
+        public System.IO.Stream GetFileStream(WindowsFormsAppTest.YouriWebserviceCrm.DownloadRequest request) {
             return base.Channel.GetFileStream(request);
         }
         
-        public System.Threading.Tasks.Task<System.IO.Stream> GetFileStreamAsync(WindowsFormsAppTest.WebserviceYouri.DownloadRequest request) {
+        public System.Threading.Tasks.Task<System.IO.Stream> GetFileStreamAsync(WindowsFormsAppTest.YouriWebserviceCrm.DownloadRequest request) {
             return base.Channel.GetFileStreamAsync(request);
         }
     }

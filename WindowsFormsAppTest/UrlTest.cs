@@ -127,7 +127,7 @@ namespace WindowsFormsAppTest
             }
         }
 
-        public List<UrlData> GetAllUrlsByForeignKeyWebservice(int webServiceId)
+        public List<UrlData> GetAllUrlsByForeignKeyWebservice(int webService)
         {
             _urlDatasByForeignKeyWebservice.Clear();
             DataTable dt = new DataTable();
@@ -137,7 +137,7 @@ namespace WindowsFormsAppTest
             using (SqlCommand cmd = connection.CreateCommand())
             using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
             {
-                cmd.CommandText = "SELECT * FROM Url where WebserviceId = " + webServiceId;
+                cmd.CommandText = "SELECT * FROM Url where Webservice = " + webService;
                 cmd.CommandType = CommandType.Text;
                 connection.Open();
                 rows_returned = sda.Fill(dt);
@@ -151,7 +151,7 @@ namespace WindowsFormsAppTest
             return _urlDatasByForeignKeyWebservice;
         }
 
-        public List<UrlData> GetAllUrlsByForeignKeyKlant(int klantId)
+        public List<UrlData> GetAllUrlsByForeignKeyKlant(int klant)
         {
             _urlDatasByForeignKeyKlant.Clear();
             DataTable dt = new DataTable();
@@ -161,7 +161,7 @@ namespace WindowsFormsAppTest
             using (SqlCommand cmd = connection.CreateCommand())
             using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
             {
-                cmd.CommandText = "SELECT * FROM Url where KlantId = " + klantId;
+                cmd.CommandText = "SELECT * FROM Url where Klant = " + klant;
                 cmd.CommandType = CommandType.Text;
                 connection.Open();
                 rows_returned = sda.Fill(dt);
