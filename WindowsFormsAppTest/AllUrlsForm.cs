@@ -49,6 +49,11 @@ namespace WindowsFormsAppTest
         private void FillLstBxls()
         {
             AllUrlsKrMaterialLstBx.FillListBoxUrlData(_urlDatas);
+            if (_urlDatas.Count > 0)
+            {
+                AllUrlsKrMaterialLstBx.SelectedIndex = 0;
+                FillUrlData(_urlDatas[0]);
+            }
         }
 
         private void FillCmbxWebServices()
@@ -143,6 +148,16 @@ namespace WindowsFormsAppTest
         {
             SecurityIdTxtBx.Text = string.Empty;
             UrlTxtBx.Text = string.Empty;
+        }
+
+        private void FillUrlData(UrlData urlData)
+        {
+            UrlTxtBx.Text = urlData.Name;
+            SecurityIdTxtBx.Text = urlData.SecurityId;
+            WebserviceKrMaterialCmbx.SelectedValue = urlData.WebServiceDataId;
+            KlantKrMaterialCmbx.SelectedValue = urlData.KlantDataId;
+            WebserviceKrMaterialCmbx.Refresh();
+            KlantKrMaterialCmbx.Refresh();
         }
     }
 }
