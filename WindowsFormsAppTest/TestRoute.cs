@@ -113,14 +113,7 @@ namespace WindowsFormsAppTest
                 node.Text = urlData.Name;
                 logFile.AddTextToLogFile("\n");
                 logFile.AddTextToLogFile(urlData.Name + "\n");
-                if (isSoap)
-                {
-                    _result = _webRequest.GetWebRequestSoap(webservice, urlData.Name);
-                }
-                else
-                {
-                    _result = JObject.Parse(_webRequest.GetWebRequestRest(urlData.Id, urlHttp, webservice, urlData.Name, urlData.SecurityId));
-                }
+                _result = JObject.Parse(_webRequest.GetWebRequestRest(urlData.Id, urlHttp, webservice, urlData.Name, urlData.SecurityId));
                 node.Tag = _result;
                 teller = 0;
                 foreach (JProperty item in _result)
