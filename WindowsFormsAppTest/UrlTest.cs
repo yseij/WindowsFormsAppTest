@@ -77,18 +77,18 @@ namespace WindowsFormsAppTest
             return null;
         }
 
-        public void AddUrl(string url, int webServiceId, int klantId, string securityId)
+        public void AddUrl(string url, int webService, int klant, string securityId)
         {
             using (SqlConnection connection = new SqlConnection(ConnectieDB))
             {
                 connection.Open();
-                var sql = "INSERT INTO [dbo].[Url] ([Name],[SecurityID],[WebserviceId],[KlantId]) VALUES (@Url, @SecurityID, @WebServiceId, @KlantId)";
+                var sql = "INSERT INTO [dbo].[Url] ([Name],[SecurityID],[Webservice],[Klant]) VALUES (@Url, @SecurityID, @WebService, @Klant)";
                 using (var cmd = new SqlCommand(sql, connection))
                 {
                     cmd.Parameters.AddWithValue("@Url", url);
                     cmd.Parameters.AddWithValue("@SecurityID", securityId);
-                    cmd.Parameters.AddWithValue("@WebServiceId", webServiceId);
-                    cmd.Parameters.AddWithValue("@KlantId", klantId);
+                    cmd.Parameters.AddWithValue("@WebService", webService);
+                    cmd.Parameters.AddWithValue("@Klant", klant);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -96,18 +96,18 @@ namespace WindowsFormsAppTest
             }
         }
 
-        public void UpdateUrl(int id, string url, string securityId, int webServiceId, int klantId)
+        public void UpdateUrl(int id, string url, string securityId, int webService, int klant)
         {
             using (SqlConnection connection = new SqlConnection(ConnectieDB))
             {
                 connection.Open();
-                var sql = "UPDATE Url SET Name = @Url, SecurityID = @SecurityID, WebServiceId = @WebServiceId, KlantId = @KlantId " + "where id =" + id;
+                var sql = "UPDATE Url SET Name = @Url, SecurityID = @SecurityID, WebService = @WebService, Klant = @Klant " + "where id =" + id;
                 using (var cmd = new SqlCommand(sql, connection))
                 {
                     cmd.Parameters.AddWithValue("@Url", url);
                     cmd.Parameters.AddWithValue("@SecurityID", securityId);
-                    cmd.Parameters.AddWithValue("@WebServiceId", webServiceId);
-                    cmd.Parameters.AddWithValue("@KlantId", klantId);
+                    cmd.Parameters.AddWithValue("@WebService", webService);
+                    cmd.Parameters.AddWithValue("@Klant", klant);
 
                     cmd.ExecuteNonQuery();
                 }

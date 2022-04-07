@@ -245,6 +245,7 @@ namespace WindowsFormsAppTest
             this.AddUrlBtn.TabIndex = 58;
             this.AddUrlBtn.Text = "URL TOEVOEGEN";
             this.AddUrlBtn.UseVisualStyleBackColor = false;
+            this.AddUrlBtn.Click += new System.EventHandler(this.AddUrlBtn_Click);
             // 
             // PasUrlAanBtn
             // 

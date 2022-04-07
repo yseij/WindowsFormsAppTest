@@ -138,6 +138,12 @@ namespace WindowsFormsAppTest
             m.ShowDialog();
         }
 
+        private void BtnShowHttps_Click(object sender, EventArgs e)
+        {
+            var m = new AllHttpsForm();
+            m.ShowDialog();
+        }
+
         private void BtnShowUrls_Click(object sender, EventArgs e)
         {
             var m = new AllUrlsForm();

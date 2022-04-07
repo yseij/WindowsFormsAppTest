@@ -74,6 +74,25 @@ namespace WindowsFormsAppTest
             }
         }
 
+        public void TestOneRouteSoap(string result,
+                              MaterialTextBox webserviceVersie,
+                              MaterialTextBox devExpressVersie,
+                              MaterialTextBox databaseVersie,
+                              string selectedText)
+        {
+            LogFile logFile = new LogFile();
+            logFile.MakeLogFile(selectedText);
+            Console.WriteLine(result);
+            string data = result.Replace("----", "");
+            int positionWebserviceVersie = data.IndexOf("Webservice versie");
+            int positionDevExpressVersie = data.IndexOf("DevExpress versie");
+            int positionDatabaseVersie = data.IndexOf("DatabaseVersie");
+            int dataLengte = data.Length;
+            webserviceVersie.Text = data.Substring(positionWebserviceVersie, positionDevExpressVersie - positionWebserviceVersie).Split(':')[1];
+            devExpressVersie.Text = data.Substring(positionDevExpressVersie, positionDatabaseVersie - positionDevExpressVersie).Split(':')[1];
+            databaseVersie.Text = data.Substring(positionDatabaseVersie, dataLengte - positionDatabaseVersie).Split(':')[1];
+        }
+
         public void TestMoreRoutes(string selectedKlant,
                                    TreeView TrVwAll,
                                    int aantalLegeUrls,

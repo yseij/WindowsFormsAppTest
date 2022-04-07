@@ -1,10 +1,9 @@
-﻿using System;
+﻿using MaterialSkin.Controls;
+using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Windows.Forms;
-using MaterialSkin;
-using MaterialSkin.Controls;
-using Newtonsoft.Json.Linq;
 
 namespace WindowsFormsAppTest
 {
@@ -38,7 +37,6 @@ namespace WindowsFormsAppTest
             GetUrls();
 
             FillCmbxUrls();
-            FillCmbxWebservice();
             FillCmbxHtpp();
         }
 
@@ -64,11 +62,6 @@ namespace WindowsFormsAppTest
             urlHttp = ConfigurationManager.AppSettings["http"];
         }
 
-        private void FillCmbxWebservice()
-        {
-            WebserviceKrMaterialCmbx.FillCmbBoxWebservice(_webserviceDatas);
-        }
-
         private void FillCmbxUrls()
         {
             UrlKrMaterialCmbx.FillCmbBoxUrl(_urlDatas);
@@ -78,37 +71,48 @@ namespace WindowsFormsAppTest
         {
             ClearBox();
             bool isSoap = false;
+            int webserviceId = 0;
+            string webserviceName = "";
             dynamic result = null;
-            foreach (WebServiceData item in _webserviceDatas)
+            foreach (UrlData urlData in _urlDatas)
             {
-                if (item.Id == (int)WebserviceKrMaterialCmbx.SelectedValue)
+                if ((int)UrlKrMaterialCmbx.SelectedValue == urlData.Id)
                 {
-                    isSoap = item.Soap;
+                    webserviceId = urlData.WebServiceDataId;
                 }
             }
-            if (isSoap)
+            foreach (WebServiceData item in _webserviceDatas)
+            {
+                if (item.Id == webserviceId)
+                {
+                    isSoap = item.Soap;
+                    webserviceName = item.Name;
+                }
+            }
+            if (isSoap && UrlKrMaterialCmbx.Text.EndsWith(".svc"))
             {
                 if (UrlKrMaterialCmbx.Text == "MessageServiceSoap31.svc")
                 {
-                    result = _webRequest.get31SalesData(HttpKrMaterialCmbx.Text + WebserviceKrMaterialCmbx.Text);
-                    CheckData(result, WebserviceKrMaterialCmbx.Text, 3.1);
+                    result = _webRequest.get31SalesData(HttpKrMaterialCmbx.Text + webserviceName, TxtBxUsername, TxtBxPassword);
+                    CheckData(result, webserviceName, 3.1);
                 }
                 else if (UrlKrMaterialCmbx.Text == "MessageServiceSoap.svc")
                 {
-                    result = _webRequest.get24SalesData(HttpKrMaterialCmbx.Text + WebserviceKrMaterialCmbx.Text);
-                    CheckData(result, WebserviceKrMaterialCmbx.Text, 2.4);
+                    result = _webRequest.get24SalesData(HttpKrMaterialCmbx.Text + webserviceName);
+                    CheckData(result, webserviceName, 2.4);
                 }
                 else
                 {
-                    string data = _webRequest.GetWebRequestSoap(HttpKrMaterialCmbx.Text, WebserviceKrMaterialCmbx.Text, UrlKrMaterialCmbx.Text);
+                    string data = _webRequest.GetWebRequestSoap(HttpKrMaterialCmbx.Text, webserviceName, UrlKrMaterialCmbx.Text);
                     ResponseTextBox.Text = data;
+                    _testRoute.TestOneRouteSoap(data, TxtBxWebserviceVersie, TxtBxDevExpressVersie, TxtBxDatabaseVersie, webserviceName + UrlKrMaterialCmbx.Text);
                 }
             }
             else
             {
-                var data = _webRequest.GetWebRequestRest((int)WebserviceKrMaterialCmbx.SelectedValue,
+                var data = _webRequest.GetWebRequestRest((int)webserviceId,
                                                      HttpKrMaterialCmbx.Text,
-                                                     WebserviceKrMaterialCmbx.Text,
+                                                     webserviceName,
                                                      UrlKrMaterialCmbx.Text,
                                                      securityId);
                 result = JObject.Parse(data);
@@ -121,7 +125,7 @@ namespace WindowsFormsAppTest
                                     checkBoxKraanIni,
                                     checkBoxKraanDatabase,
                                     ResponseTextBox,
-                                    WebserviceKrMaterialCmbx.Text);
+                                    webserviceName);
             }
 
         }
@@ -129,12 +133,36 @@ namespace WindowsFormsAppTest
         private void UrlKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             ClearBox();
-            if (WebserviceKrMaterialCmbx.DataSource != null)
+            int idOfSelected = (int)UrlKrMaterialCmbx.SelectedValue;
+            UrlData urlData = _urlDatas.Find(u => u.Id == idOfSelected);
+            url = urlData.Name;
+            securityId = urlData.SecurityId;
+            foreach (WebServiceData item in _webserviceDatas)
             {
-                int idOfSelected = (int)UrlKrMaterialCmbx.SelectedValue;
-                UrlData urlData = _urlDatas.Find(u => u.Id == idOfSelected);
-                url = urlData.Name;
-                securityId = urlData.SecurityId;
+                if (item.Id == urlData.WebServiceDataId)
+                {
+                    if ((item.Soap && item.Name == "KraanSalesService") || (item.Soap && item.Name == "release"))
+                    {
+                        TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["SalesPage"];
+                        //TbCntrlRestApiEnSoap.Size = new Size(851, 638);
+                        //ActiveForm.Height = 1061;
+                        //Console.WriteLine("1");
+                    }
+                    else if ((item.Soap && item.Name != "KraanSalesService") || (item.Soap && item.Name != "release"))
+                    {
+                        TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["SoapPage"];
+                        //TbCntrlRestApiEnSoap.Size = new Size(851, 360);
+                        //ActiveForm.Height = 660;
+                        //Console.WriteLine("2");
+                    }
+                    else if(!item.Soap)
+                    {
+                        TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["RestPage"];
+                        //TbCntrlRestApiEnSoap.Size = new Size(851, 364);
+                        //ActiveForm.Height = 781;
+                        //Console.WriteLine("3");
+                    }
+                }
             }
         }
 
@@ -145,13 +173,26 @@ namespace WindowsFormsAppTest
 
         private void ClearBox()
         {
-            checkBoxKraanDatabase.Checked = false;
-            checkBoxKraanDLL.Checked = false;
-            checkBoxKraanIni.Checked = false;
-            textBoxWebservice.Text = string.Empty;
-            ResponseTextBox.Text = string.Empty;
-            SslChckBx.Checked = false;
-            SllCertificaatVervalDatumTxtBx.Text = string.Empty;
+            clearGroupBox(GrpBxWebservice);
+            clearGroupBox(GrpBxSsl);
+            clearGroupBox(grpBxSales2_4);
+            clearGroupBox(grpBxSales3_1);
+            clearGroupBox(grpBxSoap);
+        }
+
+        private void clearGroupBox(GroupBox groupBox)
+        {
+            foreach (Control ctr in groupBox.Controls)
+            {
+                if (ctr is MaterialTextBox)
+                {
+                    ctr.Text = string.Empty;
+                }
+                else if (ctr is MaterialCheckbox)
+                {
+                    ((CheckBox)ctr).Checked = false;
+                }
+            }
         }
 
         private void CheckData(dynamic result, string webservice, double soort)

@@ -124,6 +124,7 @@ namespace WindowsFormsAppTest
             YouriWebserviceWorkFlow.WorkflowServiceClient clientWorkflow;
             YouriWebserviceUren.UrenServiceClient clientUren;
             YouriWebserviceMaterieel.MaterieelServiceClient clientMaterieel;
+            //YouriWebserviceWeb.WebServiceClient clientWeb;
 
             switch (service)
             {
@@ -157,6 +158,12 @@ namespace WindowsFormsAppTest
                     result = clientMaterieel.GetVersion().ToString();
                     clientMaterieel.Close();
                     break;
+                //case "Webservice.svc":
+                //    clientMaterieel = NewWebSerivce(host);
+                //    clientMaterieel.Open();
+                //    result = clientMaterieel.GetVersion().ToString();
+                //    clientMaterieel.Close();
+                //    break;
                 default:
                     break;
             }
@@ -202,6 +209,14 @@ namespace WindowsFormsAppTest
 
             return new YouriWebserviceWorkFlow.WorkflowServiceClient(binding, epa);
         }
+
+        //private YouriWebserviceWorkFlow.WorkflowServiceClient NewWebSerivce(string host)
+        //{
+        //    BasicHttpBinding binding = CreateBinding("Webservice");
+        //    EndpointAddress epa = CreateEndpointAddress(host, "Webservice.svc");
+
+        //    return new YouriWebserviceWorkFlow.WorkflowServiceClient(binding, epa);
+        //}
 
         private Sales24.MessageServiceSoapClient NewSales24Client(string host)
         {
@@ -285,13 +300,13 @@ namespace WindowsFormsAppTest
             }
         }
 
-        public dynamic get31SalesData(string host)
+        public dynamic get31SalesData(string host, MaterialMaskedTextBox TxtBxUsername, MaterialMaskedTextBox TxtBxPassword)
         {
             using (Sales31.MessageServiceSoapClient client = NewSales31Client(host))
             {
                 string testResultaat = "Geen beveiligde verbinding mogelijk.\r\n";
-                //client.ClientCredentials.UserName.UserName = TxtBxUsername.Text.Trim();
-                //client.ClientCredentials.UserName.Password = TxtBxPassword.Text.Trim();
+                client.ClientCredentials.UserName.UserName = TxtBxUsername.Text.Trim();
+                client.ClientCredentials.UserName.Password = TxtBxPassword.Text.Trim();
                 try
                 {
                     client.Open();

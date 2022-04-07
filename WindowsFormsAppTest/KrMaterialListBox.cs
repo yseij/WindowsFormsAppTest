@@ -43,5 +43,15 @@ namespace WindowsFormsAppTest
                 AddItem(krMaterialListBoxItem);
             }
         }
+
+        public void FillListBoxHttpData(List<HttpData> httpDatas)
+        {
+            ClearListBox();
+            foreach (HttpData httpData in httpDatas)
+            {
+                KrMaterialListBoxItem krMaterialListBoxItem = new KrMaterialListBoxItem(httpData.Id, httpData.Name);
+                AddItem(krMaterialListBoxItem);
+            }
+        }
     }
 }
