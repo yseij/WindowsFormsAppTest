@@ -82,7 +82,6 @@ namespace WindowsFormsAppTest
         {
             LogFile logFile = new LogFile();
             logFile.MakeLogFile(selectedText);
-            Console.WriteLine(result);
             string data = result.Replace("----", "");
             int positionWebserviceVersie = data.IndexOf("Webservice versie");
             int positionDevExpressVersie = data.IndexOf("DevExpress versie");

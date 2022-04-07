@@ -165,6 +165,7 @@ namespace WindowsFormsAppTest
                 //    clientMaterieel.Close();
                 //    break;
                 default:
+                    return "Niet goed";
                     break;
             }
             return result;
@@ -266,7 +267,7 @@ namespace WindowsFormsAppTest
             return epa;
         }
 
-        public dynamic get24SalesData(string host)
+        public dynamic get24SalesData(string host, MaterialMultiLineTextBox2 responseTextbox)
         {
             using (Sales24.MessageServiceSoapClient client = NewSales24Client(host))
             {
@@ -294,17 +295,22 @@ namespace WindowsFormsAppTest
                 }
                 catch (Exception ex)
                 {
-                    testResultaat = "Fout bij verbinden met server van http Sales 2.4 , melding: " + Environment.NewLine + ex.Message;
+                    responseTextbox.Text = "Fout bij verbinden met server van http Sales 2.4 , melding: " + Environment.NewLine + ex.Message;
                 }
                 return null;
             }
         }
 
-        public dynamic get31SalesData(string host, MaterialMaskedTextBox TxtBxUsername, MaterialMaskedTextBox TxtBxPassword)
+        public dynamic get31SalesData(string host, MaterialMaskedTextBox TxtBxUsername, MaterialMaskedTextBox TxtBxPassword, MaterialMultiLineTextBox2 responseTextbox)
         {
             using (Sales31.MessageServiceSoapClient client = NewSales31Client(host))
             {
                 string testResultaat = "Geen beveiligde verbinding mogelijk.\r\n";
+                if (TxtBxUsername.Text.Trim() == "" || TxtBxPassword.Text.Trim() == "")
+                {
+                    responseTextbox.Text = "gebruikersnaam of wachtwoord is niet ingevuld.";
+                    return null;
+                }
                 client.ClientCredentials.UserName.UserName = TxtBxUsername.Text.Trim();
                 client.ClientCredentials.UserName.Password = TxtBxPassword.Text.Trim();
                 try
@@ -341,23 +347,19 @@ namespace WindowsFormsAppTest
                     if (msgFault.HasDetail)
                     {
                         var detailNode = msgFault.GetDetail<XmlElement>();
-                        testResultaat += "Fout bij beveiligd verbinden met Sales 3.1. \r\nFoutcode " + detailNode.GetElementsByTagName("ErrorCode", detailNode.NamespaceURI)[0].InnerText + " : " + detailNode.GetElementsByTagName("Message", detailNode.NamespaceURI)[0].InnerText;
+                        responseTextbox.Text += "Fout bij beveiligd verbinden met Sales 3.1. \r\nFoutcode " + detailNode.GetElementsByTagName("ErrorCode", detailNode.NamespaceURI)[0].InnerText + " : " + detailNode.GetElementsByTagName("Message", detailNode.NamespaceURI)[0].InnerText;
                     }
                     else
                     {
                         if (fex.Code.Name == "Server" && fex.Message == "Server error")
                         {
-                            testResultaat += "Fout bij beveiligd verbinden met Sales 3.1. Credentials incorrect.";
+                            responseTextbox.Text += "Fout bij beveiligd verbinden met Sales 3.1. Credentials incorrect.";
                         }
                         else
                         {
-                            testResultaat += "Fout bij beveiligd verbinden met Sales 3.1. \r\nFoutmelding: " + fex.Message;
+                            responseTextbox.Text += "Fout bij beveiligd verbinden met Sales 3.1. \r\nFoutmelding: " + fex.Message;
                         }
                     }
-                }
-                catch (Exception ex)
-                {
-                    testResultaat = "Fout bij beveiligd verbinden met Sales 3.1, melding: " + Environment.NewLine + ex.Message;
                 }
                 return null;
             }

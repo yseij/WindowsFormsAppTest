@@ -36,7 +36,6 @@ namespace WindowsFormsAppTest
 
             foreach (XmlNode aNode in aNodes)
             {
-                Console.WriteLine(aNode.Name);
                 switch (aNode.Name)
                 {
                     case "ServiceAanOfUit":

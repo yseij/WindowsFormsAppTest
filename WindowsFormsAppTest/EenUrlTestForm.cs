@@ -76,7 +76,6 @@ namespace WindowsFormsAppTest
                     httpId = urlData.HttpDataId;
                 }
             }
-            Console.WriteLine(httpId);
             foreach (WebServiceData item in _webserviceDatas)
             {
                 if (item.Id == webserviceId)
@@ -92,29 +91,42 @@ namespace WindowsFormsAppTest
                     httpName = item.Name;
                 }
             }
-            Console.WriteLine(httpName);
             if (isSoap && UrlKrMaterialCmbx.Text.EndsWith(".svc"))
             {
                 if (UrlKrMaterialCmbx.Text == "MessageServiceSoap31.svc")
                 {
-                    result = _webRequest.get31SalesData(httpName + webserviceName, TxtBxUsername, TxtBxPassword);
-                    CheckData(result, webserviceName, 3.1);
+                    result = _webRequest.get31SalesData(httpName + webserviceName, TxtBxUsername, TxtBxPassword, ResponseTextBox);
+                    if (result != null)
+                    {
+                        CheckData(result, webserviceName, 3.1);
+                    }
                 }
                 else if (UrlKrMaterialCmbx.Text == "MessageServiceSoap.svc")
                 {
-                    result = _webRequest.get24SalesData(httpName + webserviceName);
-                    CheckData(result, webserviceName, 2.4);
+                    result = _webRequest.get24SalesData(httpName + webserviceName, ResponseTextBox);
+                    if (result != null)
+                    {
+                        CheckData(result, webserviceName, 2.4);
+                    }
                 }
                 else
                 {
                     string data = _webRequest.GetWebRequestSoap(httpName, webserviceName, UrlKrMaterialCmbx.Text);
-                    ResponseTextBox.Text = data;
-                    _testRoute.TestOneRouteSoap(data, TxtBxWebserviceVersie, TxtBxDevExpressVersie, TxtBxDatabaseVersie, webserviceName + UrlKrMaterialCmbx.Text);
+                    
+                    if (data == "Niet goed")
+                    {
+                        ResponseTextBox.Text = "Deze service bestaat niet";
+                    }
+                    else
+                    {
+                        ResponseTextBox.Text = data;
+                        _testRoute.TestOneRouteSoap(data, TxtBxWebserviceVersie, TxtBxDevExpressVersie, TxtBxDatabaseVersie, webserviceName + UrlKrMaterialCmbx.Text);
+                    }
                 }
             }
             else
             {
-                var data = _webRequest.GetWebRequestRest((int)webserviceId,
+                var data = _webRequest.GetWebRequestRest(webserviceId,
                                                      httpName,
                                                      webserviceName,
                                                      UrlKrMaterialCmbx.Text,

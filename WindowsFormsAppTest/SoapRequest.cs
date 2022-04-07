@@ -13,7 +13,6 @@ namespace WindowsFormsAppTest
             requestSearch.ZoekString = "https://ws.kraan.com:444/Kraan2Webservices/CrmService.svc";
             //DownloadRequest downloadRequest = new DownloadRequest();
             client = new CrmServiceClient();
-            Console.WriteLine(client.GetFilterdListProject(requestSearch));
         }
     }
 }
