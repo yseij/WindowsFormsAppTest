@@ -8,17 +8,21 @@ namespace WindowsFormsAppTest
     {
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
         private List<KlantData> _klantDatas = new List<KlantData>();
+        private List<HttpData> _httpDatas = new List<HttpData>();
 
         private string _newUrl = " ";
         private string _newSecurityId = " ";
         private int _selectedWebserviceId;
         private int _selectedKlantId;
+        private int _selectedHttpId;
 
         WebserviceTest _webserviceTest;
         KlantTest _klantTest;
+        HttpTest _httpTest;
 
         private int _klantId;
         private int _webserviceId;
+        private int _httpId;
 
         public AddUrlForm()
         {
@@ -29,8 +33,11 @@ namespace WindowsFormsAppTest
             _klantTest = new KlantTest();
             _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
             _klantDatas = _klantTest.GetKlantData();
+            _httpDatas = _httpTest.GetHttpData();
+
             FillCmbxWebServices();
             FillCmbxKlanten();
+            FillCmbxHttp();
         }
 
         private void FillCmbxWebServices()
@@ -51,10 +58,19 @@ namespace WindowsFormsAppTest
             }
         }
 
+        private void FillCmbxHttp()
+        {
+            HttpkrMaterialCmbbx.FillCmbBoxHttp(_httpDatas);
+            if (_httpId != 0)
+            {
+                HttpkrMaterialCmbbx.SelectedValue = _httpId;
+            }
+        }
+
         private void AddUrlButton_Click(object sender, EventArgs e)
         {
             UrlTest urltest = new UrlTest();
-            urltest.AddUrl(_newUrl, _selectedWebserviceId, _selectedKlantId, _newSecurityId);
+            urltest.AddUrl(_newUrl, _selectedWebserviceId, _selectedKlantId, _newSecurityId, _selectedHttpId);
             Close();
         }
 
@@ -76,6 +92,11 @@ namespace WindowsFormsAppTest
         private void KlantenKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             _selectedKlantId = (int)KlantenKrMaterialCmbx.SelectedValue;
+        }
+
+        private void HttpkrMaterialCmbbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedHttpId = (int)HttpkrMaterialCmbbx.SelectedValue;
         }
     }
 }

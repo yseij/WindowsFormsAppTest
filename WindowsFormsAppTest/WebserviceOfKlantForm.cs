@@ -10,7 +10,7 @@ namespace WindowsFormsAppTest
     {
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
         private List<KlantData> _klantenDatas = new List<KlantData>();
-        private List<UrlData> _urlData = new List<UrlData>();
+        private List<UrlData> _urlDatas = new List<UrlData>();
 
         private int selectedWebserviceIdOfKlantId;
         private int aantalLegeUrls;
@@ -67,22 +67,73 @@ namespace WindowsFormsAppTest
             ClearBox();
             AantalLegeUrlsTxtBx.Text = string.Empty;
             LegeUrlsTxtBx.Text = string.Empty;
+            bool isSoap = false;
+            string webserviceName = "";
+            dynamic result;
             if (_klant)
             {
-                _urlData = _urltest.GetAllUrlsByForeignKeyKlant(selectedWebserviceIdOfKlantId);
+                _urlDatas = _urltest.GetAllUrlsByForeignKeyKlant(selectedWebserviceIdOfKlantId);
             }
             else
             {
-                _urlData = _urltest.GetAllUrlsByForeignKeyWebservice(selectedWebserviceIdOfKlantId);
+                _urlDatas = _urltest.GetAllUrlsByForeignKeyWebservice(selectedWebserviceIdOfKlantId);
             }
-            
-            _testRoute.TestMoreRoutes(WebserviceOfKlantKrMaterialCmbx.Text,
-                                      TrVwAll,
-                                      aantalLegeUrls,
-                                      _urlData,
-                                      ResponseTextBox,
-                                      AantalLegeUrlsTxtBx,
-                                      LegeUrlsTxtBx);
+            //foreach (UrlData urlData in _urlDatas)
+            //{
+            //    foreach (WebServiceData item in _webServiceDatas)
+            //    {
+            //        if (item.Id == urlData.WebServiceDataId)
+            //        {
+            //            isSoap = item.Soap;
+            //            webserviceName = item.Name;
+            //        }
+            //    }
+            //    if (isSoap && urlData.Name.EndsWith(".svc"))
+            //    {
+            //        if (urlData.Name == "MessageServiceSoap31.svc")
+            //        {
+            //            result = _webRequest.get31SalesData(HttpKrMaterialCmbx.Text + webserviceName, TxtBxUsername, TxtBxPassword);
+            //            CheckData(result, webserviceName, 3.1);
+            //        }
+            //        else if (UrlKrMaterialCmbx.Text == "MessageServiceSoap.svc")
+            //        {
+            //            result = _webRequest.get24SalesData(HttpKrMaterialCmbx.Text + webserviceName);
+            //            CheckData(result, webserviceName, 2.4);
+            //        }
+            //        else
+            //        {
+            //            string data = _webRequest.GetWebRequestSoap(HttpKrMaterialCmbx.Text, webserviceName, UrlKrMaterialCmbx.Text);
+            //            ResponseTextBox.Text = data;
+            //            _testRoute.TestOneRouteSoap(data, TxtBxWebserviceVersie, TxtBxDevExpressVersie, TxtBxDatabaseVersie, webserviceName + UrlKrMaterialCmbx.Text);
+            //        }
+            //    }
+            //    else
+            //    {
+            //        var data = _webRequest.GetWebRequestRest((int)webserviceId,
+            //                                             HttpKrMaterialCmbx.Text,
+            //                                             webserviceName,
+            //                                             UrlKrMaterialCmbx.Text,
+            //                                             securityId);
+            //        result = JObject.Parse(data);
+
+            //        _testRoute.TestOneRoute(result,
+            //                            textBoxWebservice,
+            //                            SslChckBx,
+            //                            SllCertificaatVervalDatumTxtBx,
+            //                            checkBoxKraanDLL,
+            //                            checkBoxKraanIni,
+            //                            checkBoxKraanDatabase,
+            //                            ResponseTextBox,
+            //                            webserviceName);
+            //    }
+            //    _testRoute.TestMoreRoutes(WebserviceOfKlantKrMaterialCmbx.Text,
+            //                              TrVwAll,
+            //                              aantalLegeUrls,
+            //                              _urlData,
+            //                              ResponseTextBox,
+            //                              AantalLegeUrlsTxtBx,
+            //                              LegeUrlsTxtBx);
+            //}
         }
 
         private void WebserviceOfKlantKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)

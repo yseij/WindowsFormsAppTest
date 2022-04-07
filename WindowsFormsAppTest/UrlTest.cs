@@ -47,7 +47,7 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    _urlDatas.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4]));
+                    _urlDatas.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4], (int)dr[5]));
                 }
             }
         }
@@ -71,24 +71,25 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    return _urlDataById = new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4]);
+                    return _urlDataById = new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4], (int)dr[5]);
                 }
             }
             return null;
         }
 
-        public void AddUrl(string url, int webService, int klant, string securityId)
+        public void AddUrl(string url, int webService, int klant, string securityId, int http)
         {
             using (SqlConnection connection = new SqlConnection(ConnectieDB))
             {
                 connection.Open();
-                var sql = "INSERT INTO [dbo].[Url] ([Name],[SecurityID],[Webservice],[Klant]) VALUES (@Url, @SecurityID, @WebService, @Klant)";
+                var sql = "INSERT INTO [dbo].[Url] ([Name],[SecurityID],[Webservice],[Klant],[Http]) VALUES (@Url, @SecurityID, @WebService, @Klant, @Http)";
                 using (var cmd = new SqlCommand(sql, connection))
                 {
                     cmd.Parameters.AddWithValue("@Url", url);
                     cmd.Parameters.AddWithValue("@SecurityID", securityId);
                     cmd.Parameters.AddWithValue("@WebService", webService);
                     cmd.Parameters.AddWithValue("@Klant", klant);
+                    cmd.Parameters.AddWithValue("@Http", http);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -96,18 +97,19 @@ namespace WindowsFormsAppTest
             }
         }
 
-        public void UpdateUrl(int id, string url, string securityId, int webService, int klant)
+        public void UpdateUrl(int id, string url, string securityId, int webService, int klant, int http)
         {
             using (SqlConnection connection = new SqlConnection(ConnectieDB))
             {
                 connection.Open();
-                var sql = "UPDATE Url SET Name = @Url, SecurityID = @SecurityID, WebService = @WebService, Klant = @Klant " + "where id =" + id;
+                var sql = "UPDATE Url SET Name = @Url, SecurityID = @SecurityID, WebService = @WebService, Klant = @Klant, Http = @Http " + "where id =" + id;
                 using (var cmd = new SqlCommand(sql, connection))
                 {
                     cmd.Parameters.AddWithValue("@Url", url);
                     cmd.Parameters.AddWithValue("@SecurityID", securityId);
                     cmd.Parameters.AddWithValue("@WebService", webService);
                     cmd.Parameters.AddWithValue("@Klant", klant);
+                    cmd.Parameters.AddWithValue("@Http", http);
 
                     cmd.ExecuteNonQuery();
                 }
@@ -145,7 +147,7 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    _urlDatasByForeignKeyWebservice.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4]));
+                    _urlDatasByForeignKeyWebservice.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4], (int)dr[5]));
                 }
             }
             return _urlDatasByForeignKeyWebservice;
@@ -169,7 +171,7 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    _urlDatasByForeignKeyKlant.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4]));
+                    _urlDatasByForeignKeyKlant.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4], (int)dr[5]));
                 }
             }
             return _urlDatasByForeignKeyKlant;

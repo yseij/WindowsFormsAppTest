@@ -12,11 +12,14 @@ namespace WindowsFormsAppTest
         private string changedUrl;
         private int _selectedWebserviceId;
         private int _selectedKlantId;
+        private int _selectedHttpId;
 
+        private List<HttpData> _httpDatas = new List<HttpData>();
         private List<UrlData> _urlDatas = new List<UrlData>();
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
         private List<KlantData> _klantDatas = new List<KlantData>();
 
+        HttpTest _httpTest;
         UrlTest _urltest;
         WebRequest _webRequest;
         WebserviceTest _webserviceTest;
@@ -25,6 +28,7 @@ namespace WindowsFormsAppTest
         public AllUrlsForm()
         {
             InitializeComponent();
+            _httpTest = new HttpTest();
             _urltest = new UrlTest();
             _webRequest = new WebRequest();
             _webserviceTest = new WebserviceTest();
@@ -33,9 +37,11 @@ namespace WindowsFormsAppTest
             _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
             _klantDatas = _klantTest.GetKlantData();
             _urlDatas = _urltest.GetUrlDatas();
+            _httpDatas = _httpTest.GetHttpData();
 
             FillCmbxWebServices();
             FillCmbxKlanten();
+            FillCmbxHttp();
 
             GetUrls();
         }
@@ -66,6 +72,11 @@ namespace WindowsFormsAppTest
             KlantKrMaterialCmbx.FillCmbBoxKlant(_klantDatas);
         }
 
+        private void FillCmbxHttp()
+        {
+            HttpKrMaterialCmbx.FillCmbBoxHttp(_httpDatas);
+        }
+
         private void AllUrlsKrMaterialLstBx_SelectedIndexChanged(object sender, MaterialListBoxItem selectedItem)
         {
             ClearBox();
@@ -89,6 +100,14 @@ namespace WindowsFormsAppTest
                         KlantKrMaterialCmbx.Refresh();
                     }
                 }
+                foreach (var http in _httpDatas)
+                {
+                    if (urlData.HttpDataId == http.Id)
+                    {
+                        HttpKrMaterialCmbx.SelectedItem = http;
+                        HttpKrMaterialCmbx.Refresh();
+                    }
+                }
                 UrlTxtBx.Text = urlData.Name;
                 SecurityIdTxtBx.Text = urlData.SecurityId;
             }
@@ -98,7 +117,7 @@ namespace WindowsFormsAppTest
         {
             int selectedIndex = AllUrlsKrMaterialLstBx.SelectedIndex;
             int idOfSelected = (int)AllUrlsKrMaterialLstBx.SelectedItem.Tag;
-            _urltest.UpdateUrl(idOfSelected, changedUrl, changedSecurityId, _selectedWebserviceId, _selectedKlantId);
+            _urltest.UpdateUrl(idOfSelected, changedUrl, changedSecurityId, _selectedWebserviceId, _selectedKlantId, _selectedHttpId);
             ClearBox();
             GetUrls();
             AllUrlsKrMaterialLstBx.SelectedIndex = selectedIndex;
@@ -132,6 +151,11 @@ namespace WindowsFormsAppTest
         private void UrlTxtBx_TextChanged(object sender, EventArgs e)
         {
             changedUrl = UrlTxtBx.Text;
+        }
+
+        private void HttpKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedHttpId = (int)HttpKrMaterialCmbx.SelectedValue;
         }
 
         private void WebserviceKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)

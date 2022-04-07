@@ -14,6 +14,7 @@ namespace WindowsFormsAppTest
         private string _zoekOpWebserviceNaam = "";
         private int _selectedWebserviceId;
         private int _selectedUrlId;
+        private int _selectedHttpId;
         private int _selectedKlantIdForChange;
         private int _selectedWebserviceIdForChange;
         private bool _isSoap;
@@ -203,6 +204,11 @@ namespace WindowsFormsAppTest
             _changedUrl = UrlTxtBx.Text;
         }
 
+        private void HttpKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedHttpId = (int)HttpKrMaterialCmbx.SelectedValue;
+        }
+
         private void WebserviceKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (WebserviceKrMaterialCmbx.DataSource != null)
@@ -230,7 +236,8 @@ namespace WindowsFormsAppTest
                     _changedUrl,
                     _changedSecurityId,
                     _selectedWebserviceIdForChange,
-                    _selectedKlantIdForChange);
+                    _selectedKlantIdForChange,
+                    _selectedHttpId);
             GetUrlsFromWebservice(_selectedWebserviceId);
         }
 

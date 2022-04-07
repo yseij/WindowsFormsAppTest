@@ -16,6 +16,7 @@ namespace WindowsFormsAppTest
         private int _selectedKlantIdForChange;
         private int _selectedWebserviceIdForChange;
         private int _selectedUrlId;
+        private int _selectedHttpId;
 
         private List<UrlData> _urlDatasByKlant = new List<UrlData>();
         private List<KlantData> _klantDatas = new List<KlantData>();
@@ -187,6 +188,11 @@ namespace WindowsFormsAppTest
             _changedUrl = UrlTxtBx.Text;
         }
 
+        private void HttpKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            _selectedHttpId = (int)HttpKrMaterialCmbx.SelectedValue;
+        }
+
         private void WebserviceKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             _selectedWebserviceIdForChange = (int)WebserviceKrMaterialCmbx.SelectedValue;
@@ -214,7 +220,8 @@ namespace WindowsFormsAppTest
                     _changedUrl,
                     _changedSecurityId,
                     _selectedWebserviceIdForChange,
-                    _selectedKlantIdForChange);
+                    _selectedKlantIdForChange,
+                    _selectedHttpId);
             GetUrlsFromKlant(_selectedKlantId);
         }
 

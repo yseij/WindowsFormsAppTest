@@ -29,12 +29,10 @@ namespace WindowsFormsAppTest
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
             this.GrpBxSsl = new System.Windows.Forms.GroupBox();
             this.SslChckBx = new MaterialSkin.Controls.MaterialCheckbox();
             this.SllCertificaatVervalDatumTxtBx = new MaterialSkin.Controls.MaterialTextBox();
             this.LblCertificaatVervalDatum = new MaterialSkin.Controls.MaterialLabel();
-            this.LblHttp = new MaterialSkin.Controls.MaterialLabel();
             this.GrpBxWebservice = new System.Windows.Forms.GroupBox();
             this.textBoxWebservice = new MaterialSkin.Controls.MaterialTextBox();
             this.checkBoxKraanDatabase = new MaterialSkin.Controls.MaterialCheckbox();
@@ -97,7 +95,6 @@ namespace WindowsFormsAppTest
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.LblUrl = new MaterialSkin.Controls.MaterialLabel();
             this.UrlKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
-            this.HttpKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.GrpBxSsl.SuspendLayout();
             this.GrpBxWebservice.SuspendLayout();
             this.grpBxSales2_4.SuspendLayout();
@@ -108,18 +105,6 @@ namespace WindowsFormsAppTest
             this.SoapPage.SuspendLayout();
             this.SalesPage.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label2.Location = new System.Drawing.Point(283, 108);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(16, 17);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "+";
             // 
             // GrpBxSsl
             // 
@@ -190,20 +175,6 @@ namespace WindowsFormsAppTest
             this.LblCertificaatVervalDatum.Size = new System.Drawing.Size(170, 19);
             this.LblCertificaatVervalDatum.TabIndex = 6;
             this.LblCertificaatVervalDatum.Text = "Certificaat vervaldatum:";
-            // 
-            // LblHttp
-            // 
-            this.LblHttp.AutoSize = true;
-            this.LblHttp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.LblHttp.Depth = 0;
-            this.LblHttp.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblHttp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblHttp.Location = new System.Drawing.Point(26, 68);
-            this.LblHttp.MouseState = MaterialSkin.MouseState.HOVER;
-            this.LblHttp.Name = "LblHttp";
-            this.LblHttp.Size = new System.Drawing.Size(31, 19);
-            this.LblHttp.TabIndex = 1;
-            this.LblHttp.Text = "Http";
             // 
             // GrpBxWebservice
             // 
@@ -1360,7 +1331,7 @@ namespace WindowsFormsAppTest
             this.LblUrl.Depth = 0;
             this.LblUrl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.LblUrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblUrl.Location = new System.Drawing.Point(302, 68);
+            this.LblUrl.Location = new System.Drawing.Point(22, 68);
             this.LblUrl.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblUrl.Name = "LblUrl";
             this.LblUrl.Size = new System.Drawing.Size(20, 19);
@@ -1384,39 +1355,15 @@ namespace WindowsFormsAppTest
             this.UrlKrMaterialCmbx.FormattingEnabled = true;
             this.UrlKrMaterialCmbx.IntegralHeight = false;
             this.UrlKrMaterialCmbx.ItemHeight = 43;
-            this.UrlKrMaterialCmbx.Location = new System.Drawing.Point(305, 90);
+            this.UrlKrMaterialCmbx.Location = new System.Drawing.Point(25, 90);
             this.UrlKrMaterialCmbx.MaxDropDownItems = 4;
             this.UrlKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
             this.UrlKrMaterialCmbx.Name = "UrlKrMaterialCmbx";
-            this.UrlKrMaterialCmbx.Size = new System.Drawing.Size(571, 49);
+            this.UrlKrMaterialCmbx.Size = new System.Drawing.Size(851, 49);
             this.UrlKrMaterialCmbx.StartIndex = 0;
             this.UrlKrMaterialCmbx.TabIndex = 65;
             this.UrlKrMaterialCmbx.ValueMember = "Id";
             this.UrlKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.UrlKrMaterialCmbx_SelectedIndexChanged);
-            // 
-            // HttpKrMaterialCmbx
-            // 
-            this.HttpKrMaterialCmbx.AutoResize = false;
-            this.HttpKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.HttpKrMaterialCmbx.Depth = 0;
-            this.HttpKrMaterialCmbx.DisplayMember = "Name";
-            this.HttpKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.HttpKrMaterialCmbx.DropDownHeight = 174;
-            this.HttpKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.HttpKrMaterialCmbx.DropDownWidth = 121;
-            this.HttpKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.HttpKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.HttpKrMaterialCmbx.FormattingEnabled = true;
-            this.HttpKrMaterialCmbx.IntegralHeight = false;
-            this.HttpKrMaterialCmbx.ItemHeight = 43;
-            this.HttpKrMaterialCmbx.Location = new System.Drawing.Point(25, 90);
-            this.HttpKrMaterialCmbx.MaxDropDownItems = 4;
-            this.HttpKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
-            this.HttpKrMaterialCmbx.Name = "HttpKrMaterialCmbx";
-            this.HttpKrMaterialCmbx.Size = new System.Drawing.Size(252, 49);
-            this.HttpKrMaterialCmbx.StartIndex = 0;
-            this.HttpKrMaterialCmbx.TabIndex = 35;
-            this.HttpKrMaterialCmbx.ValueMember = "Id";
             // 
             // EenUrlTestForm
             // 
@@ -1427,11 +1374,8 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.TbCntrlRestApiEnSoap);
             this.Controls.Add(this.UrlKrMaterialCmbx);
             this.Controls.Add(this.TestRouteBtn);
-            this.Controls.Add(this.HttpKrMaterialCmbx);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.ResponseTextBox);
-            this.Controls.Add(this.LblHttp);
-            this.Controls.Add(this.label2);
             this.MinimumSize = new System.Drawing.Size(911, 1059);
             this.Name = "EenUrlTestForm";
             this.Sizable = false;
@@ -1457,9 +1401,7 @@ namespace WindowsFormsAppTest
         }
 
         #endregion
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox GrpBxSsl;
-        private MaterialSkin.Controls.MaterialLabel LblHttp;
         private System.Windows.Forms.GroupBox GrpBxWebservice;
         private MaterialSkin.Controls.MaterialLabel LblWebserviceVersie;
         private MaterialSkin.Controls.MaterialCheckbox checkBoxKraanDLL;
@@ -1471,7 +1413,6 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialCheckbox SslChckBx;
         private MaterialSkin.Controls.MaterialMultiLineTextBox2 ResponseTextBox;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private KrMaterialCombobox HttpKrMaterialCmbx;
         private System.Windows.Forms.Button TestRouteBtn;
         private KrMaterialCombobox UrlKrMaterialCmbx;
         private System.Windows.Forms.GroupBox grpBxSales2_4;

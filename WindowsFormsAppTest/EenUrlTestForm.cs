@@ -37,7 +37,6 @@ namespace WindowsFormsAppTest
             GetUrls();
 
             FillCmbxUrls();
-            FillCmbxHtpp();
         }
 
         private void GetHttps()
@@ -55,13 +54,6 @@ namespace WindowsFormsAppTest
             _urlDatas = _urltest.GetUrlDatas(true);
         }
 
-        private void FillCmbxHtpp()
-        {
-            HttpKrMaterialCmbx.FillCmbBoxHttp(_httpDatas);
-            HttpKrMaterialCmbx.SelectedItem = ConfigurationManager.AppSettings["http"];
-            urlHttp = ConfigurationManager.AppSettings["http"];
-        }
-
         private void FillCmbxUrls()
         {
             UrlKrMaterialCmbx.FillCmbBoxUrl(_urlDatas);
@@ -72,15 +64,19 @@ namespace WindowsFormsAppTest
             ClearBox();
             bool isSoap = false;
             int webserviceId = 0;
+            int httpId = 0;
             string webserviceName = "";
+            string httpName = "";
             dynamic result = null;
             foreach (UrlData urlData in _urlDatas)
             {
                 if ((int)UrlKrMaterialCmbx.SelectedValue == urlData.Id)
                 {
                     webserviceId = urlData.WebServiceDataId;
+                    httpId = urlData.HttpDataId;
                 }
             }
+            Console.WriteLine(httpId);
             foreach (WebServiceData item in _webserviceDatas)
             {
                 if (item.Id == webserviceId)
@@ -89,21 +85,29 @@ namespace WindowsFormsAppTest
                     webserviceName = item.Name;
                 }
             }
+            foreach (HttpData item in _httpDatas)
+            {
+                if (item.Id == httpId)
+                {
+                    httpName = item.Name;
+                }
+            }
+            Console.WriteLine(httpName);
             if (isSoap && UrlKrMaterialCmbx.Text.EndsWith(".svc"))
             {
                 if (UrlKrMaterialCmbx.Text == "MessageServiceSoap31.svc")
                 {
-                    result = _webRequest.get31SalesData(HttpKrMaterialCmbx.Text + webserviceName, TxtBxUsername, TxtBxPassword);
+                    result = _webRequest.get31SalesData(httpName + webserviceName, TxtBxUsername, TxtBxPassword);
                     CheckData(result, webserviceName, 3.1);
                 }
                 else if (UrlKrMaterialCmbx.Text == "MessageServiceSoap.svc")
                 {
-                    result = _webRequest.get24SalesData(HttpKrMaterialCmbx.Text + webserviceName);
+                    result = _webRequest.get24SalesData(httpName + webserviceName);
                     CheckData(result, webserviceName, 2.4);
                 }
                 else
                 {
-                    string data = _webRequest.GetWebRequestSoap(HttpKrMaterialCmbx.Text, webserviceName, UrlKrMaterialCmbx.Text);
+                    string data = _webRequest.GetWebRequestSoap(httpName, webserviceName, UrlKrMaterialCmbx.Text);
                     ResponseTextBox.Text = data;
                     _testRoute.TestOneRouteSoap(data, TxtBxWebserviceVersie, TxtBxDevExpressVersie, TxtBxDatabaseVersie, webserviceName + UrlKrMaterialCmbx.Text);
                 }
@@ -111,7 +115,7 @@ namespace WindowsFormsAppTest
             else
             {
                 var data = _webRequest.GetWebRequestRest((int)webserviceId,
-                                                     HttpKrMaterialCmbx.Text,
+                                                     httpName,
                                                      webserviceName,
                                                      UrlKrMaterialCmbx.Text,
                                                      securityId);
@@ -178,6 +182,7 @@ namespace WindowsFormsAppTest
             clearGroupBox(grpBxSales2_4);
             clearGroupBox(grpBxSales3_1);
             clearGroupBox(grpBxSoap);
+            ResponseTextBox.Text = string.Empty;
         }
 
         private void clearGroupBox(GroupBox groupBox)
