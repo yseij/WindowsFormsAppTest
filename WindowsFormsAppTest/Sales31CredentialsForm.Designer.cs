@@ -147,6 +147,7 @@ namespace WindowsFormsAppTest
             this.DoorgaanBtn.TabIndex = 83;
             this.DoorgaanBtn.Text = "Doorgaan";
             this.DoorgaanBtn.UseVisualStyleBackColor = false;
+            this.DoorgaanBtn.Click += new System.EventHandler(this.DoorgaanBtn_Click);
             // 
             // materialLabel2
             // 
