@@ -527,6 +527,7 @@ namespace WindowsFormsAppTest
             this.AllUrlsKrMaterialLstBx.Name = "AllUrlsKrMaterialLstBx";
             this.AllUrlsKrMaterialLstBx.SelectedIndex = -1;
             this.AllUrlsKrMaterialLstBx.SelectedItem = null;
+            this.AllUrlsKrMaterialLstBx.ShowScrollBar = true;
             this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(414, 341);
             this.AllUrlsKrMaterialLstBx.TabIndex = 77;
             this.AllUrlsKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllUrlsKrMaterialLstBx_SelectedIndexChanged);

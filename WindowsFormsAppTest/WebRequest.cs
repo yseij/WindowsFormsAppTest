@@ -260,7 +260,7 @@ namespace WindowsFormsAppTest
             return epa;
         }
 
-        public dynamic Get24SalesData(string host, MaterialMultiLineTextBox2 responseTextbox)
+        public dynamic Get24SalesData(string host, MaterialMultiLineTextBox2 responseTextbox = null)
         {
             using (Sales24.MessageServiceSoapClient client = NewSales24Client(host))
             {
@@ -294,7 +294,7 @@ namespace WindowsFormsAppTest
             }
         }
 
-        public dynamic Get31SalesData(string host, MaterialMaskedTextBox TxtBxUsername, MaterialMaskedTextBox TxtBxPassword, MaterialMultiLineTextBox2 responseTextbox)
+        public dynamic Get31SalesData(string host, MaterialMaskedTextBox TxtBxUsername, MaterialMaskedTextBox TxtBxPassword, MaterialMultiLineTextBox2 responseTextbox = null)
         {
             using (Sales31.MessageServiceSoapClient client = NewSales31Client(host))
             {

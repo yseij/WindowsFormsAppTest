@@ -15,15 +15,18 @@ namespace WindowsFormsAppTest
         private string _klantKeuzeNaam;
         private string _keuzeNaam;
 
+        private int _httpKeuzeId;
         private int _webserviceKeuzeId;
         private int _klantKeuzeId;
 
         private dynamic _result;
 
+        private List<HttpData> _httpDatas = new List<HttpData>();
         private List<KlantData> _klantDatas = new List<KlantData>();
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
         private List<UrlData> _urlDatas = new List<UrlData>();
 
+        HttpTest _httptest;
         KlantTest _klantTest;
         WebserviceTest _webserviceTest;
         UrlTest _urltest;
@@ -35,6 +38,7 @@ namespace WindowsFormsAppTest
         public Home()
         {
             InitializeComponent();
+            _httptest = new HttpTest();
             _klantTest = new KlantTest();
             _webserviceTest = new WebserviceTest();
             _urltest = new UrlTest();
@@ -63,9 +67,9 @@ namespace WindowsFormsAppTest
             TijdCheckService();
             AanOfUitCheck();
             AanOfUitCheckService();
-            HttpCheck();
 
             _krXml.MakeXmlFile();
+            _httpDatas = _httptest.GetHttpData();
         }
 
         private void GetSettings()
@@ -162,12 +166,6 @@ namespace WindowsFormsAppTest
             m.ShowDialog();
         }
 
-        private void BtnTestAlleWebservices_Click(object sender, EventArgs e)
-        {
-            //var m = new AllWebserviceTestForm();
-            //m.ShowDialog();
-        }
-
         private void EmailTlStrpMnItm_Click_1(object sender, EventArgs e)
         {
             var m = new UserForm();
@@ -179,6 +177,7 @@ namespace WindowsFormsAppTest
         {
             ToolStripMenuItem1.Enabled = (_klantKeuzeId != 0 || _webserviceKeuzeId != 0) && Properties.Settings.Default.Email != "";
         }
+
         private void PlaatsOpslaanLogFileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
@@ -214,18 +213,6 @@ namespace WindowsFormsAppTest
         {
             ZetConfEnProp("Tijd", "3600000");
             TijdCheck();
-        }
-
-        private void Httpswskraancom444ToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ZetConfEnProp("Http", "https://ws.kraan.com:444/");
-            HttpCheck();
-        }
-
-        private void HttpswsdevkraancomToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            ZetConfEnProp("Http", "https://wsdev.kraan.com/");
-            HttpCheck();
         }
 
         private void AanToolStripMenuItem_Click(object sender, EventArgs e)
@@ -383,23 +370,6 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void HttpCheck()
-        {
-            switch (ConfigurationManager.AppSettings["Http"])
-            {
-                case "https://ws.kraan.com:444/":
-                    httpswskraancom444ToolStripMenuItem.Checked = true;
-                    httpswsdevkraancomToolStripMenuItem.Checked = false;
-                    break;
-                case "https://wsdev.kraan.com/":
-                    httpswskraancom444ToolStripMenuItem.Checked = false;
-                    httpswsdevkraancomToolStripMenuItem.Checked = true;
-                    break;
-                default:
-                    break;
-            }
-        }
-
         private void FillKlantenDropDown()
         {
             _klantDatas = _klantTest.GetKlantData();
@@ -514,12 +484,59 @@ namespace WindowsFormsAppTest
         private void RouteTestAfterKeuze(List<UrlData> urlDatas, string keuzeNaam)
         {
             int teller = 0;
+            bool isSoap = false;
             string text = "";
+            string httpName = string.Empty;
+            string webserviceName = string.Empty;
             LogFile logFile = new LogFile();
             foreach (UrlData urlData in urlDatas)
             {
-                var data = _webRequest.GetWebRequestRest(urlData.Id, ConfigurationManager.AppSettings["Http"], urlData.Name, urlData.SecurityId);
-                _result = JObject.Parse(data);
+                foreach (WebServiceData item in _webServiceDatas)
+                {
+                    if (item.Id == urlData.WebServiceDataId)
+                    {
+                        isSoap = item.Soap;
+                        webserviceName = item.Name;
+                    }
+                }
+                foreach (HttpData item in _httpDatas)
+                {
+                    if (item.Id == urlData.HttpDataId)
+                    {
+                        httpName = item.Name;
+                    }
+                }
+                if (isSoap && urlData.Name.EndsWith(".svc"))
+                {
+                    if (urlData.Name == "MessageServiceSoap31.svc")
+                    {
+                        var m = new Sales31CredentialsForm();
+                        m.TopMost = true;
+                        m.ShowDialog();
+                        MaterialMaskedTextBox userName = m._usernameTxtBx;
+                        MaterialMaskedTextBox password = m._passwordTxtBx;
+                        _result = _webRequest.Get31SalesData(httpName + webserviceName, userName, password);
+                    }
+                    else if (urlData.Name == "MessageServiceSoap.svc")
+                    {
+                        _result = _webRequest.Get24SalesData(httpName + webserviceName);
+
+                    }
+                    else
+                    {
+                        string data = _webRequest.GetWebRequestSoap(httpName, webserviceName, urlData.Name);
+                        _result = JObject.Parse(data);
+                    }
+                }
+                else
+                {
+                    var data = _webRequest.GetWebRequestRest(urlData.WebServiceDataId,
+                                                         httpName,
+                                                         webserviceName,
+                                                         urlData.Name,
+                                                         urlData.SecurityId);
+                    _result = JObject.Parse(data);
+                }
                 foreach (JProperty item in _result)
                 {
                     if (item.Name == "ex")
