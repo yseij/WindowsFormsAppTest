@@ -55,7 +55,7 @@ namespace WindowsFormsAppTest
             this.DoorgaanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DoorgaanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DoorgaanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.DoorgaanBtn.Location = new System.Drawing.Point(263, 174);
+            this.DoorgaanBtn.Location = new System.Drawing.Point(265, 173);
             this.DoorgaanBtn.Name = "DoorgaanBtn";
             this.DoorgaanBtn.Size = new System.Drawing.Size(122, 43);
             this.DoorgaanBtn.TabIndex = 77;
@@ -84,7 +84,7 @@ namespace WindowsFormsAppTest
             this.UserNameTxtBx.BeepOnError = false;
             this.UserNameTxtBx.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
             this.UserNameTxtBx.Depth = 0;
-            this.UserNameTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.UserNameTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.UserNameTxtBx.HidePromptOnLeave = false;
             this.UserNameTxtBx.HideSelection = true;
             this.UserNameTxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
@@ -161,14 +161,14 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(405, 239);
+            this.ClientSize = new System.Drawing.Size(407, 238);
             this.Controls.Add(this.PasswordTxtBx);
             this.Controls.Add(this.UserNameTxtBx);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.DoorgaanBtn);
             this.Controls.Add(this.materialLabel2);
             this.Name = "Sales31CredentialsForm";
-            this.Text = "Credentials ";
+            this.Text = "Credentials 3.1 sales";
             this.ResumeLayout(false);
             this.PerformLayout();
 

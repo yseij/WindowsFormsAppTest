@@ -3,7 +3,6 @@
     class WebServiceData : IBaseData
     {
         public WebServiceData(int id, string name, bool soap)
-
         {
             Id = id;
             Name = name;
@@ -12,7 +11,6 @@
 
         public int Id { get; set; }
         public string Name { get; set; }
-
         public bool Soap { get; set; }
     }
 }

@@ -10,8 +10,9 @@ namespace WindowsFormsAppTest
     public partial class EenUrlTestForm : MaterialForm
     {
         private string url;
-        private string urlHttp = "";
-        private string securityId = "";
+        private string securityId;
+
+        private string urlHttp = string.Empty;
 
         private List<HttpData> _httpDatas = new List<HttpData>();
         private List<WebServiceData> _webserviceDatas = new List<WebServiceData>();
@@ -46,12 +47,12 @@ namespace WindowsFormsAppTest
 
         private void GetWebservices()
         {
-            _webserviceDatas = _webservicetest.GetWebServiceDatas(true);
+            _webserviceDatas = _webservicetest.GetWebServiceData();
         }
 
         private void GetUrls()
         {
-            _urlDatas = _urltest.GetUrlDatas(true);
+            _urlDatas = _urltest.GetUrlData();
         }
 
         private void FillCmbxUrls()
@@ -65,8 +66,8 @@ namespace WindowsFormsAppTest
             bool isSoap = false;
             int webserviceId = 0;
             int httpId = 0;
-            string webserviceName = "";
-            string httpName = "";
+            string webserviceName = string.Empty;
+            string httpName = string.Empty;
             dynamic result = null;
             foreach (UrlData urlData in _urlDatas)
             {
@@ -95,7 +96,7 @@ namespace WindowsFormsAppTest
             {
                 if (UrlKrMaterialCmbx.Text == "MessageServiceSoap31.svc")
                 {
-                    result = _webRequest.get31SalesData(httpName + webserviceName, TxtBxUsername, TxtBxPassword, ResponseTextBox);
+                    result = _webRequest.Get31SalesData(httpName + webserviceName, TxtBxUsername, TxtBxPassword, ResponseTextBox);
                     if (result != null)
                     {
                         CheckData(result, webserviceName, 3.1);
@@ -120,7 +121,7 @@ namespace WindowsFormsAppTest
                     else
                     {
                         ResponseTextBox.Text = data;
-                        _testRoute.TestOneRouteSoap(data, TxtBxWebserviceVersie, TxtBxDevExpressVersie, TxtBxDatabaseVersie, webserviceName + UrlKrMaterialCmbx.Text);
+                        CheckDataSoap(JObject.Parse(data));
                     }
                 }
             }
@@ -296,6 +297,25 @@ namespace WindowsFormsAppTest
             logFile.AddTextToLogFile("MSSQL catalog = " + TxtBxMssqlCatalog + "\n");
             logFile.AddTextToLogFile("Kraan 1 databaseversie = " + TxtBxKraan1DatabaseVersie + "\n");
             logFile.AddTextToLogFile("Kraan 2 databaseversie = " + TxtBxKraan2DatabaseVersie + "\n");
+        }
+
+        private void CheckDataSoap(dynamic result)
+        {
+            foreach (JProperty item in result)
+            {
+                switch (item.Name)
+                {
+                    case "Webservice Versie":
+                        TxtBxWebserviceVersie.Text = item.Value.ToString().Replace("{", "").Replace("}", "");
+                        break;
+                    case "DevExpress versie":
+                        TxtBxDevExpressVersie.Text = item.Value.ToString().Replace("{", "").Replace("}", "");
+                        break;
+                    case "DatabaseVersie":
+                        TxtBxDatabaseVersie.Text = item.Value.ToString().Replace("{", "").Replace("}", "");
+                        break;
+                }
+            }
         }
     }
 }

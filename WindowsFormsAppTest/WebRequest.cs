@@ -14,24 +14,17 @@ namespace WindowsFormsAppTest
 {
     class WebRequest
     {
-        private string webserviceVersie;
-        private string kraanDll;
-        private string kraanIni;
-        private string kraanDatabase;
+        private string _webserviceVersie;
+        private string _kraanDll;
+        private string _kraanIni;
+        private string _kraanDatabase;
 
-        private int positionKraanDll;
-        private int positionKraanIni;
-        private int positionDatabaseConnect;
-        private int positionDatabaseMelding;
+        private int _positionKraanDll;
+        private int _positionKraanIni;
+        private int _positionDatabaseConnect;
+        private int _positionDatabaseMelding;
 
-        private bool certIsGoed = false;
-
-        WebClient _wc;
-
-        public WebRequest()
-        {
-            _wc = new WebClient();
-        }
+        private bool _certIsGoed;
 
         //REST
         public string GetWebRequestRest(int id, string http, string webservice, string url, string securityId = "")
@@ -49,7 +42,7 @@ namespace WindowsFormsAppTest
                     if (cert != null)
                     {
                         cert2 = new X509Certificate2(cert);
-                        certIsGoed = cert2.Verify();
+                        _certIsGoed = cert2.Verify();
                     }
                     int statusCode = (int)response.StatusCode;
                     if (statusCode >= 100 && statusCode < 400) //Good requests
@@ -65,7 +58,7 @@ namespace WindowsFormsAppTest
                             string data = response1.Content.ReadAsStringAsync().Result; //Make sure to add a reference to System.Net.Http.Formatting.dll
                             if (securityId == string.Empty)
                             {
-                                if (certIsGoed)
+                                if (_certIsGoed)
                                 {
                                     return GetDataOfWebRequest(data, cert.GetExpirationDateString().ToString());
                                 }
@@ -77,7 +70,7 @@ namespace WindowsFormsAppTest
                             int Pos1 = data.IndexOf('{');
                             int Pos2 = data.IndexOf('}');
                             data = data.Substring(Pos1 + 1, Pos2 - Pos1 - 1);
-                            if (certIsGoed)
+                            if (_certIsGoed)
                             {
                                 return "{" + data + ", id: '" + id + "', certVerValDatum: '" + cert.GetExpirationDateString().ToString() + "'}";
                             }
@@ -100,17 +93,17 @@ namespace WindowsFormsAppTest
 
         private string GetDataOfWebRequest(string data, string verValDatum = "")
         {
-            positionKraanDll = data.IndexOf("KraanDLL");
-            positionKraanIni = data.IndexOf("Kraan.ini");
-            positionDatabaseConnect = data.IndexOf("Database connectie");
-            positionDatabaseMelding = data.IndexOf("Database melding");
+            _positionKraanDll = data.IndexOf("KraanDLL");
+            _positionKraanIni = data.IndexOf("Kraan.ini");
+            _positionDatabaseConnect = data.IndexOf("Database connectie");
+            _positionDatabaseMelding = data.IndexOf("Database melding");
 
-            webserviceVersie = data.Substring(0, positionKraanDll);
-            kraanDll = data.Substring(positionKraanDll, positionKraanIni - positionKraanDll);
-            kraanIni = data.Substring(positionKraanIni, positionDatabaseConnect - positionKraanIni);
-            kraanDatabase = data.Substring(positionDatabaseConnect, positionDatabaseMelding - positionDatabaseConnect);
+            _webserviceVersie = data.Substring(0, _positionKraanDll);
+            _kraanDll = data.Substring(_positionKraanDll, _positionKraanIni - _positionKraanDll);
+            _kraanIni = data.Substring(_positionKraanIni, _positionDatabaseConnect - _positionKraanIni);
+            _kraanDatabase = data.Substring(_positionDatabaseConnect, _positionDatabaseMelding - _positionDatabaseConnect);
 
-            return @"{ WebserviceVersie: '" + webserviceVersie + "', KraanDll: '" + kraanDll + "', KraanIni: '" + kraanIni + "', KraanDatabase: '" + kraanDatabase + "', certVerValDatum: '" + verValDatum + "'}";
+            return @"{ WebserviceVersie: '" + _webserviceVersie + "', KraanDll: '" + _kraanDll + "', KraanIni: '" + _kraanIni + "', KraanDatabase: '" + _kraanDatabase + "', certVerValDatum: '" + verValDatum + "'}";
         }
 
         //SOAP
@@ -301,7 +294,7 @@ namespace WindowsFormsAppTest
             }
         }
 
-        public dynamic get31SalesData(string host, MaterialMaskedTextBox TxtBxUsername, MaterialMaskedTextBox TxtBxPassword, MaterialMultiLineTextBox2 responseTextbox)
+        public dynamic Get31SalesData(string host, MaterialMaskedTextBox TxtBxUsername, MaterialMaskedTextBox TxtBxPassword, MaterialMultiLineTextBox2 responseTextbox)
         {
             using (Sales31.MessageServiceSoapClient client = NewSales31Client(host))
             {

@@ -11,26 +11,26 @@ namespace WindowsFormsAppTest
 {
     public partial class Home : MaterialForm
     {
-        private int _webserviceKeuzeId = 0;
-        private string _webserviceKeuzeNaam = "";
-        private int _klantKeuzeId = 0;
-        private string _klantKeuzeNaam = "";
-        private string _keuzeNaam = "";
+        private string _webserviceKeuzeNaam;
+        private string _klantKeuzeNaam;
+        private string _keuzeNaam;
+
+        private int _webserviceKeuzeId;
+        private int _klantKeuzeId;
 
         private dynamic _result;
 
         private List<KlantData> _klantDatas = new List<KlantData>();
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
-
         private List<UrlData> _urlDatas = new List<UrlData>();
-
-        Timer _MyTimer = new Timer();
 
         KlantTest _klantTest;
         WebserviceTest _webserviceTest;
         UrlTest _urltest;
         WebRequest _webRequest;
         KrXml _krXml;
+
+        Timer _MyTimer = new Timer();
 
         public Home()
         {
@@ -159,12 +159,6 @@ namespace WindowsFormsAppTest
         private void BtnShowKlanten_Click(object sender, EventArgs e)
         {
             var m = new AllKlantenForm();
-            m.ShowDialog();
-        }
-
-        private void BtnSales24En31_Click(object sender, EventArgs e)
-        {
-            var m = new WebserviceTestFormSoap();
             m.ShowDialog();
         }
 
@@ -454,7 +448,7 @@ namespace WindowsFormsAppTest
 
         private void FillWebserviceDropDown()
         {
-            _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
+            _webServiceDatas = _webserviceTest.GetWebServiceData();
             foreach (WebServiceData webServiceData in _webServiceDatas)
             {
                 ToolStripMenuItem item = new ToolStripMenuItem();

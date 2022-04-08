@@ -8,15 +8,19 @@ namespace WindowsFormsAppTest
 {
     public partial class AllWebserviceForm : MaterialForm
     {
-        private string _changedWebservice = "";
-        private string _changedSecurityId = "";
-        private string _changedUrl = "";
-        private string _zoekOpWebserviceNaam = "";
+        private string _changedWebservice;
+        private string _changedSecurityId;
+        private string _changedUrl;
+        private string _zoekOpWebserviceNaam;
+
         private int _selectedWebserviceId;
         private int _selectedUrlId;
         private int _selectedHttpId;
         private int _selectedKlantIdForChange;
         private int _selectedWebserviceIdForChange;
+
+        public static int SetValueForWeberviceId = 0;
+
         private bool _isSoap;
 
         private List<HttpData> _httpDatas = new List<HttpData>();
@@ -30,7 +34,6 @@ namespace WindowsFormsAppTest
         KlantTest _klantTest;
         WebserviceTest _webserviceTest;
 
-        public static int SetValueForWeberviceId = 0;
         public AllWebserviceForm()
         {
             InitializeComponent();
@@ -46,8 +49,8 @@ namespace WindowsFormsAppTest
 
         private void GetWebservicesIfZoekOpNaamIsLeeg()
         {
-            _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
-            _WebserviceDatasForChange = _webserviceTest.GetWebServiceDatas(true);
+            _webServiceDatas = _webserviceTest.GetWebServiceData();
+            _WebserviceDatasForChange = _webserviceTest.GetWebServiceData();
             FillLstBxWebServices();
             FillCmbxWebServices();
 

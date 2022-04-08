@@ -9,22 +9,21 @@ namespace WindowsFormsAppTest
 {
     public partial class WebserviceOfKlantForm : MaterialForm
     {
+        private int _selectedWebserviceIdOfKlantId;
+        private int _aantalLegeUrls;
+        private int _webserviceId = 0;
+
+        private bool _klant;
+        private bool _isSoap;
+        private string _webserviceName;
+        private string _httpName;
+
+        dynamic _result = null;
+
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
         private List<KlantData> _klantenDatas = new List<KlantData>();
         private List<UrlData> _urlDatas = new List<UrlData>();
         private List<HttpData> _httpDatas = new List<HttpData>();
-
-        private int selectedWebserviceIdOfKlantId;
-        private int aantalLegeUrls;
-
-        private bool _klant;
-        bool _isSoap = false;
-        int _webserviceId = 0;
-        int _httpId = 0;
-        string _webserviceName = "";
-        string _httpName = "";
-        string httpName = "";
-        dynamic result = null;
 
         HttpTest _httptest;
         WebserviceTest _webserviceTest;
@@ -48,6 +47,7 @@ namespace WindowsFormsAppTest
             GetHttps();
             AantalLegeUrlsTxtBx.Text = string.Empty;
 
+            _webServiceDatas = _webserviceTest.GetWebServiceData();
             if (isKlant)
             {
                 Text = "Per Klant testen";
@@ -61,7 +61,6 @@ namespace WindowsFormsAppTest
                 LblWebserviceOfKlant.Text = "Webservice";
                 FillCmbxWebServices();
             }
-            _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
         }
 
         private void GetHttps()
@@ -71,11 +70,17 @@ namespace WindowsFormsAppTest
 
         private void FillCmbxWebServices()
         {
+            WebServiceData webServiceData = new WebServiceData(0, "Alles testen", false);
+            _webServiceDatas.Add(webServiceData);
+
             WebserviceOfKlantKrMaterialCmbx.FillCmbBoxWebservice(_webServiceDatas);
         }
 
         private void FillCmbxKlanten()
         {
+            KlantData klantData = new KlantData(0, "Alles testen");
+            _klantenDatas.Add(klantData);
+
             WebserviceOfKlantKrMaterialCmbx.FillCmbBoxKlant(_klantenDatas);
         }
 
@@ -85,15 +90,22 @@ namespace WindowsFormsAppTest
             AantalLegeUrlsTxtBx.Text = string.Empty;
             LegeUrlsTxtBx.Text = string.Empty;
             LogFile logFile = new LogFile();
-            if (_klant)
+            if (_selectedWebserviceIdOfKlantId == 0)
             {
-                _urlDatas = _urltest.GetAllUrlsByForeignKeyKlant(selectedWebserviceIdOfKlantId);
+                _urlDatas = _urltest.GetUrlData();
             }
             else
             {
-                _urlDatas = _urltest.GetAllUrlsByForeignKeyWebservice(selectedWebserviceIdOfKlantId);
+                if (_klant)
+                {
+                    _urlDatas = _urltest.GetAllUrlsByForeignKeyKlant(_selectedWebserviceIdOfKlantId);
+                }
+                else
+                {
+                    _urlDatas = _urltest.GetAllUrlsByForeignKeyWebservice(_selectedWebserviceIdOfKlantId);
+                }
             }
-            aantalLegeUrls = 0;
+            _aantalLegeUrls = 0;
             logFile.MakeLogFile(WebserviceOfKlantKrMaterialCmbx.Text);
             TrVwAll.Nodes.Clear();
             TrVwAll.BeginUpdate();
@@ -113,7 +125,7 @@ namespace WindowsFormsAppTest
                 {
                     if (item.Id == urlData.HttpDataId)
                     {
-                        httpName = item.Name;
+                        _httpName = item.Name;
                     }
                 }
                 if (_isSoap && urlData.Name.EndsWith(".svc"))
@@ -121,35 +133,36 @@ namespace WindowsFormsAppTest
                     if (urlData.Name == "MessageServiceSoap31.svc")
                     {
                         var m = new Sales31CredentialsForm();
+                        m.TopMost = true;
                         m.ShowDialog();
                         MaterialMaskedTextBox userName = m._usernameTxtBx;
                         MaterialMaskedTextBox password = m._passwordTxtBx;
-                        result = _webRequest.get31SalesData(httpName + _webserviceName, userName, password, ResponseTextBox);
+                        _result = _webRequest.Get31SalesData(_httpName + _webserviceName, userName, password, ResponseTextBox);
                     }
                     else if (urlData.Name == "MessageServiceSoap.svc")
                     {
-                        result = _webRequest.Get24SalesData(httpName + _webserviceName, ResponseTextBox);
+                        _result = _webRequest.Get24SalesData(_httpName + _webserviceName, ResponseTextBox);
 
                     }
                     else
                     {
-                        string data = _webRequest.GetWebRequestSoap(httpName, _webserviceName, urlData.Name);
-                        result = JObject.Parse(data);
+                        string data = _webRequest.GetWebRequestSoap(_httpName, _webserviceName, urlData.Name);
+                        _result = JObject.Parse(data);
                     }
                 }
                 else
                 {
                     var data = _webRequest.GetWebRequestRest(_webserviceId,
-                                                         httpName,
+                                                         _httpName,
                                                          _webserviceName,
                                                          urlData.Name,
                                                          urlData.SecurityId);
-                    result = JObject.Parse(data);
+                    _result = JObject.Parse(data);
                 }
-                if (result != null)
+                if (_result != null)
                 {
-                    FillTreeView(result, urlData, logFile);
-                    result = null;
+                    FillTreeView(_result, urlData, logFile);
+                    _result = null;
                 }
             }
             TrVwAll.EndUpdate();
@@ -157,7 +170,7 @@ namespace WindowsFormsAppTest
 
         private void WebserviceOfKlantKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selectedWebserviceIdOfKlantId = (int)WebserviceOfKlantKrMaterialCmbx.SelectedValue;
+            _selectedWebserviceIdOfKlantId = (int)WebserviceOfKlantKrMaterialCmbx.SelectedValue;
         }
 
         private void TrVwAll_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
@@ -244,8 +257,8 @@ namespace WindowsFormsAppTest
                 {
                     node.ForeColor = Color.FromArgb(255, 0, 0);
                     ResponseTextBox.Text = item.Value.ToString();
-                    aantalLegeUrls = aantalLegeUrls + 1;
-                    AantalLegeUrlsTxtBx.Text = aantalLegeUrls.ToString();
+                    _aantalLegeUrls = _aantalLegeUrls + 1;
+                    AantalLegeUrlsTxtBx.Text = _aantalLegeUrls.ToString();
                     LegeUrlsTxtBx.Text = LegeUrlsTxtBx.Text + urlData.Name + Environment.NewLine;
                     logFile.AddTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
                 }

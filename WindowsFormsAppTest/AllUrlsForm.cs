@@ -34,9 +34,9 @@ namespace WindowsFormsAppTest
             _webserviceTest = new WebserviceTest();
             _klantTest = new KlantTest();
 
-            _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
+            _webServiceDatas = _webserviceTest.GetWebServiceData();
             _klantDatas = _klantTest.GetKlantData();
-            _urlDatas = _urltest.GetUrlDatas();
+            _urlDatas = _urltest.GetUrlData();
             _httpDatas = _httpTest.GetHttpData();
 
             FillCmbxWebServices();
@@ -48,7 +48,7 @@ namespace WindowsFormsAppTest
 
         private void GetUrls()
         {
-            _urlDatas = _urltest.GetUrlDatas(true);
+            _urlDatas = _urltest.GetUrlData();
             FillLstBxls();
         }
 

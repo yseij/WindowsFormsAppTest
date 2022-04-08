@@ -8,7 +8,6 @@ namespace WindowsFormsAppTest
         {
             InitializeComponent();
             UserEmailTxtBx.Text = Properties.Settings.Default.Email;
-
         }
 
         private void GegevensOpslaanBtn_Click(object sender, System.EventArgs e)

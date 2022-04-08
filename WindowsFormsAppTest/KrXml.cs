@@ -31,7 +31,7 @@ namespace WindowsFormsAppTest
         public void UpdateXmlFile()
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load(@"D:\user.xml");
+            doc.Load(@"C:\user.xml");
             XmlNodeList aNodes = doc.SelectNodes("//*");
 
             foreach (XmlNode aNode in aNodes)
@@ -54,7 +54,7 @@ namespace WindowsFormsAppTest
                         break;
                 }
             }
-            doc.Save(@"D:\user.xml");
+            doc.Save(@"C:\user.xml");
         }
     }
 }

@@ -8,15 +8,18 @@ namespace WindowsFormsAppTest
 {
     public partial class AllKlantenForm : MaterialForm
     {
-        private string _changedKlant = "";
-        private string _changedSecurityId = "";
-        private string _changedUrl = "";
-        private string _zoekOpKlantNaam = "";
+        private string _changedKlant;
+        private string _changedSecurityId;
+        private string _changedUrl;
+        private string _zoekOpKlantNaam;
+
         private int _selectedKlantId;
         private int _selectedKlantIdForChange;
         private int _selectedWebserviceIdForChange;
         private int _selectedUrlId;
         private int _selectedHttpId;
+
+        public static int SetValueForKlantId = 0;
 
         private List<HttpData> _httpDatas = new List<HttpData>();
         private List<UrlData> _urlDatasByKlant = new List<UrlData>();
@@ -29,7 +32,6 @@ namespace WindowsFormsAppTest
         KlantTest _klantTest;
         WebserviceTest _webserviceTest;
 
-        public static int SetValueForKlantId = 0;
         public AllKlantenForm()
         {
             InitializeComponent();
@@ -82,7 +84,7 @@ namespace WindowsFormsAppTest
 
         private void GetWebservices()
         {
-            _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
+            _webServiceDatas = _webserviceTest.GetWebServiceData();
             FillCmbxWebServices();
         }
 

@@ -1,7 +1,7 @@
 ﻿
 using MaterialSkin.Controls;
 using System.Collections.Generic;
-
+using System.Data;
 
 namespace WindowsFormsAppTest
 {
@@ -33,6 +33,7 @@ namespace WindowsFormsAppTest
         public void FillCmbBoxWebservice(List<WebServiceData> webServiceDatas)
         {
             ClearDataSource();
+            
             DataSource = webServiceDatas;
             SetDisplayAndValueMember();
         }

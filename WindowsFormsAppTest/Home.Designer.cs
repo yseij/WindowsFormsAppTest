@@ -59,21 +59,13 @@ namespace WindowsFormsAppTest
             this.AanByServiceTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.UitByServiceTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.EmailTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.BttnUrl = new System.Windows.Forms.Button();
             this.BttnWebservice = new System.Windows.Forms.Button();
             this.BtnKlant = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.BtnShowUrls = new System.Windows.Forms.Button();
             this.BtnShowWebservices = new System.Windows.Forms.Button();
             this.BtnShowKlanten = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.BtnTestAlleWebservices = new System.Windows.Forms.Button();
-            this.label5 = new System.Windows.Forms.Label();
-            this.BtnSales24En31 = new System.Windows.Forms.Button();
             this.BtnShowHttps = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
@@ -98,9 +90,9 @@ namespace WindowsFormsAppTest
             this.materialLabel1.Location = new System.Drawing.Point(6, 69);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(98, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(40, 19);
             this.materialLabel1.TabIndex = 1;
-            this.materialLabel1.Text = "Test Urls Rest";
+            this.materialLabel1.Text = "Tests";
             // 
             // materialLabel2
             // 
@@ -326,18 +318,6 @@ namespace WindowsFormsAppTest
             this.EmailTlStrpMnItm.Text = "Email";
             this.EmailTlStrpMnItm.Click += new System.EventHandler(this.EmailTlStrpMnItm_Click_1);
             // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(487, 69);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(104, 19);
-            this.materialLabel3.TabIndex = 11;
-            this.materialLabel3.Text = "Test Urls Soap";
-            // 
             // BttnUrl
             // 
             this.BttnUrl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
@@ -358,7 +338,7 @@ namespace WindowsFormsAppTest
             this.BttnWebservice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BttnWebservice.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BttnWebservice.ForeColor = System.Drawing.SystemColors.Control;
-            this.BttnWebservice.Location = new System.Drawing.Point(167, 94);
+            this.BttnWebservice.Location = new System.Drawing.Point(242, 98);
             this.BttnWebservice.Name = "BttnWebservice";
             this.BttnWebservice.Size = new System.Drawing.Size(150, 150);
             this.BttnWebservice.TabIndex = 15;
@@ -372,7 +352,7 @@ namespace WindowsFormsAppTest
             this.BtnKlant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnKlant.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnKlant.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnKlant.Location = new System.Drawing.Point(325, 94);
+            this.BtnKlant.Location = new System.Drawing.Point(474, 94);
             this.BtnKlant.Name = "BtnKlant";
             this.BtnKlant.Size = new System.Drawing.Size(150, 150);
             this.BtnKlant.TabIndex = 16;
@@ -385,16 +365,8 @@ namespace WindowsFormsAppTest
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Location = new System.Drawing.Point(7, 251);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(468, 2);
+            this.label1.Size = new System.Drawing.Size(617, 2);
             this.label1.TabIndex = 17;
-            // 
-            // label2
-            // 
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Location = new System.Drawing.Point(482, 94);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(2, 149);
-            this.label2.TabIndex = 18;
             // 
             // BtnShowUrls
             // 
@@ -402,7 +374,7 @@ namespace WindowsFormsAppTest
             this.BtnShowUrls.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnShowUrls.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnShowUrls.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnShowUrls.Location = new System.Drawing.Point(167, 276);
+            this.BtnShowUrls.Location = new System.Drawing.Point(163, 276);
             this.BtnShowUrls.Name = "BtnShowUrls";
             this.BtnShowUrls.Size = new System.Drawing.Size(150, 150);
             this.BtnShowUrls.TabIndex = 19;
@@ -416,7 +388,7 @@ namespace WindowsFormsAppTest
             this.BtnShowWebservices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnShowWebservices.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnShowWebservices.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnShowWebservices.Location = new System.Drawing.Point(325, 275);
+            this.BtnShowWebservices.Location = new System.Drawing.Point(319, 275);
             this.BtnShowWebservices.Name = "BtnShowWebservices";
             this.BtnShowWebservices.Size = new System.Drawing.Size(150, 150);
             this.BtnShowWebservices.TabIndex = 20;
@@ -430,77 +402,13 @@ namespace WindowsFormsAppTest
             this.BtnShowKlanten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnShowKlanten.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnShowKlanten.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnShowKlanten.Location = new System.Drawing.Point(490, 275);
+            this.BtnShowKlanten.Location = new System.Drawing.Point(475, 275);
             this.BtnShowKlanten.Name = "BtnShowKlanten";
             this.BtnShowKlanten.Size = new System.Drawing.Size(150, 150);
             this.BtnShowKlanten.TabIndex = 21;
             this.BtnShowKlanten.Text = "KLANTEN";
             this.BtnShowKlanten.UseVisualStyleBackColor = false;
             this.BtnShowKlanten.Click += new System.EventHandler(this.BtnShowKlanten_Click);
-            // 
-            // label3
-            // 
-            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label3.Location = new System.Drawing.Point(490, 251);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(150, 2);
-            this.label3.TabIndex = 23;
-            // 
-            // label4
-            // 
-            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label4.Location = new System.Drawing.Point(646, 94);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(2, 331);
-            this.label4.TabIndex = 24;
-            // 
-            // materialLabel4
-            // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.Location = new System.Drawing.Point(651, 69);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(70, 19);
-            this.materialLabel4.TabIndex = 25;
-            this.materialLabel4.Text = "Test Alles";
-            // 
-            // BtnTestAlleWebservices
-            // 
-            this.BtnTestAlleWebservices.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.BtnTestAlleWebservices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnTestAlleWebservices.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnTestAlleWebservices.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnTestAlleWebservices.Location = new System.Drawing.Point(654, 94);
-            this.BtnTestAlleWebservices.Name = "BtnTestAlleWebservices";
-            this.BtnTestAlleWebservices.Size = new System.Drawing.Size(150, 150);
-            this.BtnTestAlleWebservices.TabIndex = 26;
-            this.BtnTestAlleWebservices.Text = "TEST ALLE WEBSERVICES";
-            this.BtnTestAlleWebservices.UseVisualStyleBackColor = false;
-            this.BtnTestAlleWebservices.Click += new System.EventHandler(this.BtnTestAlleWebservices_Click);
-            // 
-            // label5
-            // 
-            this.label5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label5.Location = new System.Drawing.Point(654, 251);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(150, 2);
-            this.label5.TabIndex = 27;
-            // 
-            // BtnSales24En31
-            // 
-            this.BtnSales24En31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.BtnSales24En31.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnSales24En31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnSales24En31.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnSales24En31.Location = new System.Drawing.Point(490, 94);
-            this.BtnSales24En31.Name = "BtnSales24En31";
-            this.BtnSales24En31.Size = new System.Drawing.Size(150, 150);
-            this.BtnSales24En31.TabIndex = 22;
-            this.BtnSales24En31.Text = "TEST";
-            this.BtnSales24En31.UseVisualStyleBackColor = false;
-            this.BtnSales24En31.Click += new System.EventHandler(this.BtnSales24En31_Click);
             // 
             // BtnShowHttps
             // 
@@ -520,28 +428,20 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 456);
+            this.ClientSize = new System.Drawing.Size(633, 456);
             this.Controls.Add(this.BtnShowHttps);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.BtnTestAlleWebservices);
-            this.Controls.Add(this.materialLabel4);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.BtnSales24En31);
             this.Controls.Add(this.BtnShowKlanten);
             this.Controls.Add(this.BtnShowWebservices);
             this.Controls.Add(this.BtnShowUrls);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnKlant);
             this.Controls.Add(this.BttnWebservice);
             this.Controls.Add(this.BttnUrl);
-            this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.menuStrip);
             this.MainMenuStrip = this.menuStrip;
-            this.MinimumSize = new System.Drawing.Size(649, 456);
+            this.MinimumSize = new System.Drawing.Size(633, 456);
             this.Name = "Home";
             this.Text = "Home";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Home_FormClosing);
@@ -574,20 +474,13 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.ToolStripMenuItem WebserviceKeuzeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem KlantKeuzeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UurTlStrpMnItm;
-        private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private System.Windows.Forms.Button BttnUrl;
         private System.Windows.Forms.Button BttnWebservice;
         private System.Windows.Forms.Button BtnKlant;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtnShowUrls;
         private System.Windows.Forms.Button BtnShowWebservices;
         private System.Windows.Forms.Button BtnShowKlanten;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private MaterialSkin.Controls.MaterialLabel materialLabel4;
-        private System.Windows.Forms.Button BtnTestAlleWebservices;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ToolStripMenuItem ServiceTlStrpMnItm;
         private System.Windows.Forms.ToolStripMenuItem TijdByServiceTlStrpMnItm;
         private System.Windows.Forms.ToolStripMenuItem min15ByServiceTlStrpMnItm;
@@ -597,7 +490,6 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.ToolStripMenuItem AanByServiceTlStrpMnItm;
         private System.Windows.Forms.ToolStripMenuItem UitByServiceTlStrpMnItm;
         private System.Windows.Forms.ToolStripMenuItem EmailTlStrpMnItm;
-        private System.Windows.Forms.Button BtnSales24En31;
         private System.Windows.Forms.Button BtnShowHttps;
     }
 }

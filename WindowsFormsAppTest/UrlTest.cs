@@ -7,29 +7,19 @@ namespace WindowsFormsAppTest
 {
     class UrlTest
     {
-        private List<UrlData> _urlDatas = new List<UrlData>();
         private List<UrlData> _urlDatasByForeignKeyWebservice = new List<UrlData>();
         private List<UrlData> _urlDatasByForeignKeyKlant = new List<UrlData>();
-        private UrlData _urlDataById= new UrlData();
+
         public UrlTest()
         {
-            GetUrls();
+            //GetUrls();
         }
 
         private string ConnectieDB => ConfigurationManager.AppSettings["connectieString"];
 
-        public List<UrlData> GetUrlDatas(bool reload = false)
+        public List<UrlData> GetUrlData()
         {
-            if (reload)
-            {
-                _urlDatas.Clear();
-                GetUrls();
-            }
-
-            return _urlDatas;
-        }
-        public void GetUrls()
-        {
+            List<UrlData> urlDatas = new List<UrlData>();
 
             DataTable dt = new DataTable();
             int rows_returned;
@@ -47,14 +37,15 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    _urlDatas.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4], (int)dr[5]));
+                    urlDatas.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4], (int)dr[5]));
                 }
             }
+            return urlDatas;
         }
 
         public UrlData GetUrlById(int id)
         {
-
+            UrlData urlDataById = new UrlData();
             DataTable dt = new DataTable();
             int rows_returned;
 
@@ -71,7 +62,7 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    return _urlDataById = new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4], (int)dr[5]);
+                    return urlDataById = new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4], (int)dr[5]);
                 }
             }
             return null;

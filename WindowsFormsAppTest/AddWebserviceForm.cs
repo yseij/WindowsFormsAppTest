@@ -4,6 +4,7 @@ namespace WindowsFormsAppTest
     public partial class AddWebserviceForm : MaterialForm
     {
         private string _newWebserviceNaam;
+
         private bool _isSoap;
 
         WebserviceTest _webserviceTest;

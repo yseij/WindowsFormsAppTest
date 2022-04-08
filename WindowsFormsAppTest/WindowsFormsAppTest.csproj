@@ -233,12 +233,6 @@
       <DependentUpon>WebserviceOfKlantForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WebserviceTest.cs" />
-    <Compile Include="WebserviceTestFormSoap.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WebserviceTestFormSoap.designer.cs">
-      <DependentUpon>WebserviceTestFormSoap.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="AddHttpForm.resx">
       <DependentUpon>AddHttpForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -289,9 +283,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="WebserviceOfKlantForm.resx">
       <DependentUpon>WebserviceOfKlantForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="WebserviceTestFormSoap.resx">
-      <DependentUpon>WebserviceTestFormSoap.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Connected Services\Sales24\messageservice.wsdl" />
     <None Include="Connected Services\Sales24\WindowsFormsAppTest.Sales24.DeleteMessageResponse.datasource">

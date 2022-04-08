@@ -10,9 +10,9 @@ namespace WindowsFormsAppTest
 {
     class TestRoute
     {
-        private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
         private string urlHttp = ConfigurationManager.AppSettings["http"];
-        private dynamic _result;
+
+        private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
 
         WebRequest _webRequest;
         WebserviceTest _webserviceTest;

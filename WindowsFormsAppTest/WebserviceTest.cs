@@ -7,22 +7,11 @@ namespace WindowsFormsAppTest
 {
     class WebserviceTest
     {
-        private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
         private string ConnectieDB => ConfigurationManager.AppSettings["connectieString"];
 
-        public List<WebServiceData> GetWebServiceDatas(bool reload = false)
+        public List<WebServiceData> GetWebServiceData()
         {
-            if (reload)
-            {
-                _webServiceDatas.Clear();
-                GetWebServices();
-            }
-
-            return _webServiceDatas;
-        }
-
-        public void GetWebServices()
-        {
+            List<WebServiceData> webServiceDatas = new List<WebServiceData>();
 
             DataTable dt = new DataTable();
             int rows_returned;
@@ -40,9 +29,10 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    _webServiceDatas.Add(new WebServiceData((int)dr[0], dr[1].ToString(), (bool)dr[2]));
+                    webServiceDatas.Add(new WebServiceData((int)dr[0], dr[1].ToString(), (bool)dr[2]));
                 }
             }
+            return webServiceDatas;
         }
 
         public List<WebServiceData> GetWebServicesByWebserviceName(string name)

@@ -6,23 +6,24 @@ namespace WindowsFormsAppTest
 {
     public partial class AddUrlForm : MaterialForm
     {
+        private string _newUrl;
+        private string _newSecurityId;
+
+        private int _selectedWebserviceId;
+        private int _selectedKlantId;
+        private int _selectedHttpId;
+        private int _klantId;
+        private int _webserviceId;
+
+        private int _httpId = 0;
+
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
         private List<KlantData> _klantDatas = new List<KlantData>();
         private List<HttpData> _httpDatas = new List<HttpData>();
 
-        private string _newUrl = " ";
-        private string _newSecurityId = " ";
-        private int _selectedWebserviceId;
-        private int _selectedKlantId;
-        private int _selectedHttpId;
-
         WebserviceTest _webserviceTest;
         KlantTest _klantTest;
         HttpTest _httpTest;
-
-        private int _klantId;
-        private int _webserviceId;
-        private int _httpId;
 
         public AddUrlForm()
         {
@@ -31,7 +32,8 @@ namespace WindowsFormsAppTest
             _webserviceId = AllWebserviceForm.SetValueForWeberviceId;
             _webserviceTest = new WebserviceTest();
             _klantTest = new KlantTest();
-            _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
+            _httpTest = new HttpTest();
+            _webServiceDatas = _webserviceTest.GetWebServiceData();
             _klantDatas = _klantTest.GetKlantData();
             _httpDatas = _httpTest.GetHttpData();
 
