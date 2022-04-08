@@ -45,7 +45,7 @@ namespace WindowsFormsAppTest
             this.PasHttpAanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PasHttpAanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasHttpAanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.PasHttpAanBtn.Location = new System.Drawing.Point(773, 260);
+            this.PasHttpAanBtn.Location = new System.Drawing.Point(693, 250);
             this.PasHttpAanBtn.Name = "PasHttpAanBtn";
             this.PasHttpAanBtn.Size = new System.Drawing.Size(112, 43);
             this.PasHttpAanBtn.TabIndex = 72;
@@ -60,7 +60,7 @@ namespace WindowsFormsAppTest
             this.AddHttpBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddHttpBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddHttpBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddHttpBtn.Location = new System.Drawing.Point(655, 261);
+            this.AddHttpBtn.Location = new System.Drawing.Point(575, 251);
             this.AddHttpBtn.Name = "AddHttpBtn";
             this.AddHttpBtn.Size = new System.Drawing.Size(112, 43);
             this.AddHttpBtn.TabIndex = 71;
@@ -75,7 +75,7 @@ namespace WindowsFormsAppTest
             this.DeleteHttpBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteHttpBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteHttpBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.DeleteHttpBttn.Location = new System.Drawing.Point(386, 260);
+            this.DeleteHttpBttn.Location = new System.Drawing.Point(306, 250);
             this.DeleteHttpBttn.Name = "DeleteHttpBttn";
             this.DeleteHttpBttn.Size = new System.Drawing.Size(112, 43);
             this.DeleteHttpBttn.TabIndex = 70;
@@ -89,9 +89,9 @@ namespace WindowsFormsAppTest
             this.HttpTxtBx.AnimateReadOnly = false;
             this.HttpTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.HttpTxtBx.Depth = 0;
-            this.HttpTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.HttpTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.HttpTxtBx.LeadingIcon = null;
-            this.HttpTxtBx.Location = new System.Drawing.Point(485, 98);
+            this.HttpTxtBx.Location = new System.Drawing.Point(405, 98);
             this.HttpTxtBx.MaxLength = 50;
             this.HttpTxtBx.MouseState = MaterialSkin.MouseState.OUT;
             this.HttpTxtBx.Multiline = false;
@@ -107,7 +107,7 @@ namespace WindowsFormsAppTest
             this.LblUrl.AutoSize = true;
             this.LblUrl.Depth = 0;
             this.LblUrl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblUrl.Location = new System.Drawing.Point(383, 101);
+            this.LblUrl.Location = new System.Drawing.Point(303, 101);
             this.LblUrl.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblUrl.Name = "LblUrl";
             this.LblUrl.Size = new System.Drawing.Size(48, 19);
@@ -120,7 +120,7 @@ namespace WindowsFormsAppTest
             this.LblBewerken.AutoSize = true;
             this.LblBewerken.Depth = 0;
             this.LblBewerken.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblBewerken.Location = new System.Drawing.Point(383, 72);
+            this.LblBewerken.Location = new System.Drawing.Point(303, 72);
             this.LblBewerken.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblBewerken.Name = "LblBewerken";
             this.LblBewerken.Size = new System.Drawing.Size(106, 19);
@@ -141,7 +141,7 @@ namespace WindowsFormsAppTest
             this.AllHttpsKrMaterialLstBx.Name = "AllHttpsKrMaterialLstBx";
             this.AllHttpsKrMaterialLstBx.SelectedIndex = -1;
             this.AllHttpsKrMaterialLstBx.SelectedItem = null;
-            this.AllHttpsKrMaterialLstBx.Size = new System.Drawing.Size(371, 236);
+            this.AllHttpsKrMaterialLstBx.Size = new System.Drawing.Size(291, 226);
             this.AllHttpsKrMaterialLstBx.TabIndex = 67;
             this.AllHttpsKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllHttpsKrMaterialLstBx_SelectedIndexChanged);
             // 
@@ -149,7 +149,7 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(897, 320);
+            this.ClientSize = new System.Drawing.Size(817, 310);
             this.Controls.Add(this.PasHttpAanBtn);
             this.Controls.Add(this.AddHttpBtn);
             this.Controls.Add(this.DeleteHttpBttn);
@@ -157,6 +157,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.HttpTxtBx);
             this.Controls.Add(this.LblUrl);
             this.Controls.Add(this.LblBewerken);
+            this.MinimumSize = new System.Drawing.Size(817, 310);
             this.Name = "AllHttpsForm";
             this.Text = "AllHttpsForm";
             this.ResumeLayout(false);

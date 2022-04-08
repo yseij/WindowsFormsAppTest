@@ -108,7 +108,8 @@ namespace WindowsFormsAppTest
             // 
             // GrpBxSsl
             // 
-            this.GrpBxSsl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.GrpBxSsl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.GrpBxSsl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.GrpBxSsl.Controls.Add(this.SslChckBx);
             this.GrpBxSsl.Controls.Add(this.SllCertificaatVervalDatumTxtBx);
@@ -144,6 +145,8 @@ namespace WindowsFormsAppTest
             // 
             // SllCertificaatVervalDatumTxtBx
             // 
+            this.SllCertificaatVervalDatumTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.SllCertificaatVervalDatumTxtBx.AnimateReadOnly = false;
             this.SllCertificaatVervalDatumTxtBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.SllCertificaatVervalDatumTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -178,6 +181,8 @@ namespace WindowsFormsAppTest
             // 
             // GrpBxWebservice
             // 
+            this.GrpBxWebservice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.GrpBxWebservice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.GrpBxWebservice.Controls.Add(this.textBoxWebservice);
             this.GrpBxWebservice.Controls.Add(this.checkBoxKraanDatabase);
@@ -1030,7 +1035,8 @@ namespace WindowsFormsAppTest
             // 
             // grpBxSoap
             // 
-            this.grpBxSoap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpBxSoap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.grpBxSoap.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.grpBxSoap.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.grpBxSoap.Controls.Add(this.TxtBxDatabaseVersie);
@@ -1043,13 +1049,15 @@ namespace WindowsFormsAppTest
             this.grpBxSoap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.grpBxSoap.Location = new System.Drawing.Point(2, 6);
             this.grpBxSoap.Name = "grpBxSoap";
-            this.grpBxSoap.Size = new System.Drawing.Size(396, 208);
+            this.grpBxSoap.Size = new System.Drawing.Size(835, 208);
             this.grpBxSoap.TabIndex = 71;
             this.grpBxSoap.TabStop = false;
             this.grpBxSoap.Text = "Results SOAP normaal";
             // 
             // TxtBxDatabaseVersie
             // 
+            this.TxtBxDatabaseVersie.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtBxDatabaseVersie.AnimateReadOnly = false;
             this.TxtBxDatabaseVersie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxDatabaseVersie.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -1059,13 +1067,12 @@ namespace WindowsFormsAppTest
             this.TxtBxDatabaseVersie.LeadingIcon = null;
             this.TxtBxDatabaseVersie.Location = new System.Drawing.Point(162, 137);
             this.TxtBxDatabaseVersie.Margin = new System.Windows.Forms.Padding(0);
-            this.TxtBxDatabaseVersie.MaximumSize = new System.Drawing.Size(500, 50);
             this.TxtBxDatabaseVersie.MaxLength = 150;
             this.TxtBxDatabaseVersie.MouseState = MaterialSkin.MouseState.OUT;
             this.TxtBxDatabaseVersie.Multiline = false;
             this.TxtBxDatabaseVersie.Name = "TxtBxDatabaseVersie";
             this.TxtBxDatabaseVersie.ReadOnly = true;
-            this.TxtBxDatabaseVersie.Size = new System.Drawing.Size(213, 50);
+            this.TxtBxDatabaseVersie.Size = new System.Drawing.Size(652, 50);
             this.TxtBxDatabaseVersie.TabIndex = 23;
             this.TxtBxDatabaseVersie.Text = "";
             this.TxtBxDatabaseVersie.TrailingIcon = null;
@@ -1086,6 +1093,8 @@ namespace WindowsFormsAppTest
             // 
             // TxtBxDevExpressVersie
             // 
+            this.TxtBxDevExpressVersie.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtBxDevExpressVersie.AnimateReadOnly = false;
             this.TxtBxDevExpressVersie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxDevExpressVersie.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -1095,13 +1104,12 @@ namespace WindowsFormsAppTest
             this.TxtBxDevExpressVersie.LeadingIcon = null;
             this.TxtBxDevExpressVersie.Location = new System.Drawing.Point(162, 78);
             this.TxtBxDevExpressVersie.Margin = new System.Windows.Forms.Padding(0);
-            this.TxtBxDevExpressVersie.MaximumSize = new System.Drawing.Size(500, 50);
             this.TxtBxDevExpressVersie.MaxLength = 150;
             this.TxtBxDevExpressVersie.MouseState = MaterialSkin.MouseState.OUT;
             this.TxtBxDevExpressVersie.Multiline = false;
             this.TxtBxDevExpressVersie.Name = "TxtBxDevExpressVersie";
             this.TxtBxDevExpressVersie.ReadOnly = true;
-            this.TxtBxDevExpressVersie.Size = new System.Drawing.Size(213, 50);
+            this.TxtBxDevExpressVersie.Size = new System.Drawing.Size(652, 50);
             this.TxtBxDevExpressVersie.TabIndex = 21;
             this.TxtBxDevExpressVersie.Text = "";
             this.TxtBxDevExpressVersie.TrailingIcon = null;
@@ -1122,6 +1130,8 @@ namespace WindowsFormsAppTest
             // 
             // TxtBxWebserviceVersie
             // 
+            this.TxtBxWebserviceVersie.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtBxWebserviceVersie.AnimateReadOnly = false;
             this.TxtBxWebserviceVersie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxWebserviceVersie.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -1131,13 +1141,12 @@ namespace WindowsFormsAppTest
             this.TxtBxWebserviceVersie.LeadingIcon = null;
             this.TxtBxWebserviceVersie.Location = new System.Drawing.Point(162, 22);
             this.TxtBxWebserviceVersie.Margin = new System.Windows.Forms.Padding(0);
-            this.TxtBxWebserviceVersie.MaximumSize = new System.Drawing.Size(500, 50);
             this.TxtBxWebserviceVersie.MaxLength = 150;
             this.TxtBxWebserviceVersie.MouseState = MaterialSkin.MouseState.OUT;
             this.TxtBxWebserviceVersie.Multiline = false;
             this.TxtBxWebserviceVersie.Name = "TxtBxWebserviceVersie";
             this.TxtBxWebserviceVersie.ReadOnly = true;
-            this.TxtBxWebserviceVersie.Size = new System.Drawing.Size(213, 50);
+            this.TxtBxWebserviceVersie.Size = new System.Drawing.Size(654, 50);
             this.TxtBxWebserviceVersie.TabIndex = 19;
             this.TxtBxWebserviceVersie.Text = "";
             this.TxtBxWebserviceVersie.TrailingIcon = null;

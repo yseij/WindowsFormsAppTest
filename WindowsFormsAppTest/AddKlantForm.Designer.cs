@@ -67,7 +67,7 @@ namespace WindowsFormsAppTest
             this.NewKlantNaamTxtBx.SelectionLength = 0;
             this.NewKlantNaamTxtBx.SelectionStart = 0;
             this.NewKlantNaamTxtBx.ShortcutsEnabled = true;
-            this.NewKlantNaamTxtBx.Size = new System.Drawing.Size(383, 48);
+            this.NewKlantNaamTxtBx.Size = new System.Drawing.Size(228, 48);
             this.NewKlantNaamTxtBx.SkipLiterals = true;
             this.NewKlantNaamTxtBx.TabIndex = 2;
             this.NewKlantNaamTxtBx.TabStop = false;
@@ -97,7 +97,7 @@ namespace WindowsFormsAppTest
             this.AddKlantBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddKlantBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddKlantBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddKlantBttn.Location = new System.Drawing.Point(304, 121);
+            this.AddKlantBttn.Location = new System.Drawing.Point(149, 121);
             this.AddKlantBttn.Name = "AddKlantBttn";
             this.AddKlantBttn.Size = new System.Drawing.Size(140, 43);
             this.AddKlantBttn.TabIndex = 28;
@@ -109,12 +109,11 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(455, 169);
+            this.ClientSize = new System.Drawing.Size(300, 169);
             this.Controls.Add(this.AddKlantBttn);
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.NewKlantNaamTxtBx);
-            this.MaximumSize = new System.Drawing.Size(455, 169);
-            this.MinimumSize = new System.Drawing.Size(455, 169);
+            this.MinimumSize = new System.Drawing.Size(300, 169);
             this.Name = "AddKlantForm";
             this.Text = "Klant toevoegen";
             this.ResumeLayout(false);

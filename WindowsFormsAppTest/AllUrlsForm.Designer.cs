@@ -323,7 +323,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.SecurityIdTxtBx);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.LblBewerken);
-            this.MinimumSize = new System.Drawing.Size(1000, 364);
+            this.MinimumSize = new System.Drawing.Size(1000, 427);
             this.Name = "AllUrlsForm";
             this.Text = "Urls beheren";
             this.ResumeLayout(false);

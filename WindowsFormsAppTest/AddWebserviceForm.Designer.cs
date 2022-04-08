@@ -50,6 +50,8 @@ namespace WindowsFormsAppTest
             // NewKlantNaamTxtBx
             // 
             this.NewKlantNaamTxtBx.AllowPromptAsInput = true;
+            this.NewKlantNaamTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.NewKlantNaamTxtBx.AnimateReadOnly = false;
             this.NewKlantNaamTxtBx.AsciiOnly = false;
             this.NewKlantNaamTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -78,7 +80,7 @@ namespace WindowsFormsAppTest
             this.NewKlantNaamTxtBx.SelectionLength = 0;
             this.NewKlantNaamTxtBx.SelectionStart = 0;
             this.NewKlantNaamTxtBx.ShortcutsEnabled = true;
-            this.NewKlantNaamTxtBx.Size = new System.Drawing.Size(383, 48);
+            this.NewKlantNaamTxtBx.Size = new System.Drawing.Size(358, 48);
             this.NewKlantNaamTxtBx.SkipLiterals = true;
             this.NewKlantNaamTxtBx.TabIndex = 5;
             this.NewKlantNaamTxtBx.TabStop = false;
@@ -96,7 +98,7 @@ namespace WindowsFormsAppTest
             this.AddKlantBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddKlantBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddKlantBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddKlantBttn.Location = new System.Drawing.Point(252, 168);
+            this.AddKlantBttn.Location = new System.Drawing.Point(227, 145);
             this.AddKlantBttn.MinimumSize = new System.Drawing.Size(191, 43);
             this.AddKlantBttn.Name = "AddKlantBttn";
             this.AddKlantBttn.Size = new System.Drawing.Size(191, 43);
@@ -127,11 +129,12 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(449, 216);
+            this.ClientSize = new System.Drawing.Size(424, 193);
             this.Controls.Add(this.SoapWebserviceChkBx);
             this.Controls.Add(this.AddKlantBttn);
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.NewKlantNaamTxtBx);
+            this.MinimumSize = new System.Drawing.Size(424, 193);
             this.Name = "AddWebserviceForm";
             this.Text = "Webservice toevoegen";
             this.ResumeLayout(false);

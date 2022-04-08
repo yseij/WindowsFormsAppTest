@@ -75,7 +75,7 @@ namespace WindowsFormsAppTest
             this.NewUrlTxtBx.SelectionLength = 0;
             this.NewUrlTxtBx.SelectionStart = 0;
             this.NewUrlTxtBx.ShortcutsEnabled = true;
-            this.NewUrlTxtBx.Size = new System.Drawing.Size(388, 48);
+            this.NewUrlTxtBx.Size = new System.Drawing.Size(370, 48);
             this.NewUrlTxtBx.SkipLiterals = true;
             this.NewUrlTxtBx.TabIndex = 2;
             this.NewUrlTxtBx.TabStop = false;
@@ -119,7 +119,7 @@ namespace WindowsFormsAppTest
             this.NewSecurityIdTxtBx.SelectionLength = 0;
             this.NewSecurityIdTxtBx.SelectionStart = 0;
             this.NewSecurityIdTxtBx.ShortcutsEnabled = true;
-            this.NewSecurityIdTxtBx.Size = new System.Drawing.Size(388, 48);
+            this.NewSecurityIdTxtBx.Size = new System.Drawing.Size(370, 48);
             this.NewSecurityIdTxtBx.SkipLiterals = true;
             this.NewSecurityIdTxtBx.TabIndex = 1;
             this.NewSecurityIdTxtBx.TabStop = false;
@@ -199,7 +199,7 @@ namespace WindowsFormsAppTest
             this.KlantenKrMaterialCmbx.MaxDropDownItems = 4;
             this.KlantenKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
             this.KlantenKrMaterialCmbx.Name = "KlantenKrMaterialCmbx";
-            this.KlantenKrMaterialCmbx.Size = new System.Drawing.Size(388, 49);
+            this.KlantenKrMaterialCmbx.Size = new System.Drawing.Size(370, 49);
             this.KlantenKrMaterialCmbx.StartIndex = 0;
             this.KlantenKrMaterialCmbx.TabIndex = 26;
             this.KlantenKrMaterialCmbx.ValueMember = "Id";
@@ -226,7 +226,7 @@ namespace WindowsFormsAppTest
             this.WebserviceKrMaterialCmbx.MaxDropDownItems = 4;
             this.WebserviceKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
             this.WebserviceKrMaterialCmbx.Name = "WebserviceKrMaterialCmbx";
-            this.WebserviceKrMaterialCmbx.Size = new System.Drawing.Size(388, 49);
+            this.WebserviceKrMaterialCmbx.Size = new System.Drawing.Size(370, 49);
             this.WebserviceKrMaterialCmbx.StartIndex = 0;
             this.WebserviceKrMaterialCmbx.TabIndex = 25;
             this.WebserviceKrMaterialCmbx.ValueMember = "Id";
@@ -239,7 +239,7 @@ namespace WindowsFormsAppTest
             this.AddUrlButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddUrlButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddUrlButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddUrlButton.Location = new System.Drawing.Point(349, 350);
+            this.AddUrlButton.Location = new System.Drawing.Point(331, 339);
             this.AddUrlButton.Name = "AddUrlButton";
             this.AddUrlButton.Size = new System.Drawing.Size(140, 43);
             this.AddUrlButton.TabIndex = 27;
@@ -268,7 +268,7 @@ namespace WindowsFormsAppTest
             this.HttpkrMaterialCmbbx.MaxDropDownItems = 4;
             this.HttpkrMaterialCmbbx.MouseState = MaterialSkin.MouseState.OUT;
             this.HttpkrMaterialCmbbx.Name = "HttpkrMaterialCmbbx";
-            this.HttpkrMaterialCmbbx.Size = new System.Drawing.Size(388, 49);
+            this.HttpkrMaterialCmbbx.Size = new System.Drawing.Size(370, 49);
             this.HttpkrMaterialCmbbx.StartIndex = 0;
             this.HttpkrMaterialCmbbx.TabIndex = 29;
             this.HttpkrMaterialCmbbx.ValueMember = "Id";
@@ -290,7 +290,7 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 399);
+            this.ClientSize = new System.Drawing.Size(482, 388);
             this.Controls.Add(this.HttpkrMaterialCmbbx);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.AddUrlButton);
@@ -302,7 +302,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.LblSecurityID);
             this.Controls.Add(this.NewSecurityIdTxtBx);
             this.Controls.Add(this.NewUrlTxtBx);
-            this.MinimumSize = new System.Drawing.Size(482, 334);
+            this.MinimumSize = new System.Drawing.Size(482, 388);
             this.Name = "AddUrlForm";
             this.Text = "Url toevoegen";
             this.ResumeLayout(false);

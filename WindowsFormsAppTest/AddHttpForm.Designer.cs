@@ -41,7 +41,7 @@ namespace WindowsFormsAppTest
             this.AddHttpBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddHttpBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddHttpBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddHttpBttn.Location = new System.Drawing.Point(321, 121);
+            this.AddHttpBttn.Location = new System.Drawing.Point(193, 119);
             this.AddHttpBttn.Name = "AddHttpBttn";
             this.AddHttpBttn.Size = new System.Drawing.Size(140, 43);
             this.AddHttpBttn.TabIndex = 31;
@@ -94,7 +94,7 @@ namespace WindowsFormsAppTest
             this.NewHttpNaamTxtBx.SelectionLength = 0;
             this.NewHttpNaamTxtBx.SelectionStart = 0;
             this.NewHttpNaamTxtBx.ShortcutsEnabled = true;
-            this.NewHttpNaamTxtBx.Size = new System.Drawing.Size(402, 48);
+            this.NewHttpNaamTxtBx.Size = new System.Drawing.Size(274, 48);
             this.NewHttpNaamTxtBx.SkipLiterals = true;
             this.NewHttpNaamTxtBx.TabIndex = 30;
             this.NewHttpNaamTxtBx.TabStop = false;
@@ -108,10 +108,11 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(467, 173);
+            this.ClientSize = new System.Drawing.Size(339, 171);
             this.Controls.Add(this.AddHttpBttn);
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.NewHttpNaamTxtBx);
+            this.MinimumSize = new System.Drawing.Size(339, 171);
             this.Name = "AddHttpForm";
             this.Text = "Add Http";
             this.ResumeLayout(false);
