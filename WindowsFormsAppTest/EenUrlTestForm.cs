@@ -103,7 +103,7 @@ namespace WindowsFormsAppTest
                 }
                 else if (UrlKrMaterialCmbx.Text == "MessageServiceSoap.svc")
                 {
-                    result = _webRequest.get24SalesData(httpName + webserviceName, ResponseTextBox);
+                    result = _webRequest.Get24SalesData(httpName + webserviceName, ResponseTextBox);
                     if (result != null)
                     {
                         CheckData(result, webserviceName, 2.4);

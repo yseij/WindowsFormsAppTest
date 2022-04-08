@@ -19,12 +19,13 @@ namespace WindowsFormsAppTest
         private int _selectedWebserviceIdForChange;
         private bool _isSoap;
 
-
+        private List<HttpData> _httpDatas = new List<HttpData>();
         private List<UrlData> _urlDatasByWebservice = new List<UrlData>();
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
         private List<WebServiceData> _WebserviceDatasForChange = new List<WebServiceData>();
         private List<KlantData> _klantDatas = new List<KlantData>();
 
+        HttpTest _httpTest;
         UrlTest _urltest;
         KlantTest _klantTest;
         WebserviceTest _webserviceTest;
@@ -33,12 +34,14 @@ namespace WindowsFormsAppTest
         public AllWebserviceForm()
         {
             InitializeComponent();
+            _httpTest = new HttpTest();
             _urltest = new UrlTest();
             _klantTest = new KlantTest();
             _webserviceTest = new WebserviceTest();
 
             GetKlanten();
             GetWebservicesIfZoekOpNaamIsLeeg();
+            GetHttps();
         }
 
         private void GetWebservicesIfZoekOpNaamIsLeeg()
@@ -84,6 +87,12 @@ namespace WindowsFormsAppTest
             FillCmbxKlanten();
         }
 
+        private void GetHttps()
+        {
+            _httpDatas = _httpTest.GetHttpData();
+            FillCmbxHttp();
+        }
+
         private void FillLstBxUrlsFromWebservice()
         {
             AllUrlsKrMaterialLstBx.FillListBoxUrlData(_urlDatasByWebservice);
@@ -126,6 +135,11 @@ namespace WindowsFormsAppTest
         {
             KlantKrMaterialCmbx.FillCmbBoxKlant(_klantDatas);
             KlantKrMaterialCmbx.SelectedValue = _klantDatas[0].Id;
+        }
+
+        private void FillCmbxHttp()
+        {
+            HttpKrMaterialCmbx.FillCmbBoxHttp(_httpDatas);
         }
 
         private void AllWebserviceKrMaterialLstBx_SelectedIndexChanged(object sender, MaterialListBoxItem selectedItem)

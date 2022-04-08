@@ -124,15 +124,12 @@ namespace WindowsFormsAppTest
                         m.ShowDialog();
                         MaterialMaskedTextBox userName = m._usernameTxtBx;
                         MaterialMaskedTextBox password = m._passwordTxtBx;
-                        Test31Sales(userName, password);
+                        result = _webRequest.get31SalesData(httpName + _webserviceName, userName, password, ResponseTextBox);
                     }
                     else if (urlData.Name == "MessageServiceSoap.svc")
                     {
-                        result = JObject.Parse(_webRequest.get24SalesData(httpName + _webserviceName, ResponseTextBox));
-                        if (result != null)
-                        {
-                            CheckData(result, _webserviceName, 2.4);
-                        }
+                        result = _webRequest.Get24SalesData(httpName + _webserviceName, ResponseTextBox);
+
                     }
                     else
                     {
@@ -158,15 +155,6 @@ namespace WindowsFormsAppTest
             TrVwAll.EndUpdate();
         }
 
-        private void Test31Sales(MaterialMaskedTextBox userName, MaterialMaskedTextBox password)
-        {
-            dynamic result = _webRequest.get31SalesData(httpName + _webserviceName, userName, password, ResponseTextBox);
-            if (result != null)
-            {
-                CheckData(result, _webserviceName, 3.1);
-            }
-        }
-
         private void WebserviceOfKlantKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             selectedWebserviceIdOfKlantId = (int)WebserviceOfKlantKrMaterialCmbx.SelectedValue;
@@ -176,55 +164,65 @@ namespace WindowsFormsAppTest
         {
             TreeNode currentClkNode = e.Node;
             dynamic UrlData = currentClkNode.Tag;
-            if (UrlData != null)
+            if (!ZetLogVastChkBx.Checked)
             {
-                if (!ZetLogVastChkBx.Checked)
+                if (UrlData != null)
                 {
-                    ClearBox();
-                    foreach (JProperty item in UrlData)
+                    if (currentClkNode.Text == "MessageServiceSoap.svc")
                     {
-                        if (item.Name != "id")
+                        CheckData(UrlData, 2.4);
+                    }
+                    else if (currentClkNode.Text == "MessageServiceSoap31.svc")
+                    {
+                        CheckData(UrlData, 3.1);
+                    }
+                    else
+                    {
+                        ClearBox();
+                        foreach (JProperty item in UrlData)
                         {
-                            ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " + item.Value + Environment.NewLine;
-                        }
-                        switch (item.Name)
-                        {
-                            case "WebserviceVersie":
-                                TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["RestPage"];
-                                string[] strlist1 = item.Value.ToString().Split(':');
-                                textBoxWebservice.Text = strlist1[1];
-                                break;
-                            case "certVerValDatum":
-                                if (item.Value.ToString() != "")
-                                {
-                                    SslChckBx.Checked = true;
-                                    SllCertificaatVervalDatumTxtBx.Text = item.Value.ToString();
-                                }
-                                break;
-                            case "KraanDll":
-                                checkBoxKraanDLL.Checked = item.Value.ToString().Contains("True");
-                                break;
-                            case "KraanIni":
-                                checkBoxKraanIni.Checked = item.Value.ToString().Contains("True");
-                                break;
-                            case "KraanDatabase":
-                                checkBoxKraanDatabase.Checked = item.Value.ToString().Contains("True");
-                                break;
-                            case "Webservice Versie":
-                                TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["SoapPage"];
-                                TxtBxWebserviceVersie.Text = item.Value.ToString().Replace("{", "").Replace("}", "");
-                                break;
-                            case "DevExpress versie":
-                                TxtBxDevExpressVersie.Text = item.Value.ToString().Replace("{", "").Replace("}", "");
-                                break;
-                            case "DatabaseVersie":
-                                TxtBxDatabaseVersie.Text = item.Value.ToString().Replace("{", "").Replace("}", "");
-                                break;
+                            if (item.Name != "id")
+                            {
+                                ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " + item.Value + Environment.NewLine;
+                            }
+                            switch (item.Name)
+                            {
+                                case "WebserviceVersie":
+                                    TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["RestPage"];
+                                    string[] strlist1 = item.Value.ToString().Split(':');
+                                    textBoxWebservice.Text = strlist1[1];
+                                    break;
+                                case "certVerValDatum":
+                                    if (item.Value.ToString() != "")
+                                    {
+                                        SslChckBx.Checked = true;
+                                        SllCertificaatVervalDatumTxtBx.Text = item.Value.ToString();
+                                    }
+                                    break;
+                                case "KraanDll":
+                                    checkBoxKraanDLL.Checked = item.Value.ToString().Contains("True");
+                                    break;
+                                case "KraanIni":
+                                    checkBoxKraanIni.Checked = item.Value.ToString().Contains("True");
+                                    break;
+                                case "KraanDatabase":
+                                    checkBoxKraanDatabase.Checked = item.Value.ToString().Contains("True");
+                                    break;
+                                case "Webservice Versie":
+                                    TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["SoapPage"];
+                                    TxtBxWebserviceVersie.Text = item.Value.ToString().Replace("{", "").Replace("}", "");
+                                    break;
+                                case "DevExpress versie":
+                                    TxtBxDevExpressVersie.Text = item.Value.ToString().Replace("{", "").Replace("}", "");
+                                    break;
+                                case "DatabaseVersie":
+                                    TxtBxDatabaseVersie.Text = item.Value.ToString().Replace("{", "").Replace("}", "");
+                                    break;
+                            }
                         }
                     }
                 }
             }
-            
         }
 
         private void FillTreeView(dynamic _result, UrlData urlData, LogFile logFile)
@@ -289,7 +287,7 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void CheckData(dynamic result, string webservice, double soort)
+        private void CheckData(dynamic result, double soort)
         {
             string TxtBxMessageVersie = "";
             bool ChkBxKraanDLL = false;
@@ -302,8 +300,6 @@ namespace WindowsFormsAppTest
             string TxtBxKraan2DatabaseVersie = "";
             bool ChkBxKraanDatabase = false;
 
-            LogFile logFile = new LogFile();
-            logFile.MakeLogFile(webservice);
             foreach (JProperty item in result)
             {
                 switch (item.Name)
@@ -338,41 +334,34 @@ namespace WindowsFormsAppTest
                         break;
                 }
             }
-            //if (soort == 2.4)
-            //{
-            //    TxtBxMessageVersie2_4.Text = TxtBxMessageVersie;
-            //    ChkBxKraanDLL2_4.Checked = ChkBxKraanDLL;
-            //    TxtBxKraanDllVersie2_4.Text = TxtBxKraanDllVersie;
-            //    ChkBxKraanIni2_4.Checked = ChkBxKraanIni;
-            //    ChkBxKraanDatabase2_4.Checked = ChkBxKraanDatabase;
-            //    TxtBxInterbaseVersie2_4.Text = TxtBxInterbaseVersie;
-            //    TxtBxMssqlServer2_4.Text = TxtBxMssqlServer;
-            //    TxtBxMssqlCatalog2_4.Text = TxtBxMssqlCatalog;
-            //    TxtBxKraan1DatabaseVersie2_4.Text = TxtBxKraan1DatabaseVersie;
-            //    TxtBxKraan2DatabaseVersie2_4.Text = TxtBxKraan2DatabaseVersie;
-            //}
-            //else if (soort == 3.1)
-            //{
-            //    TxtBxMessageVersie3_1.Text = TxtBxMessageVersie;
-            //    ChkBxKraanDLL3_1.Checked = ChkBxKraanDLL;
-            //    TxtBxKraanDllVersie3_1.Text = TxtBxKraanDllVersie;
-            //    ChkBxKraanIni3_1.Checked = ChkBxKraanIni;
-            //    ChkBxKraanDatabase3_1.Checked = ChkBxKraanDatabase;
-            //    TxtBxInterbaseVersie3_1.Text = TxtBxInterbaseVersie;
-            //    TxtBxMssqlServer3_1.Text = TxtBxMssqlServer;
-            //    TxtBxMssqlCatalog3_1.Text = TxtBxMssqlCatalog;
-            //    TxtBxKraan1DatabaseVersie3_1.Text = TxtBxKraan1DatabaseVersie;
-            //    TxtBxKraan2DatabaseVersie3_1.Text = TxtBxKraan2DatabaseVersie;
-            //}
-            logFile.AddTextToLogFile("WebserviceVersie = " + TxtBxMessageVersie + "\n");
-            logFile.AddTextToLogFile("KraanDLL aanwezig = " + ChkBxKraanDLL + " --> versie: " + TxtBxKraanDllVersie + "\n");
-            logFile.AddTextToLogFile("Kraan.ini aanwezig = " + ChkBxKraanIni + "\n");
-            logFile.AddTextToLogFile("Databaseconnectie gelukt = " + ChkBxKraanDatabase + "\n");
-            logFile.AddTextToLogFile("InterBase server = " + TxtBxInterbaseVersie + "\n");
-            logFile.AddTextToLogFile("MSSQL Server = " + TxtBxMssqlServer + "\n");
-            logFile.AddTextToLogFile("MSSQL catalog = " + TxtBxMssqlCatalog + "\n");
-            logFile.AddTextToLogFile("Kraan 1 databaseversie = " + TxtBxKraan1DatabaseVersie + "\n");
-            logFile.AddTextToLogFile("Kraan 2 databaseversie = " + TxtBxKraan2DatabaseVersie + "\n");
+            if (soort == 2.4)
+            {
+                TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["SalesPage2_4"];
+                TxtBxMessageVersie2_4.Text = TxtBxMessageVersie;
+                ChkBxKraanDLL2_4.Checked = ChkBxKraanDLL;
+                TxtBxKraanDllVersie2_4.Text = TxtBxKraanDllVersie;
+                ChkBxKraanIni2_4.Checked = ChkBxKraanIni;
+                ChkBxKraanDatabase2_4.Checked = ChkBxKraanDatabase;
+                TxtBxInterbaseVersie2_4.Text = TxtBxInterbaseVersie;
+                TxtBxMssqlServer2_4.Text = TxtBxMssqlServer;
+                TxtBxMssqlCatalog2_4.Text = TxtBxMssqlCatalog;
+                TxtBxKraan1DatabaseVersie2_4.Text = TxtBxKraan1DatabaseVersie;
+                TxtBxKraan2DatabaseVersie2_4.Text = TxtBxKraan2DatabaseVersie;
+            }
+            else if (soort == 3.1)
+            {
+                TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["SalesPage3_1"];
+                TxtBxMessageVersie3_1.Text = TxtBxMessageVersie;
+                ChkBxKraanDLL3_1.Checked = ChkBxKraanDLL;
+                TxtBxKraanDllVersie3_1.Text = TxtBxKraanDllVersie;
+                ChkBxKraanIni3_1.Checked = ChkBxKraanIni;
+                ChkBxKraanDatabase3_1.Checked = ChkBxKraanDatabase;
+                TxtBxInterbaseVersie3_1.Text = TxtBxInterbaseVersie;
+                TxtBxMssqlServer3_1.Text = TxtBxMssqlServer;
+                TxtBxMssqlCatalog3_1.Text = TxtBxMssqlCatalog;
+                TxtBxKraan1DatabaseVersie3_1.Text = TxtBxKraan1DatabaseVersie;
+                TxtBxKraan2DatabaseVersie3_1.Text = TxtBxKraan2DatabaseVersie;
+            }
         }
     }
 }
