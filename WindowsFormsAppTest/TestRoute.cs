@@ -74,7 +74,7 @@ namespace WindowsFormsAppTest
             }
         }
 
-        public void TestOneRouteSoap(string result,
+        public void TestOneRouteSoap(dynamic result,
                               MaterialTextBox webserviceVersie,
                               MaterialTextBox devExpressVersie,
                               MaterialTextBox databaseVersie,
@@ -83,86 +83,13 @@ namespace WindowsFormsAppTest
             LogFile logFile = new LogFile();
             logFile.MakeLogFile(selectedText);
             string data = result.Replace("----", "");
-            int positionWebserviceVersie = data.IndexOf("Webservice versie");
+            int positionWebserviceVersie = data.IndexOf("Webservice Versie");
             int positionDevExpressVersie = data.IndexOf("DevExpress versie");
             int positionDatabaseVersie = data.IndexOf("DatabaseVersie");
             int dataLengte = data.Length;
             webserviceVersie.Text = data.Substring(positionWebserviceVersie, positionDevExpressVersie - positionWebserviceVersie).Split(':')[1];
             devExpressVersie.Text = data.Substring(positionDevExpressVersie, positionDatabaseVersie - positionDevExpressVersie).Split(':')[1];
             databaseVersie.Text = data.Substring(positionDatabaseVersie, dataLengte - positionDatabaseVersie).Split(':')[1];
-        }
-
-        public void TestMoreRoutes(string selectedKlant,
-                                   TreeView TrVwAll,
-                                   int aantalLegeUrls,
-                                   List<UrlData> urlDatas,
-                                   MaterialMultiLineTextBox2 ResponseTextBox,
-                                   MaterialTextBox AantalLegeUrlsTxtBx,
-                                   MaterialMultiLineTextBox2 LegeUrlsTxtBx)
-        {
-            bool isSoap = false;
-            string webservice = ""; ;
-            int teller;
-            GetWebservices();
-
-            LogFile logFile = new LogFile();
-            if (selectedKlant == string.Empty)
-            {
-                logFile.MakeLogFile("Alle_webservices_getest");
-            }
-            else
-            {
-                logFile.MakeLogFile(selectedKlant);
-            }
-            TrVwAll.Nodes.Clear();
-            TrVwAll.BeginUpdate();
-            aantalLegeUrls = 0;
-            foreach (UrlData urlData in urlDatas)
-            {
-                foreach (WebServiceData webServiceData in _webServiceDatas)
-                {
-                    if (webServiceData.Id == urlData.WebServiceDataId)
-                    {
-                        isSoap = webServiceData.Soap;
-                        webservice = webServiceData.Name;
-                    }
-                }
-                TreeNode node = new TreeNode();
-                node.Text = urlData.Name;
-                logFile.AddTextToLogFile("\n");
-                logFile.AddTextToLogFile(urlData.Name + "\n");
-                _result = JObject.Parse(_webRequest.GetWebRequestRest(urlData.Id, urlHttp, webservice, urlData.Name, urlData.SecurityId));
-                node.Tag = _result;
-                teller = 0;
-                foreach (JProperty item in _result)
-                {
-                    if (teller == 0)
-                    {
-                        TrVwAll.Nodes.Add(node);
-                        teller = teller + 1;
-                    }
-                    if (item.Name == "ex")
-                    {
-                        node.ForeColor = Color.FromArgb(255, 0, 0);
-                        ResponseTextBox.Text = item.Value.ToString();
-                        aantalLegeUrls = aantalLegeUrls + 1;
-                        AantalLegeUrlsTxtBx.Text = aantalLegeUrls.ToString();
-                        LegeUrlsTxtBx.Text = LegeUrlsTxtBx.Text + urlData.Name + Environment.NewLine;
-                        logFile.AddTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
-                    }
-                    else if (item.Name != "id")
-                    {
-                        TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
-                        logFile.AddTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
-                    }
-                }
-            }
-            TrVwAll.EndUpdate();
-        }
-
-        private void GetWebservices()
-        {
-            _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
         }
     }
 }

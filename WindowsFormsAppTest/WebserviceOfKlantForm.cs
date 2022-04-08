@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -58,9 +59,9 @@ namespace WindowsFormsAppTest
             {
                 Text = "Per Webservice testen";
                 LblWebserviceOfKlant.Text = "Webservice";
-                _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
                 FillCmbxWebServices();
             }
+            _webServiceDatas = _webserviceTest.GetWebServiceDatas(true);
         }
 
         private void GetHttps()
@@ -83,7 +84,7 @@ namespace WindowsFormsAppTest
             ClearBox();
             AantalLegeUrlsTxtBx.Text = string.Empty;
             LegeUrlsTxtBx.Text = string.Empty;
-
+            LogFile logFile = new LogFile();
             if (_klant)
             {
                 _urlDatas = _urltest.GetAllUrlsByForeignKeyKlant(selectedWebserviceIdOfKlantId);
@@ -92,10 +93,16 @@ namespace WindowsFormsAppTest
             {
                 _urlDatas = _urltest.GetAllUrlsByForeignKeyWebservice(selectedWebserviceIdOfKlantId);
             }
+            aantalLegeUrls = 0;
+            logFile.MakeLogFile(WebserviceOfKlantKrMaterialCmbx.Text);
+            TrVwAll.Nodes.Clear();
+            TrVwAll.BeginUpdate();
             foreach (UrlData urlData in _urlDatas)
             {
+                Console.WriteLine(_webServiceDatas);
                 foreach (WebServiceData item in _webServiceDatas)
                 {
+                    Console.WriteLine(item);
                     if (item.Id == urlData.WebServiceDataId)
                     {
                         _isSoap = item.Soap;
@@ -121,7 +128,7 @@ namespace WindowsFormsAppTest
                     }
                     else if (urlData.Name == "MessageServiceSoap.svc")
                     {
-                        result = _webRequest.get24SalesData(httpName + _webserviceName, ResponseTextBox);
+                        result = JObject.Parse(_webRequest.get24SalesData(httpName + _webserviceName, ResponseTextBox));
                         if (result != null)
                         {
                             CheckData(result, _webserviceName, 2.4);
@@ -130,16 +137,7 @@ namespace WindowsFormsAppTest
                     else
                     {
                         string data = _webRequest.GetWebRequestSoap(httpName, _webserviceName, urlData.Name);
-
-                        if (data == "Niet goed")
-                        {
-                            ResponseTextBox.Text = "Deze service bestaat niet";
-                        }
-                        else
-                        {
-                            ResponseTextBox.Text = data;
-                            _testRoute.TestOneRouteSoap(data, TxtBxWebserviceVersie, TxtBxDevExpressVersie, TxtBxDatabaseVersie, _webserviceName + urlData.Name);
-                        }
+                        result = JObject.Parse(data);
                     }
                 }
                 else
@@ -150,18 +148,14 @@ namespace WindowsFormsAppTest
                                                          urlData.Name,
                                                          urlData.SecurityId);
                     result = JObject.Parse(data);
-
-                    _testRoute.TestOneRoute(result,
-                                        textBoxWebservice,
-                                        SslChckBx,
-                                        SllCertificaatVervalDatumTxtBx,
-                                        checkBoxKraanDLL,
-                                        checkBoxKraanIni,
-                                        checkBoxKraanDatabase,
-                                        ResponseTextBox,
-                                        _webserviceName);
+                }
+                if (result != null)
+                {
+                    FillTreeView(result, urlData, logFile);
+                    result = null;
                 }
             }
+            TrVwAll.EndUpdate();
         }
 
         private void Test31Sales(MaterialMaskedTextBox userName, MaterialMaskedTextBox password)
@@ -178,14 +172,15 @@ namespace WindowsFormsAppTest
             selectedWebserviceIdOfKlantId = (int)WebserviceOfKlantKrMaterialCmbx.SelectedValue;
         }
 
-        private void TrVwAll_Click(object sender, EventArgs e)
+        private void TrVwAll_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            if (!ZetLogVastChkBx.Checked)
+            TreeNode currentClkNode = e.Node;
+            dynamic UrlData = currentClkNode.Tag;
+            if (UrlData != null)
             {
-                if (TrVwAll.HitTest(TrVwAll.PointToClient(Cursor.Position)).Node.Tag != null)
+                if (!ZetLogVastChkBx.Checked)
                 {
                     ClearBox();
-                    dynamic UrlData = TrVwAll.HitTest(TrVwAll.PointToClient(Cursor.Position)).Node.Tag;
                     foreach (JProperty item in UrlData)
                     {
                         if (item.Name != "id")
@@ -195,6 +190,7 @@ namespace WindowsFormsAppTest
                         switch (item.Name)
                         {
                             case "WebserviceVersie":
+                                TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["RestPage"];
                                 string[] strlist1 = item.Value.ToString().Split(':');
                                 textBoxWebservice.Text = strlist1[1];
                                 break;
@@ -214,11 +210,53 @@ namespace WindowsFormsAppTest
                             case "KraanDatabase":
                                 checkBoxKraanDatabase.Checked = item.Value.ToString().Contains("True");
                                 break;
+                            case "Webservice Versie":
+                                TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["SoapPage"];
+                                TxtBxWebserviceVersie.Text = item.Value.ToString().Replace("{", "").Replace("}", "");
+                                break;
+                            case "DevExpress versie":
+                                TxtBxDevExpressVersie.Text = item.Value.ToString().Replace("{", "").Replace("}", "");
+                                break;
+                            case "DatabaseVersie":
+                                TxtBxDatabaseVersie.Text = item.Value.ToString().Replace("{", "").Replace("}", "");
+                                break;
                         }
                     }
                 }
             }
+            
+        }
 
+        private void FillTreeView(dynamic _result, UrlData urlData, LogFile logFile)
+        {
+            TreeNode node = new TreeNode();
+            node.Text = urlData.Name;
+            logFile.AddTextToLogFile("\n");
+            logFile.AddTextToLogFile(urlData.Name + "\n");
+            node.Tag = _result;
+            int teller = 0;
+            foreach (JProperty item in _result)
+            {
+                if (teller == 0)
+                {
+                    TrVwAll.Nodes.Add(node);
+                    teller = teller + 1;
+                }
+                if (item.Name == "ex")
+                {
+                    node.ForeColor = Color.FromArgb(255, 0, 0);
+                    ResponseTextBox.Text = item.Value.ToString();
+                    aantalLegeUrls = aantalLegeUrls + 1;
+                    AantalLegeUrlsTxtBx.Text = aantalLegeUrls.ToString();
+                    LegeUrlsTxtBx.Text = LegeUrlsTxtBx.Text + urlData.Name + Environment.NewLine;
+                    logFile.AddTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
+                }
+                else if (item.Name != "id")
+                {
+                    TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
+                    logFile.AddTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
+                }
+            }
         }
 
         private void CheckBoxReadOnly_Click(object sender, EventArgs e)
@@ -228,13 +266,27 @@ namespace WindowsFormsAppTest
 
         private void ClearBox()
         {
-            checkBoxKraanDatabase.Checked = false;
-            checkBoxKraanDLL.Checked = false;
-            checkBoxKraanIni.Checked = false;
-            textBoxWebservice.Text = string.Empty;
+            clearGroupBox(GrpBxWebservice);
+            clearGroupBox(GrpBxSsl);
+            clearGroupBox(grpBxSales2_4);
+            clearGroupBox(grpBxSales3_1);
+            clearGroupBox(grpBxSoap);
             ResponseTextBox.Text = string.Empty;
-            SllCertificaatVervalDatumTxtBx.Text = string.Empty;
-            SslChckBx.Checked = false;
+        }
+
+        private void clearGroupBox(GroupBox groupBox)
+        {
+            foreach (Control ctr in groupBox.Controls)
+            {
+                if (ctr is MaterialTextBox)
+                {
+                    ctr.Text = string.Empty;
+                }
+                else if (ctr is MaterialCheckbox)
+                {
+                    ((CheckBox)ctr).Checked = false;
+                }
+            }
         }
 
         private void CheckData(dynamic result, string webservice, double soort)

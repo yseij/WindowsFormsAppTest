@@ -137,25 +137,25 @@ namespace WindowsFormsAppTest
                 case "CrmService.svc":
                     clientCrm = NewCrmService(host);
                     clientCrm.Open();
-                    result = clientCrm.GetVersion().ToString();
+                    result = clientCrm.GetVersion();
                     clientCrm.Close();
                     break;
                 case "WorkflowService.svc":
                     clientWorkflow = NewWorkFlowService(host);
                     clientWorkflow.Open();
-                    result = clientWorkflow.GetVersion().ToString();
+                    result = clientWorkflow.GetVersion();
                     clientWorkflow.Close();
                     break;
                 case "UrenService.svc":
                     clientUren = NewUrenService(host);
                     clientUren.Open();
-                    result = clientUren.GetVersion().ToString();
+                    result = clientUren.GetVersion();
                     clientUren.Close();
                     break;
                 case "MaterieelService.svc":
                     clientMaterieel = NewMateriaalService(host);
                     clientMaterieel.Open();
-                    result = clientMaterieel.GetVersion().ToString();
+                    result = clientMaterieel.GetVersion();
                     clientMaterieel.Close();
                     break;
                 //case "Webservice.svc":
@@ -165,10 +165,10 @@ namespace WindowsFormsAppTest
                 //    clientMaterieel.Close();
                 //    break;
                 default:
-                    return "Niet goed";
-                    break;
+                    return  @"{ ex: '" + " deze service bestaat niet " +"'}"; ;
+
             }
-            return result;
+            return GetDataOfWebRequestSoap(result);
         }
 
         //private YouriWebserviceAuth.AuthServiceClient NewAuthService(string host)
@@ -363,6 +363,19 @@ namespace WindowsFormsAppTest
                 }
                 return null;
             }
+        }
+
+        private string GetDataOfWebRequestSoap(string result)
+        {
+            string data = result.Replace("----", "");
+            int positionWebserviceVersie = data.IndexOf("Webservice versie");
+            int positionDevExpressVersie = data.IndexOf("DevExpress versie");
+            int positionDatabaseVersie = data.IndexOf("DatabaseVersie");
+
+            string webserviceVersie = data.Substring(positionWebserviceVersie, positionDevExpressVersie - positionWebserviceVersie);
+            string devExpressVersie = data.Substring(positionDevExpressVersie, positionDatabaseVersie - positionDevExpressVersie);
+            string databaseVersie = data.Substring(positionDatabaseVersie, data.Length - positionDatabaseVersie);
+            return "{ \"Webservice Versie\": " + "\"" + webserviceVersie.Split(':')[1] + "\"" + ", \"DevExpress versie\": " + "\"" + devExpressVersie.Split(':')[1] + "\"" + ", \"DatabaseVersie\": " + "\"" + devExpressVersie.Split(':')[1] + "\"" + "}";
         }
     }
 }

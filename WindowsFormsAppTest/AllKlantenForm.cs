@@ -18,11 +18,13 @@ namespace WindowsFormsAppTest
         private int _selectedUrlId;
         private int _selectedHttpId;
 
+        private List<HttpData> _httpDatas = new List<HttpData>();
         private List<UrlData> _urlDatasByKlant = new List<UrlData>();
         private List<KlantData> _klantDatas = new List<KlantData>();
         private List<KlantData> _klantDatasForChange = new List<KlantData>();
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
 
+        HttpTest _httpTest;
         UrlTest _urltest;
         KlantTest _klantTest;
         WebserviceTest _webserviceTest;
@@ -31,12 +33,14 @@ namespace WindowsFormsAppTest
         public AllKlantenForm()
         {
             InitializeComponent();
+            _httpTest = new HttpTest();
             _urltest = new UrlTest();
             _klantTest = new KlantTest();
             _webserviceTest = new WebserviceTest();
 
             GetKlantenIfZoekOpNaamIsLeeg();
             GetWebservices();
+            GetHttps();
         }
 
         private void GetKlantenIfZoekOpNaamIsLeeg()
@@ -82,6 +86,12 @@ namespace WindowsFormsAppTest
             FillCmbxWebServices();
         }
 
+        private void GetHttps()
+        {
+            _httpDatas = _httpTest.GetHttpData();
+            FillCmbxHttp();
+        }
+
         private void FillLstBxKlanten()
         {
             AllKlantKrMaterialLstBx.FillListBoxKlantData(_klantDatas);
@@ -123,6 +133,11 @@ namespace WindowsFormsAppTest
         {
             KlantKrMaterialCmbx.FillCmbBoxKlant(_klantDatasForChange);
             KlantKrMaterialCmbx.SelectedValue = _selectedKlantId;
+        }
+
+        private void FillCmbxHttp()
+        {
+            HttpKrMaterialCmbx.FillCmbBoxHttp(_httpDatas);
         }
 
         private void AllKlantKrMaterialLstBx_SelectedIndexChanged(object sender, MaterialListBoxItem selectedItem)
@@ -248,6 +263,7 @@ namespace WindowsFormsAppTest
         {
             UrlTxtBx.Text = urlData.Name;
             SecurityIdTxtBx.Text = urlData.SecurityId;
+            HttpKrMaterialCmbx.SelectedValue = urlData.HttpDataId;
             WebserviceKrMaterialCmbx.SelectedValue = urlData.WebServiceDataId;
             KlantKrMaterialCmbx.SelectedValue = urlData.KlantDataId;
             WebserviceKrMaterialCmbx.Refresh();
