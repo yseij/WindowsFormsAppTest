@@ -127,7 +127,7 @@ namespace WindowsFormsAppTest
             }
             else
             {
-                var data = _webRequest.GetWebRequestRest(webserviceId,
+                var data = _webRequest.GetWebRequestRest((int)UrlKrMaterialCmbx.SelectedValue,
                                                      httpName,
                                                      webserviceName,
                                                      UrlKrMaterialCmbx.Text,
