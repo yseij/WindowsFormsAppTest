@@ -288,9 +288,8 @@ namespace WindowsFormsAppTest
                 }
                 catch (Exception ex)
                 {
-                    responseTextbox.Text = "Fout bij verbinden met server van http Sales 2.4 , melding: " + Environment.NewLine + ex.Message;
+                    return @"{ ex: '" + ex.Message.ToString() + "'}";
                 }
-                return null;
             }
         }
 

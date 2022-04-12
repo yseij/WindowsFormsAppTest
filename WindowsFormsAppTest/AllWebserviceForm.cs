@@ -148,7 +148,7 @@ namespace WindowsFormsAppTest
 
         private void AllWebserviceKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (AllWebserviceKrLstBx.Items != null)
+            if (AllWebserviceKrLstBx.Items != null && AllWebserviceKrLstBx.SelectedValue != null)
             {
                 int idOfSelected = (int)AllWebserviceKrLstBx.SelectedValue;
                 _selectedWebserviceId = idOfSelected;

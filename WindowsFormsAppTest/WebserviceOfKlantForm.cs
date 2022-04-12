@@ -141,8 +141,8 @@ namespace WindowsFormsAppTest
                     }
                     else if (urlData.Name == "MessageServiceSoap.svc")
                     {
-                        _result = _webRequest.Get24SalesData(_httpName + _webserviceName, ResponseTextBox);
-
+                        string data = _webRequest.Get24SalesData(_httpName + _webserviceName, ResponseTextBox);
+                        _result = JObject.Parse(data);
                     }
                     else
                     {
@@ -179,6 +179,7 @@ namespace WindowsFormsAppTest
             dynamic UrlData = currentClkNode.Tag;
             if (!ZetLogVastChkBx.Checked)
             {
+                ClearBox();
                 if (UrlData != null)
                 {
                     if (currentClkNode.Text == "MessageServiceSoap.svc")
@@ -191,7 +192,6 @@ namespace WindowsFormsAppTest
                     }
                     else
                     {
-                        ClearBox();
                         foreach (JProperty item in UrlData)
                         {
                             if (item.Name != "id")
@@ -320,6 +320,10 @@ namespace WindowsFormsAppTest
 
             foreach (JProperty item in result)
             {
+                if (item.Name != "id")
+                {
+                    ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " + item.Value + Environment.NewLine;
+                }
                 switch (item.Name)
                 {
                     case "Versie MessageService":
