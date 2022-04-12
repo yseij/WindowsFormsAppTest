@@ -1,10 +1,6 @@
-﻿using MaterialSkin;
-using MaterialSkin.Controls;
+﻿using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -16,7 +12,7 @@ namespace WindowsFormsAppTest
         private int _selectedWebserviceId;
         private int _selectedKlantId;
         private int _selectedHttpId;
-        private int _scrollbarTeller = 0;
+        private string _zoekOpUrlNaam;
 
         private List<HttpData> _httpDatas = new List<HttpData>();
         private List<UrlData> _urlDatas = new List<UrlData>();
@@ -47,18 +43,30 @@ namespace WindowsFormsAppTest
             FillCmbxKlanten();
             FillCmbxHttp();
 
-            GetUrls();
+            GetUrlsIfZoekOpNaamIsLeeg();
         }
 
-        private void GetUrls()
+        private void GetUrlsIfZoekOpNaamIsLeeg()
         {
             _urlDatas = _urltest.GetUrlData();
-            FillLstBxls();
-            AllUrlsKrLstBx.Select();
-            AllUrlsKrLstBx.SelectedIndex = 10;
+            FillLstBxUrls();
         }
 
-        private void FillLstBxls()
+        private void GetUrlsIfZoekOpNaamIsGevuld()
+        {
+            _urlDatas = _urltest.GetUrlDataByUrlName(_zoekOpUrlNaam);
+
+            if (_urlDatas.Count > 0)
+            {
+                FillLstBxUrls();
+            }
+            else
+            {
+                AllUrlsKrLstBx.ClearListBox();
+            }
+        }
+
+        private void FillLstBxUrls()
         {
             AllUrlsKrLstBx.FillListBoxUrlData(_urlDatas);
             if (_urlDatas.Count > 0)
@@ -125,7 +133,7 @@ namespace WindowsFormsAppTest
             int idOfSelected = (int)AllUrlsKrLstBx.SelectedValue;
             _urltest.UpdateUrl(idOfSelected, changedUrl, changedSecurityId, _selectedWebserviceId, _selectedKlantId, _selectedHttpId);
             ClearBox();
-            GetUrls();
+            GetUrlIfZoekOpUrlIsGevuld();
             AllUrlsKrLstBx.SelectedIndex = selectedIndex;
         }
 
@@ -134,7 +142,7 @@ namespace WindowsFormsAppTest
             ClearBox();
             _urltest.DeleteUrl((int)AllUrlsKrLstBx.SelectedValue);
             AllUrlsKrLstBx.SelectedIndex = 0;
-            GetUrls();
+            GetUrlIfZoekOpUrlIsGevuld();
         }
 
         private void AddUrlBtn_Click(object sender, EventArgs e)
@@ -146,7 +154,7 @@ namespace WindowsFormsAppTest
 
         private void ChildFormClosing(object sender, FormClosingEventArgs e)
         {
-            GetUrls();
+            GetUrlIfZoekOpUrlIsGevuld();
         }
 
         private void SecurityIdTxtBx_TextChanged(object sender, EventArgs e)
@@ -188,6 +196,24 @@ namespace WindowsFormsAppTest
             KlantKrMaterialCmbx.SelectedValue = urlData.KlantDataId;
             WebserviceKrMaterialCmbx.Refresh();
             KlantKrMaterialCmbx.Refresh();
+        }
+
+        private void GetUrlIfZoekOpUrlIsGevuld()
+        {
+            if (_zoekOpUrlNaam != string.Empty)
+            {
+                GetUrlsIfZoekOpNaamIsGevuld();
+            }
+            else
+            {
+                GetUrlsIfZoekOpNaamIsLeeg();
+            }
+        }
+
+        private void ZoekOpUrlNaamTxtBx_TextChanged(object sender, EventArgs e)
+        {
+            _zoekOpUrlNaam = ZoekOpUrlNaamTxtBx.Text;
+            GetUrlIfZoekOpUrlIsGevuld();
         }
     }
 }

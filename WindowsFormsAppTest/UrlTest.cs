@@ -43,9 +43,10 @@ namespace WindowsFormsAppTest
             return urlDatas;
         }
 
-        public UrlData GetUrlById(int id)
+        public List<UrlData> GetUrlDataByUrlName(string name)
         {
-            UrlData urlDataById = new UrlData();
+            List<UrlData> urlDatas = new List<UrlData>();
+
             DataTable dt = new DataTable();
             int rows_returned;
 
@@ -54,7 +55,7 @@ namespace WindowsFormsAppTest
             using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
             {
 
-                cmd.CommandText = "SELECT * FROM Url where id=" + id;
+                cmd.CommandText = "SELECT * FROM Url where name like '%" + name + "%'";
                 cmd.CommandType = CommandType.Text;
                 connection.Open();
                 rows_returned = sda.Fill(dt);
@@ -62,10 +63,10 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    return urlDataById = new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4], (int)dr[5]);
+                    urlDatas.Add(new UrlData((int)dr[0], dr[1].ToString(), dr[2].ToString(), (int)dr[3], (int)dr[4], (int)dr[5]));
                 }
             }
-            return null;
+            return urlDatas;
         }
 
         public void AddUrl(string url, int webService, int klant, string securityId, int http)
