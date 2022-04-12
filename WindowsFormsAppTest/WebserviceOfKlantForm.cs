@@ -255,7 +255,7 @@ namespace WindowsFormsAppTest
                 }
                 if (item.Name == "ex")
                 {
-                    node.ForeColor = Color.FromArgb(255, 0, 0);
+                    node.ForeColor = Color.FromArgb(0, 255, 0, 0);
                     ResponseTextBox.Text = item.Value.ToString();
                     _aantalLegeUrls = _aantalLegeUrls + 1;
                     AantalLegeUrlsTxtBx.Text = _aantalLegeUrls.ToString();
@@ -268,6 +268,11 @@ namespace WindowsFormsAppTest
                     logFile.AddTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
                 }
             }
+        }
+
+        private void BtnSort_Click(object sender, EventArgs e)
+        {
+            TrVwAll.TreeViewNodeSorter = new NodeSorter();
         }
 
         private void CheckBoxReadOnly_Click(object sender, EventArgs e)

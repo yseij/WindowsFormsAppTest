@@ -97,6 +97,7 @@ namespace WindowsFormsAppTest
             this.ChkBxKraanIni3_1 = new MaterialSkin.Controls.MaterialCheckbox();
             this.ChkBxKraanDLL3_1 = new MaterialSkin.Controls.MaterialCheckbox();
             this.LblKraanDLL3_1 = new MaterialSkin.Controls.MaterialLabel();
+            this.BtnSort = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.TbCntrlRestApiEnSoap.SuspendLayout();
             this.RestPage.SuspendLayout();
@@ -116,7 +117,7 @@ namespace WindowsFormsAppTest
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TrVwAll.Location = new System.Drawing.Point(476, 98);
             this.TrVwAll.Name = "TrVwAll";
-            this.TrVwAll.Size = new System.Drawing.Size(450, 672);
+            this.TrVwAll.Size = new System.Drawing.Size(450, 633);
             this.TrVwAll.TabIndex = 3;
             this.TrVwAll.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TrVwAll_NodeMouseClick);
             // 
@@ -1341,11 +1342,26 @@ namespace WindowsFormsAppTest
             this.LblKraanDLL3_1.TabIndex = 0;
             this.LblKraanDLL3_1.Text = "Kraan DLL versie:";
             // 
+            // BtnSort
+            // 
+            this.BtnSort.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.BtnSort.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnSort.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnSort.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnSort.Location = new System.Drawing.Point(476, 737);
+            this.BtnSort.Name = "BtnSort";
+            this.BtnSort.Size = new System.Drawing.Size(450, 31);
+            this.BtnSort.TabIndex = 74;
+            this.BtnSort.Text = "Sorteer op urls die niet goed gingen";
+            this.BtnSort.UseVisualStyleBackColor = false;
+            this.BtnSort.Click += new System.EventHandler(this.BtnSort_Click);
+            // 
             // WebserviceOfKlantForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(936, 1082);
+            this.Controls.Add(this.BtnSort);
             this.Controls.Add(this.TbCntrlRestApiEnSoap);
             this.Controls.Add(this.TestAllBtn);
             this.Controls.Add(this.WebserviceOfKlantKrMaterialCmbx);
@@ -1354,7 +1370,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.ZetLogVastChkBx);
             this.Controls.Add(this.LblWebserviceOfKlant);
             this.Controls.Add(this.TrVwAll);
-            this.MinimumSize = new System.Drawing.Size(936, 1082);
+            this.MinimumSize = new System.Drawing.Size(936, 1038);
             this.Name = "WebserviceOfKlantForm";
             this.Text = "Per Webservice Testen";
             this.TopMost = true;
@@ -1449,5 +1465,6 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialCheckbox ChkBxKraanIni3_1;
         private MaterialSkin.Controls.MaterialCheckbox ChkBxKraanDLL3_1;
         private MaterialSkin.Controls.MaterialLabel LblKraanDLL3_1;
+        private System.Windows.Forms.Button BtnSort;
     }
 }

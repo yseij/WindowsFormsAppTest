@@ -112,7 +112,7 @@ namespace WindowsFormsAppTest
             string host = http + webservice + "/";
             string result = "";
 
-            //YouriWebserviceCrm.CrmServiceClient clientAuth;
+            //YouriWebserviceAuth.AuthServiceClient clientAuth;
             YouriWebserviceCrm.CrmServiceClient clientCrm;
             YouriWebserviceWorkFlow.WorkflowServiceClient clientWorkflow;
             YouriWebserviceUren.UrenServiceClient clientUren;
