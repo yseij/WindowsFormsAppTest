@@ -2,6 +2,9 @@
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -13,6 +16,7 @@ namespace WindowsFormsAppTest
         private int _selectedWebserviceId;
         private int _selectedKlantId;
         private int _selectedHttpId;
+        private int _scrollbarTeller = 0;
 
         private List<HttpData> _httpDatas = new List<HttpData>();
         private List<UrlData> _urlDatas = new List<UrlData>();
@@ -50,14 +54,16 @@ namespace WindowsFormsAppTest
         {
             _urlDatas = _urltest.GetUrlData();
             FillLstBxls();
+            AllUrlsKrLstBx.Select();
+            AllUrlsKrLstBx.SelectedIndex = 10;
         }
 
         private void FillLstBxls()
         {
-            AllUrlsKrMaterialLstBx.FillListBoxUrlData(_urlDatas);
+            AllUrlsKrLstBx.FillListBoxUrlData(_urlDatas);
             if (_urlDatas.Count > 0)
             {
-                AllUrlsKrMaterialLstBx.SelectedIndex = 0;
+                AllUrlsKrLstBx.SelectedIndex = 0;
                 FillUrlData(_urlDatas[0]);
             }
         }
@@ -77,12 +83,12 @@ namespace WindowsFormsAppTest
             HttpKrMaterialCmbx.FillCmbBoxHttp(_httpDatas);
         }
 
-        private void AllUrlsKrMaterialLstBx_SelectedIndexChanged(object sender, MaterialListBoxItem selectedItem)
+        private void AllUrlsKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
         {
             ClearBox();
-            if (AllUrlsKrMaterialLstBx.Items != null)
+            if (AllUrlsKrLstBx.Items != null && AllUrlsKrLstBx.SelectedValue != null)
             {
-                int idOfSelected = (int)AllUrlsKrMaterialLstBx.SelectedItem.Tag;
+                int idOfSelected = (int)AllUrlsKrLstBx.SelectedValue;
                 UrlData urlData = _urlDatas.Find(u => u.Id == idOfSelected);
                 foreach (var webService in _webServiceDatas)
                 {
@@ -115,19 +121,19 @@ namespace WindowsFormsAppTest
 
         private void PasUrlAanBtn_Click(object sender, EventArgs e)
         {
-            int selectedIndex = AllUrlsKrMaterialLstBx.SelectedIndex;
-            int idOfSelected = (int)AllUrlsKrMaterialLstBx.SelectedItem.Tag;
+            int selectedIndex = AllUrlsKrLstBx.SelectedIndex;
+            int idOfSelected = (int)AllUrlsKrLstBx.SelectedValue;
             _urltest.UpdateUrl(idOfSelected, changedUrl, changedSecurityId, _selectedWebserviceId, _selectedKlantId, _selectedHttpId);
             ClearBox();
             GetUrls();
-            AllUrlsKrMaterialLstBx.SelectedIndex = selectedIndex;
+            AllUrlsKrLstBx.SelectedIndex = selectedIndex;
         }
 
         private void DeleteUrlBttn_Click(object sender, EventArgs e)
         {
             ClearBox();
-            _urltest.DeleteUrl((int)AllUrlsKrMaterialLstBx.SelectedItem.Tag);
-            AllUrlsKrMaterialLstBx.SelectedIndex = 0;
+            _urltest.DeleteUrl((int)AllUrlsKrLstBx.SelectedValue);
+            AllUrlsKrLstBx.SelectedIndex = 0;
             GetUrls();
         }
 

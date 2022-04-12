@@ -35,7 +35,7 @@ namespace WindowsFormsAppTest
             this.HttpTxtBx = new MaterialSkin.Controls.MaterialTextBox();
             this.LblUrl = new MaterialSkin.Controls.MaterialLabel();
             this.LblBewerken = new MaterialSkin.Controls.MaterialLabel();
-            this.AllHttpsKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
+            this.AllHttpsKrLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.SuspendLayout();
             // 
             // PasHttpAanBtn
@@ -127,23 +127,19 @@ namespace WindowsFormsAppTest
             this.LblBewerken.TabIndex = 60;
             this.LblBewerken.Text = "Http bewerken:";
             // 
-            // AllHttpsKrMaterialLstBx
+            // AllHttpsKrLstBx
             // 
-            this.AllHttpsKrMaterialLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.AllHttpsKrLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.AllHttpsKrMaterialLstBx.BackColor = System.Drawing.Color.White;
-            this.AllHttpsKrMaterialLstBx.BorderColor = System.Drawing.Color.LightGray;
-            this.AllHttpsKrMaterialLstBx.Depth = 0;
-            this.AllHttpsKrMaterialLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AllHttpsKrMaterialLstBx.Location = new System.Drawing.Point(6, 67);
-            this.AllHttpsKrMaterialLstBx.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AllHttpsKrMaterialLstBx.Name = "AllHttpsKrMaterialLstBx";
-            this.AllHttpsKrMaterialLstBx.SelectedIndex = -1;
-            this.AllHttpsKrMaterialLstBx.SelectedItem = null;
-            this.AllHttpsKrMaterialLstBx.Size = new System.Drawing.Size(291, 226);
-            this.AllHttpsKrMaterialLstBx.TabIndex = 67;
-            this.AllHttpsKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllHttpsKrMaterialLstBx_SelectedIndexChanged);
+            this.AllHttpsKrLstBx.BackColor = System.Drawing.Color.White;
+            this.AllHttpsKrLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AllHttpsKrLstBx.ItemHeight = 20;
+            this.AllHttpsKrLstBx.Location = new System.Drawing.Point(6, 67);
+            this.AllHttpsKrLstBx.Name = "AllHttpsKrLstBx";
+            this.AllHttpsKrLstBx.Size = new System.Drawing.Size(291, 224);
+            this.AllHttpsKrLstBx.TabIndex = 67;
+            this.AllHttpsKrLstBx.SelectedIndexChanged += new System.EventHandler(this.AllHttpsKrLstBx_SelectedIndexChanged);
             // 
             // AllHttpsForm
             // 
@@ -153,7 +149,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.PasHttpAanBtn);
             this.Controls.Add(this.AddHttpBtn);
             this.Controls.Add(this.DeleteHttpBttn);
-            this.Controls.Add(this.AllHttpsKrMaterialLstBx);
+            this.Controls.Add(this.AllHttpsKrLstBx);
             this.Controls.Add(this.HttpTxtBx);
             this.Controls.Add(this.LblUrl);
             this.Controls.Add(this.LblBewerken);
@@ -170,7 +166,7 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Button PasHttpAanBtn;
         private System.Windows.Forms.Button AddHttpBtn;
         private System.Windows.Forms.Button DeleteHttpBttn;
-        private KrMaterialListBox AllHttpsKrMaterialLstBx;
+        private KrMaterialListBox AllHttpsKrLstBx;
         private MaterialSkin.Controls.MaterialTextBox HttpTxtBx;
         private MaterialSkin.Controls.MaterialLabel LblUrl;
         private MaterialSkin.Controls.MaterialLabel LblBewerken;

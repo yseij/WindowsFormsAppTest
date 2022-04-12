@@ -55,8 +55,8 @@ namespace WindowsFormsAppTest
             this.ZoekOpKlantNaamTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.AllUrlsKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
-            this.AllKlantKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
+            this.AllUrlsKrLstBx = new WindowsFormsAppTest.KrMaterialListBox();
+            this.AllKlantKrLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -573,40 +573,32 @@ namespace WindowsFormsAppTest
             this.label1.Size = new System.Drawing.Size(842, 2);
             this.label1.TabIndex = 85;
             // 
-            // AllUrlsKrMaterialLstBx
+            // AllUrlsKrLstBx
             // 
-            this.AllUrlsKrMaterialLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.AllUrlsKrLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.AllUrlsKrMaterialLstBx.BackColor = System.Drawing.Color.White;
-            this.AllUrlsKrMaterialLstBx.BorderColor = System.Drawing.Color.LightGray;
-            this.AllUrlsKrMaterialLstBx.Depth = 0;
-            this.AllUrlsKrMaterialLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.AllUrlsKrMaterialLstBx.Location = new System.Drawing.Point(7, 424);
-            this.AllUrlsKrMaterialLstBx.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AllUrlsKrMaterialLstBx.Name = "AllUrlsKrMaterialLstBx";
-            this.AllUrlsKrMaterialLstBx.SelectedIndex = -1;
-            this.AllUrlsKrMaterialLstBx.SelectedItem = null;
-            this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(363, 337);
-            this.AllUrlsKrMaterialLstBx.TabIndex = 65;
-            this.AllUrlsKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllUrlsKrMaterialLstBx_SelectedIndexChanged);
+            this.AllUrlsKrLstBx.BackColor = System.Drawing.Color.White;
+            this.AllUrlsKrLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.AllUrlsKrLstBx.ItemHeight = 20;
+            this.AllUrlsKrLstBx.Location = new System.Drawing.Point(7, 424);
+            this.AllUrlsKrLstBx.Name = "AllUrlsKrLstBx";
+            this.AllUrlsKrLstBx.Size = new System.Drawing.Size(363, 324);
+            this.AllUrlsKrLstBx.TabIndex = 65;
+            this.AllUrlsKrLstBx.SelectedIndexChanged += new System.EventHandler(this.AllUrlsKrLstBx_SelectedIndexChanged);
             // 
-            // AllKlantKrMaterialLstBx
+            // AllKlantKrLstBx
             // 
-            this.AllKlantKrMaterialLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.AllKlantKrLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.AllKlantKrMaterialLstBx.BackColor = System.Drawing.Color.White;
-            this.AllKlantKrMaterialLstBx.BorderColor = System.Drawing.Color.LightGray;
-            this.AllKlantKrMaterialLstBx.Depth = 0;
-            this.AllKlantKrMaterialLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.AllKlantKrMaterialLstBx.Location = new System.Drawing.Point(6, 197);
-            this.AllKlantKrMaterialLstBx.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AllKlantKrMaterialLstBx.Name = "AllKlantKrMaterialLstBx";
-            this.AllKlantKrMaterialLstBx.SelectedIndex = -1;
-            this.AllKlantKrMaterialLstBx.SelectedItem = null;
-            this.AllKlantKrMaterialLstBx.Size = new System.Drawing.Size(363, 199);
-            this.AllKlantKrMaterialLstBx.TabIndex = 64;
-            this.AllKlantKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllKlantKrMaterialLstBx_SelectedIndexChanged);
+            this.AllKlantKrLstBx.BackColor = System.Drawing.Color.White;
+            this.AllKlantKrLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.AllKlantKrLstBx.ItemHeight = 20;
+            this.AllKlantKrLstBx.Location = new System.Drawing.Point(6, 197);
+            this.AllKlantKrLstBx.Name = "AllKlantKrLstBx";
+            this.AllKlantKrLstBx.Size = new System.Drawing.Size(363, 184);
+            this.AllKlantKrLstBx.TabIndex = 64;
+            this.AllKlantKrLstBx.SelectedValueChanged += new System.EventHandler(this.AllKlantKrLstBx_SelectedIndexChanged);
             // 
             // AllKlantenForm
             // 
@@ -617,8 +609,8 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.ZoekOpKlantNaamTxtBx);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.AllUrlsKrMaterialLstBx);
-            this.Controls.Add(this.AllKlantKrMaterialLstBx);
+            this.Controls.Add(this.AllUrlsKrLstBx);
+            this.Controls.Add(this.AllKlantKrLstBx);
             this.Controls.Add(this.LblUrlsByKlant);
             this.Controls.Add(this.LblKlant);
             this.Controls.Add(this.groupBox2);
@@ -650,8 +642,8 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.GroupBox groupBox2;
         private KrMaterialCombobox KlantKrMaterialCmbx;
         private KrMaterialCombobox WebserviceKrMaterialCmbx;
-        private KrMaterialListBox AllKlantKrMaterialLstBx;
-        private KrMaterialListBox AllUrlsKrMaterialLstBx;
+        private KrMaterialListBox AllKlantKrLstBx;
+        private KrMaterialListBox AllUrlsKrLstBx;
         private System.Windows.Forms.Button PasKlantAanBtn;
         private System.Windows.Forms.Button AddKlantBtn;
         private System.Windows.Forms.Button DeleteKlantBttn;

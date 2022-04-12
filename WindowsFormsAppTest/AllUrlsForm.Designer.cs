@@ -36,14 +36,14 @@ namespace WindowsFormsAppTest
             this.LblUrl = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.LblKlant = new MaterialSkin.Controls.MaterialLabel();
-            this.AllUrlsKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
-            this.WebserviceKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
-            this.KlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.DeleteUrlBttn = new System.Windows.Forms.Button();
             this.AddUrlBtn = new System.Windows.Forms.Button();
             this.PasUrlAanBtn = new System.Windows.Forms.Button();
-            this.HttpKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.HttpKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
+            this.KlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
+            this.WebserviceKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
+            this.AllUrlsKrLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.SuspendLayout();
             // 
             // LblBewerken
@@ -78,7 +78,7 @@ namespace WindowsFormsAppTest
             this.SecurityIdTxtBx.AnimateReadOnly = false;
             this.SecurityIdTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SecurityIdTxtBx.Depth = 0;
-            this.SecurityIdTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.SecurityIdTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.SecurityIdTxtBx.LeadingIcon = null;
             this.SecurityIdTxtBx.Location = new System.Drawing.Point(591, 96);
             this.SecurityIdTxtBx.MaxLength = 50;
@@ -97,7 +97,7 @@ namespace WindowsFormsAppTest
             this.UrlTxtBx.AnimateReadOnly = false;
             this.UrlTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.UrlTxtBx.Depth = 0;
-            this.UrlTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.UrlTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.UrlTxtBx.LeadingIcon = null;
             this.UrlTxtBx.Location = new System.Drawing.Point(591, 152);
             this.UrlTxtBx.MaxLength = 50;
@@ -149,77 +149,6 @@ namespace WindowsFormsAppTest
             this.LblKlant.TabIndex = 49;
             this.LblKlant.Text = "Klant";
             // 
-            // AllUrlsKrMaterialLstBx
-            // 
-            this.AllUrlsKrMaterialLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AllUrlsKrMaterialLstBx.BackColor = System.Drawing.Color.White;
-            this.AllUrlsKrMaterialLstBx.BorderColor = System.Drawing.Color.LightGray;
-            this.AllUrlsKrMaterialLstBx.Depth = 0;
-            this.AllUrlsKrMaterialLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AllUrlsKrMaterialLstBx.Location = new System.Drawing.Point(6, 70);
-            this.AllUrlsKrMaterialLstBx.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AllUrlsKrMaterialLstBx.Name = "AllUrlsKrMaterialLstBx";
-            this.AllUrlsKrMaterialLstBx.SelectedIndex = -1;
-            this.AllUrlsKrMaterialLstBx.SelectedItem = null;
-            this.AllUrlsKrMaterialLstBx.ShowScrollBar = true;
-            this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(479, 352);
-            this.AllUrlsKrMaterialLstBx.TabIndex = 54;
-            this.AllUrlsKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllUrlsKrMaterialLstBx_SelectedIndexChanged);
-            // 
-            // WebserviceKrMaterialCmbx
-            // 
-            this.WebserviceKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.WebserviceKrMaterialCmbx.AutoResize = false;
-            this.WebserviceKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.WebserviceKrMaterialCmbx.Depth = 0;
-            this.WebserviceKrMaterialCmbx.DisplayMember = "Name";
-            this.WebserviceKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.WebserviceKrMaterialCmbx.DropDownHeight = 174;
-            this.WebserviceKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.WebserviceKrMaterialCmbx.DropDownWidth = 121;
-            this.WebserviceKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.WebserviceKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.WebserviceKrMaterialCmbx.FormattingEnabled = true;
-            this.WebserviceKrMaterialCmbx.IntegralHeight = false;
-            this.WebserviceKrMaterialCmbx.ItemHeight = 43;
-            this.WebserviceKrMaterialCmbx.Location = new System.Drawing.Point(591, 265);
-            this.WebserviceKrMaterialCmbx.MaxDropDownItems = 4;
-            this.WebserviceKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
-            this.WebserviceKrMaterialCmbx.Name = "WebserviceKrMaterialCmbx";
-            this.WebserviceKrMaterialCmbx.Size = new System.Drawing.Size(400, 49);
-            this.WebserviceKrMaterialCmbx.StartIndex = 0;
-            this.WebserviceKrMaterialCmbx.TabIndex = 55;
-            this.WebserviceKrMaterialCmbx.ValueMember = "Id";
-            this.WebserviceKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.WebserviceKrMaterialCmbx_SelectedIndexChanged);
-            // 
-            // KlantKrMaterialCmbx
-            // 
-            this.KlantKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.KlantKrMaterialCmbx.AutoResize = false;
-            this.KlantKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.KlantKrMaterialCmbx.Depth = 0;
-            this.KlantKrMaterialCmbx.DisplayMember = "Name";
-            this.KlantKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.KlantKrMaterialCmbx.DropDownHeight = 174;
-            this.KlantKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.KlantKrMaterialCmbx.DropDownWidth = 121;
-            this.KlantKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.KlantKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.KlantKrMaterialCmbx.FormattingEnabled = true;
-            this.KlantKrMaterialCmbx.IntegralHeight = false;
-            this.KlantKrMaterialCmbx.ItemHeight = 43;
-            this.KlantKrMaterialCmbx.Location = new System.Drawing.Point(591, 321);
-            this.KlantKrMaterialCmbx.MaxDropDownItems = 4;
-            this.KlantKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
-            this.KlantKrMaterialCmbx.Name = "KlantKrMaterialCmbx";
-            this.KlantKrMaterialCmbx.Size = new System.Drawing.Size(400, 49);
-            this.KlantKrMaterialCmbx.StartIndex = 0;
-            this.KlantKrMaterialCmbx.TabIndex = 56;
-            this.KlantKrMaterialCmbx.ValueMember = "Id";
-            this.KlantKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.KlantKrMaterialCmbx_SelectedIndexChanged);
-            // 
             // DeleteUrlBttn
             // 
             this.DeleteUrlBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -265,6 +194,19 @@ namespace WindowsFormsAppTest
             this.PasUrlAanBtn.UseVisualStyleBackColor = false;
             this.PasUrlAanBtn.Click += new System.EventHandler(this.PasUrlAanBtn_Click);
             // 
+            // materialLabel2
+            // 
+            this.materialLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.Location = new System.Drawing.Point(495, 209);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(35, 19);
+            this.materialLabel2.TabIndex = 60;
+            this.materialLabel2.Text = "Http:";
+            // 
             // HttpKrMaterialCmbx
             // 
             this.HttpKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -291,18 +233,72 @@ namespace WindowsFormsAppTest
             this.HttpKrMaterialCmbx.ValueMember = "Id";
             this.HttpKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.HttpKrMaterialCmbx_SelectedIndexChanged);
             // 
-            // materialLabel2
+            // KlantKrMaterialCmbx
             // 
-            this.materialLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(495, 209);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(35, 19);
-            this.materialLabel2.TabIndex = 60;
-            this.materialLabel2.Text = "Http:";
+            this.KlantKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.KlantKrMaterialCmbx.AutoResize = false;
+            this.KlantKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.KlantKrMaterialCmbx.Depth = 0;
+            this.KlantKrMaterialCmbx.DisplayMember = "Name";
+            this.KlantKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.KlantKrMaterialCmbx.DropDownHeight = 174;
+            this.KlantKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.KlantKrMaterialCmbx.DropDownWidth = 121;
+            this.KlantKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.KlantKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.KlantKrMaterialCmbx.FormattingEnabled = true;
+            this.KlantKrMaterialCmbx.IntegralHeight = false;
+            this.KlantKrMaterialCmbx.ItemHeight = 43;
+            this.KlantKrMaterialCmbx.Location = new System.Drawing.Point(591, 321);
+            this.KlantKrMaterialCmbx.MaxDropDownItems = 4;
+            this.KlantKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
+            this.KlantKrMaterialCmbx.Name = "KlantKrMaterialCmbx";
+            this.KlantKrMaterialCmbx.Size = new System.Drawing.Size(400, 49);
+            this.KlantKrMaterialCmbx.StartIndex = 0;
+            this.KlantKrMaterialCmbx.TabIndex = 56;
+            this.KlantKrMaterialCmbx.ValueMember = "Id";
+            this.KlantKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.KlantKrMaterialCmbx_SelectedIndexChanged);
+            // 
+            // WebserviceKrMaterialCmbx
+            // 
+            this.WebserviceKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.WebserviceKrMaterialCmbx.AutoResize = false;
+            this.WebserviceKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.WebserviceKrMaterialCmbx.Depth = 0;
+            this.WebserviceKrMaterialCmbx.DisplayMember = "Name";
+            this.WebserviceKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.WebserviceKrMaterialCmbx.DropDownHeight = 174;
+            this.WebserviceKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.WebserviceKrMaterialCmbx.DropDownWidth = 121;
+            this.WebserviceKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.WebserviceKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.WebserviceKrMaterialCmbx.FormattingEnabled = true;
+            this.WebserviceKrMaterialCmbx.IntegralHeight = false;
+            this.WebserviceKrMaterialCmbx.ItemHeight = 43;
+            this.WebserviceKrMaterialCmbx.Location = new System.Drawing.Point(591, 265);
+            this.WebserviceKrMaterialCmbx.MaxDropDownItems = 4;
+            this.WebserviceKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
+            this.WebserviceKrMaterialCmbx.Name = "WebserviceKrMaterialCmbx";
+            this.WebserviceKrMaterialCmbx.Size = new System.Drawing.Size(400, 49);
+            this.WebserviceKrMaterialCmbx.StartIndex = 0;
+            this.WebserviceKrMaterialCmbx.TabIndex = 55;
+            this.WebserviceKrMaterialCmbx.ValueMember = "Id";
+            this.WebserviceKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.WebserviceKrMaterialCmbx_SelectedIndexChanged);
+            // 
+            // AllUrlsKrLstBx
+            // 
+            this.AllUrlsKrLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.AllUrlsKrLstBx.BackColor = System.Drawing.Color.White;
+            this.AllUrlsKrLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AllUrlsKrLstBx.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.AllUrlsKrLstBx.ItemHeight = 20;
+            this.AllUrlsKrLstBx.Location = new System.Drawing.Point(6, 70);
+            this.AllUrlsKrLstBx.Name = "AllUrlsKrLstBx";
+            this.AllUrlsKrLstBx.Size = new System.Drawing.Size(479, 324);
+            this.AllUrlsKrLstBx.TabIndex = 54;
+            this.AllUrlsKrLstBx.SelectedIndexChanged += new System.EventHandler(this.AllUrlsKrLstBx_SelectedIndexChanged);
             // 
             // AllUrlsForm
             // 
@@ -316,7 +312,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.DeleteUrlBttn);
             this.Controls.Add(this.KlantKrMaterialCmbx);
             this.Controls.Add(this.WebserviceKrMaterialCmbx);
-            this.Controls.Add(this.AllUrlsKrMaterialLstBx);
+            this.Controls.Add(this.AllUrlsKrLstBx);
             this.Controls.Add(this.LblKlant);
             this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.UrlTxtBx);
@@ -340,7 +336,6 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialLabel LblUrl;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialLabel LblKlant;
-        private KrMaterialListBox AllUrlsKrMaterialLstBx;
         private KrMaterialCombobox WebserviceKrMaterialCmbx;
         private KrMaterialCombobox KlantKrMaterialCmbx;
         private System.Windows.Forms.Button DeleteUrlBttn;
@@ -348,5 +343,6 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Button PasUrlAanBtn;
         private KrMaterialCombobox HttpKrMaterialCmbx;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private KrMaterialListBox AllUrlsKrLstBx;
     }
 }

@@ -52,8 +52,8 @@ namespace WindowsFormsAppTest
             this.WebserviceKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.DeleteUrlBttn = new System.Windows.Forms.Button();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
-            this.AllUrlsKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
-            this.AllWebserviceKrMaterialLstBx = new WindowsFormsAppTest.KrMaterialListBox();
+            this.AllUrlsKrLstBx = new WindowsFormsAppTest.KrMaterialListBox();
+            this.AllWebserviceKrLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
@@ -513,42 +513,32 @@ namespace WindowsFormsAppTest
             this.materialLabel6.TabIndex = 78;
             this.materialLabel6.Text = "Urls bij gekozen webservice";
             // 
-            // AllUrlsKrMaterialLstBx
+            // AllUrlsKrLstBx
             // 
-            this.AllUrlsKrMaterialLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.AllUrlsKrLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.AllUrlsKrMaterialLstBx.BackColor = System.Drawing.Color.White;
-            this.AllUrlsKrMaterialLstBx.BorderColor = System.Drawing.Color.LightGray;
-            this.AllUrlsKrMaterialLstBx.Depth = 0;
-            this.AllUrlsKrMaterialLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.AllUrlsKrMaterialLstBx.Location = new System.Drawing.Point(7, 431);
-            this.AllUrlsKrMaterialLstBx.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AllUrlsKrMaterialLstBx.Name = "AllUrlsKrMaterialLstBx";
-            this.AllUrlsKrMaterialLstBx.SelectedIndex = -1;
-            this.AllUrlsKrMaterialLstBx.SelectedItem = null;
-            this.AllUrlsKrMaterialLstBx.ShowScrollBar = true;
-            this.AllUrlsKrMaterialLstBx.Size = new System.Drawing.Size(414, 341);
-            this.AllUrlsKrMaterialLstBx.TabIndex = 77;
-            this.AllUrlsKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllUrlsKrMaterialLstBx_SelectedIndexChanged);
+            this.AllUrlsKrLstBx.BackColor = System.Drawing.Color.White;
+            this.AllUrlsKrLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.AllUrlsKrLstBx.ItemHeight = 20;
+            this.AllUrlsKrLstBx.Location = new System.Drawing.Point(7, 431);
+            this.AllUrlsKrLstBx.Name = "AllUrlsKrLstBx";
+            this.AllUrlsKrLstBx.Size = new System.Drawing.Size(414, 324);
+            this.AllUrlsKrLstBx.TabIndex = 77;
+            this.AllUrlsKrLstBx.SelectedIndexChanged += new System.EventHandler(this.AllUrlsKrLstBx_SelectedIndexChanged);
             // 
-            // AllWebserviceKrMaterialLstBx
+            // AllWebserviceKrLstBx
             // 
-            this.AllWebserviceKrMaterialLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.AllWebserviceKrLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.AllWebserviceKrMaterialLstBx.BackColor = System.Drawing.Color.White;
-            this.AllWebserviceKrMaterialLstBx.BorderColor = System.Drawing.Color.LightGray;
-            this.AllWebserviceKrMaterialLstBx.Depth = 0;
-            this.AllWebserviceKrMaterialLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.AllWebserviceKrMaterialLstBx.Location = new System.Drawing.Point(6, 203);
-            this.AllWebserviceKrMaterialLstBx.MouseState = MaterialSkin.MouseState.HOVER;
-            this.AllWebserviceKrMaterialLstBx.Name = "AllWebserviceKrMaterialLstBx";
-            this.AllWebserviceKrMaterialLstBx.SelectedIndex = -1;
-            this.AllWebserviceKrMaterialLstBx.SelectedItem = null;
-            this.AllWebserviceKrMaterialLstBx.ShowScrollBar = true;
-            this.AllWebserviceKrMaterialLstBx.Size = new System.Drawing.Size(414, 199);
-            this.AllWebserviceKrMaterialLstBx.TabIndex = 66;
-            this.AllWebserviceKrMaterialLstBx.SelectedIndexChanged += new MaterialSkin.Controls.MaterialListBox.SelectedIndexChangedEventHandler(this.AllWebserviceKrMaterialLstBx_SelectedIndexChanged);
+            this.AllWebserviceKrLstBx.BackColor = System.Drawing.Color.White;
+            this.AllWebserviceKrLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.AllWebserviceKrLstBx.ItemHeight = 20;
+            this.AllWebserviceKrLstBx.Location = new System.Drawing.Point(6, 203);
+            this.AllWebserviceKrLstBx.Name = "AllWebserviceKrLstBx";
+            this.AllWebserviceKrLstBx.Size = new System.Drawing.Size(414, 184);
+            this.AllWebserviceKrLstBx.TabIndex = 66;
+            this.AllWebserviceKrLstBx.SelectedIndexChanged += new System.EventHandler(this.AllWebserviceKrLstBx_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -634,10 +624,10 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.ZoekOpWebserviceNaamTxtBx);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.materialLabel6);
-            this.Controls.Add(this.AllUrlsKrMaterialLstBx);
+            this.Controls.Add(this.AllUrlsKrLstBx);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.materialLabel1);
-            this.Controls.Add(this.AllWebserviceKrMaterialLstBx);
+            this.Controls.Add(this.AllWebserviceKrLstBx);
             this.Controls.Add(this.groupBox1);
             this.MinimumSize = new System.Drawing.Size(906, 780);
             this.Name = "AllWebserviceForm";
@@ -653,7 +643,7 @@ namespace WindowsFormsAppTest
 
         #endregion
 
-        private KrMaterialListBox AllWebserviceKrMaterialLstBx;
+        private KrMaterialListBox AllWebserviceKrLstBx;
         private System.Windows.Forms.GroupBox groupBox1;
         private MaterialSkin.Controls.MaterialMaskedTextBox WebserviceTxtBx;
         private MaterialSkin.Controls.MaterialLabel LblNaam;
@@ -667,7 +657,7 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private System.Windows.Forms.GroupBox groupBox2;
-        private KrMaterialListBox AllUrlsKrMaterialLstBx;
+        private KrMaterialListBox AllUrlsKrLstBx;
         private MaterialSkin.Controls.MaterialLabel materialLabel6;
         private System.Windows.Forms.Button PasUrlAanBtn;
         private System.Windows.Forms.Button AddUrlByWebserviceBttn;

@@ -195,7 +195,6 @@
     <Compile Include="KrMaterialListBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="KrMaterialListBoxItem.cs" />
     <Compile Include="KrXml.cs" />
     <Compile Include="LogFile.cs" />
     <Compile Include="MailClient.cs" />

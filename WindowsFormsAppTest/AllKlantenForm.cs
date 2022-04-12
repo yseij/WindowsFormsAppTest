@@ -53,7 +53,7 @@ namespace WindowsFormsAppTest
             FillCmbxKlanten();
 
             KlantTxtBx.Text = _klantDatas[0].Name;
-            AllKlantKrMaterialLstBx.SelectedIndex = 0;
+            AllKlantKrLstBx.SelectedIndex = 0;
 
             GetUrlsFromKlant(_klantDatas[0].Id);
         }
@@ -71,8 +71,8 @@ namespace WindowsFormsAppTest
             }
             else
             {
-                AllUrlsKrMaterialLstBx.ClearListBox();
-                AllKlantKrMaterialLstBx.ClearListBox();
+                AllUrlsKrLstBx.ClearListBox();
+                AllKlantKrLstBx.ClearListBox();
             }
         }
 
@@ -96,7 +96,7 @@ namespace WindowsFormsAppTest
 
         private void FillLstBxKlanten()
         {
-            AllKlantKrMaterialLstBx.FillListBoxKlantData(_klantDatas);
+            AllKlantKrLstBx.FillListBoxKlantData(_klantDatas);
             if (_klantDatas.Count != 0)
             {
                 _selectedKlantId = _klantDatas[0].Id;
@@ -105,10 +105,10 @@ namespace WindowsFormsAppTest
 
         private void FillLstBxUlsFromKlant()
         {
-           AllUrlsKrMaterialLstBx.FillListBoxUrlData(_urlDatasByKlant);
+           AllUrlsKrLstBx.FillListBoxUrlData(_urlDatasByKlant);
            if (_urlDatasByKlant.Count > 0)
             {
-                AllUrlsKrMaterialLstBx.SelectedIndex = 0;
+                AllUrlsKrLstBx.SelectedIndex = 0;
                 _selectedUrlId = _urlDatasByKlant[0].Id;
                 FillUrlData(_urlDatasByKlant[0]);
 
@@ -142,11 +142,11 @@ namespace WindowsFormsAppTest
             HttpKrMaterialCmbx.FillCmbBoxHttp(_httpDatas);
         }
 
-        private void AllKlantKrMaterialLstBx_SelectedIndexChanged(object sender, MaterialListBoxItem selectedItem)
+        private void AllKlantKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (AllKlantKrMaterialLstBx.Items != null)
+            if (AllKlantKrLstBx.Items != null && AllKlantKrLstBx.SelectedValue != null)
             {
-                int idOfSelected = (int)AllKlantKrMaterialLstBx.SelectedItem.Tag;
+                int idOfSelected = (int)AllKlantKrLstBx.SelectedValue;
                 _selectedKlantId = idOfSelected;
                 GetUrlsFromKlant(idOfSelected);
                 KlantData klantData = _klantDatas.Find(k => k.Id == idOfSelected);
@@ -174,21 +174,21 @@ namespace WindowsFormsAppTest
 
         private void PasKlantAanBtn_Click(object sender, EventArgs e)
         {
-            _klantTest.UpdateKlant((int)AllKlantKrMaterialLstBx.SelectedItem.Tag, _changedKlant);
+            _klantTest.UpdateKlant((int)AllKlantKrLstBx.SelectedValue, _changedKlant);
             GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
         private void DeleteKlantBttn_Click(object sender, EventArgs e)
         {
-            _klantTest.DeleteKlant((int)AllKlantKrMaterialLstBx.SelectedItem.Tag);
+            _klantTest.DeleteKlant((int)AllKlantKrLstBx.SelectedValue);
             GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
-        private void AllUrlsKrMaterialLstBx_SelectedIndexChanged(object sender, MaterialListBoxItem selectedItem)
+        private void AllUrlsKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (AllUrlsKrMaterialLstBx.Items != null)
+            if (AllUrlsKrLstBx.Items != null && AllUrlsKrLstBx.SelectedValue != null)
             {
-                int idOfSelected = (int)AllUrlsKrMaterialLstBx.SelectedItem.Tag;
+                int idOfSelected = (int)AllUrlsKrLstBx.SelectedValue;
                 _selectedUrlId = idOfSelected;
                 UrlData urlData = _urlDatasByKlant.Find(k => k.Id == idOfSelected);
                 FillUrlData(urlData);
@@ -233,7 +233,7 @@ namespace WindowsFormsAppTest
 
         private void PasUrlAanBtn_Click(object sender, EventArgs e)
         {
-            _urltest.UpdateUrl((int)AllUrlsKrMaterialLstBx.SelectedItem.Tag,
+            _urltest.UpdateUrl((int)AllUrlsKrLstBx.SelectedValue,
                     _changedUrl,
                     _changedSecurityId,
                     _selectedWebserviceIdForChange,
@@ -244,7 +244,7 @@ namespace WindowsFormsAppTest
 
         private void DeleteUrlBttn_Click(object sender, EventArgs e)
         {
-            _urltest.DeleteUrl((int)AllUrlsKrMaterialLstBx.SelectedItem.Tag);
+            _urltest.DeleteUrl((int)AllUrlsKrLstBx.SelectedValue);
             ClearBox();
             GetUrlsFromKlant(_selectedKlantId);
         }
@@ -252,7 +252,7 @@ namespace WindowsFormsAppTest
         private void ChildFormClosingAddKlantForm(object sender, FormClosingEventArgs e)
         {
             GetKlantenIfZoekOpKlantenNaamIsGevuld();
-            AllKlantKrMaterialLstBx.SelectedIndex = AllKlantKrMaterialLstBx.Items.Count - 1;
+            AllKlantKrLstBx.SelectedIndex = AllKlantKrLstBx.Items.Count - 1;
             _selectedKlantId = _klantDatas[_klantDatas.Count - 1].Id;
         }
 

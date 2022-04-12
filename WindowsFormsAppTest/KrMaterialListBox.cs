@@ -1,9 +1,10 @@
 ﻿using MaterialSkin.Controls;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
 {
-    class KrMaterialListBox : MaterialListBox
+    class KrMaterialListBox : ListBox
     {
         public KrMaterialListBox()
         {
@@ -11,47 +12,38 @@ namespace WindowsFormsAppTest
 
         public void ClearListBox()
         {
-            Clear();
+            DataSource = null;
+            SetMembers();
+        }
+
+        private void SetMembers()
+        {
+            DisplayMember = "Name";
+            ValueMember = "Id";
         }
 
         public void FillListBoxUrlData(List<UrlData> urlDatas)
         {
             ClearListBox();
-            foreach (UrlData urlData in urlDatas)
-            {
-                KrMaterialListBoxItem krMaterialListBoxItem = new KrMaterialListBoxItem(urlData.Id, urlData.Name);
-                AddItem(krMaterialListBoxItem);
-            }
+            DataSource = urlDatas;
         }
 
         public void FillListBoxKlantData(List<KlantData> klantDatas)
         {
             ClearListBox();
-            foreach (KlantData klantData in klantDatas)
-            {
-                KrMaterialListBoxItem krMaterialListBoxItem = new KrMaterialListBoxItem(klantData.Id, klantData.Name);
-                AddItem(krMaterialListBoxItem);
-            }
+            DataSource = klantDatas;
         }
 
         public void FillListBoxWebserviceData(List<WebServiceData> webServiceDatas)
         {
             ClearListBox();
-            foreach (WebServiceData webServiceData in webServiceDatas)
-            {
-                KrMaterialListBoxItem krMaterialListBoxItem = new KrMaterialListBoxItem(webServiceData.Id, webServiceData.Name);
-                AddItem(krMaterialListBoxItem);
-            }
+            DataSource = webServiceDatas;
         }
 
         public void FillListBoxHttpData(List<HttpData> httpDatas)
         {
             ClearListBox();
-            foreach (HttpData httpData in httpDatas)
-            {
-                KrMaterialListBoxItem krMaterialListBoxItem = new KrMaterialListBoxItem(httpData.Id, httpData.Name);
-                AddItem(krMaterialListBoxItem);
-            }
+            DataSource = httpDatas;
         }
     }
 }

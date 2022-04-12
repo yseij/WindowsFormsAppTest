@@ -1,5 +1,6 @@
 ﻿using MaterialSkin.Controls;
 using System.Collections.Generic;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -25,19 +26,18 @@ namespace WindowsFormsAppTest
 
         private void FillLstBxHttps()
         {
-            AllHttpsKrMaterialLstBx.FillListBoxHttpData(_httpDatas);
+            AllHttpsKrLstBx.FillListBoxHttpData(_httpDatas);
             if (_httpDatas.Count > 0)
             {
-                AllHttpsKrMaterialLstBx.SelectedIndex = 0;
+                AllHttpsKrLstBx.SelectedIndex = 0;
                 FillHttpData(_httpDatas[0]);
             }
         }
-
-        private void AllHttpsKrMaterialLstBx_SelectedIndexChanged(object sender, MaterialSkin.MaterialListBoxItem selectedItem)
+        private void AllHttpsKrLstBx_SelectedIndexChanged(object sender, System.EventArgs e)
         {
-            if (AllHttpsKrMaterialLstBx.Items != null)
+            if (AllHttpsKrLstBx.Items != null && AllHttpsKrLstBx.SelectedValue != null)
             {
-                int idOfSelected = (int)AllHttpsKrMaterialLstBx.SelectedItem.Tag;
+                int idOfSelected = (int)AllHttpsKrLstBx.SelectedValue;
                 HttpData httpData = _httpDatas.Find(u => u.Id == idOfSelected);
                 FillHttpData(httpData);
             }
@@ -50,7 +50,7 @@ namespace WindowsFormsAppTest
 
         private void DeleteHttpBttn_Click(object sender, System.EventArgs e)
         {
-            _httpTest.DeleteHttp((int)AllHttpsKrMaterialLstBx.SelectedItem.Tag);
+            _httpTest.DeleteHttp((int)AllHttpsKrLstBx.SelectedValue);
             GetHttps();
         }
 
@@ -68,11 +68,11 @@ namespace WindowsFormsAppTest
 
         private void PasHttpAanBtn_Click(object sender, System.EventArgs e)
         {
-            int selectedIndex = AllHttpsKrMaterialLstBx.SelectedIndex;
-            int idOfSelected = (int)AllHttpsKrMaterialLstBx.SelectedItem.Tag;
+            int selectedIndex = AllHttpsKrLstBx.SelectedIndex;
+            int idOfSelected = (int)AllHttpsKrLstBx.SelectedValue;
             _httpTest.UpdateHttp(idOfSelected, HttpTxtBx.Text);
             GetHttps();
-            AllHttpsKrMaterialLstBx.SelectedIndex = selectedIndex;
+            AllHttpsKrLstBx.SelectedIndex = selectedIndex;
         }
     }
 }
