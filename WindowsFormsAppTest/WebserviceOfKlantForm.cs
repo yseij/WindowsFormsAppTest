@@ -141,8 +141,7 @@ namespace WindowsFormsAppTest
                     }
                     else if (urlData.Name == "MessageServiceSoap.svc")
                     {
-                        string data = _webRequest.Get24SalesData(_httpName + _webserviceName, ResponseTextBox);
-                        _result = JObject.Parse(data);
+                        _result = _webRequest.Get24SalesData(_httpName + _webserviceName, ResponseTextBox);
                     }
                     else
                     {

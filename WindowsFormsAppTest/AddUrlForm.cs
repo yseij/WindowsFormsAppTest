@@ -7,7 +7,7 @@ namespace WindowsFormsAppTest
     public partial class AddUrlForm : MaterialForm
     {
         private string _newUrl;
-        private string _newSecurityId;
+        private string _newSecurityId = "";
 
         private int _selectedWebserviceId;
         private int _selectedKlantId;
@@ -72,7 +72,7 @@ namespace WindowsFormsAppTest
         private void AddUrlButton_Click(object sender, EventArgs e)
         {
             UrlTest urltest = new UrlTest();
-            urltest.AddUrl(_newUrl, _selectedWebserviceId, _selectedKlantId, _newSecurityId, _selectedHttpId);
+            urltest.AddUrl(_newUrl, _selectedWebserviceId, _selectedKlantId, _selectedHttpId, _newSecurityId);
             Close();
         }
 

@@ -69,7 +69,7 @@ namespace WindowsFormsAppTest
             return urlDatas;
         }
 
-        public void AddUrl(string url, int webService, int klant, string securityId, int http)
+        public void AddUrl(string url, int webService, int klant, int http, string securityId = "")
         {
             using (SqlConnection connection = new SqlConnection(ConnectieDB))
             {
