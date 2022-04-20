@@ -1,14 +1,15 @@
 ﻿using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
 {
     public partial class AllUrlsForm : MaterialForm
     {
-        private string changedSecurityId = string.Empty;
-        private string changedUrl;
+        private string _changedSecurityId = string.Empty;
+        private string _changedUrl;
 
         private int _selectedWebserviceId;
         private int _selectedKlantId;
@@ -25,6 +26,7 @@ namespace WindowsFormsAppTest
         WebRequest _webRequest;
         WebserviceTest _webserviceTest;
         KlantTest _klantTest;
+        ErrorProvider _error;
 
         public AllUrlsForm()
         {
@@ -34,6 +36,7 @@ namespace WindowsFormsAppTest
             _webRequest = new WebRequest();
             _webserviceTest = new WebserviceTest();
             _klantTest = new KlantTest();
+            _error = new ErrorProvider();
 
             _webServiceDatas = _webserviceTest.GetWebServiceData();
             _klantDatas = _klantTest.GetKlantData();
@@ -130,12 +133,21 @@ namespace WindowsFormsAppTest
 
         private void PasUrlAanBtn_Click(object sender, EventArgs e)
         {
-            int selectedIndex = AllUrlsKrLstBx.SelectedIndex;
-            int idOfSelected = (int)AllUrlsKrLstBx.SelectedValue;
-            _urltest.UpdateUrl(idOfSelected, changedUrl, changedSecurityId, _selectedWebserviceId, _selectedKlantId, _selectedHttpId);
-            ClearBox();
-            GetUrlIfZoekOpUrlIsGevuld();
-            AllUrlsKrLstBx.SelectedIndex = selectedIndex;
+            UrlData urlData = _urlDatas.Find(w => w.Name == _changedUrl);
+            if (urlData == null)
+            {
+                int selectedIndex = AllUrlsKrLstBx.SelectedIndex;
+                int idOfSelected = (int)AllUrlsKrLstBx.SelectedValue;
+                _urltest.UpdateUrl(idOfSelected, _changedUrl, _changedSecurityId, _selectedWebserviceId, _selectedKlantId, _selectedHttpId);
+                ClearBox();
+                GetUrlIfZoekOpUrlIsGevuld();
+                AllUrlsKrLstBx.SelectedIndex = selectedIndex;
+            }
+            else
+            {
+                _error.SetError(UrlTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
+            }
+            
         }
 
         private void DeleteUrlBttn_Click(object sender, EventArgs e)
@@ -160,12 +172,22 @@ namespace WindowsFormsAppTest
 
         private void SecurityIdTxtBx_TextChanged(object sender, EventArgs e)
         {
-            changedSecurityId = SecurityIdTxtBx.Text;
+            _changedSecurityId = SecurityIdTxtBx.Text;
         }
 
         private void UrlTxtBx_TextChanged(object sender, EventArgs e)
         {
-            changedUrl = UrlTxtBx.Text;
+            if (UrlTxtBx.Text != string.Empty)
+            {
+                _error.Clear();
+                PasUrlAanBtn.Enabled = true;
+            }
+            else
+            {
+                _error.SetError(UrlTxtBx, ConfigurationManager.AppSettings["LeegTekstVak"]);
+                PasUrlAanBtn.Enabled = false;
+            }
+            _changedUrl = UrlTxtBx.Text;
         }
 
         private void HttpKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)

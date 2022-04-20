@@ -2,6 +2,7 @@
 using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -33,6 +34,7 @@ namespace WindowsFormsAppTest
         UrlTest _urltest;
         KlantTest _klantTest;
         WebserviceTest _webserviceTest;
+        ErrorProvider _error;
 
         public AllWebserviceForm()
         {
@@ -41,6 +43,7 @@ namespace WindowsFormsAppTest
             _urltest = new UrlTest();
             _klantTest = new KlantTest();
             _webserviceTest = new WebserviceTest();
+            _error = new ErrorProvider();
 
             GetKlanten();
             GetWebservicesIfZoekOpNaamIsLeeg();
@@ -167,6 +170,16 @@ namespace WindowsFormsAppTest
 
         private void WebserviceTxtBx_TextChanged(object sender, EventArgs e)
         {
+            if (WebserviceTxtBx.Text != string.Empty)
+            {
+                _error.Clear();
+                PasWebserviceAanBtn.Enabled = true;
+            }
+            else
+            {
+                _error.SetError(WebserviceTxtBx, ConfigurationManager.AppSettings["LeegTekstVak"]);
+                PasWebserviceAanBtn.Enabled = false;
+            }
             _changedWebservice = WebserviceTxtBx.Text;
         }
 
@@ -177,8 +190,16 @@ namespace WindowsFormsAppTest
 
         private void PasWebserviceAanBtn_Click(object sender, EventArgs e)
         {
-            _webserviceTest.UpdateWebService((int)AllWebserviceKrLstBx.SelectedValue, _changedWebservice, _isSoap);
-            GetKlantenIfZoekOpKlantenNaamIsGevuld();
+            WebServiceData webServiceData = _webServiceDatas.Find(w => w.Name == _changedWebservice);
+            if (webServiceData == null)
+            {
+                _webserviceTest.UpdateWebService((int)AllWebserviceKrLstBx.SelectedValue, _changedWebservice, _isSoap);
+                GetKlantenIfZoekOpKlantenNaamIsGevuld();
+            }
+            else
+            {
+                _error.SetError(WebserviceTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
+            }
         }
 
         private void AddWebserviceBtn_Click(object sender, EventArgs e)

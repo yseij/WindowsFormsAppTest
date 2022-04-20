@@ -1,6 +1,8 @@
 ﻿using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
 {
@@ -20,26 +22,36 @@ namespace WindowsFormsAppTest
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
         private List<KlantData> _klantDatas = new List<KlantData>();
         private List<HttpData> _httpDatas = new List<HttpData>();
+        private List<UrlData> _urlDatas = new List<UrlData>();
 
         WebserviceTest _webserviceTest;
         KlantTest _klantTest;
         HttpTest _httpTest;
+        UrlTest _urltest;
+
+        ErrorProvider _error;
 
         public AddUrlForm()
         {
             InitializeComponent();
             _klantId = AllKlantenForm.SetValueForKlantId;
             _webserviceId = AllWebserviceForm.SetValueForWeberviceId;
+            _urltest = new UrlTest();
             _webserviceTest = new WebserviceTest();
             _klantTest = new KlantTest();
             _httpTest = new HttpTest();
+            _error = new ErrorProvider();
+
             _webServiceDatas = _webserviceTest.GetWebServiceData();
             _klantDatas = _klantTest.GetKlantData();
             _httpDatas = _httpTest.GetHttpData();
+            _urlDatas = _urltest.GetUrlData();
 
             FillCmbxWebServices();
             FillCmbxKlanten();
             FillCmbxHttp();
+
+            AddUrlButton.Enabled = false;
         }
 
         private void FillCmbxWebServices()
@@ -71,9 +83,19 @@ namespace WindowsFormsAppTest
 
         private void AddUrlButton_Click(object sender, EventArgs e)
         {
-            UrlTest urltest = new UrlTest();
-            urltest.AddUrl(_newUrl, _selectedWebserviceId, _selectedKlantId, _selectedHttpId, _newSecurityId);
-            Close();
+            if (NewUrlTxtBx.Text != string.Empty)
+            {
+                UrlData urlData = _urlDatas.Find(w => w.Name == NewUrlTxtBx.Text);
+                if (urlData == null)
+                {
+                    _urltest.AddUrl(_newUrl, _selectedWebserviceId, _selectedKlantId, _selectedHttpId, _newSecurityId);
+                    Close();
+                }
+                else
+                {
+                    _error.SetError(NewUrlTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
+                }
+            } 
         }
 
         private void NewSecurityIdTxtBx_TextChanged(object sender, EventArgs e)
@@ -83,6 +105,15 @@ namespace WindowsFormsAppTest
 
         private void NewUrlTxtBx_TextChanged(object sender, EventArgs e)
         {
+            _error.Clear();
+            if (NewUrlTxtBx.Text != string.Empty)
+            {
+                AddUrlButton.Enabled = true;
+            }
+            else
+            {
+                AddUrlButton.Enabled = false;
+            }
             _newUrl = NewUrlTxtBx.Text;
         }
 

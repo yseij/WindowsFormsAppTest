@@ -88,7 +88,7 @@ namespace WindowsFormsAppTest
             this.SecurityIdTxtBx.MouseState = MaterialSkin.MouseState.OUT;
             this.SecurityIdTxtBx.Multiline = false;
             this.SecurityIdTxtBx.Name = "SecurityIdTxtBx";
-            this.SecurityIdTxtBx.Size = new System.Drawing.Size(400, 50);
+            this.SecurityIdTxtBx.Size = new System.Drawing.Size(390, 50);
             this.SecurityIdTxtBx.TabIndex = 43;
             this.SecurityIdTxtBx.Text = "";
             this.SecurityIdTxtBx.TrailingIcon = null;
@@ -107,7 +107,7 @@ namespace WindowsFormsAppTest
             this.UrlTxtBx.MouseState = MaterialSkin.MouseState.OUT;
             this.UrlTxtBx.Multiline = false;
             this.UrlTxtBx.Name = "UrlTxtBx";
-            this.UrlTxtBx.Size = new System.Drawing.Size(400, 50);
+            this.UrlTxtBx.Size = new System.Drawing.Size(390, 50);
             this.UrlTxtBx.TabIndex = 45;
             this.UrlTxtBx.Text = "";
             this.UrlTxtBx.TrailingIcon = null;
@@ -174,7 +174,7 @@ namespace WindowsFormsAppTest
             this.AddUrlBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddUrlBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddUrlBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddUrlBtn.Location = new System.Drawing.Point(762, 482);
+            this.AddUrlBtn.Location = new System.Drawing.Point(751, 481);
             this.AddUrlBtn.Name = "AddUrlBtn";
             this.AddUrlBtn.Size = new System.Drawing.Size(112, 43);
             this.AddUrlBtn.TabIndex = 58;
@@ -189,7 +189,7 @@ namespace WindowsFormsAppTest
             this.PasUrlAanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PasUrlAanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasUrlAanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.PasUrlAanBtn.Location = new System.Drawing.Point(880, 481);
+            this.PasUrlAanBtn.Location = new System.Drawing.Point(869, 480);
             this.PasUrlAanBtn.Name = "PasUrlAanBtn";
             this.PasUrlAanBtn.Size = new System.Drawing.Size(112, 43);
             this.PasUrlAanBtn.TabIndex = 59;
@@ -230,7 +230,7 @@ namespace WindowsFormsAppTest
             this.HttpKrMaterialCmbx.MaxDropDownItems = 4;
             this.HttpKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
             this.HttpKrMaterialCmbx.Name = "HttpKrMaterialCmbx";
-            this.HttpKrMaterialCmbx.Size = new System.Drawing.Size(400, 49);
+            this.HttpKrMaterialCmbx.Size = new System.Drawing.Size(390, 49);
             this.HttpKrMaterialCmbx.StartIndex = 0;
             this.HttpKrMaterialCmbx.TabIndex = 61;
             this.HttpKrMaterialCmbx.ValueMember = "Id";
@@ -256,7 +256,7 @@ namespace WindowsFormsAppTest
             this.KlantKrMaterialCmbx.MaxDropDownItems = 4;
             this.KlantKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
             this.KlantKrMaterialCmbx.Name = "KlantKrMaterialCmbx";
-            this.KlantKrMaterialCmbx.Size = new System.Drawing.Size(400, 49);
+            this.KlantKrMaterialCmbx.Size = new System.Drawing.Size(390, 49);
             this.KlantKrMaterialCmbx.StartIndex = 0;
             this.KlantKrMaterialCmbx.TabIndex = 56;
             this.KlantKrMaterialCmbx.ValueMember = "Id";
@@ -282,7 +282,7 @@ namespace WindowsFormsAppTest
             this.WebserviceKrMaterialCmbx.MaxDropDownItems = 4;
             this.WebserviceKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
             this.WebserviceKrMaterialCmbx.Name = "WebserviceKrMaterialCmbx";
-            this.WebserviceKrMaterialCmbx.Size = new System.Drawing.Size(400, 49);
+            this.WebserviceKrMaterialCmbx.Size = new System.Drawing.Size(390, 49);
             this.WebserviceKrMaterialCmbx.StartIndex = 0;
             this.WebserviceKrMaterialCmbx.TabIndex = 55;
             this.WebserviceKrMaterialCmbx.ValueMember = "Id";

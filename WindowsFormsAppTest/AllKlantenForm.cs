@@ -1,6 +1,7 @@
 ﻿using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -30,6 +31,7 @@ namespace WindowsFormsAppTest
         UrlTest _urltest;
         KlantTest _klantTest;
         WebserviceTest _webserviceTest;
+        ErrorProvider _error;
 
         public AllKlantenForm()
         {
@@ -38,6 +40,7 @@ namespace WindowsFormsAppTest
             _urltest = new UrlTest();
             _klantTest = new KlantTest();
             _webserviceTest = new WebserviceTest();
+            _error = new ErrorProvider();
 
             GetKlantenIfZoekOpNaamIsLeeg();
             GetWebservices();
@@ -164,6 +167,16 @@ namespace WindowsFormsAppTest
 
         private void KlantTxtBx_TextChanged(object sender, EventArgs e)
         {
+            if (KlantTxtBx.Text != string.Empty)
+            {
+                _error.Clear();
+                PasKlantAanBtn.Enabled = true;
+            }
+            else
+            {
+                _error.SetError(KlantTxtBx, ConfigurationManager.AppSettings["LeegTekstVak"]);
+                PasKlantAanBtn.Enabled = false;
+            }
             _changedKlant = KlantTxtBx.Text;
         }
 
@@ -176,8 +189,16 @@ namespace WindowsFormsAppTest
 
         private void PasKlantAanBtn_Click(object sender, EventArgs e)
         {
-            _klantTest.UpdateKlant((int)AllKlantKrLstBx.SelectedValue, _changedKlant);
-            GetKlantenIfZoekOpKlantenNaamIsGevuld();
+            KlantData klantData = _klantDatas.Find(w => w.Name == _changedKlant);
+            if (klantData == null)
+            {
+                _klantTest.UpdateKlant((int)AllKlantKrLstBx.SelectedValue, _changedKlant);
+                GetKlantenIfZoekOpKlantenNaamIsGevuld();
+            }
+            else
+            {
+                _error.SetError(KlantTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
+            }
         }
 
         private void DeleteKlantBttn_Click(object sender, EventArgs e)

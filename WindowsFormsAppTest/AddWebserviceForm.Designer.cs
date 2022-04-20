@@ -30,8 +30,8 @@ namespace WindowsFormsAppTest
         private void InitializeComponent()
         {
             this.LblName = new MaterialSkin.Controls.MaterialLabel();
-            this.NewKlantNaamTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
-            this.AddKlantBttn = new System.Windows.Forms.Button();
+            this.NewWebserviceNaamTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
+            this.AddWebserviceBttn = new System.Windows.Forms.Button();
             this.SoapWebserviceChkBx = new MaterialSkin.Controls.MaterialCheckbox();
             this.SuspendLayout();
             // 
@@ -47,65 +47,65 @@ namespace WindowsFormsAppTest
             this.LblName.TabIndex = 4;
             this.LblName.Text = "Naam:";
             // 
-            // NewKlantNaamTxtBx
+            // NewWebserviceNaamTxtBx
             // 
-            this.NewKlantNaamTxtBx.AllowPromptAsInput = true;
-            this.NewKlantNaamTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.NewWebserviceNaamTxtBx.AllowPromptAsInput = true;
+            this.NewWebserviceNaamTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.NewKlantNaamTxtBx.AnimateReadOnly = false;
-            this.NewKlantNaamTxtBx.AsciiOnly = false;
-            this.NewKlantNaamTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.NewKlantNaamTxtBx.BeepOnError = false;
-            this.NewKlantNaamTxtBx.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.NewKlantNaamTxtBx.Depth = 0;
-            this.NewKlantNaamTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.NewKlantNaamTxtBx.HidePromptOnLeave = false;
-            this.NewKlantNaamTxtBx.HideSelection = true;
-            this.NewKlantNaamTxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
-            this.NewKlantNaamTxtBx.LeadingIcon = null;
-            this.NewKlantNaamTxtBx.Location = new System.Drawing.Point(60, 67);
-            this.NewKlantNaamTxtBx.Mask = "";
-            this.NewKlantNaamTxtBx.MaxLength = 32767;
-            this.NewKlantNaamTxtBx.MouseState = MaterialSkin.MouseState.OUT;
-            this.NewKlantNaamTxtBx.Name = "NewKlantNaamTxtBx";
-            this.NewKlantNaamTxtBx.PasswordChar = '\0';
-            this.NewKlantNaamTxtBx.PrefixSuffixText = null;
-            this.NewKlantNaamTxtBx.PromptChar = '_';
-            this.NewKlantNaamTxtBx.ReadOnly = false;
-            this.NewKlantNaamTxtBx.RejectInputOnFirstFailure = false;
-            this.NewKlantNaamTxtBx.ResetOnPrompt = true;
-            this.NewKlantNaamTxtBx.ResetOnSpace = true;
-            this.NewKlantNaamTxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.NewKlantNaamTxtBx.SelectedText = "";
-            this.NewKlantNaamTxtBx.SelectionLength = 0;
-            this.NewKlantNaamTxtBx.SelectionStart = 0;
-            this.NewKlantNaamTxtBx.ShortcutsEnabled = true;
-            this.NewKlantNaamTxtBx.Size = new System.Drawing.Size(358, 48);
-            this.NewKlantNaamTxtBx.SkipLiterals = true;
-            this.NewKlantNaamTxtBx.TabIndex = 5;
-            this.NewKlantNaamTxtBx.TabStop = false;
-            this.NewKlantNaamTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.NewKlantNaamTxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.NewKlantNaamTxtBx.TrailingIcon = null;
-            this.NewKlantNaamTxtBx.UseSystemPasswordChar = false;
-            this.NewKlantNaamTxtBx.ValidatingType = null;
-            this.NewKlantNaamTxtBx.TextChanged += new System.EventHandler(this.NewKlantNaamTxtBx_TextChanged);
+            this.NewWebserviceNaamTxtBx.AnimateReadOnly = false;
+            this.NewWebserviceNaamTxtBx.AsciiOnly = false;
+            this.NewWebserviceNaamTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.NewWebserviceNaamTxtBx.BeepOnError = false;
+            this.NewWebserviceNaamTxtBx.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.NewWebserviceNaamTxtBx.Depth = 0;
+            this.NewWebserviceNaamTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.NewWebserviceNaamTxtBx.HidePromptOnLeave = false;
+            this.NewWebserviceNaamTxtBx.HideSelection = true;
+            this.NewWebserviceNaamTxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
+            this.NewWebserviceNaamTxtBx.LeadingIcon = null;
+            this.NewWebserviceNaamTxtBx.Location = new System.Drawing.Point(60, 67);
+            this.NewWebserviceNaamTxtBx.Mask = "";
+            this.NewWebserviceNaamTxtBx.MaxLength = 32767;
+            this.NewWebserviceNaamTxtBx.MouseState = MaterialSkin.MouseState.OUT;
+            this.NewWebserviceNaamTxtBx.Name = "NewWebserviceNaamTxtBx";
+            this.NewWebserviceNaamTxtBx.PasswordChar = '\0';
+            this.NewWebserviceNaamTxtBx.PrefixSuffixText = null;
+            this.NewWebserviceNaamTxtBx.PromptChar = '_';
+            this.NewWebserviceNaamTxtBx.ReadOnly = false;
+            this.NewWebserviceNaamTxtBx.RejectInputOnFirstFailure = false;
+            this.NewWebserviceNaamTxtBx.ResetOnPrompt = true;
+            this.NewWebserviceNaamTxtBx.ResetOnSpace = true;
+            this.NewWebserviceNaamTxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.NewWebserviceNaamTxtBx.SelectedText = "";
+            this.NewWebserviceNaamTxtBx.SelectionLength = 0;
+            this.NewWebserviceNaamTxtBx.SelectionStart = 0;
+            this.NewWebserviceNaamTxtBx.ShortcutsEnabled = true;
+            this.NewWebserviceNaamTxtBx.Size = new System.Drawing.Size(354, 48);
+            this.NewWebserviceNaamTxtBx.SkipLiterals = true;
+            this.NewWebserviceNaamTxtBx.TabIndex = 5;
+            this.NewWebserviceNaamTxtBx.TabStop = false;
+            this.NewWebserviceNaamTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.NewWebserviceNaamTxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.NewWebserviceNaamTxtBx.TrailingIcon = null;
+            this.NewWebserviceNaamTxtBx.UseSystemPasswordChar = false;
+            this.NewWebserviceNaamTxtBx.ValidatingType = null;
+            this.NewWebserviceNaamTxtBx.TextChanged += new System.EventHandler(this.NewKlantNaamTxtBx_TextChanged);
             // 
-            // AddKlantBttn
+            // AddWebserviceBttn
             // 
-            this.AddKlantBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddKlantBttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.AddKlantBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddKlantBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddKlantBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddKlantBttn.Location = new System.Drawing.Point(227, 145);
-            this.AddKlantBttn.MinimumSize = new System.Drawing.Size(191, 43);
-            this.AddKlantBttn.Name = "AddKlantBttn";
-            this.AddKlantBttn.Size = new System.Drawing.Size(191, 43);
-            this.AddKlantBttn.TabIndex = 29;
-            this.AddKlantBttn.Text = "WEBSERVICE TOEVOEGEN";
-            this.AddKlantBttn.UseVisualStyleBackColor = false;
-            this.AddKlantBttn.Click += new System.EventHandler(this.AddWebserviceBttn_Click);
+            this.AddWebserviceBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddWebserviceBttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.AddWebserviceBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddWebserviceBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddWebserviceBttn.ForeColor = System.Drawing.SystemColors.Control;
+            this.AddWebserviceBttn.Location = new System.Drawing.Point(223, 144);
+            this.AddWebserviceBttn.MinimumSize = new System.Drawing.Size(191, 43);
+            this.AddWebserviceBttn.Name = "AddWebserviceBttn";
+            this.AddWebserviceBttn.Size = new System.Drawing.Size(191, 43);
+            this.AddWebserviceBttn.TabIndex = 29;
+            this.AddWebserviceBttn.Text = "WEBSERVICE TOEVOEGEN";
+            this.AddWebserviceBttn.UseVisualStyleBackColor = false;
+            this.AddWebserviceBttn.Click += new System.EventHandler(this.AddWebserviceBttn_Click);
             // 
             // SoapWebserviceChkBx
             // 
@@ -129,11 +129,11 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(424, 193);
+            this.ClientSize = new System.Drawing.Size(440, 193);
             this.Controls.Add(this.SoapWebserviceChkBx);
-            this.Controls.Add(this.AddKlantBttn);
+            this.Controls.Add(this.AddWebserviceBttn);
             this.Controls.Add(this.LblName);
-            this.Controls.Add(this.NewKlantNaamTxtBx);
+            this.Controls.Add(this.NewWebserviceNaamTxtBx);
             this.MinimumSize = new System.Drawing.Size(424, 193);
             this.Name = "AddWebserviceForm";
             this.Text = "Webservice toevoegen";
@@ -145,8 +145,8 @@ namespace WindowsFormsAppTest
         #endregion
 
         private MaterialSkin.Controls.MaterialLabel LblName;
-        private MaterialSkin.Controls.MaterialMaskedTextBox NewKlantNaamTxtBx;
-        private System.Windows.Forms.Button AddKlantBttn;
+        private MaterialSkin.Controls.MaterialMaskedTextBox NewWebserviceNaamTxtBx;
+        private System.Windows.Forms.Button AddWebserviceBttn;
         private MaterialSkin.Controls.MaterialCheckbox SoapWebserviceChkBx;
     }
 }

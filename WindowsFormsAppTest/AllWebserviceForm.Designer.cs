@@ -71,7 +71,7 @@ namespace WindowsFormsAppTest
             this.groupBox1.Controls.Add(this.DeleteWebserviceBttn);
             this.groupBox1.Controls.Add(this.WebserviceTxtBx);
             this.groupBox1.Controls.Add(this.LblNaam);
-            this.groupBox1.Location = new System.Drawing.Point(427, 203);
+            this.groupBox1.Location = new System.Drawing.Point(440, 203);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(472, 198);
             this.groupBox1.TabIndex = 65;
@@ -103,7 +103,7 @@ namespace WindowsFormsAppTest
             this.PasWebserviceAanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PasWebserviceAanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasWebserviceAanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.PasWebserviceAanBtn.Location = new System.Drawing.Point(354, 149);
+            this.PasWebserviceAanBtn.Location = new System.Drawing.Point(341, 149);
             this.PasWebserviceAanBtn.Name = "PasWebserviceAanBtn";
             this.PasWebserviceAanBtn.Size = new System.Drawing.Size(112, 43);
             this.PasWebserviceAanBtn.TabIndex = 78;
@@ -118,7 +118,7 @@ namespace WindowsFormsAppTest
             this.AddWebserviceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddWebserviceBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddWebserviceBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddWebserviceBtn.Location = new System.Drawing.Point(236, 149);
+            this.AddWebserviceBtn.Location = new System.Drawing.Point(223, 149);
             this.AddWebserviceBtn.Name = "AddWebserviceBtn";
             this.AddWebserviceBtn.Size = new System.Drawing.Size(112, 43);
             this.AddWebserviceBtn.TabIndex = 77;
@@ -172,7 +172,7 @@ namespace WindowsFormsAppTest
             this.WebserviceTxtBx.SelectionLength = 0;
             this.WebserviceTxtBx.SelectionStart = 0;
             this.WebserviceTxtBx.ShortcutsEnabled = true;
-            this.WebserviceTxtBx.Size = new System.Drawing.Size(405, 48);
+            this.WebserviceTxtBx.Size = new System.Drawing.Size(390, 48);
             this.WebserviceTxtBx.SkipLiterals = true;
             this.WebserviceTxtBx.TabIndex = 2;
             this.WebserviceTxtBx.TabStop = false;
@@ -239,7 +239,7 @@ namespace WindowsFormsAppTest
             this.SecurityIdTxtBx.SelectionLength = 0;
             this.SecurityIdTxtBx.SelectionStart = 0;
             this.SecurityIdTxtBx.ShortcutsEnabled = true;
-            this.SecurityIdTxtBx.Size = new System.Drawing.Size(368, 48);
+            this.SecurityIdTxtBx.Size = new System.Drawing.Size(353, 48);
             this.SecurityIdTxtBx.SkipLiterals = true;
             this.SecurityIdTxtBx.TabIndex = 7;
             this.SecurityIdTxtBx.TabStop = false;
@@ -306,7 +306,7 @@ namespace WindowsFormsAppTest
             this.UrlTxtBx.SelectionLength = 0;
             this.UrlTxtBx.SelectionStart = 0;
             this.UrlTxtBx.ShortcutsEnabled = true;
-            this.UrlTxtBx.Size = new System.Drawing.Size(368, 48);
+            this.UrlTxtBx.Size = new System.Drawing.Size(353, 48);
             this.UrlTxtBx.SkipLiterals = true;
             this.UrlTxtBx.TabIndex = 8;
             this.UrlTxtBx.TabStop = false;
@@ -358,7 +358,7 @@ namespace WindowsFormsAppTest
             this.groupBox2.Controls.Add(this.UrlTxtBx);
             this.groupBox2.Controls.Add(this.materialLabel4);
             this.groupBox2.Controls.Add(this.materialLabel5);
-            this.groupBox2.Location = new System.Drawing.Point(427, 431);
+            this.groupBox2.Location = new System.Drawing.Point(440, 431);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(472, 341);
             this.groupBox2.TabIndex = 76;
@@ -385,7 +385,7 @@ namespace WindowsFormsAppTest
             this.HttpKrMaterialCmbx.MaxDropDownItems = 4;
             this.HttpKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
             this.HttpKrMaterialCmbx.Name = "HttpKrMaterialCmbx";
-            this.HttpKrMaterialCmbx.Size = new System.Drawing.Size(368, 49);
+            this.HttpKrMaterialCmbx.Size = new System.Drawing.Size(353, 49);
             this.HttpKrMaterialCmbx.StartIndex = 0;
             this.HttpKrMaterialCmbx.TabIndex = 87;
             this.HttpKrMaterialCmbx.ValueMember = "Id";
@@ -411,7 +411,7 @@ namespace WindowsFormsAppTest
             this.PasUrlAanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PasUrlAanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasUrlAanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.PasUrlAanBtn.Location = new System.Drawing.Point(354, 292);
+            this.PasUrlAanBtn.Location = new System.Drawing.Point(341, 292);
             this.PasUrlAanBtn.Name = "PasUrlAanBtn";
             this.PasUrlAanBtn.Size = new System.Drawing.Size(112, 43);
             this.PasUrlAanBtn.TabIndex = 64;
@@ -439,7 +439,7 @@ namespace WindowsFormsAppTest
             this.KlantKrMaterialCmbx.MaxDropDownItems = 4;
             this.KlantKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
             this.KlantKrMaterialCmbx.Name = "KlantKrMaterialCmbx";
-            this.KlantKrMaterialCmbx.Size = new System.Drawing.Size(370, 49);
+            this.KlantKrMaterialCmbx.Size = new System.Drawing.Size(355, 49);
             this.KlantKrMaterialCmbx.StartIndex = 0;
             this.KlantKrMaterialCmbx.TabIndex = 75;
             this.KlantKrMaterialCmbx.ValueMember = "Id";
@@ -452,7 +452,7 @@ namespace WindowsFormsAppTest
             this.AddUrlByWebserviceBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddUrlByWebserviceBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddUrlByWebserviceBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddUrlByWebserviceBttn.Location = new System.Drawing.Point(236, 292);
+            this.AddUrlByWebserviceBttn.Location = new System.Drawing.Point(223, 292);
             this.AddUrlByWebserviceBttn.Name = "AddUrlByWebserviceBttn";
             this.AddUrlByWebserviceBttn.Size = new System.Drawing.Size(112, 43);
             this.AddUrlByWebserviceBttn.TabIndex = 63;
@@ -480,7 +480,7 @@ namespace WindowsFormsAppTest
             this.WebserviceKrMaterialCmbx.MaxDropDownItems = 4;
             this.WebserviceKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
             this.WebserviceKrMaterialCmbx.Name = "WebserviceKrMaterialCmbx";
-            this.WebserviceKrMaterialCmbx.Size = new System.Drawing.Size(370, 49);
+            this.WebserviceKrMaterialCmbx.Size = new System.Drawing.Size(355, 49);
             this.WebserviceKrMaterialCmbx.StartIndex = 0;
             this.WebserviceKrMaterialCmbx.TabIndex = 74;
             this.WebserviceKrMaterialCmbx.ValueMember = "Id";
@@ -523,7 +523,7 @@ namespace WindowsFormsAppTest
             this.AllUrlsKrLstBx.ItemHeight = 20;
             this.AllUrlsKrLstBx.Location = new System.Drawing.Point(7, 431);
             this.AllUrlsKrLstBx.Name = "AllUrlsKrLstBx";
-            this.AllUrlsKrLstBx.Size = new System.Drawing.Size(414, 324);
+            this.AllUrlsKrLstBx.Size = new System.Drawing.Size(427, 324);
             this.AllUrlsKrLstBx.TabIndex = 77;
             this.AllUrlsKrLstBx.SelectedIndexChanged += new System.EventHandler(this.AllUrlsKrLstBx_SelectedIndexChanged);
             // 
@@ -536,7 +536,7 @@ namespace WindowsFormsAppTest
             this.AllWebserviceKrLstBx.ItemHeight = 20;
             this.AllWebserviceKrLstBx.Location = new System.Drawing.Point(6, 203);
             this.AllWebserviceKrLstBx.Name = "AllWebserviceKrLstBx";
-            this.AllWebserviceKrLstBx.Size = new System.Drawing.Size(414, 184);
+            this.AllWebserviceKrLstBx.Size = new System.Drawing.Size(427, 184);
             this.AllWebserviceKrLstBx.TabIndex = 66;
             this.AllWebserviceKrLstBx.SelectedIndexChanged += new System.EventHandler(this.AllWebserviceKrLstBx_SelectedIndexChanged);
             // 
@@ -547,7 +547,7 @@ namespace WindowsFormsAppTest
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label3.Location = new System.Drawing.Point(6, 404);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(893, 2);
+            this.label3.Size = new System.Drawing.Size(906, 2);
             this.label3.TabIndex = 79;
             // 
             // label1
@@ -557,7 +557,7 @@ namespace WindowsFormsAppTest
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Location = new System.Drawing.Point(7, 170);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(893, 2);
+            this.label1.Size = new System.Drawing.Size(906, 2);
             this.label1.TabIndex = 88;
             // 
             // materialLabel7
@@ -618,7 +618,7 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(906, 780);
+            this.ClientSize = new System.Drawing.Size(919, 780);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.ZoekOpWebserviceNaamTxtBx);

@@ -1,5 +1,6 @@
 ﻿using MaterialSkin.Controls;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Windows.Controls;
 using System.Windows.Forms;
 
@@ -10,11 +11,13 @@ namespace WindowsFormsAppTest
         private List<HttpData> _httpDatas = new List<HttpData>();
 
         HttpTest _httpTest;
+        ErrorProvider _error;
         public AllHttpsForm()
         {
             InitializeComponent();
             _httpTest = new HttpTest();
-            
+            _error = new ErrorProvider();
+
             GetHttps();
         }
 
@@ -68,11 +71,32 @@ namespace WindowsFormsAppTest
 
         private void PasHttpAanBtn_Click(object sender, System.EventArgs e)
         {
-            int selectedIndex = AllHttpsKrLstBx.SelectedIndex;
-            int idOfSelected = (int)AllHttpsKrLstBx.SelectedValue;
-            _httpTest.UpdateHttp(idOfSelected, HttpTxtBx.Text);
-            GetHttps();
-            AllHttpsKrLstBx.SelectedIndex = selectedIndex;
+            HttpData httpData = _httpDatas.Find(w => w.Name == HttpTxtBx.Text);
+            if (httpData == null)
+            {
+                int selectedIndex = AllHttpsKrLstBx.SelectedIndex;
+                int idOfSelected = (int)AllHttpsKrLstBx.SelectedValue;
+                _httpTest.UpdateHttp(idOfSelected, HttpTxtBx.Text);
+                GetHttps();
+                AllHttpsKrLstBx.SelectedIndex = selectedIndex;
+            }
+            else
+            {
+                _error.SetError(HttpTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
+            }
+        }
+
+        private void HttpTxtBx_TextChanged(object sender, System.EventArgs e)
+        {
+            if (HttpTxtBx.Text != string.Empty)
+            {
+                PasHttpAanBtn.Enabled = true;
+            }
+            else
+            {
+                _error.SetError(HttpTxtBx, ConfigurationManager.AppSettings["LeegTekstVak"]);
+                PasHttpAanBtn.Enabled = false;
+            }
         }
     }
 }

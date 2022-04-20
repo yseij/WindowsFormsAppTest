@@ -45,7 +45,7 @@ namespace WindowsFormsAppTest
             this.PasHttpAanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PasHttpAanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasHttpAanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.PasHttpAanBtn.Location = new System.Drawing.Point(693, 250);
+            this.PasHttpAanBtn.Location = new System.Drawing.Point(681, 250);
             this.PasHttpAanBtn.Name = "PasHttpAanBtn";
             this.PasHttpAanBtn.Size = new System.Drawing.Size(112, 43);
             this.PasHttpAanBtn.TabIndex = 72;
@@ -60,7 +60,7 @@ namespace WindowsFormsAppTest
             this.AddHttpBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddHttpBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddHttpBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddHttpBtn.Location = new System.Drawing.Point(575, 251);
+            this.AddHttpBtn.Location = new System.Drawing.Point(563, 251);
             this.AddHttpBtn.Name = "AddHttpBtn";
             this.AddHttpBtn.Size = new System.Drawing.Size(112, 43);
             this.AddHttpBtn.TabIndex = 71;
@@ -96,10 +96,11 @@ namespace WindowsFormsAppTest
             this.HttpTxtBx.MouseState = MaterialSkin.MouseState.OUT;
             this.HttpTxtBx.Multiline = false;
             this.HttpTxtBx.Name = "HttpTxtBx";
-            this.HttpTxtBx.Size = new System.Drawing.Size(400, 50);
+            this.HttpTxtBx.Size = new System.Drawing.Size(388, 50);
             this.HttpTxtBx.TabIndex = 64;
             this.HttpTxtBx.Text = "";
             this.HttpTxtBx.TrailingIcon = null;
+            this.HttpTxtBx.TextChanged += new System.EventHandler(this.HttpTxtBx_TextChanged);
             // 
             // LblUrl
             // 

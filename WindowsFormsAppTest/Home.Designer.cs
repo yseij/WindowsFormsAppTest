@@ -417,7 +417,6 @@ namespace WindowsFormsAppTest
             this.MinimumSize = new System.Drawing.Size(633, 456);
             this.Name = "Home";
             this.Text = "Home";
-            this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Home_FormClosing);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
