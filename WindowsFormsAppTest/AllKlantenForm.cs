@@ -203,7 +203,28 @@ namespace WindowsFormsAppTest
 
         private void DeleteKlantBttn_Click(object sender, EventArgs e)
         {
-            _klantTest.DeleteKlant((int)AllKlantKrLstBx.SelectedValue);
+            GetUrlsFromKlant((int)AllKlantKrLstBx.SelectedValue);
+            UrlData urlData = _urlDatasByKlant.Find(w => w.KlantDataId == (int)AllKlantKrLstBx.SelectedValue);
+            if (urlData == null)
+            {
+                _klantTest.DeleteKlant((int)AllKlantKrLstBx.SelectedValue);
+            }
+            else
+            {
+                DialogResult dialogResult = MessageBox.Show("Wilt u de urls van de klant ook verwijderen", "Urls bij klant", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    foreach (UrlData urlData2 in _urlDatasByKlant)
+                    {
+                        _urltest.DeleteUrl(urlData2.Id);
+                    }
+                    _klantTest.DeleteKlant((int)AllKlantKrLstBx.SelectedValue);
+                }
+                else if (dialogResult == DialogResult.No)
+                {
+                    _error.SetError(DeleteKlantBttn, "De klant bevat nog urls");
+                }
+            }
             GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
