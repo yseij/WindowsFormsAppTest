@@ -9,10 +9,18 @@ namespace WindowsFormsAppTest
 {
     public partial class EenUrlTestForm : MaterialForm
     {
-        private string url;
-        private string securityId;
+        private string _url;
+        private string _securityId;
+        private string _webserviceName = string.Empty;
+        private string _httpName = string.Empty;
+        private string _urlHttp = string.Empty;
 
-        private string urlHttp = string.Empty;
+        private bool _isSoap = false;
+
+        private int _webserviceId = 0;
+        private int _httpId = 0;
+
+        dynamic _result = null;
 
         private List<HttpData> _httpDatas = new List<HttpData>();
         private List<WebServiceData> _webserviceDatas = new List<WebServiceData>();
@@ -63,57 +71,73 @@ namespace WindowsFormsAppTest
         private void TestRouteBtn_Click(object sender, EventArgs e)
         {
             ClearBox();
-            bool isSoap = false;
-            int webserviceId = 0;
-            int httpId = 0;
-            string webserviceName = string.Empty;
-            string httpName = string.Empty;
-            dynamic result = null;
+
+            CheckUrl();
+            CheckWebservice();
+            CheckHttp();
+
+            GetResult();
+        }
+
+        private void CheckUrl()
+        {
             foreach (UrlData urlData in _urlDatas)
             {
                 if ((int)UrlKrMaterialCmbx.SelectedValue == urlData.Id)
                 {
-                    webserviceId = urlData.WebServiceDataId;
-                    httpId = urlData.HttpDataId;
+                    _webserviceId = urlData.WebServiceDataId;
+                    _httpId = urlData.HttpDataId;
                 }
             }
+        }
+
+        private void CheckWebservice()
+        {
             foreach (WebServiceData item in _webserviceDatas)
             {
-                if (item.Id == webserviceId)
+                if (item.Id == _webserviceId)
                 {
-                    isSoap = item.Soap;
-                    webserviceName = item.Name;
+                    _isSoap = item.Soap;
+                    _webserviceName = item.Name;
                 }
             }
+        }
+
+        private void CheckHttp()
+        {
             foreach (HttpData item in _httpDatas)
             {
-                if (item.Id == httpId)
+                if (item.Id == _httpId)
                 {
-                    httpName = item.Name;
+                    _httpName = item.Name;
                 }
             }
-            if (isSoap && UrlKrMaterialCmbx.Text.EndsWith(".svc"))
+        }
+
+        private void GetResult()
+        {
+            if (_isSoap && UrlKrMaterialCmbx.Text.EndsWith(".svc"))
             {
                 if (UrlKrMaterialCmbx.Text == "MessageServiceSoap31.svc")
                 {
-                    result = _webRequest.Get31SalesData(httpName + webserviceName, TxtBxUsername, TxtBxPassword, ResponseTextBox);
-                    if (result != null)
+                    _result = _webRequest.Get31SalesData(_httpName + _webserviceName, TxtBxUsername, TxtBxPassword, ResponseTextBox);
+                    if (_result != null)
                     {
-                        CheckData(result, webserviceName, 3.1);
+                        CheckData(_result, _webserviceName, 3.1);
                     }
                 }
                 else if (UrlKrMaterialCmbx.Text == "MessageServiceSoap.svc")
                 {
-                    result = _webRequest.Get24SalesData(httpName + webserviceName, ResponseTextBox);
-                    if (result != null)
+                    _result = _webRequest.Get24SalesData(_httpName + _webserviceName, ResponseTextBox);
+                    if (_result != null)
                     {
-                        CheckData(result, webserviceName, 2.4);
+                        CheckData(_result, _webserviceName, 2.4);
                     }
                 }
                 else
                 {
-                    string data = _webRequest.GetWebRequestSoap(httpName, webserviceName, UrlKrMaterialCmbx.Text);
-                    
+                    string data = _webRequest.GetWebRequestSoap(_httpName, _webserviceName, UrlKrMaterialCmbx.Text);
+
                     if (data == "Niet goed")
                     {
                         ResponseTextBox.Text = "Deze service bestaat niet";
@@ -128,13 +152,13 @@ namespace WindowsFormsAppTest
             else
             {
                 var data = _webRequest.GetWebRequestRest((int)UrlKrMaterialCmbx.SelectedValue,
-                                                     httpName,
-                                                     webserviceName,
+                                                     _httpName,
+                                                     _webserviceName,
                                                      UrlKrMaterialCmbx.Text,
-                                                     securityId);
-                result = JObject.Parse(data);
+                                                     _securityId);
+                _result = JObject.Parse(data);
 
-                _testRoute.TestOneRoute(result,
+                _testRoute.TestOneRoute(_result,
                                     textBoxWebservice,
                                     SslChckBx,
                                     SllCertificaatVervalDatumTxtBx,
@@ -142,9 +166,8 @@ namespace WindowsFormsAppTest
                                     checkBoxKraanIni,
                                     checkBoxKraanDatabase,
                                     ResponseTextBox,
-                                    webserviceName);
+                                    _webserviceName);
             }
-
         }
 
         private void UrlKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
@@ -152,8 +175,8 @@ namespace WindowsFormsAppTest
             ClearBox();
             int idOfSelected = (int)UrlKrMaterialCmbx.SelectedValue;
             UrlData urlData = _urlDatas.Find(u => u.Id == idOfSelected);
-            url = urlData.Name;
-            securityId = urlData.SecurityId;
+            _url = urlData.Name;
+            _securityId = urlData.SecurityId;
             foreach (WebServiceData item in _webserviceDatas)
             {
                 if (item.Id == urlData.WebServiceDataId)
@@ -161,23 +184,14 @@ namespace WindowsFormsAppTest
                     if ((item.Soap && item.Name == "KraanSalesService") || (item.Soap && item.Name == "release"))
                     {
                         TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["SalesPage"];
-                        //TbCntrlRestApiEnSoap.Size = new Size(851, 638);
-                        //ActiveForm.Height = 1061;
-                        //Console.WriteLine("1");
                     }
                     else if ((item.Soap && item.Name != "KraanSalesService") || (item.Soap && item.Name != "release"))
                     {
                         TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["SoapPage"];
-                        //TbCntrlRestApiEnSoap.Size = new Size(851, 360);
-                        //ActiveForm.Height = 660;
-                        //Console.WriteLine("2");
                     }
                     else if(!item.Soap)
                     {
                         TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["RestPage"];
-                        //TbCntrlRestApiEnSoap.Size = new Size(851, 364);
-                        //ActiveForm.Height = 781;
-                        //Console.WriteLine("3");
                     }
                 }
             }

@@ -15,6 +15,7 @@ namespace WindowsFormsAppTest
 
         private bool _klant;
         private bool _isSoap;
+
         private string _webserviceName;
         private string _httpName;
 
