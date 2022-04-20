@@ -200,7 +200,7 @@ namespace WindowsFormsAppTest
             this.AantalLegeUrlsTxtBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.AantalLegeUrlsTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.AantalLegeUrlsTxtBx.Depth = 0;
-            this.AantalLegeUrlsTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.AantalLegeUrlsTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.AantalLegeUrlsTxtBx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.AantalLegeUrlsTxtBx.LeadingIcon = null;
             this.AantalLegeUrlsTxtBx.Location = new System.Drawing.Point(65, 22);
@@ -269,7 +269,7 @@ namespace WindowsFormsAppTest
             this.TestAllBtn.TabIndex = 65;
             this.TestAllBtn.Text = "Test Alles";
             this.TestAllBtn.UseVisualStyleBackColor = false;
-            this.TestAllBtn.Click += new System.EventHandler(this.TestAllBtn_Click_1);
+            this.TestAllBtn.Click += new System.EventHandler(this.TestAllBtn_Click);
             // 
             // TbCntrlRestApiEnSoap
             // 
@@ -325,7 +325,7 @@ namespace WindowsFormsAppTest
             this.textBoxWebservice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.textBoxWebservice.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxWebservice.Depth = 0;
-            this.textBoxWebservice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxWebservice.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.textBoxWebservice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.textBoxWebservice.LeadingIcon = null;
             this.textBoxWebservice.Location = new System.Drawing.Point(142, 19);
@@ -451,7 +451,7 @@ namespace WindowsFormsAppTest
             this.SllCertificaatVervalDatumTxtBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.SllCertificaatVervalDatumTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SllCertificaatVervalDatumTxtBx.Depth = 0;
-            this.SllCertificaatVervalDatumTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.SllCertificaatVervalDatumTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.SllCertificaatVervalDatumTxtBx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.SllCertificaatVervalDatumTxtBx.LeadingIcon = null;
             this.SllCertificaatVervalDatumTxtBx.Location = new System.Drawing.Point(180, 22);
@@ -515,7 +515,7 @@ namespace WindowsFormsAppTest
             this.TxtBxDatabaseVersie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxDatabaseVersie.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxDatabaseVersie.Depth = 0;
-            this.TxtBxDatabaseVersie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxDatabaseVersie.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxDatabaseVersie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxDatabaseVersie.LeadingIcon = null;
             this.TxtBxDatabaseVersie.Location = new System.Drawing.Point(162, 137);
@@ -551,7 +551,7 @@ namespace WindowsFormsAppTest
             this.TxtBxDevExpressVersie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxDevExpressVersie.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxDevExpressVersie.Depth = 0;
-            this.TxtBxDevExpressVersie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxDevExpressVersie.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxDevExpressVersie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxDevExpressVersie.LeadingIcon = null;
             this.TxtBxDevExpressVersie.Location = new System.Drawing.Point(162, 78);
@@ -587,7 +587,7 @@ namespace WindowsFormsAppTest
             this.TxtBxWebserviceVersie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxWebserviceVersie.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxWebserviceVersie.Depth = 0;
-            this.TxtBxWebserviceVersie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxWebserviceVersie.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxWebserviceVersie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxWebserviceVersie.LeadingIcon = null;
             this.TxtBxWebserviceVersie.Location = new System.Drawing.Point(162, 22);
@@ -664,7 +664,7 @@ namespace WindowsFormsAppTest
             this.TxtBxMessageVersie2_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxMessageVersie2_4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxMessageVersie2_4.Depth = 0;
-            this.TxtBxMessageVersie2_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxMessageVersie2_4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxMessageVersie2_4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxMessageVersie2_4.LeadingIcon = null;
             this.TxtBxMessageVersie2_4.Location = new System.Drawing.Point(186, 19);
@@ -700,7 +700,7 @@ namespace WindowsFormsAppTest
             this.TxtBxMssqlCatalog2_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxMssqlCatalog2_4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxMssqlCatalog2_4.Depth = 0;
-            this.TxtBxMssqlCatalog2_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxMssqlCatalog2_4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxMssqlCatalog2_4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxMssqlCatalog2_4.LeadingIcon = null;
             this.TxtBxMssqlCatalog2_4.Location = new System.Drawing.Point(186, 433);
@@ -736,7 +736,7 @@ namespace WindowsFormsAppTest
             this.TxtBxMssqlServer2_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxMssqlServer2_4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxMssqlServer2_4.Depth = 0;
-            this.TxtBxMssqlServer2_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxMssqlServer2_4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxMssqlServer2_4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxMssqlServer2_4.LeadingIcon = null;
             this.TxtBxMssqlServer2_4.Location = new System.Drawing.Point(186, 383);
@@ -772,7 +772,7 @@ namespace WindowsFormsAppTest
             this.TxtBxInterbaseVersie2_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxInterbaseVersie2_4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxInterbaseVersie2_4.Depth = 0;
-            this.TxtBxInterbaseVersie2_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxInterbaseVersie2_4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxInterbaseVersie2_4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxInterbaseVersie2_4.LeadingIcon = null;
             this.TxtBxInterbaseVersie2_4.Location = new System.Drawing.Point(186, 333);
@@ -808,7 +808,7 @@ namespace WindowsFormsAppTest
             this.TxtBxKraan2DatabaseVersie2_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxKraan2DatabaseVersie2_4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxKraan2DatabaseVersie2_4.Depth = 0;
-            this.TxtBxKraan2DatabaseVersie2_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxKraan2DatabaseVersie2_4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxKraan2DatabaseVersie2_4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxKraan2DatabaseVersie2_4.LeadingIcon = null;
             this.TxtBxKraan2DatabaseVersie2_4.Location = new System.Drawing.Point(186, 283);
@@ -844,7 +844,7 @@ namespace WindowsFormsAppTest
             this.TxtBxKraan1DatabaseVersie2_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxKraan1DatabaseVersie2_4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxKraan1DatabaseVersie2_4.Depth = 0;
-            this.TxtBxKraan1DatabaseVersie2_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxKraan1DatabaseVersie2_4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxKraan1DatabaseVersie2_4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxKraan1DatabaseVersie2_4.LeadingIcon = null;
             this.TxtBxKraan1DatabaseVersie2_4.Location = new System.Drawing.Point(186, 233);
@@ -880,7 +880,7 @@ namespace WindowsFormsAppTest
             this.TxtBxKraanDllVersie2_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxKraanDllVersie2_4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxKraanDllVersie2_4.Depth = 0;
-            this.TxtBxKraanDllVersie2_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxKraanDllVersie2_4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxKraanDllVersie2_4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxKraanDllVersie2_4.LeadingIcon = null;
             this.TxtBxKraanDllVersie2_4.Location = new System.Drawing.Point(186, 106);
@@ -1014,7 +1014,7 @@ namespace WindowsFormsAppTest
             this.TxtBxMessageVersie3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxMessageVersie3_1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxMessageVersie3_1.Depth = 0;
-            this.TxtBxMessageVersie3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxMessageVersie3_1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxMessageVersie3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxMessageVersie3_1.LeadingIcon = null;
             this.TxtBxMessageVersie3_1.Location = new System.Drawing.Point(186, 19);
@@ -1050,7 +1050,7 @@ namespace WindowsFormsAppTest
             this.TxtBxMssqlCatalog3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxMssqlCatalog3_1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxMssqlCatalog3_1.Depth = 0;
-            this.TxtBxMssqlCatalog3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxMssqlCatalog3_1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxMssqlCatalog3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxMssqlCatalog3_1.LeadingIcon = null;
             this.TxtBxMssqlCatalog3_1.Location = new System.Drawing.Point(186, 433);
@@ -1086,7 +1086,7 @@ namespace WindowsFormsAppTest
             this.TxtBxMssqlServer3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxMssqlServer3_1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxMssqlServer3_1.Depth = 0;
-            this.TxtBxMssqlServer3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxMssqlServer3_1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxMssqlServer3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxMssqlServer3_1.LeadingIcon = null;
             this.TxtBxMssqlServer3_1.Location = new System.Drawing.Point(186, 383);
@@ -1122,7 +1122,7 @@ namespace WindowsFormsAppTest
             this.TxtBxInterbaseVersie3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxInterbaseVersie3_1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxInterbaseVersie3_1.Depth = 0;
-            this.TxtBxInterbaseVersie3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxInterbaseVersie3_1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxInterbaseVersie3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxInterbaseVersie3_1.LeadingIcon = null;
             this.TxtBxInterbaseVersie3_1.Location = new System.Drawing.Point(186, 333);
@@ -1158,7 +1158,7 @@ namespace WindowsFormsAppTest
             this.TxtBxKraan2DatabaseVersie3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxKraan2DatabaseVersie3_1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxKraan2DatabaseVersie3_1.Depth = 0;
-            this.TxtBxKraan2DatabaseVersie3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxKraan2DatabaseVersie3_1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxKraan2DatabaseVersie3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxKraan2DatabaseVersie3_1.LeadingIcon = null;
             this.TxtBxKraan2DatabaseVersie3_1.Location = new System.Drawing.Point(186, 283);
@@ -1194,7 +1194,7 @@ namespace WindowsFormsAppTest
             this.TxtBxKraan1DatabaseVersie3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxKraan1DatabaseVersie3_1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxKraan1DatabaseVersie3_1.Depth = 0;
-            this.TxtBxKraan1DatabaseVersie3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxKraan1DatabaseVersie3_1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxKraan1DatabaseVersie3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxKraan1DatabaseVersie3_1.LeadingIcon = null;
             this.TxtBxKraan1DatabaseVersie3_1.Location = new System.Drawing.Point(186, 233);
@@ -1230,7 +1230,7 @@ namespace WindowsFormsAppTest
             this.TxtBxKraanDllVersie3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxKraanDllVersie3_1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxKraanDllVersie3_1.Depth = 0;
-            this.TxtBxKraanDllVersie3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxKraanDllVersie3_1.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxKraanDllVersie3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxKraanDllVersie3_1.LeadingIcon = null;
             this.TxtBxKraanDllVersie3_1.Location = new System.Drawing.Point(186, 106);

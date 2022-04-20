@@ -8,7 +8,7 @@ namespace WindowsFormsAppTest
 {
     class KrXml
     {
-        private string _xmlName = "user.xml";
+        private string _xmlName = "user.xml"; 
         public KrXml()
         {
 
