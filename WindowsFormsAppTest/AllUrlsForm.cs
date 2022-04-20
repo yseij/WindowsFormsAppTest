@@ -7,8 +7,9 @@ namespace WindowsFormsAppTest
 {
     public partial class AllUrlsForm : MaterialForm
     {
-        private string changedSecurityId = "";
+        private string changedSecurityId = string.Empty;
         private string changedUrl;
+
         private int _selectedWebserviceId;
         private int _selectedKlantId;
         private int _selectedHttpId;

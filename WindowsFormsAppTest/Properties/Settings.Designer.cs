@@ -130,5 +130,17 @@ namespace WindowsFormsAppTest.Properties {
                 this["ServiceAanOfUit"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("d:")]
+        public string SaveXmlFile {
+            get {
+                return ((string)(this["SaveXmlFile"]));
+            }
+            set {
+                this["SaveXmlFile"] = value;
+            }
+        }
     }
 }

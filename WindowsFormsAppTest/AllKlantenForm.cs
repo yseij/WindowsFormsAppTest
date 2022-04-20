@@ -1,5 +1,4 @@
-﻿using MaterialSkin;
-using MaterialSkin.Controls;
+﻿using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
@@ -52,10 +51,13 @@ namespace WindowsFormsAppTest
             FillLstBxKlanten();
             FillCmbxKlanten();
 
-            KlantTxtBx.Text = _klantDatas[0].Name;
-            AllKlantKrLstBx.SelectedIndex = 0;
+            if (_klantDatas.Count != 0)
+            {
+                KlantTxtBx.Text = _klantDatas[0].Name;
+                AllKlantKrLstBx.SelectedIndex = 0;
 
-            GetUrlsFromKlant(_klantDatas[0].Id);
+                GetUrlsFromKlant(_klantDatas[0].Id);
+            }
         }
 
         private void GetKlantenIfZoekOpNaamIsGevuld()

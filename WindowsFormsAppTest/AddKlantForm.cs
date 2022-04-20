@@ -5,8 +5,6 @@ namespace WindowsFormsAppTest
 {
     public partial class AddKlantForm : MaterialForm
     {
-        private string _newKlantNaam;
-
         KlantTest _klantTest;
         public AddKlantForm()
         {
@@ -16,13 +14,8 @@ namespace WindowsFormsAppTest
 
         private void AddKlantBttn_Click(object sender, EventArgs e)
         {
-            _klantTest.AddKlant(_newKlantNaam);
+            _klantTest.AddKlant(NewKlantNaamTxtBx.Text);
             Close();
-        }
-
-        private void NewKlantNaamTxtBx_TextChanged(object sender, EventArgs e)
-        {
-            _newKlantNaam = NewKlantNaamTxtBx.Text;
         }
     }
 }

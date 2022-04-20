@@ -7,7 +7,7 @@ namespace WindowsFormsAppTest
     public partial class AddUrlForm : MaterialForm
     {
         private string _newUrl;
-        private string _newSecurityId = "";
+        private string _newSecurityId = string.Empty;
 
         private int _selectedWebserviceId;
         private int _selectedKlantId;

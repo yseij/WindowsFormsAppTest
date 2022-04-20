@@ -76,7 +76,6 @@ namespace WindowsFormsAppTest
             this.NewKlantNaamTxtBx.TrailingIcon = null;
             this.NewKlantNaamTxtBx.UseSystemPasswordChar = false;
             this.NewKlantNaamTxtBx.ValidatingType = null;
-            this.NewKlantNaamTxtBx.TextChanged += new System.EventHandler(this.NewKlantNaamTxtBx_TextChanged);
             // 
             // LblName
             // 

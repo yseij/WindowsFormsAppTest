@@ -96,7 +96,6 @@ namespace WindowsFormsAppTest
             FillCmbxHttp();
         }
 
-
         private void FillLstBxUrlsFromWebservice()
         {
             AllUrlsKrLstBx.FillListBoxUrlData(_urlDatasByWebservice);
@@ -144,6 +143,7 @@ namespace WindowsFormsAppTest
         private void FillCmbxHttp()
         {
             HttpKrMaterialCmbx.FillCmbBoxHttp(_httpDatas);
+            HttpKrMaterialCmbx.SelectedValue = _httpDatas[0].Id;
         }
 
         private void AllWebserviceKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
@@ -163,7 +163,6 @@ namespace WindowsFormsAppTest
                     FillUrlData(urlData);
                 }
             }
-
         }
 
         private void WebserviceTxtBx_TextChanged(object sender, EventArgs e)
@@ -276,6 +275,7 @@ namespace WindowsFormsAppTest
         {
             UrlTxtBx.Text = urlData.Name;
             SecurityIdTxtBx.Text = urlData.SecurityId;
+            HttpKrMaterialCmbx.SelectedValue = urlData.HttpDataId;
             WebserviceKrMaterialCmbx.SelectedValue = urlData.WebServiceDataId;
             KlantKrMaterialCmbx.SelectedValue = urlData.KlantDataId;
             WebserviceKrMaterialCmbx.Refresh();

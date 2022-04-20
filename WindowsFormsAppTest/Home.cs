@@ -120,7 +120,6 @@ namespace WindowsFormsAppTest
                     }
                 }
             }
-
             ToolStripMenuItem1.Enabled = (_klantKeuzeId != 0 || _webserviceKeuzeId != 0) && Properties.Settings.Default.Email != "";
         }
 
