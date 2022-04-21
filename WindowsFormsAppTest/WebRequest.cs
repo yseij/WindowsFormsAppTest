@@ -85,9 +85,9 @@ namespace WindowsFormsAppTest
                     }
                 }
             }
-            catch (WebException ex)
+            catch (Exception ex)
             {
-                return @"{ ex: '" + ex.Message.ToString() + ex.Response.ToString() + "'}";
+                return @"{ ex: '" + ex.Message.ToString() + "'}";
             }
         }
 
@@ -288,7 +288,8 @@ namespace WindowsFormsAppTest
                 }
                 catch (Exception ex)
                 {
-                    return @"{ ex: '" + ex.Message.ToString() + "'}";
+                    string exString = @"{ ex: '" + ex.Message.ToString() + "'}";
+                    return JObject.Parse(exString);
                 }
             }
         }
@@ -311,27 +312,35 @@ namespace WindowsFormsAppTest
                     Sales31.MessageType message = new Sales31.MessageType();
                     message.MsgProperties = new Sales31.MessagePropertiesType();
                     message.MsgProperties.MsgType = "CST_KRAAN_VERSION";
-
-                    Sales31.MessageResponseType antwoord = client.PostMessage(null, message);
-                    if (antwoord.Message.MsgContent != null)
+                    try
                     {
-                        testResultaat = "Er is een beveiligde verbinding gemaakt met de Sales Messageservice ..." + Environment.NewLine;
-                        testResultaat += "\r\nURL: " + CreateEndpointAddress(host, "messageservicesoap31.svc").Uri;
-                        testResultaat = testResultaat + antwoord.Message.MsgContent;
-                        testResultaat = antwoord.Message.MsgContent;
+                        Sales31.MessageResponseType antwoord = client.PostMessage(null, message);
+                        if (antwoord.Message.MsgContent != null)
+                        {
+                            testResultaat = "Er is een beveiligde verbinding gemaakt met de Sales Messageservice ..." + Environment.NewLine;
+                            testResultaat += "\r\nURL: " + CreateEndpointAddress(host, "messageservicesoap31.svc").Uri;
+                            testResultaat = testResultaat + antwoord.Message.MsgContent;
+                            testResultaat = antwoord.Message.MsgContent;
 
-                        var data = "{\""
-                            + antwoord.Message.MsgContent.Trim()
-                            .Replace("\r\n", "\", \"")
-                            .Replace(": ", "\": \"")
-                            .Replace(@"\", " ")
-                            .Replace("application\": \"", "application: ")
-                            .Replace("Versie\": \"", "Versie: ")
-                            + "\"}";
+                            var data = "{\""
+                                + antwoord.Message.MsgContent.Trim()
+                                .Replace("\r\n", "\", \"")
+                                .Replace(": ", "\": \"")
+                                .Replace(@"\", " ")
+                                .Replace("application\": \"", "application: ")
+                                .Replace("Versie\": \"", "Versie: ")
+                                + "\"}";
+                            client.Close();
+                            return JObject.Parse(data);
+                        }
                         client.Close();
-                        return JObject.Parse(data);
                     }
-                    client.Close();
+                    catch (Exception ex)
+                    {
+                        string exString = @"{ ex: '" + ex.Message.ToString() + "'}";
+                        return JObject.Parse(exString);
+                    }
+                    
                 }
                 catch (FaultException fex)
                 {

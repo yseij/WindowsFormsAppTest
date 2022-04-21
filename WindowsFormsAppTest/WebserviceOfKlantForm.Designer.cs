@@ -161,7 +161,7 @@ namespace WindowsFormsAppTest
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.groupBox2.Location = new System.Drawing.Point(21, 778);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(439, 298);
+            this.groupBox2.Size = new System.Drawing.Size(439, 254);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Urls die niet goed gingen";
@@ -187,7 +187,7 @@ namespace WindowsFormsAppTest
             this.LegeUrlsTxtBx.SelectionLength = 0;
             this.LegeUrlsTxtBx.SelectionStart = 0;
             this.LegeUrlsTxtBx.ShortcutsEnabled = true;
-            this.LegeUrlsTxtBx.Size = new System.Drawing.Size(415, 220);
+            this.LegeUrlsTxtBx.Size = new System.Drawing.Size(415, 176);
             this.LegeUrlsTxtBx.TabIndex = 32;
             this.LegeUrlsTxtBx.TabStop = false;
             this.LegeUrlsTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -251,7 +251,7 @@ namespace WindowsFormsAppTest
             this.ResponseTextBox.SelectionLength = 0;
             this.ResponseTextBox.SelectionStart = 0;
             this.ResponseTextBox.ShortcutsEnabled = true;
-            this.ResponseTextBox.Size = new System.Drawing.Size(450, 298);
+            this.ResponseTextBox.Size = new System.Drawing.Size(450, 254);
             this.ResponseTextBox.TabIndex = 32;
             this.ResponseTextBox.TabStop = false;
             this.ResponseTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1362,7 +1362,7 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 1082);
+            this.ClientSize = new System.Drawing.Size(936, 1038);
             this.Controls.Add(this.BtnSort);
             this.Controls.Add(this.TbCntrlRestApiEnSoap);
             this.Controls.Add(this.TestAllBtn);

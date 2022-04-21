@@ -136,17 +136,8 @@ namespace WindowsFormsAppTest
                 }
                 else
                 {
-                    string data = _webRequest.GetWebRequestSoap(_httpName, _webserviceName, UrlKrMaterialCmbx.Text);
-
-                    if (data == "Niet goed")
-                    {
-                        ResponseTextBox.Text = "Deze service bestaat niet";
-                    }
-                    else
-                    {
-                        ResponseTextBox.Text = data;
-                        CheckDataSoap(JObject.Parse(data));
-                    }
+                    dynamic data = JObject.Parse(_webRequest.GetWebRequestSoap(_httpName, _webserviceName, UrlKrMaterialCmbx.Text));
+                    CheckDataSoap(data);
                 }
             }
             else
@@ -189,7 +180,7 @@ namespace WindowsFormsAppTest
                     {
                         TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["SoapPage"];
                     }
-                    else if(!item.Soap)
+                    else if (!item.Soap)
                     {
                         TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["RestPage"];
                     }
@@ -274,6 +265,9 @@ namespace WindowsFormsAppTest
                     case "Kraan 2 databaseversie":
                         TxtBxKraan2DatabaseVersie = item.Value.ToString().Split(':')[0];
                         break;
+                    case "ex":
+                        ResponseTextBox.Text = ResponseTextBox.Text + item.Value;
+                        break;
                 }
             }
             if (soort == 2.4)
@@ -329,6 +323,7 @@ namespace WindowsFormsAppTest
                         TxtBxDatabaseVersie.Text = item.Value.ToString().Replace("{", "").Replace("}", "");
                         break;
                 }
+                ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " +item.Value + Environment.NewLine;
             }
         }
     }
