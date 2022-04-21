@@ -32,5 +32,8 @@
     <Setting Name="SaveXmlFile" Type="System.String" Scope="User">
       <Value Profile="(Default)">d:</Value>
     </Setting>
+    <Setting Name="SaveDbPlace" Type="System.String" Scope="User">
+      <Value Profile="(Default)">d:</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

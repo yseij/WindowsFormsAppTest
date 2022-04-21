@@ -573,5 +573,11 @@ namespace WindowsFormsAppTest
         {
             RouteTest();
         }
+
+        private void databaseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CreateDatabase createDatabase = new CreateDatabase();
+            createDatabase.MakeDb(true);
+        }
     }
 }

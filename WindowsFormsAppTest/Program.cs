@@ -14,9 +14,15 @@ namespace WindowsFormsAppTest
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Home home = new Home();
-            home.HomeTest();
-            Application.Run(home);
+            CreateDatabase createDatabase = new CreateDatabase();
+            bool IsDb = createDatabase.MakeDb(false);
+            if (IsDb)
+            {
+                Home home = new Home();
+                home.HomeTest();
+                Application.Run(home);
+            }
+            Application.Exit();
         }
     }
 }

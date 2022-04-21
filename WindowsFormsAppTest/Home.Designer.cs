@@ -64,6 +64,7 @@ namespace WindowsFormsAppTest
             this.BtnShowWebservices = new System.Windows.Forms.Button();
             this.BtnShowKlanten = new System.Windows.Forms.Button();
             this.BtnShowHttps = new System.Windows.Forms.Button();
+            this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -111,11 +112,12 @@ namespace WindowsFormsAppTest
             this.StripMenuItemLogFile,
             this.StripMenuItemTestTijd,
             this.ServiceTlStrpMnItm,
-            this.EmailTlStrpMnItm});
+            this.EmailTlStrpMnItm,
+            this.databaseToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(3, 429);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip.Size = new System.Drawing.Size(209, 24);
+            this.menuStrip.Size = new System.Drawing.Size(441, 24);
             this.menuStrip.TabIndex = 9;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -397,6 +399,13 @@ namespace WindowsFormsAppTest
             this.BtnShowHttps.UseVisualStyleBackColor = false;
             this.BtnShowHttps.Click += new System.EventHandler(this.BtnShowHttps_Click);
             // 
+            // databaseToolStripMenuItem
+            // 
+            this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
+            this.databaseToolStripMenuItem.Text = "Database resetten";
+            this.databaseToolStripMenuItem.Click += new System.EventHandler(this.databaseToolStripMenuItem_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -461,5 +470,6 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.ToolStripMenuItem UitByServiceTlStrpMnItm;
         private System.Windows.Forms.ToolStripMenuItem EmailTlStrpMnItm;
         private System.Windows.Forms.Button BtnShowHttps;
+        private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
     }
 }

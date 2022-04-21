@@ -142,5 +142,17 @@ namespace WindowsFormsAppTest.Properties {
                 this["SaveXmlFile"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("d:")]
+        public string SaveDbPlace {
+            get {
+                return ((string)(this["SaveDbPlace"]));
+            }
+            set {
+                this["SaveDbPlace"] = value;
+            }
+        }
     }
 }

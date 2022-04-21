@@ -133,7 +133,10 @@ namespace WindowsFormsAppTest
         private void FillCmbxWebServices()
         {
             WebserviceKrMaterialCmbx.FillCmbBoxWebservice(_webServiceDatas);
-            WebserviceKrMaterialCmbx.SelectedValue = _webServiceDatas[0].Id;
+            if (_webServiceDatas.Count > 0)
+            {
+                WebserviceKrMaterialCmbx.SelectedValue = _webServiceDatas[0].Id;
+            }
         }
 
         private void FillCmbxKlanten()

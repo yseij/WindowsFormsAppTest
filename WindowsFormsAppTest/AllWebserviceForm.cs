@@ -57,10 +57,13 @@ namespace WindowsFormsAppTest
             FillLstBxWebServices();
             FillCmbxWebServices();
 
-            WebserviceTxtBx.Text = _webServiceDatas[0].Name;
-            AllWebserviceKrLstBx.SelectedIndex = 0;
+            if (_webServiceDatas.Count > 0)
+            {
+                WebserviceTxtBx.Text = _webServiceDatas[0].Name;
+                AllWebserviceKrLstBx.SelectedIndex = 0;
 
-            GetUrlsFromWebservice(_webServiceDatas[0].Id);
+                GetUrlsFromWebservice(_webServiceDatas[0].Id);
+            }
         }
 
         private void GetWebservicesIfZoekOpNaamIsGevuld()
@@ -140,7 +143,10 @@ namespace WindowsFormsAppTest
         private void FillCmbxKlanten()
         {
             KlantKrMaterialCmbx.FillCmbBoxKlant(_klantDatas);
-            KlantKrMaterialCmbx.SelectedValue = _klantDatas[0].Id;
+            if (_klantDatas.Count > 0)
+            {
+                KlantKrMaterialCmbx.SelectedValue = _klantDatas[0].Id;
+            }
         }
 
         private void FillCmbxHttp()
