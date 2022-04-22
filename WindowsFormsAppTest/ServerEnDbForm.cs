@@ -22,6 +22,7 @@ namespace WindowsFormsAppTest
                 if (Properties.Settings.Default.SaveDbPlace != "///")
                 {
                     Properties.Settings.Default.ServerNaam = ServerNaamTxtBx.Text;
+                    Properties.Settings.Default.Save();
                     Close();
                 }
                 else

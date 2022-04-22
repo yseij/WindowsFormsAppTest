@@ -143,7 +143,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.ServerNaamTxtBx);
             this.Controls.Add(this.materialLabel1);
             this.Name = "ServerEnDbForm";
-            this.Text = "ServerKeuzeForm";
+            this.Text = "Settings";
             this.ResumeLayout(false);
             this.PerformLayout();
 
