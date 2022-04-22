@@ -29,9 +29,6 @@
     <Setting Name="ServiceAanOfUit" Type="System.String" Scope="User">
       <Value Profile="(Default)">uit</Value>
     </Setting>
-    <Setting Name="SaveXmlFile" Type="System.String" Scope="User">
-      <Value Profile="(Default)">d:</Value>
-    </Setting>
     <Setting Name="SaveDbPlace" Type="System.String" Scope="User">
       <Value Profile="(Default)">///</Value>
     </Setting>

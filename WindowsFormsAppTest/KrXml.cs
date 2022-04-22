@@ -8,7 +8,7 @@ namespace WindowsFormsAppTest
 {
     class KrXml
     {
-        private string _xmlName = "user.xml"; 
+        private string _path = @"D:\user.xml";
         public KrXml()
         {
 
@@ -16,37 +16,18 @@ namespace WindowsFormsAppTest
 
         public void MakeXmlFile()
         {
-            string path = @"" + Properties.Settings.Default.SaveXmlFile;
-            path = checkPath(path);
-            if (!File.Exists(path))
-            {
-                FolderBrowserDialog fbd = new FolderBrowserDialog();
-                fbd.Description = "Kies de map waar je persoonlijke instelligen opgeslagen moeten worden voor de service";
-
-                if (fbd.ShowDialog() == DialogResult.OK)
-                {
-                    string SelectedPath = fbd.SelectedPath;
-                    ConfigurationManager.AppSettings["SaveXmlFile"] = SelectedPath;
-                    Properties.Settings.Default["SaveXmlFile"] = SelectedPath;
-                    path = checkPath(SelectedPath);
-                }
-                ChoseSavePlace(path);
-            }
-        }
-
-        private void ChoseSavePlace(string path)
-        {
-            if (!File.Exists(path))
+            if (!File.Exists(_path))
             {
                 try
                 {
-                    using (XmlWriter writer = XmlWriter.Create(path))
+                    using (XmlWriter writer = XmlWriter.Create(_path))
                     {
                         writer.WriteStartElement("Settings");
                         writer.WriteElementString("ServiceAanOfUit", Properties.Settings.Default.ServiceAanOfUit);
                         writer.WriteElementString("TijdService", Properties.Settings.Default.TijdService);
                         writer.WriteElementString("SaveLogFilePlace", Properties.Settings.Default.SaveLogFilePlace);
                         writer.WriteElementString("Email", Properties.Settings.Default.Email);
+                        writer.WriteElementString("ServerNaam", Properties.Settings.Default.ServerNaam);
                         writer.WriteEndElement();
                         writer.Flush();
                     }
@@ -67,11 +48,8 @@ namespace WindowsFormsAppTest
 
         public void UpdateXmlFile()
         {
-            string path = @"" + Properties.Settings.Default.SaveXmlFile;
-            path = checkPath(path);
-
             XmlDocument doc = new XmlDocument();
-            doc.Load(path);
+            doc.Load(_path);
             XmlNodeList aNodes = doc.SelectNodes("//*");
 
             foreach (XmlNode aNode in aNodes)
@@ -90,24 +68,14 @@ namespace WindowsFormsAppTest
                     case "Email":
                         aNode.FirstChild.Value = Properties.Settings.Default.Email;
                         break;
+                    case "ServerNaam":
+                        aNode.FirstChild.Value = Properties.Settings.Default.ServerNaam;
+                        break;
                     default:
                         break;
                 }
             }
-            doc.Save(path);
-        }
-
-        private string checkPath(string path)
-        {
-            if (path.EndsWith("\\"))
-            {
-                path = @"" + Properties.Settings.Default.SaveXmlFile + _xmlName;
-            }
-            else
-            {
-                path = @"" + Properties.Settings.Default.SaveXmlFile + "/" + _xmlName;
-            }
-            return path;
+            doc.Save(_path);
         }
     }
 }
