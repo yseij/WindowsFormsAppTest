@@ -196,16 +196,8 @@ namespace WindowsFormsAppTest
 
         private void PasWebserviceAanBtn_Click(object sender, EventArgs e)
         {
-            WebServiceData webServiceData = _webServiceDatas.Find(w => w.Name == _changedWebservice);
-            if (webServiceData == null)
-            {
-                _webserviceTest.UpdateWebService((int)AllWebserviceKrLstBx.SelectedValue, _changedWebservice, _isSoap);
-                GetKlantenIfZoekOpKlantenNaamIsGevuld();
-            }
-            else
-            {
-                _error.SetError(WebserviceTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
-            }
+            _webserviceTest.UpdateWebService((int)AllWebserviceKrLstBx.SelectedValue, _changedWebservice, _isSoap);
+            GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
         private void AddWebserviceBtn_Click(object sender, EventArgs e)

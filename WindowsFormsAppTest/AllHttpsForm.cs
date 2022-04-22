@@ -71,19 +71,11 @@ namespace WindowsFormsAppTest
 
         private void PasHttpAanBtn_Click(object sender, System.EventArgs e)
         {
-            HttpData httpData = _httpDatas.Find(w => w.Name == HttpTxtBx.Text);
-            if (httpData == null)
-            {
-                int selectedIndex = AllHttpsKrLstBx.SelectedIndex;
-                int idOfSelected = (int)AllHttpsKrLstBx.SelectedValue;
-                _httpTest.UpdateHttp(idOfSelected, HttpTxtBx.Text);
-                GetHttps();
-                AllHttpsKrLstBx.SelectedIndex = selectedIndex;
-            }
-            else
-            {
-                _error.SetError(HttpTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
-            }
+            int selectedIndex = AllHttpsKrLstBx.SelectedIndex;
+            int idOfSelected = (int)AllHttpsKrLstBx.SelectedValue;
+            _httpTest.UpdateHttp(idOfSelected, HttpTxtBx.Text);
+            GetHttps();
+            AllHttpsKrLstBx.SelectedIndex = selectedIndex;
         }
 
         private void HttpTxtBx_TextChanged(object sender, System.EventArgs e)

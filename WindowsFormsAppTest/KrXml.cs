@@ -18,32 +18,18 @@ namespace WindowsFormsAppTest
         {
             if (!File.Exists(_path))
             {
-                try
+                using (XmlWriter writer = XmlWriter.Create(_path))
                 {
-                    using (XmlWriter writer = XmlWriter.Create(_path))
-                    {
-                        writer.WriteStartElement("Settings");
-                        writer.WriteElementString("ServiceAanOfUit", Properties.Settings.Default.ServiceAanOfUit);
-                        writer.WriteElementString("TijdService", Properties.Settings.Default.TijdService);
-                        writer.WriteElementString("SaveLogFilePlace", Properties.Settings.Default.SaveLogFilePlace);
-                        writer.WriteElementString("Email", Properties.Settings.Default.Email);
-                        writer.WriteElementString("ServerNaam", Properties.Settings.Default.ServerNaam);
-                        writer.WriteEndElement();
-                        writer.Flush();
-                    }
-                }
-                catch (Exception ex)
-                {
-                    var m = new ErrorForm(ex.Message);
-                    m.FormClosing += new FormClosingEventHandler(ChildFormClosingChoseSavePlaceXml);
-                    m.ShowDialog();
+                    writer.WriteStartElement("Settings");
+                    writer.WriteElementString("ServiceAanOfUit", Properties.Settings.Default.ServiceAanOfUit);
+                    writer.WriteElementString("TijdService", Properties.Settings.Default.TijdService);
+                    writer.WriteElementString("SaveLogFilePlace", Properties.Settings.Default.SaveLogFilePlace);
+                    writer.WriteElementString("Email", Properties.Settings.Default.Email);
+                    writer.WriteElementString("ServerNaam", Properties.Settings.Default.ServerNaam);
+                    writer.WriteEndElement();
+                    writer.Flush();
                 }
             }
-        }
-
-        private void ChildFormClosingChoseSavePlaceXml(object sender, FormClosingEventArgs e)
-        {
-            MakeXmlFile();
         }
 
         public void UpdateXmlFile()

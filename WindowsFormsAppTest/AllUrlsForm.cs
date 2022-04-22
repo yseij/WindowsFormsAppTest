@@ -133,21 +133,12 @@ namespace WindowsFormsAppTest
 
         private void PasUrlAanBtn_Click(object sender, EventArgs e)
         {
-            UrlData urlData = _urlDatas.Find(w => w.Name == _changedUrl);
-            if (urlData == null)
-            {
-                int selectedIndex = AllUrlsKrLstBx.SelectedIndex;
-                int idOfSelected = (int)AllUrlsKrLstBx.SelectedValue;
-                _urltest.UpdateUrl(idOfSelected, _changedUrl, _changedSecurityId, _selectedWebserviceId, _selectedKlantId, _selectedHttpId);
-                ClearBox();
-                GetUrlIfZoekOpUrlIsGevuld();
-                AllUrlsKrLstBx.SelectedIndex = selectedIndex;
-            }
-            else
-            {
-                _error.SetError(UrlTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
-            }
-            
+            int selectedIndex = AllUrlsKrLstBx.SelectedIndex;
+            int idOfSelected = (int)AllUrlsKrLstBx.SelectedValue;
+            _urltest.UpdateUrl(idOfSelected, _changedUrl, _changedSecurityId, _selectedWebserviceId, _selectedKlantId, _selectedHttpId);
+            ClearBox();
+            GetUrlIfZoekOpUrlIsGevuld();
+            AllUrlsKrLstBx.SelectedIndex = selectedIndex;
         }
 
         private void DeleteUrlBttn_Click(object sender, EventArgs e)

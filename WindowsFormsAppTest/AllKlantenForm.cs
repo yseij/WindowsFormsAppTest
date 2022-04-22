@@ -192,16 +192,8 @@ namespace WindowsFormsAppTest
 
         private void PasKlantAanBtn_Click(object sender, EventArgs e)
         {
-            KlantData klantData = _klantDatas.Find(w => w.Name == _changedKlant);
-            if (klantData == null)
-            {
-                _klantTest.UpdateKlant((int)AllKlantKrLstBx.SelectedValue, _changedKlant);
-                GetKlantenIfZoekOpKlantenNaamIsGevuld();
-            }
-            else
-            {
-                _error.SetError(KlantTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
-            }
+            _klantTest.UpdateKlant((int)AllKlantKrLstBx.SelectedValue, _changedKlant);
+            GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
         private void DeleteKlantBttn_Click(object sender, EventArgs e)
