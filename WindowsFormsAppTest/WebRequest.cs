@@ -260,22 +260,16 @@ namespace WindowsFormsAppTest
             return epa;
         }
 
-        public string Get24SalesData(string host, MaterialMultiLineTextBox2 responseTextbox = null)
+        public string Get24SalesData(string host)
         {
             using (Sales24.MessageServiceSoapClient client = NewSales24Client(host))
             {
-                string testResultaat = "Geen verbinding mogelijk.";
                 try
                 {
                     client.Open();
                     Sales24.MessageServiceMessage message = new Sales24.MessageServiceMessage();
                     message.MsgType = "CST_KRAAN_VERSION";
                     bool succes = client.PostMessage(null, null, ref message);
-
-                    testResultaat = "Er is een beveiligde verbinding gemaakt met de Sales Messageservice ..." + Environment.NewLine;
-                    //testResultaat += "\r\nURL: " + CreateEndpointAddress(host, "messageservicesoap.svc").Uri + Environment.NewLine;
-                    testResultaat += "\r\nURL: " + CreateEndpointAddress(host).Uri + Environment.NewLine;
-                    testResultaat = testResultaat + message.Text[0];
 
                     var data = "{\"" + message.Text[0]
                         .Replace("\r\n", "\",\"")
@@ -293,7 +287,7 @@ namespace WindowsFormsAppTest
             }
         }
 
-        public string Get31SalesData(string host, MaterialMaskedTextBox TxtBxUsername, MaterialMaskedTextBox TxtBxPassword, MaterialMultiLineTextBox2 responseTextbox = null)
+        public string Get31SalesData(string host, MaterialMaskedTextBox TxtBxUsername, MaterialMaskedTextBox TxtBxPassword)
         {
             using (Sales31.MessageServiceSoapClient client = NewSales31Client(host))
             { 
