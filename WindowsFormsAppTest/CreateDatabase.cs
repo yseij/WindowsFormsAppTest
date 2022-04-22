@@ -95,7 +95,7 @@ namespace WindowsFormsAppTest
 						  "('Webservice.svc', '', '9', '4', '2')," +
 						  "('HandheldService.svc/rest/GetVersion', '', '5', '5', '3')," +
 						  "('HomeDna.svc/GetDocument', '', '2', '5', '2')," +
-						  "('MessageServiceSoap.svc', '', '7', '5', '3')," +
+						  "('MessageServiceSoap.svc', '', '7', '5', '2')," +
 						  "('MessageServiceSoap31.svc', '', '8', '5', '3')";
 
 		private string _deleteDb = "USE [master] " +

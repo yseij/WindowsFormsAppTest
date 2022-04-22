@@ -120,7 +120,7 @@ namespace WindowsFormsAppTest
             {
                 if (UrlKrMaterialCmbx.Text == "MessageServiceSoap31.svc")
                 {
-                    _result = _webRequest.Get31SalesData(_httpName + _webserviceName, TxtBxUsername, TxtBxPassword, ResponseTextBox);
+                    _result = JObject.Parse(_webRequest.Get31SalesData(_httpName + _webserviceName, TxtBxUsername, TxtBxPassword, ResponseTextBox));
                     if (_result != null)
                     {
                         CheckData(_result, _webserviceName, 3.1);
@@ -128,7 +128,7 @@ namespace WindowsFormsAppTest
                 }
                 else if (UrlKrMaterialCmbx.Text == "MessageServiceSoap.svc")
                 {
-                    _result = _webRequest.Get24SalesData(_httpName + _webserviceName, ResponseTextBox);
+                    _result = JObject.Parse(_webRequest.Get24SalesData(_httpName + _webserviceName, ResponseTextBox));
                     if (_result != null)
                     {
                         CheckData(_result, _webserviceName, 2.4);

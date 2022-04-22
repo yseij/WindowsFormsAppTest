@@ -260,7 +260,7 @@ namespace WindowsFormsAppTest
             return epa;
         }
 
-        public dynamic Get24SalesData(string host, MaterialMultiLineTextBox2 responseTextbox = null)
+        public string Get24SalesData(string host, MaterialMultiLineTextBox2 responseTextbox = null)
         {
             using (Sales24.MessageServiceSoapClient client = NewSales24Client(host))
             {
@@ -284,28 +284,25 @@ namespace WindowsFormsAppTest
                         .Replace("Versie\": \"", "Versie: ") + "\"}";
 
                     client.Close();
-                    return JObject.Parse(data);
+                    return data;
                 }
                 catch (Exception ex)
                 {
-                    string exString = @"{ ex: '" + ex.Message.ToString() + "'}";
-                    return JObject.Parse(exString);
+                    return @"{ ex: '" + ex.Message.ToString() + "'}";
                 }
             }
         }
 
-        public dynamic Get31SalesData(string host, MaterialMaskedTextBox TxtBxUsername, MaterialMaskedTextBox TxtBxPassword, MaterialMultiLineTextBox2 responseTextbox = null)
+        public string Get31SalesData(string host, MaterialMaskedTextBox TxtBxUsername, MaterialMaskedTextBox TxtBxPassword, MaterialMultiLineTextBox2 responseTextbox = null)
         {
             using (Sales31.MessageServiceSoapClient client = NewSales31Client(host))
-            {
-                string testResultaat = "Geen beveiligde verbinding mogelijk.\r\n";
-                if (TxtBxUsername.Text.Trim() == "" || TxtBxPassword.Text.Trim() == "")
-                {
-                    responseTextbox.Text = "gebruikersnaam of wachtwoord is niet ingevuld.";
-                    return null;
-                }
+            { 
                 client.ClientCredentials.UserName.UserName = TxtBxUsername.Text.Trim();
                 client.ClientCredentials.UserName.Password = TxtBxPassword.Text.Trim();
+                if (client.ClientCredentials.UserName.UserName == string.Empty || client.ClientCredentials.UserName.Password == string.Empty)
+                {
+                    return @"{ ex: '" + "gebruikersnaam of wachtwoord is niet ingevuld" + "'}";
+                }
                 try
                 {
                     client.Open();
@@ -317,11 +314,6 @@ namespace WindowsFormsAppTest
                         Sales31.MessageResponseType antwoord = client.PostMessage(null, message);
                         if (antwoord.Message.MsgContent != null)
                         {
-                            testResultaat = "Er is een beveiligde verbinding gemaakt met de Sales Messageservice ..." + Environment.NewLine;
-                            testResultaat += "\r\nURL: " + CreateEndpointAddress(host, "messageservicesoap31.svc").Uri;
-                            testResultaat = testResultaat + antwoord.Message.MsgContent;
-                            testResultaat = antwoord.Message.MsgContent;
-
                             var data = "{\""
                                 + antwoord.Message.MsgContent.Trim()
                                 .Replace("\r\n", "\", \"")
@@ -331,16 +323,14 @@ namespace WindowsFormsAppTest
                                 .Replace("Versie\": \"", "Versie: ")
                                 + "\"}";
                             client.Close();
-                            return JObject.Parse(data);
+                            return data;
                         }
                         client.Close();
                     }
                     catch (Exception ex)
                     {
-                        string exString = @"{ ex: '" + ex.Message.ToString() + "'}";
-                        return JObject.Parse(exString);
+                        return @"{ ex: '" + ex.Message.ToString() + "'}"; ;
                     }
-                    
                 }
                 catch (FaultException fex)
                 {
@@ -348,21 +338,21 @@ namespace WindowsFormsAppTest
                     if (msgFault.HasDetail)
                     {
                         var detailNode = msgFault.GetDetail<XmlElement>();
-                        responseTextbox.Text += "Fout bij beveiligd verbinden met Sales 3.1. \r\nFoutcode " + detailNode.GetElementsByTagName("ErrorCode", detailNode.NamespaceURI)[0].InnerText + " : " + detailNode.GetElementsByTagName("Message", detailNode.NamespaceURI)[0].InnerText;
+                        return @"{ ex: '" + "Fout bij beveiligd verbinden met Sales 3.1. \r\nFoutcode " + detailNode.GetElementsByTagName("ErrorCode", detailNode.NamespaceURI)[0].InnerText + " : " + detailNode.GetElementsByTagName("Message", detailNode.NamespaceURI)[0].InnerText + "'}"; ;
                     }
                     else
                     {
                         if (fex.Code.Name == "Server" && fex.Message == "Server error")
                         {
-                            responseTextbox.Text += "Fout bij beveiligd verbinden met Sales 3.1. Credentials incorrect.";
+                            return @"{ ex: '" + "Fout bij beveiligd verbinden met Sales 3.1. Credentials incorrect." + "'}"; ;
                         }
                         else
                         {
-                            responseTextbox.Text += "Fout bij beveiligd verbinden met Sales 3.1. \r\nFoutmelding: " + fex.Message;
+                            return @"{ ex: '" + "Fout bij beveiligd verbinden met Sales 3.1. \r\nFoutmelding: " + fex.Message + "'}"; ;
                         }
                     }
                 }
-                return null;
+                return "Geen beveiligde verbinding mogelijk";
             }
         }
 

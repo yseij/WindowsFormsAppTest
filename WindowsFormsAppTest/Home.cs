@@ -504,11 +504,11 @@ namespace WindowsFormsAppTest
                         m.ShowDialog();
                         MaterialMaskedTextBox userName = m._usernameTxtBx;
                         MaterialMaskedTextBox password = m._passwordTxtBx;
-                        _result = _webRequest.Get31SalesData(httpName + webserviceName, userName, password);
+                        _result = JObject.Parse(_webRequest.Get31SalesData(httpName + webserviceName, userName, password));
                     }
                     else if (urlData.Name == "MessageServiceSoap.svc")
                     {
-                        _result = _webRequest.Get24SalesData(httpName + webserviceName);
+                        _result = JObject.Parse(_webRequest.Get24SalesData(httpName + webserviceName));
 
                     }
                     else

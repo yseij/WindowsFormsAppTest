@@ -172,26 +172,24 @@ namespace WindowsFormsAppTest
                     m.ShowDialog();
                     MaterialMaskedTextBox userName = m._usernameTxtBx;
                     MaterialMaskedTextBox password = m._passwordTxtBx;
-                    _result = _webRequest.Get31SalesData(_httpName + _webserviceName, userName, password, ResponseTextBox);
+                    _result = JObject.Parse(_webRequest.Get31SalesData(_httpName + _webserviceName, userName, password, ResponseTextBox));
                 }
                 else if (urlData.Name == "MessageServiceSoap.svc")
                 {
-                    _result = _webRequest.Get24SalesData(_httpName + _webserviceName, ResponseTextBox);
+                    _result = JObject.Parse(_webRequest.Get24SalesData(_httpName + _webserviceName, ResponseTextBox));
                 }
                 else
                 {
-                    string data = _webRequest.GetWebRequestSoap(_httpName, _webserviceName, urlData.Name);
-                    _result = JObject.Parse(data);
+                    _result = JObject.Parse(_webRequest.GetWebRequestSoap(_httpName, _webserviceName, urlData.Name));
                 }
             }
             else
             {
-                var data = _webRequest.GetWebRequestRest(_webserviceId,
+                _result = JObject.Parse(_webRequest.GetWebRequestRest(_webserviceId,
                                                      _httpName,
                                                      _webserviceName,
                                                      urlData.Name,
-                                                     urlData.SecurityId);
-                _result = JObject.Parse(data);
+                                                     urlData.SecurityId));
             }
         }
 
