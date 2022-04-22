@@ -145,13 +145,25 @@ namespace WindowsFormsAppTest.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("d:")]
+        [global::System.Configuration.DefaultSettingValueAttribute("///")]
         public string SaveDbPlace {
             get {
                 return ((string)(this["SaveDbPlace"]));
             }
             set {
                 this["SaveDbPlace"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("///")]
+        public string ServerNaam {
+            get {
+                return ((string)(this["ServerNaam"]));
+            }
+            set {
+                this["ServerNaam"] = value;
             }
         }
     }

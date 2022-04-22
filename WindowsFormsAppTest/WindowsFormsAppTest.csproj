@@ -75,10 +75,17 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.OracleClient" />
     <Reference Include="System.Design" />
     <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -214,6 +221,12 @@
     <Compile Include="Sales31CredentialsForm.Designer.cs">
       <DependentUpon>Sales31CredentialsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServerEnDbForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ServerEnDbForm.Designer.cs">
+      <DependentUpon>ServerEnDbForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="SoapRequest.cs" />
     <Compile Include="SoapRequestForm.cs">
@@ -285,6 +298,9 @@
     </Compile>
     <EmbeddedResource Include="Sales31CredentialsForm.resx">
       <DependentUpon>Sales31CredentialsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ServerEnDbForm.resx">
+      <DependentUpon>ServerEnDbForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SoapRequestForm.resx">
       <DependentUpon>SoapRequestForm.cs</DependentUpon>

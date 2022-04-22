@@ -45,17 +45,7 @@ namespace WindowsFormsAppTest
             _webRequest = new WebRequest();
             _krXml = new KrXml();
 
-            MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
-            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-
-            // Configure color schema
-            materialSkinManager.ColorScheme = new ColorScheme(
-                Primary.Blue400, Primary.Blue500,
-                Primary.Blue500, Accent.LightBlue200,
-                TextShade.WHITE
-            );
             menuStrip.ForeColor = Color.FromArgb(0, 0, 0);
-
             ToolStripMenuItem1.Enabled = false;
 
             FillKlantenDropDown();

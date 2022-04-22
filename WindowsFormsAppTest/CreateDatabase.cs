@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -7,7 +8,7 @@ namespace WindowsFormsAppTest
 {
 	class CreateDatabase
 	{
-		private SqlConnection myConn = new SqlConnection("Server=localhost;Integrated Security=SSPI;database=master");
+		private SqlConnection myConn = new SqlConnection(@"data source=" + Properties.Settings.Default.ServerNaam + ";Integrated Security=True;database=master");
 		private bool _succesvol = true;
 		public CreateDatabase()
 		{
@@ -157,17 +158,15 @@ namespace WindowsFormsAppTest
 			
 		}
 
-		private static bool CheckIfDbExist()
+		private bool CheckIfDbExist()
 		{
 			bool dbExist = false;
-			using (var connection = new SqlConnection("Server = localhost; Integrated Security = SSPI; database=master"))
+
+			using (var command = new SqlCommand($"SELECT db_id('KraanTestTool')", myConn))
 			{
-				using (var command = new SqlCommand($"SELECT db_id('KraanTestTool')", connection))
-				{
-					connection.Open();
-					dbExist = (command.ExecuteScalar() != DBNull.Value);
-					connection.Close();
-				}
+				myConn.Open();
+				dbExist = (command.ExecuteScalar() != DBNull.Value);
+				myConn.Close();
 			}
 			return dbExist;
 		}
