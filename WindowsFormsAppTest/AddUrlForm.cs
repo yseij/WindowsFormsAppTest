@@ -95,7 +95,7 @@ namespace WindowsFormsAppTest
                 {
                     _error.SetError(NewUrlTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
                 }
-            } 
+            }
         }
 
         private void NewSecurityIdTxtBx_TextChanged(object sender, EventArgs e)

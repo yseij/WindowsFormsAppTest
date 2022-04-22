@@ -27,7 +27,7 @@ namespace WindowsFormsAppTest
             catch (Exception ex)
             {
                 MessageBox.Show("Kies een andere plaats voor het opslaan van de log files '\n' foutcode: " + ex.Message);
-            }  
+            }
         }
 
         public void AddTextToLogFile(string text)
@@ -38,7 +38,7 @@ namespace WindowsFormsAppTest
             }
             catch
             {
-                
+
             }
         }
     }

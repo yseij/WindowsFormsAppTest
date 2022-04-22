@@ -1,6 +1,5 @@
 ﻿using MaterialSkin.Controls;
 using System;
-using System.Configuration;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace WindowsFormsAppTest
+﻿namespace WindowsFormsAppTest
 {
     public class UrlData : IBaseData
     {

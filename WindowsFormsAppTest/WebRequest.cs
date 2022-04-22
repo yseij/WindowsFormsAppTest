@@ -1,5 +1,4 @@
 ﻿using MaterialSkin.Controls;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Linq;
 using System.Net;
@@ -158,7 +157,7 @@ namespace WindowsFormsAppTest
                 //    clientMaterieel.Close();
                 //    break;
                 default:
-                    return  @"{ ex: '" + " deze service bestaat niet " +"'}"; ;
+                    return @"{ ex: '" + " deze service bestaat niet " + "'}"; ;
 
             }
             return GetDataOfWebRequestSoap(result);
@@ -290,7 +289,7 @@ namespace WindowsFormsAppTest
         public string Get31SalesData(string host, MaterialMaskedTextBox TxtBxUsername, MaterialMaskedTextBox TxtBxPassword)
         {
             using (Sales31.MessageServiceSoapClient client = NewSales31Client(host))
-            { 
+            {
                 client.ClientCredentials.UserName.UserName = TxtBxUsername.Text.Trim();
                 client.ClientCredentials.UserName.Password = TxtBxPassword.Text.Trim();
                 if (client.ClientCredentials.UserName.UserName == string.Empty || client.ClientCredentials.UserName.Password == string.Empty)

@@ -110,8 +110,8 @@ namespace WindowsFormsAppTest
 
         private void FillLstBxUlsFromKlant()
         {
-           AllUrlsKrLstBx.FillListBoxUrlData(_urlDatasByKlant);
-           if (_urlDatasByKlant.Count > 0)
+            AllUrlsKrLstBx.FillListBoxUrlData(_urlDatasByKlant);
+            if (_urlDatasByKlant.Count > 0)
             {
                 AllUrlsKrLstBx.SelectedIndex = 0;
                 _selectedUrlId = _urlDatasByKlant[0].Id;

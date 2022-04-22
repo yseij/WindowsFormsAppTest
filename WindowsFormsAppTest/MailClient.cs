@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Net.Mail;
 using System.ComponentModel;
 using System.Net;
+using System.Net.Mail;
 
 namespace WindowsFormsAppTest
 {

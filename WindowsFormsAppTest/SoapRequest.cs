@@ -1,5 +1,4 @@
-﻿using System;
-using WindowsFormsAppTest.YouriWebserviceCrm;
+﻿using WindowsFormsAppTest.YouriWebserviceCrm;
 
 namespace WindowsFormsAppTest
 {

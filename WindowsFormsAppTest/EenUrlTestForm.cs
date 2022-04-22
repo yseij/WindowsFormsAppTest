@@ -2,7 +2,6 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Configuration;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -120,7 +119,7 @@ namespace WindowsFormsAppTest
             {
                 if (UrlKrMaterialCmbx.Text == "MessageServiceSoap31.svc")
                 {
-                    _result = JObject.Parse(_webRequest.Get31SalesData(_httpName + _webserviceName, TxtBxUsername, TxtBxPassword, ResponseTextBox));
+                    _result = JObject.Parse(_webRequest.Get31SalesData(_httpName + _webserviceName, TxtBxUsername, TxtBxPassword));
                     if (_result != null)
                     {
                         CheckData(_result, _webserviceName, 3.1);
@@ -128,7 +127,7 @@ namespace WindowsFormsAppTest
                 }
                 else if (UrlKrMaterialCmbx.Text == "MessageServiceSoap.svc")
                 {
-                    _result = JObject.Parse(_webRequest.Get24SalesData(_httpName + _webserviceName, ResponseTextBox));
+                    _result = JObject.Parse(_webRequest.Get24SalesData(_httpName + _webserviceName));
                     if (_result != null)
                     {
                         CheckData(_result, _webserviceName, 2.4);
@@ -323,7 +322,7 @@ namespace WindowsFormsAppTest
                         TxtBxDatabaseVersie.Text = item.Value.ToString().Replace("{", "").Replace("}", "");
                         break;
                 }
-                ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " +item.Value + Environment.NewLine;
+                ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " + item.Value + Environment.NewLine;
             }
         }
     }
