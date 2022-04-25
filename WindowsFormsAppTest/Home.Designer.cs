@@ -36,6 +36,7 @@ namespace WindowsFormsAppTest
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.StripMenuItemLogFile = new System.Windows.Forms.ToolStripMenuItem();
             this.plaatsOpslaanLogFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EmailTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.StripMenuItemTestTijd = new System.Windows.Forms.ToolStripMenuItem();
             this.WebserviceKeuzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KlantKeuzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +56,7 @@ namespace WindowsFormsAppTest
             this.AanOfUitByServiceTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.AanByServiceTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.UitByServiceTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
-            this.EmailTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
+            this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BttnUrl = new System.Windows.Forms.Button();
             this.BttnWebservice = new System.Windows.Forms.Button();
             this.BtnKlant = new System.Windows.Forms.Button();
@@ -64,7 +65,6 @@ namespace WindowsFormsAppTest
             this.BtnShowWebservices = new System.Windows.Forms.Button();
             this.BtnShowKlanten = new System.Windows.Forms.Button();
             this.BtnShowHttps = new System.Windows.Forms.Button();
-            this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,9 +110,9 @@ namespace WindowsFormsAppTest
             this.menuStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StripMenuItemLogFile,
+            this.EmailTlStrpMnItm,
             this.StripMenuItemTestTijd,
             this.ServiceTlStrpMnItm,
-            this.EmailTlStrpMnItm,
             this.databaseToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(3, 429);
             this.menuStrip.Name = "menuStrip";
@@ -137,6 +137,13 @@ namespace WindowsFormsAppTest
             this.plaatsOpslaanLogFileToolStripMenuItem.Click += new System.EventHandler(this.PlaatsOpslaanLogFileToolStripMenuItem_Click);
             this.plaatsOpslaanLogFileToolStripMenuItem.MouseHover += new System.EventHandler(this.PlaatsOpslaanLogFileToolStripMenuItem_MouseHover);
             // 
+            // EmailTlStrpMnItm
+            // 
+            this.EmailTlStrpMnItm.Name = "EmailTlStrpMnItm";
+            this.EmailTlStrpMnItm.Size = new System.Drawing.Size(48, 20);
+            this.EmailTlStrpMnItm.Text = "Email";
+            this.EmailTlStrpMnItm.Click += new System.EventHandler(this.EmailTlStrpMnItm_Click_1);
+            // 
             // StripMenuItemTestTijd
             // 
             this.StripMenuItemTestTijd.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
@@ -152,13 +159,13 @@ namespace WindowsFormsAppTest
             // WebserviceKeuzeToolStripMenuItem
             // 
             this.WebserviceKeuzeToolStripMenuItem.Name = "WebserviceKeuzeToolStripMenuItem";
-            this.WebserviceKeuzeToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.WebserviceKeuzeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.WebserviceKeuzeToolStripMenuItem.Text = "Webservice keuze";
             // 
             // KlantKeuzeToolStripMenuItem
             // 
             this.KlantKeuzeToolStripMenuItem.Name = "KlantKeuzeToolStripMenuItem";
-            this.KlantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.KlantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.KlantKeuzeToolStripMenuItem.Text = "Klant keuze";
             // 
             // tijdToolStripMenuItem
@@ -169,7 +176,7 @@ namespace WindowsFormsAppTest
             this.MinToolStripMenuItem2,
             this.UurTlStrpMnItm});
             this.tijdToolStripMenuItem.Name = "tijdToolStripMenuItem";
-            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tijdToolStripMenuItem.Text = "Tijd";
             // 
             // MinToolStripMenuItem
@@ -206,7 +213,7 @@ namespace WindowsFormsAppTest
             this.AanToolStripMenuItem,
             this.UitToolStripMenuItem});
             this.ToolStripMenuItem1.Name = "ToolStripMenuItem1";
-            this.ToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
+            this.ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem1.Text = "Aan of Uit";
             // 
             // AanToolStripMenuItem
@@ -239,7 +246,7 @@ namespace WindowsFormsAppTest
             this.min30ByServiceTlStrpMnItm,
             this.min60ByServiceTlStrpMnItm});
             this.TijdByServiceTlStrpMnItm.Name = "TijdByServiceTlStrpMnItm";
-            this.TijdByServiceTlStrpMnItm.Size = new System.Drawing.Size(127, 22);
+            this.TijdByServiceTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
             this.TijdByServiceTlStrpMnItm.Text = "Tijd";
             // 
             // min15ByServiceTlStrpMnItm
@@ -269,7 +276,7 @@ namespace WindowsFormsAppTest
             this.AanByServiceTlStrpMnItm,
             this.UitByServiceTlStrpMnItm});
             this.AanOfUitByServiceTlStrpMnItm.Name = "AanOfUitByServiceTlStrpMnItm";
-            this.AanOfUitByServiceTlStrpMnItm.Size = new System.Drawing.Size(127, 22);
+            this.AanOfUitByServiceTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
             this.AanOfUitByServiceTlStrpMnItm.Text = "Aan of Uit";
             // 
             // AanByServiceTlStrpMnItm
@@ -286,12 +293,12 @@ namespace WindowsFormsAppTest
             this.UitByServiceTlStrpMnItm.Text = "Uit";
             this.UitByServiceTlStrpMnItm.Click += new System.EventHandler(this.UitByServiceTlStrpMnItm_Click);
             // 
-            // EmailTlStrpMnItm
+            // databaseToolStripMenuItem
             // 
-            this.EmailTlStrpMnItm.Name = "EmailTlStrpMnItm";
-            this.EmailTlStrpMnItm.Size = new System.Drawing.Size(48, 20);
-            this.EmailTlStrpMnItm.Text = "Email";
-            this.EmailTlStrpMnItm.Click += new System.EventHandler(this.EmailTlStrpMnItm_Click_1);
+            this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
+            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
+            this.databaseToolStripMenuItem.Text = "Database resetten";
+            this.databaseToolStripMenuItem.Click += new System.EventHandler(this.databaseToolStripMenuItem_Click);
             // 
             // BttnUrl
             // 
@@ -398,13 +405,6 @@ namespace WindowsFormsAppTest
             this.BtnShowHttps.Text = "HTTPS";
             this.BtnShowHttps.UseVisualStyleBackColor = false;
             this.BtnShowHttps.Click += new System.EventHandler(this.BtnShowHttps_Click);
-            // 
-            // databaseToolStripMenuItem
-            // 
-            this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
-            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
-            this.databaseToolStripMenuItem.Text = "Database resetten";
-            this.databaseToolStripMenuItem.Click += new System.EventHandler(this.databaseToolStripMenuItem_Click);
             // 
             // Home
             // 

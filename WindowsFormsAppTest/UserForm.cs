@@ -1,14 +1,21 @@
 ﻿using MaterialSkin.Controls;
+using System.Configuration;
+using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
 {
     public partial class UserForm : MaterialForm
     {
         KrXml _krXml;
+        ErrorProvider _error;
         public UserForm()
         {
             InitializeComponent();
             _krXml = new KrXml();
+            _error = new ErrorProvider();
+
+            GegevensOpslaanBtn.Enabled = false;
+
             UserEmailTxtBx.Text = Properties.Settings.Default.Email;
         }
 
@@ -18,6 +25,20 @@ namespace WindowsFormsAppTest
             Properties.Settings.Default.Save();
             _krXml.UpdateXmlFile();
             Close();
+        }
+
+        private void UserEmailTxtBx_TextChanged(object sender, System.EventArgs e)
+        {
+            if (UserEmailTxtBx.Text != string.Empty)
+            {
+                _error.Clear();
+                GegevensOpslaanBtn.Enabled = true;
+            }
+            else
+            {
+                GegevensOpslaanBtn.Enabled = false;
+                _error.SetError(UserEmailTxtBx, ConfigurationManager.AppSettings["LeegTekstVak"]);
+            }
         }
     }
 }

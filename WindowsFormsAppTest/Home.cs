@@ -13,10 +13,14 @@ namespace WindowsFormsAppTest
         private string _webserviceKeuzeNaam;
         private string _klantKeuzeNaam;
         private string _keuzeNaam;
+        private string _httpName;
+        private string _webserviceName;
 
         private int _httpKeuzeId;
         private int _webserviceKeuzeId;
         private int _klantKeuzeId;
+
+        private bool _isSoap = false;
 
         private dynamic _result;
 
@@ -45,6 +49,7 @@ namespace WindowsFormsAppTest
             _krXml = new KrXml();
 
             menuStrip.ForeColor = Color.FromArgb(0, 0, 0);
+
             ToolStripMenuItem1.Enabled = false;
 
             FillKlantenDropDown();
@@ -110,6 +115,8 @@ namespace WindowsFormsAppTest
                 }
             }
             ToolStripMenuItem1.Enabled = (_klantKeuzeId != 0 || _webserviceKeuzeId != 0) && Properties.Settings.Default.Email != "";
+
+            CheckEmail();
         }
 
         private void BttnUrl_Click(object sender, EventArgs e)
@@ -164,6 +171,7 @@ namespace WindowsFormsAppTest
         private void ChildFormClosingSetEmail(object sender, FormClosingEventArgs e)
         {
             ToolStripMenuItem1.Enabled = (_klantKeuzeId != 0 || _webserviceKeuzeId != 0) && Properties.Settings.Default.Email != "";
+            CheckEmail();
         }
 
         private void PlaatsOpslaanLogFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -472,59 +480,13 @@ namespace WindowsFormsAppTest
         private void RouteTestAfterKeuze(List<UrlData> urlDatas, string keuzeNaam)
         {
             int teller = 0;
-            bool isSoap = false;
             string text = "";
-            string httpName = string.Empty;
-            string webserviceName = string.Empty;
             LogFile logFile = new LogFile();
             foreach (UrlData urlData in urlDatas)
             {
-                foreach (WebServiceData item in _webServiceDatas)
-                {
-                    if (item.Id == urlData.WebServiceDataId)
-                    {
-                        isSoap = item.Soap;
-                        webserviceName = item.Name;
-                    }
-                }
-                foreach (HttpData item in _httpDatas)
-                {
-                    if (item.Id == urlData.HttpDataId)
-                    {
-                        httpName = item.Name;
-                    }
-                }
-                if (isSoap && urlData.Name.EndsWith(".svc"))
-                {
-                    if (urlData.Name == "MessageServiceSoap31.svc")
-                    {
-                        var m = new Sales31CredentialsForm();
-                        m.TopMost = true;
-                        m.ShowDialog();
-                        MaterialMaskedTextBox userName = m._usernameTxtBx;
-                        MaterialMaskedTextBox password = m._passwordTxtBx;
-                        _result = JObject.Parse(_webRequest.Get31SalesData(httpName + webserviceName, userName, password));
-                    }
-                    else if (urlData.Name == "MessageServiceSoap.svc")
-                    {
-                        _result = JObject.Parse(_webRequest.Get24SalesData(httpName + webserviceName));
-
-                    }
-                    else
-                    {
-                        string data = _webRequest.GetWebRequestSoap(httpName, webserviceName, urlData.Name);
-                        _result = JObject.Parse(data);
-                    }
-                }
-                else
-                {
-                    var data = _webRequest.GetWebRequestRest(urlData.WebServiceDataId,
-                                                         httpName,
-                                                         webserviceName,
-                                                         urlData.Name,
-                                                         urlData.SecurityId);
-                    _result = JObject.Parse(data);
-                }
+                CheckWebservice(urlData);
+                CheckHttp(urlData);
+                GetResult(urlData);
                 foreach (JProperty item in _result)
                 {
                     if (item.Name == "ex")
@@ -543,6 +505,64 @@ namespace WindowsFormsAppTest
             if (text != "")
             {
                 MailClient.TestMail(keuzeNaam, text, logFile.FilePath);
+            }
+        }
+
+        private void CheckWebservice(UrlData urlData)
+        {
+            foreach (WebServiceData item in _webServiceDatas)
+            {
+                if (item.Id == urlData.WebServiceDataId)
+                {
+                    _isSoap = item.Soap;
+                    _webserviceName = item.Name;
+                }
+            }
+        }
+
+        private void CheckHttp(UrlData urlData)
+        {
+            foreach (HttpData item in _httpDatas)
+            {
+                if (item.Id == urlData.HttpDataId)
+                {
+                    _httpName = item.Name;
+                }
+            }
+        }
+
+        private void GetResult(UrlData urlData)
+        {
+            if (_isSoap && urlData.Name.EndsWith(".svc"))
+            {
+                if (urlData.Name == "MessageServiceSoap31.svc")
+                {
+                    var m = new Sales31CredentialsForm();
+                    m.TopMost = true;
+                    m.ShowDialog();
+                    MaterialMaskedTextBox userName = m._usernameTxtBx;
+                    MaterialMaskedTextBox password = m._passwordTxtBx;
+                    _result = JObject.Parse(_webRequest.Get31SalesData(_httpName + _webserviceName, userName, password));
+                }
+                else if (urlData.Name == "MessageServiceSoap.svc")
+                {
+                    _result = JObject.Parse(_webRequest.Get24SalesData(_httpName + _webserviceName));
+
+                }
+                else
+                {
+                    string data = _webRequest.GetWebRequestSoap(_httpName, _webserviceName, urlData.Name);
+                    _result = JObject.Parse(data);
+                }
+            }
+            else
+            {
+                var data = _webRequest.GetWebRequestRest(urlData.WebServiceDataId,
+                                                     _httpName,
+                                                     _webserviceName,
+                                                     urlData.Name,
+                                                     urlData.SecurityId);
+                _result = JObject.Parse(data);
             }
         }
 
@@ -567,6 +587,20 @@ namespace WindowsFormsAppTest
         {
             CreateDatabase createDatabase = new CreateDatabase();
             createDatabase.MakeDb(true);
+        }
+
+        private void CheckEmail()
+        {
+            if (Properties.Settings.Default.Email != string.Empty)
+            {
+                StripMenuItemTestTijd.Enabled = true;
+                ServiceTlStrpMnItm.Enabled = true;
+            }
+            else
+            {
+                StripMenuItemTestTijd.Enabled = false;
+                ServiceTlStrpMnItm.Enabled = false;
+            }
         }
     }
 }
