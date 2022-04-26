@@ -24,6 +24,9 @@ namespace WindowsFormsAppTest
 
         private dynamic _result;
 
+        private string _xmlUserName = @"D:\user.xml";
+        private string _xmlDb = @"D:\db.xml";
+
         private List<HttpData> _httpDatas = new List<HttpData>();
         private List<KlantData> _klantDatas = new List<KlantData>();
         private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
@@ -62,7 +65,7 @@ namespace WindowsFormsAppTest
             AanOfUitCheck();
             AanOfUitCheckService();
 
-            _krXml.MakeXmlFile();
+            _krXml.MakeXmlFile(_xmlDb);
             _httpDatas = _httptest.GetHttpData();
         }
 
@@ -227,35 +230,35 @@ namespace WindowsFormsAppTest
         {
             ZetConfEnProp("TijdService", "15000");
             TijdCheckService();
-            _krXml.UpdateXmlFile();
+            _krXml.UpdateXmlFile(_xmlUserName);
         }
 
         private void min30ByServiceTlStrpMnItm_Click(object sender, EventArgs e)
         {
             ZetConfEnProp("TijdService", "30000");
             TijdCheckService();
-            _krXml.UpdateXmlFile();
+            _krXml.UpdateXmlFile(_xmlUserName);
         }
 
         private void min60ByServiceTlStrpMnItm_Click(object sender, EventArgs e)
         {
             ZetConfEnProp("TijdService", "60000");
             TijdCheckService();
-            _krXml.UpdateXmlFile();
+            _krXml.UpdateXmlFile(_xmlUserName);
         }
 
         private void AanByServiceTlStrpMnItm_Click(object sender, EventArgs e)
         {
             ZetConfEnProp("ServiceAanOfUit", "aan");
             AanOfUitCheckService();
-            _krXml.UpdateXmlFile();
+            _krXml.UpdateXmlFile(_xmlUserName);
         }
 
         private void UitByServiceTlStrpMnItm_Click(object sender, EventArgs e)
         {
             ZetConfEnProp("ServiceAanOfUit", "uit");
             AanOfUitCheckService();
-            _krXml.UpdateXmlFile();
+            _krXml.UpdateXmlFile(_xmlUserName);
         }
 
         private void ZetConfEnProp(string name, string waarde)

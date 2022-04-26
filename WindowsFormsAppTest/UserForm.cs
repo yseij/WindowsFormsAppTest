@@ -6,6 +6,8 @@ namespace WindowsFormsAppTest
 {
     public partial class UserForm : MaterialForm
     {
+        private string _xmlUserName = @"D:\user.xml";
+
         KrXml _krXml;
         ErrorProvider _error;
         public UserForm()
@@ -23,7 +25,7 @@ namespace WindowsFormsAppTest
         {
             Properties.Settings.Default.Email = UserEmailTxtBx.Text;
             Properties.Settings.Default.Save();
-            _krXml.UpdateXmlFile();
+            _krXml.UpdateXmlFile(_xmlUserName);
             Close();
         }
 
