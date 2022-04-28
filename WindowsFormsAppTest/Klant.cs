@@ -3,8 +3,13 @@ using System.Xml.Serialization;
 
 namespace WindowsFormsAppTest
 {
-    class Klant : IBaseData
+    public class Klant
     {
+        public Klant()
+        {
+
+        }
+
         public Klant(int id, string name, string basisUrl1, string basisUrl2)
         {
             Id = id;
@@ -24,8 +29,5 @@ namespace WindowsFormsAppTest
 
         [XmlAttribute("basisUrl2")]
         public string BasisUrl2 { get; set; }
-
-        [XmlAttribute("klantWebserviceId")]
-        public KlantWebservice KlantWebserviceId { get; set; }
     }
 }

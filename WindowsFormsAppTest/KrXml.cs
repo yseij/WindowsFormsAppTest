@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml;
 using System.Xml.Serialization;
@@ -7,12 +8,6 @@ namespace WindowsFormsAppTest
 {
     class KrXml
     {
-        private string _xmlUrlId = "Id";
-        private string _xmlUrlName = "Name";
-        private string _xmlUrlSecurityId = "SecurityId";
-        private string _xmlUrlHttpDataId = "HttpDataId";
-        private string _xmlUrlWebserviceDataId = "WebserviceDataId";
-        private string _xmlUrlKlantDataId = "KlantDataId";
         public KrXml()
         {
 
@@ -20,37 +15,26 @@ namespace WindowsFormsAppTest
 
         public void MakeXmlFile(string path)
         {
-
-            XmlSerializer serializer = new XmlSerializer(typeof(KlantWebservice));
+            XmlSerializer serializer = new XmlSerializer(typeof(DB));
             TextWriter writer = new StreamWriter("D://db.xml");
-            KlantWebservice kw = new KlantWebservice();
+            DB db = new DB();
 
-            Klant klant = new Klant(1, "klant 1", "https://test.be", "");
-            WebService webService = new WebService(1, "KraanHomeDba", false);
+            Klant klant = new Klant(2, "klant 1", "https://test.be", "test");
+            List<Klant> klanten = new List<Klant>();
+            klanten.Add(klant);
+            db.Klanten = klanten;
 
-            kw.BasisUrl1 = true;
-            kw.BasisUrl2 = false;
-            kw.KlantId = klant;
-            kw.WebserviceId = webService;
-            kw.Id = 1;
+            WebService webService = new WebService(3, "KraanHomeDna", false);
+            List<WebService> webservices = new List<WebService>();
+            webservices.Add(webService);
+            db.Webservices = webservices;
 
-            serializer.Serialize(writer, kw);
+            KlantWebservice klantWebservice = new KlantWebservice(4, klant.Id, webService.Id, true, false);
+            List<KlantWebservice> klantWebservices = new List<KlantWebservice>();
+            klantWebservices.Add(klantWebservice);
+            db.KlantWebservices = klantWebservices;
 
-            //if (!File.Exists(path))
-            //{
-            //    using (XmlWriter writer = XmlWriter.Create(path))
-            //    {
-            //        writer.WriteStartElement("db");
-            //        writer.WriteStartElement("Klanten");
-            //        writer.WriteEndElement();
-            //        writer.WriteStartElement("Webservices");
-            //        writer.WriteEndElement();
-            //        writer.WriteStartElement("Urls");
-            //        writer.WriteEndElement();
-            //        writer.WriteEndElement();
-            //        writer.Flush();
-            //    }
-            //}
+            serializer.Serialize(writer, db);
         }
 
         //public void AddUrl(string path, UrlData urlData)

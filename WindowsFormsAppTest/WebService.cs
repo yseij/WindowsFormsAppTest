@@ -2,8 +2,13 @@
 
 namespace WindowsFormsAppTest
 {
-    class WebService : IBaseData
+    public class WebService
     {
+        public WebService()
+        {
+
+        }
+
         public WebService(int id, string name, bool soap)
         {
             Id = id;
@@ -19,8 +24,5 @@ namespace WindowsFormsAppTest
 
         [XmlAttribute("soap")]
         public bool Soap { get; set; }
-
-        [XmlAttribute("klantWebserviceId")]
-        public KlantWebservice KlantWebserviceId { get; set; }
     }
 }

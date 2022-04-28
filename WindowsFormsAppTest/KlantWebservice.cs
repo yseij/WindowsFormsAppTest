@@ -2,21 +2,31 @@
 
 namespace WindowsFormsAppTest
 {
-    class KlantWebservice
+    
+    public class KlantWebservice
     {
         public KlantWebservice()
         {
 
         }
 
+        public KlantWebservice(int id, int klant, int webservice, bool basisUrl1, bool basisUrl2)
+        {
+            Id = id;
+            Klant = klant;
+            Webservice = webservice;
+            BasisUrl1 = basisUrl1;
+            BasisUrl2 = basisUrl2;
+        }
+
         [XmlAttribute("id")]
         public int Id { get; set; }
 
-        [XmlAttribute("klantId")]
-        public Klant KlantId { get; set; }
+        [XmlAttribute("klant")]
+        public int Klant { get; set; }
 
-        [XmlAttribute("webserviceId")]
-        public WebService WebserviceId { get; set; }
+        [XmlAttribute("webservice")]
+        public int Webservice { get; set; }
 
         [XmlAttribute("basisUrl1")]
         public bool BasisUrl1 { get; set; }

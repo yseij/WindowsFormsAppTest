@@ -168,6 +168,7 @@
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="CreateDatabase.cs" />
+    <Compile Include="DB.cs" />
     <Compile Include="EenUrlTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
