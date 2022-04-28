@@ -26,7 +26,7 @@ namespace WindowsFormsAppTest
         private bool _certIsGoed;
 
         //REST
-        public string GetWebRequestRest(int id, string http, string webservice, string url, string securityId = "")
+        public string GetWebRequestRest(Guid id, string http, string webservice, string url, string securityId = "")
         {
             string webRequestUrl = http + webservice + '/' + url + securityId;
             Uri uri = new Uri(webRequestUrl);

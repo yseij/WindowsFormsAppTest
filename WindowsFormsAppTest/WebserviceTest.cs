@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -29,7 +30,7 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    webServiceDatas.Add(new WebService((int)dr[0], dr[1].ToString(), (bool)dr[2]));
+                    webServiceDatas.Add(new WebService((Guid)dr[0], dr[1].ToString(), (bool)dr[2]));
                 }
             }
             return webServiceDatas;
@@ -54,7 +55,7 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    webServiceDatas.Add(new WebService((int)dr[0], dr[1].ToString(), (bool)dr[2]));
+                    webServiceDatas.Add(new WebService((Guid)dr[0], dr[1].ToString(), (bool)dr[2]));
                 }
             }
             return webServiceDatas;

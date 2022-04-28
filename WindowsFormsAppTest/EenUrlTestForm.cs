@@ -16,8 +16,8 @@ namespace WindowsFormsAppTest
 
         private bool _isSoap = false;
 
-        private int _webserviceId = 0;
-        private int _httpId = 0;
+        private Guid _webserviceId;
+        private Guid _httpId;
 
         dynamic _result = null;
 
@@ -50,7 +50,6 @@ namespace WindowsFormsAppTest
             ClearBox();
 
             CheckWebservice();
-            CheckHttp();
 
             GetResult();
         }
@@ -63,17 +62,6 @@ namespace WindowsFormsAppTest
                 {
                     _isSoap = item.Soap;
                     _webserviceName = item.Name;
-                }
-            }
-        }
-
-        private void CheckHttp()
-        {
-            foreach (HttpData item in _httpDatas)
-            {
-                if (item.Id == _httpId)
-                {
-                    _httpName = item.Name;
                 }
             }
         }
@@ -106,7 +94,7 @@ namespace WindowsFormsAppTest
             }
             else
             {
-                var data = _webRequest.GetWebRequestRest((int)UrlKrMaterialCmbx.SelectedValue,
+                var data = _webRequest.GetWebRequestRest((Guid)UrlKrMaterialCmbx.SelectedValue,
                                                      _httpName,
                                                      _webserviceName,
                                                      UrlKrMaterialCmbx.Text,

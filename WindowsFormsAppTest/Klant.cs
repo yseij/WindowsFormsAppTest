@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Xml.Serialization;
 
 namespace WindowsFormsAppTest
@@ -10,7 +12,15 @@ namespace WindowsFormsAppTest
 
         }
 
-        public Klant(int id, string name, string basisUrl1, string basisUrl2)
+        public Klant(string name, string basisUrl1, string basisUrl2)
+        {
+            Id = Guid.NewGuid();
+            Name = name;
+            BasisUrl1 = basisUrl1;
+            BasisUrl2 = basisUrl2;
+        }
+
+        public Klant(Guid id, string name, string basisUrl1, string basisUrl2)
         {
             Id = id;
             Name = name;
@@ -19,7 +29,7 @@ namespace WindowsFormsAppTest
         }
 
         [XmlAttribute("id")]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [XmlAttribute("name")]
         public string Name { get; set; }

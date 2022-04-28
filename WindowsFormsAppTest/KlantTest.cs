@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -35,7 +36,7 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    klantDatas.Add(new Klant((int)dr[0], dr[1].ToString(), dr[2].ToString(), dr[3].ToString()));
+                    klantDatas.Add(new Klant((Guid)dr[0], dr[1].ToString(), dr[2].ToString(), dr[3].ToString()));
                 }
             }
 
@@ -61,7 +62,7 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    klantDatas.Add(new Klant((int)dr[0], dr[1].ToString(), dr[2].ToString(), dr[3].ToString()));
+                    klantDatas.Add(new Klant((Guid)dr[0], dr[1].ToString(), dr[2].ToString(), dr[3].ToString()));
                 }
             }
 

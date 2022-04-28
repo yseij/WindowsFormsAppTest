@@ -13,7 +13,7 @@ namespace WindowsFormsAppTest
         private string _changedUrl;
         private string _zoekOpWebserviceNaam;
 
-        private int _selectedWebserviceId;
+        private Guid _selectedWebserviceId;
         private int _selectedUrlId;
         private int _selectedHttpId;
         private int _selectedKlantIdForChange;
@@ -111,7 +111,7 @@ namespace WindowsFormsAppTest
         {
             if (AllWebserviceKrLstBx.Items != null && AllWebserviceKrLstBx.SelectedValue != null)
             {
-                int idOfSelected = (int)AllWebserviceKrLstBx.SelectedValue;
+                Guid idOfSelected = (Guid)AllWebserviceKrLstBx.SelectedValue;
                 _selectedWebserviceId = idOfSelected;
                 WebService webServiceData = _webServiceDatas.Find(k => k.Id == idOfSelected);
                 WebserviceTxtBx.Text = webServiceData.Name;

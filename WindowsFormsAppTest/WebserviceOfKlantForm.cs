@@ -11,7 +11,7 @@ namespace WindowsFormsAppTest
     {
         private int _selectedWebserviceIdOfKlantId;
         private int _aantalLegeUrls;
-        private int _webserviceId = 0;
+        private Guid _webserviceId;
 
         private bool _klant;
         private bool _isSoap;
@@ -62,7 +62,7 @@ namespace WindowsFormsAppTest
 
         private void FillCmbxWebServices()
         {
-            WebService webServiceData = new WebService(0, "Alles testen", false);
+            WebService webServiceData = new WebService("Alles testen", false);
             _webServiceDatas.Add(webServiceData);
 
             WebserviceOfKlantKrMaterialCmbx.FillCmbBoxWebservice(_webServiceDatas);
@@ -70,7 +70,7 @@ namespace WindowsFormsAppTest
 
         private void FillCmbxKlanten()
         {
-            Klant klantData = new Klant(0, "Alles testen", "", "");
+            Klant klantData = new Klant("Alles testen", "", "");
             _klantenDatas.Add(klantData);
 
             WebserviceOfKlantKrMaterialCmbx.FillCmbBoxKlant(_klantenDatas);

@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.Xml.Serialization;
 
 namespace WindowsFormsAppTest
 {
@@ -9,7 +10,14 @@ namespace WindowsFormsAppTest
 
         }
 
-        public WebService(int id, string name, bool soap)
+        public WebService(string name, bool soap)
+        {
+            Id = Guid.NewGuid();
+            Name = name;
+            Soap = soap;
+        }
+
+        public WebService(Guid id, string name, bool soap)
         {
             Id = id;
             Name = name;
@@ -17,7 +25,7 @@ namespace WindowsFormsAppTest
         }
 
         [XmlAttribute("id")]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [XmlAttribute("name")]
         public string Name { get; set; }

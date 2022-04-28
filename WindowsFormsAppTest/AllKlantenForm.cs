@@ -13,11 +13,10 @@ namespace WindowsFormsAppTest
         private string _changedUrl;
         private string _zoekOpKlantNaam;
 
-        private int _selectedKlantId;
-        private int _selectedKlantIdForChange;
-        private int _selectedWebserviceIdForChange;
-        private int _selectedUrlId;
-        private int _selectedHttpId;
+        private Guid _selectedKlantId;
+        private Guid _selectedKlantIdForChange;
+        private Guid _selectedWebserviceIdForChange;
+        private Guid _selectedUrlId;
 
         public static int SetValueForKlantId = 0;
 
@@ -105,7 +104,7 @@ namespace WindowsFormsAppTest
         {
             if (AllKlantKrLstBx.Items != null && AllKlantKrLstBx.SelectedValue != null)
             {
-                int idOfSelected = (int)AllKlantKrLstBx.SelectedValue;
+                Guid idOfSelected = (Guid)AllKlantKrLstBx.SelectedValue;
                 _selectedKlantId = idOfSelected;
                 Klant klantData = _klantDatas.Find(k => k.Id == idOfSelected);
                 KlantTxtBx.Text = klantData.Name;
@@ -169,14 +168,14 @@ namespace WindowsFormsAppTest
 
         private void WebserviceKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _selectedWebserviceIdForChange = (int)WebserviceKrMaterialCmbx.SelectedValue;
+            _selectedWebserviceIdForChange = (Guid)WebserviceKrMaterialCmbx.SelectedValue;
         }
 
         private void KlantKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (KlantKrMaterialCmbx.DataSource != null)
             {
-                _selectedKlantIdForChange = (int)KlantKrMaterialCmbx.SelectedValue;
+                _selectedKlantIdForChange = (Guid)KlantKrMaterialCmbx.SelectedValue;
             }
         }
 

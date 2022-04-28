@@ -43,11 +43,13 @@ namespace WindowsFormsAppTest
 
 
             KrXml _krXml = new KrXml();
-            _krXml.MakeXmlFile("D://db.xml");
-            //UrlData urlData = new UrlData();
-            //urlData.Name = "test";
-            //urlData.SecurityId = "test";
-            //_krXml.AddUrl("D://db.xml", urlData);
+            _krXml.MakeXmlFile(@"D:\\db.xml");
+            Klant klant = new Klant("klant 4", "https://test4.be", "test4");
+            _krXml.AddKlant(klant);
+            WebService webService = new WebService("KraanSales", false);
+            _krXml.AddWebservice(webService);
+            KlantWebservice klantWebservice = new KlantWebservice(klant.Id, webService.Id, true, false);
+            _krXml.AddKlantWebservice(klantWebservice);
             Application.Exit();
         }
     }

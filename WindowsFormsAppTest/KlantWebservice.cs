@@ -1,4 +1,5 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.Xml.Serialization;
 
 namespace WindowsFormsAppTest
 {
@@ -10,7 +11,16 @@ namespace WindowsFormsAppTest
 
         }
 
-        public KlantWebservice(int id, int klant, int webservice, bool basisUrl1, bool basisUrl2)
+        public KlantWebservice(Guid klant, Guid webservice, bool basisUrl1, bool basisUrl2)
+        {
+            Id = Guid.NewGuid();
+            Klant = klant;
+            Webservice = webservice;
+            BasisUrl1 = basisUrl1;
+            BasisUrl2 = basisUrl2;
+        }
+
+        public KlantWebservice(Guid id, Guid klant, Guid webservice, bool basisUrl1, bool basisUrl2)
         {
             Id = id;
             Klant = klant;
@@ -20,13 +30,13 @@ namespace WindowsFormsAppTest
         }
 
         [XmlAttribute("id")]
-        public int Id { get; set; }
+        public Guid Id { get; set; }
 
         [XmlAttribute("klant")]
-        public int Klant { get; set; }
+        public Guid Klant { get; set; }
 
         [XmlAttribute("webservice")]
-        public int Webservice { get; set; }
+        public Guid Webservice { get; set; }
 
         [XmlAttribute("basisUrl1")]
         public bool BasisUrl1 { get; set; }
