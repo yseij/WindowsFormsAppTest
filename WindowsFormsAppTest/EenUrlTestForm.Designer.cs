@@ -1372,7 +1372,6 @@ namespace WindowsFormsAppTest
             this.UrlKrMaterialCmbx.StartIndex = 0;
             this.UrlKrMaterialCmbx.TabIndex = 65;
             this.UrlKrMaterialCmbx.ValueMember = "Id";
-            this.UrlKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.UrlKrMaterialCmbx_SelectedIndexChanged);
             // 
             // EenUrlTestForm
             // 

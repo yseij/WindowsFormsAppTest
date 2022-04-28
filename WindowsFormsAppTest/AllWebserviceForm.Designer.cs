@@ -417,7 +417,6 @@ namespace WindowsFormsAppTest
             this.PasUrlAanBtn.TabIndex = 64;
             this.PasUrlAanBtn.Text = "URL AANPASSEN";
             this.PasUrlAanBtn.UseVisualStyleBackColor = false;
-            this.PasUrlAanBtn.Click += new System.EventHandler(this.PasUrlAanBtn_Click);
             // 
             // KlantKrMaterialCmbx
             // 
@@ -458,7 +457,6 @@ namespace WindowsFormsAppTest
             this.AddUrlByWebserviceBttn.TabIndex = 63;
             this.AddUrlByWebserviceBttn.Text = "URL TOEVOEGEN";
             this.AddUrlByWebserviceBttn.UseVisualStyleBackColor = false;
-            this.AddUrlByWebserviceBttn.Click += new System.EventHandler(this.AddUrlByWebserviceBttn_Click);
             // 
             // WebserviceKrMaterialCmbx
             // 
@@ -499,7 +497,6 @@ namespace WindowsFormsAppTest
             this.DeleteUrlBttn.TabIndex = 62;
             this.DeleteUrlBttn.Text = "URL VERWIJDEREN";
             this.DeleteUrlBttn.UseVisualStyleBackColor = false;
-            this.DeleteUrlBttn.Click += new System.EventHandler(this.DeleteUrlBttn_Click);
             // 
             // materialLabel6
             // 

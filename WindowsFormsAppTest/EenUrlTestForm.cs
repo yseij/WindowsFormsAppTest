@@ -22,34 +22,22 @@ namespace WindowsFormsAppTest
         dynamic _result = null;
 
         private List<HttpData> _httpDatas = new List<HttpData>();
-        private List<WebServiceData> _webserviceDatas = new List<WebServiceData>();
-        private List<UrlData> _urlDatas = new List<UrlData>();
+        private List<WebService> _webserviceDatas = new List<WebService>();
 
         HttpTest _httptest;
         WebserviceTest _webservicetest;
-        UrlTest _urltest;
         WebRequest _webRequest;
         TestRoute _testRoute;
 
         public EenUrlTestForm()
         {
             InitializeComponent();
-            _urltest = new UrlTest();
             _webRequest = new WebRequest();
             _testRoute = new TestRoute();
             _httptest = new HttpTest();
             _webservicetest = new WebserviceTest();
 
-            GetHttps();
             GetWebservices();
-            GetUrls();
-
-            FillCmbxUrls();
-        }
-
-        private void GetHttps()
-        {
-            _httpDatas = _httptest.GetHttpData();
         }
 
         private void GetWebservices()
@@ -57,42 +45,19 @@ namespace WindowsFormsAppTest
             _webserviceDatas = _webservicetest.GetWebServiceData();
         }
 
-        private void GetUrls()
-        {
-            _urlDatas = _urltest.GetUrlData();
-        }
-
-        private void FillCmbxUrls()
-        {
-            UrlKrMaterialCmbx.FillCmbBoxUrl(_urlDatas);
-        }
-
         private void TestRouteBtn_Click(object sender, EventArgs e)
         {
             ClearBox();
 
-            CheckUrl();
             CheckWebservice();
             CheckHttp();
 
             GetResult();
         }
 
-        private void CheckUrl()
-        {
-            foreach (UrlData urlData in _urlDatas)
-            {
-                if ((int)UrlKrMaterialCmbx.SelectedValue == urlData.Id)
-                {
-                    _webserviceId = urlData.WebServiceDataId;
-                    _httpId = urlData.HttpDataId;
-                }
-            }
-        }
-
         private void CheckWebservice()
         {
-            foreach (WebServiceData item in _webserviceDatas)
+            foreach (WebService item in _webserviceDatas)
             {
                 if (item.Id == _webserviceId)
                 {
@@ -157,33 +122,6 @@ namespace WindowsFormsAppTest
                                     checkBoxKraanDatabase,
                                     ResponseTextBox,
                                     _webserviceName);
-            }
-        }
-
-        private void UrlKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ClearBox();
-            int idOfSelected = (int)UrlKrMaterialCmbx.SelectedValue;
-            UrlData urlData = _urlDatas.Find(u => u.Id == idOfSelected);
-            _url = urlData.Name;
-            _securityId = urlData.SecurityId;
-            foreach (WebServiceData item in _webserviceDatas)
-            {
-                if (item.Id == urlData.WebServiceDataId)
-                {
-                    if ((item.Soap && item.Name == "KraanSalesService") || (item.Soap && item.Name == "release"))
-                    {
-                        TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["SalesPage"];
-                    }
-                    else if ((item.Soap && item.Name != "KraanSalesService") || (item.Soap && item.Name != "release"))
-                    {
-                        TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["SoapPage"];
-                    }
-                    else if (!item.Soap)
-                    {
-                        TbCntrlRestApiEnSoap.SelectedTab = TbCntrlRestApiEnSoap.TabPages["RestPage"];
-                    }
-                }
             }
         }
 

@@ -15,9 +15,9 @@ namespace WindowsFormsAppTest
         private string ConnectieDB => ConfigurationManager.AppSettings["connectieString"];
 
 
-        public List<KlantData> GetKlantData()
+        public List<Klant> GetKlantData()
         {
-            List<KlantData> klantDatas = new List<KlantData>();
+            List<Klant> klantDatas = new List<Klant>();
 
             DataTable dt = new DataTable();
             int rows_returned;
@@ -35,16 +35,16 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    klantDatas.Add(new KlantData((int)dr[0], dr[1].ToString()));
+                    klantDatas.Add(new Klant((int)dr[0], dr[1].ToString(), dr[2].ToString(), dr[3].ToString()));
                 }
             }
 
             return klantDatas;
         }
 
-        public List<KlantData> GetKlantDataByKlantName(string name)
+        public List<Klant> GetKlantDataByKlantName(string name)
         {
-            List<KlantData> klantDatas = new List<KlantData>();
+            List<Klant> klantDatas = new List<Klant>();
 
             DataTable dt = new DataTable();
             int rows_returned;
@@ -61,37 +61,41 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    klantDatas.Add(new KlantData((int)dr[0], dr[1].ToString()));
+                    klantDatas.Add(new Klant((int)dr[0], dr[1].ToString(), dr[2].ToString(), dr[3].ToString()));
                 }
             }
 
             return klantDatas;
         }
 
-        public void AddKlant(string name)
+        public void AddKlant(string name, string basisUrl1, string basisUrl2)
         {
             using (SqlConnection connection = new SqlConnection(ConnectieDB))
             {
                 connection.Open();
-                var sql = "INSERT INTO [dbo].[Klant] ([Name]) VALUES (@Name)";
+                var sql = "INSERT INTO [dbo].[Klant] ([Name], [BasisUrl1], [BasisUrl2]) VALUES (@Name, @BasisUrl1, @BasisUrl2)";
                 using (var cmd = new SqlCommand(sql, connection))
                 {
                     cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.Parameters.AddWithValue("@BasisUrl1", basisUrl1);
+                    cmd.Parameters.AddWithValue("@BasisUrl2", basisUrl2);
                     cmd.ExecuteNonQuery();
                 }
                 connection.Close();
             }
         }
 
-        public void UpdateKlant(int id, string name)
+        public void UpdateKlant(int id, string name, string basisUrl1, string basisUrl2)
         {
             using (SqlConnection connection = new SqlConnection(ConnectieDB))
             {
                 connection.Open();
-                var sql = "UPDATE Klant SET Name = @Name " + "where id =" + id;
+                var sql = "UPDATE Klant SET Name = @Name, BasisUrl1 = @BasisUrl1, BasisUrl2 = @BasisUrl2" + "where id =" + id;
                 using (var cmd = new SqlCommand(sql, connection))
                 {
                     cmd.Parameters.AddWithValue("@Name", name);
+                    cmd.Parameters.AddWithValue("@BasisUrl1", basisUrl1);
+                    cmd.Parameters.AddWithValue("@BasisUrl2", basisUrl2);
                     cmd.ExecuteNonQuery();
                 }
                 connection.Close();

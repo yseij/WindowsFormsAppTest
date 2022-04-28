@@ -16,14 +16,6 @@ namespace WindowsFormsAppTest
             InitializeComponent();
             _httpTest = new HttpTest();
             _error = new ErrorProvider();
-
-            GetHttps();
-        }
-
-        private void GetHttps()
-        {
-            _httpDatas = _httpTest.GetHttpData();
-            FillLstBxHttps();
         }
 
         private void FillLstBxHttps()
@@ -53,19 +45,6 @@ namespace WindowsFormsAppTest
         private void DeleteHttpBttn_Click(object sender, System.EventArgs e)
         {
             _httpTest.DeleteHttp((int)AllHttpsKrLstBx.SelectedValue);
-            GetHttps();
-        }
-
-        private void AddHttpBtn_Click(object sender, System.EventArgs e)
-        {
-            var m = new AddHttpForm();
-            m.FormClosing += new FormClosingEventHandler(ChildFormClosing);
-            m.ShowDialog();
-        }
-
-        private void ChildFormClosing(object sender, FormClosingEventArgs e)
-        {
-            GetHttps();
         }
 
         private void PasHttpAanBtn_Click(object sender, System.EventArgs e)
@@ -73,7 +52,6 @@ namespace WindowsFormsAppTest
             int selectedIndex = AllHttpsKrLstBx.SelectedIndex;
             int idOfSelected = (int)AllHttpsKrLstBx.SelectedValue;
             _httpTest.UpdateHttp(idOfSelected, HttpTxtBx.Text);
-            GetHttps();
             AllHttpsKrLstBx.SelectedIndex = selectedIndex;
         }
 

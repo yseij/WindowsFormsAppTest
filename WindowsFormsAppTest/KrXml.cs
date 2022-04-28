@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Xml;
+using System.Xml.Serialization;
 
 namespace WindowsFormsAppTest
 {
@@ -19,87 +20,93 @@ namespace WindowsFormsAppTest
 
         public void MakeXmlFile(string path)
         {
-            if (!File.Exists(path))
-            {
-                using (XmlWriter writer = XmlWriter.Create(path))
-                {
-                    writer.WriteStartElement("db");
-                    writer.WriteStartElement("Klanten");
-                    writer.WriteEndElement();
-                    writer.WriteStartElement("Webservices");
-                    writer.WriteEndElement();
-                    writer.WriteEndElement();
-                    writer.Flush();
-                }
-            }
+
+            XmlSerializer serializer = new XmlSerializer(typeof(KlantWebservice));
+            TextWriter writer = new StreamWriter("D://db.xml");
+            KlantWebservice kw = new KlantWebservice();
+
+            Klant klant = new Klant(1, "klant 1", "https://test.be", "");
+            WebService webService = new WebService(1, "KraanHomeDba", false);
+
+            kw.BasisUrl1 = true;
+            kw.BasisUrl2 = false;
+            kw.KlantId = klant;
+            kw.WebserviceId = webService;
+            kw.Id = 1;
+
+            serializer.Serialize(writer, kw);
+
+            //if (!File.Exists(path))
+            //{
+            //    using (XmlWriter writer = XmlWriter.Create(path))
+            //    {
+            //        writer.WriteStartElement("db");
+            //        writer.WriteStartElement("Klanten");
+            //        writer.WriteEndElement();
+            //        writer.WriteStartElement("Webservices");
+            //        writer.WriteEndElement();
+            //        writer.WriteStartElement("Urls");
+            //        writer.WriteEndElement();
+            //        writer.WriteEndElement();
+            //        writer.Flush();
+            //    }
+            //}
         }
 
+        //public void AddUrl(string path, UrlData urlData)
+        //{
+        //    XmlDocument doc = new XmlDocument();
+        //    doc.Load(path);
+        //    XmlNode aNode = doc.SelectSingleNode("descendant::db[Urls]");
+        //    XmlNode cNode = doc.CreateNode("element", "Url", "");
+        //    aNode.AppendChild(cNode);
 
-        public void AddUrl(string path, UrlData urlData)
-        {
-            XmlDocument doc = new XmlDocument();
-            doc.Load(path);
-            XmlNode aNode = doc.SelectSingleNode("descendant::db");
-            XmlNode bNode = doc.CreateNode("element", "Urls", "");
-            XmlNode cNode = doc.CreateNode("element", "", "");
-            aNode.AppendChild(bNode);
-            aNode.AppendChild(cNode);
+        //    string newId = GetLatestNode(aNode).ToString();
 
-            //XmlNode bNode = doc.CreateNode("element", "Url", "");
-            //aNode.AppendChild(bNode);
+        //    MakeElem(doc, cNode, _xmlUrlId, newId);
+        //    MakeElem(doc, cNode, _xmlUrlName, urlData.Name);
+        //    MakeElem(doc, cNode, _xmlUrlSecurityId, urlData.SecurityId);
+        //    doc.Save(path);
+        //}
 
-            //string newId = GetLatestNode(aNode).ToString();
+        //public void AddWebservice(string path, WebService webServiceData)
+        //{
+        //    XmlDocument doc = new XmlDocument();
+        //    doc.Load(path);
+        //    XmlNode aNode = doc.SelectSingleNode("Webservices");
 
-            //MakeElem(doc, bNode, _xmlUrlId, newId);
-            //MakeElem(doc, bNode, _xmlUrlName, urlData.Name);
-            //MakeElem(doc, bNode, _xmlUrlSecurityId, urlData.SecurityId);
-            //MakeElem(doc, bNode, _xmlUrlHttpDataId, urlData.HttpDataId.ToString());
-            //MakeElem(doc, bNode, _xmlUrlWebserviceDataId, urlData.WebServiceDataId.ToString());
-            //MakeElem(doc, bNode, _xmlUrlKlantDataId, urlData.KlantDataId.ToString());
-            //doc.Save(path);
-        }
+        //    XmlElement elem = doc.CreateElement("Webservice");
+        //    aNode.AppendChild(elem);
 
-        public void AddWebservice(string path, WebServiceData webServiceData)
-        {
-            XmlDocument doc = new XmlDocument();
-            doc.Load(path);
-            XmlNode aNode = doc.SelectSingleNode("Webservices");
+        //    string newId = GetLatestNode(aNode).ToString();
 
-            XmlElement elem = doc.CreateElement("Webservice");
-            aNode.AppendChild(elem);
+        //    MakeElem(doc, elem, _xmlUrlId, newId);
+        //    MakeElem(doc, elem, _xmlUrlName, webServiceData.Name);
+        //    MakeElem(doc, elem, _xmlUrlSecurityId, webServiceData.Soap.ToString());
+        //}
 
-            string newId = GetLatestNode(aNode).ToString();
+        //public void AddKlant(string path, UrlData urlData)
+        //{
+        //    XmlDocument doc = new XmlDocument();
+        //    doc.Load(path);
+        //    XmlNode aNode = doc.SelectSingleNode("Klanten");
 
-            MakeElem(doc, elem, _xmlUrlId, newId);
-            MakeElem(doc, elem, _xmlUrlName, webServiceData.Name);
-            MakeElem(doc, elem, _xmlUrlSecurityId, webServiceData.Soap.ToString());
-        }
+        //    XmlElement elem = doc.CreateElement("Klant");
+        //    aNode.AppendChild(elem);
 
-        public void AddKlant(string path, UrlData urlData)
-        {
-            XmlDocument doc = new XmlDocument();
-            doc.Load(path);
-            XmlNode aNode = doc.SelectSingleNode("Klanten");
+        //    string newId = GetLatestNode(aNode).ToString();
 
-            XmlElement elem = doc.CreateElement("Klant");
-            aNode.AppendChild(elem);
+        //    MakeElem(doc, elem, _xmlUrlName, newId);
+        //    MakeElem(doc, elem, _xmlUrlName, urlData.Name);
+        //    MakeElem(doc, elem, _xmlUrlSecurityId, urlData.SecurityId);
+        //}
 
-            string newId = GetLatestNode(aNode).ToString();
-
-            MakeElem(doc, elem, _xmlUrlName, newId);
-            MakeElem(doc, elem, _xmlUrlName, urlData.Name);
-            MakeElem(doc, elem, _xmlUrlSecurityId, urlData.SecurityId);
-            MakeElem(doc, elem, _xmlUrlHttpDataId, urlData.HttpDataId.ToString());
-            MakeElem(doc, elem, _xmlUrlWebserviceDataId, urlData.WebServiceDataId.ToString());
-            MakeElem(doc, elem, _xmlUrlKlantDataId, urlData.KlantDataId.ToString());
-        }
-
-        private void MakeElem(XmlDocument doc, XmlNode aNode, string soort, string waarde)
-        {
-            XmlElement elem = doc.CreateElement(soort);
-            elem.InnerText = waarde;
-            aNode.AppendChild(elem);
-        }
+        //private void MakeElem(XmlDocument doc, XmlNode aNode, string soort, string waarde)
+        //{
+        //    XmlElement elem = doc.CreateElement(soort);
+        //    elem.InnerText = waarde;
+        //    aNode.AppendChild(elem);
+        //}
 
         //private void MakeElemWebservice(XmlDocument doc, XmlNode aNode, string soort, string waarde)
         //{

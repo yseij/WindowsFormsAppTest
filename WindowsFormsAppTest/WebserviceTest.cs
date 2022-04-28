@@ -9,9 +9,9 @@ namespace WindowsFormsAppTest
     {
         private string ConnectieDB => ConfigurationManager.AppSettings["connectieString"];
 
-        public List<WebServiceData> GetWebServiceData()
+        public List<WebService> GetWebServiceData()
         {
-            List<WebServiceData> webServiceDatas = new List<WebServiceData>();
+            List<WebService> webServiceDatas = new List<WebService>();
 
             DataTable dt = new DataTable();
             int rows_returned;
@@ -29,15 +29,15 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    webServiceDatas.Add(new WebServiceData((int)dr[0], dr[1].ToString(), (bool)dr[2]));
+                    webServiceDatas.Add(new WebService((int)dr[0], dr[1].ToString(), (bool)dr[2]));
                 }
             }
             return webServiceDatas;
         }
 
-        public List<WebServiceData> GetWebServicesByWebserviceName(string name)
+        public List<WebService> GetWebServicesByWebserviceName(string name)
         {
-            List<WebServiceData> webServiceDatas = new List<WebServiceData>();
+            List<WebService> webServiceDatas = new List<WebService>();
 
             DataTable dt = new DataTable();
             int rows_returned;
@@ -54,7 +54,7 @@ namespace WindowsFormsAppTest
 
                 foreach (DataRow dr in dt.Rows)
                 {
-                    webServiceDatas.Add(new WebServiceData((int)dr[0], dr[1].ToString(), (bool)dr[2]));
+                    webServiceDatas.Add(new WebService((int)dr[0], dr[1].ToString(), (bool)dr[2]));
                 }
             }
             return webServiceDatas;

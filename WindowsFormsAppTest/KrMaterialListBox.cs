@@ -27,13 +27,13 @@ namespace WindowsFormsAppTest
             DataSource = urlDatas;
         }
 
-        public void FillListBoxKlantData(List<KlantData> klantDatas)
+        public void FillListBoxKlantData(List<Klant> klantDatas)
         {
             ClearListBox();
             DataSource = klantDatas;
         }
 
-        public void FillListBoxWebserviceData(List<WebServiceData> webServiceDatas)
+        public void FillListBoxWebserviceData(List<WebService> webServiceDatas)
         {
             ClearListBox();
             DataSource = webServiceDatas;

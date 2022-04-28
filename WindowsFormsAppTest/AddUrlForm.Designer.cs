@@ -191,7 +191,6 @@ namespace WindowsFormsAppTest
             this.AddUrlButton.TabIndex = 27;
             this.AddUrlButton.Text = "URL TOEVOEGEN";
             this.AddUrlButton.UseVisualStyleBackColor = false;
-            this.AddUrlButton.Click += new System.EventHandler(this.AddUrlButton_Click);
             // 
             // materialLabel1
             // 

@@ -28,14 +28,13 @@ namespace WindowsFormsAppTest
         private string _xmlDb = @"D:\db.xml";
 
         private List<HttpData> _httpDatas = new List<HttpData>();
-        private List<KlantData> _klantDatas = new List<KlantData>();
-        private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
+        private List<Klant> _klantDatas = new List<Klant>();
+        private List<WebService> _webServiceDatas = new List<WebService>();
         private List<UrlData> _urlDatas = new List<UrlData>();
 
         HttpTest _httptest;
         KlantTest _klantTest;
         WebserviceTest _webserviceTest;
-        UrlTest _urltest;
         WebRequest _webRequest;
         KrXml _krXml;
 
@@ -47,7 +46,6 @@ namespace WindowsFormsAppTest
             _httptest = new HttpTest();
             _klantTest = new KlantTest();
             _webserviceTest = new WebserviceTest();
-            _urltest = new UrlTest();
             _webRequest = new WebRequest();
             _krXml = new KrXml();
 
@@ -66,13 +64,11 @@ namespace WindowsFormsAppTest
             AanOfUitCheckService();
 
             _krXml.MakeXmlFile(_xmlDb);
-            _httpDatas = _httptest.GetHttpData();
         }
 
         private void GetSettings()
         {
             ConfigurationManager.AppSettings["Tijd"] = Properties.Settings.Default.Tijd;
-            ConfigurationManager.AppSettings["Http"] = Properties.Settings.Default.Http;
             ConfigurationManager.AppSettings["TestAanOfUit"] = Properties.Settings.Default.TestAanOfUit;
             ConfigurationManager.AppSettings["SaveLogFilePlace"] = Properties.Settings.Default.SaveLogFilePlace;
             ConfigurationManager.AppSettings["TijdService"] = Properties.Settings.Default.TijdService;
@@ -143,12 +139,6 @@ namespace WindowsFormsAppTest
         private void BtnShowHttps_Click(object sender, EventArgs e)
         {
             var m = new AllHttpsForm();
-            m.ShowDialog();
-        }
-
-        private void BtnShowUrls_Click(object sender, EventArgs e)
-        {
-            var m = new AllUrlsForm();
             m.ShowDialog();
         }
 
@@ -372,7 +362,7 @@ namespace WindowsFormsAppTest
         private void FillKlantenDropDown()
         {
             _klantDatas = _klantTest.GetKlantData();
-            foreach (KlantData klantData in _klantDatas)
+            foreach (Klant klantData in _klantDatas)
             {
                 ToolStripMenuItem item = new ToolStripMenuItem();
                 item.Tag = klantData.Id;
@@ -418,7 +408,7 @@ namespace WindowsFormsAppTest
         private void FillWebserviceDropDown()
         {
             _webServiceDatas = _webserviceTest.GetWebServiceData();
-            foreach (WebServiceData webServiceData in _webServiceDatas)
+            foreach (WebService webServiceData in _webServiceDatas)
             {
                 ToolStripMenuItem item = new ToolStripMenuItem();
                 item.Tag = webServiceData.Id;
@@ -466,14 +456,10 @@ namespace WindowsFormsAppTest
             {
                 if (_webserviceKeuzeId != 0)
                 {
-                    _urlDatas = _urltest.GetAllUrlsByForeignKeyWebservice(_webserviceKeuzeId);
                     _keuzeNaam = _webserviceKeuzeNaam;
-
-
                 }
                 else if (_klantKeuzeId != 0)
                 {
-                    _urlDatas = _urltest.GetAllUrlsByForeignKeyKlant(_klantKeuzeId);
                     _keuzeNaam = _klantKeuzeNaam;
                 }
                 RouteTestAfterKeuze(_urlDatas, _keuzeNaam);
@@ -488,7 +474,6 @@ namespace WindowsFormsAppTest
             foreach (UrlData urlData in urlDatas)
             {
                 CheckWebservice(urlData);
-                CheckHttp(urlData);
                 GetResult(urlData);
                 foreach (JProperty item in _result)
                 {
@@ -513,23 +498,12 @@ namespace WindowsFormsAppTest
 
         private void CheckWebservice(UrlData urlData)
         {
-            foreach (WebServiceData item in _webServiceDatas)
+            foreach (WebService item in _webServiceDatas)
             {
                 if (item.Id == urlData.WebServiceDataId)
                 {
                     _isSoap = item.Soap;
                     _webserviceName = item.Name;
-                }
-            }
-        }
-
-        private void CheckHttp(UrlData urlData)
-        {
-            foreach (HttpData item in _httpDatas)
-            {
-                if (item.Id == urlData.HttpDataId)
-                {
-                    _httpName = item.Name;
                 }
             }
         }

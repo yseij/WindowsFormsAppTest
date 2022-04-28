@@ -21,14 +21,12 @@ namespace WindowsFormsAppTest
 
         dynamic _result = null;
 
-        private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
-        private List<KlantData> _klantenDatas = new List<KlantData>();
-        private List<UrlData> _urlDatas = new List<UrlData>();
+        private List<WebService> _webServiceDatas = new List<WebService>();
+        private List<Klant> _klantenDatas = new List<Klant>();
         private List<HttpData> _httpDatas = new List<HttpData>();
 
         HttpTest _httptest;
         WebserviceTest _webserviceTest;
-        UrlTest _urltest;
         KlantTest _klantTest;
         WebRequest _webRequest;
         TestRoute _testRoute;
@@ -37,7 +35,6 @@ namespace WindowsFormsAppTest
         {
             InitializeComponent();
             _webserviceTest = new WebserviceTest();
-            _urltest = new UrlTest();
             _klantTest = new KlantTest();
             _webRequest = new WebRequest();
             _testRoute = new TestRoute();
@@ -45,7 +42,6 @@ namespace WindowsFormsAppTest
 
             _klant = isKlant;
 
-            GetHttps();
             AantalLegeUrlsTxtBx.Text = string.Empty;
 
             _webServiceDatas = _webserviceTest.GetWebServiceData();
@@ -64,14 +60,9 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void GetHttps()
-        {
-            _httpDatas = _httptest.GetHttpData();
-        }
-
         private void FillCmbxWebServices()
         {
-            WebServiceData webServiceData = new WebServiceData(0, "Alles testen", false);
+            WebService webServiceData = new WebService(0, "Alles testen", false);
             _webServiceDatas.Add(webServiceData);
 
             WebserviceOfKlantKrMaterialCmbx.FillCmbBoxWebservice(_webServiceDatas);
@@ -79,7 +70,7 @@ namespace WindowsFormsAppTest
 
         private void FillCmbxKlanten()
         {
-            KlantData klantData = new KlantData(0, "Alles testen");
+            Klant klantData = new Klant(0, "Alles testen", "", "");
             _klantenDatas.Add(klantData);
 
             WebserviceOfKlantKrMaterialCmbx.FillCmbBoxKlant(_klantenDatas);
@@ -98,67 +89,22 @@ namespace WindowsFormsAppTest
             TrVwAll.Nodes.Clear();
             TrVwAll.BeginUpdate();
 
-            GetUrlData();
-            foreach (UrlData urlData in _urlDatas)
-            {
-                CheckWebservice(urlData);
-                CheckHttp(urlData);
-                GetResult(urlData);
-                if (_result != null)
-                {
-                    FillTreeView(_result, urlData, logFile);
-                    _result = null;
-                }
-            }
+            //foreach (UrlData urlData in _urlDatas)
+            //{
+            //    CheckWebservice(urlData);
+            //    GetResult(urlData);
+            //    if (_result != null)
+            //    {
+            //        FillTreeView(_result, urlData, logFile);
+            //        _result = null;
+            //    }
+            //}
             TrVwAll.EndUpdate();
         }
 
         private void WebserviceOfKlantKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             _selectedWebserviceIdOfKlantId = (int)WebserviceOfKlantKrMaterialCmbx.SelectedValue;
-        }
-
-        private void GetUrlData()
-        {
-            if (_selectedWebserviceIdOfKlantId == 0)
-            {
-                _urlDatas = _urltest.GetUrlData();
-            }
-            else
-            {
-                if (_klant)
-                {
-                    _urlDatas = _urltest.GetAllUrlsByForeignKeyKlant(_selectedWebserviceIdOfKlantId);
-                }
-                else
-                {
-                    _urlDatas = _urltest.GetAllUrlsByForeignKeyWebservice(_selectedWebserviceIdOfKlantId);
-                }
-            }
-        }
-
-        private void CheckWebservice(UrlData urlData)
-        {
-            foreach (WebServiceData item in _webServiceDatas)
-            {
-                Console.WriteLine(item);
-                if (item.Id == urlData.WebServiceDataId)
-                {
-                    _isSoap = item.Soap;
-                    _webserviceName = item.Name;
-                }
-            }
-        }
-
-        private void CheckHttp(UrlData urlData)
-        {
-            foreach (HttpData item in _httpDatas)
-            {
-                if (item.Id == urlData.HttpDataId)
-                {
-                    _httpName = item.Name;
-                }
-            }
         }
 
         private void GetResult(UrlData urlData)

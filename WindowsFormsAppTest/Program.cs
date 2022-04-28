@@ -19,7 +19,7 @@ namespace WindowsFormsAppTest
             //MaterialSkinManager materialSkinManager = MaterialSkinManager.Instance;
             //materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
 
-            // Configure color schema
+            //Configure color schema
             //materialSkinManager.ColorScheme = new ColorScheme(
             //    Primary.Blue400, Primary.Blue500,
             //    Primary.Blue500, Accent.LightBlue200,
@@ -44,11 +44,10 @@ namespace WindowsFormsAppTest
 
             KrXml _krXml = new KrXml();
             _krXml.MakeXmlFile("D://db.xml");
-            UrlData urlData = new UrlData();
-            urlData.Name = "test";
-            urlData.SecurityId = "test";
-            urlData.HttpDataId = 1;
-            _krXml.AddUrl("D://db.xml", urlData);
+            //UrlData urlData = new UrlData();
+            //urlData.Name = "test";
+            //urlData.SecurityId = "test";
+            //_krXml.AddUrl("D://db.xml", urlData);
             Application.Exit();
         }
     }

@@ -11,7 +11,7 @@ namespace WindowsFormsAppTest
     {
         private string urlHttp = ConfigurationManager.AppSettings["http"];
 
-        private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
+        private List<WebService> _webServiceDatas = new List<WebService>();
 
         WebRequest _webRequest;
         WebserviceTest _webserviceTest;

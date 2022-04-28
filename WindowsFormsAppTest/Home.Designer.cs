@@ -362,7 +362,6 @@ namespace WindowsFormsAppTest
             this.BtnShowUrls.TabIndex = 19;
             this.BtnShowUrls.Text = "URLS";
             this.BtnShowUrls.UseVisualStyleBackColor = false;
-            this.BtnShowUrls.Click += new System.EventHandler(this.BtnShowUrls_Click);
             // 
             // BtnShowWebservices
             // 

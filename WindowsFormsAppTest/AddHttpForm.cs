@@ -18,8 +18,6 @@ namespace WindowsFormsAppTest
             _httpTest = new HttpTest();
             _error = new ErrorProvider();
 
-            _httpDatas = _httpTest.GetHttpData();
-
             AddHttpBttn.Enabled = false;
         }
 

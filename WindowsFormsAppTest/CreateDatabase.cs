@@ -24,31 +24,20 @@ namespace WindowsFormsAppTest
                                    "MAXSIZE = 5MB, " +
                                    "FILEGROWTH = 10%)";
 
-        private string _createTableHttp = "USE [KraanTestTool] " +
-                                          "CREATE TABLE Http " +
-                                          "(Id INT NOT NULL	IDENTITY(1,1) PRIMARY KEY, " +
-                                          "Name VARCHAR(Max) NOT NULL, );";
-
-        private string _insertDataHttp = "USE [KraanTestTool] " +
-                                         "INSERT INTO Http " +
-                                         "(Name) VALUES " +
-                                         "('https://wsdev.kraan.com/')," +
-                                         "('https://ws.kraan.com:444/')," +
-                                         "('https://wsdev.kraan.com:1234/')";
 
         private string _createTableKlant = "USE [KraanTestTool] " +
                                           "CREATE TABLE Klant " +
                                           "(Id INT NOT NULL	IDENTITY(1,1) PRIMARY KEY, " +
-                                          "Name VARCHAR(Max) NOT NULL, );";
+                                          "Name VARCHAR(Max) NOT NULL, " +
+                                          "BasisUrl1 VARCHAR(Max) NOT NULL," +
+                                          "BasisUrl2 VARCHAR(Max), );";
 
         private string _insertDataKlant = "USE [KraanTestTool] " +
                                           "INSERT INTO Klant " +
-                                          "(Name) VALUES " +
-                                          "('Klant 1')," +
-                                          "('Klant 2')," +
-                                          "('Klant 3')," +
-                                          "('Klant 4')," +
-                                          "('Klant 5')";
+                                          "(Name, BasisUrl1, BasisUrl2) VALUES " +
+                                          "('Klant 1', 'https://wsdev.kraan.com444/', '')," +
+                                          "('Klant 2', 'https://wsdev.kraan.com/', '')," +
+                                          "('Klant 3', 'https://wsdev.kraan.com:1234/', '')";
 
         private string _createTableWebservice = "USE [KraanTestTool] " +
                                                 "CREATE TABLE WebService " +
@@ -73,29 +62,27 @@ namespace WindowsFormsAppTest
                                          "CREATE TABLE Url " +
                                          "(Id INT NOT NULL IDENTITY(1,1) PRIMARY KEY, " +
                                          "Name VARCHAR(Max) NOT NULL, " +
-
-                                         "SecurityId  VARCHAR(Max),  " +
-                                         "Webservice INT FOREIGN KEY REFERENCES WebService(Id),  " +
-                                         "Klant	INT	FOREIGN KEY REFERENCES Klant(Id), " +
-                                         "Http INT FOREIGN KEY REFERENCES Http(Id) );";
+                                         "SecurityId  VARCHAR(Max), " +
+                                         "Webservice INT FOREIGN KEY REFERENCES WebService(Id), " +
+                                         "Klant	INT	FOREIGN KEY REFERENCES Klant(Id) )";
 
         private string _insertDataUrl = "USE [KraanTestTool] " +
                           "INSERT INTO Url " +
-                          "(Name,SecurityId,Webservice,Klant,Http) VALUES " +
-                          "('HomeDna.svc/GetWebserviceVersion','', '1', '1', '2'), " +
-                          "('HomeDna.svc/GetListKrnExt', '/099793AF-C758-4E53-B27E-6BE923B114BF', '2', '1', '2')," +
-                          "('HomeDna.svc/GetProject', '/099793AF-C758-4E53-B27E-6BE923B114BF/0/WEL10', '2', '2', '2')," +
-                          "('HomeDna.svc/GetProject', '/099793AF-C758-4E53-B27E-6BE923B114BF/00E4A20A-4403-7C8E-6DF6-91214579ADB4/0', '2', '3', '2')," +
-                          "('AuthService.svc', '', '3', '3', '2')," +
-                          "('CrmService.svc', '', '3', '3', '2')," +
-                          "('WorkflowService.svc', '', '3', '3', '2')," +
-                          "('UrenService.svc', '', '3', '4', '2')," +
-                          "('MaterieelService.svc', '', '3', '4', '2')," +
-                          "('Webservice.svc', '', '9', '4', '2')," +
-                          "('HandheldService.svc/rest/GetVersion', '', '5', '5', '3')," +
-                          "('HomeDna.svc/GetDocument', '', '2', '5', '2')," +
-                          "('MessageServiceSoap.svc', '', '7', '5', '2')," +
-                          "('MessageServiceSoap31.svc', '', '8', '5', '3')";
+                          "(Name,SecurityId,Webservice,Klant) VALUES " +
+                          "('HomeDna.svc/GetWebserviceVersion','', '1', '1'), " +
+                          //"('HomeDna.svc/GetListKrnExt', '/099793AF-C758-4E53-B27E-6BE923B114BF', '2', '1', )";
+                          "('HomeDna.svc/GetProject', '/099793AF-C758-4E53-B27E-6BE923B114BF/0/WEL10', '2', '2')," +
+                          "('HomeDna.svc/GetProject', '/099793AF-C758-4E53-B27E-6BE923B114BF/00E4A20A-4403-7C8E-6DF6-91214579ADB4/0', '2', '3')";
+                          //"('AuthService.svc', '', '3', '3', '2')," +
+                          //"('CrmService.svc', '', '3', '3', '2')," +
+                          //"('WorkflowService.svc', '', '3', '3', '2')," +
+                          //"('UrenService.svc', '', '3', '3', '2')," +
+                          //"('MaterieelService.svc', '', '3', '3', '2')," +
+                          //"('Webservice.svc', '', '9', '3', '2')," +
+                          //"('HandheldService.svc/rest/GetVersion', '', '5', '3', '3')," +
+                          //"('HomeDna.svc/GetDocument', '', '2', '3', '2')," +
+                          //"('MessageServiceSoap.svc', '', '7', '3', '2')," +
+                          //"('MessageServiceSoap31.svc', '', '8', '3', '3')";
 
         private string _deleteDb = "USE [master] " +
                                    "ALTER DATABASE KraanTestTool " +
@@ -172,7 +159,7 @@ namespace WindowsFormsAppTest
 
         private void FillDb()
         {
-            HttpTable();
+            //HttpTable();
             KlantTable();
             WebserviceTable();
             UrlTable();
@@ -182,21 +169,21 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void HttpTable()
-        {
-            SqlCommand myCommandCreate = new SqlCommand(_createTableHttp, myConn);
-            SqlCommand myCommandInsert = new SqlCommand(_insertDataHttp, myConn);
-            try
-            {
-                myCommandCreate.ExecuteNonQuery();
-                myCommandInsert.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                _succesvol = false;
-                MessageBox.Show(ex.ToString(), "TestTool - Http Tabel", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-        }
+        //private void HttpTable()
+        //{
+        //    SqlCommand myCommandCreate = new SqlCommand(_createTableHttp, myConn);
+        //    SqlCommand myCommandInsert = new SqlCommand(_insertDataHttp, myConn);
+        //    try
+        //    {
+        //        myCommandCreate.ExecuteNonQuery();
+        //        myCommandInsert.ExecuteNonQuery();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        _succesvol = false;
+        //        MessageBox.Show(ex.ToString(), "TestTool - Http Tabel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //    }
+        //}
 
         private void KlantTable()
         {

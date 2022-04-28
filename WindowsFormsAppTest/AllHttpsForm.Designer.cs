@@ -66,7 +66,6 @@ namespace WindowsFormsAppTest
             this.AddHttpBtn.TabIndex = 71;
             this.AddHttpBtn.Text = "HTTP TOEVOEGEN";
             this.AddHttpBtn.UseVisualStyleBackColor = false;
-            this.AddHttpBtn.Click += new System.EventHandler(this.AddHttpBtn_Click);
             // 
             // DeleteHttpBttn
             // 

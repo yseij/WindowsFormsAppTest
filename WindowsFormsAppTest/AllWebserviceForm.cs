@@ -24,13 +24,11 @@ namespace WindowsFormsAppTest
         private bool _isSoap;
 
         private List<HttpData> _httpDatas = new List<HttpData>();
-        private List<UrlData> _urlDatasByWebservice = new List<UrlData>();
-        private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
-        private List<WebServiceData> _WebserviceDatasForChange = new List<WebServiceData>();
-        private List<KlantData> _klantDatas = new List<KlantData>();
+        private List<WebService> _webServiceDatas = new List<WebService>();
+        private List<WebService> _WebserviceDatasForChange = new List<WebService>();
+        private List<Klant> _klantDatas = new List<Klant>();
 
         HttpTest _httpTest;
-        UrlTest _urltest;
         KlantTest _klantTest;
         WebserviceTest _webserviceTest;
         ErrorProvider _error;
@@ -39,14 +37,12 @@ namespace WindowsFormsAppTest
         {
             InitializeComponent();
             _httpTest = new HttpTest();
-            _urltest = new UrlTest();
             _klantTest = new KlantTest();
             _webserviceTest = new WebserviceTest();
             _error = new ErrorProvider();
 
             GetKlanten();
             GetWebservicesIfZoekOpNaamIsLeeg();
-            GetHttps();
         }
 
         private void GetWebservicesIfZoekOpNaamIsLeeg()
@@ -61,7 +57,6 @@ namespace WindowsFormsAppTest
                 WebserviceTxtBx.Text = _webServiceDatas[0].Name;
                 AllWebserviceKrLstBx.SelectedIndex = 0;
 
-                GetUrlsFromWebservice(_webServiceDatas[0].Id);
             }
         }
 
@@ -74,7 +69,6 @@ namespace WindowsFormsAppTest
             {
                 FillLstBxWebServices();
                 FillCmbxWebServices();
-                GetUrlsFromWebservice(_webServiceDatas[0].Id);
             }
             else
             {
@@ -83,45 +77,10 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void GetUrlsFromWebservice(int id)
-        {
-            _urlDatasByWebservice = _urltest.GetAllUrlsByForeignKeyWebservice(id);
-            FillLstBxUrlsFromWebservice();
-        }
-
         private void GetKlanten()
         {
             _klantDatas = _klantTest.GetKlantData();
             FillCmbxKlanten();
-        }
-
-        private void GetHttps()
-        {
-            _httpDatas = _httpTest.GetHttpData();
-            FillCmbxHttp();
-        }
-
-        private void FillLstBxUrlsFromWebservice()
-        {
-            AllUrlsKrLstBx.FillListBoxUrlData(_urlDatasByWebservice);
-            if (_urlDatasByWebservice.Count > 0)
-            {
-                AllUrlsKrLstBx.SelectedIndex = 0;
-                _selectedUrlId = _urlDatasByWebservice[0].Id;
-                FillUrlData(_urlDatasByWebservice[0]);
-
-                PasUrlAanBtn.Enabled = true;
-                DeleteUrlBttn.Enabled = true;
-            }
-            else
-            {
-                SecurityIdTxtBx.Text = string.Empty;
-                UrlTxtBx.Text = string.Empty;
-                _selectedUrlId = 0;
-
-                PasUrlAanBtn.Enabled = false;
-                DeleteUrlBttn.Enabled = false;
-            }
         }
 
         private void FillLstBxWebServices()
@@ -148,28 +107,15 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void FillCmbxHttp()
-        {
-            HttpKrMaterialCmbx.FillCmbBoxHttp(_httpDatas);
-            HttpKrMaterialCmbx.SelectedValue = _httpDatas[0].Id;
-        }
-
         private void AllWebserviceKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (AllWebserviceKrLstBx.Items != null && AllWebserviceKrLstBx.SelectedValue != null)
             {
                 int idOfSelected = (int)AllWebserviceKrLstBx.SelectedValue;
                 _selectedWebserviceId = idOfSelected;
-                GetUrlsFromWebservice(idOfSelected);
-                WebServiceData webServiceData = _webServiceDatas.Find(k => k.Id == idOfSelected);
+                WebService webServiceData = _webServiceDatas.Find(k => k.Id == idOfSelected);
                 WebserviceTxtBx.Text = webServiceData.Name;
                 SoapWebserviceChkBx.Checked = webServiceData.Soap;
-
-                if (_urlDatasByWebservice.Count > 0)
-                {
-                    UrlData urlData = _urlDatasByWebservice[0];
-                    FillUrlData(urlData);
-                }
             }
         }
 
@@ -225,8 +171,6 @@ namespace WindowsFormsAppTest
             {
                 int idOfSelected = (int)AllUrlsKrLstBx.SelectedValue;
                 _selectedUrlId = idOfSelected;
-                UrlData urlData = _urlDatasByWebservice.Find(k => k.Id == idOfSelected);
-                FillUrlData(urlData);
             }
         }
 
@@ -256,48 +200,6 @@ namespace WindowsFormsAppTest
         private void KlantKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             _selectedKlantIdForChange = (int)KlantKrMaterialCmbx.SelectedValue;
-        }
-
-        private void AddUrlByWebserviceBttn_Click(object sender, EventArgs e)
-        {
-            SetValueForWeberviceId = _selectedWebserviceId;
-            var m = new AddUrlForm();
-            m.FormClosing += new FormClosingEventHandler(ChildFormClosingAddUrlForm);
-            m.ShowDialog();
-        }
-
-        private void PasUrlAanBtn_Click(object sender, EventArgs e)
-        {
-            _urltest.UpdateUrl((int)AllUrlsKrLstBx.SelectedValue,
-                    _changedUrl,
-                    _changedSecurityId,
-                    _selectedWebserviceIdForChange,
-                    _selectedKlantIdForChange,
-                    _selectedHttpId);
-            GetUrlsFromWebservice(_selectedWebserviceId);
-        }
-
-        private void DeleteUrlBttn_Click(object sender, EventArgs e)
-        {
-            _urltest.DeleteUrl((int)AllUrlsKrLstBx.SelectedValue);
-            ClearBox();
-            GetUrlsFromWebservice(_selectedWebserviceId);
-        }
-
-        private void ChildFormClosingAddUrlForm(object sender, FormClosingEventArgs e)
-        {
-            GetUrlsFromWebservice(SetValueForWeberviceId);
-        }
-
-        private void FillUrlData(UrlData urlData)
-        {
-            UrlTxtBx.Text = urlData.Name;
-            SecurityIdTxtBx.Text = urlData.SecurityId;
-            HttpKrMaterialCmbx.SelectedValue = urlData.HttpDataId;
-            WebserviceKrMaterialCmbx.SelectedValue = urlData.WebServiceDataId;
-            KlantKrMaterialCmbx.SelectedValue = urlData.KlantDataId;
-            WebserviceKrMaterialCmbx.Refresh();
-            KlantKrMaterialCmbx.Refresh();
         }
 
         private void ClearBox()

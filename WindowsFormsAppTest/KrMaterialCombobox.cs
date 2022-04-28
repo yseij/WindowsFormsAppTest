@@ -29,7 +29,7 @@ namespace WindowsFormsAppTest
             SetDisplayAndValueMember();
         }
 
-        public void FillCmbBoxWebservice(List<WebServiceData> webServiceDatas)
+        public void FillCmbBoxWebservice(List<WebService> webServiceDatas)
         {
             ClearDataSource();
 
@@ -37,7 +37,7 @@ namespace WindowsFormsAppTest
             SetDisplayAndValueMember();
         }
 
-        public void FillCmbBoxKlant(List<KlantData> klantDatas)
+        public void FillCmbBoxKlant(List<Klant> klantDatas)
         {
             ClearDataSource();
             DataSource = klantDatas;

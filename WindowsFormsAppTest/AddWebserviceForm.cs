@@ -11,7 +11,7 @@ namespace WindowsFormsAppTest
 
         private bool _isSoap;
 
-        private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
+        private List<WebService> _webServiceDatas = new List<WebService>();
 
         WebserviceTest _webserviceTest;
         ErrorProvider _error;
@@ -30,7 +30,7 @@ namespace WindowsFormsAppTest
         {
             if (NewWebserviceNaamTxtBx.Text != string.Empty)
             {
-                WebServiceData webServiceData = _webServiceDatas.Find(w => w.Name == NewWebserviceNaamTxtBx.Text);
+                WebService webServiceData = _webServiceDatas.Find(w => w.Name == NewWebserviceNaamTxtBx.Text);
                 if (webServiceData == null)
                 {
                     _webserviceTest.AddWebService(_newWebserviceNaam, _isSoap);

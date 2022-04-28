@@ -8,7 +8,7 @@ namespace WindowsFormsAppTest
 {
     public partial class AddKlantForm : MaterialForm
     {
-        private List<KlantData> _klantDatas = new List<KlantData>();
+        private List<Klant> _klantDatas = new List<Klant>();
 
         KlantTest _klantTest;
         ErrorProvider _error;
@@ -27,10 +27,10 @@ namespace WindowsFormsAppTest
         {
             if (NewKlantNaamTxtBx.Text != string.Empty)
             {
-                KlantData klantData = _klantDatas.Find(w => w.Name == NewKlantNaamTxtBx.Text);
+                Klant klantData = _klantDatas.Find(w => w.Name == NewKlantNaamTxtBx.Text);
                 if (klantData == null)
                 {
-                    _klantTest.AddKlant(NewKlantNaamTxtBx.Text);
+                    _klantTest.AddKlant(NewKlantNaamTxtBx.Text, BasisUrl1TxtBx.Text, BasisUrl2TxtBx.Text);
                     Close();
                 }
                 else

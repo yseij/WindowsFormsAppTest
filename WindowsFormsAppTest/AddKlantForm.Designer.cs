@@ -33,9 +33,9 @@ namespace WindowsFormsAppTest
             this.LblName = new MaterialSkin.Controls.MaterialLabel();
             this.AddKlantBttn = new System.Windows.Forms.Button();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.BasisURlTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
+            this.BasisUrl1TxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialMaskedTextBox1 = new MaterialSkin.Controls.MaterialMaskedTextBox();
+            this.BasisUrl2TxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.SuspendLayout();
             // 
@@ -123,49 +123,49 @@ namespace WindowsFormsAppTest
             this.materialLabel1.TabIndex = 29;
             this.materialLabel1.Text = "Basis url 1:";
             // 
-            // BasisURlTxtBx
+            // BasisUrl1TxtBx
             // 
-            this.BasisURlTxtBx.AllowPromptAsInput = true;
-            this.BasisURlTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.BasisUrl1TxtBx.AllowPromptAsInput = true;
+            this.BasisUrl1TxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BasisURlTxtBx.AnimateReadOnly = false;
-            this.BasisURlTxtBx.AsciiOnly = false;
-            this.BasisURlTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BasisURlTxtBx.BeepOnError = false;
-            this.BasisURlTxtBx.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.BasisURlTxtBx.Depth = 0;
-            this.BasisURlTxtBx.ErrorMessage = "test";
-            this.BasisURlTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.BasisURlTxtBx.HidePromptOnLeave = false;
-            this.BasisURlTxtBx.HideSelection = true;
-            this.BasisURlTxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
-            this.BasisURlTxtBx.LeadingIcon = null;
-            this.BasisURlTxtBx.Location = new System.Drawing.Point(92, 121);
-            this.BasisURlTxtBx.Mask = "";
-            this.BasisURlTxtBx.MaxLength = 32767;
-            this.BasisURlTxtBx.MouseState = MaterialSkin.MouseState.OUT;
-            this.BasisURlTxtBx.Name = "BasisURlTxtBx";
-            this.BasisURlTxtBx.PasswordChar = '\0';
-            this.BasisURlTxtBx.PrefixSuffixText = null;
-            this.BasisURlTxtBx.PromptChar = '_';
-            this.BasisURlTxtBx.ReadOnly = false;
-            this.BasisURlTxtBx.RejectInputOnFirstFailure = false;
-            this.BasisURlTxtBx.ResetOnPrompt = true;
-            this.BasisURlTxtBx.ResetOnSpace = true;
-            this.BasisURlTxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.BasisURlTxtBx.SelectedText = "";
-            this.BasisURlTxtBx.SelectionLength = 0;
-            this.BasisURlTxtBx.SelectionStart = 0;
-            this.BasisURlTxtBx.ShortcutsEnabled = true;
-            this.BasisURlTxtBx.Size = new System.Drawing.Size(355, 48);
-            this.BasisURlTxtBx.SkipLiterals = true;
-            this.BasisURlTxtBx.TabIndex = 30;
-            this.BasisURlTxtBx.TabStop = false;
-            this.BasisURlTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.BasisURlTxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.BasisURlTxtBx.TrailingIcon = null;
-            this.BasisURlTxtBx.UseSystemPasswordChar = false;
-            this.BasisURlTxtBx.ValidatingType = null;
+            this.BasisUrl1TxtBx.AnimateReadOnly = false;
+            this.BasisUrl1TxtBx.AsciiOnly = false;
+            this.BasisUrl1TxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BasisUrl1TxtBx.BeepOnError = false;
+            this.BasisUrl1TxtBx.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.BasisUrl1TxtBx.Depth = 0;
+            this.BasisUrl1TxtBx.ErrorMessage = "test";
+            this.BasisUrl1TxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.BasisUrl1TxtBx.HidePromptOnLeave = false;
+            this.BasisUrl1TxtBx.HideSelection = true;
+            this.BasisUrl1TxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
+            this.BasisUrl1TxtBx.LeadingIcon = null;
+            this.BasisUrl1TxtBx.Location = new System.Drawing.Point(92, 121);
+            this.BasisUrl1TxtBx.Mask = "";
+            this.BasisUrl1TxtBx.MaxLength = 32767;
+            this.BasisUrl1TxtBx.MouseState = MaterialSkin.MouseState.OUT;
+            this.BasisUrl1TxtBx.Name = "BasisUrl1TxtBx";
+            this.BasisUrl1TxtBx.PasswordChar = '\0';
+            this.BasisUrl1TxtBx.PrefixSuffixText = null;
+            this.BasisUrl1TxtBx.PromptChar = '_';
+            this.BasisUrl1TxtBx.ReadOnly = false;
+            this.BasisUrl1TxtBx.RejectInputOnFirstFailure = false;
+            this.BasisUrl1TxtBx.ResetOnPrompt = true;
+            this.BasisUrl1TxtBx.ResetOnSpace = true;
+            this.BasisUrl1TxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.BasisUrl1TxtBx.SelectedText = "";
+            this.BasisUrl1TxtBx.SelectionLength = 0;
+            this.BasisUrl1TxtBx.SelectionStart = 0;
+            this.BasisUrl1TxtBx.ShortcutsEnabled = true;
+            this.BasisUrl1TxtBx.Size = new System.Drawing.Size(355, 48);
+            this.BasisUrl1TxtBx.SkipLiterals = true;
+            this.BasisUrl1TxtBx.TabIndex = 30;
+            this.BasisUrl1TxtBx.TabStop = false;
+            this.BasisUrl1TxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BasisUrl1TxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.BasisUrl1TxtBx.TrailingIcon = null;
+            this.BasisUrl1TxtBx.UseSystemPasswordChar = false;
+            this.BasisUrl1TxtBx.ValidatingType = null;
             // 
             // materialLabel2
             // 
@@ -179,49 +179,49 @@ namespace WindowsFormsAppTest
             this.materialLabel2.TabIndex = 31;
             this.materialLabel2.Text = "Basis url 2:";
             // 
-            // materialMaskedTextBox1
+            // BasisUrl2TxtBx
             // 
-            this.materialMaskedTextBox1.AllowPromptAsInput = true;
-            this.materialMaskedTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.BasisUrl2TxtBx.AllowPromptAsInput = true;
+            this.BasisUrl2TxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialMaskedTextBox1.AnimateReadOnly = false;
-            this.materialMaskedTextBox1.AsciiOnly = false;
-            this.materialMaskedTextBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.materialMaskedTextBox1.BeepOnError = false;
-            this.materialMaskedTextBox1.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.materialMaskedTextBox1.Depth = 0;
-            this.materialMaskedTextBox1.ErrorMessage = "test";
-            this.materialMaskedTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialMaskedTextBox1.HidePromptOnLeave = false;
-            this.materialMaskedTextBox1.HideSelection = true;
-            this.materialMaskedTextBox1.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
-            this.materialMaskedTextBox1.LeadingIcon = null;
-            this.materialMaskedTextBox1.Location = new System.Drawing.Point(92, 175);
-            this.materialMaskedTextBox1.Mask = "";
-            this.materialMaskedTextBox1.MaxLength = 32767;
-            this.materialMaskedTextBox1.MouseState = MaterialSkin.MouseState.OUT;
-            this.materialMaskedTextBox1.Name = "materialMaskedTextBox1";
-            this.materialMaskedTextBox1.PasswordChar = '\0';
-            this.materialMaskedTextBox1.PrefixSuffixText = null;
-            this.materialMaskedTextBox1.PromptChar = '_';
-            this.materialMaskedTextBox1.ReadOnly = false;
-            this.materialMaskedTextBox1.RejectInputOnFirstFailure = false;
-            this.materialMaskedTextBox1.ResetOnPrompt = true;
-            this.materialMaskedTextBox1.ResetOnSpace = true;
-            this.materialMaskedTextBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.materialMaskedTextBox1.SelectedText = "";
-            this.materialMaskedTextBox1.SelectionLength = 0;
-            this.materialMaskedTextBox1.SelectionStart = 0;
-            this.materialMaskedTextBox1.ShortcutsEnabled = true;
-            this.materialMaskedTextBox1.Size = new System.Drawing.Size(355, 48);
-            this.materialMaskedTextBox1.SkipLiterals = true;
-            this.materialMaskedTextBox1.TabIndex = 32;
-            this.materialMaskedTextBox1.TabStop = false;
-            this.materialMaskedTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.materialMaskedTextBox1.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.materialMaskedTextBox1.TrailingIcon = null;
-            this.materialMaskedTextBox1.UseSystemPasswordChar = false;
-            this.materialMaskedTextBox1.ValidatingType = null;
+            this.BasisUrl2TxtBx.AnimateReadOnly = false;
+            this.BasisUrl2TxtBx.AsciiOnly = false;
+            this.BasisUrl2TxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BasisUrl2TxtBx.BeepOnError = false;
+            this.BasisUrl2TxtBx.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.BasisUrl2TxtBx.Depth = 0;
+            this.BasisUrl2TxtBx.ErrorMessage = "test";
+            this.BasisUrl2TxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.BasisUrl2TxtBx.HidePromptOnLeave = false;
+            this.BasisUrl2TxtBx.HideSelection = true;
+            this.BasisUrl2TxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
+            this.BasisUrl2TxtBx.LeadingIcon = null;
+            this.BasisUrl2TxtBx.Location = new System.Drawing.Point(92, 175);
+            this.BasisUrl2TxtBx.Mask = "";
+            this.BasisUrl2TxtBx.MaxLength = 32767;
+            this.BasisUrl2TxtBx.MouseState = MaterialSkin.MouseState.OUT;
+            this.BasisUrl2TxtBx.Name = "BasisUrl2TxtBx";
+            this.BasisUrl2TxtBx.PasswordChar = '\0';
+            this.BasisUrl2TxtBx.PrefixSuffixText = null;
+            this.BasisUrl2TxtBx.PromptChar = '_';
+            this.BasisUrl2TxtBx.ReadOnly = false;
+            this.BasisUrl2TxtBx.RejectInputOnFirstFailure = false;
+            this.BasisUrl2TxtBx.ResetOnPrompt = true;
+            this.BasisUrl2TxtBx.ResetOnSpace = true;
+            this.BasisUrl2TxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.BasisUrl2TxtBx.SelectedText = "";
+            this.BasisUrl2TxtBx.SelectionLength = 0;
+            this.BasisUrl2TxtBx.SelectionStart = 0;
+            this.BasisUrl2TxtBx.ShortcutsEnabled = true;
+            this.BasisUrl2TxtBx.Size = new System.Drawing.Size(355, 48);
+            this.BasisUrl2TxtBx.SkipLiterals = true;
+            this.BasisUrl2TxtBx.TabIndex = 32;
+            this.BasisUrl2TxtBx.TabStop = false;
+            this.BasisUrl2TxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BasisUrl2TxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.BasisUrl2TxtBx.TrailingIcon = null;
+            this.BasisUrl2TxtBx.UseSystemPasswordChar = false;
+            this.BasisUrl2TxtBx.ValidatingType = null;
             // 
             // materialLabel3
             // 
@@ -231,9 +231,9 @@ namespace WindowsFormsAppTest
             this.materialLabel3.Location = new System.Drawing.Point(6, 198);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(80, 19);
+            this.materialLabel3.Size = new System.Drawing.Size(79, 19);
             this.materialLabel3.TabIndex = 33;
-            this.materialLabel3.Text = "(Eventueel)";
+            this.materialLabel3.Text = "(eventueel)";
             // 
             // AddKlantForm
             // 
@@ -242,9 +242,9 @@ namespace WindowsFormsAppTest
             this.ClientSize = new System.Drawing.Size(479, 279);
             this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.materialLabel2);
-            this.Controls.Add(this.materialMaskedTextBox1);
+            this.Controls.Add(this.BasisUrl2TxtBx);
             this.Controls.Add(this.materialLabel1);
-            this.Controls.Add(this.BasisURlTxtBx);
+            this.Controls.Add(this.BasisUrl1TxtBx);
             this.Controls.Add(this.AddKlantBttn);
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.NewKlantNaamTxtBx);
@@ -261,9 +261,9 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialLabel LblName;
         private System.Windows.Forms.Button AddKlantBttn;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialMaskedTextBox BasisURlTxtBx;
+        private MaterialSkin.Controls.MaterialMaskedTextBox BasisUrl1TxtBx;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
-        private MaterialSkin.Controls.MaterialMaskedTextBox materialMaskedTextBox1;
+        private MaterialSkin.Controls.MaterialMaskedTextBox BasisUrl2TxtBx;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
     }
 }

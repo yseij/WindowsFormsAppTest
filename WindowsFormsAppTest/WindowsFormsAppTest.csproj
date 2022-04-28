@@ -131,12 +131,6 @@
     <Compile Include="AllKlantenForm.Designer.cs">
       <DependentUpon>AllKlantenForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AllUrlsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AllUrlsForm.Designer.cs">
-      <DependentUpon>AllUrlsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="AllWebserviceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -201,8 +195,9 @@
     <Compile Include="HttpData.cs" />
     <Compile Include="HttpTest.cs" />
     <Compile Include="IBaseData.cs" />
-    <Compile Include="KlantData.cs" />
+    <Compile Include="Klant.cs" />
     <Compile Include="KlantTest.cs" />
+    <Compile Include="KlantWebservice.cs" />
     <Compile Include="KrMaterialCombobox.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -237,7 +232,6 @@
     </Compile>
     <Compile Include="TestRoute.cs" />
     <Compile Include="UrlData.cs" />
-    <Compile Include="UrlTest.cs" />
     <Compile Include="UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -245,7 +239,7 @@
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
     <Compile Include="WebRequest.cs" />
-    <Compile Include="WebServiceData.cs" />
+    <Compile Include="WebService.cs" />
     <Compile Include="WebserviceOfKlantForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -268,9 +262,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AllKlantenForm.resx">
       <DependentUpon>AllKlantenForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AllUrlsForm.resx">
-      <DependentUpon>AllUrlsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AllWebserviceForm.resx">
       <DependentUpon>AllWebserviceForm.cs</DependentUpon>

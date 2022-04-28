@@ -19,15 +19,14 @@ namespace WindowsFormsAppTest
 
         private int _httpId = 0;
 
-        private List<WebServiceData> _webServiceDatas = new List<WebServiceData>();
-        private List<KlantData> _klantDatas = new List<KlantData>();
+        private List<WebService> _webServiceDatas = new List<WebService>();
+        private List<Klant> _klantDatas = new List<Klant>();
         private List<HttpData> _httpDatas = new List<HttpData>();
         private List<UrlData> _urlDatas = new List<UrlData>();
 
         WebserviceTest _webserviceTest;
         KlantTest _klantTest;
         HttpTest _httpTest;
-        UrlTest _urltest;
 
         ErrorProvider _error;
 
@@ -36,7 +35,6 @@ namespace WindowsFormsAppTest
             InitializeComponent();
             _klantId = AllKlantenForm.SetValueForKlantId;
             _webserviceId = AllWebserviceForm.SetValueForWeberviceId;
-            _urltest = new UrlTest();
             _webserviceTest = new WebserviceTest();
             _klantTest = new KlantTest();
             _httpTest = new HttpTest();
@@ -44,8 +42,6 @@ namespace WindowsFormsAppTest
 
             _webServiceDatas = _webserviceTest.GetWebServiceData();
             _klantDatas = _klantTest.GetKlantData();
-            _httpDatas = _httpTest.GetHttpData();
-            _urlDatas = _urltest.GetUrlData();
 
             FillCmbxWebServices();
             FillCmbxKlanten();
@@ -78,23 +74,6 @@ namespace WindowsFormsAppTest
             if (_httpId != 0)
             {
                 HttpkrMaterialCmbbx.SelectedValue = _httpId;
-            }
-        }
-
-        private void AddUrlButton_Click(object sender, EventArgs e)
-        {
-            if (NewUrlTxtBx.Text != string.Empty)
-            {
-                UrlData urlData = _urlDatas.Find(w => w.Name == NewUrlTxtBx.Text);
-                if (urlData == null)
-                {
-                    _urltest.AddUrl(_newUrl, _selectedWebserviceId, _selectedKlantId, _selectedHttpId, _newSecurityId);
-                    Close();
-                }
-                else
-                {
-                    _error.SetError(NewUrlTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
-                }
             }
         }
 
