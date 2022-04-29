@@ -10,8 +10,8 @@ namespace WindowsFormsAppTest
 {
     public partial class AddKlantWithWebservicesForm : MaterialForm
     {
-        private List<XElement> _klantDatas = new List<XElement>();
-        private List<XElement> _webserviceDatas = new List<XElement>();
+        private List<Klant> _klantDatas = new List<Klant>();
+        private List<WebService> _webserviceDatas = new List<WebService>();
 
         ErrorProvider _error;
         WebserviceXml _webserviceXml;
@@ -27,7 +27,12 @@ namespace WindowsFormsAppTest
             _klantWebserviceXml = new KlantWebserviceXml();
 
             FillTable();
+
+            CheckBoxEnable(false, "BasisUrl1");
+            CheckBoxEnable(false, "BasisUrl2");
+
             AddKlantBttn.Enabled = false;
+            UrlsGenererenBtn.Enabled = false;
         }
 
         private void FillTable()
@@ -43,14 +48,13 @@ namespace WindowsFormsAppTest
 
             int row = 0;
 
-            foreach (XElement item in _webserviceDatas)
+            foreach (WebService webService in _webserviceDatas)
             {
                 TableLayoutWebservice.Controls.Add(new CheckBox()
                 {
-                    Text = item.Attribute("Name").Value,
-                    CheckAlign = ContentAlignment.MiddleLeft,
-                    TextAlign = ContentAlignment.MiddleCenter,
-                    Tag = item.Attribute("Id").Value
+                    Text = webService.Name,
+                    Tag = webService.Id,
+                    AutoSize = true
                 },
                     0,
                     row);
@@ -82,14 +86,46 @@ namespace WindowsFormsAppTest
 
         private void BasisUrl1TxtBx_TextChanged(object sender, EventArgs e)
         {
-            _error.Clear();
+            bool isGevuld = false;
             if (BasisUrl1TxtBx.Text != string.Empty)
             {
-                AddKlantBttn.Enabled = true;
+                UrlsGenererenBtn.Enabled = true;
+                isGevuld = true;
             }
             else
             {
-                AddKlantBttn.Enabled = false;
+                UrlsGenererenBtn.Enabled = false;
+                
+            }
+            CheckBoxEnable(isGevuld, "BasisUrl1");
+        }
+
+
+        private void BasisUrl2TxtBx_TextChanged(object sender, EventArgs e)
+        {
+            bool isGevuld = false;
+            if (BasisUrl2TxtBx.Text != string.Empty)
+            {
+                UrlsGenererenBtn.Enabled = true;
+                isGevuld = true;
+            }
+            else
+            {
+                UrlsGenererenBtn.Enabled = false;
+            }
+            CheckBoxEnable(isGevuld, "BasisUrl2");
+        }
+
+        private void CheckBoxEnable(bool isGevuld, string basisurl)
+        {
+            TableLayoutControlCollection controls = TableLayoutWebservice.Controls;
+            foreach (Control c in controls)
+            {
+                CheckBox checkBox = (CheckBox)c;
+                if (checkBox.Tag.ToString() == basisurl)
+                {
+                    checkBox.Enabled = isGevuld;
+                }
             }
         }
 
@@ -98,13 +134,13 @@ namespace WindowsFormsAppTest
             bool isChecked = false;
             string huidigeWebservice = string.Empty;
 
-            XElement klantExist = null;
+            Klant klantExist = null;
             _klantDatas = _klantXml.GetKlanten();
 
             if (NewKlantNaamTxtBx.Text != string.Empty || BasisUrl1TxtBx.Text != string.Empty)
             {
                 Klant klant = new Klant(NewKlantNaamTxtBx.Text, BasisUrl1TxtBx.Text, BasisUrl2TxtBx.Text);
-                klantExist = _klantDatas.Find(k => k.Attribute("Name").Value == NewKlantNaamTxtBx.Text);
+                klantExist = _klantDatas.Find(k => k.Name == NewKlantNaamTxtBx.Text);
                 if (klantExist == null)
                 {
                     _klantXml.AddKlant(klant);
@@ -182,6 +218,52 @@ namespace WindowsFormsAppTest
                     }
                 }
                 Close();
+            }
+        }
+
+        private void UrlsGenererenBtn_Click(object sender, EventArgs e)
+        {
+            UrlsLstBx.Items.Clear();
+            bool isChecked = false;
+            string huidigeWebservice = string.Empty;
+            string url = string.Empty;
+
+            TableLayoutControlCollection controls = TableLayoutWebservice.Controls;
+            foreach (Control c in controls)
+            {
+                CheckBox checkBox = (CheckBox)c;
+                if (isChecked == false && c.Tag.ToString() != "BasisUrl1" && c.Tag.ToString() != "BasisUrl2")
+                {
+                    if (checkBox.Checked)
+                    {
+                        isChecked = true;
+                        huidigeWebservice = c.Text;
+                    }
+                }
+                if (isChecked)
+                {
+                    if (checkBox.Checked)
+                    {
+                        if (c.Tag.ToString() == "BasisUrl1")
+                        {
+                            url = BasisUrl1TxtBx.Text + "/" + huidigeWebservice;
+                        }
+                        else if (c.Tag.ToString() == "BasisUrl2")
+                        {
+                            url = BasisUrl2TxtBx.Text + "/" + huidigeWebservice;
+                        }
+                    }
+                    if (c.Tag.ToString() == "BasisUrl2")
+                    {
+                        if (url == string.Empty)
+                        {
+                            url = huidigeWebservice + "--> geen basis url aangeduid";
+                        }
+                        isChecked = false;
+                        UrlsLstBx.Items.Add(url);
+                        url = string.Empty;
+                    }
+                }
             }
         }
     }

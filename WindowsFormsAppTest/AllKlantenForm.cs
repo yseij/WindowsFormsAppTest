@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace WindowsFormsAppTest
 {
@@ -24,27 +25,25 @@ namespace WindowsFormsAppTest
         private List<Klant> _klantDatasForChange = new List<Klant>();
         private List<WebService> _webServiceDatas = new List<WebService>();
 
-        KlantTest _klantTest;
-        WebserviceTest _webserviceTest;
+        KlantXml _klantXml;
+        WebserviceXml webserviceXml;
         ErrorProvider _error;
 
         public AllKlantenForm()
         {
             InitializeComponent();
-            _klantTest = new KlantTest();
-            _webserviceTest = new WebserviceTest();
+            _klantXml = new KlantXml();
+            webserviceXml = new WebserviceXml();
             _error = new ErrorProvider();
 
             GetKlantenIfZoekOpNaamIsLeeg();
-            GetWebservices();
         }
 
         private void GetKlantenIfZoekOpNaamIsLeeg()
         {
-            _klantDatas = _klantTest.GetKlantData();
-            _klantDatasForChange = _klantTest.GetKlantData();
-            FillLstBxKlanten();
-            FillCmbxKlanten();
+            _klantDatas = _klantXml.GetKlanten();
+            _klantDatasForChange = _klantXml.GetKlanten();
+            //FillLstBxKlanten();
 
             if (_klantDatas.Count != 0)
             {
@@ -55,62 +54,40 @@ namespace WindowsFormsAppTest
 
         private void GetKlantenIfZoekOpNaamIsGevuld()
         {
-            _klantDatas = _klantTest.GetKlantDataByKlantName(_zoekOpKlantNaam);
-            _klantDatasForChange = _klantTest.GetKlantData();
+            _klantDatas = _klantXml.GetKlantenByName(_zoekOpKlantNaam);
+            _klantDatasForChange = _klantXml.GetKlanten();
 
             if (_klantDatas.Count > 0)
             {
-                FillLstBxKlanten();
-                FillCmbxKlanten();
+                //FillLstBxKlanten();
             }
             else
             {
-                AllUrlsKrLstBx.ClearListBox();
+                AllWebserviceKrLstBx.ClearListBox();
                 AllKlantKrLstBx.ClearListBox();
             }
         }
 
-        private void GetWebservices()
-        {
-            _webServiceDatas = _webserviceTest.GetWebServiceData();
-            FillCmbxWebServices();
-        }
-
         private void FillLstBxKlanten()
         {
-            AllKlantKrLstBx.FillListBoxKlantData(_klantDatas);
-            if (_klantDatas.Count != 0)
-            {
-                _selectedKlantId = _klantDatas[0].Id;
-            }
-        }
-
-        private void FillCmbxWebServices()
-        {
-            WebserviceKrMaterialCmbx.FillCmbBoxWebservice(_webServiceDatas);
-            if (_webServiceDatas.Count > 0)
-            {
-                WebserviceKrMaterialCmbx.SelectedValue = _webServiceDatas[0].Id;
-            }
-        }
-
-        private void FillCmbxKlanten()
-        {
-            KlantKrMaterialCmbx.FillCmbBoxKlant(_klantDatasForChange);
-            KlantKrMaterialCmbx.SelectedValue = _selectedKlantId;
+        //    AllKlantKrLstBx.FillListBoxKlantData(_klantDatas);
+        //    if (_klantDatas.Count != 0)
+        //    {
+        //        _selectedKlantId =  Guid.Parse(_klantDatas[0].Attribute("Id").Value);
+        //    }
         }
 
         private void AllKlantKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (AllKlantKrLstBx.Items != null && AllKlantKrLstBx.SelectedValue != null)
-            {
-                Guid idOfSelected = (Guid)AllKlantKrLstBx.SelectedValue;
-                _selectedKlantId = idOfSelected;
-                Klant klantData = _klantDatas.Find(k => k.Id == idOfSelected);
-                KlantTxtBx.Text = klantData.Name;
-                BasisUrl1TxtBx.Text = klantData.BasisUrl1;
-                BasisUrl2TxtBx.Text = klantData.BasisUrl2;
-            }
+        //    if (AllKlantKrLstBx.Items != null && AllKlantKrLstBx.SelectedValue != null)
+        //    {
+        //        Guid idOfSelected = (Guid)AllKlantKrLstBx.SelectedValue;
+        //        _selectedKlantId = idOfSelected;
+        //        Klant klantData = _klantDatas.Find(k => k.Id == idOfSelected);
+        //        KlantTxtBx.Text = klantData.Name;
+        //        BasisUrl1TxtBx.Text = klantData.BasisUrl1;
+        //        BasisUrl2TxtBx.Text = klantData.BasisUrl2;
+        //    }
         }
 
         private void KlantTxtBx_TextChanged(object sender, EventArgs e)
@@ -137,28 +114,23 @@ namespace WindowsFormsAppTest
 
         private void PasKlantAanBtn_Click(object sender, EventArgs e)
         {
-            _klantTest.UpdateKlant((int)AllKlantKrLstBx.SelectedValue, _changedKlant, BasisUrl1TxtBx.Text, BasisUrl2TxtBx.Text);
-            GetKlantenIfZoekOpKlantenNaamIsGevuld();
+        //    _klantTest.UpdateKlant((int)AllKlantKrLstBx.SelectedValue, _changedKlant, BasisUrl1TxtBx.Text, BasisUrl2TxtBx.Text);
+        //    GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
         private void DeleteKlantBttn_Click(object sender, EventArgs e)
         {
 
-            DialogResult dialogResult = MessageBox.Show("Wilt u de urls van de klant ook verwijderen", "Urls bij klant", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-                _klantTest.DeleteKlant((int)AllKlantKrLstBx.SelectedValue);
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-                _error.SetError(DeleteKlantBttn, "De klant bevat nog urls");
-            }
-            GetKlantenIfZoekOpKlantenNaamIsGevuld();
-        }
-
-        private void SecurityIdTxtBx_TextChanged(object sender, EventArgs e)
-        {
-            _changedSecurityId = SecurityIdTxtBx.Text;
+        //    DialogResult dialogResult = MessageBox.Show("Wilt u de urls van de klant ook verwijderen", "Urls bij klant", MessageBoxButtons.YesNo);
+        //    if (dialogResult == DialogResult.Yes)
+        //    {
+        //        _klantTest.DeleteKlant((int)AllKlantKrLstBx.SelectedValue);
+        //    }
+        //    else if (dialogResult == DialogResult.No)
+        //    {
+        //        _error.SetError(DeleteKlantBttn, "De klant bevat nog urls");
+        //    }
+        //    GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
         private void UrlTxtBx_TextChanged(object sender, EventArgs e)
@@ -166,24 +138,11 @@ namespace WindowsFormsAppTest
             _changedUrl = UrlTxtBx.Text;
         }
 
-        private void WebserviceKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            _selectedWebserviceIdForChange = (Guid)WebserviceKrMaterialCmbx.SelectedValue;
-        }
-
-        private void KlantKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (KlantKrMaterialCmbx.DataSource != null)
-            {
-                _selectedKlantIdForChange = (Guid)KlantKrMaterialCmbx.SelectedValue;
-            }
-        }
-
         private void ChildFormClosingAddKlantForm(object sender, FormClosingEventArgs e)
         {
             GetKlantenIfZoekOpKlantenNaamIsGevuld();
             AllKlantKrLstBx.SelectedIndex = AllKlantKrLstBx.Items.Count - 1;
-            _selectedKlantId = _klantDatas[_klantDatas.Count - 1].Id;
+            //_selectedKlantId = _klantDatas[_klantDatas.Count - 1].Id;
         }
 
         private void GetKlantenIfZoekOpKlantenNaamIsGevuld()

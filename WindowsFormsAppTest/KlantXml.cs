@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace WindowsFormsAppTest
 {
@@ -12,10 +14,22 @@ namespace WindowsFormsAppTest
     {
         private string _path = @"D://db.xml";
 
-        public List<XElement> GetKlanten()
+        public List<Klant> GetKlanten()
         {
             XDocument doc = XDocument.Load(_path);
-            return doc.Descendants("Klant").ToList();
+            List<Klant> klanten = new List<Klant>();
+            var serializer = new XmlSerializer(typeof(Klant));
+            foreach (XElement element in doc.Descendants("Klant").ToList())
+            {
+                klanten.Add((Klant)serializer.Deserialize(element.CreateReader()));
+            }
+            return klanten;
+        }
+
+        public List<Klant> GetKlantenByName(string naam)
+        {
+            List<Klant> AlleKlanten = GetKlanten();
+            return AlleKlanten.FindAll(k => k.Name.Contains(naam));
         }
 
         public void AddKlant(Klant klant)

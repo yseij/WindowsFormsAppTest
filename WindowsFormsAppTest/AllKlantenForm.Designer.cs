@@ -30,6 +30,10 @@ namespace WindowsFormsAppTest
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BasisUrl2TxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.BasisUrl1TxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.PasKlantAanBtn = new System.Windows.Forms.Button();
             this.AddKlantBtn = new System.Windows.Forms.Button();
             this.KlantTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
@@ -37,28 +41,21 @@ namespace WindowsFormsAppTest
             this.LblNaam = new MaterialSkin.Controls.MaterialLabel();
             this.LblKlant = new MaterialSkin.Controls.MaterialLabel();
             this.LblUrlsByKlant = new MaterialSkin.Controls.MaterialLabel();
-            this.SecurityIdTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
-            this.LblSecurityID = new MaterialSkin.Controls.MaterialLabel();
             this.UrlTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.LblNaamUrl = new MaterialSkin.Controls.MaterialLabel();
-            this.LblWebservice = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
+            this.LblBasisUrl = new MaterialSkin.Controls.MaterialLabel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.PasUrlAanBtn = new System.Windows.Forms.Button();
             this.AddUrlByWebserviceBttn = new System.Windows.Forms.Button();
-            this.KlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.DeleteUrlBttn = new System.Windows.Forms.Button();
-            this.WebserviceKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.label3 = new System.Windows.Forms.Label();
             this.ZoekOpKlantNaamTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.label1 = new System.Windows.Forms.Label();
-            this.AllUrlsKrLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.AllKlantKrLstBx = new WindowsFormsAppTest.KrMaterialListBox();
-            this.BasisUrl1TxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.BasisUrl2TxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.AllWebserviceKrLstBx = new WindowsFormsAppTest.KrMaterialListBox();
+            this.SoapWebserviceChkBx = new MaterialSkin.Controls.MaterialCheckbox();
+            this.materialCheckbox1 = new MaterialSkin.Controls.MaterialCheckbox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -81,6 +78,116 @@ namespace WindowsFormsAppTest
             this.groupBox1.TabIndex = 57;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Klant bewerken";
+            // 
+            // BasisUrl2TxtBx
+            // 
+            this.BasisUrl2TxtBx.AllowPromptAsInput = true;
+            this.BasisUrl2TxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BasisUrl2TxtBx.AnimateReadOnly = false;
+            this.BasisUrl2TxtBx.AsciiOnly = false;
+            this.BasisUrl2TxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BasisUrl2TxtBx.BeepOnError = false;
+            this.BasisUrl2TxtBx.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.BasisUrl2TxtBx.Depth = 0;
+            this.BasisUrl2TxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.BasisUrl2TxtBx.HidePromptOnLeave = false;
+            this.BasisUrl2TxtBx.HideSelection = true;
+            this.BasisUrl2TxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
+            this.BasisUrl2TxtBx.LeadingIcon = null;
+            this.BasisUrl2TxtBx.Location = new System.Drawing.Point(94, 130);
+            this.BasisUrl2TxtBx.Mask = "";
+            this.BasisUrl2TxtBx.MaxLength = 32767;
+            this.BasisUrl2TxtBx.MouseState = MaterialSkin.MouseState.OUT;
+            this.BasisUrl2TxtBx.Name = "BasisUrl2TxtBx";
+            this.BasisUrl2TxtBx.PasswordChar = '\0';
+            this.BasisUrl2TxtBx.PrefixSuffixText = null;
+            this.BasisUrl2TxtBx.PromptChar = '_';
+            this.BasisUrl2TxtBx.ReadOnly = false;
+            this.BasisUrl2TxtBx.RejectInputOnFirstFailure = false;
+            this.BasisUrl2TxtBx.ResetOnPrompt = true;
+            this.BasisUrl2TxtBx.ResetOnSpace = true;
+            this.BasisUrl2TxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.BasisUrl2TxtBx.SelectedText = "";
+            this.BasisUrl2TxtBx.SelectionLength = 0;
+            this.BasisUrl2TxtBx.SelectionStart = 0;
+            this.BasisUrl2TxtBx.ShortcutsEnabled = true;
+            this.BasisUrl2TxtBx.Size = new System.Drawing.Size(356, 48);
+            this.BasisUrl2TxtBx.SkipLiterals = true;
+            this.BasisUrl2TxtBx.TabIndex = 84;
+            this.BasisUrl2TxtBx.TabStop = false;
+            this.BasisUrl2TxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BasisUrl2TxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.BasisUrl2TxtBx.TrailingIcon = null;
+            this.BasisUrl2TxtBx.UseSystemPasswordChar = false;
+            this.BasisUrl2TxtBx.ValidatingType = null;
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.Location = new System.Drawing.Point(8, 130);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(72, 19);
+            this.materialLabel3.TabIndex = 85;
+            this.materialLabel3.Text = "BasisUrl2:";
+            // 
+            // BasisUrl1TxtBx
+            // 
+            this.BasisUrl1TxtBx.AllowPromptAsInput = true;
+            this.BasisUrl1TxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BasisUrl1TxtBx.AnimateReadOnly = false;
+            this.BasisUrl1TxtBx.AsciiOnly = false;
+            this.BasisUrl1TxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.BasisUrl1TxtBx.BeepOnError = false;
+            this.BasisUrl1TxtBx.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.BasisUrl1TxtBx.Depth = 0;
+            this.BasisUrl1TxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.BasisUrl1TxtBx.HidePromptOnLeave = false;
+            this.BasisUrl1TxtBx.HideSelection = true;
+            this.BasisUrl1TxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
+            this.BasisUrl1TxtBx.LeadingIcon = null;
+            this.BasisUrl1TxtBx.Location = new System.Drawing.Point(94, 73);
+            this.BasisUrl1TxtBx.Mask = "";
+            this.BasisUrl1TxtBx.MaxLength = 32767;
+            this.BasisUrl1TxtBx.MouseState = MaterialSkin.MouseState.OUT;
+            this.BasisUrl1TxtBx.Name = "BasisUrl1TxtBx";
+            this.BasisUrl1TxtBx.PasswordChar = '\0';
+            this.BasisUrl1TxtBx.PrefixSuffixText = null;
+            this.BasisUrl1TxtBx.PromptChar = '_';
+            this.BasisUrl1TxtBx.ReadOnly = false;
+            this.BasisUrl1TxtBx.RejectInputOnFirstFailure = false;
+            this.BasisUrl1TxtBx.ResetOnPrompt = true;
+            this.BasisUrl1TxtBx.ResetOnSpace = true;
+            this.BasisUrl1TxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.BasisUrl1TxtBx.SelectedText = "";
+            this.BasisUrl1TxtBx.SelectionLength = 0;
+            this.BasisUrl1TxtBx.SelectionStart = 0;
+            this.BasisUrl1TxtBx.ShortcutsEnabled = true;
+            this.BasisUrl1TxtBx.Size = new System.Drawing.Size(356, 48);
+            this.BasisUrl1TxtBx.SkipLiterals = true;
+            this.BasisUrl1TxtBx.TabIndex = 82;
+            this.BasisUrl1TxtBx.TabStop = false;
+            this.BasisUrl1TxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.BasisUrl1TxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.BasisUrl1TxtBx.TrailingIcon = null;
+            this.BasisUrl1TxtBx.UseSystemPasswordChar = false;
+            this.BasisUrl1TxtBx.ValidatingType = null;
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.Location = new System.Drawing.Point(8, 73);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(72, 19);
+            this.materialLabel2.TabIndex = 83;
+            this.materialLabel2.Text = "BasisUrl1:";
             // 
             // PasKlantAanBtn
             // 
@@ -207,62 +314,6 @@ namespace WindowsFormsAppTest
             this.LblUrlsByKlant.TabIndex = 60;
             this.LblUrlsByKlant.Text = "Urls bij de gekozen klant";
             // 
-            // SecurityIdTxtBx
-            // 
-            this.SecurityIdTxtBx.AllowPromptAsInput = true;
-            this.SecurityIdTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SecurityIdTxtBx.AnimateReadOnly = false;
-            this.SecurityIdTxtBx.AsciiOnly = false;
-            this.SecurityIdTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.SecurityIdTxtBx.BeepOnError = false;
-            this.SecurityIdTxtBx.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.SecurityIdTxtBx.Depth = 0;
-            this.SecurityIdTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.SecurityIdTxtBx.HidePromptOnLeave = false;
-            this.SecurityIdTxtBx.HideSelection = true;
-            this.SecurityIdTxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
-            this.SecurityIdTxtBx.LeadingIcon = null;
-            this.SecurityIdTxtBx.Location = new System.Drawing.Point(98, 31);
-            this.SecurityIdTxtBx.Mask = "";
-            this.SecurityIdTxtBx.MaxLength = 32767;
-            this.SecurityIdTxtBx.MouseState = MaterialSkin.MouseState.OUT;
-            this.SecurityIdTxtBx.Name = "SecurityIdTxtBx";
-            this.SecurityIdTxtBx.PasswordChar = '\0';
-            this.SecurityIdTxtBx.PrefixSuffixText = null;
-            this.SecurityIdTxtBx.PromptChar = '_';
-            this.SecurityIdTxtBx.ReadOnly = false;
-            this.SecurityIdTxtBx.RejectInputOnFirstFailure = false;
-            this.SecurityIdTxtBx.ResetOnPrompt = true;
-            this.SecurityIdTxtBx.ResetOnSpace = true;
-            this.SecurityIdTxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.SecurityIdTxtBx.SelectedText = "";
-            this.SecurityIdTxtBx.SelectionLength = 0;
-            this.SecurityIdTxtBx.SelectionStart = 0;
-            this.SecurityIdTxtBx.ShortcutsEnabled = true;
-            this.SecurityIdTxtBx.Size = new System.Drawing.Size(352, 48);
-            this.SecurityIdTxtBx.SkipLiterals = true;
-            this.SecurityIdTxtBx.TabIndex = 7;
-            this.SecurityIdTxtBx.TabStop = false;
-            this.SecurityIdTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.SecurityIdTxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.SecurityIdTxtBx.TrailingIcon = null;
-            this.SecurityIdTxtBx.UseSystemPasswordChar = false;
-            this.SecurityIdTxtBx.ValidatingType = null;
-            this.SecurityIdTxtBx.TextChanged += new System.EventHandler(this.SecurityIdTxtBx_TextChanged);
-            // 
-            // LblSecurityID
-            // 
-            this.LblSecurityID.AutoSize = true;
-            this.LblSecurityID.Depth = 0;
-            this.LblSecurityID.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblSecurityID.Location = new System.Drawing.Point(6, 31);
-            this.LblSecurityID.MouseState = MaterialSkin.MouseState.HOVER;
-            this.LblSecurityID.Name = "LblSecurityID";
-            this.LblSecurityID.Size = new System.Drawing.Size(77, 19);
-            this.LblSecurityID.TabIndex = 67;
-            this.LblSecurityID.Text = "SecurityID:";
-            // 
             // UrlTxtBx
             // 
             this.UrlTxtBx.AllowPromptAsInput = true;
@@ -279,7 +330,7 @@ namespace WindowsFormsAppTest
             this.UrlTxtBx.HideSelection = true;
             this.UrlTxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
             this.UrlTxtBx.LeadingIcon = null;
-            this.UrlTxtBx.Location = new System.Drawing.Point(98, 85);
+            this.UrlTxtBx.Location = new System.Drawing.Point(98, 19);
             this.UrlTxtBx.Mask = "";
             this.UrlTxtBx.MaxLength = 32767;
             this.UrlTxtBx.MouseState = MaterialSkin.MouseState.OUT;
@@ -312,55 +363,40 @@ namespace WindowsFormsAppTest
             this.LblNaamUrl.AutoSize = true;
             this.LblNaamUrl.Depth = 0;
             this.LblNaamUrl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblNaamUrl.Location = new System.Drawing.Point(6, 85);
+            this.LblNaamUrl.Location = new System.Drawing.Point(7, 19);
             this.LblNaamUrl.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblNaamUrl.Name = "LblNaamUrl";
             this.LblNaamUrl.Size = new System.Drawing.Size(48, 19);
             this.LblNaamUrl.TabIndex = 69;
             this.LblNaamUrl.Text = "Naam:";
             // 
-            // LblWebservice
+            // LblBasisUrl
             // 
-            this.LblWebservice.AutoSize = true;
-            this.LblWebservice.Depth = 0;
-            this.LblWebservice.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblWebservice.Location = new System.Drawing.Point(7, 138);
-            this.LblWebservice.MouseState = MaterialSkin.MouseState.HOVER;
-            this.LblWebservice.Name = "LblWebservice";
-            this.LblWebservice.Size = new System.Drawing.Size(85, 19);
-            this.LblWebservice.TabIndex = 71;
-            this.LblWebservice.Text = "Webservice:";
-            // 
-            // materialLabel4
-            // 
-            this.materialLabel4.AutoSize = true;
-            this.materialLabel4.Depth = 0;
-            this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.Location = new System.Drawing.Point(7, 192);
-            this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel4.Name = "materialLabel4";
-            this.materialLabel4.Size = new System.Drawing.Size(38, 19);
-            this.materialLabel4.TabIndex = 73;
-            this.materialLabel4.Text = "Klant";
+            this.LblBasisUrl.AutoSize = true;
+            this.LblBasisUrl.Depth = 0;
+            this.LblBasisUrl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.LblBasisUrl.Location = new System.Drawing.Point(7, 83);
+            this.LblBasisUrl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LblBasisUrl.Name = "LblBasisUrl";
+            this.LblBasisUrl.Size = new System.Drawing.Size(59, 19);
+            this.LblBasisUrl.TabIndex = 71;
+            this.LblBasisUrl.Text = "BasisUrl";
             // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.materialCheckbox1);
+            this.groupBox2.Controls.Add(this.SoapWebserviceChkBx);
             this.groupBox2.Controls.Add(this.PasUrlAanBtn);
             this.groupBox2.Controls.Add(this.AddUrlByWebserviceBttn);
-            this.groupBox2.Controls.Add(this.KlantKrMaterialCmbx);
             this.groupBox2.Controls.Add(this.DeleteUrlBttn);
-            this.groupBox2.Controls.Add(this.WebserviceKrMaterialCmbx);
-            this.groupBox2.Controls.Add(this.SecurityIdTxtBx);
-            this.groupBox2.Controls.Add(this.LblSecurityID);
             this.groupBox2.Controls.Add(this.LblNaamUrl);
             this.groupBox2.Controls.Add(this.UrlTxtBx);
-            this.groupBox2.Controls.Add(this.LblWebservice);
-            this.groupBox2.Controls.Add(this.materialLabel4);
+            this.groupBox2.Controls.Add(this.LblBasisUrl);
             this.groupBox2.Location = new System.Drawing.Point(377, 464);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(472, 297);
+            this.groupBox2.Size = new System.Drawing.Size(472, 224);
             this.groupBox2.TabIndex = 58;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Url bewerken";
@@ -372,7 +408,7 @@ namespace WindowsFormsAppTest
             this.PasUrlAanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PasUrlAanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasUrlAanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.PasUrlAanBtn.Location = new System.Drawing.Point(337, 251);
+            this.PasUrlAanBtn.Location = new System.Drawing.Point(337, 178);
             this.PasUrlAanBtn.Name = "PasUrlAanBtn";
             this.PasUrlAanBtn.Size = new System.Drawing.Size(112, 43);
             this.PasUrlAanBtn.TabIndex = 83;
@@ -386,39 +422,12 @@ namespace WindowsFormsAppTest
             this.AddUrlByWebserviceBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddUrlByWebserviceBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddUrlByWebserviceBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddUrlByWebserviceBttn.Location = new System.Drawing.Point(219, 251);
+            this.AddUrlByWebserviceBttn.Location = new System.Drawing.Point(219, 178);
             this.AddUrlByWebserviceBttn.Name = "AddUrlByWebserviceBttn";
             this.AddUrlByWebserviceBttn.Size = new System.Drawing.Size(112, 43);
             this.AddUrlByWebserviceBttn.TabIndex = 82;
             this.AddUrlByWebserviceBttn.Text = "URL TOEVOEGEN";
             this.AddUrlByWebserviceBttn.UseVisualStyleBackColor = false;
-            // 
-            // KlantKrMaterialCmbx
-            // 
-            this.KlantKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.KlantKrMaterialCmbx.AutoResize = false;
-            this.KlantKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.KlantKrMaterialCmbx.Depth = 0;
-            this.KlantKrMaterialCmbx.DisplayMember = "Name";
-            this.KlantKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.KlantKrMaterialCmbx.DropDownHeight = 174;
-            this.KlantKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.KlantKrMaterialCmbx.DropDownWidth = 121;
-            this.KlantKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.KlantKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.KlantKrMaterialCmbx.FormattingEnabled = true;
-            this.KlantKrMaterialCmbx.IntegralHeight = false;
-            this.KlantKrMaterialCmbx.ItemHeight = 43;
-            this.KlantKrMaterialCmbx.Location = new System.Drawing.Point(98, 193);
-            this.KlantKrMaterialCmbx.MaxDropDownItems = 4;
-            this.KlantKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
-            this.KlantKrMaterialCmbx.Name = "KlantKrMaterialCmbx";
-            this.KlantKrMaterialCmbx.Size = new System.Drawing.Size(352, 49);
-            this.KlantKrMaterialCmbx.StartIndex = 0;
-            this.KlantKrMaterialCmbx.TabIndex = 75;
-            this.KlantKrMaterialCmbx.ValueMember = "Id";
-            this.KlantKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.KlantKrMaterialCmbx_SelectedIndexChanged);
             // 
             // DeleteUrlBttn
             // 
@@ -427,39 +436,12 @@ namespace WindowsFormsAppTest
             this.DeleteUrlBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DeleteUrlBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeleteUrlBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.DeleteUrlBttn.Location = new System.Drawing.Point(6, 251);
+            this.DeleteUrlBttn.Location = new System.Drawing.Point(6, 178);
             this.DeleteUrlBttn.Name = "DeleteUrlBttn";
             this.DeleteUrlBttn.Size = new System.Drawing.Size(112, 43);
             this.DeleteUrlBttn.TabIndex = 81;
             this.DeleteUrlBttn.Text = "URL VERWIJDEREN";
             this.DeleteUrlBttn.UseVisualStyleBackColor = false;
-            // 
-            // WebserviceKrMaterialCmbx
-            // 
-            this.WebserviceKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.WebserviceKrMaterialCmbx.AutoResize = false;
-            this.WebserviceKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.WebserviceKrMaterialCmbx.Depth = 0;
-            this.WebserviceKrMaterialCmbx.DisplayMember = "Name";
-            this.WebserviceKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.WebserviceKrMaterialCmbx.DropDownHeight = 174;
-            this.WebserviceKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.WebserviceKrMaterialCmbx.DropDownWidth = 121;
-            this.WebserviceKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.WebserviceKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.WebserviceKrMaterialCmbx.FormattingEnabled = true;
-            this.WebserviceKrMaterialCmbx.IntegralHeight = false;
-            this.WebserviceKrMaterialCmbx.ItemHeight = 43;
-            this.WebserviceKrMaterialCmbx.Location = new System.Drawing.Point(98, 138);
-            this.WebserviceKrMaterialCmbx.MaxDropDownItems = 4;
-            this.WebserviceKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
-            this.WebserviceKrMaterialCmbx.Name = "WebserviceKrMaterialCmbx";
-            this.WebserviceKrMaterialCmbx.Size = new System.Drawing.Size(352, 49);
-            this.WebserviceKrMaterialCmbx.StartIndex = 0;
-            this.WebserviceKrMaterialCmbx.TabIndex = 74;
-            this.WebserviceKrMaterialCmbx.ValueMember = "Id";
-            this.WebserviceKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.WebserviceKrMaterialCmbx_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -535,19 +517,6 @@ namespace WindowsFormsAppTest
             this.label1.Size = new System.Drawing.Size(842, 2);
             this.label1.TabIndex = 85;
             // 
-            // AllUrlsKrLstBx
-            // 
-            this.AllUrlsKrLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.AllUrlsKrLstBx.BackColor = System.Drawing.Color.White;
-            this.AllUrlsKrLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.AllUrlsKrLstBx.ItemHeight = 20;
-            this.AllUrlsKrLstBx.Location = new System.Drawing.Point(7, 464);
-            this.AllUrlsKrLstBx.Name = "AllUrlsKrLstBx";
-            this.AllUrlsKrLstBx.Size = new System.Drawing.Size(363, 304);
-            this.AllUrlsKrLstBx.TabIndex = 65;
-            // 
             // AllKlantKrLstBx
             // 
             this.AllKlantKrLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -561,132 +530,67 @@ namespace WindowsFormsAppTest
             this.AllKlantKrLstBx.TabIndex = 64;
             this.AllKlantKrLstBx.SelectedValueChanged += new System.EventHandler(this.AllKlantKrLstBx_SelectedIndexChanged);
             // 
-            // BasisUrl1TxtBx
+            // AllWebserviceKrLstBx
             // 
-            this.BasisUrl1TxtBx.AllowPromptAsInput = true;
-            this.BasisUrl1TxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.AllWebserviceKrLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.BasisUrl1TxtBx.AnimateReadOnly = false;
-            this.BasisUrl1TxtBx.AsciiOnly = false;
-            this.BasisUrl1TxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BasisUrl1TxtBx.BeepOnError = false;
-            this.BasisUrl1TxtBx.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.BasisUrl1TxtBx.Depth = 0;
-            this.BasisUrl1TxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.BasisUrl1TxtBx.HidePromptOnLeave = false;
-            this.BasisUrl1TxtBx.HideSelection = true;
-            this.BasisUrl1TxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
-            this.BasisUrl1TxtBx.LeadingIcon = null;
-            this.BasisUrl1TxtBx.Location = new System.Drawing.Point(94, 73);
-            this.BasisUrl1TxtBx.Mask = "";
-            this.BasisUrl1TxtBx.MaxLength = 32767;
-            this.BasisUrl1TxtBx.MouseState = MaterialSkin.MouseState.OUT;
-            this.BasisUrl1TxtBx.Name = "BasisUrl1TxtBx";
-            this.BasisUrl1TxtBx.PasswordChar = '\0';
-            this.BasisUrl1TxtBx.PrefixSuffixText = null;
-            this.BasisUrl1TxtBx.PromptChar = '_';
-            this.BasisUrl1TxtBx.ReadOnly = false;
-            this.BasisUrl1TxtBx.RejectInputOnFirstFailure = false;
-            this.BasisUrl1TxtBx.ResetOnPrompt = true;
-            this.BasisUrl1TxtBx.ResetOnSpace = true;
-            this.BasisUrl1TxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.BasisUrl1TxtBx.SelectedText = "";
-            this.BasisUrl1TxtBx.SelectionLength = 0;
-            this.BasisUrl1TxtBx.SelectionStart = 0;
-            this.BasisUrl1TxtBx.ShortcutsEnabled = true;
-            this.BasisUrl1TxtBx.Size = new System.Drawing.Size(356, 48);
-            this.BasisUrl1TxtBx.SkipLiterals = true;
-            this.BasisUrl1TxtBx.TabIndex = 82;
-            this.BasisUrl1TxtBx.TabStop = false;
-            this.BasisUrl1TxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.BasisUrl1TxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.BasisUrl1TxtBx.TrailingIcon = null;
-            this.BasisUrl1TxtBx.UseSystemPasswordChar = false;
-            this.BasisUrl1TxtBx.ValidatingType = null;
+            this.AllWebserviceKrLstBx.BackColor = System.Drawing.Color.White;
+            this.AllWebserviceKrLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.AllWebserviceKrLstBx.ItemHeight = 20;
+            this.AllWebserviceKrLstBx.Location = new System.Drawing.Point(6, 464);
+            this.AllWebserviceKrLstBx.Name = "AllWebserviceKrLstBx";
+            this.AllWebserviceKrLstBx.Size = new System.Drawing.Size(363, 224);
+            this.AllWebserviceKrLstBx.TabIndex = 86;
             // 
-            // materialLabel2
+            // SoapWebserviceChkBx
             // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(8, 73);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(72, 19);
-            this.materialLabel2.TabIndex = 83;
-            this.materialLabel2.Text = "BasisUrl1:";
+            this.SoapWebserviceChkBx.AutoSize = true;
+            this.SoapWebserviceChkBx.Depth = 0;
+            this.SoapWebserviceChkBx.Location = new System.Drawing.Point(98, 74);
+            this.SoapWebserviceChkBx.Margin = new System.Windows.Forms.Padding(0);
+            this.SoapWebserviceChkBx.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.SoapWebserviceChkBx.MouseState = MaterialSkin.MouseState.HOVER;
+            this.SoapWebserviceChkBx.Name = "SoapWebserviceChkBx";
+            this.SoapWebserviceChkBx.ReadOnly = false;
+            this.SoapWebserviceChkBx.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SoapWebserviceChkBx.Ripple = true;
+            this.SoapWebserviceChkBx.Size = new System.Drawing.Size(106, 37);
+            this.SoapWebserviceChkBx.TabIndex = 90;
+            this.SoapWebserviceChkBx.Text = "BasisUrl 1";
+            this.SoapWebserviceChkBx.UseVisualStyleBackColor = true;
             // 
-            // BasisUrl2TxtBx
+            // materialCheckbox1
             // 
-            this.BasisUrl2TxtBx.AllowPromptAsInput = true;
-            this.BasisUrl2TxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BasisUrl2TxtBx.AnimateReadOnly = false;
-            this.BasisUrl2TxtBx.AsciiOnly = false;
-            this.BasisUrl2TxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.BasisUrl2TxtBx.BeepOnError = false;
-            this.BasisUrl2TxtBx.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.BasisUrl2TxtBx.Depth = 0;
-            this.BasisUrl2TxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.BasisUrl2TxtBx.HidePromptOnLeave = false;
-            this.BasisUrl2TxtBx.HideSelection = true;
-            this.BasisUrl2TxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
-            this.BasisUrl2TxtBx.LeadingIcon = null;
-            this.BasisUrl2TxtBx.Location = new System.Drawing.Point(94, 130);
-            this.BasisUrl2TxtBx.Mask = "";
-            this.BasisUrl2TxtBx.MaxLength = 32767;
-            this.BasisUrl2TxtBx.MouseState = MaterialSkin.MouseState.OUT;
-            this.BasisUrl2TxtBx.Name = "BasisUrl2TxtBx";
-            this.BasisUrl2TxtBx.PasswordChar = '\0';
-            this.BasisUrl2TxtBx.PrefixSuffixText = null;
-            this.BasisUrl2TxtBx.PromptChar = '_';
-            this.BasisUrl2TxtBx.ReadOnly = false;
-            this.BasisUrl2TxtBx.RejectInputOnFirstFailure = false;
-            this.BasisUrl2TxtBx.ResetOnPrompt = true;
-            this.BasisUrl2TxtBx.ResetOnSpace = true;
-            this.BasisUrl2TxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.BasisUrl2TxtBx.SelectedText = "";
-            this.BasisUrl2TxtBx.SelectionLength = 0;
-            this.BasisUrl2TxtBx.SelectionStart = 0;
-            this.BasisUrl2TxtBx.ShortcutsEnabled = true;
-            this.BasisUrl2TxtBx.Size = new System.Drawing.Size(356, 48);
-            this.BasisUrl2TxtBx.SkipLiterals = true;
-            this.BasisUrl2TxtBx.TabIndex = 84;
-            this.BasisUrl2TxtBx.TabStop = false;
-            this.BasisUrl2TxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.BasisUrl2TxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.BasisUrl2TxtBx.TrailingIcon = null;
-            this.BasisUrl2TxtBx.UseSystemPasswordChar = false;
-            this.BasisUrl2TxtBx.ValidatingType = null;
-            // 
-            // materialLabel3
-            // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(8, 130);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(72, 19);
-            this.materialLabel3.TabIndex = 85;
-            this.materialLabel3.Text = "BasisUrl2:";
+            this.materialCheckbox1.AutoSize = true;
+            this.materialCheckbox1.Depth = 0;
+            this.materialCheckbox1.Location = new System.Drawing.Point(226, 74);
+            this.materialCheckbox1.Margin = new System.Windows.Forms.Padding(0);
+            this.materialCheckbox1.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.materialCheckbox1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialCheckbox1.Name = "materialCheckbox1";
+            this.materialCheckbox1.ReadOnly = false;
+            this.materialCheckbox1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.materialCheckbox1.Ripple = true;
+            this.materialCheckbox1.Size = new System.Drawing.Size(106, 37);
+            this.materialCheckbox1.TabIndex = 91;
+            this.materialCheckbox1.Text = "BasisUrl 2";
+            this.materialCheckbox1.UseVisualStyleBackColor = true;
             // 
             // AllKlantenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(854, 775);
+            this.ClientSize = new System.Drawing.Size(854, 697);
+            this.Controls.Add(this.AllWebserviceKrLstBx);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.ZoekOpKlantNaamTxtBx);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.AllUrlsKrLstBx);
             this.Controls.Add(this.AllKlantKrLstBx);
             this.Controls.Add(this.LblUrlsByKlant);
             this.Controls.Add(this.LblKlant);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.MinimumSize = new System.Drawing.Size(854, 775);
             this.Name = "AllKlantenForm";
             this.Text = "Klanten beheren";
             this.groupBox1.ResumeLayout(false);
@@ -704,17 +608,11 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialLabel LblNaam;
         private MaterialSkin.Controls.MaterialLabel LblKlant;
         private MaterialSkin.Controls.MaterialLabel LblUrlsByKlant;
-        private MaterialSkin.Controls.MaterialMaskedTextBox SecurityIdTxtBx;
-        private MaterialSkin.Controls.MaterialLabel LblSecurityID;
         private MaterialSkin.Controls.MaterialMaskedTextBox UrlTxtBx;
         private MaterialSkin.Controls.MaterialLabel LblNaamUrl;
-        private MaterialSkin.Controls.MaterialLabel LblWebservice;
-        private MaterialSkin.Controls.MaterialLabel materialLabel4;
+        private MaterialSkin.Controls.MaterialLabel LblBasisUrl;
         private System.Windows.Forms.GroupBox groupBox2;
-        private KrMaterialCombobox KlantKrMaterialCmbx;
-        private KrMaterialCombobox WebserviceKrMaterialCmbx;
         private KrMaterialListBox AllKlantKrLstBx;
-        private KrMaterialListBox AllUrlsKrLstBx;
         private System.Windows.Forms.Button PasKlantAanBtn;
         private System.Windows.Forms.Button AddKlantBtn;
         private System.Windows.Forms.Button DeleteKlantBttn;
@@ -729,5 +627,8 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialMaskedTextBox BasisUrl1TxtBx;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private KrMaterialListBox AllWebserviceKrLstBx;
+        private MaterialSkin.Controls.MaterialCheckbox materialCheckbox1;
+        private MaterialSkin.Controls.MaterialCheckbox SoapWebserviceChkBx;
     }
 }

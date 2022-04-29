@@ -3,6 +3,7 @@ using System.Xml.Serialization;
 
 namespace WindowsFormsAppTest
 {
+    [XmlRoot(ElementName = "WebService")]
     public class WebService
     {
         public WebService()

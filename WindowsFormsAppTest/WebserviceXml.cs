@@ -4,16 +4,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+using System.Xml.Serialization;
 
 namespace WindowsFormsAppTest
 {
     class WebserviceXml
     {
         private string _path = @"D://db.xml";
-        public List<XElement> GetWebservices()
+        public List<WebService> GetWebservices()
         {
             XDocument doc = XDocument.Load(_path);
-            return doc.Descendants("Webservice").ToList();
+            List<WebService> webservices = new List<WebService>();
+
+            foreach (XElement element in doc.Descendants("Webservice"))
+            {
+                WebService newWebservice = new WebService();
+                newWebservice.Id = Guid.Parse(element.Attribute("Id").Value);
+                newWebservice.Name = element.Attribute("Name").Value;
+                newWebservice.Soap = bool.Parse(element.Attribute("Soap").Value);
+                webservices.Add(newWebservice);
+            }
+            return webservices;
         }
 
         public void AddWebservice(WebService webService)
@@ -22,9 +33,9 @@ namespace WindowsFormsAppTest
             List<WebService> webservices = new List<WebService>();
             webservices.Add(webService);
             doc.Element("DB").Element("Webservices").Add(new XElement("Webservice",
-                                                     new XAttribute("Id", webService.Id),
-                                                     new XAttribute("Name", webService.Name),
-                                                     new XAttribute("Soap", webService.Soap)));
+                                                     new XElement("Id", webService.Id),
+                                                     new XElement("Name", webService.Name),
+                                                     new XElement("Soap", webService.Soap)));
             doc.Save(_path);
         }
     }

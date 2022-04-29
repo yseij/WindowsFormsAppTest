@@ -21,12 +21,6 @@ namespace WindowsFormsAppTest
             ValueMember = "Id";
         }
 
-        public void FillListBoxUrlData(List<UrlData> urlDatas)
-        {
-            ClearListBox();
-            DataSource = urlDatas;
-        }
-
         public void FillListBoxKlantData(List<Klant> klantDatas)
         {
             ClearListBox();
