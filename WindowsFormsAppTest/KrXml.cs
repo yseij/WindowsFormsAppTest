@@ -51,53 +51,6 @@ namespace WindowsFormsAppTest
             writer.Close();
         }
 
-        public void AddKlant(Klant klant)
-        {
-            XDocument doc = XDocument.Load(_path);
-            List<Klant> klanten = new List<Klant>();
-            klanten.Add(klant);
-            doc.Element("DB").Element("Klanten").Add(new XElement("Klant", 
-                                                     new XAttribute("id", klant.Id), 
-                                                     new XAttribute("Name", klant.Name),
-                                                     new XAttribute("BasisUrl1", klant.BasisUrl1), 
-                                                     new XAttribute("BasisUrl2", klant.BasisUrl2)));
-            try
-            {
-                doc.Save(_path);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            
-        }
-
-        public void AddWebservice(WebService webService)
-        {
-            XDocument doc = XDocument.Load(_path);
-            List<WebService> webservices = new List<WebService>();
-            webservices.Add(webService);
-            doc.Element("DB").Element("Webservices").Add(new XElement("Webservice",
-                                                     new XAttribute("id", webService.Id),
-                                                     new XAttribute("Name", webService.Name),
-                                                     new XAttribute("Soap", webService.Soap)));
-            doc.Save(_path);
-        }
-
-        public void AddKlantWebservice(KlantWebservice klantWebservice)
-        {
-            XDocument doc = XDocument.Load(_path);;
-            doc.Element("DB").Element("KlantWebservices").Add(new XElement("KlantWebservice",
-                                                     new XAttribute("id", klantWebservice.Id),
-                                                     new XAttribute("klant", klantWebservice.Klant),
-                                                     new XAttribute("webservice", klantWebservice.Webservice),
-                                                     new XAttribute("basisUrl1", klantWebservice.BasisUrl1),
-                                                     new XAttribute("basisUrl2", klantWebservice.BasisUrl2)));
-            doc.Save(_path);
-        }
-
-
-
         public void UpdateXmlFile(string path)
         {
             XmlDocument doc = new XmlDocument();

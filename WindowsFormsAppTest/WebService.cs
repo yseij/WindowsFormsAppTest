@@ -24,13 +24,13 @@ namespace WindowsFormsAppTest
             Soap = soap;
         }
 
-        [XmlAttribute("id")]
+        [XmlAttribute("Id")]
         public Guid Id { get; set; }
 
-        [XmlAttribute("name")]
+        [XmlAttribute("Name")]
         public string Name { get; set; }
 
-        [XmlAttribute("soap")]
+        [XmlAttribute("Soap")]
         public bool Soap { get; set; }
     }
 }

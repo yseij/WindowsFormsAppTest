@@ -8,7 +8,7 @@ namespace WindowsFormsAppTest
     {
         public KlantWebservice()
         {
-
+            Id = Guid.NewGuid();
         }
 
         public KlantWebservice(Guid klant, Guid webservice, bool basisUrl1, bool basisUrl2)
@@ -29,19 +29,19 @@ namespace WindowsFormsAppTest
             BasisUrl2 = basisUrl2;
         }
 
-        [XmlAttribute("id")]
+        [XmlAttribute("Id")]
         public Guid Id { get; set; }
 
-        [XmlAttribute("klant")]
+        [XmlAttribute("Klant")]
         public Guid Klant { get; set; }
 
-        [XmlAttribute("webservice")]
+        [XmlAttribute("Webservice")]
         public Guid Webservice { get; set; }
 
-        [XmlAttribute("basisUrl1")]
+        [XmlAttribute("BasisUrl1")]
         public bool BasisUrl1 { get; set; }
 
-        [XmlAttribute("basisUrl2")]
+        [XmlAttribute("BasisUrl2")]
         public bool BasisUrl2 { get; set; }
     }
 }

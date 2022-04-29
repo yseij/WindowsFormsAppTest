@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsFormsAppTest
 {
-    partial class AddKlantForm
+    partial class AddKlantWithWebservicesForm
     {
         /// <summary>
         /// Required designer variable.
@@ -37,13 +37,13 @@ namespace WindowsFormsAppTest
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.BasisUrl2TxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
+            this.TableLayoutWebservice = new System.Windows.Forms.TableLayoutPanel();
+            this.TableLayoutHeader = new System.Windows.Forms.TableLayoutPanel();
             this.SuspendLayout();
             // 
             // NewKlantNaamTxtBx
             // 
             this.NewKlantNaamTxtBx.AllowPromptAsInput = true;
-            this.NewKlantNaamTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.NewKlantNaamTxtBx.AnimateReadOnly = false;
             this.NewKlantNaamTxtBx.AsciiOnly = false;
             this.NewKlantNaamTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -56,7 +56,7 @@ namespace WindowsFormsAppTest
             this.NewKlantNaamTxtBx.HideSelection = true;
             this.NewKlantNaamTxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
             this.NewKlantNaamTxtBx.LeadingIcon = null;
-            this.NewKlantNaamTxtBx.Location = new System.Drawing.Point(92, 67);
+            this.NewKlantNaamTxtBx.Location = new System.Drawing.Point(91, 71);
             this.NewKlantNaamTxtBx.Mask = "";
             this.NewKlantNaamTxtBx.MaxLength = 32767;
             this.NewKlantNaamTxtBx.MouseState = MaterialSkin.MouseState.OUT;
@@ -73,7 +73,7 @@ namespace WindowsFormsAppTest
             this.NewKlantNaamTxtBx.SelectionLength = 0;
             this.NewKlantNaamTxtBx.SelectionStart = 0;
             this.NewKlantNaamTxtBx.ShortcutsEnabled = true;
-            this.NewKlantNaamTxtBx.Size = new System.Drawing.Size(355, 48);
+            this.NewKlantNaamTxtBx.Size = new System.Drawing.Size(328, 48);
             this.NewKlantNaamTxtBx.SkipLiterals = true;
             this.NewKlantNaamTxtBx.TabIndex = 2;
             this.NewKlantNaamTxtBx.TabStop = false;
@@ -89,7 +89,7 @@ namespace WindowsFormsAppTest
             this.LblName.AutoSize = true;
             this.LblName.Depth = 0;
             this.LblName.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblName.Location = new System.Drawing.Point(7, 71);
+            this.LblName.Location = new System.Drawing.Point(6, 75);
             this.LblName.MouseState = MaterialSkin.MouseState.HOVER;
             this.LblName.Name = "LblName";
             this.LblName.Size = new System.Drawing.Size(48, 19);
@@ -103,9 +103,9 @@ namespace WindowsFormsAppTest
             this.AddKlantBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddKlantBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddKlantBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddKlantBttn.Location = new System.Drawing.Point(307, 230);
+            this.AddKlantBttn.Location = new System.Drawing.Point(6, 291);
             this.AddKlantBttn.Name = "AddKlantBttn";
-            this.AddKlantBttn.Size = new System.Drawing.Size(140, 43);
+            this.AddKlantBttn.Size = new System.Drawing.Size(413, 43);
             this.AddKlantBttn.TabIndex = 28;
             this.AddKlantBttn.Text = "KLANT TOEVOEGEN";
             this.AddKlantBttn.UseVisualStyleBackColor = false;
@@ -116,7 +116,7 @@ namespace WindowsFormsAppTest
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(7, 125);
+            this.materialLabel1.Location = new System.Drawing.Point(6, 162);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(79, 19);
@@ -126,8 +126,6 @@ namespace WindowsFormsAppTest
             // BasisUrl1TxtBx
             // 
             this.BasisUrl1TxtBx.AllowPromptAsInput = true;
-            this.BasisUrl1TxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.BasisUrl1TxtBx.AnimateReadOnly = false;
             this.BasisUrl1TxtBx.AsciiOnly = false;
             this.BasisUrl1TxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -140,7 +138,7 @@ namespace WindowsFormsAppTest
             this.BasisUrl1TxtBx.HideSelection = true;
             this.BasisUrl1TxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
             this.BasisUrl1TxtBx.LeadingIcon = null;
-            this.BasisUrl1TxtBx.Location = new System.Drawing.Point(92, 121);
+            this.BasisUrl1TxtBx.Location = new System.Drawing.Point(91, 158);
             this.BasisUrl1TxtBx.Mask = "";
             this.BasisUrl1TxtBx.MaxLength = 32767;
             this.BasisUrl1TxtBx.MouseState = MaterialSkin.MouseState.OUT;
@@ -157,7 +155,7 @@ namespace WindowsFormsAppTest
             this.BasisUrl1TxtBx.SelectionLength = 0;
             this.BasisUrl1TxtBx.SelectionStart = 0;
             this.BasisUrl1TxtBx.ShortcutsEnabled = true;
-            this.BasisUrl1TxtBx.Size = new System.Drawing.Size(355, 48);
+            this.BasisUrl1TxtBx.Size = new System.Drawing.Size(328, 48);
             this.BasisUrl1TxtBx.SkipLiterals = true;
             this.BasisUrl1TxtBx.TabIndex = 30;
             this.BasisUrl1TxtBx.TabStop = false;
@@ -172,7 +170,7 @@ namespace WindowsFormsAppTest
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(7, 179);
+            this.materialLabel2.Location = new System.Drawing.Point(6, 241);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(79, 19);
@@ -182,8 +180,6 @@ namespace WindowsFormsAppTest
             // BasisUrl2TxtBx
             // 
             this.BasisUrl2TxtBx.AllowPromptAsInput = true;
-            this.BasisUrl2TxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.BasisUrl2TxtBx.AnimateReadOnly = false;
             this.BasisUrl2TxtBx.AsciiOnly = false;
             this.BasisUrl2TxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -196,7 +192,7 @@ namespace WindowsFormsAppTest
             this.BasisUrl2TxtBx.HideSelection = true;
             this.BasisUrl2TxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
             this.BasisUrl2TxtBx.LeadingIcon = null;
-            this.BasisUrl2TxtBx.Location = new System.Drawing.Point(92, 175);
+            this.BasisUrl2TxtBx.Location = new System.Drawing.Point(91, 237);
             this.BasisUrl2TxtBx.Mask = "";
             this.BasisUrl2TxtBx.MaxLength = 32767;
             this.BasisUrl2TxtBx.MouseState = MaterialSkin.MouseState.OUT;
@@ -213,7 +209,7 @@ namespace WindowsFormsAppTest
             this.BasisUrl2TxtBx.SelectionLength = 0;
             this.BasisUrl2TxtBx.SelectionStart = 0;
             this.BasisUrl2TxtBx.ShortcutsEnabled = true;
-            this.BasisUrl2TxtBx.Size = new System.Drawing.Size(355, 48);
+            this.BasisUrl2TxtBx.Size = new System.Drawing.Size(328, 48);
             this.BasisUrl2TxtBx.SkipLiterals = true;
             this.BasisUrl2TxtBx.TabIndex = 32;
             this.BasisUrl2TxtBx.TabStop = false;
@@ -228,18 +224,50 @@ namespace WindowsFormsAppTest
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(6, 198);
+            this.materialLabel3.Location = new System.Drawing.Point(6, 256);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(79, 19);
             this.materialLabel3.TabIndex = 33;
             this.materialLabel3.Text = "(eventueel)";
             // 
-            // AddKlantForm
+            // TableLayoutWebservice
+            // 
+            this.TableLayoutWebservice.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.TableLayoutWebservice.ColumnCount = 3;
+            this.TableLayoutWebservice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayoutWebservice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.TableLayoutWebservice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.TableLayoutWebservice.Location = new System.Drawing.Point(426, 98);
+            this.TableLayoutWebservice.Name = "TableLayoutWebservice";
+            this.TableLayoutWebservice.RowCount = 2;
+            this.TableLayoutWebservice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayoutWebservice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayoutWebservice.Size = new System.Drawing.Size(419, 236);
+            this.TableLayoutWebservice.TabIndex = 34;
+            // 
+            // TableLayoutHeader
+            // 
+            this.TableLayoutHeader.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.TableLayoutHeader.ColumnCount = 3;
+            this.TableLayoutHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayoutHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.TableLayoutHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.TableLayoutHeader.Location = new System.Drawing.Point(426, 71);
+            this.TableLayoutHeader.Name = "TableLayoutHeader";
+            this.TableLayoutHeader.RowCount = 1;
+            this.TableLayoutHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayoutHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.TableLayoutHeader.Size = new System.Drawing.Size(419, 21);
+            this.TableLayoutHeader.TabIndex = 35;
+            // 
+            // AddKlantWithWebservicesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(479, 279);
+            this.ClientSize = new System.Drawing.Size(851, 344);
+            this.Controls.Add(this.TableLayoutHeader);
+            this.Controls.Add(this.TableLayoutWebservice);
             this.Controls.Add(this.materialLabel3);
             this.Controls.Add(this.materialLabel2);
             this.Controls.Add(this.BasisUrl2TxtBx);
@@ -249,7 +277,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.NewKlantNaamTxtBx);
             this.MinimumSize = new System.Drawing.Size(479, 279);
-            this.Name = "AddKlantForm";
+            this.Name = "AddKlantWithWebservicesForm";
             this.Text = "Klant toevoegen";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -265,5 +293,7 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialMaskedTextBox BasisUrl2TxtBx;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private System.Windows.Forms.TableLayoutPanel TableLayoutWebservice;
+        private System.Windows.Forms.TableLayoutPanel TableLayoutHeader;
     }
 }

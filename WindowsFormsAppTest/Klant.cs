@@ -28,16 +28,16 @@ namespace WindowsFormsAppTest
             BasisUrl2 = basisUrl2;
         }
 
-        [XmlAttribute("id")]
+        [XmlAttribute("Id")]
         public Guid Id { get; set; }
 
-        [XmlAttribute("name")]
+        [XmlAttribute("Name")]
         public string Name { get; set; }
 
-        [XmlAttribute("basisUrl1")]
+        [XmlAttribute("BasisUrl1")]
         public string BasisUrl1 { get; set; }
 
-        [XmlAttribute("basisUrl2")]
+        [XmlAttribute("BasisUrl2")]
         public string BasisUrl2 { get; set; }
     }
 }

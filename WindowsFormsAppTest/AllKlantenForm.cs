@@ -130,7 +130,7 @@ namespace WindowsFormsAppTest
 
         private void AddKlantBtn_Click(object sender, EventArgs e)
         {
-            var m = new AddKlantForm();
+            var m = new AddKlantWithWebservicesForm();
             m.FormClosing += new FormClosingEventHandler(ChildFormClosingAddKlantForm);
             m.ShowDialog();
         }
