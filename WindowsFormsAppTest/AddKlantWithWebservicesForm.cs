@@ -127,7 +127,6 @@ namespace WindowsFormsAppTest
                         if (klantWebservice.BasisUrl1 == true || klantWebservice.BasisUrl2 == true && klantWebservice.Webservice != Guid.Empty)
                         {
                             _klantWebserviceXml.AddKlantWebservice(klantWebservice);
-                            Close();
                         }
                         else
                         {
@@ -172,7 +171,8 @@ namespace WindowsFormsAppTest
                         }
                     }
                 }
-
+                _klantWebserviceXml.AddKlantWebservice(klantWebservice);
+                Close();
             }
         }
     }
