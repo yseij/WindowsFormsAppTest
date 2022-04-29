@@ -119,12 +119,6 @@
     <Compile Include="AddWebserviceForm.Designer.cs">
       <DependentUpon>AddWebserviceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="AllHttpsForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AllHttpsForm.Designer.cs">
-      <DependentUpon>AllHttpsForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="AllKlantenForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -174,12 +168,6 @@
     </Compile>
     <Compile Include="EenUrlTestForm.Designer.cs">
       <DependentUpon>EenUrlTestForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="AddUrlForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddUrlForm.Designer.cs">
-      <DependentUpon>AddUrlForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ErrorForm.cs">
       <SubType>Form</SubType>
@@ -262,9 +250,6 @@
     <EmbeddedResource Include="AddWebserviceForm.resx">
       <DependentUpon>AddWebserviceForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AllHttpsForm.resx">
-      <DependentUpon>AllHttpsForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="AllKlantenForm.resx">
       <DependentUpon>AllKlantenForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -273,9 +258,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="EenUrlTestForm.resx">
       <DependentUpon>EenUrlTestForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddUrlForm.resx">
-      <DependentUpon>AddUrlForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ErrorForm.resx">
       <DependentUpon>ErrorForm.cs</DependentUpon>

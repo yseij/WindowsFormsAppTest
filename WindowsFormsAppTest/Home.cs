@@ -53,8 +53,8 @@ namespace WindowsFormsAppTest
 
             ToolStripMenuItem1.Enabled = false;
 
-            FillKlantenDropDown();
-            FillWebserviceDropDown();
+            //FillKlantenDropDown();
+            //FillWebserviceDropDown();
 
             GetSettings();
 
@@ -133,12 +133,6 @@ namespace WindowsFormsAppTest
         private void BtnKlant_Click(object sender, EventArgs e)
         {
             var m = new WebserviceOfKlantForm(true);
-            m.ShowDialog();
-        }
-
-        private void BtnShowHttps_Click(object sender, EventArgs e)
-        {
-            var m = new AllHttpsForm();
             m.ShowDialog();
         }
 

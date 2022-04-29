@@ -12,7 +12,7 @@ namespace WindowsFormsAppTest
         private string _changedKlant;
         private string _changedSecurityId;
         private string _changedUrl;
-        private string _zoekOpKlantNaam;
+        private string _zoekOpKlantNaam = string.Empty;
 
         private Guid _selectedKlantId;
         private Guid _selectedKlantIdForChange;
@@ -26,14 +26,16 @@ namespace WindowsFormsAppTest
         private List<WebService> _webServiceDatas = new List<WebService>();
 
         KlantXml _klantXml;
-        WebserviceXml webserviceXml;
+        WebserviceXml _webserviceXml;
+        KlantWebserviceXml _klantWebserviceXml;
         ErrorProvider _error;
 
         public AllKlantenForm()
         {
             InitializeComponent();
             _klantXml = new KlantXml();
-            webserviceXml = new WebserviceXml();
+            _webserviceXml = new WebserviceXml();
+            _klantWebserviceXml = new KlantWebserviceXml();
             _error = new ErrorProvider();
 
             GetKlantenIfZoekOpNaamIsLeeg();
@@ -43,7 +45,7 @@ namespace WindowsFormsAppTest
         {
             _klantDatas = _klantXml.GetKlanten();
             _klantDatasForChange = _klantXml.GetKlanten();
-            //FillLstBxKlanten();
+            FillLstBxKlanten();
 
             if (_klantDatas.Count != 0)
             {
@@ -59,7 +61,7 @@ namespace WindowsFormsAppTest
 
             if (_klantDatas.Count > 0)
             {
-                //FillLstBxKlanten();
+                FillLstBxKlanten();
             }
             else
             {
@@ -70,24 +72,24 @@ namespace WindowsFormsAppTest
 
         private void FillLstBxKlanten()
         {
-        //    AllKlantKrLstBx.FillListBoxKlantData(_klantDatas);
-        //    if (_klantDatas.Count != 0)
-        //    {
-        //        _selectedKlantId =  Guid.Parse(_klantDatas[0].Attribute("Id").Value);
-        //    }
+            AllKlantKrLstBx.FillListBoxKlantData(_klantDatas);
+            if (_klantDatas.Count != 0)
+            {
+                _selectedKlantId = _klantDatas[0].Id;
+            }
         }
 
         private void AllKlantKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
         {
-        //    if (AllKlantKrLstBx.Items != null && AllKlantKrLstBx.SelectedValue != null)
-        //    {
-        //        Guid idOfSelected = (Guid)AllKlantKrLstBx.SelectedValue;
-        //        _selectedKlantId = idOfSelected;
-        //        Klant klantData = _klantDatas.Find(k => k.Id == idOfSelected);
-        //        KlantTxtBx.Text = klantData.Name;
-        //        BasisUrl1TxtBx.Text = klantData.BasisUrl1;
-        //        BasisUrl2TxtBx.Text = klantData.BasisUrl2;
-        //    }
+            if (AllKlantKrLstBx.Items != null && AllKlantKrLstBx.SelectedValue != null)
+            {
+                Guid idOfSelected = (Guid)AllKlantKrLstBx.SelectedValue;
+                _selectedKlantId = idOfSelected;
+                Klant klantData = _klantDatas.Find(k => k.Id == idOfSelected);
+                KlantTxtBx.Text = klantData.Name;
+                BasisUrl1TxtBx.Text = klantData.BasisUrl1;
+                BasisUrl2TxtBx.Text = klantData.BasisUrl2;
+            }
         }
 
         private void KlantTxtBx_TextChanged(object sender, EventArgs e)
@@ -107,42 +109,30 @@ namespace WindowsFormsAppTest
 
         private void AddKlantBtn_Click(object sender, EventArgs e)
         {
-            var m = new AddKlantWithWebservicesForm();
+            var m = new AddKlantWithWebservicesForm(Guid.Empty);
             m.FormClosing += new FormClosingEventHandler(ChildFormClosingAddKlantForm);
             m.ShowDialog();
         }
 
         private void PasKlantAanBtn_Click(object sender, EventArgs e)
         {
-        //    _klantTest.UpdateKlant((int)AllKlantKrLstBx.SelectedValue, _changedKlant, BasisUrl1TxtBx.Text, BasisUrl2TxtBx.Text);
-        //    GetKlantenIfZoekOpKlantenNaamIsGevuld();
+            Klant klant = new Klant(_changedKlant, BasisUrl1TxtBx.Text, BasisUrl2TxtBx.Text);
+            _klantXml.UpdateKlant((Guid)AllKlantKrLstBx.SelectedValue, klant);
+            GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
         private void DeleteKlantBttn_Click(object sender, EventArgs e)
         {
-
-        //    DialogResult dialogResult = MessageBox.Show("Wilt u de urls van de klant ook verwijderen", "Urls bij klant", MessageBoxButtons.YesNo);
-        //    if (dialogResult == DialogResult.Yes)
-        //    {
-        //        _klantTest.DeleteKlant((int)AllKlantKrLstBx.SelectedValue);
-        //    }
-        //    else if (dialogResult == DialogResult.No)
-        //    {
-        //        _error.SetError(DeleteKlantBttn, "De klant bevat nog urls");
-        //    }
-        //    GetKlantenIfZoekOpKlantenNaamIsGevuld();
-        }
-
-        private void UrlTxtBx_TextChanged(object sender, EventArgs e)
-        {
-            _changedUrl = UrlTxtBx.Text;
+            _klantXml.DeleteKlant((Guid)AllKlantKrLstBx.SelectedValue);
+            _klantWebserviceXml.DeleteByKlant((Guid)AllKlantKrLstBx.SelectedValue);
+            GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
         private void ChildFormClosingAddKlantForm(object sender, FormClosingEventArgs e)
         {
             GetKlantenIfZoekOpKlantenNaamIsGevuld();
             AllKlantKrLstBx.SelectedIndex = AllKlantKrLstBx.Items.Count - 1;
-            //_selectedKlantId = _klantDatas[_klantDatas.Count - 1].Id;
+            _selectedKlantId = _klantDatas[_klantDatas.Count - 1].Id;
         }
 
         private void GetKlantenIfZoekOpKlantenNaamIsGevuld()
@@ -161,6 +151,17 @@ namespace WindowsFormsAppTest
         {
             _zoekOpKlantNaam = ZoekOpKlantNaamTxtBx.Text;
             GetKlantenIfZoekOpKlantenNaamIsGevuld();
+        }
+
+        private void PasWebserviceAanBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void WebservicesToevoegenAanKlant_Click(object sender, EventArgs e)
+        {
+            var m = new AddKlantWithWebservicesForm((Guid)AllKlantKrLstBx.SelectedValue);
+            m.ShowDialog();
         }
     }
 }

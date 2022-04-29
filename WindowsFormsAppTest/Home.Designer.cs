@@ -391,20 +391,6 @@ namespace WindowsFormsAppTest
             this.BtnShowKlanten.UseVisualStyleBackColor = false;
             this.BtnShowKlanten.Click += new System.EventHandler(this.BtnShowKlanten_Click);
             // 
-            // BtnShowHttps
-            // 
-            this.BtnShowHttps.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.BtnShowHttps.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShowHttps.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnShowHttps.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnShowHttps.Location = new System.Drawing.Point(7, 276);
-            this.BtnShowHttps.Name = "BtnShowHttps";
-            this.BtnShowHttps.Size = new System.Drawing.Size(150, 150);
-            this.BtnShowHttps.TabIndex = 28;
-            this.BtnShowHttps.Text = "HTTPS";
-            this.BtnShowHttps.UseVisualStyleBackColor = false;
-            this.BtnShowHttps.Click += new System.EventHandler(this.BtnShowHttps_Click);
-            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

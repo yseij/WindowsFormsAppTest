@@ -29,7 +29,7 @@ namespace WindowsFormsAppTest
             KrXml _krXml = new KrXml();
             _krXml.MakeXmlFile(@"D:\\db.xml");
 
-            AddKlantWithWebservicesForm home = new AddKlantWithWebservicesForm();
+            Home home = new Home();
             //home.HomeTest();
             Application.Run(home);
             Application.Exit();

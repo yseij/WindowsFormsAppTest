@@ -23,34 +23,26 @@ namespace WindowsFormsAppTest
 
         private bool _isSoap;
 
-        private List<HttpData> _httpDatas = new List<HttpData>();
         private List<WebService> _webServiceDatas = new List<WebService>();
-        private List<WebService> _WebserviceDatasForChange = new List<WebService>();
-        private List<Klant> _klantDatas = new List<Klant>();
 
-        HttpTest _httpTest;
-        KlantTest _klantTest;
-        WebserviceTest _webserviceTest;
+        KlantXml _klantXml;
+        WebserviceXml _webserviceXml;
         ErrorProvider _error;
 
         public AllWebserviceForm()
         {
             InitializeComponent();
-            _httpTest = new HttpTest();
-            _klantTest = new KlantTest();
-            _webserviceTest = new WebserviceTest();
+            _klantXml = new KlantXml();
+            _webserviceXml = new WebserviceXml();
             _error = new ErrorProvider();
 
-            GetKlanten();
             GetWebservicesIfZoekOpNaamIsLeeg();
         }
 
         private void GetWebservicesIfZoekOpNaamIsLeeg()
         {
-            _webServiceDatas = _webserviceTest.GetWebServiceData();
-            _WebserviceDatasForChange = _webserviceTest.GetWebServiceData();
+            _webServiceDatas = _webserviceXml.GetWebservices();
             FillLstBxWebServices();
-            FillCmbxWebServices();
 
             if (_webServiceDatas.Count > 0)
             {
@@ -62,25 +54,16 @@ namespace WindowsFormsAppTest
 
         private void GetWebservicesIfZoekOpNaamIsGevuld()
         {
-            _webServiceDatas = _webserviceTest.GetWebServicesByWebserviceName(_zoekOpWebserviceNaam);
-            _WebserviceDatasForChange = _webserviceTest.GetWebServicesByWebserviceName(_zoekOpWebserviceNaam);
+            _webServiceDatas = _webserviceXml.GetWebservicesByName(_zoekOpWebserviceNaam);
 
             if (_webServiceDatas.Count > 0)
             {
                 FillLstBxWebServices();
-                FillCmbxWebServices();
             }
             else
             {
-                AllUrlsKrLstBx.ClearListBox();
                 AllWebserviceKrLstBx.ClearListBox();
             }
-        }
-
-        private void GetKlanten()
-        {
-            _klantDatas = _klantTest.GetKlantData();
-            FillCmbxKlanten();
         }
 
         private void FillLstBxWebServices()
@@ -89,21 +72,6 @@ namespace WindowsFormsAppTest
             if (_webServiceDatas.Count != 0)
             {
                 _selectedWebserviceId = _webServiceDatas[0].Id;
-            }
-        }
-
-        private void FillCmbxWebServices()
-        {
-            WebserviceKrMaterialCmbx.FillCmbBoxWebservice(_WebserviceDatasForChange);
-            WebserviceKrMaterialCmbx.SelectedValue = _selectedWebserviceId;
-        }
-
-        private void FillCmbxKlanten()
-        {
-            KlantKrMaterialCmbx.FillCmbBoxKlant(_klantDatas);
-            if (_klantDatas.Count > 0)
-            {
-                KlantKrMaterialCmbx.SelectedValue = _klantDatas[0].Id;
             }
         }
 
@@ -141,7 +109,7 @@ namespace WindowsFormsAppTest
 
         private void PasWebserviceAanBtn_Click(object sender, EventArgs e)
         {
-            _webserviceTest.UpdateWebService((int)AllWebserviceKrLstBx.SelectedValue, _changedWebservice, _isSoap);
+            //_webserviceXml.UpdateWebService((int)AllWebserviceKrLstBx.SelectedValue, _changedWebservice, _isSoap);
             GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
@@ -154,7 +122,7 @@ namespace WindowsFormsAppTest
 
         private void DeleteWebserviceBttn_Click(object sender, EventArgs e)
         {
-            _webserviceTest.DeleteWebService((int)AllWebserviceKrLstBx.SelectedValue);
+            //_webserviceXml.DeleteWebService((int)AllWebserviceKrLstBx.SelectedValue);
             GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
@@ -163,49 +131,6 @@ namespace WindowsFormsAppTest
             GetKlantenIfZoekOpKlantenNaamIsGevuld();
             AllWebserviceKrLstBx.SelectedIndex = AllWebserviceKrLstBx.Items.Count - 1;
             _selectedWebserviceId = _webServiceDatas[_webServiceDatas.Count - 1].Id;
-        }
-
-        private void AllUrlsKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (AllUrlsKrLstBx.Items != null && AllUrlsKrLstBx.SelectedValue != null)
-            {
-                int idOfSelected = (int)AllUrlsKrLstBx.SelectedValue;
-                _selectedUrlId = idOfSelected;
-            }
-        }
-
-        private void SecurityIdTxtBx_TextChanged(object sender, EventArgs e)
-        {
-            _changedSecurityId = SecurityIdTxtBx.Text;
-        }
-
-        private void UrlTxtBx_TextChanged(object sender, EventArgs e)
-        {
-            _changedUrl = UrlTxtBx.Text;
-        }
-
-        private void HttpKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            _selectedHttpId = (int)HttpKrMaterialCmbx.SelectedValue;
-        }
-
-        private void WebserviceKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (WebserviceKrMaterialCmbx.DataSource != null)
-            {
-                _selectedWebserviceIdForChange = (int)WebserviceKrMaterialCmbx.SelectedValue;
-            }
-        }
-
-        private void KlantKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            _selectedKlantIdForChange = (int)KlantKrMaterialCmbx.SelectedValue;
-        }
-
-        private void ClearBox()
-        {
-            SecurityIdTxtBx.Text = string.Empty;
-            UrlTxtBx.Text = string.Empty;
         }
 
         private void GetKlantenIfZoekOpKlantenNaamIsGevuld()

@@ -31,7 +31,7 @@ namespace WindowsFormsAppTest
         {
             this.NewKlantNaamTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.LblName = new MaterialSkin.Controls.MaterialLabel();
-            this.AddKlantBttn = new System.Windows.Forms.Button();
+            this.AddAndUpdateKlantBttn = new System.Windows.Forms.Button();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.BasisUrl1TxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
@@ -100,20 +100,20 @@ namespace WindowsFormsAppTest
             this.LblName.TabIndex = 1;
             this.LblName.Text = "Naam:";
             // 
-            // AddKlantBttn
+            // AddAndUpdateKlantBttn
             // 
-            this.AddKlantBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.AddKlantBttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.AddKlantBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddKlantBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddKlantBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddKlantBttn.Location = new System.Drawing.Point(215, 289);
-            this.AddKlantBttn.Name = "AddKlantBttn";
-            this.AddKlantBttn.Size = new System.Drawing.Size(205, 43);
-            this.AddKlantBttn.TabIndex = 28;
-            this.AddKlantBttn.Text = "KLANT TOEVOEGEN";
-            this.AddKlantBttn.UseVisualStyleBackColor = false;
-            this.AddKlantBttn.Click += new System.EventHandler(this.AddKlantBttn_Click);
+            this.AddAndUpdateKlantBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.AddAndUpdateKlantBttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.AddAndUpdateKlantBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.AddAndUpdateKlantBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AddAndUpdateKlantBttn.ForeColor = System.Drawing.SystemColors.Control;
+            this.AddAndUpdateKlantBttn.Location = new System.Drawing.Point(215, 289);
+            this.AddAndUpdateKlantBttn.Name = "AddAndUpdateKlantBttn";
+            this.AddAndUpdateKlantBttn.Size = new System.Drawing.Size(205, 43);
+            this.AddAndUpdateKlantBttn.TabIndex = 28;
+            this.AddAndUpdateKlantBttn.Text = "KLANT TOEVOEGEN";
+            this.AddAndUpdateKlantBttn.UseVisualStyleBackColor = false;
+            this.AddAndUpdateKlantBttn.Click += new System.EventHandler(this.AddKlantBttn_Click);
             // 
             // materialLabel1
             // 
@@ -335,7 +335,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.BasisUrl2TxtBx);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.BasisUrl1TxtBx);
-            this.Controls.Add(this.AddKlantBttn);
+            this.Controls.Add(this.AddAndUpdateKlantBttn);
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.NewKlantNaamTxtBx);
             this.MinimumSize = new System.Drawing.Size(686, 348);
@@ -349,7 +349,7 @@ namespace WindowsFormsAppTest
         #endregion
         private MaterialSkin.Controls.MaterialMaskedTextBox NewKlantNaamTxtBx;
         private MaterialSkin.Controls.MaterialLabel LblName;
-        private System.Windows.Forms.Button AddKlantBttn;
+        private System.Windows.Forms.Button AddAndUpdateKlantBttn;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private MaterialSkin.Controls.MaterialMaskedTextBox BasisUrl1TxtBx;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;

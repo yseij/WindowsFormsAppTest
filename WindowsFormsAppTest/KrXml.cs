@@ -43,7 +43,7 @@ namespace WindowsFormsAppTest
             db.Webservices = webservices;
 
             KlantWebservice klantWebservice1 = new KlantWebservice(klant1.Id, webService1.Id, true, false);
-            KlantWebservice klantWebservice2 = new KlantWebservice(klant2.Id, webService1.Id, true, false);
+            KlantWebservice klantWebservice2 = new KlantWebservice(klant2.Id, webService1.Id, false, true);
             KlantWebservice klantWebservice3 = new KlantWebservice(klant3.Id, webService2.Id, true, false);
             List<KlantWebservice> klantWebservices = new List<KlantWebservice>();
             klantWebservices.Add(klantWebservice1);

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Xml.Linq;
 using System.Xml.Serialization;
@@ -32,6 +29,12 @@ namespace WindowsFormsAppTest
             return AlleKlanten.FindAll(k => k.Name.Contains(naam));
         }
 
+        public Klant GetKlantenById(Guid id)
+        {
+            List<Klant> AlleKlanten = GetKlanten();
+            return AlleKlanten.Find(k => k.Id == id);
+        }
+
         public void AddKlant(Klant klant)
         {
             XDocument doc = XDocument.Load(_path);
@@ -42,6 +45,29 @@ namespace WindowsFormsAppTest
                                                      new XAttribute("Name", klant.Name),
                                                      new XAttribute("BasisUrl1", klant.BasisUrl1),
                                                      new XAttribute("BasisUrl2", klant.BasisUrl2)));
+            SaveXmlFile(doc);
+        }
+
+        public void UpdateKlant(Guid id, Klant klant)
+        {
+            XDocument doc = XDocument.Load(_path);
+            XElement xmlKlant = doc.Element("DB").Element("Klanten").Elements("Klant").FirstOrDefault(p => Guid.Parse(p.Attribute("Id").Value) == id);
+            xmlKlant.Attribute("Name").Value = klant.Name;
+            xmlKlant.Attribute("BasisUrl1").Value = klant.BasisUrl1;
+            xmlKlant.Attribute("BasisUrl2").Value = klant.BasisUrl2;
+            SaveXmlFile(doc);
+        }
+
+        public void DeleteKlant(Guid id)
+        {
+            XDocument doc = XDocument.Load(_path);
+            XElement xmlKlant = doc.Element("DB").Element("Klanten").Elements("Klant").FirstOrDefault(p => Guid.Parse(p.Attribute("Id").Value) == id);
+            xmlKlant.Remove();
+            SaveXmlFile(doc);
+        }
+
+        private void SaveXmlFile(XDocument doc)
+        {
             try
             {
                 doc.Save(_path);

@@ -12,27 +12,36 @@ namespace WindowsFormsAppTest
     {
         private List<Klant> _klantDatas = new List<Klant>();
         private List<WebService> _webserviceDatas = new List<WebService>();
+        private Guid _klantId;
 
         ErrorProvider _error;
         WebserviceXml _webserviceXml;
         KlantXml _klantXml;
         KlantWebserviceXml _klantWebserviceXml;
 
-        public AddKlantWithWebservicesForm()
+        public AddKlantWithWebservicesForm(Guid klantId)
         {
             InitializeComponent();
             _error = new ErrorProvider();
             _webserviceXml = new WebserviceXml();
             _klantXml = new KlantXml();
             _klantWebserviceXml = new KlantWebserviceXml();
+            _klantId = klantId;
 
+            if (_klantId != Guid.Empty)
+            {
+                FillKlantData();
+                AddAndUpdateKlantBttn.Text = "KLANT AANPASSEN";
+            }
+            else
+            {
+                CheckBoxEnable(false, "BasisUrl1");
+                CheckBoxEnable(false, "BasisUrl2");
+                AddAndUpdateKlantBttn.Enabled = false;
+                UrlsGenererenBtn.Enabled = false;
+                AddAndUpdateKlantBttn.Text = "KLANT TOEVOEGEN";
+            }
             FillTable();
-
-            CheckBoxEnable(false, "BasisUrl1");
-            CheckBoxEnable(false, "BasisUrl2");
-
-            AddKlantBttn.Enabled = false;
-            UrlsGenererenBtn.Enabled = false;
         }
 
         private void FillTable()
@@ -50,16 +59,35 @@ namespace WindowsFormsAppTest
 
             foreach (WebService webService in _webserviceDatas)
             {
+                KlantWebservice klantWebservice = new KlantWebservice();
+                bool isKlantWebservice = false;
+                bool isBasisUrl1 = false;
+                bool isBasisUrl2 = false;
+                if (_klantId != Guid.Empty)
+                {
+                    klantWebservice = _klantWebserviceXml.GetByKlantAndByWebservice(_klantId, webService.Id);
+                    if (klantWebservice != null)
+                    {
+                        isKlantWebservice = true;
+                        isBasisUrl1 = klantWebservice.BasisUrl1;
+                        isBasisUrl2 = klantWebservice.BasisUrl2;
+                    }
+                }
                 TableLayoutWebservice.Controls.Add(new CheckBox()
                 {
                     Text = webService.Name,
                     Tag = webService.Id,
-                    AutoSize = true
-                },
-                    0,
-                    row);
-                TableLayoutWebservice.Controls.Add(new CheckBox() { CheckAlign = ContentAlignment.MiddleCenter, Tag = "BasisUrl1" }, 1, row);
-                TableLayoutWebservice.Controls.Add(new CheckBox() { CheckAlign = ContentAlignment.MiddleCenter, Tag = "BasisUrl2" }, 2, row);
+                    AutoSize = true,
+                    Checked = isKlantWebservice
+                }, 0, row);
+                TableLayoutWebservice.Controls.Add(new CheckBox() { 
+                    CheckAlign = ContentAlignment.MiddleCenter, 
+                    Checked = isBasisUrl1,
+                    Tag = "BasisUrl1" }, 1, row);
+                TableLayoutWebservice.Controls.Add(new CheckBox() { 
+                    CheckAlign = ContentAlignment.MiddleCenter,
+                    Checked = isBasisUrl2,
+                    Tag = "BasisUrl2" }, 2, row);
                 row++;
             }
             TableLayoutRowStyleCollection styles =
@@ -76,11 +104,11 @@ namespace WindowsFormsAppTest
             _error.Clear();
             if (NewKlantNaamTxtBx.Text != string.Empty)
             {
-                AddKlantBttn.Enabled = true;
+                AddAndUpdateKlantBttn.Enabled = true;
             }
             else
             {
-                AddKlantBttn.Enabled = false;
+                AddAndUpdateKlantBttn.Enabled = false;
             }
         }
 
@@ -265,6 +293,14 @@ namespace WindowsFormsAppTest
                     }
                 }
             }
+        }
+
+        private void FillKlantData()
+        {
+            Klant klant = _klantXml.GetKlantenById(_klantId);
+            NewKlantNaamTxtBx.Text = klant.Name;
+            BasisUrl1TxtBx.Text = klant.BasisUrl1;
+            BasisUrl2TxtBx.Text = klant.BasisUrl2;
         }
     }
 }

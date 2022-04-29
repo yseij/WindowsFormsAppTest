@@ -13,15 +13,16 @@ namespace WindowsFormsAppTest
 
         private List<WebService> _webServiceDatas = new List<WebService>();
 
-        WebserviceTest _webserviceTest;
         ErrorProvider _error;
+
+        WebserviceXml _webserviceXml;
         public AddWebserviceForm()
         {
             InitializeComponent();
-            _webserviceTest = new WebserviceTest();
+            _webserviceXml = new WebserviceXml();
             _error = new ErrorProvider();
 
-            _webServiceDatas = _webserviceTest.GetWebServiceData();
+            _webServiceDatas = _webserviceXml.GetWebservices();
 
             AddWebserviceBttn.Enabled = false;
         }
@@ -33,7 +34,8 @@ namespace WindowsFormsAppTest
                 WebService webServiceData = _webServiceDatas.Find(w => w.Name == NewWebserviceNaamTxtBx.Text);
                 if (webServiceData == null)
                 {
-                    _webserviceTest.AddWebService(_newWebserviceNaam, _isSoap);
+                    WebService newWebService = new WebService(_newWebserviceNaam, _isSoap);
+                    _webserviceXml.AddWebservice(newWebService);
                     Close();
                 }
                 else
