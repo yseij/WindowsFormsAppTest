@@ -210,6 +210,7 @@
     <Compile Include="KrXml.cs" />
     <Compile Include="LogFile.cs" />
     <Compile Include="MailClient.cs" />
+    <Compile Include="MessageBoxManager.cs" />
     <Compile Include="NodeSorter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

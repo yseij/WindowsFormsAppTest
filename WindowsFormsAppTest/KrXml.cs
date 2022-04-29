@@ -33,14 +33,18 @@ namespace WindowsFormsAppTest
             klanten.Add(klant3);
             db.Klanten = klanten;
 
-            WebService webService = new WebService("KraanHomeDna", false);
+            WebService webService1 = new WebService("KraanHomeDna", false);
+            WebService webService2 = new WebService("KraanSalesService", false);
+            WebService webService3 = new WebService("Kraan2Webservice", false);
             List<WebService> webservices = new List<WebService>();
-            webservices.Add(webService);
+            webservices.Add(webService1);
+            webservices.Add(webService2);
+            webservices.Add(webService3);
             db.Webservices = webservices;
 
-            KlantWebservice klantWebservice1 = new KlantWebservice(klant1.Id, webService.Id, true, false);
-            KlantWebservice klantWebservice2 = new KlantWebservice(klant2.Id, webService.Id, true, false);
-            KlantWebservice klantWebservice3 = new KlantWebservice(klant3.Id, webService.Id, true, false);
+            KlantWebservice klantWebservice1 = new KlantWebservice(klant1.Id, webService1.Id, true, false);
+            KlantWebservice klantWebservice2 = new KlantWebservice(klant2.Id, webService1.Id, true, false);
+            KlantWebservice klantWebservice3 = new KlantWebservice(klant3.Id, webService2.Id, true, false);
             List<KlantWebservice> klantWebservices = new List<KlantWebservice>();
             klantWebservices.Add(klantWebservice1);
             klantWebservices.Add(klantWebservice2);

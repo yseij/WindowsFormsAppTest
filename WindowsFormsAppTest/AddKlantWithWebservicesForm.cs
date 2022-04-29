@@ -96,8 +96,11 @@ namespace WindowsFormsAppTest
         private void AddKlantBttn_Click(object sender, EventArgs e)
         {
             bool isChecked = false;
+            string huidigeWebservice = string.Empty;
+
             XElement klantExist = null;
             _klantDatas = _klantXml.GetKlanten();
+
             if (NewKlantNaamTxtBx.Text != string.Empty || BasisUrl1TxtBx.Text != string.Empty)
             {
                 Klant klant = new Klant(NewKlantNaamTxtBx.Text, BasisUrl1TxtBx.Text, BasisUrl2TxtBx.Text);
@@ -124,54 +127,60 @@ namespace WindowsFormsAppTest
                     CheckBox checkBox = (CheckBox)c;
                     if (isChecked == false && c.Tag.ToString() != "BasisUrl1" && c.Tag.ToString() != "BasisUrl2")
                     {
-                        if (klantWebservice.BasisUrl1 == true || klantWebservice.BasisUrl2 == true && klantWebservice.Webservice != Guid.Empty)
-                        {
-                            _klantWebserviceXml.AddKlantWebservice(klantWebservice);
-                        }
-                        else
-                        {
-                            //MessageBoxButtons button1 = MessageBoxButtons.OK;
-                            //MessageBox.Show("Je moet bij elke webservice die je hebt aangeduid ook een basisurl meegeven");
-                            //DialogResult dialogResult = MessageBox.Show("Je moet bij elke webservice die je hebt aangeduid ook een basisurl meegeven", "BasisUrl bij webservice", MessageBoxButtons.);
-                            //if (dialogResult == DialogResult.Yes)
-                            //{
-                            //    _klantTest.DeleteKlant((int)AllKlantKrLstBx.SelectedValue);
-                            //}
-                            //else if (dialogResult == DialogResult.No)
-                            //{
-                            //    _error.SetError(DeleteKlantBttn, "De klant bevat nog urls");
-                            //}
-                        }
                         if (checkBox.Checked)
                         {
                             isChecked = true;
                             guid = Guid.Parse(checkBox.Tag.ToString());
+                            huidigeWebservice = checkBox.Text;
                         }
                     }
                     if (isChecked)
                     {
                         if (checkBox.Checked)
                         {
+                            klantWebservice.Webservice = guid;
                             if (c.Tag.ToString() == "BasisUrl1")
                             {
-                                klantWebservice.Webservice = guid;
                                 klantWebservice.BasisUrl1 = true;
                                 klantWebservice.BasisUrl2 = false;
                             }
                             else if (c.Tag.ToString() == "BasisUrl2")
                             {
-                                klantWebservice.Webservice = guid;
                                 klantWebservice.BasisUrl1 = false;
                                 klantWebservice.BasisUrl2 = true;
                             }
                         }
                         if (c.Tag.ToString() == "BasisUrl2")
                         {
+                            if (isChecked)
+                            {
+                                if (klantWebservice.BasisUrl1 == false && klantWebservice.BasisUrl2 == false)
+                                {
+                                    MessageBoxManager.Yes = "BasisUrl1";
+                                    MessageBoxManager.No = "BasisUrl2";
+                                    MessageBoxManager.Register();
+                                    DialogResult dialogResult = MessageBox.Show("Je moet bij elke webservice die je hebt aangeduid ook een basisurl meegeven, Welke basisUrl wil je bij de " + huidigeWebservice + " webservice gebruiken", "BasisUrl bij webservice", MessageBoxButtons.YesNo);
+                                    if (dialogResult == DialogResult.Yes)
+                                    {
+
+                                        klantWebservice.BasisUrl1 = true;
+                                    }
+                                    else if (dialogResult == DialogResult.No)
+                                    {
+                                        klantWebservice.BasisUrl2 = true;
+                                    }
+                                    MessageBoxManager.Unregister();
+                                }
+                                _klantWebserviceXml.AddKlantWebservice(klantWebservice);
+                                klantWebservice.BasisUrl1 = false;
+                                klantWebservice.BasisUrl2 = false;
+                                klantWebservice.Webservice = Guid.Empty;
+                                klantWebservice.Id = Guid.NewGuid();
+                            }
                             isChecked = false;
                         }
                     }
                 }
-                _klantWebserviceXml.AddKlantWebservice(klantWebservice);
                 Close();
             }
         }

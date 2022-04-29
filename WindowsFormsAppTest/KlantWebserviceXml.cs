@@ -17,10 +17,10 @@ namespace WindowsFormsAppTest
             XDocument doc = XDocument.Load(_path); ;
             doc.Element("DB").Element("KlantWebservices").Add(new XElement("KlantWebservice",
                                                      new XAttribute("Id", klantWebservice.Id),
-                                                     new XAttribute("klant", klantWebservice.Klant),
-                                                     new XAttribute("webservice", klantWebservice.Webservice),
-                                                     new XAttribute("basisUrl1", klantWebservice.BasisUrl1),
-                                                     new XAttribute("basisUrl2", klantWebservice.BasisUrl2)));
+                                                     new XAttribute("Klant", klantWebservice.Klant),
+                                                     new XAttribute("Webservice", klantWebservice.Webservice),
+                                                     new XAttribute("BasisUrl1", klantWebservice.BasisUrl1),
+                                                     new XAttribute("BasisUrl2", klantWebservice.BasisUrl2)));
             SaveXmlFile(doc);
         }
 
