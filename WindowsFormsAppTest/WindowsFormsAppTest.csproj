@@ -223,7 +223,7 @@
       <DependentUpon>SoapRequestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="TestRoute.cs" />
-    <Compile Include="UrlData.cs" />
+    <Compile Include="Url.cs" />
     <Compile Include="UserForm.cs">
       <SubType>Form</SubType>
     </Compile>

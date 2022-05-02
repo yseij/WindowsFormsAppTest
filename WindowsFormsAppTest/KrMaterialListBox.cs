@@ -33,6 +33,12 @@ namespace WindowsFormsAppTest
             DataSource = webServiceDatas;
         }
 
+        public void FillListBoxUrlData(List<Url> UrlDatas)
+        {
+            ClearListBox();
+            DataSource = UrlDatas;
+        }
+
         public void FillListBoxHttpData(List<HttpData> httpDatas)
         {
             ClearListBox();

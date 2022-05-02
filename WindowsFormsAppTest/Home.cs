@@ -16,7 +16,6 @@ namespace WindowsFormsAppTest
         private string _httpName;
         private string _webserviceName;
 
-        private int _httpKeuzeId;
         private int _webserviceKeuzeId;
         private int _klantKeuzeId;
 
@@ -30,7 +29,7 @@ namespace WindowsFormsAppTest
         private List<HttpData> _httpDatas = new List<HttpData>();
         private List<Klant> _klantDatas = new List<Klant>();
         private List<WebService> _webServiceDatas = new List<WebService>();
-        private List<UrlData> _urlDatas = new List<UrlData>();
+        private List<Url> _urlDatas = new List<Url>();
 
         HttpTest _httptest;
         KlantTest _klantTest;
@@ -462,14 +461,14 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void RouteTestAfterKeuze(List<UrlData> urlDatas, string keuzeNaam)
+        private void RouteTestAfterKeuze(List<Url> urlDatas, string keuzeNaam)
         {
             int teller = 0;
             string text = "";
             LogFile logFile = new LogFile();
-            foreach (UrlData urlData in urlDatas)
+            foreach (Url urlData in urlDatas)
             {
-                CheckWebservice(urlData);
+                //CheckWebservice(urlData);
                 GetResult(urlData);
                 foreach (JProperty item in _result)
                 {
@@ -492,19 +491,19 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void CheckWebservice(UrlData urlData)
-        {
-            foreach (WebService item in _webServiceDatas)
-            {
-                if (item.Id == urlData.WebServiceDataId)
-                {
-                    _isSoap = item.Soap;
-                    _webserviceName = item.Name;
-                }
-            }
-        }
+        //private void CheckWebservice(Url urlData)
+        //{
+        //    foreach (WebService item in _webServiceDatas)
+        //    {
+        //        if (item.Id == urlData.WebServiceDataId)
+        //        {
+        //            _isSoap = item.Soap;
+        //            _webserviceName = item.Name;
+        //        }
+        //    }
+        //}
 
-        private void GetResult(UrlData urlData)
+        private void GetResult(Url urlData)
         {
             if (_isSoap && urlData.Name.EndsWith(".svc"))
             {
@@ -524,18 +523,18 @@ namespace WindowsFormsAppTest
                 }
                 else
                 {
-                    string data = _webRequest.GetWebRequestSoap(_httpName, _webserviceName, urlData.Name);
+                    string data = _webRequest.GetWebRequestSoap(_webserviceName, urlData.Name);
                     _result = JObject.Parse(data);
                 }
             }
             else
             {
-                var data = _webRequest.GetWebRequestRest(urlData.WebServiceDataId,
-                                                     _httpName,
-                                                     _webserviceName,
-                                                     urlData.Name,
-                                                     urlData.SecurityId);
-                _result = JObject.Parse(data);
+                //var data = _webRequest.GetWebRequestRest(urlData.WebServiceDataId,
+                //                                     _httpName,
+                //                                     _webserviceName,
+                //                                     urlData.Name,
+                //                                     urlData.SecurityId);
+                //_result = JObject.Parse(data);
             }
         }
 

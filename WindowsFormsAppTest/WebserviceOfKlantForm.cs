@@ -109,7 +109,7 @@ namespace WindowsFormsAppTest
             _selectedWebserviceIdOfKlantId = (int)WebserviceOfKlantKrMaterialCmbx.SelectedValue;
         }
 
-        private void GetResult(UrlData urlData)
+        private void GetResult(Url urlData)
         {
             if (_isSoap && urlData.Name.EndsWith(".svc"))
             {
@@ -128,16 +128,16 @@ namespace WindowsFormsAppTest
                 }
                 else
                 {
-                    _result = JObject.Parse(_webRequest.GetWebRequestSoap(_httpName, _webserviceName, urlData.Name));
+                    _result = JObject.Parse(_webRequest.GetWebRequestSoap(_webserviceName, urlData.Name));
                 }
             }
             else
             {
-                _result = JObject.Parse(_webRequest.GetWebRequestRest(_webserviceId,
-                                                     _httpName,
-                                                     _webserviceName,
-                                                     urlData.Name,
-                                                     urlData.SecurityId));
+                //_result = JObject.Parse(_webRequest.GetWebRequestRest(_webserviceId,
+                //                                     _httpName,
+                //                                     _webserviceName,
+                //                                     urlData.Name,
+                //                                     urlData.SecurityId));
             }
         }
 
@@ -211,7 +211,7 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void FillTreeView(dynamic _result, UrlData urlData, LogFile logFile)
+        private void FillTreeView(dynamic _result, Url urlData, LogFile logFile)
         {
             TreeNode node = new TreeNode();
             node.Text = urlData.Name;

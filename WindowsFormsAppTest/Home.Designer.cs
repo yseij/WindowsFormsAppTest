@@ -346,7 +346,7 @@ namespace WindowsFormsAppTest
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Location = new System.Drawing.Point(7, 251);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(617, 2);
+            this.label1.Size = new System.Drawing.Size(461, 2);
             this.label1.TabIndex = 17;
             // 
             // BtnShowUrls

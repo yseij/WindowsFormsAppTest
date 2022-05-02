@@ -9,16 +9,10 @@ namespace WindowsFormsAppTest
     public partial class AllWebserviceForm : MaterialForm
     {
         private string _changedWebservice;
-        private string _changedSecurityId;
-        private string _changedUrl;
         private string _huidigeWebserviceNaam;
         private string _zoekOpWebserviceNaam = string.Empty;
 
         private Guid _selectedWebserviceId;
-        private int _selectedUrlId;
-        private int _selectedHttpId;
-        private int _selectedKlantIdForChange;
-        private int _selectedWebserviceIdForChange;
 
         public static int SetValueForWeberviceId = 0;
 

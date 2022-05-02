@@ -22,7 +22,7 @@ namespace WindowsFormsAppTest
             DisplayMember = "Name";
         }
 
-        public void FillCmbBoxUrl(List<UrlData> urlDatas)
+        public void FillCmbBoxUrl(List<Url> urlDatas)
         {
             ClearDataSource();
             DataSource = urlDatas;

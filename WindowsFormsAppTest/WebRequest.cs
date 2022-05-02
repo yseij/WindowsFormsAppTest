@@ -26,13 +26,12 @@ namespace WindowsFormsAppTest
         private bool _certIsGoed;
 
         //REST
-        public string GetWebRequestRest(Guid id, string http, string webservice, string url, string securityId = "")
+        public string GetWebRequestRest(Guid id, string host, bool securityId)
         {
-            string webRequestUrl = http + webservice + '/' + url + securityId;
-            Uri uri = new Uri(webRequestUrl);
+            Uri uri = new Uri(host);
             try
             {
-                HttpWebRequest request = HttpWebRequest.Create(webRequestUrl) as HttpWebRequest;
+                HttpWebRequest request = HttpWebRequest.Create(host) as HttpWebRequest;
                 HttpClient client = new HttpClient();
                 using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
                 {
@@ -55,7 +54,7 @@ namespace WindowsFormsAppTest
                         {
                             //Parse the response body.
                             string data = response1.Content.ReadAsStringAsync().Result; //Make sure to add a reference to System.Net.Http.Formatting.dll
-                            if (securityId == string.Empty)
+                            if (!securityId)
                             {
                                 if (_certIsGoed)
                                 {
@@ -106,9 +105,8 @@ namespace WindowsFormsAppTest
         }
 
         //SOAP
-        public string GetWebRequestSoap(string http, string webservice, string service)
+        public string GetWebRequestSoap(string host, string service)
         {
-            string host = http + webservice + "/";
             string result = "";
 
             //YouriWebserviceAuth.AuthServiceClient clientAuth;

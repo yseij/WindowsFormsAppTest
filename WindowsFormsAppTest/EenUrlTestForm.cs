@@ -15,6 +15,7 @@ namespace WindowsFormsAppTest
         private string _urlHttp = string.Empty;
 
         private bool _isSoap = false;
+        private bool _isSecurityId = false;
 
         private Guid _webserviceId;
         private Guid _httpId;
@@ -23,6 +24,8 @@ namespace WindowsFormsAppTest
 
         private List<HttpData> _httpDatas = new List<HttpData>();
         private List<WebService> _webserviceDatas = new List<WebService>();
+        private List<Klant> _klantDatas = new List<Klant>();
+        private List<KlantWebservice> _klantWebservicesDatas = new List<KlantWebservice>();
 
         HttpTest _httptest;
         WebserviceTest _webservicetest;
@@ -30,6 +33,8 @@ namespace WindowsFormsAppTest
         TestRoute _testRoute;
 
         WebserviceXml _webserviceXml;
+        KlantXml _klantXml;
+        KlantWebserviceXml _klantWebserviceXml;
 
         public EenUrlTestForm()
         {
@@ -38,13 +43,64 @@ namespace WindowsFormsAppTest
             _testRoute = new TestRoute();
             _httptest = new HttpTest();
             _webservicetest = new WebserviceTest();
+            _klantXml = new KlantXml();
+            _klantWebserviceXml = new KlantWebserviceXml();
+            _webserviceXml = new WebserviceXml();
 
-            GetWebservices();
+            //GetWebservices();
+            GetKlanten();
         }
 
         private void GetWebservices()
         {
             _webserviceDatas = _webserviceXml.GetWebservices();
+        }
+
+        private void GetKlanten()
+        {
+            _klantDatas = _klantXml.GetKlanten();
+            KlantKrMaterialCmbx.FillCmbBoxKlant(_klantDatas);
+        }
+
+        private void KlantKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UrlVoorTestTxtBx.Text = string.Empty;
+            _klantWebservicesDatas = _klantWebserviceXml.GetByKlant((Guid)KlantKrMaterialCmbx.SelectedValue);
+            Klant klant = _klantDatas.Find(k => k.Id == (Guid)KlantKrMaterialCmbx.SelectedValue);
+            List<Url> urls = new List<Url>();
+            foreach (KlantWebservice klantWebservice in _klantWebservicesDatas)
+            {
+                WebService webService = _webserviceXml.GetWebserviceById(klantWebservice.Webservice);
+                Url url = new Url();
+                if (klantWebservice.BasisUrl1)
+                {
+                    url.Name = klant.BasisUrl1 + webService.Name;
+                }
+                else
+                {
+                    url.Name = klant.BasisUrl2 + webService.Name;
+                }
+                url.WebserviceId = webService.Id;
+                urls.Add(url);
+            }
+            AllUrlsKrLstBx.FillListBoxUrlData(urls);
+        }
+
+        private void AllUrlsKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Url url = (Url)AllUrlsKrLstBx.SelectedItem;
+            if (url != null)
+            {
+                WebService webService = _webserviceXml.GetWebserviceById(url.WebserviceId);
+                SecurityIdTxtBx.Text = webService.SecurityId;
+                UrlVoorTestTxtBx.Text = url.Name;
+                _webserviceId = url.WebserviceId;
+                UrlVoorTestTxtBx.Text = url.Name;
+                if (webService.SecurityId != string.Empty)
+                {
+                    _isSecurityId = true;
+                }
+            }
         }
 
         private void TestRouteBtn_Click(object sender, EventArgs e)
@@ -70,19 +126,19 @@ namespace WindowsFormsAppTest
 
         private void GetResult()
         {
-            if (_isSoap && UrlKrMaterialCmbx.Text.EndsWith(".svc"))
+            if (_isSoap && UrlVoorTestTxtBx.Text.EndsWith(".svc"))
             {
-                if (UrlKrMaterialCmbx.Text == "MessageServiceSoap31.svc")
+                if (UrlVoorTestTxtBx.Text == "MessageServiceSoap31.svc")
                 {
-                    _result = JObject.Parse(_webRequest.Get31SalesData(_httpName + _webserviceName, TxtBxUsername, TxtBxPassword));
+                    _result = JObject.Parse(_webRequest.Get31SalesData(UrlVoorTestTxtBx.Text, TxtBxUsername, TxtBxPassword));
                     if (_result != null)
                     {
                         CheckData(_result, _webserviceName, 3.1);
                     }
                 }
-                else if (UrlKrMaterialCmbx.Text == "MessageServiceSoap.svc")
+                else if (UrlVoorTestTxtBx.Text == "MessageServiceSoap.svc")
                 {
-                    _result = JObject.Parse(_webRequest.Get24SalesData(_httpName + _webserviceName));
+                    _result = JObject.Parse(_webRequest.Get24SalesData(UrlVoorTestTxtBx.Text));
                     if (_result != null)
                     {
                         CheckData(_result, _webserviceName, 2.4);
@@ -90,19 +146,16 @@ namespace WindowsFormsAppTest
                 }
                 else
                 {
-                    dynamic data = JObject.Parse(_webRequest.GetWebRequestSoap(_httpName, _webserviceName, UrlKrMaterialCmbx.Text));
-                    CheckDataSoap(data);
+                    _result = JObject.Parse(_webRequest.GetWebRequestSoap(UrlVoorTestTxtBx.Text, KlantKrMaterialCmbx.Text));
+                    CheckDataSoap(_result);
                 }
             }
             else
             {
-                var data = _webRequest.GetWebRequestRest((Guid)UrlKrMaterialCmbx.SelectedValue,
-                                                     _httpName,
-                                                     _webserviceName,
-                                                     UrlKrMaterialCmbx.Text,
-                                                     _securityId);
+                string data = _webRequest.GetWebRequestRest((Guid)KlantKrMaterialCmbx.SelectedValue,
+                                                        UrlVoorTestTxtBx.Text,
+                                                        _isSecurityId);
                 _result = JObject.Parse(data);
-
                 _testRoute.TestOneRoute(_result,
                                     textBoxWebservice,
                                     SslChckBx,

@@ -21,7 +21,7 @@ namespace WindowsFormsAppTest
             _webserviceTest = new WebserviceTest();
         }
         public void TestOneRoute(dynamic result,
-                              MaterialTextBox textBoxWebservice,
+                              MaterialTextBox2 textBoxWebservice,
                               CheckBox sslChckBx,
                               MaterialTextBox sllCertificaatVervalDatumTxtBx,
                               CheckBox checkBoxKraanDLL,

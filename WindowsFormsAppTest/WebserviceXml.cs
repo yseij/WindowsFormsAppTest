@@ -41,20 +41,17 @@ namespace WindowsFormsAppTest
             return AlleKWebservices.Find(w => w.Name.Equals(naam));
         }
 
-        public List<WebService> GetWebservicesById(Guid id)
+        public WebService GetWebserviceById(Guid id)
         {
             XDocument doc = XDocument.Load(_path);
-            List<WebService> webservices = new List<WebService>();
-            foreach (XElement element in doc.Descendants("Webservice").Where(k => Guid.Parse(k.Attribute("Id").Value) == id))
-            {
-                WebService newWebservice = new WebService();
-                newWebservice.Id = Guid.Parse(element.Attribute("Id").Value);
-                newWebservice.Name = element.Attribute("Name").Value;
-                newWebservice.Soap = bool.Parse(element.Attribute("Soap").Value);
-                newWebservice.SecurityId = element.Attribute("SecurityId").Value;
-                webservices.Add(newWebservice);
-            }
-            return webservices;
+            WebService webservice = new WebService();
+            XElement element = doc.Descendants("Webservice").FirstOrDefault(k => Guid.Parse(k.Attribute("Id").Value) == id);
+            WebService newWebservice = new WebService();
+            newWebservice.Id = Guid.Parse(element.Attribute("Id").Value);
+            newWebservice.Name = element.Attribute("Name").Value;
+            newWebservice.Soap = bool.Parse(element.Attribute("Soap").Value);
+            newWebservice.SecurityId = element.Attribute("SecurityId").Value;
+            return newWebservice;
         }
 
         public void AddWebservice(WebService webService)
