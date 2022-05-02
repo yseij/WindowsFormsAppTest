@@ -244,15 +244,15 @@ namespace WindowsFormsAppTest
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TableLayoutWebservice.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.TableLayoutWebservice.ColumnCount = 3;
-            this.TableLayoutWebservice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TableLayoutWebservice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.TableLayoutWebservice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.TableLayoutWebservice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.TableLayoutWebservice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.TableLayoutWebservice.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.TableLayoutWebservice.Location = new System.Drawing.Point(426, 98);
             this.TableLayoutWebservice.Name = "TableLayoutWebservice";
             this.TableLayoutWebservice.RowCount = 2;
             this.TableLayoutWebservice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.TableLayoutWebservice.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TableLayoutWebservice.Size = new System.Drawing.Size(320, 232);
+            this.TableLayoutWebservice.Size = new System.Drawing.Size(493, 232);
             this.TableLayoutWebservice.TabIndex = 34;
             // 
             // TableLayoutHeader
@@ -261,15 +261,14 @@ namespace WindowsFormsAppTest
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TableLayoutHeader.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.TableLayoutHeader.ColumnCount = 3;
-            this.TableLayoutHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TableLayoutHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.TableLayoutHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.TableLayoutHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.TableLayoutHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.TableLayoutHeader.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.TableLayoutHeader.Location = new System.Drawing.Point(426, 71);
             this.TableLayoutHeader.Name = "TableLayoutHeader";
             this.TableLayoutHeader.RowCount = 1;
-            this.TableLayoutHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TableLayoutHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.TableLayoutHeader.Size = new System.Drawing.Size(320, 21);
+            this.TableLayoutHeader.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.TableLayoutHeader.Size = new System.Drawing.Size(493, 21);
             this.TableLayoutHeader.TabIndex = 35;
             // 
             // label3
@@ -279,7 +278,7 @@ namespace WindowsFormsAppTest
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label3.Location = new System.Drawing.Point(9, 337);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(737, 2);
+            this.label3.Size = new System.Drawing.Size(910, 2);
             this.label3.TabIndex = 81;
             // 
             // LblUrlsByKlant
@@ -316,14 +315,14 @@ namespace WindowsFormsAppTest
             this.UrlsLstBx.FormattingEnabled = true;
             this.UrlsLstBx.Location = new System.Drawing.Point(7, 358);
             this.UrlsLstBx.Name = "UrlsLstBx";
-            this.UrlsLstBx.Size = new System.Drawing.Size(739, 212);
+            this.UrlsLstBx.Size = new System.Drawing.Size(912, 212);
             this.UrlsLstBx.TabIndex = 84;
             // 
             // AddKlantWithWebservicesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 576);
+            this.ClientSize = new System.Drawing.Size(925, 576);
             this.Controls.Add(this.UrlsLstBx);
             this.Controls.Add(this.UrlsGenererenBtn);
             this.Controls.Add(this.LblUrlsByKlant);

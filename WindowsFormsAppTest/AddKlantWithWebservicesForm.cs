@@ -291,11 +291,11 @@ namespace WindowsFormsAppTest
                     {
                         if (c.Tag.ToString() == "BasisUrl1")
                         {
-                            url = BasisUrl1TxtBx.Text + "/" + huidigeWebservice;
+                            url = BasisUrl1TxtBx.Text + huidigeWebservice;
                         }
                         else if (c.Tag.ToString() == "BasisUrl2")
                         {
-                            url = BasisUrl2TxtBx.Text + "/" + huidigeWebservice;
+                            url = BasisUrl2TxtBx.Text + huidigeWebservice;
                         }
                     }
                     if (c.Tag.ToString() == "BasisUrl2")
