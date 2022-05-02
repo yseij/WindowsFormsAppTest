@@ -10,56 +10,56 @@ namespace WindowsFormsAppTest
     {
         private string ConnectieDB => ConfigurationManager.AppSettings["connectieString"];
 
-        public List<WebService> GetWebServiceData()
-        {
-            List<WebService> webServiceDatas = new List<WebService>();
+        //public List<WebService> GetWebServiceData()
+        //{
+        //    List<WebService> webServiceDatas = new List<WebService>();
 
-            DataTable dt = new DataTable();
-            int rows_returned;
+        //    DataTable dt = new DataTable();
+        //    int rows_returned;
 
-            using (SqlConnection connection = new SqlConnection(ConnectieDB))
-            using (SqlCommand cmd = connection.CreateCommand())
-            using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
-            {
+        //    using (SqlConnection connection = new SqlConnection(ConnectieDB))
+        //    using (SqlCommand cmd = connection.CreateCommand())
+        //    using (SqlDataAdapter sda = new SqlDataAdapter(cmd))
+        //    {
 
-                cmd.CommandText = "SELECT * FROM WebService";
-                cmd.CommandType = CommandType.Text;
-                connection.Open();
-                rows_returned = sda.Fill(dt);
-                connection.Close();
+        //        cmd.CommandText = "SELECT * FROM WebService";
+        //        cmd.CommandType = CommandType.Text;
+        //        connection.Open();
+        //        rows_returned = sda.Fill(dt);
+        //        connection.Close();
 
-                foreach (DataRow dr in dt.Rows)
-                {
-                    webServiceDatas.Add(new WebService((Guid)dr[0], dr[1].ToString(), (bool)dr[2]));
-                }
-            }
-            return webServiceDatas;
-        }
+        //        foreach (DataRow dr in dt.Rows)
+        //        {
+        //            webServiceDatas.Add(new WebService((Guid)dr[0], dr[1].ToString(), (bool)dr[2]));
+        //        }
+        //    }
+        //    return webServiceDatas;
+        //}
 
-        public List<WebService> GetWebServicesByWebserviceName(string name)
-        {
-            List<WebService> webServiceDatas = new List<WebService>();
+        //public List<WebService> GetWebServicesByWebserviceName(string name)
+        //{
+        //    List<WebService> webServiceDatas = new List<WebService>();
 
-            DataTable dt = new DataTable();
-            int rows_returned;
+        //    DataTable dt = new DataTable();
+        //    int rows_returned;
 
-            using (SqlConnection connection = new SqlConnection(ConnectieDB))
-            {
-                SqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "SELECT * FROM WebService where name like '%" + name + "%'";
-                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+        //    using (SqlConnection connection = new SqlConnection(ConnectieDB))
+        //    {
+        //        SqlCommand cmd = connection.CreateCommand();
+        //        cmd.CommandText = "SELECT * FROM WebService where name like '%" + name + "%'";
+        //        SqlDataAdapter sda = new SqlDataAdapter(cmd);
 
-                connection.Open();
-                rows_returned = sda.Fill(dt);
-                connection.Close();
+        //        connection.Open();
+        //        rows_returned = sda.Fill(dt);
+        //        connection.Close();
 
-                foreach (DataRow dr in dt.Rows)
-                {
-                    webServiceDatas.Add(new WebService((Guid)dr[0], dr[1].ToString(), (bool)dr[2]));
-                }
-            }
-            return webServiceDatas;
-        }
+        //        foreach (DataRow dr in dt.Rows)
+        //        {
+        //            webServiceDatas.Add(new WebService((Guid)dr[0], dr[1].ToString(), (bool)dr[2]));
+        //        }
+        //    }
+        //    return webServiceDatas;
+        //}
 
         public void AddWebService(string name, bool soap)
         {

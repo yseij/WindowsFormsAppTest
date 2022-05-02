@@ -31,6 +31,8 @@ namespace WindowsFormsAppTest
         WebRequest _webRequest;
         TestRoute _testRoute;
 
+        WebserviceXml webserviceXml;
+
         public WebserviceOfKlantForm(bool isKlant)
         {
             InitializeComponent();
@@ -44,7 +46,7 @@ namespace WindowsFormsAppTest
 
             AantalLegeUrlsTxtBx.Text = string.Empty;
 
-            _webServiceDatas = _webserviceTest.GetWebServiceData();
+            _webServiceDatas = webserviceXml.GetWebservices();
             if (isKlant)
             {
                 Text = "Per Klant testen";
@@ -62,7 +64,7 @@ namespace WindowsFormsAppTest
 
         private void FillCmbxWebServices()
         {
-            WebService webServiceData = new WebService("Alles testen", false);
+            WebService webServiceData = new WebService("Alles testen", false, "");
             _webServiceDatas.Add(webServiceData);
 
             WebserviceOfKlantKrMaterialCmbx.FillCmbBoxWebservice(_webServiceDatas);

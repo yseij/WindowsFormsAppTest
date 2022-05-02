@@ -23,6 +23,7 @@ namespace WindowsFormsAppTest
                 newWebservice.Id = Guid.Parse(element.Attribute("Id").Value);
                 newWebservice.Name = element.Attribute("Name").Value;
                 newWebservice.Soap = bool.Parse(element.Attribute("Soap").Value);
+                newWebservice.SecurityId = element.Attribute("SecurityId").Value;
                 webservices.Add(newWebservice);
             }
             return webservices;
@@ -50,6 +51,7 @@ namespace WindowsFormsAppTest
                 newWebservice.Id = Guid.Parse(element.Attribute("Id").Value);
                 newWebservice.Name = element.Attribute("Name").Value;
                 newWebservice.Soap = bool.Parse(element.Attribute("Soap").Value);
+                newWebservice.SecurityId = element.Attribute("SecurityId").Value;
                 webservices.Add(newWebservice);
             }
             return webservices;
@@ -63,7 +65,8 @@ namespace WindowsFormsAppTest
             doc.Element("DB").Element("Webservices").Add(new XElement("Webservice",
                                                      new XAttribute("Id", webService.Id),
                                                      new XAttribute("Name", webService.Name),
-                                                     new XAttribute("Soap", webService.Soap)));
+                                                     new XAttribute("Soap", webService.Soap),
+                                                     new XAttribute("SecurityId", webService.SecurityId)));
             SaveXmlFile(doc);
         }
 
@@ -73,6 +76,7 @@ namespace WindowsFormsAppTest
             XElement xmlKlant = doc.Element("DB").Element("Webservices").Elements("Webservice").FirstOrDefault(p => Guid.Parse(p.Attribute("Id").Value) == id);
             xmlKlant.Attribute("Name").Value = webService.Name;
             xmlKlant.Attribute("Soap").Value = webService.Soap.ToString();
+            xmlKlant.Attribute("SecurityId").Value = webService.SecurityId.ToString();
             SaveXmlFile(doc);
         }
 

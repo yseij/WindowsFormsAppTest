@@ -38,6 +38,8 @@ namespace WindowsFormsAppTest
         WebRequest _webRequest;
         KrXml _krXml;
 
+        WebserviceXml _webserviceXml;
+
         Timer _MyTimer = new Timer();
 
         public Home()
@@ -401,7 +403,7 @@ namespace WindowsFormsAppTest
 
         private void FillWebserviceDropDown()
         {
-            _webServiceDatas = _webserviceTest.GetWebServiceData();
+            _webServiceDatas = _webserviceXml.GetWebservices();
             foreach (WebService webServiceData in _webServiceDatas)
             {
                 ToolStripMenuItem item = new ToolStripMenuItem();

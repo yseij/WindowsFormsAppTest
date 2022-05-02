@@ -33,9 +33,9 @@ namespace WindowsFormsAppTest
             klanten.Add(klant3);
             db.Klanten = klanten;
 
-            WebService webService1 = new WebService("KraanHomeDna", false);
-            WebService webService2 = new WebService("KraanSalesService", false);
-            WebService webService3 = new WebService("Kraan2Webservice", false);
+            WebService webService1 = new WebService("KraanHomeDna", false, "TEST");
+            WebService webService2 = new WebService("KraanSalesService", false, "");
+            WebService webService3 = new WebService("Kraan2Webservice", false, "");
             List<WebService> webservices = new List<WebService>();
             webservices.Add(webService1);
             webservices.Add(webService2);

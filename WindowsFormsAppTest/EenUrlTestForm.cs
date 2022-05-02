@@ -29,6 +29,8 @@ namespace WindowsFormsAppTest
         WebRequest _webRequest;
         TestRoute _testRoute;
 
+        WebserviceXml _webserviceXml;
+
         public EenUrlTestForm()
         {
             InitializeComponent();
@@ -42,7 +44,7 @@ namespace WindowsFormsAppTest
 
         private void GetWebservices()
         {
-            _webserviceDatas = _webservicetest.GetWebServiceData();
+            _webserviceDatas = _webserviceXml.GetWebservices();
         }
 
         private void TestRouteBtn_Click(object sender, EventArgs e)

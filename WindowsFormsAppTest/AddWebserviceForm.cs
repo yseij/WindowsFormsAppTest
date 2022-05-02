@@ -34,7 +34,7 @@ namespace WindowsFormsAppTest
                 WebService webServiceData = _webServiceDatas.Find(w => w.Name == NewWebserviceNaamTxtBx.Text);
                 if (webServiceData == null)
                 {
-                    WebService newWebService = new WebService(_newWebserviceNaam, _isSoap);
+                    WebService newWebService = new WebService(NewWebserviceNaamTxtBx.Text, SoapWebserviceChkBx.Checked, NewSecurityTxtBx.Text);
                     _webserviceXml.AddWebservice(newWebService);
                     Close();
                 }
@@ -56,12 +56,6 @@ namespace WindowsFormsAppTest
             {
                 AddWebserviceBttn.Enabled = false;
             }
-            _newWebserviceNaam = NewWebserviceNaamTxtBx.Text;
-        }
-
-        private void SoapWebserviceChkBx_CheckedChanged(object sender, System.EventArgs e)
-        {
-            _isSoap = SoapWebserviceChkBx.Checked;
         }
     }
 }

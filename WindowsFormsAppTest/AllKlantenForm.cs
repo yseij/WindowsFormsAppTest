@@ -204,7 +204,7 @@ namespace WindowsFormsAppTest
         {
             WebService webService = _webserviceXml.GetKlantenByTheSameName(WebserviceTxtBx.Text);
 
-            WebService newWebService = new WebService(WebserviceTxtBx.Text, SoapWebserviceChkBx.Checked);
+            WebService newWebService = new WebService(WebserviceTxtBx.Text, SoapWebserviceChkBx.Checked, "");
             if (webService == null)
             {
                 _webserviceXml.UpdateWebservice((Guid)AllWebserviceKrLstBx.SelectedValue, newWebService);

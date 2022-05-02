@@ -11,18 +11,20 @@ namespace WindowsFormsAppTest
 
         }
 
-        public WebService(string name, bool soap)
+        public WebService(string name, bool soap, string securityId)
         {
             Id = Guid.NewGuid();
             Name = name;
             Soap = soap;
+            SecurityId = securityId;
         }
 
-        public WebService(Guid id, string name, bool soap)
+        public WebService(Guid id, string name, bool soap, string securityId)
         {
             Id = id;
             Name = name;
             Soap = soap;
+            SecurityId = securityId;
         }
 
         [XmlAttribute("Id")]
@@ -33,5 +35,8 @@ namespace WindowsFormsAppTest
 
         [XmlAttribute("Soap")]
         public bool Soap { get; set; }
+
+        [XmlAttribute("SecurityId")]
+        public string SecurityId { get; set; }
     }
 }

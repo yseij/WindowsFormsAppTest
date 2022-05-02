@@ -84,6 +84,7 @@ namespace WindowsFormsAppTest
                 WebService webServiceData = _webServiceDatas.Find(k => k.Id == idOfSelected);
                 WebserviceTxtBx.Text = webServiceData.Name;
                 SoapWebserviceChkBx.Checked = webServiceData.Soap;
+                SecurityTxtBx.Text = webServiceData.SecurityId;
                 _huidigeWebserviceNaam = webServiceData.Name;
             }
         }
@@ -104,7 +105,7 @@ namespace WindowsFormsAppTest
 
         private void PasWebserviceAanBtn_Click(object sender, EventArgs e)
         {
-            WebService webService = new WebService((Guid)AllWebserviceKrLstBx.SelectedValue, WebserviceTxtBx.Text, SoapWebserviceChkBx.Checked);
+            WebService webService = new WebService((Guid)AllWebserviceKrLstBx.SelectedValue, WebserviceTxtBx.Text, SoapWebserviceChkBx.Checked, SecurityTxtBx.Text);
             if (_huidigeWebserviceNaam == _changedWebservice)
             {
                 _webserviceXml.UpdateWebservice((Guid)AllWebserviceKrLstBx.SelectedValue, webService);
