@@ -11,7 +11,8 @@ namespace WindowsFormsAppTest
         private string _changedWebservice;
         private string _changedSecurityId;
         private string _changedUrl;
-        private string _zoekOpWebserviceNaam;
+        private string _huidigeWebserviceNaam;
+        private string _zoekOpWebserviceNaam = string.Empty;
 
         private Guid _selectedWebserviceId;
         private int _selectedUrlId;
@@ -48,7 +49,6 @@ namespace WindowsFormsAppTest
             {
                 WebserviceTxtBx.Text = _webServiceDatas[0].Name;
                 AllWebserviceKrLstBx.SelectedIndex = 0;
-
             }
         }
 
@@ -84,6 +84,7 @@ namespace WindowsFormsAppTest
                 WebService webServiceData = _webServiceDatas.Find(k => k.Id == idOfSelected);
                 WebserviceTxtBx.Text = webServiceData.Name;
                 SoapWebserviceChkBx.Checked = webServiceData.Soap;
+                _huidigeWebserviceNaam = webServiceData.Name;
             }
         }
 
@@ -99,18 +100,28 @@ namespace WindowsFormsAppTest
                 _error.SetError(WebserviceTxtBx, ConfigurationManager.AppSettings["LeegTekstVak"]);
                 PasWebserviceAanBtn.Enabled = false;
             }
-            _changedWebservice = WebserviceTxtBx.Text;
-        }
-
-        private void SoapWebserviceChkBx_CheckedChanged(object sender, EventArgs e)
-        {
-            _isSoap = SoapWebserviceChkBx.Checked;
         }
 
         private void PasWebserviceAanBtn_Click(object sender, EventArgs e)
         {
-            //_webserviceXml.UpdateWebService((int)AllWebserviceKrLstBx.SelectedValue, _changedWebservice, _isSoap);
-            GetKlantenIfZoekOpKlantenNaamIsGevuld();
+            WebService webService = new WebService((Guid)AllWebserviceKrLstBx.SelectedValue, WebserviceTxtBx.Text, SoapWebserviceChkBx.Checked);
+            if (_huidigeWebserviceNaam == _changedWebservice)
+            {
+                _webserviceXml.UpdateWebservice((Guid)AllWebserviceKrLstBx.SelectedValue, webService);
+            }
+            else
+            {
+                WebService webserviceExist = _webserviceXml.GetKlantenByTheSameName(_changedWebservice);
+                if (webserviceExist == null)
+                {
+                    _webserviceXml.UpdateWebservice((Guid)AllWebserviceKrLstBx.SelectedValue, webService);
+                }
+                else
+                {
+                    _error.SetError(WebserviceTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
+                }
+            }
+            GetWebservicesIfZoekOpKlantenNaamIsGevuld();
         }
 
         private void AddWebserviceBtn_Click(object sender, EventArgs e)
@@ -122,18 +133,18 @@ namespace WindowsFormsAppTest
 
         private void DeleteWebserviceBttn_Click(object sender, EventArgs e)
         {
-            //_webserviceXml.DeleteWebService((int)AllWebserviceKrLstBx.SelectedValue);
-            GetKlantenIfZoekOpKlantenNaamIsGevuld();
+            _webserviceXml.DeleteWebservice((Guid)AllWebserviceKrLstBx.SelectedValue);
+            GetWebservicesIfZoekOpKlantenNaamIsGevuld();
         }
 
         private void ChildFormClosingAddWebserviceForm(object sender, FormClosingEventArgs e)
         {
-            GetKlantenIfZoekOpKlantenNaamIsGevuld();
+            GetWebservicesIfZoekOpKlantenNaamIsGevuld();
             AllWebserviceKrLstBx.SelectedIndex = AllWebserviceKrLstBx.Items.Count - 1;
             _selectedWebserviceId = _webServiceDatas[_webServiceDatas.Count - 1].Id;
         }
 
-        private void GetKlantenIfZoekOpKlantenNaamIsGevuld()
+        private void GetWebservicesIfZoekOpKlantenNaamIsGevuld()
         {
             if (_zoekOpWebserviceNaam != string.Empty)
             {
@@ -148,7 +159,7 @@ namespace WindowsFormsAppTest
         private void ZoekOpWebserviceNaamTxtBx_TextChanged(object sender, EventArgs e)
         {
             _zoekOpWebserviceNaam = ZoekOpWebserviceNaamTxtBx.Text;
-            GetKlantenIfZoekOpKlantenNaamIsGevuld();
+            GetWebservicesIfZoekOpKlantenNaamIsGevuld();
         }
     }
 }

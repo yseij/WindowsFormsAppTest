@@ -128,7 +128,6 @@ namespace WindowsFormsAppTest
             CheckBoxEnable(isGevuld, "BasisUrl1");
         }
 
-
         private void BasisUrl2TxtBx_TextChanged(object sender, EventArgs e)
         {
             bool isGevuld = false;
@@ -160,29 +159,35 @@ namespace WindowsFormsAppTest
         private void AddKlantBttn_Click(object sender, EventArgs e)
         {
             bool isChecked = false;
+            bool inError = false;
             string huidigeWebservice = string.Empty;
-
-            Klant klantExist = null;
-            _klantDatas = _klantXml.GetKlanten();
 
             if (NewKlantNaamTxtBx.Text != string.Empty || BasisUrl1TxtBx.Text != string.Empty)
             {
-                Klant klant = new Klant(NewKlantNaamTxtBx.Text, BasisUrl1TxtBx.Text, BasisUrl2TxtBx.Text);
-                klantExist = _klantDatas.Find(k => k.Name == NewKlantNaamTxtBx.Text);
-                if (klantExist == null)
-                {
-                    _klantXml.AddKlant(klant);
-                }
-                else
-                {
-                    _error.SetError(NewKlantNaamTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
-                }
-
                 KlantWebservice klantWebservice = new KlantWebservice();
-                klantWebservice.Klant = klant.Id;
                 klantWebservice.BasisUrl1 = false;
                 klantWebservice.BasisUrl2 = false;
 
+                Klant klant = new Klant(NewKlantNaamTxtBx.Text, BasisUrl1TxtBx.Text, BasisUrl2TxtBx.Text);
+                if (_klantId != Guid.Empty)
+                {
+                    klantWebservice.Klant = _klantId;
+                }
+                else
+                {
+                    Klant klantExist = _klantXml.GetKlantenByTheSameName(NewKlantNaamTxtBx.Text);
+                    if (klantExist == null)
+                    {
+                        _klantXml.AddKlant(klant);
+                        klantWebservice.Klant = klant.Id;
+                    }
+                    else
+                    {
+                        _error.SetError(NewKlantNaamTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
+                        inError = true;
+                    }
+                }   
+                
                 Guid guid = Guid.Empty;
 
                 TableLayoutControlCollection controls = TableLayoutWebservice.Controls;
@@ -235,7 +240,7 @@ namespace WindowsFormsAppTest
                                     }
                                     MessageBoxManager.Unregister();
                                 }
-                                _klantWebserviceXml.AddKlantWebservice(klantWebservice);
+                                AddKlantWebservice(klantWebservice);
                                 klantWebservice.BasisUrl1 = false;
                                 klantWebservice.BasisUrl2 = false;
                                 klantWebservice.Webservice = Guid.Empty;
@@ -245,7 +250,19 @@ namespace WindowsFormsAppTest
                         }
                     }
                 }
-                Close();
+                if (!inError)
+                {
+                    Close();
+                }
+            }
+        }
+
+        private void AddKlantWebservice(KlantWebservice klantWebservice)
+        {
+            KlantWebservice klantWebservice1 = _klantWebserviceXml.GetByKlantAndByWebservice(klantWebservice.Klant, klantWebservice.Webservice);
+            if (klantWebservice1 == null)
+            {
+                _klantWebserviceXml.AddKlantWebservice(klantWebservice);
             }
         }
 

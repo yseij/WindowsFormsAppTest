@@ -76,7 +76,6 @@ namespace WindowsFormsAppTest
             this.SoapWebserviceChkBx.TabIndex = 89;
             this.SoapWebserviceChkBx.Text = "Soap webservice";
             this.SoapWebserviceChkBx.UseVisualStyleBackColor = true;
-            this.SoapWebserviceChkBx.CheckedChanged += new System.EventHandler(this.SoapWebserviceChkBx_CheckedChanged);
             // 
             // PasWebserviceAanBtn
             // 

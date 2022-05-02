@@ -77,7 +77,7 @@ namespace WindowsFormsAppTest
             this.NewKlantNaamTxtBx.SelectionLength = 0;
             this.NewKlantNaamTxtBx.SelectionStart = 0;
             this.NewKlantNaamTxtBx.ShortcutsEnabled = true;
-            this.NewKlantNaamTxtBx.Size = new System.Drawing.Size(328, 48);
+            this.NewKlantNaamTxtBx.Size = new System.Drawing.Size(308, 48);
             this.NewKlantNaamTxtBx.SkipLiterals = true;
             this.NewKlantNaamTxtBx.TabIndex = 2;
             this.NewKlantNaamTxtBx.TabStop = false;
@@ -109,7 +109,7 @@ namespace WindowsFormsAppTest
             this.AddAndUpdateKlantBttn.ForeColor = System.Drawing.SystemColors.Control;
             this.AddAndUpdateKlantBttn.Location = new System.Drawing.Point(215, 289);
             this.AddAndUpdateKlantBttn.Name = "AddAndUpdateKlantBttn";
-            this.AddAndUpdateKlantBttn.Size = new System.Drawing.Size(205, 43);
+            this.AddAndUpdateKlantBttn.Size = new System.Drawing.Size(184, 43);
             this.AddAndUpdateKlantBttn.TabIndex = 28;
             this.AddAndUpdateKlantBttn.Text = "KLANT TOEVOEGEN";
             this.AddAndUpdateKlantBttn.UseVisualStyleBackColor = false;
@@ -159,7 +159,7 @@ namespace WindowsFormsAppTest
             this.BasisUrl1TxtBx.SelectionLength = 0;
             this.BasisUrl1TxtBx.SelectionStart = 0;
             this.BasisUrl1TxtBx.ShortcutsEnabled = true;
-            this.BasisUrl1TxtBx.Size = new System.Drawing.Size(328, 48);
+            this.BasisUrl1TxtBx.Size = new System.Drawing.Size(308, 48);
             this.BasisUrl1TxtBx.SkipLiterals = true;
             this.BasisUrl1TxtBx.TabIndex = 30;
             this.BasisUrl1TxtBx.TabStop = false;
@@ -214,7 +214,7 @@ namespace WindowsFormsAppTest
             this.BasisUrl2TxtBx.SelectionLength = 0;
             this.BasisUrl2TxtBx.SelectionStart = 0;
             this.BasisUrl2TxtBx.ShortcutsEnabled = true;
-            this.BasisUrl2TxtBx.Size = new System.Drawing.Size(328, 48);
+            this.BasisUrl2TxtBx.Size = new System.Drawing.Size(308, 48);
             this.BasisUrl2TxtBx.SkipLiterals = true;
             this.BasisUrl2TxtBx.TabIndex = 32;
             this.BasisUrl2TxtBx.TabStop = false;
@@ -303,7 +303,7 @@ namespace WindowsFormsAppTest
             this.UrlsGenererenBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.UrlsGenererenBtn.Location = new System.Drawing.Point(9, 289);
             this.UrlsGenererenBtn.Name = "UrlsGenererenBtn";
-            this.UrlsGenererenBtn.Size = new System.Drawing.Size(199, 43);
+            this.UrlsGenererenBtn.Size = new System.Drawing.Size(173, 43);
             this.UrlsGenererenBtn.TabIndex = 83;
             this.UrlsGenererenBtn.Text = "Urls genereren";
             this.UrlsGenererenBtn.UseVisualStyleBackColor = false;

@@ -13,17 +13,18 @@ namespace WindowsFormsAppTest
         private string _changedSecurityId;
         private string _changedUrl;
         private string _zoekOpKlantNaam = string.Empty;
+        private string _huidigeKlantNaam = string.Empty;
+        private string _huidigeWebserviceNaam = string.Empty;
 
         private Guid _selectedKlantId;
-        private Guid _selectedKlantIdForChange;
-        private Guid _selectedWebserviceIdForChange;
+        private Guid _selectedWebserviceId;
         private Guid _selectedUrlId;
 
         public static int SetValueForKlantId = 0;
 
         private List<Klant> _klantDatas = new List<Klant>();
-        private List<Klant> _klantDatasForChange = new List<Klant>();
         private List<WebService> _webServiceDatas = new List<WebService>();
+        private List<KlantWebservice> _webServiceKlantDatas = new List<KlantWebservice>();
 
         KlantXml _klantXml;
         WebserviceXml _webserviceXml;
@@ -39,12 +40,12 @@ namespace WindowsFormsAppTest
             _error = new ErrorProvider();
 
             GetKlantenIfZoekOpNaamIsLeeg();
+            GetWebservices();
         }
 
         private void GetKlantenIfZoekOpNaamIsLeeg()
         {
             _klantDatas = _klantXml.GetKlanten();
-            _klantDatasForChange = _klantXml.GetKlanten();
             FillLstBxKlanten();
 
             if (_klantDatas.Count != 0)
@@ -57,11 +58,11 @@ namespace WindowsFormsAppTest
         private void GetKlantenIfZoekOpNaamIsGevuld()
         {
             _klantDatas = _klantXml.GetKlantenByName(_zoekOpKlantNaam);
-            _klantDatasForChange = _klantXml.GetKlanten();
 
             if (_klantDatas.Count > 0)
             {
                 FillLstBxKlanten();
+                GetWebservices();
             }
             else
             {
@@ -70,12 +71,41 @@ namespace WindowsFormsAppTest
             }
         }
 
+        private void GetWebservices()
+        {
+            _webServiceDatas = _webserviceXml.GetWebservices();
+            FillLstBxWebservices();
+        }
+
         private void FillLstBxKlanten()
         {
             AllKlantKrLstBx.FillListBoxKlantData(_klantDatas);
             if (_klantDatas.Count != 0)
             {
                 _selectedKlantId = _klantDatas[0].Id;
+            }
+        }
+
+        private void FillLstBxWebservices()
+        {
+            _webServiceKlantDatas = _klantWebserviceXml.GetByKlant(_selectedKlantId);
+            List<WebService> webServices = new List<WebService>();
+            foreach (WebService webService in _webServiceDatas)
+            {
+                foreach (KlantWebservice klantWebservice in _webServiceKlantDatas)
+                {
+                    if (webService.Id == klantWebservice.Webservice)
+                    {
+                        webServices.Add(webService);
+                    }
+                }
+            }
+            AllWebserviceKrLstBx.FillListBoxWebserviceData(webServices);
+            if (webServices.Count != 0)
+            {
+                _selectedWebserviceId = webServices[0].Id;
+                WebserviceTxtBx.Text = webServices[0].Name;
+                SoapWebserviceChkBx.Checked = webServices[0].Soap;
             }
         }
 
@@ -89,6 +119,8 @@ namespace WindowsFormsAppTest
                 KlantTxtBx.Text = klantData.Name;
                 BasisUrl1TxtBx.Text = klantData.BasisUrl1;
                 BasisUrl2TxtBx.Text = klantData.BasisUrl2;
+                _huidigeKlantNaam = klantData.Name;
+                GetWebservices();
             }
         }
 
@@ -116,8 +148,23 @@ namespace WindowsFormsAppTest
 
         private void PasKlantAanBtn_Click(object sender, EventArgs e)
         {
-            Klant klant = new Klant(_changedKlant, BasisUrl1TxtBx.Text, BasisUrl2TxtBx.Text);
-            _klantXml.UpdateKlant((Guid)AllKlantKrLstBx.SelectedValue, klant);
+            Klant klant = new Klant((Guid)AllKlantKrLstBx.SelectedValue, _changedKlant, BasisUrl1TxtBx.Text, BasisUrl2TxtBx.Text);
+            if (_huidigeKlantNaam == KlantTxtBx.Text)
+            {
+                _klantXml.UpdateKlant((Guid)AllKlantKrLstBx.SelectedValue, klant);
+            }
+            else
+            {
+                Klant klantExist = _klantXml.GetKlantenByTheSameName(KlantTxtBx.Text);
+                if (klantExist == null)
+                {
+                    _klantXml.UpdateKlant((Guid)AllKlantKrLstBx.SelectedValue, klant);
+                }
+                else
+                {
+                    _error.SetError(KlantTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
+                }
+            }
             GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
@@ -155,12 +202,48 @@ namespace WindowsFormsAppTest
 
         private void PasWebserviceAanBtn_Click(object sender, EventArgs e)
         {
+            WebService webService = _webserviceXml.GetKlantenByTheSameName(WebserviceTxtBx.Text);
 
+            WebService newWebService = new WebService(WebserviceTxtBx.Text, SoapWebserviceChkBx.Checked);
+            if (webService == null)
+            {
+                _webserviceXml.UpdateWebservice((Guid)AllWebserviceKrLstBx.SelectedValue, newWebService);
+                GetWebservices();
+            }
+            else
+            {
+                _error.SetError(WebserviceTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
+            }
         }
 
         private void WebservicesToevoegenAanKlant_Click(object sender, EventArgs e)
         {
             var m = new AddKlantWithWebservicesForm((Guid)AllKlantKrLstBx.SelectedValue);
+            m.FormClosing += new FormClosingEventHandler(ChildFormClosingAddWebserviceToKlantForm);
+            m.ShowDialog();
+        }
+
+        private void ChildFormClosingAddWebserviceToKlantForm(object sender, FormClosingEventArgs e)
+        {
+            GetWebservices();
+        }
+
+        private void AllWebserviceKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (AllWebserviceKrLstBx.Items != null && AllWebserviceKrLstBx.SelectedValue != null)
+            {
+                Guid idOfSelected = (Guid)AllWebserviceKrLstBx.SelectedValue;
+                _selectedWebserviceId = idOfSelected;
+                WebService webService = _webServiceDatas.Find(w => w.Id == idOfSelected);
+                WebserviceTxtBx.Text = webService.Name;
+                SoapWebserviceChkBx.Checked = webService.Soap;
+                _huidigeWebserviceNaam = webService.Name;
+            }
+        }
+
+        private void AddWebserviceBtn_Click(object sender, EventArgs e)
+        {
+            var m = new AddWebserviceForm();
             m.ShowDialog();
         }
     }

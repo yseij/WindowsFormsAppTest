@@ -448,6 +448,7 @@ namespace WindowsFormsAppTest
             this.AddWebserviceBtn.TabIndex = 77;
             this.AddWebserviceBtn.Text = "WEBSERVICE TOEVOEGEN";
             this.AddWebserviceBtn.UseVisualStyleBackColor = false;
+            this.AddWebserviceBtn.Click += new System.EventHandler(this.AddWebserviceBtn_Click);
             // 
             // DeleteWebserviceBttn
             // 
@@ -527,6 +528,7 @@ namespace WindowsFormsAppTest
             this.AllWebserviceKrLstBx.Name = "AllWebserviceKrLstBx";
             this.AllWebserviceKrLstBx.Size = new System.Drawing.Size(363, 164);
             this.AllWebserviceKrLstBx.TabIndex = 91;
+            this.AllWebserviceKrLstBx.SelectedIndexChanged += new System.EventHandler(this.AllWebserviceKrLstBx_SelectedIndexChanged);
             // 
             // AllKlantKrLstBx
             // 
@@ -548,9 +550,9 @@ namespace WindowsFormsAppTest
             this.WebservicesToevoegenAanKlant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.WebservicesToevoegenAanKlant.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.WebservicesToevoegenAanKlant.ForeColor = System.Drawing.SystemColors.Control;
-            this.WebservicesToevoegenAanKlant.Location = new System.Drawing.Point(6, 388);
+            this.WebservicesToevoegenAanKlant.Location = new System.Drawing.Point(6, 383);
             this.WebservicesToevoegenAanKlant.Name = "WebservicesToevoegenAanKlant";
-            this.WebservicesToevoegenAanKlant.Size = new System.Drawing.Size(363, 49);
+            this.WebservicesToevoegenAanKlant.Size = new System.Drawing.Size(363, 54);
             this.WebservicesToevoegenAanKlant.TabIndex = 93;
             this.WebservicesToevoegenAanKlant.Text = "Webservices van klant beheren";
             this.WebservicesToevoegenAanKlant.UseVisualStyleBackColor = false;
