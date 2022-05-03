@@ -56,7 +56,6 @@ namespace WindowsFormsAppTest
             this.AanOfUitByServiceTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.AanByServiceTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.UitByServiceTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
-            this.databaseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.BttnUrl = new System.Windows.Forms.Button();
             this.BttnWebservice = new System.Windows.Forms.Button();
             this.BtnKlant = new System.Windows.Forms.Button();
@@ -111,12 +110,11 @@ namespace WindowsFormsAppTest
             this.StripMenuItemLogFile,
             this.EmailTlStrpMnItm,
             this.StripMenuItemTestTijd,
-            this.ServiceTlStrpMnItm,
-            this.databaseToolStripMenuItem});
+            this.ServiceTlStrpMnItm});
             this.menuStrip.Location = new System.Drawing.Point(3, 429);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip.Size = new System.Drawing.Size(321, 24);
+            this.menuStrip.Size = new System.Drawing.Size(329, 24);
             this.menuStrip.TabIndex = 9;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -292,13 +290,6 @@ namespace WindowsFormsAppTest
             this.UitByServiceTlStrpMnItm.Text = "Uit";
             this.UitByServiceTlStrpMnItm.Click += new System.EventHandler(this.UitByServiceTlStrpMnItm_Click);
             // 
-            // databaseToolStripMenuItem
-            // 
-            this.databaseToolStripMenuItem.Name = "databaseToolStripMenuItem";
-            this.databaseToolStripMenuItem.Size = new System.Drawing.Size(112, 20);
-            this.databaseToolStripMenuItem.Text = "Database resetten";
-            this.databaseToolStripMenuItem.Click += new System.EventHandler(this.databaseToolStripMenuItem_Click);
-            // 
             // BttnUrl
             // 
             this.BttnUrl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
@@ -451,6 +442,5 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.ToolStripMenuItem AanByServiceTlStrpMnItm;
         private System.Windows.Forms.ToolStripMenuItem UitByServiceTlStrpMnItm;
         private System.Windows.Forms.ToolStripMenuItem EmailTlStrpMnItm;
-        private System.Windows.Forms.ToolStripMenuItem databaseToolStripMenuItem;
     }
 }

@@ -8,8 +8,6 @@ namespace WindowsFormsAppTest
 {
     public partial class EenUrlTestForm : MaterialForm
     {
-        private string _url;
-        private string _securityId;
         private string _webserviceName = string.Empty;
         private string _httpName = string.Empty;
         private string _urlHttp = string.Empty;
@@ -18,17 +16,13 @@ namespace WindowsFormsAppTest
         private bool _isSecurityId = false;
 
         private Guid _webserviceId;
-        private Guid _httpId;
 
         dynamic _result = null;
 
-        private List<HttpData> _httpDatas = new List<HttpData>();
         private List<WebService> _webserviceDatas = new List<WebService>();
         private List<Klant> _klantDatas = new List<Klant>();
         private List<KlantWebservice> _klantWebservicesDatas = new List<KlantWebservice>();
 
-        HttpTest _httptest;
-        WebserviceTest _webservicetest;
         WebRequest _webRequest;
         TestRoute _testRoute;
 
@@ -41,13 +35,11 @@ namespace WindowsFormsAppTest
             InitializeComponent();
             _webRequest = new WebRequest();
             _testRoute = new TestRoute();
-            _httptest = new HttpTest();
-            _webservicetest = new WebserviceTest();
             _klantXml = new KlantXml();
             _klantWebserviceXml = new KlantWebserviceXml();
             _webserviceXml = new WebserviceXml();
 
-            //GetWebservices();
+            GetWebservices();
             GetKlanten();
         }
 
@@ -106,9 +98,7 @@ namespace WindowsFormsAppTest
         private void TestRouteBtn_Click(object sender, EventArgs e)
         {
             ClearBox();
-
             CheckWebservice();
-
             GetResult();
         }
 

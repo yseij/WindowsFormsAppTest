@@ -20,14 +20,12 @@ namespace WindowsFormsAppTest
 
         private List<WebService> _webServiceDatas = new List<WebService>();
 
-        KlantXml _klantXml;
         WebserviceXml _webserviceXml;
         ErrorProvider _error;
 
         public AllWebserviceForm()
         {
             InitializeComponent();
-            _klantXml = new KlantXml();
             _webserviceXml = new WebserviceXml();
             _error = new ErrorProvider();
 

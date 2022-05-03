@@ -468,7 +468,6 @@ namespace WindowsFormsAppTest
             LogFile logFile = new LogFile();
             foreach (Url urlData in urlDatas)
             {
-                //CheckWebservice(urlData);
                 GetResult(urlData);
                 foreach (JProperty item in _result)
                 {
@@ -490,18 +489,6 @@ namespace WindowsFormsAppTest
                 MailClient.TestMail(keuzeNaam, text, logFile.FilePath);
             }
         }
-
-        //private void CheckWebservice(Url urlData)
-        //{
-        //    foreach (WebService item in _webServiceDatas)
-        //    {
-        //        if (item.Id == urlData.WebServiceDataId)
-        //        {
-        //            _isSoap = item.Soap;
-        //            _webserviceName = item.Name;
-        //        }
-        //    }
-        //}
 
         private void GetResult(Url urlData)
         {
@@ -553,12 +540,6 @@ namespace WindowsFormsAppTest
         private void MyTimer_Tick(object sender, EventArgs e)
         {
             RouteTest();
-        }
-
-        private void databaseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            CreateDatabase createDatabase = new CreateDatabase();
-            createDatabase.MakeDb(true);
         }
 
         private void CheckEmail()

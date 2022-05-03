@@ -10,8 +10,9 @@ namespace WindowsFormsAppTest
     public partial class WebserviceOfKlantForm : MaterialForm
     {
         private Guid _selectedWebserviceIdOfKlantId;
-        private int _aantalLegeUrls;
         private Guid _webserviceId;
+        private int _aantalLegeUrls;
+
 
         private bool _isKlant;
         private bool _isSoap;

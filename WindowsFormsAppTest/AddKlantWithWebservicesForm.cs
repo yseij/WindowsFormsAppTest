@@ -10,7 +10,6 @@ namespace WindowsFormsAppTest
 {
     public partial class AddKlantWithWebservicesForm : MaterialForm
     {
-        private List<Klant> _klantDatas = new List<Klant>();
         private List<WebService> _webserviceDatas = new List<WebService>();
         private Guid _klantId;
 
@@ -80,14 +79,18 @@ namespace WindowsFormsAppTest
                     AutoSize = true,
                     Checked = isKlantWebservice
                 }, 0, row);
-                TableLayoutWebservice.Controls.Add(new CheckBox() { 
-                    CheckAlign = ContentAlignment.MiddleCenter, 
+                TableLayoutWebservice.Controls.Add(new CheckBox()
+                {
+                    CheckAlign = ContentAlignment.MiddleCenter,
                     Checked = isBasisUrl1,
-                    Tag = "BasisUrl1" }, 1, row);
-                TableLayoutWebservice.Controls.Add(new CheckBox() { 
+                    Tag = "BasisUrl1"
+                }, 1, row);
+                TableLayoutWebservice.Controls.Add(new CheckBox()
+                {
                     CheckAlign = ContentAlignment.MiddleCenter,
                     Checked = isBasisUrl2,
-                    Tag = "BasisUrl2" }, 2, row);
+                    Tag = "BasisUrl2"
+                }, 2, row);
                 row++;
             }
             TableLayoutRowStyleCollection styles =
@@ -123,7 +126,7 @@ namespace WindowsFormsAppTest
             else
             {
                 UrlsGenererenBtn.Enabled = false;
-                
+
             }
             CheckBoxEnable(isGevuld, "BasisUrl1");
         }
@@ -186,8 +189,8 @@ namespace WindowsFormsAppTest
                         _error.SetError(NewKlantNaamTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
                         inError = true;
                     }
-                }   
-                
+                }
+
                 Guid guid = Guid.Empty;
 
                 TableLayoutControlCollection controls = TableLayoutWebservice.Controls;
@@ -271,12 +274,15 @@ namespace WindowsFormsAppTest
             UrlsLstBx.Items.Clear();
             bool isChecked = false;
             string huidigeWebservice = string.Empty;
-            string url = string.Empty;
-
+            string url = "";
+            int teller = 0;
+            CheckBox vorigeCheckBox = new CheckBox();
+            AddAndUpdateKlantBttn.Enabled = true;
             TableLayoutControlCollection controls = TableLayoutWebservice.Controls;
             foreach (Control c in controls)
             {
                 CheckBox checkBox = (CheckBox)c;
+                checkBox.BackColor = Color.Transparent;
                 if (isChecked == false && c.Tag.ToString() != "BasisUrl1" && c.Tag.ToString() != "BasisUrl2")
                 {
                     if (checkBox.Checked)
@@ -292,23 +298,39 @@ namespace WindowsFormsAppTest
                         if (c.Tag.ToString() == "BasisUrl1")
                         {
                             url = BasisUrl1TxtBx.Text + huidigeWebservice;
+                            teller++;
+                            UrlsLstBx.Items.Add(url);
                         }
                         else if (c.Tag.ToString() == "BasisUrl2")
                         {
                             url = BasisUrl2TxtBx.Text + huidigeWebservice;
+                            teller++;
+                            UrlsLstBx.Items.Add(url);
                         }
+                    }
+                    if (url == string.Empty && teller == 0 && c.Tag.ToString() == "BasisUrl2")
+                    {
+                        teller++;
+                        vorigeCheckBox.BackColor = Color.Red;
+                        checkBox.BackColor = Color.Red;
+                        AddAndUpdateKlantBttn.Enabled = false;
                     }
                     if (c.Tag.ToString() == "BasisUrl2")
                     {
-                        if (url == string.Empty)
-                        {
-                            url = huidigeWebservice + "--> geen basis url aangeduid";
-                        }
                         isChecked = false;
-                        UrlsLstBx.Items.Add(url);
-                        url = string.Empty;
+                        teller = 0;
+                    }
+                    url = string.Empty;
+                }
+                else
+                {
+                    if (checkBox.Checked && (c.Tag.ToString() == "BasisUrl1" || c.Tag.ToString() == "BasisUrl2"))
+                    {
+                        checkBox.BackColor = Color.Red;
+                        AddAndUpdateKlantBttn.Enabled = false;
                     }
                 }
+                vorigeCheckBox = checkBox;
             }
         }
 
