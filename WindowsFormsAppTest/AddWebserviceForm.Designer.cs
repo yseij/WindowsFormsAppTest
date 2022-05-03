@@ -82,7 +82,7 @@ namespace WindowsFormsAppTest
             this.NewWebserviceNaamTxtBx.SelectionLength = 0;
             this.NewWebserviceNaamTxtBx.SelectionStart = 0;
             this.NewWebserviceNaamTxtBx.ShortcutsEnabled = true;
-            this.NewWebserviceNaamTxtBx.Size = new System.Drawing.Size(327, 48);
+            this.NewWebserviceNaamTxtBx.Size = new System.Drawing.Size(311, 48);
             this.NewWebserviceNaamTxtBx.SkipLiterals = true;
             this.NewWebserviceNaamTxtBx.TabIndex = 5;
             this.NewWebserviceNaamTxtBx.TabStop = false;
@@ -100,7 +100,7 @@ namespace WindowsFormsAppTest
             this.AddWebserviceBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddWebserviceBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddWebserviceBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddWebserviceBttn.Location = new System.Drawing.Point(223, 208);
+            this.AddWebserviceBttn.Location = new System.Drawing.Point(207, 208);
             this.AddWebserviceBttn.MinimumSize = new System.Drawing.Size(191, 43);
             this.AddWebserviceBttn.Name = "AddWebserviceBttn";
             this.AddWebserviceBttn.Size = new System.Drawing.Size(191, 43);
@@ -171,7 +171,7 @@ namespace WindowsFormsAppTest
             this.NewSecurityTxtBx.SelectionLength = 0;
             this.NewSecurityTxtBx.SelectionStart = 0;
             this.NewSecurityTxtBx.ShortcutsEnabled = true;
-            this.NewSecurityTxtBx.Size = new System.Drawing.Size(327, 48);
+            this.NewSecurityTxtBx.Size = new System.Drawing.Size(311, 48);
             this.NewSecurityTxtBx.SkipLiterals = true;
             this.NewSecurityTxtBx.TabIndex = 32;
             this.NewSecurityTxtBx.TabStop = false;
@@ -185,14 +185,14 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 257);
+            this.ClientSize = new System.Drawing.Size(424, 257);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.NewSecurityTxtBx);
             this.Controls.Add(this.SoapWebserviceChkBx);
             this.Controls.Add(this.AddWebserviceBttn);
             this.Controls.Add(this.LblName);
             this.Controls.Add(this.NewWebserviceNaamTxtBx);
-            this.MinimumSize = new System.Drawing.Size(424, 193);
+            this.MinimumSize = new System.Drawing.Size(424, 257);
             this.Name = "AddWebserviceForm";
             this.Text = "Webservice toevoegen";
             this.ResumeLayout(false);

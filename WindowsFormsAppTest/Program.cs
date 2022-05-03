@@ -25,10 +25,6 @@ namespace WindowsFormsAppTest
                 Primary.Blue500, Accent.LightBlue200,
                 TextShade.WHITE
             );
-
-            KrXml _krXml = new KrXml();
-            _krXml.MakeXmlFile(@"D:\\db.xml");
-
             Home home = new Home();
             //home.HomeTest();
             Application.Run(home);

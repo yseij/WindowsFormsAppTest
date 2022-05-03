@@ -54,7 +54,7 @@ namespace WindowsFormsAppTest
             this.txtTestResultaat.Name = "txtTestResultaat";
             this.txtTestResultaat.ReadOnly = true;
             this.txtTestResultaat.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtTestResultaat.Size = new System.Drawing.Size(443, 125);
+            this.txtTestResultaat.Size = new System.Drawing.Size(441, 106);
             this.txtTestResultaat.TabIndex = 37;
             // 
             // textBoxHost
@@ -63,7 +63,7 @@ namespace WindowsFormsAppTest
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxHost.Location = new System.Drawing.Point(13, 12);
             this.textBoxHost.Name = "textBoxHost";
-            this.textBoxHost.Size = new System.Drawing.Size(442, 20);
+            this.textBoxHost.Size = new System.Drawing.Size(440, 20);
             this.textBoxHost.TabIndex = 38;
             this.textBoxHost.Text = "https://ws.kraan.com:444/Kraan2Webservices/";
             // 
@@ -71,7 +71,7 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(468, 226);
+            this.ClientSize = new System.Drawing.Size(466, 207);
             this.Controls.Add(this.textBoxHost);
             this.Controls.Add(this.txtTestResultaat);
             this.Controls.Add(this.button1);

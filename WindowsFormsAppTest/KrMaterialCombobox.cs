@@ -43,12 +43,5 @@ namespace WindowsFormsAppTest
             DataSource = klantDatas;
             SetDisplayAndValueMember();
         }
-
-        public void FillCmbBoxHttp(List<HttpData> httpDatas)
-        {
-            ClearDataSource();
-            DataSource = httpDatas;
-            SetDisplayAndValueMember();
-        }
     }
 }

@@ -57,7 +57,7 @@ namespace WindowsFormsAppTest
             this.groupBox1.Controls.Add(this.DeleteWebserviceBttn);
             this.groupBox1.Controls.Add(this.WebserviceTxtBx);
             this.groupBox1.Controls.Add(this.LblNaam);
-            this.groupBox1.Location = new System.Drawing.Point(440, 203);
+            this.groupBox1.Location = new System.Drawing.Point(389, 203);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(472, 224);
             this.groupBox1.TabIndex = 65;
@@ -256,7 +256,7 @@ namespace WindowsFormsAppTest
             this.AllWebserviceKrLstBx.ItemHeight = 20;
             this.AllWebserviceKrLstBx.Location = new System.Drawing.Point(6, 203);
             this.AllWebserviceKrLstBx.Name = "AllWebserviceKrLstBx";
-            this.AllWebserviceKrLstBx.Size = new System.Drawing.Size(427, 224);
+            this.AllWebserviceKrLstBx.Size = new System.Drawing.Size(376, 224);
             this.AllWebserviceKrLstBx.TabIndex = 66;
             this.AllWebserviceKrLstBx.SelectedIndexChanged += new System.EventHandler(this.AllWebserviceKrLstBx_SelectedIndexChanged);
             // 
@@ -267,7 +267,7 @@ namespace WindowsFormsAppTest
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Location = new System.Drawing.Point(7, 170);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(906, 2);
+            this.label1.Size = new System.Drawing.Size(855, 2);
             this.label1.TabIndex = 88;
             // 
             // materialLabel7
@@ -328,13 +328,14 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 434);
+            this.ClientSize = new System.Drawing.Size(868, 434);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.ZoekOpWebserviceNaamTxtBx);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.AllWebserviceKrLstBx);
             this.Controls.Add(this.groupBox1);
+            this.MinimumSize = new System.Drawing.Size(868, 434);
             this.Name = "AllWebserviceForm";
             this.Text = "Webservices beheren";
             this.groupBox1.ResumeLayout(false);

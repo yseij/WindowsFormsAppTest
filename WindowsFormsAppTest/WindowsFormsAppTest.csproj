@@ -101,12 +101,6 @@
     <Reference Include="WindowsFormsIntegration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddHttpForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AddHttpForm.Designer.cs">
-      <DependentUpon>AddHttpForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="AddKlantWithWebservicesForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,7 +155,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
-    <Compile Include="CreateDatabase.cs" />
     <Compile Include="DB.cs" />
     <Compile Include="EenUrlTestForm.cs">
       <SubType>Form</SubType>
@@ -169,23 +162,14 @@
     <Compile Include="EenUrlTestForm.Designer.cs">
       <DependentUpon>EenUrlTestForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ErrorForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ErrorForm.Designer.cs">
-      <DependentUpon>ErrorForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="HttpData.cs" />
-    <Compile Include="HttpTest.cs" />
     <Compile Include="IBaseData.cs" />
     <Compile Include="Klant.cs" />
-    <Compile Include="KlantTest.cs" />
     <Compile Include="KlantWebservice.cs" />
     <Compile Include="KlantWebserviceXml.cs" />
     <Compile Include="KlantXml.cs" />
@@ -207,12 +191,6 @@
     </Compile>
     <Compile Include="Sales31CredentialsForm.Designer.cs">
       <DependentUpon>Sales31CredentialsForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ServerEnDbForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ServerEnDbForm.Designer.cs">
-      <DependentUpon>ServerEnDbForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="SoapRequest.cs" />
@@ -240,10 +218,6 @@
     </Compile>
     <Compile Include="WebserviceTest.cs" />
     <Compile Include="WebserviceXml.cs" />
-    <EmbeddedResource Include="AddHttpForm.resx">
-      <DependentUpon>AddHttpForm.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="AddKlantWithWebservicesForm.resx">
       <DependentUpon>AddKlantWithWebservicesForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -259,9 +233,6 @@
     <EmbeddedResource Include="EenUrlTestForm.resx">
       <DependentUpon>EenUrlTestForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ErrorForm.resx">
-      <DependentUpon>ErrorForm.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -276,9 +247,6 @@
     </Compile>
     <EmbeddedResource Include="Sales31CredentialsForm.resx">
       <DependentUpon>Sales31CredentialsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ServerEnDbForm.resx">
-      <DependentUpon>ServerEnDbForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SoapRequestForm.resx">
       <DependentUpon>SoapRequestForm.cs</DependentUpon>

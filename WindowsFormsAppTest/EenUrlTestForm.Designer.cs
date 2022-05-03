@@ -34,6 +34,7 @@ namespace WindowsFormsAppTest
             this.SllCertificaatVervalDatumTxtBx = new MaterialSkin.Controls.MaterialTextBox();
             this.LblCertificaatVervalDatum = new MaterialSkin.Controls.MaterialLabel();
             this.GrpBxWebservice = new System.Windows.Forms.GroupBox();
+            this.textBoxWebservice = new MaterialSkin.Controls.MaterialTextBox2();
             this.checkBoxKraanDatabase = new MaterialSkin.Controls.MaterialCheckbox();
             this.checkBoxKraanIni = new MaterialSkin.Controls.MaterialCheckbox();
             this.checkBoxKraanDLL = new MaterialSkin.Controls.MaterialCheckbox();
@@ -98,7 +99,6 @@ namespace WindowsFormsAppTest
             this.label1 = new System.Windows.Forms.Label();
             this.materialLabel9 = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel8 = new MaterialSkin.Controls.MaterialLabel();
-            this.textBoxWebservice = new MaterialSkin.Controls.MaterialTextBox2();
             this.UrlVoorTestTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.AllUrlsKrLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.KlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
@@ -204,6 +204,36 @@ namespace WindowsFormsAppTest
             this.GrpBxWebservice.TabIndex = 17;
             this.GrpBxWebservice.TabStop = false;
             this.GrpBxWebservice.Text = "Results Webservice";
+            // 
+            // textBoxWebservice
+            // 
+            this.textBoxWebservice.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxWebservice.AnimateReadOnly = false;
+            this.textBoxWebservice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.textBoxWebservice.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.textBoxWebservice.Depth = 0;
+            this.textBoxWebservice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.textBoxWebservice.HideSelection = true;
+            this.textBoxWebservice.LeadingIcon = null;
+            this.textBoxWebservice.Location = new System.Drawing.Point(9, 43);
+            this.textBoxWebservice.MaxLength = 32767;
+            this.textBoxWebservice.MouseState = MaterialSkin.MouseState.OUT;
+            this.textBoxWebservice.Name = "textBoxWebservice";
+            this.textBoxWebservice.PasswordChar = '\0';
+            this.textBoxWebservice.PrefixSuffixText = null;
+            this.textBoxWebservice.ReadOnly = false;
+            this.textBoxWebservice.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.textBoxWebservice.SelectedText = "";
+            this.textBoxWebservice.SelectionLength = 0;
+            this.textBoxWebservice.SelectionStart = 0;
+            this.textBoxWebservice.ShortcutsEnabled = true;
+            this.textBoxWebservice.Size = new System.Drawing.Size(816, 48);
+            this.textBoxWebservice.TabIndex = 84;
+            this.textBoxWebservice.TabStop = false;
+            this.textBoxWebservice.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.textBoxWebservice.TrailingIcon = null;
+            this.textBoxWebservice.UseSystemPasswordChar = false;
             // 
             // checkBoxKraanDatabase
             // 
@@ -1370,6 +1400,8 @@ namespace WindowsFormsAppTest
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label1.Location = new System.Drawing.Point(25, 276);
             this.label1.Name = "label1";
@@ -1404,37 +1436,11 @@ namespace WindowsFormsAppTest
             this.materialLabel8.TabIndex = 83;
             this.materialLabel8.Text = "Url voor test:";
             // 
-            // textBoxWebservice
-            // 
-            this.textBoxWebservice.AnimateReadOnly = false;
-            this.textBoxWebservice.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.textBoxWebservice.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.textBoxWebservice.Depth = 0;
-            this.textBoxWebservice.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.textBoxWebservice.HideSelection = true;
-            this.textBoxWebservice.LeadingIcon = null;
-            this.textBoxWebservice.Location = new System.Drawing.Point(9, 43);
-            this.textBoxWebservice.MaxLength = 32767;
-            this.textBoxWebservice.MouseState = MaterialSkin.MouseState.OUT;
-            this.textBoxWebservice.Name = "textBoxWebservice";
-            this.textBoxWebservice.PasswordChar = '\0';
-            this.textBoxWebservice.PrefixSuffixText = null;
-            this.textBoxWebservice.ReadOnly = false;
-            this.textBoxWebservice.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.textBoxWebservice.SelectedText = "";
-            this.textBoxWebservice.SelectionLength = 0;
-            this.textBoxWebservice.SelectionStart = 0;
-            this.textBoxWebservice.ShortcutsEnabled = true;
-            this.textBoxWebservice.Size = new System.Drawing.Size(816, 48);
-            this.textBoxWebservice.TabIndex = 84;
-            this.textBoxWebservice.TabStop = false;
-            this.textBoxWebservice.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.textBoxWebservice.TrailingIcon = null;
-            this.textBoxWebservice.UseSystemPasswordChar = false;
-            // 
             // UrlVoorTestTxtBx
             // 
             this.UrlVoorTestTxtBx.AllowPromptAsInput = true;
+            this.UrlVoorTestTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.UrlVoorTestTxtBx.AnimateReadOnly = false;
             this.UrlVoorTestTxtBx.AsciiOnly = false;
             this.UrlVoorTestTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -1476,8 +1482,6 @@ namespace WindowsFormsAppTest
             // 
             // AllUrlsKrLstBx
             // 
-            this.AllUrlsKrLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.AllUrlsKrLstBx.BackColor = System.Drawing.Color.White;
             this.AllUrlsKrLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.AllUrlsKrLstBx.ItemHeight = 20;
@@ -1533,7 +1537,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.TestRouteBtn);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.ResponseTextBox);
-            this.MinimumSize = new System.Drawing.Size(911, 1059);
+            this.MinimumSize = new System.Drawing.Size(911, 1038);
             this.Name = "EenUrlTestForm";
             this.Sizable = false;
             this.Text = "Test Url";

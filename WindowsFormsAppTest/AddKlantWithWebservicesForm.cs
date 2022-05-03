@@ -12,6 +12,7 @@ namespace WindowsFormsAppTest
     {
         private List<WebService> _webserviceDatas = new List<WebService>();
         private Guid _klantId;
+        private int _aantalFouten = -1;
 
         ErrorProvider _error;
         WebserviceXml _webserviceXml;
@@ -27,6 +28,8 @@ namespace WindowsFormsAppTest
             _klantWebserviceXml = new KlantWebserviceXml();
             _klantId = klantId;
 
+            AddAndUpdateKlantBttn.Enabled = false;
+
             if (_klantId != Guid.Empty)
             {
                 FillKlantData();
@@ -36,7 +39,6 @@ namespace WindowsFormsAppTest
             {
                 CheckBoxEnable(false, "BasisUrl1");
                 CheckBoxEnable(false, "BasisUrl2");
-                AddAndUpdateKlantBttn.Enabled = false;
                 UrlsGenererenBtn.Enabled = false;
                 AddAndUpdateKlantBttn.Text = "KLANT TOEVOEGEN";
             }
@@ -104,15 +106,7 @@ namespace WindowsFormsAppTest
 
         private void NewKlantNaamTxtBx_TextChanged(object sender, EventArgs e)
         {
-            _error.Clear();
-            if (NewKlantNaamTxtBx.Text != string.Empty)
-            {
-                AddAndUpdateKlantBttn.Enabled = true;
-            }
-            else
-            {
-                AddAndUpdateKlantBttn.Enabled = false;
-            }
+            ControleIfKlantIsGoed();
         }
 
         private void BasisUrl1TxtBx_TextChanged(object sender, EventArgs e)
@@ -272,12 +266,14 @@ namespace WindowsFormsAppTest
         private void UrlsGenererenBtn_Click(object sender, EventArgs e)
         {
             UrlsLstBx.Items.Clear();
+
             bool isChecked = false;
             string huidigeWebservice = string.Empty;
             string url = "";
             int teller = 0;
+            int aantalFouten = 0;
+
             CheckBox vorigeCheckBox = new CheckBox();
-            AddAndUpdateKlantBttn.Enabled = true;
             TableLayoutControlCollection controls = TableLayoutWebservice.Controls;
             foreach (Control c in controls)
             {
@@ -311,9 +307,10 @@ namespace WindowsFormsAppTest
                     if (url == string.Empty && teller == 0 && c.Tag.ToString() == "BasisUrl2")
                     {
                         teller++;
+                        aantalFouten++;
+
                         vorigeCheckBox.BackColor = Color.Red;
                         checkBox.BackColor = Color.Red;
-                        AddAndUpdateKlantBttn.Enabled = false;
                     }
                     if (c.Tag.ToString() == "BasisUrl2")
                     {
@@ -327,10 +324,28 @@ namespace WindowsFormsAppTest
                     if (checkBox.Checked && (c.Tag.ToString() == "BasisUrl1" || c.Tag.ToString() == "BasisUrl2"))
                     {
                         checkBox.BackColor = Color.Red;
-                        AddAndUpdateKlantBttn.Enabled = false;
+                        aantalFouten++;
                     }
                 }
                 vorigeCheckBox = checkBox;
+            }
+            if (aantalFouten == 0)
+            {
+                _aantalFouten = 0;
+            }
+            ControleIfKlantIsGoed();
+        }
+
+        private void ControleIfKlantIsGoed()
+        {
+            _error.Clear();
+            if (NewKlantNaamTxtBx.Text != string.Empty && _aantalFouten == 0)
+            {
+                AddAndUpdateKlantBttn.Enabled = true;
+            }
+            else
+            {
+                AddAndUpdateKlantBttn.Enabled = false;
             }
         }
 

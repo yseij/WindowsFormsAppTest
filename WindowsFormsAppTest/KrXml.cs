@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -7,16 +9,17 @@ namespace WindowsFormsAppTest
 {
     class KrXml
     {
-        private string _path = @"D://db.xml";
+        private string _dbPath = @"D:\\db.xml";
+        private string _userPath = @"D:\\user.xml";
         public KrXml()
         {
 
         }
 
-        public void MakeXmlFile(string path)
+        public void MakeXmlFileDb()
         {
             XmlSerializer serializer = new XmlSerializer(typeof(DB));
-            TextWriter writer = new StreamWriter(_path);
+            TextWriter writer = new StreamWriter(_dbPath);
             DB db = new DB();
 
             Klant klant1 = new Klant("klant 1", "https://ws.kraan.com:444/", "https://wsdev.kraan.com/test1");
@@ -58,10 +61,34 @@ namespace WindowsFormsAppTest
             writer.Close();
         }
 
-        public void UpdateXmlFile(string path)
+        public void MakeXmlFileUser()
+        {
+            if (!File.Exists(_userPath))
+            {
+                try
+                {
+                    using (XmlWriter writer = XmlWriter.Create(_userPath))
+                    {
+                        writer.WriteStartElement("Settings");
+                        writer.WriteElementString("ServiceAanOfUit", Properties.Settings.Default.ServiceAanOfUit);
+                        writer.WriteElementString("TijdService", Properties.Settings.Default.TijdService);
+                        writer.WriteElementString("SaveLogFilePlace", Properties.Settings.Default.SaveLogFilePlace);
+                        writer.WriteElementString("Email", Properties.Settings.Default.Email);
+                        writer.WriteEndElement();
+                        writer.Flush();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
+
+        public void UpdateXmlFile()
         {
             XmlDocument doc = new XmlDocument();
-            doc.Load(path);
+            doc.Load(_userPath);
             XmlNodeList aNodes = doc.SelectNodes("//*");
 
             foreach (XmlNode aNode in aNodes)
@@ -87,7 +114,7 @@ namespace WindowsFormsAppTest
                         break;
                 }
             }
-            doc.Save(path);
+            doc.Save(_userPath);
         }
     }
 }

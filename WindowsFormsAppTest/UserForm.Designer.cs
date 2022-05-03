@@ -57,7 +57,7 @@ namespace WindowsFormsAppTest
             this.UserEmailTxtBx.SelectionLength = 0;
             this.UserEmailTxtBx.SelectionStart = 0;
             this.UserEmailTxtBx.ShortcutsEnabled = true;
-            this.UserEmailTxtBx.Size = new System.Drawing.Size(258, 48);
+            this.UserEmailTxtBx.Size = new System.Drawing.Size(240, 48);
             this.UserEmailTxtBx.TabIndex = 5;
             this.UserEmailTxtBx.TabStop = false;
             this.UserEmailTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -84,7 +84,7 @@ namespace WindowsFormsAppTest
             this.GegevensOpslaanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GegevensOpslaanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GegevensOpslaanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.GegevensOpslaanBtn.Location = new System.Drawing.Point(193, 121);
+            this.GegevensOpslaanBtn.Location = new System.Drawing.Point(175, 121);
             this.GegevensOpslaanBtn.Name = "GegevensOpslaanBtn";
             this.GegevensOpslaanBtn.Size = new System.Drawing.Size(122, 43);
             this.GegevensOpslaanBtn.TabIndex = 64;
@@ -96,7 +96,7 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(331, 169);
+            this.ClientSize = new System.Drawing.Size(313, 169);
             this.Controls.Add(this.GegevensOpslaanBtn);
             this.Controls.Add(this.UserEmailTxtBx);
             this.Controls.Add(this.materialLabel2);

@@ -25,7 +25,7 @@ namespace WindowsFormsAppTest
         {
             Properties.Settings.Default.Email = UserEmailTxtBx.Text;
             Properties.Settings.Default.Save();
-            _krXml.UpdateXmlFile(_xmlUserName);
+            _krXml.UpdateXmlFile();
             Close();
         }
 

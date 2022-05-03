@@ -16,8 +16,8 @@ namespace WindowsFormsAppTest
         private string _httpName;
         private string _webserviceName;
 
-        private int _webserviceKeuzeId;
-        private int _klantKeuzeId;
+        private Guid _webserviceKeuzeId;
+        private Guid _klantKeuzeId;
 
         private bool _isSoap = false;
 
@@ -26,36 +26,32 @@ namespace WindowsFormsAppTest
         private string _xmlUserName = @"D:\user.xml";
         private string _xmlDb = @"D:\db.xml";
 
-        private List<HttpData> _httpDatas = new List<HttpData>();
         private List<Klant> _klantDatas = new List<Klant>();
         private List<WebService> _webServiceDatas = new List<WebService>();
         private List<Url> _urlDatas = new List<Url>();
 
-        HttpTest _httptest;
-        KlantTest _klantTest;
-        WebserviceTest _webserviceTest;
         WebRequest _webRequest;
         KrXml _krXml;
 
         WebserviceXml _webserviceXml;
+        KlantXml _klantXml;
 
         Timer _MyTimer = new Timer();
 
         public Home()
         {
             InitializeComponent();
-            _httptest = new HttpTest();
-            _klantTest = new KlantTest();
-            _webserviceTest = new WebserviceTest();
             _webRequest = new WebRequest();
             _krXml = new KrXml();
+            _webserviceXml = new WebserviceXml();
+            _klantXml = new KlantXml();
 
             menuStrip.ForeColor = Color.FromArgb(0, 0, 0);
 
             ToolStripMenuItem1.Enabled = false;
 
-            //FillKlantenDropDown();
-            //FillWebserviceDropDown();
+            FillKlantenDropDown();
+            FillWebserviceDropDown();
 
             GetSettings();
 
@@ -64,7 +60,8 @@ namespace WindowsFormsAppTest
             AanOfUitCheck();
             AanOfUitCheckService();
 
-            _krXml.MakeXmlFile(_xmlDb);
+            _krXml.MakeXmlFileDb();
+            _krXml.MakeXmlFileUser();
         }
 
         private void GetSettings()
@@ -75,17 +72,17 @@ namespace WindowsFormsAppTest
             ConfigurationManager.AppSettings["TijdService"] = Properties.Settings.Default.TijdService;
             ConfigurationManager.AppSettings["ServiceAanOfUit"] = Properties.Settings.Default.ServiceAanOfUit;
 
-            int klantKeuze = Properties.Settings.Default.KlantKeuze;
-            if (klantKeuze != 0)
+            Guid klantKeuze = Properties.Settings.Default.KlantKeuze;
+            if (klantKeuze != Guid.Empty)
             {
                 WebserviceKeuzeToolStripMenuItem.Enabled = false;
                 ToolStripMenuItem1.Enabled = true;
                 foreach (ToolStripMenuItem toolStripMenuItem in KlantKeuzeToolStripMenuItem.DropDownItems)
                 {
-                    if ((int)toolStripMenuItem.Tag == klantKeuze)
+                    if ((Guid)toolStripMenuItem.Tag == klantKeuze)
                     {
                         toolStripMenuItem.Checked = true;
-                        _klantKeuzeId = (int)toolStripMenuItem.Tag;
+                        _klantKeuzeId = (Guid)toolStripMenuItem.Tag;
                         _klantKeuzeNaam = toolStripMenuItem.Text;
                     }
                     else
@@ -95,17 +92,17 @@ namespace WindowsFormsAppTest
                 }
             }
 
-            int webserviceKeuze = Properties.Settings.Default.WebserviceKeuze;
-            if (webserviceKeuze != 0)
+            Guid webserviceKeuze = Properties.Settings.Default.WebserviceKeuze;
+            if (webserviceKeuze != Guid.Empty)
             {
                 ToolStripMenuItem1.Enabled = true;
                 KlantKeuzeToolStripMenuItem.Enabled = false;
                 foreach (ToolStripMenuItem toolStripMenuItem in WebserviceKeuzeToolStripMenuItem.DropDownItems)
                 {
-                    if ((int)toolStripMenuItem.Tag == webserviceKeuze)
+                    if ((Guid)toolStripMenuItem.Tag == webserviceKeuze)
                     {
                         toolStripMenuItem.Checked = true;
-                        _webserviceKeuzeId = (int)toolStripMenuItem.Tag;
+                        _webserviceKeuzeId = (Guid)toolStripMenuItem.Tag;
                         _webserviceKeuzeNaam = toolStripMenuItem.Text;
                     }
                     else
@@ -114,7 +111,7 @@ namespace WindowsFormsAppTest
                     }
                 }
             }
-            ToolStripMenuItem1.Enabled = (_klantKeuzeId != 0 || _webserviceKeuzeId != 0) && Properties.Settings.Default.Email != "";
+            ToolStripMenuItem1.Enabled = (_klantKeuzeId != Guid.Empty || _webserviceKeuzeId != Guid.Empty) && Properties.Settings.Default.Email != "";
 
             CheckEmail();
         }
@@ -158,7 +155,7 @@ namespace WindowsFormsAppTest
 
         private void ChildFormClosingSetEmail(object sender, FormClosingEventArgs e)
         {
-            ToolStripMenuItem1.Enabled = (_klantKeuzeId != 0 || _webserviceKeuzeId != 0) && Properties.Settings.Default.Email != "";
+            ToolStripMenuItem1.Enabled = (_klantKeuzeId != Guid.Empty || _webserviceKeuzeId != Guid.Empty) && Properties.Settings.Default.Email != "";
             CheckEmail();
         }
 
@@ -215,35 +212,35 @@ namespace WindowsFormsAppTest
         {
             ZetConfEnProp("TijdService", "15000");
             TijdCheckService();
-            _krXml.UpdateXmlFile(_xmlUserName);
+            _krXml.UpdateXmlFile();
         }
 
         private void min30ByServiceTlStrpMnItm_Click(object sender, EventArgs e)
         {
             ZetConfEnProp("TijdService", "30000");
             TijdCheckService();
-            _krXml.UpdateXmlFile(_xmlUserName);
+            _krXml.UpdateXmlFile();
         }
 
         private void min60ByServiceTlStrpMnItm_Click(object sender, EventArgs e)
         {
             ZetConfEnProp("TijdService", "60000");
             TijdCheckService();
-            _krXml.UpdateXmlFile(_xmlUserName);
+            _krXml.UpdateXmlFile();
         }
 
         private void AanByServiceTlStrpMnItm_Click(object sender, EventArgs e)
         {
             ZetConfEnProp("ServiceAanOfUit", "aan");
             AanOfUitCheckService();
-            _krXml.UpdateXmlFile(_xmlUserName);
+            _krXml.UpdateXmlFile();
         }
 
         private void UitByServiceTlStrpMnItm_Click(object sender, EventArgs e)
         {
             ZetConfEnProp("ServiceAanOfUit", "uit");
             AanOfUitCheckService();
-            _krXml.UpdateXmlFile(_xmlUserName);
+            _krXml.UpdateXmlFile();
         }
 
         private void ZetConfEnProp(string name, string waarde)
@@ -356,7 +353,7 @@ namespace WindowsFormsAppTest
 
         private void FillKlantenDropDown()
         {
-            _klantDatas = _klantTest.GetKlantData();
+            _klantDatas = _klantXml.GetKlanten();
             foreach (Klant klantData in _klantDatas)
             {
                 ToolStripMenuItem item = new ToolStripMenuItem();
@@ -376,9 +373,9 @@ namespace WindowsFormsAppTest
             }
 
             ToolStripMenuItem item = sender as ToolStripMenuItem;
-            if (_klantKeuzeId == (int)item.Tag)
+            if (_klantKeuzeId == (Guid)item.Tag)
             {
-                _klantKeuzeId = 0;
+                _klantKeuzeId = Guid.Empty;
 
                 WebserviceKeuzeToolStripMenuItem.Enabled = true;
                 ToolStripMenuItem1.Enabled = false;
@@ -386,7 +383,7 @@ namespace WindowsFormsAppTest
             else
             {
 
-                _klantKeuzeId = (int)item.Tag;
+                _klantKeuzeId = (Guid)item.Tag;
                 _klantKeuzeNaam = item.Text;
                 item.Checked = true;
 
@@ -422,16 +419,16 @@ namespace WindowsFormsAppTest
             }
 
             ToolStripMenuItem item = sender as ToolStripMenuItem;
-            if (_webserviceKeuzeId == (int)item.Tag)
+            if (_webserviceKeuzeId == (Guid)item.Tag)
             {
-                _webserviceKeuzeId = 0;
+                _webserviceKeuzeId = Guid.Empty;
 
                 KlantKeuzeToolStripMenuItem.Enabled = true;
                 ToolStripMenuItem1.Enabled = false;
             }
             else
             {
-                _webserviceKeuzeId = (int)item.Tag;
+                _webserviceKeuzeId = (Guid)item.Tag;
                 _webserviceKeuzeNaam = item.Text;
                 item.Checked = true;
 
@@ -449,11 +446,11 @@ namespace WindowsFormsAppTest
         {
             if (ConfigurationManager.AppSettings["TestAanOfUit"] == "aan")
             {
-                if (_webserviceKeuzeId != 0)
+                if (_webserviceKeuzeId != Guid.Empty)
                 {
                     _keuzeNaam = _webserviceKeuzeNaam;
                 }
-                else if (_klantKeuzeId != 0)
+                else if (_klantKeuzeId != Guid.Empty)
                 {
                     _keuzeNaam = _klantKeuzeNaam;
                 }

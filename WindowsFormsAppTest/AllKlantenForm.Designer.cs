@@ -52,9 +52,9 @@ namespace WindowsFormsAppTest
             this.DeleteWebserviceBttn = new System.Windows.Forms.Button();
             this.WebserviceTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.WebservicesToevoegenAanKlant = new System.Windows.Forms.Button();
             this.AllWebserviceKrLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.AllKlantKrLstBx = new WindowsFormsAppTest.KrMaterialListBox();
-            this.WebservicesToevoegenAanKlant = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -517,6 +517,21 @@ namespace WindowsFormsAppTest
             this.materialLabel5.TabIndex = 61;
             this.materialLabel5.Text = "Naam:";
             // 
+            // WebservicesToevoegenAanKlant
+            // 
+            this.WebservicesToevoegenAanKlant.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.WebservicesToevoegenAanKlant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.WebservicesToevoegenAanKlant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.WebservicesToevoegenAanKlant.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WebservicesToevoegenAanKlant.ForeColor = System.Drawing.SystemColors.Control;
+            this.WebservicesToevoegenAanKlant.Location = new System.Drawing.Point(6, 383);
+            this.WebservicesToevoegenAanKlant.Name = "WebservicesToevoegenAanKlant";
+            this.WebservicesToevoegenAanKlant.Size = new System.Drawing.Size(363, 54);
+            this.WebservicesToevoegenAanKlant.TabIndex = 93;
+            this.WebservicesToevoegenAanKlant.Text = "Webservices van klant beheren";
+            this.WebservicesToevoegenAanKlant.UseVisualStyleBackColor = false;
+            this.WebservicesToevoegenAanKlant.Click += new System.EventHandler(this.WebservicesToevoegenAanKlant_Click);
+            // 
             // AllWebserviceKrLstBx
             // 
             this.AllWebserviceKrLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -543,21 +558,6 @@ namespace WindowsFormsAppTest
             this.AllKlantKrLstBx.TabIndex = 64;
             this.AllKlantKrLstBx.SelectedValueChanged += new System.EventHandler(this.AllKlantKrLstBx_SelectedIndexChanged);
             // 
-            // WebservicesToevoegenAanKlant
-            // 
-            this.WebservicesToevoegenAanKlant.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.WebservicesToevoegenAanKlant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.WebservicesToevoegenAanKlant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.WebservicesToevoegenAanKlant.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WebservicesToevoegenAanKlant.ForeColor = System.Drawing.SystemColors.Control;
-            this.WebservicesToevoegenAanKlant.Location = new System.Drawing.Point(6, 383);
-            this.WebservicesToevoegenAanKlant.Name = "WebservicesToevoegenAanKlant";
-            this.WebservicesToevoegenAanKlant.Size = new System.Drawing.Size(363, 54);
-            this.WebservicesToevoegenAanKlant.TabIndex = 93;
-            this.WebservicesToevoegenAanKlant.Text = "Webservices van klant beheren";
-            this.WebservicesToevoegenAanKlant.UseVisualStyleBackColor = false;
-            this.WebservicesToevoegenAanKlant.Click += new System.EventHandler(this.WebservicesToevoegenAanKlant_Click);
-            // 
             // AllKlantenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -574,6 +574,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.AllKlantKrLstBx);
             this.Controls.Add(this.LblKlant);
             this.Controls.Add(this.groupBox1);
+            this.MinimumSize = new System.Drawing.Size(854, 650);
             this.Name = "AllKlantenForm";
             this.Text = "Klanten beheren";
             this.groupBox1.ResumeLayout(false);
