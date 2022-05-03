@@ -14,6 +14,8 @@ namespace WindowsFormsAppTest
         private Guid _klantId;
         private int _aantalFouten = -1;
 
+        private bool _inError = false;
+
         ErrorProvider _error;
         WebserviceXml _webserviceXml;
         KlantXml _klantXml;
@@ -102,6 +104,17 @@ namespace WindowsFormsAppTest
                 style.SizeType = SizeType.Absolute;
                 style.Height = 25;
             }
+            TableLayoutControlCollection tableLayoutControlCollection = TableLayoutWebservice.Controls;
+            foreach (Control control in tableLayoutControlCollection)
+            {
+                CheckBox checkBox = control as CheckBox;
+                checkBox.CheckedChanged += CheckBox_CheckedChanged;
+            }
+        }
+
+        private void CheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            AddAndUpdateKlantBttn.Enabled = false;
         }
 
         private void NewKlantNaamTxtBx_TextChanged(object sender, EventArgs e)
@@ -120,8 +133,8 @@ namespace WindowsFormsAppTest
             else
             {
                 UrlsGenererenBtn.Enabled = false;
-
             }
+            AddAndUpdateKlantBttn.Enabled = false;
             CheckBoxEnable(isGevuld, "BasisUrl1");
         }
 
@@ -137,6 +150,7 @@ namespace WindowsFormsAppTest
             {
                 UrlsGenererenBtn.Enabled = false;
             }
+            AddAndUpdateKlantBttn.Enabled = false;
             CheckBoxEnable(isGevuld, "BasisUrl2");
         }
 
@@ -156,7 +170,6 @@ namespace WindowsFormsAppTest
         private void AddKlantBttn_Click(object sender, EventArgs e)
         {
             bool isChecked = false;
-            bool inError = false;
             string huidigeWebservice = string.Empty;
 
             if (NewKlantNaamTxtBx.Text != string.Empty || BasisUrl1TxtBx.Text != string.Empty)
@@ -165,26 +178,7 @@ namespace WindowsFormsAppTest
                 klantWebservice.BasisUrl1 = false;
                 klantWebservice.BasisUrl2 = false;
 
-                Klant klant = new Klant(NewKlantNaamTxtBx.Text, BasisUrl1TxtBx.Text, BasisUrl2TxtBx.Text);
-                if (_klantId != Guid.Empty)
-                {
-                    klantWebservice.Klant = _klantId;
-                }
-                else
-                {
-                    Klant klantExist = _klantXml.GetKlantenByTheSameName(NewKlantNaamTxtBx.Text);
-                    if (klantExist == null)
-                    {
-                        _klantXml.AddKlant(klant);
-                        klantWebservice.Klant = klant.Id;
-                    }
-                    else
-                    {
-                        _error.SetError(NewKlantNaamTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
-                        inError = true;
-                    }
-                }
-
+                klantWebservice = KlantExist(klantWebservice);
                 Guid guid = Guid.Empty;
 
                 TableLayoutControlCollection controls = TableLayoutWebservice.Controls;
@@ -220,23 +214,6 @@ namespace WindowsFormsAppTest
                         {
                             if (isChecked)
                             {
-                                if (klantWebservice.BasisUrl1 == false && klantWebservice.BasisUrl2 == false)
-                                {
-                                    MessageBoxManager.Yes = "BasisUrl1";
-                                    MessageBoxManager.No = "BasisUrl2";
-                                    MessageBoxManager.Register();
-                                    DialogResult dialogResult = MessageBox.Show("Je moet bij elke webservice die je hebt aangeduid ook een basisurl meegeven, Welke basisUrl wil je bij de " + huidigeWebservice + " webservice gebruiken", "BasisUrl bij webservice", MessageBoxButtons.YesNo);
-                                    if (dialogResult == DialogResult.Yes)
-                                    {
-
-                                        klantWebservice.BasisUrl1 = true;
-                                    }
-                                    else if (dialogResult == DialogResult.No)
-                                    {
-                                        klantWebservice.BasisUrl2 = true;
-                                    }
-                                    MessageBoxManager.Unregister();
-                                }
                                 AddKlantWebservice(klantWebservice);
                                 klantWebservice.BasisUrl1 = false;
                                 klantWebservice.BasisUrl2 = false;
@@ -247,7 +224,7 @@ namespace WindowsFormsAppTest
                         }
                     }
                 }
-                if (!inError)
+                if (!_inError)
                 {
                     Close();
                 }
@@ -334,6 +311,7 @@ namespace WindowsFormsAppTest
                 _aantalFouten = 0;
             }
             ControleIfKlantIsGoed();
+            _aantalFouten = -1;
         }
 
         private void ControleIfKlantIsGoed()
@@ -355,6 +333,30 @@ namespace WindowsFormsAppTest
             NewKlantNaamTxtBx.Text = klant.Name;
             BasisUrl1TxtBx.Text = klant.BasisUrl1;
             BasisUrl2TxtBx.Text = klant.BasisUrl2;
+        }
+
+        private KlantWebservice KlantExist(KlantWebservice klantWebservice)
+        {
+            Klant klant = new Klant(NewKlantNaamTxtBx.Text, BasisUrl1TxtBx.Text, BasisUrl2TxtBx.Text);
+            if (_klantId != Guid.Empty)
+            {
+                klantWebservice.Klant = _klantId;
+            }
+            else
+            {
+                Klant klantExist = _klantXml.GetKlantenByTheSameName(NewKlantNaamTxtBx.Text);
+                if (klantExist == null)
+                {
+                    _klantXml.AddKlant(klant);
+                    klantWebservice.Klant = klant.Id;
+                }
+                else
+                {
+                    _error.SetError(NewKlantNaamTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
+                    _inError = true;
+                }
+            }
+            return klantWebservice;
         }
     }
 }

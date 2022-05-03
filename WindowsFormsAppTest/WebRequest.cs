@@ -28,59 +28,45 @@ namespace WindowsFormsAppTest
         //REST
         public string GetWebRequestRest(Guid id, string host, bool securityId)
         {
-            Uri uri = new Uri(host);
+            string url = host + "/GetWebserviceVersion";
+            Uri uri = new Uri(url);
             try
             {
                 HttpWebRequest request = HttpWebRequest.Create(host) as HttpWebRequest;
                 HttpClient client = new HttpClient();
                 using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
                 {
-                    X509Certificate cert = request.ServicePoint.Certificate;
-                    X509Certificate2 cert2 = null;
-                    if (cert != null)
-                    {
-                        cert2 = new X509Certificate2(cert);
-                        _certIsGoed = cert2.Verify();
-                    }
+                    X509Certificate cert = GetCertificate(request);
                     int statusCode = (int)response.StatusCode;
                     if (statusCode >= 100 && statusCode < 400) //Good requests
                     {
                         client.BaseAddress = uri;
                         client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                        // List data response.
                         HttpResponseMessage response1 = client.GetAsync(uri).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.
+                        string data = response1.Content.ReadAsStringAsync().Result;
                         if (response1.IsSuccessStatusCode)
                         {
                             //Parse the response body.
-                            string data = response1.Content.ReadAsStringAsync().Result; //Make sure to add a reference to System.Net.Http.Formatting.dll
-                            if (!securityId)
-                            {
-                                if (_certIsGoed)
-                                {
-                                    return GetDataOfWebRequest(data, cert.GetExpirationDateString().ToString());
-                                }
-                                else
-                                {
-                                    return GetDataOfWebRequest(data, "");
-                                }
-                            }
-                            int Pos1 = data.IndexOf('{');
-                            int Pos2 = data.IndexOf('}');
-                            data = data.Substring(Pos1 + 1, Pos2 - Pos1 - 1);
+                            //Make sure to add a reference to System.Net.Http.Formatting.dll
                             if (_certIsGoed)
                             {
-                                return "{" + data + ", id: '" + id + "', certVerValDatum: '" + cert.GetExpirationDateString().ToString() + "'}";
+                                return GetDataOfWebRequest(data, cert.GetExpirationDateString().ToString());
                             }
-                            return "{" + data + ", id: '" + id + "'}";
-
+                            else
+                            {
+                                return GetDataOfWebRequest(data, "");
+                            }
                         }
-                        return null;
+                        int Pos1 = data.IndexOf('{');
+                        int Pos2 = data.IndexOf('}');
+                        data = data.Substring(Pos1 + 1, Pos2 - Pos1 - 1);
+                        if (_certIsGoed)
+                        {
+                            return "{" + data + ", id: '" + id + "', certVerValDatum: '" + cert.GetExpirationDateString().ToString() + "'}";
+                        }
                     }
-                    else
-                    {
-                        return null;
-                    }
+                    return @"{ ex: '" + "krijg geen data terug" + "'}";
                 }
             }
             catch (Exception ex)
@@ -102,6 +88,30 @@ namespace WindowsFormsAppTest
             _kraanDatabase = data.Substring(_positionDatabaseConnect, _positionDatabaseMelding - _positionDatabaseConnect);
 
             return @"{ WebserviceVersie: '" + _webserviceVersie + "', KraanDll: '" + _kraanDll + "', KraanIni: '" + _kraanIni + "', KraanDatabase: '" + _kraanDatabase + "', certVerValDatum: '" + verValDatum + "'}";
+        }
+
+        public bool CheckUrl(string host)
+        {
+            Uri uri = new Uri(host);
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response1 = client.GetAsync(uri).Result;
+            if (response1.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private X509Certificate GetCertificate(HttpWebRequest request)
+        {
+            X509Certificate cert = request.ServicePoint.Certificate;
+            X509Certificate2 cert2 = null;
+            if (cert != null)
+            {
+                cert2 = new X509Certificate2(cert);
+                _certIsGoed = cert2.Verify();
+            }
+            return cert;
         }
 
         //SOAP
@@ -266,13 +276,17 @@ namespace WindowsFormsAppTest
                     client.Open();
                     Sales24.MessageServiceMessage message = new Sales24.MessageServiceMessage();
                     message.MsgType = "CST_KRAAN_VERSION";
+
+                    HttpWebRequest request = HttpWebRequest.Create(host) as HttpWebRequest;
+                    X509Certificate cert = GetCertificate(request);
+
                     bool succes = client.PostMessage(null, null, ref message);
 
                     var data = "{\"" + message.Text[0]
                         .Replace("\r\n", "\",\"")
                         .Replace(": ", "\": \"")
                         .Replace(@"\", " ")
-                        .Replace("Versie\": \"", "Versie: ") + "\"}";
+                        .Replace("Versie\": \"", "Versie: ") + "', certVerValDatum: '" + cert.GetExpirationDateString().ToString() + "\"}";
 
                     client.Close();
                     return data;
@@ -300,6 +314,9 @@ namespace WindowsFormsAppTest
                     Sales31.MessageType message = new Sales31.MessageType();
                     message.MsgProperties = new Sales31.MessagePropertiesType();
                     message.MsgProperties.MsgType = "CST_KRAAN_VERSION";
+
+                    HttpWebRequest request = HttpWebRequest.Create(host) as HttpWebRequest;
+                    X509Certificate cert = GetCertificate(request);
                     try
                     {
                         Sales31.MessageResponseType antwoord = client.PostMessage(null, message);
@@ -311,9 +328,11 @@ namespace WindowsFormsAppTest
                                 .Replace(": ", "\": \"")
                                 .Replace(@"\", " ")
                                 .Replace("application\": \"", "application: ")
-                                .Replace("Versie\": \"", "Versie: ")
-                                + "\"}";
+                                .Replace("Versie\": \"", "Versie: ");
                             client.Close();
+                            Console.WriteLine(cert.GetExpirationDateString().ToString());
+                            Console.WriteLine(data);
+                            Console.WriteLine(data + "\", \"certVerValDatum:\": " + "\"" + cert.GetExpirationDateString().ToString() + "\"" + "}");
                             return data;
                         }
                         client.Close();

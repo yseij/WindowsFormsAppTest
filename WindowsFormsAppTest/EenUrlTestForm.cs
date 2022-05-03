@@ -2,6 +2,7 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -11,6 +12,7 @@ namespace WindowsFormsAppTest
         private string _webserviceName = string.Empty;
         private string _httpName = string.Empty;
         private string _urlHttp = string.Empty;
+        private string _securityId = string.Empty;
 
         private bool _isSoap = false;
         private bool _isSecurityId = false;
@@ -93,6 +95,7 @@ namespace WindowsFormsAppTest
                 if (_selectedWebservice.SecurityId != string.Empty)
                 {
                     _isSecurityId = true;
+                    _securityId = _selectedWebservice.SecurityId;
                 }
                 SetSelectedTab(url);
             }
@@ -110,7 +113,11 @@ namespace WindowsFormsAppTest
             if (_selectedWebservice.Soap)
             {
                 TbCntrlRestApiEnSoap.SelectTab(1);
-                if (url.Name.EndsWith("MessageServiceSoap31.svc") || url.Name.EndsWith("MessageServiceSoap.svc"))
+                if (url.Name.EndsWith("MessageServiceSoap31.svc"))
+                {
+                    TbCntrlRestApiEnSoap.SelectTab(3);
+                }
+                else
                 {
                     TbCntrlRestApiEnSoap.SelectTab(2);
                 }
@@ -121,7 +128,21 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void TestRouteBtn_Click(object sender, EventArgs e)
+        private void TestWebserviceBtn_Click(object sender, EventArgs e)
+        {
+            if (_webRequest.CheckUrl(UrlVoorTestTxtBx.Text))
+            {
+                //MLblCheckOfNiet.ForeColor = Color.Red;
+                MLblCheckOfNiet.Text = "✓";
+            }
+            else
+            {
+                //MLblCheckOfNiet.BackColor = Color.Red;
+                MLblCheckOfNiet.Text = "X";
+            }
+        }
+
+        private void GetWebserviceVersionBtn_Click(object sender, EventArgs e)
         {
             ClearBox();
             CheckWebservice();
@@ -144,17 +165,23 @@ namespace WindowsFormsAppTest
         {
             if (_isSoap && UrlVoorTestTxtBx.Text.EndsWith(".svc"))
             {
-                if (UrlVoorTestTxtBx.Text == "MessageServiceSoap31.svc")
+                if (UrlVoorTestTxtBx.Text.Contains("MessageServiceSoap31.svc"))
                 {
-                    _result = JObject.Parse(_webRequest.Get31SalesData(UrlVoorTestTxtBx.Text, TxtBxUsername, TxtBxPassword));
+                    var m = new Sales31CredentialsForm();
+                    m.TopMost = true;
+                    m.ShowDialog();
+                    MaterialMaskedTextBox userName = m._usernameTxtBx;
+                    MaterialMaskedTextBox password = m._passwordTxtBx;
+                    _result = JObject.Parse(_webRequest.Get31SalesData(UrlVoorTestTxtBx.Text, userName, password));
                     if (_result != null)
                     {
                         CheckData(_result, _webserviceName, 3.1);
                     }
                 }
-                else if (UrlVoorTestTxtBx.Text == "MessageServiceSoap.svc")
+                else if (UrlVoorTestTxtBx.Text.Contains("MessageServiceSoap.svc"))
                 {
                     _result = JObject.Parse(_webRequest.Get24SalesData(UrlVoorTestTxtBx.Text));
+                    
                     if (_result != null)
                     {
                         CheckData(_result, _webserviceName, 2.4);
@@ -261,6 +288,14 @@ namespace WindowsFormsAppTest
                     case "Kraan 2 databaseversie":
                         TxtBxKraan2DatabaseVersie = item.Value.ToString().Split(':')[0];
                         break;
+                    case "certVerValDatum":
+                        if (item.Value.ToString() != "")
+                        {
+                            SslChckBx.Checked = true;
+                            SllCertificaatVervalDatumTxtBx.Text = item.Value.ToString();
+                            logFile.AddTextToLogFile("certVerValDatum = " + item.Value.ToString() + "\n");
+                        }
+                        break;
                     case "ex":
                         ResponseTextBox.Text = ResponseTextBox.Text + item.Value;
                         break;
@@ -332,5 +367,6 @@ namespace WindowsFormsAppTest
         {
             UrlVoorTestTxtBx.Select();
         }
+
     }
 }

@@ -172,7 +172,7 @@ namespace WindowsFormsAppTest
             bool isSecurityId = false;
             if (_isSoap && urlData.Name.EndsWith(".svc"))
             {
-                if (urlData.Name == "MessageServiceSoap31.svc")
+                if (urlData.Name.Contains("MessageServiceSoap31.svc"))
                 {
                     var m = new Sales31CredentialsForm();
                     m.TopMost = true;
@@ -181,7 +181,7 @@ namespace WindowsFormsAppTest
                     MaterialMaskedTextBox password = m._passwordTxtBx;
                     _result = JObject.Parse(_webRequest.Get31SalesData(_httpName + _webserviceName, userName, password));
                 }
-                else if (urlData.Name == "MessageServiceSoap.svc")
+                else if (urlData.Name.Contains("MessageServiceSoap.svc"))
                 {
                     _result = JObject.Parse(_webRequest.Get24SalesData(_httpName + _webserviceName));
                 }
