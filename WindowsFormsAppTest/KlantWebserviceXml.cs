@@ -55,7 +55,6 @@ namespace WindowsFormsAppTest
             XDocument doc = XDocument.Load(_path);
             XElement element = doc.Element("DB").Element("KlantWebservices").Elements("KlantWebservice")
                 .FirstOrDefault(p => Guid.Parse(p.Attribute("Klant").Value) == klantId && Guid.Parse(p.Attribute("Webservice").Value) == webserviceId);
-            Console.WriteLine("test= " + element);
             if (element != null)
             {
                 KlantWebservice newKlantWebservice = new KlantWebservice();
