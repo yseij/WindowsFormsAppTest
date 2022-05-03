@@ -216,7 +216,6 @@
     <Compile Include="WebserviceOfKlantForm.Designer.cs">
       <DependentUpon>WebserviceOfKlantForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="WebserviceTest.cs" />
     <Compile Include="WebserviceXml.cs" />
     <EmbeddedResource Include="AddKlantWithWebservicesForm.resx">
       <DependentUpon>AddKlantWithWebservicesForm.cs</DependentUpon>

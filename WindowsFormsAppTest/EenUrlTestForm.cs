@@ -19,6 +19,8 @@ namespace WindowsFormsAppTest
 
         dynamic _result = null;
 
+        private WebService _selectedWebservice = new WebService();
+
         private List<WebService> _webserviceDatas = new List<WebService>();
         private List<Klant> _klantDatas = new List<Klant>();
         private List<KlantWebservice> _klantWebservicesDatas = new List<KlantWebservice>();
@@ -83,15 +85,39 @@ namespace WindowsFormsAppTest
             Url url = (Url)AllUrlsKrLstBx.SelectedItem;
             if (url != null)
             {
-                WebService webService = _webserviceXml.GetWebserviceById(url.WebserviceId);
-                SecurityIdTxtBx.Text = webService.SecurityId;
+                _selectedWebservice = _webserviceXml.GetWebserviceById(url.WebserviceId);
+                SecurityIdTxtBx.Text = _selectedWebservice.SecurityId;
                 UrlVoorTestTxtBx.Text = url.Name;
                 _webserviceId = url.WebserviceId;
                 UrlVoorTestTxtBx.Text = url.Name;
-                if (webService.SecurityId != string.Empty)
+                if (_selectedWebservice.SecurityId != string.Empty)
                 {
                     _isSecurityId = true;
                 }
+                SetSelectedTab(url);
+            }
+        }
+
+        private void UrlVoorTestTxtBx_TextChanged(object sender, EventArgs e)
+        {
+            Url url = new Url();
+            url.Name = UrlVoorTestTxtBx.Text;
+            SetSelectedTab(url);
+        }
+
+        private void SetSelectedTab(Url url)
+        {
+            if (_selectedWebservice.Soap)
+            {
+                TbCntrlRestApiEnSoap.SelectTab(1);
+                if (url.Name.EndsWith("MessageServiceSoap31.svc") || url.Name.EndsWith("MessageServiceSoap.svc"))
+                {
+                    TbCntrlRestApiEnSoap.SelectTab(2);
+                }
+            }
+            else
+            {
+                TbCntrlRestApiEnSoap.SelectTab(0);
             }
         }
 
@@ -295,6 +321,16 @@ namespace WindowsFormsAppTest
                 }
                 ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " + item.Value + Environment.NewLine;
             }
+        }
+
+        private void TbCntrlRestApiEnSoap_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UrlVoorTestTxtBx.Select();
+        }
+
+        private void TbCntrlRestApiEnSoap_TabIndexChanged(object sender, EventArgs e)
+        {
+            UrlVoorTestTxtBx.Select();
         }
     }
 }

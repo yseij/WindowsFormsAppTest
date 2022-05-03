@@ -321,7 +321,7 @@ namespace WindowsFormsAppTest
             this.ResponseTextBox.Depth = 0;
             this.ResponseTextBox.Enabled = false;
             this.ResponseTextBox.HideSelection = true;
-            this.ResponseTextBox.Location = new System.Drawing.Point(29, 797);
+            this.ResponseTextBox.Location = new System.Drawing.Point(25, 739);
             this.ResponseTextBox.MaxLength = 32767;
             this.ResponseTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.ResponseTextBox.Name = "ResponseTextBox";
@@ -332,7 +332,7 @@ namespace WindowsFormsAppTest
             this.ResponseTextBox.SelectionLength = 0;
             this.ResponseTextBox.SelectionStart = 0;
             this.ResponseTextBox.ShortcutsEnabled = true;
-            this.ResponseTextBox.Size = new System.Drawing.Size(847, 194);
+            this.ResponseTextBox.Size = new System.Drawing.Size(851, 152);
             this.ResponseTextBox.TabIndex = 32;
             this.ResponseTextBox.TabStop = false;
             this.ResponseTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -346,7 +346,7 @@ namespace WindowsFormsAppTest
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(26, 775);
+            this.materialLabel1.Location = new System.Drawing.Point(26, 717);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(28, 19);
@@ -360,7 +360,7 @@ namespace WindowsFormsAppTest
             this.TestRouteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TestRouteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TestRouteBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.TestRouteBtn.Location = new System.Drawing.Point(395, 1010);
+            this.TestRouteBtn.Location = new System.Drawing.Point(402, 905);
             this.TestRouteBtn.Name = "TestRouteBtn";
             this.TestRouteBtn.Size = new System.Drawing.Size(112, 43);
             this.TestRouteBtn.TabIndex = 63;
@@ -731,7 +731,7 @@ namespace WindowsFormsAppTest
             this.grpBxSales3_1.Controls.Add(this.LblKraanDLL3_1);
             this.grpBxSales3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.grpBxSales3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.grpBxSales3_1.Location = new System.Drawing.Point(428, 6);
+            this.grpBxSales3_1.Location = new System.Drawing.Point(411, 6);
             this.grpBxSales3_1.Name = "grpBxSales3_1";
             this.grpBxSales3_1.Size = new System.Drawing.Size(409, 490);
             this.grpBxSales3_1.TabIndex = 70;
@@ -1182,8 +1182,7 @@ namespace WindowsFormsAppTest
             // TbCntrlRestApiEnSoap
             // 
             this.TbCntrlRestApiEnSoap.AccessibleName = "";
-            this.TbCntrlRestApiEnSoap.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.TbCntrlRestApiEnSoap.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TbCntrlRestApiEnSoap.Controls.Add(this.RestPage);
             this.TbCntrlRestApiEnSoap.Controls.Add(this.SoapPage);
@@ -1194,9 +1193,11 @@ namespace WindowsFormsAppTest
             this.TbCntrlRestApiEnSoap.Multiline = true;
             this.TbCntrlRestApiEnSoap.Name = "TbCntrlRestApiEnSoap";
             this.TbCntrlRestApiEnSoap.SelectedIndex = 0;
-            this.TbCntrlRestApiEnSoap.Size = new System.Drawing.Size(851, 416);
+            this.TbCntrlRestApiEnSoap.Size = new System.Drawing.Size(851, 358);
             this.TbCntrlRestApiEnSoap.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.TbCntrlRestApiEnSoap.TabIndex = 72;
+            this.TbCntrlRestApiEnSoap.SelectedIndexChanged += new System.EventHandler(this.TbCntrlRestApiEnSoap_SelectedIndexChanged);
+            this.TbCntrlRestApiEnSoap.TabIndexChanged += new System.EventHandler(this.TbCntrlRestApiEnSoap_TabIndexChanged);
             // 
             // RestPage
             // 
@@ -1206,7 +1207,7 @@ namespace WindowsFormsAppTest
             this.RestPage.Location = new System.Drawing.Point(4, 22);
             this.RestPage.Name = "RestPage";
             this.RestPage.Padding = new System.Windows.Forms.Padding(3);
-            this.RestPage.Size = new System.Drawing.Size(843, 390);
+            this.RestPage.Size = new System.Drawing.Size(843, 332);
             this.RestPage.TabIndex = 0;
             this.RestPage.Text = "Rest";
             // 
@@ -1217,12 +1218,13 @@ namespace WindowsFormsAppTest
             this.SoapPage.Location = new System.Drawing.Point(4, 22);
             this.SoapPage.Name = "SoapPage";
             this.SoapPage.Padding = new System.Windows.Forms.Padding(3);
-            this.SoapPage.Size = new System.Drawing.Size(843, 390);
+            this.SoapPage.Size = new System.Drawing.Size(843, 311);
             this.SoapPage.TabIndex = 1;
             this.SoapPage.Text = "Soap";
             // 
             // SalesPage
             // 
+            this.SalesPage.AutoScroll = true;
             this.SalesPage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.SalesPage.Controls.Add(this.TxtBxPassword);
             this.SalesPage.Controls.Add(this.grpBxSales2_4);
@@ -1233,7 +1235,7 @@ namespace WindowsFormsAppTest
             this.SalesPage.Location = new System.Drawing.Point(4, 22);
             this.SalesPage.Name = "SalesPage";
             this.SalesPage.Padding = new System.Windows.Forms.Padding(3);
-            this.SalesPage.Size = new System.Drawing.Size(843, 390);
+            this.SalesPage.Size = new System.Drawing.Size(843, 311);
             this.SalesPage.TabIndex = 2;
             this.SalesPage.Text = "Sales";
             // 
@@ -1270,7 +1272,7 @@ namespace WindowsFormsAppTest
             this.TxtBxPassword.SelectionLength = 0;
             this.TxtBxPassword.SelectionStart = 0;
             this.TxtBxPassword.ShortcutsEnabled = true;
-            this.TxtBxPassword.Size = new System.Drawing.Size(705, 48);
+            this.TxtBxPassword.Size = new System.Drawing.Size(671, 48);
             this.TxtBxPassword.SkipLiterals = true;
             this.TxtBxPassword.TabIndex = 77;
             this.TxtBxPassword.TabStop = false;
@@ -1313,7 +1315,7 @@ namespace WindowsFormsAppTest
             this.TxtBxUsername.SelectionLength = 0;
             this.TxtBxUsername.SelectionStart = 0;
             this.TxtBxUsername.ShortcutsEnabled = true;
-            this.TxtBxUsername.Size = new System.Drawing.Size(705, 48);
+            this.TxtBxUsername.Size = new System.Drawing.Size(671, 48);
             this.TxtBxUsername.SkipLiterals = true;
             this.TxtBxUsername.TabIndex = 76;
             this.TxtBxUsername.TabStop = false;
@@ -1471,7 +1473,7 @@ namespace WindowsFormsAppTest
             this.UrlVoorTestTxtBx.ShortcutsEnabled = true;
             this.UrlVoorTestTxtBx.Size = new System.Drawing.Size(847, 48);
             this.UrlVoorTestTxtBx.SkipLiterals = true;
-            this.UrlVoorTestTxtBx.TabIndex = 84;
+            this.UrlVoorTestTxtBx.TabIndex = 0;
             this.UrlVoorTestTxtBx.TabStop = false;
             this.UrlVoorTestTxtBx.Text = "materialMaskedTextBox1";
             this.UrlVoorTestTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1479,6 +1481,7 @@ namespace WindowsFormsAppTest
             this.UrlVoorTestTxtBx.TrailingIcon = null;
             this.UrlVoorTestTxtBx.UseSystemPasswordChar = false;
             this.UrlVoorTestTxtBx.ValidatingType = null;
+            this.UrlVoorTestTxtBx.TextChanged += new System.EventHandler(this.UrlVoorTestTxtBx_TextChanged);
             // 
             // AllUrlsKrLstBx
             // 
@@ -1523,10 +1526,12 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(911, 1059);
+            this.ClientSize = new System.Drawing.Size(911, 954);
             this.Controls.Add(this.UrlVoorTestTxtBx);
             this.Controls.Add(this.materialLabel8);
             this.Controls.Add(this.materialLabel9);
+            this.Controls.Add(this.ResponseTextBox);
+            this.Controls.Add(this.TestRouteBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SecurityIdTxtBx);
             this.Controls.Add(this.materialLabel7);
@@ -1534,10 +1539,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.LblUrl);
             this.Controls.Add(this.TbCntrlRestApiEnSoap);
             this.Controls.Add(this.KlantKrMaterialCmbx);
-            this.Controls.Add(this.TestRouteBtn);
             this.Controls.Add(this.materialLabel1);
-            this.Controls.Add(this.ResponseTextBox);
-            this.MinimumSize = new System.Drawing.Size(911, 1038);
             this.Name = "EenUrlTestForm";
             this.Sizable = false;
             this.Text = "Test Url";

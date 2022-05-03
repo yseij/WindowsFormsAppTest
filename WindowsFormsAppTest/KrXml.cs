@@ -22,16 +22,16 @@ namespace WindowsFormsAppTest
             TextWriter writer = new StreamWriter(_dbPath);
             DB db = new DB();
 
-            Klant klant1 = new Klant("klant 1", "https://ws.kraan.com:444/", "https://wsdev.kraan.com/test1");
-            Klant klant2 = new Klant("klant 2", "https://wsdev.kraan.com/", "https://wsdev.kraan.com/test2");
-            Klant klant3 = new Klant("klant 3", "https://wsdev.kraan.com:1234/", "https://wsdev.kraan.com/test3");
+            Klant klant1 = new Klant("klant 1", "https://ws.kraan.com:444/", "https://wsdev.kraan.com/test1/");
+            Klant klant2 = new Klant("klant 2", "https://wsdev.kraan.com/", "https://wsdev.kraan.com/test2/");
+            Klant klant3 = new Klant("klant 3", "https://wsdev.kraan.com:1234/", "https://wsdev.kraan.com/test3/");
             List<Klant> klanten = new List<Klant>();
             klanten.Add(klant1);
             klanten.Add(klant2);
             klanten.Add(klant3);
             db.Klanten = klanten;
 
-            WebService webService1 = new WebService("KraanHomeDna", false, "TEST");
+            WebService webService1 = new WebService("KraanHomeDna", true, "TEST");
             WebService webService2 = new WebService("KraanSalesService", false, "");
             WebService webService3 = new WebService("Kraan2Webservice", false, "");
             WebService webService4 = new WebService("KraanHomeDNARelease", false, "");

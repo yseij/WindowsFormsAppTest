@@ -9,17 +9,13 @@ namespace WindowsFormsAppTest
 {
     class TestRoute
     {
-        private string urlHttp = ConfigurationManager.AppSettings["http"];
-
-        private List<WebService> _webServiceDatas = new List<WebService>();
-
         WebRequest _webRequest;
-        WebserviceTest _webserviceTest;
+
         public TestRoute()
         {
             _webRequest = new WebRequest();
-            _webserviceTest = new WebserviceTest();
         }
+
         public void TestOneRoute(dynamic result,
                               MaterialTextBox2 textBoxWebservice,
                               CheckBox sslChckBx,

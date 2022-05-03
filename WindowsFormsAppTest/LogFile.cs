@@ -36,9 +36,9 @@ namespace WindowsFormsAppTest
             {
                 File.AppendAllText(FilePath, text);
             }
-            catch
+            catch(Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
     }
