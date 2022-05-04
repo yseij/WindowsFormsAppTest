@@ -57,6 +57,11 @@ namespace WindowsFormsAppTest
             klantWebservices.Add(klantWebservice5);
             db.KlantWebservices = klantWebservices;
 
+            Url url1 = new Url("https://wsdev.kraan.com/KraanHomeDNARelease/HomeDna.svc/GetProject/099793AF-C758-4E53-B27E-6BE923B114BF/0/WEL10", klant1.Id);
+            List<Url> urls = new List<Url>();
+            urls.Add(url1);
+            db.Urls = urls;
+
             serializer.Serialize(writer, db);
             writer.Close();
         }

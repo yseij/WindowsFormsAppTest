@@ -38,6 +38,7 @@ namespace WindowsFormsAppTest
             InitializeComponent();
             _webRequest = new WebRequest();
             _testRoute = new TestRoute();
+
             _webserviceXml = new WebserviceXml();
             _klantXml = new KlantXml();
             _klantWebserviceXml = new KlantWebserviceXml();

@@ -60,7 +60,7 @@ namespace WindowsFormsAppTest
             AanOfUitCheck();
             AanOfUitCheckService();
 
-            //_krXml.MakeXmlFileDb();
+            _krXml.MakeXmlFileDb();
             //_krXml.MakeXmlFileUser();
         }
 

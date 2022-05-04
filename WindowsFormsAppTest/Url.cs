@@ -1,22 +1,32 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace WindowsFormsAppTest
 {
-    public class Url : IBaseData
+    public class Url
     {
         public Url()
         {
 
         }
 
-        public Url(int id, string name)
+        public Url(string name, Guid klantId)
         {
-            Id = id;
+            Id = Guid.NewGuid();
             Name = name;
+            KlantId = klantId;
         }
 
-        public int Id { get; set; }
+        [XmlAttribute("Id")]
+        public Guid Id { get; set; }
+
+        [XmlAttribute("Name")]
         public string Name { get; set; }
+
+        [XmlIgnore]
         public Guid WebserviceId { get; set; }
+
+        [XmlAttribute("KlantId")]
+        public Guid KlantId { get; set; }
     }
 }

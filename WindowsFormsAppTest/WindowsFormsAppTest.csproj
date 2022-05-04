@@ -168,7 +168,6 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="IBaseData.cs" />
     <Compile Include="Klant.cs" />
     <Compile Include="KlantWebservice.cs" />
     <Compile Include="KlantWebserviceXml.cs" />
@@ -208,6 +207,7 @@
     <Compile Include="UserForm.Designer.cs">
       <DependentUpon>UserForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="UrlXml.cs" />
     <Compile Include="WebRequest.cs" />
     <Compile Include="WebService.cs" />
     <Compile Include="WebserviceOfKlantForm.cs">
