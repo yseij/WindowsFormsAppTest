@@ -12,7 +12,6 @@ namespace WindowsFormsAppTest
         private string _webserviceName = string.Empty;
         private string _httpName = string.Empty;
         private string _urlHttp = string.Empty;
-        private string _securityId = string.Empty;
         private string _urlTest = string.Empty;
 
         private bool _isSoap = false;
@@ -23,6 +22,7 @@ namespace WindowsFormsAppTest
         dynamic _result = null;
 
         private WebService _selectedWebservice = new WebService();
+        private KlantWebservice _klantWebservice = new KlantWebservice();
 
         private List<WebService> _webserviceDatas = new List<WebService>();
         private List<Klant> _klantDatas = new List<Klant>();
@@ -71,20 +71,22 @@ namespace WindowsFormsAppTest
         private void AllUrlsKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
         {
             Url url = (Url)AllUrlsKrLstBx.SelectedItem;
+
             MLblCheckOfNiet.Text = string.Empty;
+            SecurityIdTxtBx.Text = string.Empty;
+            UrlVoorTestTxtBx.Text = string.Empty;
+
             if (url != null && url.KlantId != Guid.Empty)
             {
                 if (url.WebserviceId != Guid.Empty)
                 {
                     _selectedWebservice = _webserviceXml.GetWebserviceById(url.WebserviceId);
-                    SecurityIdTxtBx.Text = _selectedWebservice.SecurityId;
-                    _webserviceId = url.WebserviceId;
                 }
                 UrlVoorTestTxtBx.Text = url.Name;
                 if (_selectedWebservice.SecurityId != string.Empty)
                 {
                     _isSecurityId = true;
-                    _securityId = _selectedWebservice.SecurityId;
+                    SecurityIdTxtBx.Text = _selectedWebservice.SecurityId;
                 }
                 SetSelectedTab(url);
             }
@@ -92,7 +94,7 @@ namespace WindowsFormsAppTest
 
         private void UrlOpslaanBtn_Click(object sender, EventArgs e)
         {
-            Url url = new Url(UrlVoorTestTxtBx.Text, (Guid)KlantKrMaterialCmbx.SelectedValue);
+            Url url = new Url(UrlVoorTestTxtBx.Text, (Guid)KlantKrMaterialCmbx.SelectedValue, _selectedWebservice.Id);
             _urlXml.AddUrl(url);
             GetUrls();
         }
@@ -157,7 +159,7 @@ namespace WindowsFormsAppTest
                 urls.Add(url);
             }
 
-            Url tussenUrl = new Url("|---Opgeslagen urls---|", Guid.Empty);
+            Url tussenUrl = new Url("|---Opgeslagen urls---|", Guid.Empty, Guid.Empty);
             urls.Add(tussenUrl);
             List<Url> urlDatas = _urlXml.GetByKlantId((Guid)KlantKrMaterialCmbx.SelectedValue);
             foreach (Url url in urlDatas)

@@ -10,11 +10,12 @@ namespace WindowsFormsAppTest
 
         }
 
-        public Url(string name, Guid klantId)
+        public Url(string name, Guid klantId, Guid webserviceId)
         {
             Id = Guid.NewGuid();
             Name = name;
             KlantId = klantId;
+            WebserviceId = webserviceId;
         }
 
         [XmlAttribute("Id")]
@@ -23,10 +24,10 @@ namespace WindowsFormsAppTest
         [XmlAttribute("Name")]
         public string Name { get; set; }
 
-        [XmlIgnore]
-        public Guid WebserviceId { get; set; }
-
         [XmlAttribute("KlantId")]
         public Guid KlantId { get; set; }
+
+        [XmlAttribute("WebserviceId")]
+        public Guid WebserviceId { get; set; }
     }
 }

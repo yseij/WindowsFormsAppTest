@@ -48,7 +48,7 @@ namespace WindowsFormsAppTest
             KlantWebservice klantWebservice2 = new KlantWebservice(klant2.Id, webService1.Id, false, true);
             KlantWebservice klantWebservice3 = new KlantWebservice(klant3.Id, webService2.Id, true, false);
             KlantWebservice klantWebservice4 = new KlantWebservice(klant2.Id, webService4.Id, true, false);
-            KlantWebservice klantWebservice5 = new KlantWebservice(klant2.Id, webService5.Id, true, false);
+            KlantWebservice klantWebservice5 = new KlantWebservice(klant1.Id, webService5.Id, true, false);
             List<KlantWebservice> klantWebservices = new List<KlantWebservice>();
             klantWebservices.Add(klantWebservice1);
             klantWebservices.Add(klantWebservice2);
@@ -57,7 +57,7 @@ namespace WindowsFormsAppTest
             klantWebservices.Add(klantWebservice5);
             db.KlantWebservices = klantWebservices;
 
-            Url url1 = new Url("https://wsdev.kraan.com/KraanHomeDNARelease/HomeDna.svc/GetProject/099793AF-C758-4E53-B27E-6BE923B114BF/0/WEL10", klant1.Id);
+            Url url1 = new Url("https://wsdev.kraan.com/KraanHomeDNARelease/HomeDna.svc/GetProject/099793AF-C758-4E53-B27E-6BE923B114BF/0/WEL10", klant1.Id, webService5.Id);
             List<Url> urls = new List<Url>();
             urls.Add(url1);
             db.Urls = urls;

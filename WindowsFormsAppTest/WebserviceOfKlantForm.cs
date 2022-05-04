@@ -22,6 +22,7 @@ namespace WindowsFormsAppTest
 
         dynamic _result = null;
 
+        private List<Url> _urlDatas = new List<Url>();
         private List<WebService> _webServiceDatas = new List<WebService>();
         private List<Klant> _klantenDatas = new List<Klant>();
         private List<KlantWebservice> _klantWebserviceDatas = new List<KlantWebservice>();
@@ -29,6 +30,7 @@ namespace WindowsFormsAppTest
         WebRequest _webRequest;
         TestRoute _testRoute;
 
+        UrlXml _urlXml;
         WebserviceXml _webserviceXml;
         KlantXml _klantXml;
         KlantWebserviceXml _klantWebserviceXml;
@@ -39,6 +41,7 @@ namespace WindowsFormsAppTest
             _webRequest = new WebRequest();
             _testRoute = new TestRoute();
 
+            _urlXml = new UrlXml();
             _webserviceXml = new WebserviceXml();
             _klantXml = new KlantXml();
             _klantWebserviceXml = new KlantWebserviceXml();
@@ -74,9 +77,8 @@ namespace WindowsFormsAppTest
 
         private void FillCmbxKlanten()
         {
-            //Klant klantData = new Klant("Alles testen", "", "");
-            //_klantenDatas.Add(klantData);
-
+            Klant klantData = new Klant("Alles testen");
+            _klantenDatas.Add(klantData);
             WebserviceOfKlantKrMaterialCmbx.FillCmbBoxKlant(_klantenDatas);
         }
 
@@ -95,7 +97,16 @@ namespace WindowsFormsAppTest
             _webServiceDatas = _webserviceXml.GetWebservices();
             if (_isKlant)
             {
-                _klantWebserviceDatas = _klantWebserviceXml.GetByKlant(_selectedWebserviceIdOfKlantId);
+                if (_selectedWebserviceIdOfKlantId == Guid.Empty)
+                {
+                    _klantWebserviceDatas = _klantWebserviceXml.GetAll();
+                    _urlDatas = _urlXml.GetAll();
+                }
+                else
+                {
+                    _klantWebserviceDatas = _klantWebserviceXml.GetByKlant(_selectedWebserviceIdOfKlantId);
+                    _urlDatas = _urlXml.GetByKlantId(_selectedWebserviceIdOfKlantId);
+                }
                 GetDataByKlant(logFile);
             }
             else
@@ -113,7 +124,7 @@ namespace WindowsFormsAppTest
                 string basisUrl = string.Empty;
                 Url url = new Url();
                 WebService webService = new WebService();
-                Klant klant = _klantenDatas.Find(k => k.Id == _selectedWebserviceIdOfKlantId);
+                Klant klant = _klantenDatas.Find(k => k.Id == klantWebservice.Klant);
                 if (klantWebservice.BasisUrl1)
                 {
                     basisUrl = klant.BasisUrl1;
@@ -131,7 +142,16 @@ namespace WindowsFormsAppTest
                         _isSoap = webservice.Soap;
                     }
                 }
-                GetResult(url, webService);
+                GetResult(url, true);
+                FillTreeView(url, logFile);
+            }
+            TreeNode node = new TreeNode();
+            node.Text = "|---Opgeslagen urls---|";
+            TrVwAll.Nodes.Add(node);
+            logFile.AddTextToLogFile("\n \n" + "|---Opgeslagen urls---|" + "\n");
+            foreach (Url url in _urlDatas)
+            {
+                GetResult(url, false);
                 FillTreeView(url, logFile);
             }
         }
@@ -157,7 +177,7 @@ namespace WindowsFormsAppTest
                         }
                     }
                 }
-                GetResult(url, webservice);
+                GetResult(url, true);
                 FillTreeView(url, logFile);
             }
         }
@@ -167,9 +187,8 @@ namespace WindowsFormsAppTest
             _selectedWebserviceIdOfKlantId = (Guid)WebserviceOfKlantKrMaterialCmbx.SelectedValue;
         }
 
-        private void GetResult(Url urlData, WebService webService)
+        private void GetResult(Url urlData, bool isGetWebserviceVersion)
         {
-            bool isSecurityId = false;
             if (_isSoap && urlData.Name.EndsWith(".svc"))
             {
                 if (urlData.Name.Contains("MessageServiceSoap31.svc"))
@@ -192,13 +211,9 @@ namespace WindowsFormsAppTest
             }
             else
             {
-                if (webService.SecurityId != null)
-                {
-                    isSecurityId = true;
-                }
                 _result = JObject.Parse(_webRequest.GetWebRequestRest(_webserviceId,
                                                      urlData.Name,
-                                                     isSecurityId));
+                                                     isGetWebserviceVersion));
             }
         }
 

@@ -12,6 +12,12 @@ namespace WindowsFormsAppTest
 
         }
 
+        public Klant(string name)
+        {
+            Id = Guid.Empty;
+            Name = name;
+        }
+
         public Klant(string name, string basisUrl1, string basisUrl2)
         {
             Id = Guid.NewGuid();

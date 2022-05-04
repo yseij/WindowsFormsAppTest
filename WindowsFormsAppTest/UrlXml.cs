@@ -9,6 +9,24 @@ namespace WindowsFormsAppTest
     class UrlXml
     {
         private string _path = @"D://db.xml";
+
+        public List<Url> GetAll()
+        {
+            List<Url> urls = new List<Url>();
+
+            XDocument doc = XDocument.Load(_path);
+            IEnumerable<XElement> elements = doc.Descendants("Url");
+            foreach (XElement element in elements)
+            {
+                Url newUrl = new Url();
+                newUrl.Id = Guid.Parse(element.Attribute("Id").Value);
+                newUrl.Name = element.Attribute("Name").Value;
+                newUrl.KlantId = Guid.Parse(element.Attribute("KlantId").Value);
+                newUrl.WebserviceId = Guid.Parse(element.Attribute("WebserviceId").Value);
+                urls.Add(newUrl);
+            }
+            return urls;
+        }
         public List<Url> GetByKlantId(Guid klantId)
         {
             List<Url> urls = new List<Url>();
@@ -22,6 +40,7 @@ namespace WindowsFormsAppTest
                 newUrl.Id = Guid.Parse(element.Attribute("Id").Value);
                 newUrl.Name = element.Attribute("Name").Value;
                 newUrl.KlantId = Guid.Parse(element.Attribute("KlantId").Value);
+                newUrl.WebserviceId = Guid.Parse(element.Attribute("WebserviceId").Value);
                 urls.Add(newUrl);
             }
             return urls;
@@ -33,7 +52,8 @@ namespace WindowsFormsAppTest
             doc.Element("DB").Element("Urls").Add(new XElement("Url",
                                                   new XAttribute("Id", url.Id),
                                                   new XAttribute("Name", url.Name),
-                                                  new XAttribute("KlantId", url.KlantId)));
+                                                  new XAttribute("KlantId", url.KlantId),
+                                                  new XAttribute("WebserviceId", url.WebserviceId)));
             SaveXmlFile(doc);
         }
 
