@@ -81,6 +81,7 @@ namespace WindowsFormsAppTest
                 if (url.WebserviceId != Guid.Empty)
                 {
                     _selectedWebservice = _webserviceXml.GetWebserviceById(url.WebserviceId);
+                    _webserviceId = _selectedWebservice.Id;
                 }
                 UrlVoorTestTxtBx.Text = url.Name;
                 if (_selectedWebservice.SecurityId != string.Empty)
@@ -183,12 +184,18 @@ namespace WindowsFormsAppTest
 
         private void GetWebserviceVersionBtn_Click(object sender, EventArgs e)
         {
-            _urlTest = UrlVoorTestTxtBx.Text + "/GetWebserviceVersion";
+            CheckWebservice();
+            _urlTest = UrlVoorTestTxtBx.Text;
+            if (!_isSoap)
+            {
+                _urlTest = UrlVoorTestTxtBx.Text + "/GetWebserviceVersion";
+            }
             GetResult(true);
         }
 
         private void TestMethodeBtn_Click(object sender, EventArgs e)
         {
+            CheckWebservice();
             _urlTest = UrlVoorTestTxtBx.Text;
             GetResult(false);
         }
@@ -208,7 +215,6 @@ namespace WindowsFormsAppTest
         private void GetResult(bool isGetWebserviceVersion)
         {
             ClearBox();
-            CheckWebservice();
             if (_isSoap && UrlVoorTestTxtBx.Text.EndsWith(".svc"))
             {
                 if (UrlVoorTestTxtBx.Text.Contains("MessageServiceSoap31.svc"))
@@ -235,7 +241,9 @@ namespace WindowsFormsAppTest
                 }
                 else
                 {
-                    _result = JObject.Parse(_webRequest.GetWebRequestSoap(_urlTest, KlantKrMaterialCmbx.Text));
+                    int plaatsSlech = UrlVoorTestTxtBx.Text.LastIndexOf("/");
+                    string service = UrlVoorTestTxtBx.Text.Substring(plaatsSlech + 1, UrlVoorTestTxtBx.Text.Length - plaatsSlech - 1);
+                    _result = JObject.Parse(_webRequest.GetWebRequestSoap(_urlTest, service));
                     CheckDataSoap(_result);
                 }
             }

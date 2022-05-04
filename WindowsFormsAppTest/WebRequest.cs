@@ -188,7 +188,7 @@ namespace WindowsFormsAppTest
         private YouriWebserviceCrm.CrmServiceClient NewCrmService(string host)
         {
             BasicHttpBinding binding = CreateBinding("CrmService");
-            EndpointAddress epa = CreateEndpointAddress(host, "CrmService.svc");
+            EndpointAddress epa = CreateEndpointAddress(host, "");
 
             return new YouriWebserviceCrm.CrmServiceClient(binding, epa);
         }
@@ -196,7 +196,7 @@ namespace WindowsFormsAppTest
         private YouriWebserviceMaterieel.MaterieelServiceClient NewMateriaalService(string host)
         {
             BasicHttpBinding binding = CreateBinding("MaterieelService");
-            EndpointAddress epa = CreateEndpointAddress(host, "MaterieelService.svc");
+            EndpointAddress epa = CreateEndpointAddress(host, "");
 
             return new YouriWebserviceMaterieel.MaterieelServiceClient(binding, epa);
         }
@@ -204,7 +204,7 @@ namespace WindowsFormsAppTest
         private YouriWebserviceUren.UrenServiceClient NewUrenService(string host)
         {
             BasicHttpBinding binding = CreateBinding("UrenService");
-            EndpointAddress epa = CreateEndpointAddress(host, "UrenService.svc");
+            EndpointAddress epa = CreateEndpointAddress(host, "");
 
             return new YouriWebserviceUren.UrenServiceClient(binding, epa);
         }
@@ -212,7 +212,7 @@ namespace WindowsFormsAppTest
         private YouriWebserviceWorkFlow.WorkflowServiceClient NewWorkFlowService(string host)
         {
             BasicHttpBinding binding = CreateBinding("WorkflowService");
-            EndpointAddress epa = CreateEndpointAddress(host, "WorkflowService.svc");
+            EndpointAddress epa = CreateEndpointAddress(host, "");
 
             return new YouriWebserviceWorkFlow.WorkflowServiceClient(binding, epa);
         }

@@ -206,7 +206,9 @@ namespace WindowsFormsAppTest
                 }
                 else
                 {
-                    _result = JObject.Parse(_webRequest.GetWebRequestSoap(_webserviceName, urlData.Name));
+                    int plaatsSlech = urlData.Name.LastIndexOf("/");
+                    string service = urlData.Name.Substring(plaatsSlech, urlData.Name.Length);
+                    _result = JObject.Parse(_webRequest.GetWebRequestSoap(urlData.Name, service));
                 }
             }
             else
