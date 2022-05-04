@@ -5,9 +5,6 @@
     <Setting Name="SaveLogFilePlace" Type="System.String" Scope="User">
       <Value Profile="(Default)">d:</Value>
     </Setting>
-    <Setting Name="WebserviceKeuze" Type="System.Guid" Scope="User">
-      <Value Profile="(Default)">00000000-0000-0000-0000-000000000000</Value>
-    </Setting>
     <Setting Name="KlantKeuze" Type="System.Guid" Scope="User">
       <Value Profile="(Default)">00000000-0000-0000-0000-000000000000</Value>
     </Setting>

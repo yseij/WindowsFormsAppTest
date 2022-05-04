@@ -38,18 +38,6 @@ namespace WindowsFormsAppTest.Properties {
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("00000000-0000-0000-0000-000000000000")]
-        public global::System.Guid WebserviceKeuze {
-            get {
-                return ((global::System.Guid)(this["WebserviceKeuze"]));
-            }
-            set {
-                this["WebserviceKeuze"] = value;
-            }
-        }
-        
-        [global::System.Configuration.UserScopedSettingAttribute()]
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("00000000-0000-0000-0000-000000000000")]
         public global::System.Guid KlantKeuze {
             get {
                 return ((global::System.Guid)(this["KlantKeuze"]));

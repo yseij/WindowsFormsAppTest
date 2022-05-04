@@ -211,7 +211,7 @@ namespace WindowsFormsAppTest
             }
             else
             {
-                _result = JObject.Parse(_webRequest.GetWebRequestRest(_webserviceId,
+                _result = JObject.Parse(_webRequest.GetWebRequestRest(urlData.Id,
                                                      urlData.Name,
                                                      isGetWebserviceVersion));
             }

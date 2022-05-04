@@ -26,7 +26,7 @@ namespace WindowsFormsAppTest
                 TextShade.WHITE
             );
             Home home = new Home();
-            //home.HomeTest();
+            home.HomeTest();
             Application.Run(home);
             Application.Exit();
         }

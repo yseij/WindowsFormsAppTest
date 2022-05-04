@@ -15,6 +15,9 @@ namespace WindowsFormsAppTest
         private string _keuzeNaam;
         private string _httpName;
         private string _webserviceName;
+        private string _text = string.Empty;
+        private string _xmlUserName = @"D:\user.xml";
+        private string _xmlDb = @"D:\db.xml";
 
         private Guid _webserviceKeuzeId;
         private Guid _klantKeuzeId;
@@ -23,8 +26,7 @@ namespace WindowsFormsAppTest
 
         private dynamic _result;
 
-        private string _xmlUserName = @"D:\user.xml";
-        private string _xmlDb = @"D:\db.xml";
+        private int _teller;
 
         private List<Klant> _klantDatas = new List<Klant>();
         private List<WebService> _webServiceDatas = new List<WebService>();
@@ -33,25 +35,29 @@ namespace WindowsFormsAppTest
         WebRequest _webRequest;
         KrXml _krXml;
 
+        UrlXml _urlXml;
         WebserviceXml _webserviceXml;
         KlantXml _klantXml;
+        KlantWebserviceXml _klantWebserviceXml;
 
         Timer _MyTimer = new Timer();
+        LogFile _logFile = new LogFile();
 
         public Home()
         {
             InitializeComponent();
             _webRequest = new WebRequest();
             _krXml = new KrXml();
+            _urlXml = new UrlXml();
             _webserviceXml = new WebserviceXml();
             _klantXml = new KlantXml();
+            _klantWebserviceXml = new KlantWebserviceXml();
 
             menuStrip.ForeColor = Color.FromArgb(0, 0, 0);
 
             ToolStripMenuItem1.Enabled = false;
 
             FillKlantenDropDown();
-            FillWebserviceDropDown();
 
             GetSettings();
 
@@ -60,7 +66,7 @@ namespace WindowsFormsAppTest
             AanOfUitCheck();
             AanOfUitCheckService();
 
-            _krXml.MakeXmlFileDb();
+            //_krXml.MakeXmlFileDb();
             //_krXml.MakeXmlFileUser();
         }
 
@@ -75,7 +81,6 @@ namespace WindowsFormsAppTest
             Guid klantKeuze = Properties.Settings.Default.KlantKeuze;
             if (klantKeuze != Guid.Empty)
             {
-                WebserviceKeuzeToolStripMenuItem.Enabled = false;
                 ToolStripMenuItem1.Enabled = true;
                 foreach (ToolStripMenuItem toolStripMenuItem in KlantKeuzeToolStripMenuItem.DropDownItems)
                 {
@@ -84,26 +89,6 @@ namespace WindowsFormsAppTest
                         toolStripMenuItem.Checked = true;
                         _klantKeuzeId = (Guid)toolStripMenuItem.Tag;
                         _klantKeuzeNaam = toolStripMenuItem.Text;
-                    }
-                    else
-                    {
-                        toolStripMenuItem.Checked = false;
-                    }
-                }
-            }
-
-            Guid webserviceKeuze = Properties.Settings.Default.WebserviceKeuze;
-            if (webserviceKeuze != Guid.Empty)
-            {
-                ToolStripMenuItem1.Enabled = true;
-                KlantKeuzeToolStripMenuItem.Enabled = false;
-                foreach (ToolStripMenuItem toolStripMenuItem in WebserviceKeuzeToolStripMenuItem.DropDownItems)
-                {
-                    if ((Guid)toolStripMenuItem.Tag == webserviceKeuze)
-                    {
-                        toolStripMenuItem.Checked = true;
-                        _webserviceKeuzeId = (Guid)toolStripMenuItem.Tag;
-                        _webserviceKeuzeNaam = toolStripMenuItem.Text;
                     }
                     else
                     {
@@ -376,18 +361,13 @@ namespace WindowsFormsAppTest
             if (_klantKeuzeId == (Guid)item.Tag)
             {
                 _klantKeuzeId = Guid.Empty;
-
-                WebserviceKeuzeToolStripMenuItem.Enabled = true;
                 ToolStripMenuItem1.Enabled = false;
             }
             else
             {
-
                 _klantKeuzeId = (Guid)item.Tag;
                 _klantKeuzeNaam = item.Text;
                 item.Checked = true;
-
-                WebserviceKeuzeToolStripMenuItem.Enabled = false;
 
                 if (Properties.Settings.Default.Email != "")
                 {
@@ -397,101 +377,139 @@ namespace WindowsFormsAppTest
             Properties.Settings.Default.KlantKeuze = _klantKeuzeId;
         }
 
-        private void FillWebserviceDropDown()
-        {
-            _webServiceDatas = _webserviceXml.GetWebservices();
-            foreach (WebService webServiceData in _webServiceDatas)
-            {
-                ToolStripMenuItem item = new ToolStripMenuItem();
-                item.Tag = webServiceData.Id;
-                item.Text = webServiceData.Name;
-                WebserviceKeuzeToolStripMenuItem.DropDownItems.Add(item);
-
-                item.Click += new EventHandler(ClickItemDropdownWebservice);
-            }
-        }
-
-        private void ClickItemDropdownWebservice(object sender, EventArgs e)
-        {
-            foreach (ToolStripMenuItem toolStripMenuItem in WebserviceKeuzeToolStripMenuItem.DropDownItems)
-            {
-                toolStripMenuItem.Checked = false;
-            }
-
-            ToolStripMenuItem item = sender as ToolStripMenuItem;
-            if (_webserviceKeuzeId == (Guid)item.Tag)
-            {
-                _webserviceKeuzeId = Guid.Empty;
-
-                KlantKeuzeToolStripMenuItem.Enabled = true;
-                ToolStripMenuItem1.Enabled = false;
-            }
-            else
-            {
-                _webserviceKeuzeId = (Guid)item.Tag;
-                _webserviceKeuzeNaam = item.Text;
-                item.Checked = true;
-
-                KlantKeuzeToolStripMenuItem.Enabled = false;
-
-                if (Properties.Settings.Default.Email != "")
-                {
-                    ToolStripMenuItem1.Enabled = true;
-                }
-            }
-            Properties.Settings.Default.WebserviceKeuze = _webserviceKeuzeId;
-        }
-
         public void RouteTest()
         {
             if (ConfigurationManager.AppSettings["TestAanOfUit"] == "aan")
             {
-                if (_webserviceKeuzeId != Guid.Empty)
-                {
-                    _keuzeNaam = _webserviceKeuzeNaam;
-                }
-                else if (_klantKeuzeId != Guid.Empty)
+                if (_klantKeuzeId != Guid.Empty)
                 {
                     _keuzeNaam = _klantKeuzeNaam;
                 }
-                RouteTestAfterKeuze(_urlDatas, _keuzeNaam);
+                RouteTestAfterKeuze(_keuzeNaam, _klantKeuzeId);
             }
         }
 
-        private void RouteTestAfterKeuze(List<Url> urlDatas, string keuzeNaam)
+        private void RouteTestAfterKeuze(string keuzeNaam, Guid klantKeuzeId)
         {
-            int teller = 0;
-            string text = "";
-            LogFile logFile = new LogFile();
-            foreach (Url urlData in urlDatas)
+            _teller = 0;
+            _text = string.Empty;
+            _logFile = new LogFile();
+            List<KlantWebservice> klantWebservices = _klantWebserviceXml.GetByKlant(klantKeuzeId);
+            List<WebService> webServices = _webserviceXml.GetWebservices();
+            List<Url> urls = _urlXml.GetByKlantId(klantKeuzeId);
+            if (klantWebservices.Count != 0 || urls.Count != 0)
             {
-                GetResult(urlData);
-                foreach (JProperty item in _result)
+                _logFile.MakeLogFile(keuzeNaam);
+                _text += keuzeNaam + Environment.NewLine + Environment.NewLine;
+            }
+            foreach (KlantWebservice klantWebservice in klantWebservices)
+            {
+                string basisUrl = string.Empty;
+                Url url = new Url();
+                WebService webService = new WebService();
+                Klant klant = _klantDatas.Find(k => k.Id == klantWebservice.Klant);
+                if (klantWebservice.BasisUrl1)
                 {
-                    if (item.Name == "ex")
+                    basisUrl = klant.BasisUrl1;
+                }
+                else
+                {
+                    basisUrl = klant.BasisUrl2;
+                }
+                foreach (WebService webservice in webServices)
+                {
+                    if (webservice.Id == klantWebservice.Webservice)
                     {
-                        if (teller == 0)
-                        {
-                            teller = teller + 1;
-                            text += keuzeNaam + Environment.NewLine + Environment.NewLine;
-                            logFile.MakeLogFile(keuzeNaam);
-                        }
-                        text += urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine;
-                        logFile.AddTextToLogFile(urlData.Name + " --> " + item.Value.ToString() + Environment.NewLine);
+                        webService = webservice;
+                        url.Name = basisUrl + webservice.Name;
+                        _isSoap = webservice.Soap;
+                    }
+                }
+                for (int i = 0; i < 2; i++)
+                {
+                    if (i == 0)
+                    {
+                        CheckUrl(url);
+                    }
+                    else
+                    {
+                        GetWebserviceVersion(url);
                     }
                 }
             }
-            if (text != "")
+            foreach (Url url in urls)
             {
-                MailClient.TestMail(keuzeNaam, text, logFile.FilePath);
+                GetUrl(url);
+            }
+            if (_teller == 0)
+            {
+                _logFile.AddTextToLogFile("Er is niks fout gegaan tijdens de testen van de klant" + keuzeNaam + Environment.NewLine);
+            }
+            if (_text != "")
+            {
+                MailClient.TestMail(keuzeNaam, _text, _logFile.FilePath);
             }
         }
 
-        private void GetResult(Url urlData)
+        private void CheckUrl(Url url)
         {
-            if (_isSoap && urlData.Name.EndsWith(".svc"))
+            bool isGood = _webRequest.CheckUrl(url.Name);
+            if (!isGood)
             {
-                if (urlData.Name == "MessageServiceSoap31.svc")
+                _teller++;
+                _text += url.Name + " --> De geteste webservice is niet online" + Environment.NewLine;
+                _logFile.AddTextToLogFile(url.Name + " --> De geteste webservice is niet online" + Environment.NewLine);
+            }
+        }
+
+        private void GetWebserviceVersion(Url url)
+        {
+            url.Name += "/GetWebserviceVersion";
+            _logFile.AddTextToLogFile(Environment.NewLine);
+            _logFile.AddTextToLogFile(url.Name + Environment.NewLine);
+            GetResult(url, true);
+            TestGetWebserviceVersion(url);
+        }
+
+        private void GetUrl(Url url)
+        {
+            _logFile.AddTextToLogFile(Environment.NewLine);
+            GetResult(url, false);
+            foreach (JProperty item in _result)
+            {
+                if (item.Name == "ex")
+                {
+                    _teller++;
+                    _text += url.Name + " --> " + item.Value.ToString() + Environment.NewLine;
+                    _logFile.AddTextToLogFile(url.Name + " --> " + item.Value.ToString() + Environment.NewLine);
+                }
+            }
+        }
+
+        private void TestGetWebserviceVersion(Url url)
+        {
+            foreach (JProperty item in _result)
+            {
+                if (item.Value.ToString().Contains("False"))
+                {
+                    _teller++;
+                    _text += url.Name + " --> " + item.Value.ToString() + Environment.NewLine;
+                    _logFile.AddTextToLogFile(item.Value.ToString() + Environment.NewLine);
+                }
+                if (item.Name.ToString() == "ex")
+                {
+                    _teller++;
+                    _text += url.Name + " --> " + item.Value.ToString() + Environment.NewLine;
+                    _logFile.AddTextToLogFile(item.Value.ToString() + Environment.NewLine);
+                }
+            }
+        }
+
+        private void GetResult(Url url, bool isGetWebserviceVersion)
+        {
+            if (_isSoap && url.Name.EndsWith(".svc"))
+            {
+                if (url.Name == "MessageServiceSoap31.svc")
                 {
                     var m = new Sales31CredentialsForm();
                     m.TopMost = true;
@@ -500,25 +518,27 @@ namespace WindowsFormsAppTest
                     MaterialMaskedTextBox password = m._passwordTxtBx;
                     _result = JObject.Parse(_webRequest.Get31SalesData(_httpName + _webserviceName, userName, password));
                 }
-                else if (urlData.Name == "MessageServiceSoap.svc")
+                else if (url.Name == "MessageServiceSoap.svc")
                 {
                     _result = JObject.Parse(_webRequest.Get24SalesData(_httpName + _webserviceName));
 
                 }
                 else
                 {
-                    string data = _webRequest.GetWebRequestSoap(_webserviceName, urlData.Name);
+                    string data = _webRequest.GetWebRequestSoap(_webserviceName, url.Name);
                     _result = JObject.Parse(data);
                 }
             }
             else
             {
-                //var data = _webRequest.GetWebRequestRest(urlData.WebServiceDataId,
-                //                                     _httpName,
-                //                                     _webserviceName,
-                //                                     urlData.Name,
-                //                                     urlData.SecurityId);
-                //_result = JObject.Parse(data);
+                if (true)
+                {
+
+                }
+                var data = _webRequest.GetWebRequestRest(url.Id,
+                                                         url.Name,
+                                                         isGetWebserviceVersion);
+                _result = JObject.Parse(data);
             }
         }
 

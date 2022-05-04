@@ -38,7 +38,6 @@ namespace WindowsFormsAppTest
             this.plaatsOpslaanLogFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EmailTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.StripMenuItemTestTijd = new System.Windows.Forms.ToolStripMenuItem();
-            this.WebserviceKeuzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.KlantKeuzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tijdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MinToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -114,7 +113,7 @@ namespace WindowsFormsAppTest
             this.menuStrip.Location = new System.Drawing.Point(3, 426);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip.Size = new System.Drawing.Size(209, 24);
+            this.menuStrip.Size = new System.Drawing.Size(329, 24);
             this.menuStrip.TabIndex = 9;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -145,7 +144,6 @@ namespace WindowsFormsAppTest
             // 
             this.StripMenuItemTestTijd.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.StripMenuItemTestTijd.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.WebserviceKeuzeToolStripMenuItem,
             this.KlantKeuzeToolStripMenuItem,
             this.tijdToolStripMenuItem,
             this.ToolStripMenuItem1});
@@ -153,16 +151,10 @@ namespace WindowsFormsAppTest
             this.StripMenuItemTestTijd.Size = new System.Drawing.Size(39, 20);
             this.StripMenuItemTestTijd.Text = "Test";
             // 
-            // WebserviceKeuzeToolStripMenuItem
-            // 
-            this.WebserviceKeuzeToolStripMenuItem.Name = "WebserviceKeuzeToolStripMenuItem";
-            this.WebserviceKeuzeToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
-            this.WebserviceKeuzeToolStripMenuItem.Text = "Webservice keuze";
-            // 
             // KlantKeuzeToolStripMenuItem
             // 
             this.KlantKeuzeToolStripMenuItem.Name = "KlantKeuzeToolStripMenuItem";
-            this.KlantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.KlantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.KlantKeuzeToolStripMenuItem.Text = "Klant keuze";
             // 
             // tijdToolStripMenuItem
@@ -173,7 +165,7 @@ namespace WindowsFormsAppTest
             this.MinToolStripMenuItem2,
             this.UurTlStrpMnItm});
             this.tijdToolStripMenuItem.Name = "tijdToolStripMenuItem";
-            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tijdToolStripMenuItem.Text = "Tijd";
             // 
             // MinToolStripMenuItem
@@ -210,7 +202,7 @@ namespace WindowsFormsAppTest
             this.AanToolStripMenuItem,
             this.UitToolStripMenuItem});
             this.ToolStripMenuItem1.Name = "ToolStripMenuItem1";
-            this.ToolStripMenuItem1.Size = new System.Drawing.Size(167, 22);
+            this.ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem1.Text = "Aan of Uit";
             // 
             // AanToolStripMenuItem
@@ -424,7 +416,6 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.ToolStripMenuItem ToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem AanToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UitToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem WebserviceKeuzeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem KlantKeuzeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem UurTlStrpMnItm;
         private System.Windows.Forms.Button BttnUrl;
