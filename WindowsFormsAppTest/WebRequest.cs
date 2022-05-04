@@ -26,9 +26,9 @@ namespace WindowsFormsAppTest
         private bool _certIsGoed;
 
         //REST
-        public string GetWebRequestRest(Guid id, string host, bool securityId)
+        public string GetWebRequestRest(Guid id, string host, bool isWebserviceVersion)
         {
-            string url = host + "/GetWebserviceVersion";
+            string url = host;
             Uri uri = new Uri(url);
             try
             {
@@ -49,21 +49,27 @@ namespace WindowsFormsAppTest
                         {
                             //Parse the response body.
                             //Make sure to add a reference to System.Net.Http.Formatting.dll
-                            if (_certIsGoed)
+                            if (isWebserviceVersion)
                             {
-                                return GetDataOfWebRequest(data, cert.GetExpirationDateString().ToString());
+                                if (_certIsGoed)
+                                {
+                                    return GetDataOfWebRequest(data, cert.GetExpirationDateString().ToString());
+                                }
+                                else
+                                {
+                                    return GetDataOfWebRequest(data, "");
+                                }
                             }
                             else
                             {
-                                return GetDataOfWebRequest(data, "");
-                            }
-                        }
-                        int Pos1 = data.IndexOf('{');
-                        int Pos2 = data.IndexOf('}');
-                        data = data.Substring(Pos1 + 1, Pos2 - Pos1 - 1);
-                        if (_certIsGoed)
-                        {
-                            return "{" + data + ", id: '" + id + "', certVerValDatum: '" + cert.GetExpirationDateString().ToString() + "'}";
+                                int Pos1 = data.IndexOf('{');
+                                int Pos2 = data.IndexOf('}');
+                                data = data.Substring(Pos1 + 1, Pos2 - Pos1 - 1);
+                                if (_certIsGoed)
+                                {
+                                    return "{" + data + ", id: '" + id + "', certVerValDatum: '" + cert.GetExpirationDateString().ToString() + "'}";
+                                }
+                            } 
                         }
                     }
                     return @"{ ex: '" + "krijg geen data terug" + "'}";
@@ -286,8 +292,7 @@ namespace WindowsFormsAppTest
                         .Replace("\r\n", "\",\"")
                         .Replace(": ", "\": \"")
                         .Replace(@"\", " ")
-                        .Replace("Versie\": \"", "Versie: ") + "', certVerValDatum: '" + cert.GetExpirationDateString().ToString() + "\"}";
-
+                        .Replace("Versie\": \"", "Versie: ") + "\", \"certVerValDatum\": " + "\"" + cert.GetExpirationDateString().ToString() + "\"" + "}";
                     client.Close();
                     return data;
                 }
@@ -328,11 +333,8 @@ namespace WindowsFormsAppTest
                                 .Replace(": ", "\": \"")
                                 .Replace(@"\", " ")
                                 .Replace("application\": \"", "application: ")
-                                .Replace("Versie\": \"", "Versie: ");
+                                .Replace("Versie\": \"", "Versie: ") + "\", \"certVerValDatum\": " + "\"" + cert.GetExpirationDateString().ToString() + "\"" + "}";
                             client.Close();
-                            Console.WriteLine(cert.GetExpirationDateString().ToString());
-                            Console.WriteLine(data);
-                            Console.WriteLine(data + "\", \"certVerValDatum:\": " + "\"" + cert.GetExpirationDateString().ToString() + "\"" + "}");
                             return data;
                         }
                         client.Close();

@@ -83,7 +83,6 @@ namespace WindowsFormsAppTest
         {
             _aantalLegeUrls = 0;
             AantalLegeUrlsTxtBx.Text = string.Empty;
-            LegeUrlsTxtBx.Text = string.Empty;
 
             ClearBox();
             LogFile logFile = new LogFile();
@@ -179,11 +178,11 @@ namespace WindowsFormsAppTest
                     m.ShowDialog();
                     MaterialMaskedTextBox userName = m._usernameTxtBx;
                     MaterialMaskedTextBox password = m._passwordTxtBx;
-                    _result = JObject.Parse(_webRequest.Get31SalesData(_httpName + _webserviceName, userName, password));
+                    _result = JObject.Parse(_webRequest.Get31SalesData(urlData.Name, userName, password));
                 }
                 else if (urlData.Name.Contains("MessageServiceSoap.svc"))
                 {
-                    _result = JObject.Parse(_webRequest.Get24SalesData(_httpName + _webserviceName));
+                    _result = JObject.Parse(_webRequest.Get24SalesData(urlData.Name));
                 }
                 else
                 {
@@ -211,13 +210,13 @@ namespace WindowsFormsAppTest
                 ClearBox();
                 if (UrlData != null)
                 {
-                    if (currentClkNode.Text == "MessageServiceSoap.svc")
-                    {
-                        CheckDataSoap(UrlData, 2.4);
-                    }
-                    else if (currentClkNode.Text == "MessageServiceSoap31.svc")
+                    if (currentClkNode.Text.Contains("MessageServiceSoap31.svc"))
                     {
                         CheckDataSoap(UrlData, 3.1);
+                    }
+                    else if (currentClkNode.Text .Contains("MessageServiceSoap.svc"))
+                    {
+                        CheckDataSoap(UrlData, 2.4);
                     }
                     else
                     {
@@ -293,7 +292,6 @@ namespace WindowsFormsAppTest
                     ResponseTextBox.Text = item.Value.ToString();
                     _aantalLegeUrls = _aantalLegeUrls + 1;
                     AantalLegeUrlsTxtBx.Text = _aantalLegeUrls.ToString();
-                    LegeUrlsTxtBx.Text = LegeUrlsTxtBx.Text + urlData.Name + Environment.NewLine;
                     logFile.AddTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
                 }
                 else if (item.Name != "id")

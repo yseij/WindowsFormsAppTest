@@ -71,6 +71,29 @@ namespace WindowsFormsAppTest
             this.RestPage = new System.Windows.Forms.TabPage();
             this.SoapPage = new System.Windows.Forms.TabPage();
             this.SalesPage24 = new System.Windows.Forms.TabPage();
+            this.SalesPage31 = new System.Windows.Forms.TabPage();
+            this.TxtBxPassword = new MaterialSkin.Controls.MaterialMaskedTextBox();
+            this.grpBxSales3_1 = new System.Windows.Forms.GroupBox();
+            this.TxtBxMessageVersie3_1 = new MaterialSkin.Controls.MaterialTextBox();
+            this.LblVersieMessageService3_1 = new MaterialSkin.Controls.MaterialLabel();
+            this.TxtBxMssqlCatalog3_1 = new MaterialSkin.Controls.MaterialTextBox();
+            this.TxtBxKraan1DatabaseVersie3_1 = new MaterialSkin.Controls.MaterialTextBox();
+            this.LblMssqlCatalog3_1 = new MaterialSkin.Controls.MaterialLabel();
+            this.LblKraan1DatabaseVersie3_1 = new MaterialSkin.Controls.MaterialLabel();
+            this.TxtBxKraanDllVersie3_1 = new MaterialSkin.Controls.MaterialTextBox();
+            this.ChkBxKraanDatabase3_1 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.TxtBxMssqlServer3_1 = new MaterialSkin.Controls.MaterialTextBox();
+            this.ChkBxKraanIni3_1 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.LblMssqlServer3_1 = new MaterialSkin.Controls.MaterialLabel();
+            this.ChkBxKraanDLL3_1 = new MaterialSkin.Controls.MaterialCheckbox();
+            this.LblKraanDLL3_1 = new MaterialSkin.Controls.MaterialLabel();
+            this.TxtBxKraan2DatabaseVersie3_1 = new MaterialSkin.Controls.MaterialTextBox();
+            this.TxtBxInterbaseVersie3_1 = new MaterialSkin.Controls.MaterialTextBox();
+            this.LblKraan2DatabaseVersie3_1 = new MaterialSkin.Controls.MaterialLabel();
+            this.LblInterBaseVersie3_1 = new MaterialSkin.Controls.MaterialLabel();
+            this.TxtBxUsername = new MaterialSkin.Controls.MaterialMaskedTextBox();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.LblUrl = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel7 = new MaterialSkin.Controls.MaterialLabel();
             this.SecurityIdTxtBx = new MaterialSkin.Controls.MaterialTextBox();
@@ -82,31 +105,9 @@ namespace WindowsFormsAppTest
             this.label2 = new System.Windows.Forms.Label();
             this.materialLabel10 = new MaterialSkin.Controls.MaterialLabel();
             this.MLblCheckOfNiet = new MaterialSkin.Controls.MaterialLabel();
+            this.TestMethodeBtn = new System.Windows.Forms.Button();
             this.AllUrlsKrLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.KlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
-            this.SalesPage31 = new System.Windows.Forms.TabPage();
-            this.grpBxSales3_1 = new System.Windows.Forms.GroupBox();
-            this.TxtBxMessageVersie3_1 = new MaterialSkin.Controls.MaterialTextBox();
-            this.LblVersieMessageService3_1 = new MaterialSkin.Controls.MaterialLabel();
-            this.TxtBxMssqlCatalog3_1 = new MaterialSkin.Controls.MaterialTextBox();
-            this.LblMssqlCatalog3_1 = new MaterialSkin.Controls.MaterialLabel();
-            this.TxtBxMssqlServer3_1 = new MaterialSkin.Controls.MaterialTextBox();
-            this.LblMssqlServer3_1 = new MaterialSkin.Controls.MaterialLabel();
-            this.TxtBxInterbaseVersie3_1 = new MaterialSkin.Controls.MaterialTextBox();
-            this.LblInterBaseVersie3_1 = new MaterialSkin.Controls.MaterialLabel();
-            this.TxtBxKraan2DatabaseVersie3_1 = new MaterialSkin.Controls.MaterialTextBox();
-            this.LblKraan2DatabaseVersie3_1 = new MaterialSkin.Controls.MaterialLabel();
-            this.TxtBxKraan1DatabaseVersie3_1 = new MaterialSkin.Controls.MaterialTextBox();
-            this.LblKraan1DatabaseVersie3_1 = new MaterialSkin.Controls.MaterialLabel();
-            this.TxtBxKraanDllVersie3_1 = new MaterialSkin.Controls.MaterialTextBox();
-            this.ChkBxKraanDatabase3_1 = new MaterialSkin.Controls.MaterialCheckbox();
-            this.ChkBxKraanIni3_1 = new MaterialSkin.Controls.MaterialCheckbox();
-            this.ChkBxKraanDLL3_1 = new MaterialSkin.Controls.MaterialCheckbox();
-            this.LblKraanDLL3_1 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
-            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
-            this.TxtBxPassword = new MaterialSkin.Controls.MaterialMaskedTextBox();
-            this.TxtBxUsername = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.GrpBxSsl.SuspendLayout();
             this.GrpBxWebservice.SuspendLayout();
             this.grpBxSales2_4.SuspendLayout();
@@ -121,7 +122,7 @@ namespace WindowsFormsAppTest
             // 
             // GrpBxSsl
             // 
-            this.GrpBxSsl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.GrpBxSsl.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.GrpBxSsl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.GrpBxSsl.Controls.Add(this.SslChckBx);
@@ -129,9 +130,9 @@ namespace WindowsFormsAppTest
             this.GrpBxSsl.Controls.Add(this.LblCertificaatVervalDatum);
             this.GrpBxSsl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GrpBxSsl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.GrpBxSsl.Location = new System.Drawing.Point(470, 763);
+            this.GrpBxSsl.Location = new System.Drawing.Point(470, 755);
             this.GrpBxSsl.Name = "GrpBxSsl";
-            this.GrpBxSsl.Size = new System.Drawing.Size(400, 143);
+            this.GrpBxSsl.Size = new System.Drawing.Size(419, 142);
             this.GrpBxSsl.TabIndex = 27;
             this.GrpBxSsl.TabStop = false;
             this.GrpBxSsl.Text = "Results SSL certificaat";
@@ -164,7 +165,7 @@ namespace WindowsFormsAppTest
             this.SllCertificaatVervalDatumTxtBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.SllCertificaatVervalDatumTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.SllCertificaatVervalDatumTxtBx.Depth = 0;
-            this.SllCertificaatVervalDatumTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.SllCertificaatVervalDatumTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.SllCertificaatVervalDatumTxtBx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.SllCertificaatVervalDatumTxtBx.LeadingIcon = null;
             this.SllCertificaatVervalDatumTxtBx.Location = new System.Drawing.Point(180, 22);
@@ -173,7 +174,7 @@ namespace WindowsFormsAppTest
             this.SllCertificaatVervalDatumTxtBx.Multiline = false;
             this.SllCertificaatVervalDatumTxtBx.Name = "SllCertificaatVervalDatumTxtBx";
             this.SllCertificaatVervalDatumTxtBx.ReadOnly = true;
-            this.SllCertificaatVervalDatumTxtBx.Size = new System.Drawing.Size(214, 50);
+            this.SllCertificaatVervalDatumTxtBx.Size = new System.Drawing.Size(233, 50);
             this.SllCertificaatVervalDatumTxtBx.TabIndex = 7;
             this.SllCertificaatVervalDatumTxtBx.Text = "";
             this.SllCertificaatVervalDatumTxtBx.TrailingIcon = null;
@@ -206,7 +207,7 @@ namespace WindowsFormsAppTest
             this.GrpBxWebservice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.GrpBxWebservice.Location = new System.Drawing.Point(6, 5);
             this.GrpBxWebservice.Name = "GrpBxWebservice";
-            this.GrpBxWebservice.Size = new System.Drawing.Size(829, 135);
+            this.GrpBxWebservice.Size = new System.Drawing.Size(844, 135);
             this.GrpBxWebservice.TabIndex = 17;
             this.GrpBxWebservice.TabStop = false;
             this.GrpBxWebservice.Text = "Results Webservice";
@@ -234,7 +235,7 @@ namespace WindowsFormsAppTest
             this.textBoxWebservice.SelectionLength = 0;
             this.textBoxWebservice.SelectionStart = 0;
             this.textBoxWebservice.ShortcutsEnabled = true;
-            this.textBoxWebservice.Size = new System.Drawing.Size(814, 48);
+            this.textBoxWebservice.Size = new System.Drawing.Size(829, 48);
             this.textBoxWebservice.TabIndex = 84;
             this.textBoxWebservice.TabStop = false;
             this.textBoxWebservice.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -326,19 +327,19 @@ namespace WindowsFormsAppTest
             this.ResponseTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.ResponseTextBox.Depth = 0;
             this.ResponseTextBox.Enabled = false;
-            this.ResponseTextBox.HideSelection = true;
-            this.ResponseTextBox.Location = new System.Drawing.Point(25, 770);
+            this.ResponseTextBox.HideSelection = false;
+            this.ResponseTextBox.Location = new System.Drawing.Point(25, 764);
             this.ResponseTextBox.MaxLength = 32767;
             this.ResponseTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.ResponseTextBox.Name = "ResponseTextBox";
             this.ResponseTextBox.PasswordChar = '\0';
-            this.ResponseTextBox.ReadOnly = true;
+            this.ResponseTextBox.ReadOnly = false;
             this.ResponseTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.ResponseTextBox.SelectedText = "";
             this.ResponseTextBox.SelectionLength = 0;
             this.ResponseTextBox.SelectionStart = 0;
             this.ResponseTextBox.ShortcutsEnabled = true;
-            this.ResponseTextBox.Size = new System.Drawing.Size(425, 136);
+            this.ResponseTextBox.Size = new System.Drawing.Size(439, 133);
             this.ResponseTextBox.TabIndex = 32;
             this.ResponseTextBox.TabStop = false;
             this.ResponseTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -346,13 +347,12 @@ namespace WindowsFormsAppTest
             // 
             // materialLabel1
             // 
-            this.materialLabel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(26, 745);
+            this.materialLabel1.Location = new System.Drawing.Point(26, 742);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(28, 19);
@@ -361,12 +361,12 @@ namespace WindowsFormsAppTest
             // 
             // TestWebserviceBtn
             // 
-            this.TestWebserviceBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.TestWebserviceBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.TestWebserviceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
             this.TestWebserviceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TestWebserviceBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TestWebserviceBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.TestWebserviceBtn.Location = new System.Drawing.Point(593, 358);
+            this.TestWebserviceBtn.Location = new System.Drawing.Point(612, 356);
             this.TestWebserviceBtn.Name = "TestWebserviceBtn";
             this.TestWebserviceBtn.Size = new System.Drawing.Size(277, 31);
             this.TestWebserviceBtn.TabIndex = 63;
@@ -410,7 +410,7 @@ namespace WindowsFormsAppTest
             this.TxtBxMessageVersie2_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxMessageVersie2_4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxMessageVersie2_4.Depth = 0;
-            this.TxtBxMessageVersie2_4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxMessageVersie2_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxMessageVersie2_4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxMessageVersie2_4.LeadingIcon = null;
             this.TxtBxMessageVersie2_4.Location = new System.Drawing.Point(186, 19);
@@ -446,7 +446,7 @@ namespace WindowsFormsAppTest
             this.TxtBxMssqlCatalog2_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxMssqlCatalog2_4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxMssqlCatalog2_4.Depth = 0;
-            this.TxtBxMssqlCatalog2_4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxMssqlCatalog2_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxMssqlCatalog2_4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxMssqlCatalog2_4.LeadingIcon = null;
             this.TxtBxMssqlCatalog2_4.Location = new System.Drawing.Point(582, 193);
@@ -482,7 +482,7 @@ namespace WindowsFormsAppTest
             this.TxtBxMssqlServer2_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxMssqlServer2_4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxMssqlServer2_4.Depth = 0;
-            this.TxtBxMssqlServer2_4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxMssqlServer2_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxMssqlServer2_4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxMssqlServer2_4.LeadingIcon = null;
             this.TxtBxMssqlServer2_4.Location = new System.Drawing.Point(582, 135);
@@ -518,7 +518,7 @@ namespace WindowsFormsAppTest
             this.TxtBxInterbaseVersie2_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxInterbaseVersie2_4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxInterbaseVersie2_4.Depth = 0;
-            this.TxtBxInterbaseVersie2_4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxInterbaseVersie2_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxInterbaseVersie2_4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxInterbaseVersie2_4.LeadingIcon = null;
             this.TxtBxInterbaseVersie2_4.Location = new System.Drawing.Point(186, 193);
@@ -554,7 +554,7 @@ namespace WindowsFormsAppTest
             this.TxtBxKraan2DatabaseVersie2_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxKraan2DatabaseVersie2_4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxKraan2DatabaseVersie2_4.Depth = 0;
-            this.TxtBxKraan2DatabaseVersie2_4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxKraan2DatabaseVersie2_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxKraan2DatabaseVersie2_4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxKraan2DatabaseVersie2_4.LeadingIcon = null;
             this.TxtBxKraan2DatabaseVersie2_4.Location = new System.Drawing.Point(582, 80);
@@ -590,7 +590,7 @@ namespace WindowsFormsAppTest
             this.TxtBxKraan1DatabaseVersie2_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxKraan1DatabaseVersie2_4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxKraan1DatabaseVersie2_4.Depth = 0;
-            this.TxtBxKraan1DatabaseVersie2_4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxKraan1DatabaseVersie2_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxKraan1DatabaseVersie2_4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxKraan1DatabaseVersie2_4.LeadingIcon = null;
             this.TxtBxKraan1DatabaseVersie2_4.Location = new System.Drawing.Point(582, 19);
@@ -626,7 +626,7 @@ namespace WindowsFormsAppTest
             this.TxtBxKraanDllVersie2_4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxKraanDllVersie2_4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxKraanDllVersie2_4.Depth = 0;
-            this.TxtBxKraanDllVersie2_4.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxKraanDllVersie2_4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxKraanDllVersie2_4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxKraanDllVersie2_4.LeadingIcon = null;
             this.TxtBxKraanDllVersie2_4.Location = new System.Drawing.Point(186, 78);
@@ -742,7 +742,7 @@ namespace WindowsFormsAppTest
             this.TxtBxDatabaseVersie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxDatabaseVersie.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxDatabaseVersie.Depth = 0;
-            this.TxtBxDatabaseVersie.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxDatabaseVersie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxDatabaseVersie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxDatabaseVersie.LeadingIcon = null;
             this.TxtBxDatabaseVersie.Location = new System.Drawing.Point(162, 137);
@@ -779,7 +779,7 @@ namespace WindowsFormsAppTest
             this.TxtBxDevExpressVersie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxDevExpressVersie.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxDevExpressVersie.Depth = 0;
-            this.TxtBxDevExpressVersie.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxDevExpressVersie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxDevExpressVersie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxDevExpressVersie.LeadingIcon = null;
             this.TxtBxDevExpressVersie.Location = new System.Drawing.Point(162, 78);
@@ -816,7 +816,7 @@ namespace WindowsFormsAppTest
             this.TxtBxWebserviceVersie.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
             this.TxtBxWebserviceVersie.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.TxtBxWebserviceVersie.Depth = 0;
-            this.TxtBxWebserviceVersie.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxWebserviceVersie.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.TxtBxWebserviceVersie.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.TxtBxWebserviceVersie.LeadingIcon = null;
             this.TxtBxWebserviceVersie.Location = new System.Drawing.Point(162, 22);
@@ -860,7 +860,7 @@ namespace WindowsFormsAppTest
             this.TbCntrlRestApiEnSoap.Multiline = true;
             this.TbCntrlRestApiEnSoap.Name = "TbCntrlRestApiEnSoap";
             this.TbCntrlRestApiEnSoap.SelectedIndex = 0;
-            this.TbCntrlRestApiEnSoap.Size = new System.Drawing.Size(849, 294);
+            this.TbCntrlRestApiEnSoap.Size = new System.Drawing.Size(864, 294);
             this.TbCntrlRestApiEnSoap.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.TbCntrlRestApiEnSoap.TabIndex = 72;
             this.TbCntrlRestApiEnSoap.SelectedIndexChanged += new System.EventHandler(this.TbCntrlRestApiEnSoap_SelectedIndexChanged);
@@ -873,7 +873,7 @@ namespace WindowsFormsAppTest
             this.RestPage.Location = new System.Drawing.Point(4, 22);
             this.RestPage.Name = "RestPage";
             this.RestPage.Padding = new System.Windows.Forms.Padding(3);
-            this.RestPage.Size = new System.Drawing.Size(841, 268);
+            this.RestPage.Size = new System.Drawing.Size(856, 268);
             this.RestPage.TabIndex = 0;
             this.RestPage.Text = "Rest";
             // 
@@ -884,7 +884,7 @@ namespace WindowsFormsAppTest
             this.SoapPage.Location = new System.Drawing.Point(4, 22);
             this.SoapPage.Name = "SoapPage";
             this.SoapPage.Padding = new System.Windows.Forms.Padding(3);
-            this.SoapPage.Size = new System.Drawing.Size(841, 268);
+            this.SoapPage.Size = new System.Drawing.Size(856, 268);
             this.SoapPage.TabIndex = 1;
             this.SoapPage.Text = "Soap";
             // 
@@ -896,230 +896,9 @@ namespace WindowsFormsAppTest
             this.SalesPage24.Location = new System.Drawing.Point(4, 22);
             this.SalesPage24.Name = "SalesPage24";
             this.SalesPage24.Padding = new System.Windows.Forms.Padding(3);
-            this.SalesPage24.Size = new System.Drawing.Size(841, 268);
+            this.SalesPage24.Size = new System.Drawing.Size(856, 268);
             this.SalesPage24.TabIndex = 2;
             this.SalesPage24.Text = "Sales24";
-            // 
-            // LblUrl
-            // 
-            this.LblUrl.AutoSize = true;
-            this.LblUrl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.LblUrl.Depth = 0;
-            this.LblUrl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblUrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblUrl.Location = new System.Drawing.Point(22, 68);
-            this.LblUrl.MouseState = MaterialSkin.MouseState.HOVER;
-            this.LblUrl.Name = "LblUrl";
-            this.LblUrl.Size = new System.Drawing.Size(59, 19);
-            this.LblUrl.TabIndex = 73;
-            this.LblUrl.Text = "Klanten:";
-            // 
-            // materialLabel7
-            // 
-            this.materialLabel7.AutoSize = true;
-            this.materialLabel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.materialLabel7.Depth = 0;
-            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel7.Location = new System.Drawing.Point(22, 147);
-            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel7.Name = "materialLabel7";
-            this.materialLabel7.Size = new System.Drawing.Size(32, 19);
-            this.materialLabel7.TabIndex = 75;
-            this.materialLabel7.Text = "Urls:";
-            // 
-            // SecurityIdTxtBx
-            // 
-            this.SecurityIdTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.SecurityIdTxtBx.AnimateReadOnly = false;
-            this.SecurityIdTxtBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.SecurityIdTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.SecurityIdTxtBx.Depth = 0;
-            this.SecurityIdTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.SecurityIdTxtBx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.SecurityIdTxtBx.LeadingIcon = null;
-            this.SecurityIdTxtBx.Location = new System.Drawing.Point(533, 201);
-            this.SecurityIdTxtBx.Margin = new System.Windows.Forms.Padding(0);
-            this.SecurityIdTxtBx.MaxLength = 150;
-            this.SecurityIdTxtBx.MouseState = MaterialSkin.MouseState.OUT;
-            this.SecurityIdTxtBx.Multiline = false;
-            this.SecurityIdTxtBx.Name = "SecurityIdTxtBx";
-            this.SecurityIdTxtBx.ReadOnly = true;
-            this.SecurityIdTxtBx.Size = new System.Drawing.Size(341, 50);
-            this.SecurityIdTxtBx.TabIndex = 76;
-            this.SecurityIdTxtBx.Text = "";
-            this.SecurityIdTxtBx.TrailingIcon = null;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(25, 276);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(849, 2);
-            this.label1.TabIndex = 78;
-            // 
-            // materialLabel9
-            // 
-            this.materialLabel9.AutoSize = true;
-            this.materialLabel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.materialLabel9.Depth = 0;
-            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel9.Location = new System.Drawing.Point(530, 182);
-            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel9.Name = "materialLabel9";
-            this.materialLabel9.Size = new System.Drawing.Size(178, 19);
-            this.materialLabel9.TabIndex = 80;
-            this.materialLabel9.Text = "Securityld bij webservice:";
-            // 
-            // materialLabel8
-            // 
-            this.materialLabel8.AutoSize = true;
-            this.materialLabel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.materialLabel8.Depth = 0;
-            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel8.Location = new System.Drawing.Point(22, 280);
-            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel8.Name = "materialLabel8";
-            this.materialLabel8.Size = new System.Drawing.Size(89, 19);
-            this.materialLabel8.TabIndex = 83;
-            this.materialLabel8.Text = "Url voor test:";
-            // 
-            // UrlVoorTestTxtBx
-            // 
-            this.UrlVoorTestTxtBx.AllowPromptAsInput = true;
-            this.UrlVoorTestTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.UrlVoorTestTxtBx.AnimateReadOnly = false;
-            this.UrlVoorTestTxtBx.AsciiOnly = false;
-            this.UrlVoorTestTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.UrlVoorTestTxtBx.BeepOnError = false;
-            this.UrlVoorTestTxtBx.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.UrlVoorTestTxtBx.Depth = 0;
-            this.UrlVoorTestTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.UrlVoorTestTxtBx.HidePromptOnLeave = false;
-            this.UrlVoorTestTxtBx.HideSelection = true;
-            this.UrlVoorTestTxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
-            this.UrlVoorTestTxtBx.LeadingIcon = null;
-            this.UrlVoorTestTxtBx.Location = new System.Drawing.Point(25, 302);
-            this.UrlVoorTestTxtBx.Mask = "";
-            this.UrlVoorTestTxtBx.MaxLength = 32767;
-            this.UrlVoorTestTxtBx.MouseState = MaterialSkin.MouseState.OUT;
-            this.UrlVoorTestTxtBx.Name = "UrlVoorTestTxtBx";
-            this.UrlVoorTestTxtBx.PasswordChar = '\0';
-            this.UrlVoorTestTxtBx.PrefixSuffixText = null;
-            this.UrlVoorTestTxtBx.PromptChar = '_';
-            this.UrlVoorTestTxtBx.ReadOnly = false;
-            this.UrlVoorTestTxtBx.RejectInputOnFirstFailure = false;
-            this.UrlVoorTestTxtBx.ResetOnPrompt = true;
-            this.UrlVoorTestTxtBx.ResetOnSpace = true;
-            this.UrlVoorTestTxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.UrlVoorTestTxtBx.SelectedText = "";
-            this.UrlVoorTestTxtBx.SelectionLength = 0;
-            this.UrlVoorTestTxtBx.SelectionStart = 0;
-            this.UrlVoorTestTxtBx.ShortcutsEnabled = true;
-            this.UrlVoorTestTxtBx.Size = new System.Drawing.Size(845, 48);
-            this.UrlVoorTestTxtBx.SkipLiterals = true;
-            this.UrlVoorTestTxtBx.TabIndex = 0;
-            this.UrlVoorTestTxtBx.TabStop = false;
-            this.UrlVoorTestTxtBx.Text = "materialMaskedTextBox1";
-            this.UrlVoorTestTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.UrlVoorTestTxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.UrlVoorTestTxtBx.TrailingIcon = null;
-            this.UrlVoorTestTxtBx.UseSystemPasswordChar = false;
-            this.UrlVoorTestTxtBx.ValidatingType = null;
-            this.UrlVoorTestTxtBx.TextChanged += new System.EventHandler(this.UrlVoorTestTxtBx_TextChanged);
-            // 
-            // GetWebserviceVersionBtn
-            // 
-            this.GetWebserviceVersionBtn.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.GetWebserviceVersionBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.GetWebserviceVersionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.GetWebserviceVersionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GetWebserviceVersionBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.GetWebserviceVersionBtn.Location = new System.Drawing.Point(29, 411);
-            this.GetWebserviceVersionBtn.Name = "GetWebserviceVersionBtn";
-            this.GetWebserviceVersionBtn.Size = new System.Drawing.Size(252, 31);
-            this.GetWebserviceVersionBtn.TabIndex = 86;
-            this.GetWebserviceVersionBtn.Text = "GET VERSIONS EN SSL CERTIFICAAT";
-            this.GetWebserviceVersionBtn.UseVisualStyleBackColor = false;
-            this.GetWebserviceVersionBtn.Click += new System.EventHandler(this.GetWebserviceVersionBtn_Click);
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Location = new System.Drawing.Point(25, 393);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(849, 2);
-            this.label2.TabIndex = 87;
-            // 
-            // materialLabel10
-            // 
-            this.materialLabel10.AutoSize = true;
-            this.materialLabel10.Depth = 0;
-            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel10.Location = new System.Drawing.Point(25, 358);
-            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel10.Name = "materialLabel10";
-            this.materialLabel10.Size = new System.Drawing.Size(144, 19);
-            this.materialLabel10.TabIndex = 88;
-            this.materialLabel10.Text = "Werkt de webservice";
-            // 
-            // MLblCheckOfNiet
-            // 
-            this.MLblCheckOfNiet.AutoSize = true;
-            this.MLblCheckOfNiet.Depth = 0;
-            this.MLblCheckOfNiet.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.MLblCheckOfNiet.Location = new System.Drawing.Point(175, 358);
-            this.MLblCheckOfNiet.MouseState = MaterialSkin.MouseState.HOVER;
-            this.MLblCheckOfNiet.Name = "MLblCheckOfNiet";
-            this.MLblCheckOfNiet.Size = new System.Drawing.Size(1, 0);
-            this.MLblCheckOfNiet.TabIndex = 89;
-            // 
-            // AllUrlsKrLstBx
-            // 
-            this.AllUrlsKrLstBx.BackColor = System.Drawing.Color.White;
-            this.AllUrlsKrLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.AllUrlsKrLstBx.ItemHeight = 20;
-            this.AllUrlsKrLstBx.Location = new System.Drawing.Point(25, 169);
-            this.AllUrlsKrLstBx.Name = "AllUrlsKrLstBx";
-            this.AllUrlsKrLstBx.ScrollAlwaysVisible = true;
-            this.AllUrlsKrLstBx.Size = new System.Drawing.Size(499, 104);
-            this.AllUrlsKrLstBx.TabIndex = 74;
-            this.AllUrlsKrLstBx.SelectedIndexChanged += new System.EventHandler(this.AllUrlsKrLstBx_SelectedIndexChanged);
-            // 
-            // KlantKrMaterialCmbx
-            // 
-            this.KlantKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.KlantKrMaterialCmbx.AutoResize = false;
-            this.KlantKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            this.KlantKrMaterialCmbx.Depth = 0;
-            this.KlantKrMaterialCmbx.DisplayMember = "Name";
-            this.KlantKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
-            this.KlantKrMaterialCmbx.DropDownHeight = 174;
-            this.KlantKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.KlantKrMaterialCmbx.DropDownWidth = 121;
-            this.KlantKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
-            this.KlantKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.KlantKrMaterialCmbx.FormattingEnabled = true;
-            this.KlantKrMaterialCmbx.IntegralHeight = false;
-            this.KlantKrMaterialCmbx.ItemHeight = 43;
-            this.KlantKrMaterialCmbx.Location = new System.Drawing.Point(25, 90);
-            this.KlantKrMaterialCmbx.MaxDropDownItems = 4;
-            this.KlantKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
-            this.KlantKrMaterialCmbx.Name = "KlantKrMaterialCmbx";
-            this.KlantKrMaterialCmbx.Size = new System.Drawing.Size(849, 49);
-            this.KlantKrMaterialCmbx.StartIndex = 0;
-            this.KlantKrMaterialCmbx.TabIndex = 65;
-            this.KlantKrMaterialCmbx.ValueMember = "Id";
-            this.KlantKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.KlantKrMaterialCmbx_SelectedIndexChanged);
             // 
             // SalesPage31
             // 
@@ -1132,9 +911,52 @@ namespace WindowsFormsAppTest
             this.SalesPage31.Location = new System.Drawing.Point(4, 22);
             this.SalesPage31.Name = "SalesPage31";
             this.SalesPage31.Padding = new System.Windows.Forms.Padding(3);
-            this.SalesPage31.Size = new System.Drawing.Size(841, 268);
+            this.SalesPage31.Size = new System.Drawing.Size(856, 268);
             this.SalesPage31.TabIndex = 3;
             this.SalesPage31.Text = "Sales31";
+            // 
+            // TxtBxPassword
+            // 
+            this.TxtBxPassword.AllowPromptAsInput = true;
+            this.TxtBxPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.TxtBxPassword.AnimateReadOnly = false;
+            this.TxtBxPassword.AsciiOnly = false;
+            this.TxtBxPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.TxtBxPassword.BeepOnError = false;
+            this.TxtBxPassword.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.TxtBxPassword.Depth = 0;
+            this.TxtBxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxPassword.HidePromptOnLeave = false;
+            this.TxtBxPassword.HideSelection = true;
+            this.TxtBxPassword.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
+            this.TxtBxPassword.LeadingIcon = null;
+            this.TxtBxPassword.Location = new System.Drawing.Point(131, 325);
+            this.TxtBxPassword.Mask = "";
+            this.TxtBxPassword.MaxLength = 32767;
+            this.TxtBxPassword.MouseState = MaterialSkin.MouseState.OUT;
+            this.TxtBxPassword.Name = "TxtBxPassword";
+            this.TxtBxPassword.PasswordChar = '*';
+            this.TxtBxPassword.PrefixSuffixText = null;
+            this.TxtBxPassword.PromptChar = '_';
+            this.TxtBxPassword.ReadOnly = false;
+            this.TxtBxPassword.RejectInputOnFirstFailure = false;
+            this.TxtBxPassword.ResetOnPrompt = true;
+            this.TxtBxPassword.ResetOnSpace = true;
+            this.TxtBxPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.TxtBxPassword.SelectedText = "";
+            this.TxtBxPassword.SelectionLength = 0;
+            this.TxtBxPassword.SelectionStart = 0;
+            this.TxtBxPassword.ShortcutsEnabled = true;
+            this.TxtBxPassword.Size = new System.Drawing.Size(625, 48);
+            this.TxtBxPassword.SkipLiterals = true;
+            this.TxtBxPassword.TabIndex = 77;
+            this.TxtBxPassword.TabStop = false;
+            this.TxtBxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.TxtBxPassword.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.TxtBxPassword.TrailingIcon = null;
+            this.TxtBxPassword.UseSystemPasswordChar = false;
+            this.TxtBxPassword.ValidatingType = null;
             // 
             // grpBxSales3_1
             // 
@@ -1225,128 +1047,6 @@ namespace WindowsFormsAppTest
             this.TxtBxMssqlCatalog3_1.Text = "";
             this.TxtBxMssqlCatalog3_1.TrailingIcon = null;
             // 
-            // LblMssqlCatalog3_1
-            // 
-            this.LblMssqlCatalog3_1.AutoSize = true;
-            this.LblMssqlCatalog3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.LblMssqlCatalog3_1.Depth = 0;
-            this.LblMssqlCatalog3_1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblMssqlCatalog3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblMssqlCatalog3_1.Location = new System.Drawing.Point(402, 198);
-            this.LblMssqlCatalog3_1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.LblMssqlCatalog3_1.Name = "LblMssqlCatalog3_1";
-            this.LblMssqlCatalog3_1.Size = new System.Drawing.Size(118, 19);
-            this.LblMssqlCatalog3_1.TabIndex = 14;
-            this.LblMssqlCatalog3_1.Text = "MSSQL Catalog:";
-            // 
-            // TxtBxMssqlServer3_1
-            // 
-            this.TxtBxMssqlServer3_1.AnimateReadOnly = false;
-            this.TxtBxMssqlServer3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.TxtBxMssqlServer3_1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtBxMssqlServer3_1.Depth = 0;
-            this.TxtBxMssqlServer3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.TxtBxMssqlServer3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.TxtBxMssqlServer3_1.LeadingIcon = null;
-            this.TxtBxMssqlServer3_1.Location = new System.Drawing.Point(582, 136);
-            this.TxtBxMssqlServer3_1.Margin = new System.Windows.Forms.Padding(0);
-            this.TxtBxMssqlServer3_1.MaximumSize = new System.Drawing.Size(500, 50);
-            this.TxtBxMssqlServer3_1.MaxLength = 150;
-            this.TxtBxMssqlServer3_1.MouseState = MaterialSkin.MouseState.OUT;
-            this.TxtBxMssqlServer3_1.Multiline = false;
-            this.TxtBxMssqlServer3_1.Name = "TxtBxMssqlServer3_1";
-            this.TxtBxMssqlServer3_1.ReadOnly = true;
-            this.TxtBxMssqlServer3_1.Size = new System.Drawing.Size(213, 50);
-            this.TxtBxMssqlServer3_1.TabIndex = 13;
-            this.TxtBxMssqlServer3_1.Text = "";
-            this.TxtBxMssqlServer3_1.TrailingIcon = null;
-            // 
-            // LblMssqlServer3_1
-            // 
-            this.LblMssqlServer3_1.AutoSize = true;
-            this.LblMssqlServer3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.LblMssqlServer3_1.Depth = 0;
-            this.LblMssqlServer3_1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblMssqlServer3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblMssqlServer3_1.Location = new System.Drawing.Point(402, 139);
-            this.LblMssqlServer3_1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.LblMssqlServer3_1.Name = "LblMssqlServer3_1";
-            this.LblMssqlServer3_1.Size = new System.Drawing.Size(107, 19);
-            this.LblMssqlServer3_1.TabIndex = 12;
-            this.LblMssqlServer3_1.Text = "MSSQL Server:";
-            // 
-            // TxtBxInterbaseVersie3_1
-            // 
-            this.TxtBxInterbaseVersie3_1.AnimateReadOnly = false;
-            this.TxtBxInterbaseVersie3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.TxtBxInterbaseVersie3_1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtBxInterbaseVersie3_1.Depth = 0;
-            this.TxtBxInterbaseVersie3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.TxtBxInterbaseVersie3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.TxtBxInterbaseVersie3_1.LeadingIcon = null;
-            this.TxtBxInterbaseVersie3_1.Location = new System.Drawing.Point(186, 195);
-            this.TxtBxInterbaseVersie3_1.Margin = new System.Windows.Forms.Padding(0);
-            this.TxtBxInterbaseVersie3_1.MaximumSize = new System.Drawing.Size(500, 50);
-            this.TxtBxInterbaseVersie3_1.MaxLength = 150;
-            this.TxtBxInterbaseVersie3_1.MouseState = MaterialSkin.MouseState.OUT;
-            this.TxtBxInterbaseVersie3_1.Multiline = false;
-            this.TxtBxInterbaseVersie3_1.Name = "TxtBxInterbaseVersie3_1";
-            this.TxtBxInterbaseVersie3_1.ReadOnly = true;
-            this.TxtBxInterbaseVersie3_1.Size = new System.Drawing.Size(213, 50);
-            this.TxtBxInterbaseVersie3_1.TabIndex = 11;
-            this.TxtBxInterbaseVersie3_1.Text = "";
-            this.TxtBxInterbaseVersie3_1.TrailingIcon = null;
-            // 
-            // LblInterBaseVersie3_1
-            // 
-            this.LblInterBaseVersie3_1.AutoSize = true;
-            this.LblInterBaseVersie3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.LblInterBaseVersie3_1.Depth = 0;
-            this.LblInterBaseVersie3_1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblInterBaseVersie3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblInterBaseVersie3_1.Location = new System.Drawing.Point(6, 195);
-            this.LblInterBaseVersie3_1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.LblInterBaseVersie3_1.Name = "LblInterBaseVersie3_1";
-            this.LblInterBaseVersie3_1.Size = new System.Drawing.Size(115, 19);
-            this.LblInterBaseVersie3_1.TabIndex = 10;
-            this.LblInterBaseVersie3_1.Text = "Interbase versie:";
-            // 
-            // TxtBxKraan2DatabaseVersie3_1
-            // 
-            this.TxtBxKraan2DatabaseVersie3_1.AnimateReadOnly = false;
-            this.TxtBxKraan2DatabaseVersie3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.TxtBxKraan2DatabaseVersie3_1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.TxtBxKraan2DatabaseVersie3_1.Depth = 0;
-            this.TxtBxKraan2DatabaseVersie3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.TxtBxKraan2DatabaseVersie3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.TxtBxKraan2DatabaseVersie3_1.LeadingIcon = null;
-            this.TxtBxKraan2DatabaseVersie3_1.Location = new System.Drawing.Point(582, 77);
-            this.TxtBxKraan2DatabaseVersie3_1.Margin = new System.Windows.Forms.Padding(0);
-            this.TxtBxKraan2DatabaseVersie3_1.MaximumSize = new System.Drawing.Size(500, 50);
-            this.TxtBxKraan2DatabaseVersie3_1.MaxLength = 150;
-            this.TxtBxKraan2DatabaseVersie3_1.MouseState = MaterialSkin.MouseState.OUT;
-            this.TxtBxKraan2DatabaseVersie3_1.Multiline = false;
-            this.TxtBxKraan2DatabaseVersie3_1.Name = "TxtBxKraan2DatabaseVersie3_1";
-            this.TxtBxKraan2DatabaseVersie3_1.ReadOnly = true;
-            this.TxtBxKraan2DatabaseVersie3_1.Size = new System.Drawing.Size(213, 50);
-            this.TxtBxKraan2DatabaseVersie3_1.TabIndex = 9;
-            this.TxtBxKraan2DatabaseVersie3_1.Text = "";
-            this.TxtBxKraan2DatabaseVersie3_1.TrailingIcon = null;
-            // 
-            // LblKraan2DatabaseVersie3_1
-            // 
-            this.LblKraan2DatabaseVersie3_1.AutoSize = true;
-            this.LblKraan2DatabaseVersie3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
-            this.LblKraan2DatabaseVersie3_1.Depth = 0;
-            this.LblKraan2DatabaseVersie3_1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.LblKraan2DatabaseVersie3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblKraan2DatabaseVersie3_1.Location = new System.Drawing.Point(402, 80);
-            this.LblKraan2DatabaseVersie3_1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.LblKraan2DatabaseVersie3_1.Name = "LblKraan2DatabaseVersie3_1";
-            this.LblKraan2DatabaseVersie3_1.Size = new System.Drawing.Size(177, 19);
-            this.LblKraan2DatabaseVersie3_1.TabIndex = 8;
-            this.LblKraan2DatabaseVersie3_1.Text = "Kraan 2 Database versie:";
-            // 
             // TxtBxKraan1DatabaseVersie3_1
             // 
             this.TxtBxKraan1DatabaseVersie3_1.AnimateReadOnly = false;
@@ -1368,6 +1068,20 @@ namespace WindowsFormsAppTest
             this.TxtBxKraan1DatabaseVersie3_1.TabIndex = 7;
             this.TxtBxKraan1DatabaseVersie3_1.Text = "";
             this.TxtBxKraan1DatabaseVersie3_1.TrailingIcon = null;
+            // 
+            // LblMssqlCatalog3_1
+            // 
+            this.LblMssqlCatalog3_1.AutoSize = true;
+            this.LblMssqlCatalog3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.LblMssqlCatalog3_1.Depth = 0;
+            this.LblMssqlCatalog3_1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.LblMssqlCatalog3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblMssqlCatalog3_1.Location = new System.Drawing.Point(402, 198);
+            this.LblMssqlCatalog3_1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LblMssqlCatalog3_1.Name = "LblMssqlCatalog3_1";
+            this.LblMssqlCatalog3_1.Size = new System.Drawing.Size(118, 19);
+            this.LblMssqlCatalog3_1.TabIndex = 14;
+            this.LblMssqlCatalog3_1.Text = "MSSQL Catalog:";
             // 
             // LblKraan1DatabaseVersie3_1
             // 
@@ -1424,6 +1138,28 @@ namespace WindowsFormsAppTest
             this.ChkBxKraanDatabase3_1.Text = "Kraan Database";
             this.ChkBxKraanDatabase3_1.UseVisualStyleBackColor = false;
             // 
+            // TxtBxMssqlServer3_1
+            // 
+            this.TxtBxMssqlServer3_1.AnimateReadOnly = false;
+            this.TxtBxMssqlServer3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.TxtBxMssqlServer3_1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtBxMssqlServer3_1.Depth = 0;
+            this.TxtBxMssqlServer3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxMssqlServer3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtBxMssqlServer3_1.LeadingIcon = null;
+            this.TxtBxMssqlServer3_1.Location = new System.Drawing.Point(582, 136);
+            this.TxtBxMssqlServer3_1.Margin = new System.Windows.Forms.Padding(0);
+            this.TxtBxMssqlServer3_1.MaximumSize = new System.Drawing.Size(500, 50);
+            this.TxtBxMssqlServer3_1.MaxLength = 150;
+            this.TxtBxMssqlServer3_1.MouseState = MaterialSkin.MouseState.OUT;
+            this.TxtBxMssqlServer3_1.Multiline = false;
+            this.TxtBxMssqlServer3_1.Name = "TxtBxMssqlServer3_1";
+            this.TxtBxMssqlServer3_1.ReadOnly = true;
+            this.TxtBxMssqlServer3_1.Size = new System.Drawing.Size(213, 50);
+            this.TxtBxMssqlServer3_1.TabIndex = 13;
+            this.TxtBxMssqlServer3_1.Text = "";
+            this.TxtBxMssqlServer3_1.TrailingIcon = null;
+            // 
             // ChkBxKraanIni3_1
             // 
             this.ChkBxKraanIni3_1.AutoSize = true;
@@ -1442,6 +1178,20 @@ namespace WindowsFormsAppTest
             this.ChkBxKraanIni3_1.TabIndex = 3;
             this.ChkBxKraanIni3_1.Text = "Kraan Ini";
             this.ChkBxKraanIni3_1.UseVisualStyleBackColor = false;
+            // 
+            // LblMssqlServer3_1
+            // 
+            this.LblMssqlServer3_1.AutoSize = true;
+            this.LblMssqlServer3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.LblMssqlServer3_1.Depth = 0;
+            this.LblMssqlServer3_1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.LblMssqlServer3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblMssqlServer3_1.Location = new System.Drawing.Point(402, 139);
+            this.LblMssqlServer3_1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LblMssqlServer3_1.Name = "LblMssqlServer3_1";
+            this.LblMssqlServer3_1.Size = new System.Drawing.Size(107, 19);
+            this.LblMssqlServer3_1.TabIndex = 12;
+            this.LblMssqlServer3_1.Text = "MSSQL Server:";
             // 
             // ChkBxKraanDLL3_1
             // 
@@ -1476,72 +1226,77 @@ namespace WindowsFormsAppTest
             this.LblKraanDLL3_1.TabIndex = 0;
             this.LblKraanDLL3_1.Text = "Kraan DLL versie:";
             // 
-            // materialLabel3
+            // TxtBxKraan2DatabaseVersie3_1
             // 
-            this.materialLabel3.AutoSize = true;
-            this.materialLabel3.Depth = 0;
-            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(8, 325);
-            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel3.Name = "materialLabel3";
-            this.materialLabel3.Size = new System.Drawing.Size(90, 19);
-            this.materialLabel3.TabIndex = 75;
-            this.materialLabel3.Text = "Wachtwoord";
+            this.TxtBxKraan2DatabaseVersie3_1.AnimateReadOnly = false;
+            this.TxtBxKraan2DatabaseVersie3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.TxtBxKraan2DatabaseVersie3_1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtBxKraan2DatabaseVersie3_1.Depth = 0;
+            this.TxtBxKraan2DatabaseVersie3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxKraan2DatabaseVersie3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtBxKraan2DatabaseVersie3_1.LeadingIcon = null;
+            this.TxtBxKraan2DatabaseVersie3_1.Location = new System.Drawing.Point(582, 77);
+            this.TxtBxKraan2DatabaseVersie3_1.Margin = new System.Windows.Forms.Padding(0);
+            this.TxtBxKraan2DatabaseVersie3_1.MaximumSize = new System.Drawing.Size(500, 50);
+            this.TxtBxKraan2DatabaseVersie3_1.MaxLength = 150;
+            this.TxtBxKraan2DatabaseVersie3_1.MouseState = MaterialSkin.MouseState.OUT;
+            this.TxtBxKraan2DatabaseVersie3_1.Multiline = false;
+            this.TxtBxKraan2DatabaseVersie3_1.Name = "TxtBxKraan2DatabaseVersie3_1";
+            this.TxtBxKraan2DatabaseVersie3_1.ReadOnly = true;
+            this.TxtBxKraan2DatabaseVersie3_1.Size = new System.Drawing.Size(213, 50);
+            this.TxtBxKraan2DatabaseVersie3_1.TabIndex = 9;
+            this.TxtBxKraan2DatabaseVersie3_1.Text = "";
+            this.TxtBxKraan2DatabaseVersie3_1.TrailingIcon = null;
             // 
-            // materialLabel2
+            // TxtBxInterbaseVersie3_1
             // 
-            this.materialLabel2.AutoSize = true;
-            this.materialLabel2.Depth = 0;
-            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(8, 271);
-            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel2.Name = "materialLabel2";
-            this.materialLabel2.Size = new System.Drawing.Size(117, 19);
-            this.materialLabel2.TabIndex = 74;
-            this.materialLabel2.Text = "Gebruikersnaam";
+            this.TxtBxInterbaseVersie3_1.AnimateReadOnly = false;
+            this.TxtBxInterbaseVersie3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.TxtBxInterbaseVersie3_1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.TxtBxInterbaseVersie3_1.Depth = 0;
+            this.TxtBxInterbaseVersie3_1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TxtBxInterbaseVersie3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtBxInterbaseVersie3_1.LeadingIcon = null;
+            this.TxtBxInterbaseVersie3_1.Location = new System.Drawing.Point(186, 195);
+            this.TxtBxInterbaseVersie3_1.Margin = new System.Windows.Forms.Padding(0);
+            this.TxtBxInterbaseVersie3_1.MaximumSize = new System.Drawing.Size(500, 50);
+            this.TxtBxInterbaseVersie3_1.MaxLength = 150;
+            this.TxtBxInterbaseVersie3_1.MouseState = MaterialSkin.MouseState.OUT;
+            this.TxtBxInterbaseVersie3_1.Multiline = false;
+            this.TxtBxInterbaseVersie3_1.Name = "TxtBxInterbaseVersie3_1";
+            this.TxtBxInterbaseVersie3_1.ReadOnly = true;
+            this.TxtBxInterbaseVersie3_1.Size = new System.Drawing.Size(213, 50);
+            this.TxtBxInterbaseVersie3_1.TabIndex = 11;
+            this.TxtBxInterbaseVersie3_1.Text = "";
+            this.TxtBxInterbaseVersie3_1.TrailingIcon = null;
             // 
-            // TxtBxPassword
+            // LblKraan2DatabaseVersie3_1
             // 
-            this.TxtBxPassword.AllowPromptAsInput = true;
-            this.TxtBxPassword.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtBxPassword.AnimateReadOnly = false;
-            this.TxtBxPassword.AsciiOnly = false;
-            this.TxtBxPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.TxtBxPassword.BeepOnError = false;
-            this.TxtBxPassword.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.TxtBxPassword.Depth = 0;
-            this.TxtBxPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.TxtBxPassword.HidePromptOnLeave = false;
-            this.TxtBxPassword.HideSelection = true;
-            this.TxtBxPassword.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
-            this.TxtBxPassword.LeadingIcon = null;
-            this.TxtBxPassword.Location = new System.Drawing.Point(131, 325);
-            this.TxtBxPassword.Mask = "";
-            this.TxtBxPassword.MaxLength = 32767;
-            this.TxtBxPassword.MouseState = MaterialSkin.MouseState.OUT;
-            this.TxtBxPassword.Name = "TxtBxPassword";
-            this.TxtBxPassword.PasswordChar = '*';
-            this.TxtBxPassword.PrefixSuffixText = null;
-            this.TxtBxPassword.PromptChar = '_';
-            this.TxtBxPassword.ReadOnly = false;
-            this.TxtBxPassword.RejectInputOnFirstFailure = false;
-            this.TxtBxPassword.ResetOnPrompt = true;
-            this.TxtBxPassword.ResetOnSpace = true;
-            this.TxtBxPassword.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.TxtBxPassword.SelectedText = "";
-            this.TxtBxPassword.SelectionLength = 0;
-            this.TxtBxPassword.SelectionStart = 0;
-            this.TxtBxPassword.ShortcutsEnabled = true;
-            this.TxtBxPassword.Size = new System.Drawing.Size(625, 48);
-            this.TxtBxPassword.SkipLiterals = true;
-            this.TxtBxPassword.TabIndex = 77;
-            this.TxtBxPassword.TabStop = false;
-            this.TxtBxPassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.TxtBxPassword.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.TxtBxPassword.TrailingIcon = null;
-            this.TxtBxPassword.UseSystemPasswordChar = false;
-            this.TxtBxPassword.ValidatingType = null;
+            this.LblKraan2DatabaseVersie3_1.AutoSize = true;
+            this.LblKraan2DatabaseVersie3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.LblKraan2DatabaseVersie3_1.Depth = 0;
+            this.LblKraan2DatabaseVersie3_1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.LblKraan2DatabaseVersie3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblKraan2DatabaseVersie3_1.Location = new System.Drawing.Point(402, 80);
+            this.LblKraan2DatabaseVersie3_1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LblKraan2DatabaseVersie3_1.Name = "LblKraan2DatabaseVersie3_1";
+            this.LblKraan2DatabaseVersie3_1.Size = new System.Drawing.Size(177, 19);
+            this.LblKraan2DatabaseVersie3_1.TabIndex = 8;
+            this.LblKraan2DatabaseVersie3_1.Text = "Kraan 2 Database versie:";
+            // 
+            // LblInterBaseVersie3_1
+            // 
+            this.LblInterBaseVersie3_1.AutoSize = true;
+            this.LblInterBaseVersie3_1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.LblInterBaseVersie3_1.Depth = 0;
+            this.LblInterBaseVersie3_1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.LblInterBaseVersie3_1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblInterBaseVersie3_1.Location = new System.Drawing.Point(6, 195);
+            this.LblInterBaseVersie3_1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LblInterBaseVersie3_1.Name = "LblInterBaseVersie3_1";
+            this.LblInterBaseVersie3_1.Size = new System.Drawing.Size(115, 19);
+            this.LblInterBaseVersie3_1.TabIndex = 10;
+            this.LblInterBaseVersie3_1.Text = "Interbase versie:";
             // 
             // TxtBxUsername
             // 
@@ -1586,11 +1341,271 @@ namespace WindowsFormsAppTest
             this.TxtBxUsername.UseSystemPasswordChar = false;
             this.TxtBxUsername.ValidatingType = null;
             // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel2.Location = new System.Drawing.Point(8, 271);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(117, 19);
+            this.materialLabel2.TabIndex = 74;
+            this.materialLabel2.Text = "Gebruikersnaam";
+            // 
+            // materialLabel3
+            // 
+            this.materialLabel3.AutoSize = true;
+            this.materialLabel3.Depth = 0;
+            this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel3.Location = new System.Drawing.Point(8, 325);
+            this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel3.Name = "materialLabel3";
+            this.materialLabel3.Size = new System.Drawing.Size(90, 19);
+            this.materialLabel3.TabIndex = 75;
+            this.materialLabel3.Text = "Wachtwoord";
+            // 
+            // LblUrl
+            // 
+            this.LblUrl.AutoSize = true;
+            this.LblUrl.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.LblUrl.Depth = 0;
+            this.LblUrl.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.LblUrl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.LblUrl.Location = new System.Drawing.Point(22, 68);
+            this.LblUrl.MouseState = MaterialSkin.MouseState.HOVER;
+            this.LblUrl.Name = "LblUrl";
+            this.LblUrl.Size = new System.Drawing.Size(59, 19);
+            this.LblUrl.TabIndex = 73;
+            this.LblUrl.Text = "Klanten:";
+            // 
+            // materialLabel7
+            // 
+            this.materialLabel7.AutoSize = true;
+            this.materialLabel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.materialLabel7.Depth = 0;
+            this.materialLabel7.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel7.Location = new System.Drawing.Point(22, 147);
+            this.materialLabel7.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel7.Name = "materialLabel7";
+            this.materialLabel7.Size = new System.Drawing.Size(32, 19);
+            this.materialLabel7.TabIndex = 75;
+            this.materialLabel7.Text = "Urls:";
+            // 
+            // SecurityIdTxtBx
+            // 
+            this.SecurityIdTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.SecurityIdTxtBx.AnimateReadOnly = false;
+            this.SecurityIdTxtBx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.SecurityIdTxtBx.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.SecurityIdTxtBx.Depth = 0;
+            this.SecurityIdTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.SecurityIdTxtBx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.SecurityIdTxtBx.LeadingIcon = null;
+            this.SecurityIdTxtBx.Location = new System.Drawing.Point(533, 201);
+            this.SecurityIdTxtBx.Margin = new System.Windows.Forms.Padding(0);
+            this.SecurityIdTxtBx.MaxLength = 150;
+            this.SecurityIdTxtBx.MouseState = MaterialSkin.MouseState.OUT;
+            this.SecurityIdTxtBx.Multiline = false;
+            this.SecurityIdTxtBx.Name = "SecurityIdTxtBx";
+            this.SecurityIdTxtBx.ReadOnly = true;
+            this.SecurityIdTxtBx.Size = new System.Drawing.Size(356, 50);
+            this.SecurityIdTxtBx.TabIndex = 76;
+            this.SecurityIdTxtBx.Text = "";
+            this.SecurityIdTxtBx.TrailingIcon = null;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Location = new System.Drawing.Point(25, 276);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(866, 2);
+            this.label1.TabIndex = 78;
+            // 
+            // materialLabel9
+            // 
+            this.materialLabel9.AutoSize = true;
+            this.materialLabel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.materialLabel9.Depth = 0;
+            this.materialLabel9.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel9.Location = new System.Drawing.Point(530, 182);
+            this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel9.Name = "materialLabel9";
+            this.materialLabel9.Size = new System.Drawing.Size(178, 19);
+            this.materialLabel9.TabIndex = 80;
+            this.materialLabel9.Text = "Securityld bij webservice:";
+            // 
+            // materialLabel8
+            // 
+            this.materialLabel8.AutoSize = true;
+            this.materialLabel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(242)))), ((int)(((byte)(242)))));
+            this.materialLabel8.Depth = 0;
+            this.materialLabel8.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel8.Location = new System.Drawing.Point(22, 280);
+            this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel8.Name = "materialLabel8";
+            this.materialLabel8.Size = new System.Drawing.Size(89, 19);
+            this.materialLabel8.TabIndex = 83;
+            this.materialLabel8.Text = "Url voor test:";
+            // 
+            // UrlVoorTestTxtBx
+            // 
+            this.UrlVoorTestTxtBx.AllowPromptAsInput = true;
+            this.UrlVoorTestTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.UrlVoorTestTxtBx.AnimateReadOnly = false;
+            this.UrlVoorTestTxtBx.AsciiOnly = false;
+            this.UrlVoorTestTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.UrlVoorTestTxtBx.BeepOnError = false;
+            this.UrlVoorTestTxtBx.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.UrlVoorTestTxtBx.Depth = 0;
+            this.UrlVoorTestTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.UrlVoorTestTxtBx.HidePromptOnLeave = false;
+            this.UrlVoorTestTxtBx.HideSelection = true;
+            this.UrlVoorTestTxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
+            this.UrlVoorTestTxtBx.LeadingIcon = null;
+            this.UrlVoorTestTxtBx.Location = new System.Drawing.Point(25, 302);
+            this.UrlVoorTestTxtBx.Mask = "";
+            this.UrlVoorTestTxtBx.MaxLength = 32767;
+            this.UrlVoorTestTxtBx.MouseState = MaterialSkin.MouseState.OUT;
+            this.UrlVoorTestTxtBx.Name = "UrlVoorTestTxtBx";
+            this.UrlVoorTestTxtBx.PasswordChar = '\0';
+            this.UrlVoorTestTxtBx.PrefixSuffixText = null;
+            this.UrlVoorTestTxtBx.PromptChar = '_';
+            this.UrlVoorTestTxtBx.ReadOnly = false;
+            this.UrlVoorTestTxtBx.RejectInputOnFirstFailure = false;
+            this.UrlVoorTestTxtBx.ResetOnPrompt = true;
+            this.UrlVoorTestTxtBx.ResetOnSpace = true;
+            this.UrlVoorTestTxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.UrlVoorTestTxtBx.SelectedText = "";
+            this.UrlVoorTestTxtBx.SelectionLength = 0;
+            this.UrlVoorTestTxtBx.SelectionStart = 0;
+            this.UrlVoorTestTxtBx.ShortcutsEnabled = true;
+            this.UrlVoorTestTxtBx.Size = new System.Drawing.Size(864, 48);
+            this.UrlVoorTestTxtBx.SkipLiterals = true;
+            this.UrlVoorTestTxtBx.TabIndex = 0;
+            this.UrlVoorTestTxtBx.TabStop = false;
+            this.UrlVoorTestTxtBx.Text = "materialMaskedTextBox1";
+            this.UrlVoorTestTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.UrlVoorTestTxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
+            this.UrlVoorTestTxtBx.TrailingIcon = null;
+            this.UrlVoorTestTxtBx.UseSystemPasswordChar = false;
+            this.UrlVoorTestTxtBx.ValidatingType = null;
+            this.UrlVoorTestTxtBx.TextChanged += new System.EventHandler(this.UrlVoorTestTxtBx_TextChanged);
+            // 
+            // GetWebserviceVersionBtn
+            // 
+            this.GetWebserviceVersionBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.GetWebserviceVersionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.GetWebserviceVersionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GetWebserviceVersionBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.GetWebserviceVersionBtn.Location = new System.Drawing.Point(29, 404);
+            this.GetWebserviceVersionBtn.Name = "GetWebserviceVersionBtn";
+            this.GetWebserviceVersionBtn.Size = new System.Drawing.Size(252, 31);
+            this.GetWebserviceVersionBtn.TabIndex = 86;
+            this.GetWebserviceVersionBtn.Text = "GET VERSIONS EN SSL CERTIFICAAT";
+            this.GetWebserviceVersionBtn.UseVisualStyleBackColor = false;
+            this.GetWebserviceVersionBtn.Click += new System.EventHandler(this.GetWebserviceVersionBtn_Click);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label2.Location = new System.Drawing.Point(25, 393);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(864, 2);
+            this.label2.TabIndex = 87;
+            // 
+            // materialLabel10
+            // 
+            this.materialLabel10.AutoSize = true;
+            this.materialLabel10.Depth = 0;
+            this.materialLabel10.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel10.Location = new System.Drawing.Point(25, 358);
+            this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel10.Name = "materialLabel10";
+            this.materialLabel10.Size = new System.Drawing.Size(144, 19);
+            this.materialLabel10.TabIndex = 88;
+            this.materialLabel10.Text = "Werkt de webservice";
+            // 
+            // MLblCheckOfNiet
+            // 
+            this.MLblCheckOfNiet.AutoSize = true;
+            this.MLblCheckOfNiet.Depth = 0;
+            this.MLblCheckOfNiet.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.MLblCheckOfNiet.Location = new System.Drawing.Point(175, 358);
+            this.MLblCheckOfNiet.MouseState = MaterialSkin.MouseState.HOVER;
+            this.MLblCheckOfNiet.Name = "MLblCheckOfNiet";
+            this.MLblCheckOfNiet.Size = new System.Drawing.Size(1, 0);
+            this.MLblCheckOfNiet.TabIndex = 89;
+            // 
+            // TestMethodeBtn
+            // 
+            this.TestMethodeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.TestMethodeBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.TestMethodeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.TestMethodeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TestMethodeBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.TestMethodeBtn.Location = new System.Drawing.Point(755, 404);
+            this.TestMethodeBtn.Name = "TestMethodeBtn";
+            this.TestMethodeBtn.Size = new System.Drawing.Size(134, 31);
+            this.TestMethodeBtn.TabIndex = 90;
+            this.TestMethodeBtn.Text = "TEST METHODE";
+            this.TestMethodeBtn.UseVisualStyleBackColor = false;
+            this.TestMethodeBtn.Click += new System.EventHandler(this.TestMethodeBtn_Click);
+            // 
+            // AllUrlsKrLstBx
+            // 
+            this.AllUrlsKrLstBx.BackColor = System.Drawing.Color.White;
+            this.AllUrlsKrLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.AllUrlsKrLstBx.ItemHeight = 20;
+            this.AllUrlsKrLstBx.Location = new System.Drawing.Point(25, 169);
+            this.AllUrlsKrLstBx.Name = "AllUrlsKrLstBx";
+            this.AllUrlsKrLstBx.ScrollAlwaysVisible = true;
+            this.AllUrlsKrLstBx.Size = new System.Drawing.Size(499, 104);
+            this.AllUrlsKrLstBx.TabIndex = 74;
+            this.AllUrlsKrLstBx.SelectedIndexChanged += new System.EventHandler(this.AllUrlsKrLstBx_SelectedIndexChanged);
+            // 
+            // KlantKrMaterialCmbx
+            // 
+            this.KlantKrMaterialCmbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.KlantKrMaterialCmbx.AutoResize = false;
+            this.KlantKrMaterialCmbx.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.KlantKrMaterialCmbx.Depth = 0;
+            this.KlantKrMaterialCmbx.DisplayMember = "Name";
+            this.KlantKrMaterialCmbx.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.KlantKrMaterialCmbx.DropDownHeight = 174;
+            this.KlantKrMaterialCmbx.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.KlantKrMaterialCmbx.DropDownWidth = 121;
+            this.KlantKrMaterialCmbx.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.KlantKrMaterialCmbx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.KlantKrMaterialCmbx.FormattingEnabled = true;
+            this.KlantKrMaterialCmbx.IntegralHeight = false;
+            this.KlantKrMaterialCmbx.ItemHeight = 43;
+            this.KlantKrMaterialCmbx.Location = new System.Drawing.Point(25, 90);
+            this.KlantKrMaterialCmbx.MaxDropDownItems = 4;
+            this.KlantKrMaterialCmbx.MouseState = MaterialSkin.MouseState.OUT;
+            this.KlantKrMaterialCmbx.Name = "KlantKrMaterialCmbx";
+            this.KlantKrMaterialCmbx.Size = new System.Drawing.Size(864, 49);
+            this.KlantKrMaterialCmbx.StartIndex = 0;
+            this.KlantKrMaterialCmbx.TabIndex = 65;
+            this.KlantKrMaterialCmbx.ValueMember = "Id";
+            this.KlantKrMaterialCmbx.SelectedIndexChanged += new System.EventHandler(this.KlantKrMaterialCmbx_SelectedIndexChanged);
+            // 
             // EenUrlTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(909, 912);
+            this.ClientSize = new System.Drawing.Size(909, 909);
+            this.Controls.Add(this.TestMethodeBtn);
             this.Controls.Add(this.MLblCheckOfNiet);
             this.Controls.Add(this.GrpBxSsl);
             this.Controls.Add(this.materialLabel10);
@@ -1609,8 +1624,8 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.TbCntrlRestApiEnSoap);
             this.Controls.Add(this.KlantKrMaterialCmbx);
             this.Controls.Add(this.materialLabel1);
+            this.MinimumSize = new System.Drawing.Size(909, 909);
             this.Name = "EenUrlTestForm";
-            this.Sizable = false;
             this.Text = "Test Url";
             this.GrpBxSsl.ResumeLayout(false);
             this.GrpBxSsl.PerformLayout();
@@ -1712,6 +1727,7 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialMaskedTextBox TxtBxUsername;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
+        private System.Windows.Forms.Button TestMethodeBtn;
     }
 }
 

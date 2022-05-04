@@ -13,6 +13,7 @@ namespace WindowsFormsAppTest
         private string _httpName = string.Empty;
         private string _urlHttp = string.Empty;
         private string _securityId = string.Empty;
+        private string _urlTest = string.Empty;
 
         private bool _isSoap = false;
         private bool _isSecurityId = false;
@@ -85,6 +86,7 @@ namespace WindowsFormsAppTest
         private void AllUrlsKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
         {
             Url url = (Url)AllUrlsKrLstBx.SelectedItem;
+            MLblCheckOfNiet.Text = string.Empty;
             if (url != null)
             {
                 _selectedWebservice = _webserviceXml.GetWebserviceById(url.WebserviceId);
@@ -112,14 +114,17 @@ namespace WindowsFormsAppTest
         {
             if (_selectedWebservice.Soap)
             {
-                TbCntrlRestApiEnSoap.SelectTab(1);
                 if (url.Name.EndsWith("MessageServiceSoap31.svc"))
                 {
                     TbCntrlRestApiEnSoap.SelectTab(3);
                 }
-                else
+                else if(url.Name.EndsWith("MessageServiceSoap.svc"))
                 {
                     TbCntrlRestApiEnSoap.SelectTab(2);
+                }
+                else
+                {
+                    TbCntrlRestApiEnSoap.SelectTab(1);
                 }
             }
             else
@@ -144,9 +149,14 @@ namespace WindowsFormsAppTest
 
         private void GetWebserviceVersionBtn_Click(object sender, EventArgs e)
         {
-            ClearBox();
-            CheckWebservice();
-            GetResult();
+            _urlTest = UrlVoorTestTxtBx.Text + "/GetWebserviceVersion";
+            GetResult(true);
+        }
+
+        private void TestMethodeBtn_Click(object sender, EventArgs e)
+        {
+            _urlTest = UrlVoorTestTxtBx.Text;
+            GetResult(false);
         }
 
         private void CheckWebservice()
@@ -161,8 +171,10 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void GetResult()
+        private void GetResult(bool isGetWebserviceVersion)
         {
+            ClearBox();
+            CheckWebservice();
             if (_isSoap && UrlVoorTestTxtBx.Text.EndsWith(".svc"))
             {
                 if (UrlVoorTestTxtBx.Text.Contains("MessageServiceSoap31.svc"))
@@ -189,15 +201,15 @@ namespace WindowsFormsAppTest
                 }
                 else
                 {
-                    _result = JObject.Parse(_webRequest.GetWebRequestSoap(UrlVoorTestTxtBx.Text, KlantKrMaterialCmbx.Text));
+                    _result = JObject.Parse(_webRequest.GetWebRequestSoap(_urlTest, KlantKrMaterialCmbx.Text));
                     CheckDataSoap(_result);
                 }
             }
             else
             {
                 string data = _webRequest.GetWebRequestRest((Guid)KlantKrMaterialCmbx.SelectedValue,
-                                                        UrlVoorTestTxtBx.Text,
-                                                        _isSecurityId);
+                                                        _urlTest,
+                                                        isGetWebserviceVersion);
                 _result = JObject.Parse(data);
                 _testRoute.TestOneRoute(_result,
                                     textBoxWebservice,
@@ -367,6 +379,5 @@ namespace WindowsFormsAppTest
         {
             UrlVoorTestTxtBx.Select();
         }
-
     }
 }
