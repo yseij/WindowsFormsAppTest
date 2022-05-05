@@ -142,8 +142,19 @@ namespace WindowsFormsAppTest
                         _isSoap = webservice.Soap;
                     }
                 }
-                GetResult(url, true);
-                FillTreeView(url, logFile);
+                for (int i = 0; i < 2; i++)
+                {
+                    if (i == 0)
+                    {
+                        CheckUrl(url, logFile);
+                    }
+                    else
+                    {
+                        url.Name += "/GetWebserviceVersion";
+                        GetResult(url, true);
+                        FillTreeView(url, logFile);
+                    }
+                }
             }
             TreeNode node = new TreeNode();
             node.Text = "|---Opgeslagen urls---|";
@@ -154,6 +165,26 @@ namespace WindowsFormsAppTest
                 GetResult(url, false);
                 FillTreeView(url, logFile);
             }
+        }
+
+        private void CheckUrl(Url url, LogFile logFile)
+        {
+            bool isGood = _webRequest.CheckUrl(url.Name);
+            TreeNode node = new TreeNode();
+            node.Text = url.Name;
+            logFile.AddTextToLogFile("\n");
+            logFile.AddTextToLogFile(url.Name + "\n");
+
+            if (!isGood)
+            {
+                node.ForeColor = Color.FromArgb(0, 255, 0, 0);
+                node.Tag = "CheckUrlNietGoed";
+            }
+            else
+            {
+                node.Tag = "CheckUrlGoed";
+            }
+            TrVwAll.Nodes.Add(node);
         }
 
         private void GetDataByWebservice(LogFile logFile)
@@ -232,9 +263,17 @@ namespace WindowsFormsAppTest
                     {
                         CheckDataSoap(UrlData, 3.1);
                     }
-                    else if (currentClkNode.Text .Contains("MessageServiceSoap.svc"))
+                    else if (currentClkNode.Text.Contains("MessageServiceSoap.svc"))
                     {
                         CheckDataSoap(UrlData, 2.4);
+                    }
+                    else if (currentClkNode.Tag.ToString() == "CheckUrlGoed")
+                    {
+                        ResponseTextBox.Text = "Webservice werkt";
+                    }
+                    else if (currentClkNode.Tag.ToString() == "CheckUrlNietGoed")
+                    {
+                        ResponseTextBox.Text = "Webservice werkt niet";
                     }
                     else
                     {
