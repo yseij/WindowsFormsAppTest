@@ -46,6 +46,23 @@ namespace WindowsFormsAppTest
             return urls;
         }
 
+        public Url GetByKlantAndName(Guid klantId, string name)
+        {
+            XDocument doc = XDocument.Load(_path);
+            XElement element = doc.Element("DB").Element("Urls").Elements("Url")
+                .FirstOrDefault(p => Guid.Parse(p.Attribute("KlantId").Value) == klantId && p.Attribute("Name").Value == name);
+            Url newUrl = new Url();
+            if (element != null)
+            {
+                newUrl.Id = Guid.Parse(element.Attribute("Id").Value);
+                newUrl.Name = element.Attribute("Name").Value;
+                newUrl.KlantId = Guid.Parse(element.Attribute("KlantId").Value);
+                newUrl.WebserviceId = Guid.Parse(element.Attribute("WebserviceId").Value);
+                return newUrl;
+            }
+            return null;
+        }
+
         public void AddUrl(Url url)
         {
             XDocument doc = XDocument.Load(_path);

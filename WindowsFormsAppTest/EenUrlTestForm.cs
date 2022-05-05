@@ -95,8 +95,19 @@ namespace WindowsFormsAppTest
 
         private void UrlOpslaanBtn_Click(object sender, EventArgs e)
         {
-            Url url = new Url(UrlVoorTestTxtBx.Text, (Guid)KlantKrMaterialCmbx.SelectedValue, _selectedWebservice.Id);
-            _urlXml.AddUrl(url);
+            int i = -1;
+
+            Url newUrl = new Url(UrlVoorTestTxtBx.Text, (Guid)KlantKrMaterialCmbx.SelectedValue, _selectedWebservice.Id);
+            Url url = _urlXml.GetByKlantAndName((Guid)KlantKrMaterialCmbx.SelectedValue, UrlVoorTestTxtBx.Text);
+            i = AllUrlsKrLstBx.FindString(UrlVoorTestTxtBx.Text);
+            if (url == null && i == -1)
+            {
+                _urlXml.AddUrl(newUrl);
+            }
+            else
+            {
+                MessageBox.Show("Deze url hoort al bij deze klant");
+            }
             GetUrls();
         }
 

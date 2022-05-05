@@ -97,6 +97,7 @@ namespace WindowsFormsAppTest
             this.ZoekOpKlantNaamTxtBx.TrailingIcon = null;
             this.ZoekOpKlantNaamTxtBx.UseSystemPasswordChar = false;
             this.ZoekOpKlantNaamTxtBx.ValidatingType = null;
+            this.ZoekOpKlantNaamTxtBx.TextChanged += new System.EventHandler(this.ZoekOpKlantNaamTxtBx_TextChanged);
             // 
             // label1
             // 
