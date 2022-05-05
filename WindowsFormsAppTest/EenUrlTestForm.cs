@@ -167,7 +167,7 @@ namespace WindowsFormsAppTest
             {
                 urls.Add(url);
             }
-            AllUrlsKrLstBx.FillListBoxUrlData(urls);
+            AllUrlsKrLstBx.FillListBoxUrls(urls);
         }
 
         private void TestWebserviceBtn_Click(object sender, EventArgs e)

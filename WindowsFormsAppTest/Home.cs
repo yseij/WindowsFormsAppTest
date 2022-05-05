@@ -131,6 +131,12 @@ namespace WindowsFormsAppTest
             m.ShowDialog();
         }
 
+        private void BtnShowUrlsPerKlant_Click(object sender, EventArgs e)
+        {
+            var m = new AllUrlPerKlantForm();
+            m.ShowDialog();
+        }
+
         private void EmailTlStrpMnItm_Click_1(object sender, EventArgs e)
         {
             var m = new UserForm();

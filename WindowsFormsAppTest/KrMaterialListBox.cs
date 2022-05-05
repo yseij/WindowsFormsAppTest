@@ -21,22 +21,22 @@ namespace WindowsFormsAppTest
             ValueMember = "Id";
         }
 
-        public void FillListBoxKlantData(List<Klant> klantDatas)
+        public void FillListBoxKlantData(List<Klant> klanten)
         {
             ClearListBox();
-            DataSource = klantDatas;
+            DataSource = klanten;
         }
 
-        public void FillListBoxWebserviceData(List<WebService> webServiceDatas)
+        public void FillListBoxWebserviceData(List<WebService> webServices)
         {
             ClearListBox();
-            DataSource = webServiceDatas;
+            DataSource = webServices;
         }
 
-        public void FillListBoxUrlData(List<Url> UrlDatas)
+        public void FillListBoxUrls(List<Url> urls)
         {
             ClearListBox();
-            DataSource = UrlDatas;
+            DataSource = urls;
         }
     }
 }

@@ -59,7 +59,7 @@ namespace WindowsFormsAppTest
             this.BttnWebservice = new System.Windows.Forms.Button();
             this.BtnKlant = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.BtnShowUrls = new System.Windows.Forms.Button();
+            this.BtnShowUrlsPerKlant = new System.Windows.Forms.Button();
             this.BtnShowWebservices = new System.Windows.Forms.Button();
             this.BtnShowKlanten = new System.Windows.Forms.Button();
             this.menuStrip.SuspendLayout();
@@ -113,7 +113,7 @@ namespace WindowsFormsAppTest
             this.menuStrip.Location = new System.Drawing.Point(3, 426);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip.Size = new System.Drawing.Size(329, 24);
+            this.menuStrip.Size = new System.Drawing.Size(209, 24);
             this.menuStrip.TabIndex = 9;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -154,7 +154,7 @@ namespace WindowsFormsAppTest
             // KlantKeuzeToolStripMenuItem
             // 
             this.KlantKeuzeToolStripMenuItem.Name = "KlantKeuzeToolStripMenuItem";
-            this.KlantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.KlantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.KlantKeuzeToolStripMenuItem.Text = "Klant keuze";
             // 
             // tijdToolStripMenuItem
@@ -165,7 +165,7 @@ namespace WindowsFormsAppTest
             this.MinToolStripMenuItem2,
             this.UurTlStrpMnItm});
             this.tijdToolStripMenuItem.Name = "tijdToolStripMenuItem";
-            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.tijdToolStripMenuItem.Text = "Tijd";
             // 
             // MinToolStripMenuItem
@@ -202,7 +202,7 @@ namespace WindowsFormsAppTest
             this.AanToolStripMenuItem,
             this.UitToolStripMenuItem});
             this.ToolStripMenuItem1.Name = "ToolStripMenuItem1";
-            this.ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
             this.ToolStripMenuItem1.Text = "Aan of Uit";
             // 
             // AanToolStripMenuItem
@@ -332,18 +332,19 @@ namespace WindowsFormsAppTest
             this.label1.Size = new System.Drawing.Size(461, 2);
             this.label1.TabIndex = 17;
             // 
-            // BtnShowUrls
+            // BtnShowUrlsPerKlant
             // 
-            this.BtnShowUrls.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.BtnShowUrls.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnShowUrls.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnShowUrls.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnShowUrls.Location = new System.Drawing.Point(9, 275);
-            this.BtnShowUrls.Name = "BtnShowUrls";
-            this.BtnShowUrls.Size = new System.Drawing.Size(148, 150);
-            this.BtnShowUrls.TabIndex = 19;
-            this.BtnShowUrls.Text = "URLS";
-            this.BtnShowUrls.UseVisualStyleBackColor = false;
+            this.BtnShowUrlsPerKlant.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.BtnShowUrlsPerKlant.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnShowUrlsPerKlant.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnShowUrlsPerKlant.ForeColor = System.Drawing.SystemColors.Control;
+            this.BtnShowUrlsPerKlant.Location = new System.Drawing.Point(319, 276);
+            this.BtnShowUrlsPerKlant.Name = "BtnShowUrlsPerKlant";
+            this.BtnShowUrlsPerKlant.Size = new System.Drawing.Size(150, 150);
+            this.BtnShowUrlsPerKlant.TabIndex = 19;
+            this.BtnShowUrlsPerKlant.Text = "EIGEN OPGESLAGEN URLS";
+            this.BtnShowUrlsPerKlant.UseVisualStyleBackColor = false;
+            this.BtnShowUrlsPerKlant.Click += new System.EventHandler(this.BtnShowUrlsPerKlant_Click);
             // 
             // BtnShowWebservices
             // 
@@ -351,7 +352,7 @@ namespace WindowsFormsAppTest
             this.BtnShowWebservices.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnShowWebservices.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnShowWebservices.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnShowWebservices.Location = new System.Drawing.Point(163, 276);
+            this.BtnShowWebservices.Location = new System.Drawing.Point(7, 276);
             this.BtnShowWebservices.Name = "BtnShowWebservices";
             this.BtnShowWebservices.Size = new System.Drawing.Size(150, 150);
             this.BtnShowWebservices.TabIndex = 20;
@@ -365,7 +366,7 @@ namespace WindowsFormsAppTest
             this.BtnShowKlanten.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnShowKlanten.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnShowKlanten.ForeColor = System.Drawing.SystemColors.Control;
-            this.BtnShowKlanten.Location = new System.Drawing.Point(319, 276);
+            this.BtnShowKlanten.Location = new System.Drawing.Point(163, 276);
             this.BtnShowKlanten.Name = "BtnShowKlanten";
             this.BtnShowKlanten.Size = new System.Drawing.Size(150, 150);
             this.BtnShowKlanten.TabIndex = 21;
@@ -380,7 +381,7 @@ namespace WindowsFormsAppTest
             this.ClientSize = new System.Drawing.Size(477, 453);
             this.Controls.Add(this.BtnShowKlanten);
             this.Controls.Add(this.BtnShowWebservices);
-            this.Controls.Add(this.BtnShowUrls);
+            this.Controls.Add(this.BtnShowUrlsPerKlant);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnKlant);
             this.Controls.Add(this.BttnWebservice);
@@ -422,7 +423,7 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Button BttnWebservice;
         private System.Windows.Forms.Button BtnKlant;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button BtnShowUrls;
+        private System.Windows.Forms.Button BtnShowUrlsPerKlant;
         private System.Windows.Forms.Button BtnShowWebservices;
         private System.Windows.Forms.Button BtnShowKlanten;
         private System.Windows.Forms.ToolStripMenuItem ServiceTlStrpMnItm;

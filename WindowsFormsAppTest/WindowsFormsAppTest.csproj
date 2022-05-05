@@ -119,6 +119,12 @@
     <Compile Include="AllKlantenForm.Designer.cs">
       <DependentUpon>AllKlantenForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="AllUrlPerKlantForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AllUrlPerKlantForm.Designer.cs">
+      <DependentUpon>AllUrlPerKlantForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="AllWebserviceForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -225,6 +231,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AllKlantenForm.resx">
       <DependentUpon>AllKlantenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AllUrlPerKlantForm.resx">
+      <DependentUpon>AllUrlPerKlantForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AllWebserviceForm.resx">
       <DependentUpon>AllWebserviceForm.cs</DependentUpon>
