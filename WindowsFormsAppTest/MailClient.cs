@@ -26,7 +26,7 @@ namespace WindowsFormsAppTest
             }
         }
 
-        public static void TestMail(string title, string text, string FilePath)
+        public static void SendMail(string title, string text, string FilePath)
         {
             string UserEmail = Properties.Settings.Default.Email;
             // Command-line argument must be the SMTP host.

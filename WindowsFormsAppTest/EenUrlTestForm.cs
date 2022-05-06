@@ -183,13 +183,15 @@ namespace WindowsFormsAppTest
 
         private void TestWebserviceBtn_Click(object sender, EventArgs e)
         {
-            if (_webRequest.CheckUrl(UrlVoorTestTxtBx.Text))
+            string checkUrl = _webRequest.CheckUrl(UrlVoorTestTxtBx.Text);
+            if (checkUrl == "true")
             {
                 MLblCheckOfNiet.Text = "✓";
             }
             else
             {
                 MLblCheckOfNiet.Text = "X";
+                MessageBox.Show(checkUrl);
             }
         }
 

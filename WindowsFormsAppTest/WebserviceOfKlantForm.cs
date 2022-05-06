@@ -169,20 +169,24 @@ namespace WindowsFormsAppTest
 
         private void CheckUrl(Url url, LogFile logFile)
         {
-            bool isGood = _webRequest.CheckUrl(url.Name);
+            string checkUrl = _webRequest.CheckUrl(url.Name);
             TreeNode node = new TreeNode();
             node.Text = url.Name;
             logFile.AddTextToLogFile("\n");
             logFile.AddTextToLogFile(url.Name + "\n");
 
-            if (!isGood)
+            if (checkUrl.StartsWith("false"))
             {
                 node.ForeColor = Color.FromArgb(0, 255, 0, 0);
-                node.Tag = "CheckUrlNietGoed";
+                node.Tag = "Webservice = " + checkUrl;
+            }
+            else if (checkUrl.StartsWith("true"))
+            {
+                node.Tag = "Webservice = true";
             }
             else
             {
-                node.Tag = "CheckUrlGoed";
+                node.Tag = "ex = " + checkUrl;
             }
             TrVwAll.Nodes.Add(node);
         }
@@ -267,13 +271,17 @@ namespace WindowsFormsAppTest
                     {
                         CheckDataSoap(UrlData, 2.4);
                     }
-                    else if (currentClkNode.Tag.ToString() == "CheckUrlGoed")
+                    else if (currentClkNode.Tag.ToString().Contains("true"))
                     {
-                        ResponseTextBox.Text = "Webservice werkt";
+                        ResponseTextBox.Text = currentClkNode.Tag.ToString();
                     }
-                    else if (currentClkNode.Tag.ToString() == "CheckUrlNietGoed")
+                    else if (currentClkNode.Tag.ToString().Contains("false"))
                     {
-                        ResponseTextBox.Text = "Webservice werkt niet";
+                        ResponseTextBox.Text = currentClkNode.Tag.ToString();
+                    }
+                    else if (currentClkNode.Tag.ToString().Contains("ex"))
+                    {
+                        ResponseTextBox.Text = currentClkNode.Tag.ToString();
                     }
                     else
                     {

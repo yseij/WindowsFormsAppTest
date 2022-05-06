@@ -10,14 +10,12 @@ namespace WindowsFormsAppTest
 {
     public partial class Home : MaterialForm
     {
-        private string _webserviceKeuzeNaam;
         private string _klantKeuzeNaam;
         private string _keuzeNaam;
-        private string _httpName;
         private string _webserviceName;
         private string _text = string.Empty;
-        private string _xmlUserName = @"D:\user.xml";
-        private string _xmlDb = @"D:\db.xml";
+        private string _https = "https:";
+        private string _http = "http:";
 
         private Guid _webserviceKeuzeId;
         private Guid _klantKeuzeId;
@@ -29,8 +27,6 @@ namespace WindowsFormsAppTest
         private int _teller;
 
         private List<Klant> _klantDatas = new List<Klant>();
-        private List<WebService> _webServiceDatas = new List<WebService>();
-        private List<Url> _urlDatas = new List<Url>();
 
         WebRequest _webRequest;
         KrXml _krXml;
@@ -453,18 +449,18 @@ namespace WindowsFormsAppTest
             }
             if (_text != "")
             {
-                MailClient.TestMail(keuzeNaam, _text, _logFile.FilePath);
+                MailClient.SendMail(keuzeNaam, _text, _logFile.FilePath);
             }
         }
 
         private void CheckUrl(Url url)
         {
-            bool isGood = _webRequest.CheckUrl(url.Name);
-            if (!isGood)
+            string checkUrl = _webRequest.CheckUrl(url.Name);
+            if (checkUrl != "true")
             {
                 _teller++;
-                _text += url.Name + " --> De geteste webservice is niet online" + Environment.NewLine;
-                _logFile.AddTextToLogFile(url.Name + " --> De geteste webservice is niet online" + Environment.NewLine);
+                _text += url.Name.Replace(_https, "").Replace(_http, "")  + "--> " + checkUrl + Environment.NewLine;
+                _logFile.AddTextToLogFile(url.Name + " --> " + checkUrl + Environment.NewLine);
             }
         }
 
@@ -486,7 +482,7 @@ namespace WindowsFormsAppTest
                 if (item.Name == "ex")
                 {
                     _teller++;
-                    _text += url.Name + " --> " + item.Value.ToString() + Environment.NewLine;
+                    _text += url.Name.Replace(_https, "").Replace(_http, "") + " --> " + item.Value.ToString() + Environment.NewLine;
                     _logFile.AddTextToLogFile(url.Name + " --> " + item.Value.ToString() + Environment.NewLine);
                 }
             }
@@ -499,13 +495,13 @@ namespace WindowsFormsAppTest
                 if (item.Value.ToString().Contains("False"))
                 {
                     _teller++;
-                    _text += url.Name + " --> " + item.Value.ToString() + Environment.NewLine;
+                    _text += url.Name.Replace(_https, "").Replace(_http, "") + " --> " + item.Value.ToString() + Environment.NewLine;
                     _logFile.AddTextToLogFile(item.Value.ToString() + Environment.NewLine);
                 }
                 if (item.Name.ToString() == "ex")
                 {
                     _teller++;
-                    _text += url.Name + " --> " + item.Value.ToString() + Environment.NewLine;
+                    _text += url.Name.Replace(_https, "").Replace(_http, "") + " --> " + item.Value.ToString() + Environment.NewLine;
                     _logFile.AddTextToLogFile(item.Value.ToString() + Environment.NewLine);
                 }
             }
