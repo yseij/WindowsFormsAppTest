@@ -36,6 +36,8 @@ namespace WindowsFormsAppTest
             this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.StripMenuItemLogFile = new System.Windows.Forms.ToolStripMenuItem();
             this.plaatsOpslaanLogFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dbXmlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.plaatsOphalenDbxmlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.EmailTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.StripMenuItemTestTijd = new System.Windows.Forms.ToolStripMenuItem();
             this.KlantKeuzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -62,6 +64,7 @@ namespace WindowsFormsAppTest
             this.BtnShowUrlsPerKlant = new System.Windows.Forms.Button();
             this.BtnShowWebservices = new System.Windows.Forms.Button();
             this.BtnShowKlanten = new System.Windows.Forms.Button();
+            this.dbxmlLadenTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -107,13 +110,14 @@ namespace WindowsFormsAppTest
             this.menuStrip.Dock = System.Windows.Forms.DockStyle.None;
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StripMenuItemLogFile,
+            this.dbXmlToolStripMenuItem,
             this.EmailTlStrpMnItm,
             this.StripMenuItemTestTijd,
             this.ServiceTlStrpMnItm});
             this.menuStrip.Location = new System.Drawing.Point(3, 426);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip.Size = new System.Drawing.Size(209, 24);
+            this.menuStrip.Size = new System.Drawing.Size(386, 24);
             this.menuStrip.TabIndex = 9;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -132,6 +136,22 @@ namespace WindowsFormsAppTest
             this.plaatsOpslaanLogFileToolStripMenuItem.Text = "Plaats opslaan log file";
             this.plaatsOpslaanLogFileToolStripMenuItem.Click += new System.EventHandler(this.PlaatsOpslaanLogFileToolStripMenuItem_Click);
             this.plaatsOpslaanLogFileToolStripMenuItem.MouseHover += new System.EventHandler(this.PlaatsOpslaanLogFileToolStripMenuItem_MouseHover);
+            // 
+            // dbXmlToolStripMenuItem
+            // 
+            this.dbXmlToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.plaatsOphalenDbxmlToolStripMenuItem,
+            this.dbxmlLadenTlStrpMnItm});
+            this.dbXmlToolStripMenuItem.Name = "dbXmlToolStripMenuItem";
+            this.dbXmlToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
+            this.dbXmlToolStripMenuItem.Text = "Db xml";
+            // 
+            // plaatsOphalenDbxmlToolStripMenuItem
+            // 
+            this.plaatsOphalenDbxmlToolStripMenuItem.Name = "plaatsOphalenDbxmlToolStripMenuItem";
+            this.plaatsOphalenDbxmlToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.plaatsOphalenDbxmlToolStripMenuItem.Text = "Plaats ophalen db.xml";
+            this.plaatsOphalenDbxmlToolStripMenuItem.Click += new System.EventHandler(this.plaatsOphalenDbxmlTlStrpMnItm_Click);
             // 
             // EmailTlStrpMnItm
             // 
@@ -374,6 +394,13 @@ namespace WindowsFormsAppTest
             this.BtnShowKlanten.UseVisualStyleBackColor = false;
             this.BtnShowKlanten.Click += new System.EventHandler(this.BtnShowKlanten_Click);
             // 
+            // dbxmlLadenTlStrpMnItm
+            // 
+            this.dbxmlLadenTlStrpMnItm.Name = "dbxmlLadenTlStrpMnItm";
+            this.dbxmlLadenTlStrpMnItm.Size = new System.Drawing.Size(191, 22);
+            this.dbxmlLadenTlStrpMnItm.Text = "db.xml laden";
+            this.dbxmlLadenTlStrpMnItm.Click += new System.EventHandler(this.dbxmlLadenTlStrpMnItm_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -435,5 +462,8 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.ToolStripMenuItem AanByServiceTlStrpMnItm;
         private System.Windows.Forms.ToolStripMenuItem UitByServiceTlStrpMnItm;
         private System.Windows.Forms.ToolStripMenuItem EmailTlStrpMnItm;
+        private System.Windows.Forms.ToolStripMenuItem dbXmlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem plaatsOphalenDbxmlToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dbxmlLadenTlStrpMnItm;
     }
 }

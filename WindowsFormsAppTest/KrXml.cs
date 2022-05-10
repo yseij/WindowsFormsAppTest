@@ -9,7 +9,7 @@ namespace WindowsFormsAppTest
 {
     class KrXml
     {
-        private string _dbPath = @"D:\\db.xml";
+        private string _dbPath = Properties.Settings.Default["PlaceDb"].ToString();
         private string _userPath = @"D:\\user.xml";
         public KrXml()
         {
@@ -79,6 +79,7 @@ namespace WindowsFormsAppTest
                         writer.WriteElementString("TijdService", Properties.Settings.Default.TijdService);
                         writer.WriteElementString("SaveLogFilePlace", Properties.Settings.Default.SaveLogFilePlace);
                         writer.WriteElementString("Email", Properties.Settings.Default.Email);
+                        writer.WriteElementString("SaveDbPlace", Properties.Settings.Default.SaveDbPlace);
                         writer.WriteEndElement();
                         writer.Flush();
                     }
@@ -115,11 +116,23 @@ namespace WindowsFormsAppTest
                     case "ServerNaam":
                         aNode.FirstChild.Value = Properties.Settings.Default.ServerNaam;
                         break;
+                    case "SaveDbPlace":
+                        aNode.FirstChild.Value = Properties.Settings.Default.SaveDbPlace;
+                        break;
                     default:
                         break;
                 }
             }
             doc.Save(_userPath);
+        }
+
+        public void SetDbXml()
+        {
+            var path = Path.Combine(Application.StartupPath, "db.xml");
+            MessageBox.Show(path);
+            Properties.Settings.Default["PlaceDb"] = path;
+            Properties.Settings.Default.Save();
+            UpdateXmlFile();
         }
     }
 }

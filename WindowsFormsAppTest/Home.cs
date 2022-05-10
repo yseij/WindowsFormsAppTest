@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -55,7 +56,7 @@ namespace WindowsFormsAppTest
 
 
             //_krXml.MakeXmlFileDb();
-
+            _krXml.SetDbXml();
             FillKlantenDropDown();
 
             GetSettings();
@@ -576,6 +577,26 @@ namespace WindowsFormsAppTest
                 StripMenuItemTestTijd.Enabled = false;
                 ServiceTlStrpMnItm.Enabled = false;
             }
+        }
+
+        private void plaatsOphalenDbxmlTlStrpMnItm_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.Description = "Custom Description";
+            fbd.SelectedPath = Properties.Settings.Default.SaveDbPlace;
+
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                string SelectedPath = fbd.SelectedPath;
+                ZetConfEnProp("SaveDbPlace", SelectedPath);
+            }
+        }
+
+        private void dbxmlLadenTlStrpMnItm_Click(object sender, EventArgs e)
+        {
+            string desPath = Path.Combine(Application.StartupPath, "db.xml");
+            string sourcePath = Properties.Settings.Default.SaveDbPlace + "/db.xml";
+            File.Copy(sourcePath, desPath, true);
         }
     }
 }

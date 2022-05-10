@@ -142,5 +142,17 @@ namespace WindowsFormsAppTest.Properties {
                 this["ServerNaam"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("///")]
+        public string PlaceDb {
+            get {
+                return ((string)(this["PlaceDb"]));
+            }
+            set {
+                this["PlaceDb"] = value;
+            }
+        }
     }
 }

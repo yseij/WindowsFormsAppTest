@@ -8,7 +8,7 @@ namespace WindowsFormsAppTest
 {
     class UrlXml
     {
-        private string _path = @"D://db.xml";
+        private string _path = Properties.Settings.Default["PlaceDb"].ToString();
 
         public List<Url> GetAll()
         {

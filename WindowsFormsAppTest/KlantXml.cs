@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using System.Xml.Linq;
-using System.Xml.Serialization;
 
 namespace WindowsFormsAppTest
 {
     class KlantXml
     {
-        private string _path = @"D://db.xml";
+        private string _path = Properties.Settings.Default["PlaceDb"].ToString();
 
         public List<Klant> GetKlanten()
         {
+            Console.WriteLine(_path);
             XDocument doc = XDocument.Load(_path);
             List<Klant> klanten = new List<Klant>();
 
