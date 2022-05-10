@@ -268,8 +268,7 @@ namespace WindowsFormsAppTest
             }
             else
             {
-                string data = _webRequest.GetWebRequestRest((Guid)KlantKrMaterialCmbx.SelectedValue,
-                                                        _urlTest,
+                string data = _webRequest.GetWebRequestRest(_urlTest,
                                                         isGetWebserviceVersion);
                 try
                 {

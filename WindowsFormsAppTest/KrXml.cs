@@ -82,7 +82,7 @@ namespace WindowsFormsAppTest
                         writer.WriteElementString("TijdService", Properties.Settings.Default.TijdService);
                         writer.WriteElementString("SaveLogFilePlace", Properties.Settings.Default.SaveLogFilePlace);
                         writer.WriteElementString("Email", Properties.Settings.Default.Email);
-                        writer.WriteElementString("SaveDbPlace", Properties.Settings.Default.SaveDbPlace);
+                        writer.WriteElementString("PlaceDb", Properties.Settings.Default.PlaceDb);
                         writer.WriteEndElement();
                         writer.Flush();
                     }
@@ -96,37 +96,37 @@ namespace WindowsFormsAppTest
 
         public void UpdateXmlFile()
         {
-            XmlDocument doc = new XmlDocument();
-            doc.Load(_userPath);
-            XmlNodeList aNodes = doc.SelectNodes("//*");
-
-            foreach (XmlNode aNode in aNodes)
+            if (File.Exists(_userPath))
             {
-                switch (aNode.Name)
+                XmlDocument doc = new XmlDocument();
+                doc.Load(_userPath);
+                XmlNodeList aNodes = doc.SelectNodes("//*");
+
+                foreach (XmlNode aNode in aNodes)
                 {
-                    case "ServiceAanOfUit":
-                        aNode.FirstChild.Value = Properties.Settings.Default.ServiceAanOfUit;
-                        break;
-                    case "TijdService":
-                        aNode.FirstChild.Value = Properties.Settings.Default.TijdService;
-                        break;
-                    case "SaveLogFilePlace":
-                        aNode.FirstChild.Value = Properties.Settings.Default.SaveLogFilePlace;
-                        break;
-                    case "Email":
-                        aNode.FirstChild.Value = Properties.Settings.Default.Email;
-                        break;
-                    case "ServerNaam":
-                        aNode.FirstChild.Value = Properties.Settings.Default.ServerNaam;
-                        break;
-                    case "SaveDbPlace":
-                        aNode.FirstChild.Value = Properties.Settings.Default.SaveDbPlace;
-                        break;
-                    default:
-                        break;
+                    switch (aNode.Name)
+                    {
+                        case "ServiceAanOfUit":
+                            aNode.FirstChild.Value = Properties.Settings.Default.ServiceAanOfUit;
+                            break;
+                        case "TijdService":
+                            aNode.FirstChild.Value = Properties.Settings.Default.TijdService;
+                            break;
+                        case "SaveLogFilePlace":
+                            aNode.FirstChild.Value = Properties.Settings.Default.SaveLogFilePlace;
+                            break;
+                        case "Email":
+                            aNode.FirstChild.Value = Properties.Settings.Default.Email;
+                            break;
+                        case "PlaceDb":
+                            aNode.FirstChild.Value = Properties.Settings.Default.PlaceDb;
+                            break;
+                        default:
+                            break;
+                    }
                 }
-            }
-            doc.Save(_userPath);
+                doc.Save(_userPath);
+            }       
         }
 
         public void SetDbXml()

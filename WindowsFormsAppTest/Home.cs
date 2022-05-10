@@ -54,8 +54,8 @@ namespace WindowsFormsAppTest
 
             ToolStripMenuItem1.Enabled = false;
 
-            _krXml.MakeXmlFileUser();
             _krXml.SetDbXml();
+            _krXml.MakeXmlFileUser();
             _krXml.MakeXmlFileDb();
 
 
@@ -67,8 +67,6 @@ namespace WindowsFormsAppTest
             TijdCheckService();
             AanOfUitCheck();
             AanOfUitCheckService();
-
-            //_krXml.MakeXmlFileUser();
         }
 
         private void GetSettings()
@@ -543,8 +541,7 @@ namespace WindowsFormsAppTest
                 {
 
                 }
-                var data = _webRequest.GetWebRequestRest(url.Id,
-                                                         url.Name,
+                var data = _webRequest.GetWebRequestRest(url.Name,
                                                          isGetWebserviceVersion);
                 _result = JObject.Parse(data);
             }
