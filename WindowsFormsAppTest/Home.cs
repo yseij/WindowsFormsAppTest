@@ -54,9 +54,11 @@ namespace WindowsFormsAppTest
 
             ToolStripMenuItem1.Enabled = false;
 
-
-            //_krXml.MakeXmlFileDb();
+            _krXml.MakeXmlFileUser();
             _krXml.SetDbXml();
+            _krXml.MakeXmlFileDb();
+
+
             FillKlantenDropDown();
 
             GetSettings();

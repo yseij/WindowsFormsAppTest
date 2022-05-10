@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Settings>
+  <ServiceAanOfUit>uit</ServiceAanOfUit>
+  <TijdService>900000</TijdService>
+  <SaveLogFilePlace>d:</SaveLogFilePlace>
+  <Email>
+  </Email>
+</Settings>
