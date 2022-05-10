@@ -12,7 +12,6 @@ namespace WindowsFormsAppTest
 
         public List<Klant> GetKlanten()
         {
-            Console.WriteLine(_path);
             XDocument doc = XDocument.Load(_path);
             List<Klant> klanten = new List<Klant>();
 

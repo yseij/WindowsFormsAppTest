@@ -67,7 +67,7 @@ namespace WindowsFormsAppTest
                                 data = data.Substring(Pos1 + 1, Pos2 - Pos1 - 1);
                                 if (_certIsGoed)
                                 {
-                                    return "{" + data + "', certVerValDatum: '" + cert.GetExpirationDateString().ToString() + "'}";
+                                    return "{" + data + ", \"certVerValDatum\": " + "\"" + cert.GetExpirationDateString().ToString() + "\"" + "}";
                                 }
                             } 
                         }

@@ -273,13 +273,7 @@ namespace WindowsFormsAppTest
                 try
                 {
                     _result = JObject.Parse(data);
-                }
-                catch (Exception)
-                {
-                    MessageBox.Show("Dit is geen juiste methode die je kan testen");
-                }
-                
-                _testRoute.TestOneRoute(_result,
+                    _testRoute.TestOneRoute(_result,
                                     textBoxWebservice,
                                     SslChckBx,
                                     SllCertificaatVervalDatumTxtBx,
@@ -288,6 +282,11 @@ namespace WindowsFormsAppTest
                                     checkBoxKraanDatabase,
                                     ResponseTextBox,
                                     _webserviceName);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Dit is geen juiste methode die je kan testen");
+                }
             }
         }
 
