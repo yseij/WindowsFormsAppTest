@@ -107,7 +107,7 @@ namespace WindowsFormsAppTest
                 {
                     return "true";
                 }
-                return "false met statuscode: " + response1.StatusCode;
+                return "false met statuscode: " + (int)response1.StatusCode + " = " + response1.StatusCode;
             }
             catch (Exception ex)
             {

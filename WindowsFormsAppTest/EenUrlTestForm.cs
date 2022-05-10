@@ -65,16 +65,14 @@ namespace WindowsFormsAppTest
         private void KlantKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             UrlVoorTestTxtBx.Text = string.Empty;
+            ClearBox();
             GetUrls();
         }
 
         private void AllUrlsKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
         {
             Url url = (Url)AllUrlsKrLstBx.SelectedItem;
-
-            MLblCheckOfNiet.Text = string.Empty;
-            SecurityIdTxtBx.Text = string.Empty;
-            UrlVoorTestTxtBx.Text = string.Empty;
+            ClearBox();
 
             if (url != null && url.KlantId != Guid.Empty)
             {
