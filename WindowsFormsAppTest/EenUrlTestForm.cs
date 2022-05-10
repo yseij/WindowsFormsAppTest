@@ -256,7 +256,15 @@ namespace WindowsFormsAppTest
                 {
                     int plaatsSlech = UrlVoorTestTxtBx.Text.LastIndexOf("/");
                     string service = UrlVoorTestTxtBx.Text.Substring(plaatsSlech + 1, UrlVoorTestTxtBx.Text.Length - plaatsSlech - 1);
-                    _result = JObject.Parse(_webRequest.GetWebRequestSoap(_urlTest, service));
+                    try
+                    {
+                        _result = JObject.Parse(_webRequest.GetWebRequestSoap(_urlTest, service));
+                    }
+                    catch (Exception)
+                    {
+                        MessageBox.Show("Dit is geen juiste methode die je kan testen");
+                    }
+                    
                     CheckDataSoap(_result);
                 }
             }
@@ -265,7 +273,15 @@ namespace WindowsFormsAppTest
                 string data = _webRequest.GetWebRequestRest((Guid)KlantKrMaterialCmbx.SelectedValue,
                                                         _urlTest,
                                                         isGetWebserviceVersion);
-                _result = JObject.Parse(data);
+                try
+                {
+                    _result = JObject.Parse(data);
+                }
+                catch (Exception)
+                {
+                    MessageBox.Show("Dit is geen juiste methode die je kan testen");
+                }
+                
                 _testRoute.TestOneRoute(_result,
                                     textBoxWebservice,
                                     SslChckBx,

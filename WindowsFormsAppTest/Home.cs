@@ -53,6 +53,9 @@ namespace WindowsFormsAppTest
 
             ToolStripMenuItem1.Enabled = false;
 
+
+            //_krXml.MakeXmlFileDb();
+
             FillKlantenDropDown();
 
             GetSettings();
@@ -62,7 +65,6 @@ namespace WindowsFormsAppTest
             AanOfUitCheck();
             AanOfUitCheckService();
 
-            //_krXml.MakeXmlFileDb();
             //_krXml.MakeXmlFileUser();
         }
 
@@ -234,6 +236,7 @@ namespace WindowsFormsAppTest
         {
             ConfigurationManager.AppSettings[name] = waarde;
             Properties.Settings.Default[name] = waarde;
+            Properties.Settings.Default.Save();
         }
 
         private void PlaatsOpslaanLogFileToolStripMenuItem_MouseHover(object sender, EventArgs e)
