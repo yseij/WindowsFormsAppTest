@@ -6,8 +6,6 @@ namespace WindowsFormsAppTest
 {
     public partial class UserForm : MaterialForm
     {
-        private string _xmlUserName = @"D:\user.xml";
-
         KrXml _krXml;
         ErrorProvider _error;
         public UserForm()

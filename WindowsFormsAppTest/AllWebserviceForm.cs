@@ -12,11 +12,7 @@ namespace WindowsFormsAppTest
         private string _huidigeWebserviceNaam;
         private string _zoekOpWebserviceNaam = string.Empty;
 
-        private Guid _selectedWebserviceId;
-
         public static int SetValueForWeberviceId = 0;
-
-        private bool _isSoap;
 
         private List<WebService> _webServiceDatas = new List<WebService>();
 
@@ -61,10 +57,6 @@ namespace WindowsFormsAppTest
         private void FillLstBxWebServices()
         {
             AllWebserviceKrLstBx.FillListBoxWebserviceData(_webServiceDatas);
-            if (_webServiceDatas.Count != 0)
-            {
-                _selectedWebserviceId = _webServiceDatas[0].Id;
-            }
         }
 
         private void AllWebserviceKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
@@ -72,7 +64,6 @@ namespace WindowsFormsAppTest
             if (AllWebserviceKrLstBx.Items != null && AllWebserviceKrLstBx.SelectedValue != null)
             {
                 Guid idOfSelected = (Guid)AllWebserviceKrLstBx.SelectedValue;
-                _selectedWebserviceId = idOfSelected;
                 WebService webServiceData = _webServiceDatas.Find(k => k.Id == idOfSelected);
                 WebserviceTxtBx.Text = webServiceData.Name;
                 SoapWebserviceChkBx.Checked = webServiceData.Soap;
@@ -134,7 +125,6 @@ namespace WindowsFormsAppTest
         {
             GetWebservicesIfZoekOpKlantenNaamIsGevuld();
             AllWebserviceKrLstBx.SelectedIndex = AllWebserviceKrLstBx.Items.Count - 1;
-            _selectedWebserviceId = _webServiceDatas[_webServiceDatas.Count - 1].Id;
         }
 
         private void GetWebservicesIfZoekOpKlantenNaamIsGevuld()

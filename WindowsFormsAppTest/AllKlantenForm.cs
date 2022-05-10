@@ -3,24 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace WindowsFormsAppTest
 {
     public partial class AllKlantenForm : MaterialForm
     {
         private string _changedKlant;
-        private string _changedSecurityId;
-        private string _changedUrl;
         private string _zoekOpKlantNaam = string.Empty;
         private string _huidigeKlantNaam = string.Empty;
-        private string _huidigeWebserviceNaam = string.Empty;
 
         private Guid _selectedKlantId;
-        private Guid _selectedWebserviceId;
-        private Guid _selectedUrlId;
-
-        public static int SetValueForKlantId = 0;
 
         private List<Klant> _klantDatas = new List<Klant>();
         private List<WebService> _webServiceDatas = new List<WebService>();
@@ -103,7 +95,6 @@ namespace WindowsFormsAppTest
             AllWebserviceKrLstBx.FillListBoxWebserviceData(webServices);
             if (webServices.Count != 0)
             {
-                _selectedWebserviceId = webServices[0].Id;
                 WebserviceTxtBx.Text = webServices[0].Name;
                 SoapWebserviceChkBx.Checked = webServices[0].Soap;
             }
@@ -233,11 +224,9 @@ namespace WindowsFormsAppTest
             if (AllWebserviceKrLstBx.Items != null && AllWebserviceKrLstBx.SelectedValue != null)
             {
                 Guid idOfSelected = (Guid)AllWebserviceKrLstBx.SelectedValue;
-                _selectedWebserviceId = idOfSelected;
                 WebService webService = _webServiceDatas.Find(w => w.Id == idOfSelected);
                 WebserviceTxtBx.Text = webService.Name;
                 SoapWebserviceChkBx.Checked = webService.Soap;
-                _huidigeWebserviceNaam = webService.Name;
             }
         }
 

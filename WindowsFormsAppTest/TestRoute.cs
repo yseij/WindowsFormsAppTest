@@ -1,8 +1,6 @@
 ﻿using MaterialSkin.Controls;
 using Newtonsoft.Json.Linq;
 using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest

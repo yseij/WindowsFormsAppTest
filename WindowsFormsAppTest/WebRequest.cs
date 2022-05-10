@@ -45,32 +45,7 @@ namespace WindowsFormsAppTest
 
                         HttpResponseMessage response1 = client.GetAsync(uri).Result;  // Blocking call! Program will wait here until a response is received or a timeout occurs.
                         string data = response1.Content.ReadAsStringAsync().Result;
-                        if (response1.IsSuccessStatusCode)
-                        {
-                            //Parse the response body.
-                            //Make sure to add a reference to System.Net.Http.Formatting.dll
-                            if (isWebserviceVersion)
-                            {
-                                if (_certIsGoed)
-                                {
-                                    return GetDataOfWebRequest(data, cert.GetExpirationDateString().ToString());
-                                }
-                                else
-                                {
-                                    return GetDataOfWebRequest(data, "");
-                                }
-                            }
-                            else
-                            {
-                                int Pos1 = data.IndexOf('{');
-                                int Pos2 = data.IndexOf('}');
-                                data = data.Substring(Pos1 + 1, Pos2 - Pos1 - 1);
-                                if (_certIsGoed)
-                                {
-                                    return "{" + data + ", \"certVerValDatum\": " + "\"" + cert.GetExpirationDateString().ToString() + "\"" + "}";
-                                }
-                            } 
-                        }
+                        return GetData(response1, isWebserviceVersion, data, cert);
                     }
                     return @"{ ex: '" + "krijg geen data terug" + "'}";
                 }
@@ -81,7 +56,40 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private string GetDataOfWebRequest(string data, string verValDatum = "")
+        private string GetData(HttpResponseMessage response1, 
+                               bool isWebserviceVersion, 
+                               string data,
+                               X509Certificate cert)
+        {
+            if (response1.IsSuccessStatusCode)
+            {
+                if (_certIsGoed)
+                {
+                    if (isWebserviceVersion)
+                    {
+                        return GetWebserviceVersionDataOfWebRequest(data, cert.GetExpirationDateString().ToString());
+                    }
+                    else
+                    {
+                        return GetDataOfWebRequest(data, cert.GetExpirationDateString().ToString());
+                    }
+                }
+                else
+                {
+                    if (isWebserviceVersion)
+                    {
+                        return GetWebserviceVersionDataOfWebRequest(data, "");
+                    }
+                    else
+                    {
+                        return GetDataOfWebRequest(data, "");
+                    }
+                }
+            }
+            return @"{ ex: '" + "krijg geen data terug" + "'}";
+        }
+
+        private string GetWebserviceVersionDataOfWebRequest(string data, string verValDatum = "")
         {
             _positionKraanDll = data.IndexOf("KraanDLL");
             _positionKraanIni = data.IndexOf("Kraan.ini");
@@ -94,6 +102,18 @@ namespace WindowsFormsAppTest
             _kraanDatabase = data.Substring(_positionDatabaseConnect, _positionDatabaseMelding - _positionDatabaseConnect);
 
             return @"{ WebserviceVersie: '" + _webserviceVersie + "', KraanDll: '" + _kraanDll + "', KraanIni: '" + _kraanIni + "', KraanDatabase: '" + _kraanDatabase + "', certVerValDatum: '" + verValDatum + "'}";
+        }
+
+        private string GetDataOfWebRequest(string data, string verValDatum = "")
+        {
+            int Pos1 = data.IndexOf('{');
+            int Pos2 = data.IndexOf('}');
+            data = data.Substring(Pos1 + 1, Pos2 - Pos1 - 1);
+            if (_certIsGoed)
+            {
+                return "{" + data + ", \"certVerValDatum\": " + "\"" + verValDatum + "\"" + "}";
+            }
+            return data;
         }
 
         public string CheckUrl(string host)
@@ -130,13 +150,9 @@ namespace WindowsFormsAppTest
         //SOAP
         public string GetWebRequestSoap(string host, string service)
         {
-            string result = "";
+            string result = string.Empty;
 
             //YouriWebserviceAuth.AuthServiceClient clientAuth;
-            YouriWebserviceCrm.CrmServiceClient clientCrm;
-            YouriWebserviceWorkFlow.WorkflowServiceClient clientWorkflow;
-            YouriWebserviceUren.UrenServiceClient clientUren;
-            YouriWebserviceMaterieel.MaterieelServiceClient clientMaterieel;
             //YouriWebserviceWeb.WebServiceClient clientWeb;
 
             switch (service)
@@ -148,28 +164,16 @@ namespace WindowsFormsAppTest
                 //    clientAuth.Close();
                 //    break;
                 case "CrmService.svc":
-                    clientCrm = NewCrmService(host);
-                    clientCrm.Open();
-                    result = clientCrm.GetVersion();
-                    clientCrm.Close();
+                    result = GetVersionCrmService(host);
                     break;
                 case "WorkflowService.svc":
-                    clientWorkflow = NewWorkFlowService(host);
-                    clientWorkflow.Open();
-                    result = clientWorkflow.GetVersion();
-                    clientWorkflow.Close();
+                    result = GetVersionWorkFlowService(host);
                     break;
                 case "UrenService.svc":
-                    clientUren = NewUrenService(host);
-                    clientUren.Open();
-                    result = clientUren.GetVersion();
-                    clientUren.Close();
+                    result = GetVersionUrenService(host);
                     break;
                 case "MaterieelService.svc":
-                    clientMaterieel = NewMateriaalService(host);
-                    clientMaterieel.Open();
-                    result = clientMaterieel.GetVersion();
-                    clientMaterieel.Close();
+                    result = GetVersionMaterieelService(host);
                     break;
                 //case "Webservice.svc":
                 //    clientMaterieel = NewWebSerivce(host);
@@ -181,7 +185,88 @@ namespace WindowsFormsAppTest
                     return @"{ ex: '" + " deze service bestaat niet " + "'}"; ;
 
             }
-            return GetDataOfWebRequestSoap(result);
+            return result;
+        }
+
+        private string GetVersionCrmService(string host)
+        {
+            string result;
+
+            YouriWebserviceCrm.CrmServiceClient clientCrm;
+            clientCrm = NewCrmService(host);
+            clientCrm.Open();
+            try
+            {
+                result = clientCrm.GetVersion();
+                result = GetDataOfWebRequestSoap(result);
+            }
+            catch (Exception ex)
+            {
+                result = @"{ ex: '" + ex.Message.ToString() + "'}";
+            }
+            clientCrm.Close();
+            return result;
+        }
+
+        private string GetVersionWorkFlowService(string host)
+        {
+            string result;
+
+            YouriWebserviceWorkFlow.WorkflowServiceClient clientWorkflow;
+            clientWorkflow = NewWorkFlowService(host);
+            clientWorkflow.Open();
+            try
+            {
+                result = clientWorkflow.GetVersion();
+                result = GetDataOfWebRequestSoap(result);
+            }
+            catch (Exception ex)
+            {
+                result = @"{ ex: '" + ex.Message.ToString() + "'}"; ;
+            }
+            clientWorkflow.Close();
+            return result;
+        }
+
+        private string GetVersionUrenService(string host)
+        {
+            string result;
+
+            YouriWebserviceUren.UrenServiceClient clientUren;
+            clientUren = NewUrenService(host);
+            clientUren.Open();
+            try
+            {
+                result = clientUren.GetVersion();
+                result = GetDataOfWebRequestSoap(result);
+            }
+            catch (Exception ex)
+            {
+                result = @"{ ex: '" + ex.Message.ToString() + "'}"; ;
+            }
+            clientUren.Close();
+            return result;
+        }
+
+
+        private string GetVersionMaterieelService(string host)
+        {
+            string result;
+
+            YouriWebserviceMaterieel.MaterieelServiceClient clientMaterieel;
+            clientMaterieel = NewMateriaalService(host);
+            clientMaterieel.Open();
+            try
+            {
+                result = clientMaterieel.GetVersion();
+                result = GetDataOfWebRequestSoap(result);
+            }
+            catch (Exception ex)
+            {
+                result = @"{ ex: '" + ex.Message.ToString() + "'}"; ;
+            }
+            clientMaterieel.Close();
+            return result;
         }
 
         //private YouriWebserviceAuth.AuthServiceClient NewAuthService(string host)
@@ -324,8 +409,10 @@ namespace WindowsFormsAppTest
                 {
                     client.Open();
                     Sales31.MessageType message = new Sales31.MessageType();
-                    message.MsgProperties = new Sales31.MessagePropertiesType();
-                    message.MsgProperties.MsgType = "CST_KRAAN_VERSION";
+                    message.MsgProperties = new Sales31.MessagePropertiesType
+                    {
+                        MsgType = "CST_KRAAN_VERSION"
+                    };
 
                     HttpWebRequest request = HttpWebRequest.Create(host) as HttpWebRequest;
                     X509Certificate cert = GetCertificate(request);
@@ -384,7 +471,7 @@ namespace WindowsFormsAppTest
 
             string webserviceVersie = data.Substring(positionWebserviceVersie, positionDevExpressVersie - positionWebserviceVersie);
             string devExpressVersie = data.Substring(positionDevExpressVersie, positionDatabaseVersie - positionDevExpressVersie);
-            string databaseVersie = data.Substring(positionDatabaseVersie, data.Length - positionDatabaseVersie);
+
             return "{ \"Webservice Versie\": " + "\"" + webserviceVersie.Split(':')[1] + "\"" + ", \"DevExpress versie\": " + "\"" + devExpressVersie.Split(':')[1] + "\"" + ", \"DatabaseVersie\": " + "\"" + devExpressVersie.Split(':')[1] + "\"" + "}";
         }
     }

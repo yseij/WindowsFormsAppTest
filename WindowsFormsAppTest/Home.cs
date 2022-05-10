@@ -13,12 +13,10 @@ namespace WindowsFormsAppTest
     {
         private string _klantKeuzeNaam;
         private string _keuzeNaam;
-        private string _webserviceName;
         private string _text = string.Empty;
         private string _https = "https:";
         private string _http = "http:";
 
-        private Guid _webserviceKeuzeId;
         private Guid _klantKeuzeId;
 
         private bool _isSoap = false;
@@ -95,7 +93,7 @@ namespace WindowsFormsAppTest
                     }
                 }
             }
-            ToolStripMenuItem1.Enabled = (_klantKeuzeId != Guid.Empty || _webserviceKeuzeId != Guid.Empty) && Properties.Settings.Default.Email != "";
+            ToolStripMenuItem1.Enabled = _klantKeuzeId != Guid.Empty && Properties.Settings.Default.Email != "";
 
             CheckEmail();
         }
@@ -145,7 +143,7 @@ namespace WindowsFormsAppTest
 
         private void ChildFormClosingSetEmail(object sender, FormClosingEventArgs e)
         {
-            ToolStripMenuItem1.Enabled = (_klantKeuzeId != Guid.Empty || _webserviceKeuzeId != Guid.Empty) && Properties.Settings.Default.Email != "";
+            ToolStripMenuItem1.Enabled = _klantKeuzeId != Guid.Empty && Properties.Settings.Default.Email != "";
             CheckEmail();
         }
 
@@ -531,7 +529,9 @@ namespace WindowsFormsAppTest
                 }
                 else
                 {
-                    string data = _webRequest.GetWebRequestSoap(url.Name, _webserviceName);
+                    int plaatsSlech = url.Name.LastIndexOf("/");
+                    string service = url.Name.Substring(plaatsSlech + 1, url.Name.Length - plaatsSlech - 1);
+                    string data = _webRequest.GetWebRequestSoap(url.Name, service);
                     _result = JObject.Parse(data);
                 }
             }

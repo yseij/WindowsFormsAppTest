@@ -7,10 +7,6 @@ namespace WindowsFormsAppTest
 {
     public partial class AddWebserviceForm : MaterialForm
     {
-        private string _newWebserviceNaam;
-
-        private bool _isSoap;
-
         private List<WebService> _webServiceDatas = new List<WebService>();
 
         ErrorProvider _error;

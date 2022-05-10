@@ -10,15 +10,10 @@ namespace WindowsFormsAppTest
     public partial class WebserviceOfKlantForm : MaterialForm
     {
         private Guid _selectedWebserviceIdOfKlantId;
-        private Guid _webserviceId;
         private int _aantalLegeUrls;
-
 
         private bool _isKlant;
         private bool _isSoap;
-
-        private string _webserviceName;
-        private string _httpName;
 
         dynamic _result = null;
 
@@ -69,9 +64,6 @@ namespace WindowsFormsAppTest
 
         private void FillCmbxWebServices()
         {
-            //WebService webServiceData = new WebService("Alles testen", false, "");
-            //_webServiceDatas.Add(webServiceData);
-
             WebserviceOfKlantKrMaterialCmbx.FillCmbBoxWebservice(_webServiceDatas);
         }
 

@@ -4,17 +4,18 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Drawing;
 using System.Windows.Forms;
-using System.Xml.Linq;
 
 namespace WindowsFormsAppTest
 {
     public partial class AddKlantWithWebservicesForm : MaterialForm
     {
-        private List<WebService> _webserviceDatas = new List<WebService>();
         private Guid _klantId;
+
         private int _aantalFouten = -1;
 
         private bool _inError = false;
+
+        private List<WebService> _webserviceDatas = new List<WebService>();
 
         ErrorProvider _error;
         WebserviceXml _webserviceXml;

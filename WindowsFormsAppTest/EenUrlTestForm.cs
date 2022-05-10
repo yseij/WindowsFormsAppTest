@@ -15,7 +15,6 @@ namespace WindowsFormsAppTest
         private string _urlTest = string.Empty;
 
         private bool _isSoap = false;
-        private bool _isSecurityId = false;
 
         private Guid _webserviceId;
 
@@ -84,7 +83,6 @@ namespace WindowsFormsAppTest
                 UrlVoorTestTxtBx.Text = url.Name;
                 if (_selectedWebservice.SecurityId != string.Empty)
                 {
-                    _isSecurityId = true;
                     SecurityIdTxtBx.Text = _selectedWebservice.SecurityId;
                 }
                 SetSelectedTab(url);
@@ -132,7 +130,7 @@ namespace WindowsFormsAppTest
                 {
                     TbCntrlRestApiEnSoap.SelectTab(3);
                 }
-                else if(url.Name.EndsWith("MessageServiceSoap.svc"))
+                else if (url.Name.EndsWith("MessageServiceSoap.svc"))
                 {
                     TbCntrlRestApiEnSoap.SelectTab(2);
                 }
@@ -244,7 +242,7 @@ namespace WindowsFormsAppTest
                 else if (UrlVoorTestTxtBx.Text.Contains("MessageServiceSoap.svc"))
                 {
                     _result = JObject.Parse(_webRequest.Get24SalesData(UrlVoorTestTxtBx.Text));
-                    
+
                     if (_result != null)
                     {
                         CheckData(_result, _webserviceName, 2.4);
@@ -262,7 +260,7 @@ namespace WindowsFormsAppTest
                     {
                         MessageBox.Show("Dit is geen juiste methode die je kan testen");
                     }
-                    
+
                     CheckDataSoap(_result);
                 }
             }
@@ -302,6 +300,7 @@ namespace WindowsFormsAppTest
             clearGroupBox(grpBxSales2_4);
             clearGroupBox(grpBxSales3_1);
             clearGroupBox(grpBxSoap);
+            MLblCheckOfNiet.Text = string.Empty;
             ResponseTextBox.Text = string.Empty;
         }
 
@@ -435,16 +434,6 @@ namespace WindowsFormsAppTest
                 }
                 ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " + item.Value + Environment.NewLine;
             }
-        }
-
-        private void TbCntrlRestApiEnSoap_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            UrlVoorTestTxtBx.Select();
-        }
-
-        private void TbCntrlRestApiEnSoap_TabIndexChanged(object sender, EventArgs e)
-        {
-            UrlVoorTestTxtBx.Select();
         }
     }
 }

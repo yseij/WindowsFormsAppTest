@@ -864,8 +864,6 @@ namespace WindowsFormsAppTest
             this.TbCntrlRestApiEnSoap.Size = new System.Drawing.Size(864, 294);
             this.TbCntrlRestApiEnSoap.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.TbCntrlRestApiEnSoap.TabIndex = 72;
-            this.TbCntrlRestApiEnSoap.SelectedIndexChanged += new System.EventHandler(this.TbCntrlRestApiEnSoap_SelectedIndexChanged);
-            this.TbCntrlRestApiEnSoap.TabIndexChanged += new System.EventHandler(this.TbCntrlRestApiEnSoap_TabIndexChanged);
             // 
             // RestPage
             // 

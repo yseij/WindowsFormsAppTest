@@ -26,7 +26,7 @@
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>37</ApplicationRevision>
+    <ApplicationRevision>38</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -187,7 +187,6 @@
     <Compile Include="KrXml.cs" />
     <Compile Include="LogFile.cs" />
     <Compile Include="MailClient.cs" />
-    <Compile Include="MessageBoxManager.cs" />
     <Compile Include="NodeSorter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -198,13 +197,6 @@
       <DependentUpon>Sales31CredentialsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings.cs" />
-    <Compile Include="SoapRequest.cs" />
-    <Compile Include="SoapRequestForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="SoapRequestForm.Designer.cs">
-      <DependentUpon>SoapRequestForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="TestRoute.cs" />
     <Compile Include="Url.cs" />
     <Compile Include="UserForm.cs">
@@ -255,9 +247,6 @@
     </Compile>
     <EmbeddedResource Include="Sales31CredentialsForm.resx">
       <DependentUpon>Sales31CredentialsForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="SoapRequestForm.resx">
-      <DependentUpon>SoapRequestForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForm.resx">
       <DependentUpon>UserForm.cs</DependentUpon>
@@ -616,9 +605,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="db.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="user.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
