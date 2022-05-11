@@ -125,6 +125,14 @@ namespace WindowsFormsAppTest
             SaveXmlFile(doc);
         }
 
+        public void DeleteByKlantWebservice(Guid id)
+        {
+            XDocument doc = XDocument.Load(_path);
+            IEnumerable<XElement> xmlKlanten = doc.Element("DB").Element("KlantWebservices").Elements("KlantWebservice").Where(p => Guid.Parse(p.Attribute("Id").Value) == id);
+            xmlKlanten.Remove();
+            SaveXmlFile(doc);
+        }
+
         public void DeleteByKlant(Guid id)
         {
             XDocument doc = XDocument.Load(_path);

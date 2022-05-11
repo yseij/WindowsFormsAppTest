@@ -463,6 +463,7 @@ namespace WindowsFormsAppTest
             this.DeleteWebserviceBttn.TabIndex = 76;
             this.DeleteWebserviceBttn.Text = "WEBSERVICE VERWIJDEREN";
             this.DeleteWebserviceBttn.UseVisualStyleBackColor = false;
+            this.DeleteWebserviceBttn.Click += new System.EventHandler(this.DeleteWebserviceBttn_Click);
             // 
             // WebserviceTxtBx
             // 

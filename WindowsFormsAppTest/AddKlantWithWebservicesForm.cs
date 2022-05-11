@@ -194,6 +194,12 @@ namespace WindowsFormsAppTest
                             guid = Guid.Parse(checkBox.Tag.ToString());
                             huidigeWebservice = checkBox.Text;
                         }
+                        else
+                        {
+                            guid = Guid.Parse(checkBox.Tag.ToString());
+                            klantWebservice.Webservice = guid;
+                            DeleteKlantWebservice(klantWebservice);
+                        }
                     }
                     if (isChecked)
                     {
@@ -238,6 +244,15 @@ namespace WindowsFormsAppTest
             if (klantWebservice1 == null)
             {
                 _klantWebserviceXml.AddKlantWebservice(klantWebservice);
+            }
+        }
+
+        private void DeleteKlantWebservice(KlantWebservice klantWebservice)
+        {
+            KlantWebservice klantWebservice1 = _klantWebserviceXml.GetByKlantAndByWebservice(klantWebservice.Klant, klantWebservice.Webservice);
+            if (klantWebservice1 != null)
+            {
+                _klantWebserviceXml.DeleteByKlantWebservice(klantWebservice1.Id);
             }
         }
 
