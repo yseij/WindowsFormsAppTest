@@ -73,13 +73,11 @@ namespace WindowsFormsAppTest
             Url url = (Url)AllUrlsKrLstBx.SelectedItem;
             ClearBox();
 
-            if (url != null && url.KlantId != Guid.Empty)
+            if (url != null && url.KlantWebserviceId != Guid.Empty)
             {
-                if (url.WebserviceId != Guid.Empty)
-                {
-                    _selectedWebservice = _webserviceXml.GetWebserviceById(url.WebserviceId);
-                    _webserviceId = _selectedWebservice.Id;
-                }
+                _klantWebservice = _klantWebserviceXml.GetByKlantWebserviceId(url.KlantWebserviceId);
+                _selectedWebservice = _webserviceXml.GetWebserviceById(_klantWebservice.Webservice);
+                _webserviceId = _selectedWebservice.Id;
                 UrlVoorTestTxtBx.Text = url.Name;
                 if (_selectedWebservice.SecurityId != string.Empty)
                 {
@@ -93,7 +91,7 @@ namespace WindowsFormsAppTest
         {
             int i = -1;
 
-            Url newUrl = new Url(UrlVoorTestTxtBx.Text, (Guid)KlantKrMaterialCmbx.SelectedValue, _selectedWebservice.Id);
+            Url newUrl = new Url(UrlVoorTestTxtBx.Text, (Guid)KlantKrMaterialCmbx.SelectedValue, _klantWebservice.Id);
             Url url = _urlXml.GetByKlantAndName((Guid)KlantKrMaterialCmbx.SelectedValue, UrlVoorTestTxtBx.Text);
             i = AllUrlsKrLstBx.FindString(UrlVoorTestTxtBx.Text);
             if (url == null && i == -1)
@@ -162,17 +160,27 @@ namespace WindowsFormsAppTest
                 {
                     url.Name = klant.BasisUrl2 + webService.Name;
                 }
-                url.WebserviceId = webService.Id;
                 url.KlantId = (Guid)KlantKrMaterialCmbx.SelectedValue;
+                url.KlantWebserviceId = klantWebservice.Id;
                 urls.Add(url);
-            }
 
-            Url tussenUrl = new Url("|---Opgeslagen urls---|", Guid.Empty, Guid.Empty);
-            urls.Add(tussenUrl);
-            List<Url> urlDatas = _urlXml.GetByKlantId((Guid)KlantKrMaterialCmbx.SelectedValue);
-            foreach (Url url in urlDatas)
-            {
-                urls.Add(url);
+                List<Url> urlDatas = _urlXml.GetByKlantWebserviceId(klantWebservice.Id);
+                foreach (Url url1 in urlDatas)
+                {
+                    Url newUrl = new Url();
+                    newUrl.Id = url1.Id;
+                    if (klantWebservice.BasisUrl1)
+                    {
+                        newUrl.Name = klant.BasisUrl1 + webService.Name + "/" + url1.Name;
+                    }
+                    else
+                    {
+                        newUrl.Name = klant.BasisUrl2 + webService.Name + "/" + url1.Name;
+                    }
+                    newUrl.KlantId = (Guid)KlantKrMaterialCmbx.SelectedValue;
+                    newUrl.KlantWebserviceId = klantWebservice.Id;
+                    urls.Add(newUrl);
+                }
             }
             AllUrlsKrLstBx.FillListBoxUrls(urls);
         }

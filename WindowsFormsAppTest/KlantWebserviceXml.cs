@@ -29,6 +29,20 @@ namespace WindowsFormsAppTest
             return klantWebservices;
         }
 
+        public KlantWebservice GetByKlantWebserviceId(Guid id)
+        {
+            XDocument doc = XDocument.Load(_path);
+            XElement element = doc.Element("DB").Element("KlantWebservices").Elements("KlantWebservice")
+            .FirstOrDefault(p => Guid.Parse(p.Attribute("Id").Value) == id);
+            KlantWebservice newKlantWebservice = new KlantWebservice();
+            newKlantWebservice.Id = Guid.Parse(element.Attribute("Id").Value);
+            newKlantWebservice.Klant = Guid.Parse(element.Attribute("Klant").Value);
+            newKlantWebservice.Webservice = Guid.Parse(element.Attribute("Webservice").Value);
+            newKlantWebservice.BasisUrl1 = bool.Parse(element.Attribute("BasisUrl1").Value);
+            newKlantWebservice.BasisUrl2 = bool.Parse(element.Attribute("BasisUrl2").Value);
+            return newKlantWebservice;
+        }
+
         public List<KlantWebservice> GetByKlant(Guid klantId)
         {
             List<KlantWebservice> klantWebservices = new List<KlantWebservice>();

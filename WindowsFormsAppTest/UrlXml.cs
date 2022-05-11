@@ -21,12 +21,30 @@ namespace WindowsFormsAppTest
                 Url newUrl = new Url();
                 newUrl.Id = Guid.Parse(element.Attribute("Id").Value);
                 newUrl.Name = element.Attribute("Name").Value;
-                newUrl.KlantId = Guid.Parse(element.Attribute("KlantId").Value);
-                newUrl.WebserviceId = Guid.Parse(element.Attribute("WebserviceId").Value);
+                newUrl.KlantWebserviceId = Guid.Parse(element.Attribute("KlantWebserviceId").Value);
                 urls.Add(newUrl);
             }
             return urls;
         }
+
+        public List<Url> GetByKlantWebserviceId(Guid klantWebserviceId)
+        {
+            List<Url> urls = new List<Url>();
+
+            XDocument doc = XDocument.Load(_path);
+            IEnumerable<XElement> elements = doc.Element("DB").Element("Urls").Elements("Url")
+                .Where(p => Guid.Parse(p.Attribute("KlantWebserviceId").Value) == klantWebserviceId);
+            foreach (XElement element in elements)
+            {
+                Url newUrl = new Url();
+                newUrl.Id = Guid.Parse(element.Attribute("Id").Value);
+                newUrl.Name = element.Attribute("Name").Value;
+                newUrl.KlantWebserviceId = Guid.Parse(element.Attribute("KlantWebserviceId").Value);
+                urls.Add(newUrl);
+            }
+            return urls;
+        }
+
         public List<Url> GetByKlantId(Guid klantId)
         {
             List<Url> urls = new List<Url>();
@@ -39,31 +57,29 @@ namespace WindowsFormsAppTest
                 Url newUrl = new Url();
                 newUrl.Id = Guid.Parse(element.Attribute("Id").Value);
                 newUrl.Name = element.Attribute("Name").Value;
-                newUrl.KlantId = Guid.Parse(element.Attribute("KlantId").Value);
-                newUrl.WebserviceId = Guid.Parse(element.Attribute("WebserviceId").Value);
+                newUrl.KlantWebserviceId = Guid.Parse(element.Attribute("KlantWebserviceId").Value);
                 urls.Add(newUrl);
             }
             return urls;
         }
 
-        public List<Url> GetByWebserviceId(Guid webserviceId)
-        {
-            List<Url> urls = new List<Url>();
+        //public List<Url> GetByWebserviceId(Guid webserviceId)
+        //{
+        //    List<Url> urls = new List<Url>();
 
-            XDocument doc = XDocument.Load(_path);
-            IEnumerable<XElement> elements = doc.Element("DB").Element("Urls").Elements("Url")
-                .Where(p => Guid.Parse(p.Attribute("WebserviceId").Value) == webserviceId);
-            foreach (XElement element in elements)
-            {
-                Url newUrl = new Url();
-                newUrl.Id = Guid.Parse(element.Attribute("Id").Value);
-                newUrl.Name = element.Attribute("Name").Value;
-                newUrl.KlantId = Guid.Parse(element.Attribute("KlantId").Value);
-                newUrl.WebserviceId = Guid.Parse(element.Attribute("WebserviceId").Value);
-                urls.Add(newUrl);
-            }
-            return urls;
-        }
+        //    XDocument doc = XDocument.Load(_path);
+        //    IEnumerable<XElement> elements = doc.Element("DB").Element("Urls").Elements("Url")
+        //        .Where(p => Guid.Parse(p.Attribute("WebserviceId").Value) == webserviceId);
+        //    foreach (XElement element in elements)
+        //    {
+        //        Url newUrl = new Url();
+        //        newUrl.Id = Guid.Parse(element.Attribute("Id").Value);
+        //        newUrl.Name = element.Attribute("Name").Value;
+        //        newUrl.KlantWebserviceId = Guid.Parse(element.Attribute("KlantWebserviceId").Value);
+        //        urls.Add(newUrl);
+        //    }
+        //    return urls;
+        //}
 
         public Url GetByKlantAndName(Guid klantId, string name)
         {
@@ -75,8 +91,7 @@ namespace WindowsFormsAppTest
             {
                 newUrl.Id = Guid.Parse(element.Attribute("Id").Value);
                 newUrl.Name = element.Attribute("Name").Value;
-                newUrl.KlantId = Guid.Parse(element.Attribute("KlantId").Value);
-                newUrl.WebserviceId = Guid.Parse(element.Attribute("WebserviceId").Value);
+                newUrl.KlantWebserviceId = Guid.Parse(element.Attribute("KlantWebserviceId").Value);
                 return newUrl;
             }
             return null;
@@ -88,8 +103,7 @@ namespace WindowsFormsAppTest
             doc.Element("DB").Element("Urls").Add(new XElement("Url",
                                                   new XAttribute("Id", url.Id),
                                                   new XAttribute("Name", url.Name),
-                                                  new XAttribute("KlantId", url.KlantId),
-                                                  new XAttribute("WebserviceId", url.WebserviceId)));
+                                                  new XAttribute("KlantWebserviceId", url.KlantWebserviceId)));
             SaveXmlFile(doc);
         }
 
