@@ -11,16 +11,22 @@ namespace WindowsFormsAppTest
         private Guid _selectedKlantId;
         private Guid _selectedUrlId;
 
+        private Klant _klant = new Klant();
         private List<Klant> _klanten = new List<Klant>();
+        private List<Url> _newUrls = new List<Url>();
 
         UrlXml _urlXml;
         KlantXml _klantXml;
+        WebserviceXml _webserviceXml;
+        KlantWebserviceXml _klantWebserviceXml;
 
         public AllUrlPerKlantForm()
         {
             InitializeComponent();
             _urlXml = new UrlXml();
             _klantXml = new KlantXml();
+            _webserviceXml = new WebserviceXml();
+            _klantWebserviceXml = new KlantWebserviceXml();
 
             GetKlantenIfZoekOpNaamIsLeeg();
             GetUrls();
@@ -65,8 +71,31 @@ namespace WindowsFormsAppTest
         private void GetUrls()
         {
             UrlTxtBx.Text = string.Empty;
+ 
+            List<KlantWebservice> klantWebservices = _klantWebserviceXml.GetAll();
             List<Url> urls = _urlXml.GetByKlantId(_selectedKlantId);
-            FillLstBxUrls(urls);
+            foreach (KlantWebservice klantWebservice in klantWebservices)
+            {
+                WebService webService = _webserviceXml.GetWebserviceById(klantWebservice.Webservice);
+                foreach (Url url in urls)
+                {
+                    Url newUrl = new Url();
+                    newUrl.Id = url.Id;
+                    if (klantWebservice.Id == url.KlantWebserviceId)
+                    {
+                        if (klantWebservice.BasisUrl1)
+                        {
+                            newUrl.Name = _klant.BasisUrl1 + webService.Name + "/" + url.Name;
+                        }
+                        else if(klantWebservice.BasisUrl2)
+                        {
+                            newUrl.Name = _klant.BasisUrl2 + webService.Name + "/" + url.Name;
+                        }
+                        _newUrls.Add(newUrl);
+                    }
+                }
+            }
+            FillLstBxUrls(_newUrls);
         }
 
         private void FillLstBxUrls(List<Url> urls)
@@ -86,7 +115,7 @@ namespace WindowsFormsAppTest
             {
                 Guid idOfSelected = (Guid)AllKlantKrLstBx.SelectedValue;
                 _selectedKlantId = idOfSelected;
-                Klant klantData = _klanten.Find(k => k.Id == idOfSelected);
+                _klant = _klanten.Find(k => k.Id == idOfSelected);
                 GetUrls();
             }
         }
@@ -102,7 +131,8 @@ namespace WindowsFormsAppTest
             if (AllUrlsKrLstBx.Items != null && AllUrlsKrLstBx.SelectedValue != null)
             {
                 _selectedUrlId = (Guid)AllUrlsKrLstBx.SelectedValue;
-                UrlTxtBx.Text = AllUrlsKrLstBx.Text;
+                Url url = (Url)AllUrlsKrLstBx.SelectedItem;
+                UrlTxtBx.Text = url.Name;
             }
         }
 

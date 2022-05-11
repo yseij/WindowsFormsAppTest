@@ -11,6 +11,8 @@ namespace WindowsFormsAppTest
     {
         private string _dbPath = Properties.Settings.Default["PlaceDb"].ToString();
         private string _userPath = @"D:\\user.xml";
+        private string _oldDbPath = @"D:\\db.xml";
+
         public KrXml()
         {
 
@@ -36,8 +38,8 @@ namespace WindowsFormsAppTest
                 WebService webService1 = new WebService("KraanHomeDna", true, "TEST");
                 WebService webService2 = new WebService("KraanSalesService", false, "");
                 WebService webService3 = new WebService("Kraan2Webservice", false, "");
-                WebService webService4 = new WebService("KraanHomeDNARelease", false, "");
-                WebService webService5 = new WebService("KraanHomeDNARelease/HomeDna.svc", false, "");
+                WebService webService4 = new WebService("KraanHomeDNARelease/HomeDna.svc", false, "");
+                WebService webService5 = new WebService("KraanHomeDNARelease", false, "");
                 List<WebService> webservices = new List<WebService>();
                 webservices.Add(webService1);
                 webservices.Add(webService2);
@@ -59,7 +61,7 @@ namespace WindowsFormsAppTest
                 klantWebservices.Add(klantWebservice5);
                 db.KlantWebservices = klantWebservices;
 
-                Url url1 = new Url("GetProject/099793AF-C758-4E53-B27E-6BE923B114BF/0/WEL10", klant1.Id, klantWebservice5.Id);
+                Url url1 = new Url("GetProject/099793AF-C758-4E53-B27E-6BE923B114BF/0/WEL10", klant2.Id, klantWebservice4.Id);
                 List<Url> urls = new List<Url>();
                 urls.Add(url1);
                 db.Urls = urls;

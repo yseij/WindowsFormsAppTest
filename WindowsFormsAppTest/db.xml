@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Webservices>
-    <Webservice Id="011e6d8c-9b40-4b86-9ab4-28b7cbb6cc8c" Name="KraanHomeDna" Soap="true" SecurityId="TEST" />
-    <Webservice Id="fb399736-95c5-4687-af9b-fbbd315cc787" Name="KraanSalesService" Soap="false" SecurityId="" />
-    <Webservice Id="5297c978-4ccc-470f-a96d-ae3c4f9c168d" Name="Kraan2Webservice" Soap="false" SecurityId="" />
-    <Webservice Id="2d6eb404-d20b-4a5b-b6d3-e205df475cf2" Name="KraanHomeDNARelease" Soap="false" SecurityId="" />
-    <Webservice Id="7b15797a-75b5-4313-9898-73fe733ffd2d" Name="KraanHomeDNARelease/HomeDna.svc" Soap="false" SecurityId="" />
+    <Webservice Id="1feaa487-ba60-4d26-8ad7-a66b693cced2" Name="KraanHomeDna" Soap="true" SecurityId="TEST" />
+    <Webservice Id="22a89dbb-2897-4a16-905f-6e65ab6c98ea" Name="KraanSalesService" Soap="false" SecurityId="" />
+    <Webservice Id="a1d8f17f-a37e-42b0-9585-56e4275d4cfd" Name="Kraan2Webservice" Soap="false" SecurityId="" />
+    <Webservice Id="6493c0df-cc9e-4b55-a956-88c654e18155" Name="KraanHomeDNARelease/HomeDna.svc" Soap="false" SecurityId="" />
+    <Webservice Id="6543faa3-edb2-423b-b34a-4758a7518801" Name="KraanHomeDNARelease" Soap="false" SecurityId="" />
   </Webservices>
   <Klanten>
-    <Klant Id="72bbd795-d114-40bc-aefa-938dea865ac2" Name="klant 1" BasisUrl1="https://ws.kraan.com:444/" BasisUrl2="https://wsdev.kraan.com/test1/" />
-    <Klant Id="2ffb8458-97a1-48d3-8512-e33cef3219fe" Name="klant 2" BasisUrl1="https://wsdev.kraan.com/" BasisUrl2="https://wsdev.kraan.com/test2/" />
-    <Klant Id="9774d5ec-48db-4698-9d11-cb58462e83f0" Name="klant 3" BasisUrl1="https://wsdev.kraan.com:1234/" BasisUrl2="https://wsdev.kraan.com/test3/" />
+    <Klant Id="02eeba00-20a9-4183-9810-e19584c3279d" Name="klant 1" BasisUrl1="https://ws.kraan.com:444/" BasisUrl2="https://wsdev.kraan.com/test1/" />
+    <Klant Id="ff02d9da-e8af-46a0-bb87-43d6f4004ce3" Name="klant 2" BasisUrl1="https://wsdev.kraan.com/" BasisUrl2="https://wsdev.kraan.com/test2/" />
+    <Klant Id="e1af530c-0435-4733-892d-57df1c4eef4e" Name="klant 3" BasisUrl1="https://wsdev.kraan.com:1234/" BasisUrl2="https://wsdev.kraan.com/test3/" />
   </Klanten>
   <KlantWebservices>
-    <KlantWebservice Id="ac4a7063-6467-492a-8580-c3459ab44412" Klant="72bbd795-d114-40bc-aefa-938dea865ac2" Webservice="011e6d8c-9b40-4b86-9ab4-28b7cbb6cc8c" BasisUrl1="true" BasisUrl2="false" />
-    <KlantWebservice Id="eae5118a-94dd-4c38-b8ac-c7176f481d39" Klant="2ffb8458-97a1-48d3-8512-e33cef3219fe" Webservice="011e6d8c-9b40-4b86-9ab4-28b7cbb6cc8c" BasisUrl1="false" BasisUrl2="true" />
-    <KlantWebservice Id="0f131b2d-c06a-49f0-b166-b7ab41802be9" Klant="9774d5ec-48db-4698-9d11-cb58462e83f0" Webservice="fb399736-95c5-4687-af9b-fbbd315cc787" BasisUrl1="true" BasisUrl2="false" />
-    <KlantWebservice Id="66fb07ee-63c3-4745-ba9b-e834a543e58c" Klant="2ffb8458-97a1-48d3-8512-e33cef3219fe" Webservice="2d6eb404-d20b-4a5b-b6d3-e205df475cf2" BasisUrl1="true" BasisUrl2="false" />
-    <KlantWebservice Id="dfdc929f-f2dd-4a70-8ea1-8606d18243b5" Klant="72bbd795-d114-40bc-aefa-938dea865ac2" Webservice="7b15797a-75b5-4313-9898-73fe733ffd2d" BasisUrl1="true" BasisUrl2="false" />
+    <KlantWebservice Id="0df41556-ef16-48e2-9943-0ad8dfebaa66" Klant="02eeba00-20a9-4183-9810-e19584c3279d" Webservice="1feaa487-ba60-4d26-8ad7-a66b693cced2" BasisUrl1="true" BasisUrl2="false" />
+    <KlantWebservice Id="9704035f-40f1-401c-88e0-f1ce2237896a" Klant="ff02d9da-e8af-46a0-bb87-43d6f4004ce3" Webservice="1feaa487-ba60-4d26-8ad7-a66b693cced2" BasisUrl1="false" BasisUrl2="true" />
+    <KlantWebservice Id="f455dacd-df2a-4972-9686-9aac77381024" Klant="e1af530c-0435-4733-892d-57df1c4eef4e" Webservice="22a89dbb-2897-4a16-905f-6e65ab6c98ea" BasisUrl1="true" BasisUrl2="false" />
+    <KlantWebservice Id="909d07e9-0afc-4831-b76a-3ad6bec29ffa" Klant="ff02d9da-e8af-46a0-bb87-43d6f4004ce3" Webservice="6493c0df-cc9e-4b55-a956-88c654e18155" BasisUrl1="true" BasisUrl2="false" />
+    <KlantWebservice Id="0fbf5777-863d-4ef5-841c-9b1c02aa7c96" Klant="02eeba00-20a9-4183-9810-e19584c3279d" Webservice="6543faa3-edb2-423b-b34a-4758a7518801" BasisUrl1="true" BasisUrl2="false" />
   </KlantWebservices>
   <Urls>
-    <Url Id="760a412b-96fc-4da1-8687-bf8665b4a546" Name="GetProject/099793AF-C758-4E53-B27E-6BE923B114BF/0/WEL10" KlantId="72bbd795-d114-40bc-aefa-938dea865ac2" KlantWebserviceId="dfdc929f-f2dd-4a70-8ea1-8606d18243b5" />
+    <Url Id="17bdccea-e9c4-49bd-8d34-1a88fa3459d8" Name="GetProject/099793AF-C758-4E53-B27E-6BE923B114BF/0/WEL10" KlantId="ff02d9da-e8af-46a0-bb87-43d6f4004ce3" KlantWebserviceId="909d07e9-0afc-4831-b76a-3ad6bec29ffa" />
   </Urls>
 </DB>

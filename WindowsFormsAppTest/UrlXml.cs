@@ -22,6 +22,7 @@ namespace WindowsFormsAppTest
                 newUrl.Id = Guid.Parse(element.Attribute("Id").Value);
                 newUrl.Name = element.Attribute("Name").Value;
                 newUrl.KlantWebserviceId = Guid.Parse(element.Attribute("KlantWebserviceId").Value);
+                newUrl.KlantId = Guid.Parse(element.Attribute("KlantId").Value);
                 urls.Add(newUrl);
             }
             return urls;
@@ -40,6 +41,7 @@ namespace WindowsFormsAppTest
                 newUrl.Id = Guid.Parse(element.Attribute("Id").Value);
                 newUrl.Name = element.Attribute("Name").Value;
                 newUrl.KlantWebserviceId = Guid.Parse(element.Attribute("KlantWebserviceId").Value);
+                newUrl.KlantId = Guid.Parse(element.Attribute("KlantId").Value);
                 urls.Add(newUrl);
             }
             return urls;
@@ -58,6 +60,7 @@ namespace WindowsFormsAppTest
                 newUrl.Id = Guid.Parse(element.Attribute("Id").Value);
                 newUrl.Name = element.Attribute("Name").Value;
                 newUrl.KlantWebserviceId = Guid.Parse(element.Attribute("KlantWebserviceId").Value);
+                newUrl.KlantId = Guid.Parse(element.Attribute("KlantId").Value);
                 urls.Add(newUrl);
             }
             return urls;
@@ -103,7 +106,8 @@ namespace WindowsFormsAppTest
             doc.Element("DB").Element("Urls").Add(new XElement("Url",
                                                   new XAttribute("Id", url.Id),
                                                   new XAttribute("Name", url.Name),
-                                                  new XAttribute("KlantWebserviceId", url.KlantWebserviceId)));
+                                                  new XAttribute("KlantWebserviceId", url.KlantWebserviceId),
+                                                  new XAttribute("KlantId", url.KlantId)));
             SaveXmlFile(doc);
         }
 

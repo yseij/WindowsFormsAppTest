@@ -13,6 +13,7 @@ namespace WindowsFormsAppTest
         private string _httpName = string.Empty;
         private string _urlHttp = string.Empty;
         private string _urlTest = string.Empty;
+        private string _basisUrl = string.Empty;
 
         private bool _isSoap = false;
 
@@ -78,7 +79,10 @@ namespace WindowsFormsAppTest
                 _klantWebservice = _klantWebserviceXml.GetByKlantWebserviceId(url.KlantWebserviceId);
                 _selectedWebservice = _webserviceXml.GetWebserviceById(_klantWebservice.Webservice);
                 _webserviceId = _selectedWebservice.Id;
+
                 UrlVoorTestTxtBx.Text = url.Name;
+                _basisUrl = url.Name;
+
                 if (_selectedWebservice.SecurityId != string.Empty)
                 {
                     SecurityIdTxtBx.Text = _selectedWebservice.SecurityId;
@@ -90,10 +94,10 @@ namespace WindowsFormsAppTest
         private void UrlOpslaanBtn_Click(object sender, EventArgs e)
         {
             int i = -1;
-
-            Url newUrl = new Url(UrlVoorTestTxtBx.Text, (Guid)KlantKrMaterialCmbx.SelectedValue, _klantWebservice.Id);
+            string methode = UrlVoorTestTxtBx.Text.Replace(_basisUrl + "/", "");
+            Url newUrl = new Url(methode, (Guid)KlantKrMaterialCmbx.SelectedValue, _klantWebservice.Id);
             Url url = _urlXml.GetByKlantAndName((Guid)KlantKrMaterialCmbx.SelectedValue, UrlVoorTestTxtBx.Text);
-            i = AllUrlsKrLstBx.FindString(UrlVoorTestTxtBx.Text);
+            i = AllUrlsKrLstBx.FindStringExact(UrlVoorTestTxtBx.Text);
             if (url == null && i == -1)
             {
                 _urlXml.AddUrl(newUrl);

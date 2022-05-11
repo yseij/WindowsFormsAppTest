@@ -148,15 +148,17 @@ namespace WindowsFormsAppTest
                     }
                 }
                 logFile.AddTextToLogFile("\n");
-            }
-            TreeNode node = new TreeNode();
-            node.Text = "|---Opgeslagen urls---|";
-            TrVwAll.Nodes.Add(node);
-            logFile.AddTextToLogFile("\n \n" + "|---Opgeslagen urls---|" + "\n");
-            foreach (Url url in _urlDatas)
-            {
-                GetResult(url, false);
-                FillTreeView(url, logFile);
+                List<Url> urlDatas = _urlXml.GetByKlantWebserviceId(klantWebservice.Id);
+                foreach (Url url1 in urlDatas)
+                {
+                    Url newUrl = new Url();
+                    newUrl.Id = url1.Id;
+                    newUrl.Name = basisUrl + webService.Name + "/" + url1.Name;
+                    newUrl.KlantId = klant.Id;
+                    newUrl.KlantWebserviceId = klantWebservice.Id;
+                    GetResult(newUrl, false);
+                    FillTreeView(newUrl, logFile);
+                }
             }
         }
 

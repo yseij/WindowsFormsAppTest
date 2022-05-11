@@ -148,7 +148,7 @@ namespace WindowsFormsAppTest
             this.groupBox2.Size = new System.Drawing.Size(352, 244);
             this.groupBox2.TabIndex = 93;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Webservice bewerken";
+            this.groupBox2.Text = "Url bewerken";
             // 
             // UrlTxtBx
             // 
@@ -165,7 +165,7 @@ namespace WindowsFormsAppTest
             this.UrlTxtBx.MouseState = MaterialSkin.MouseState.OUT;
             this.UrlTxtBx.Name = "UrlTxtBx";
             this.UrlTxtBx.PasswordChar = '\0';
-            this.UrlTxtBx.ReadOnly = false;
+            this.UrlTxtBx.ReadOnly = true;
             this.UrlTxtBx.ScrollBars = System.Windows.Forms.ScrollBars.None;
             this.UrlTxtBx.SelectedText = "";
             this.UrlTxtBx.SelectionLength = 0;
