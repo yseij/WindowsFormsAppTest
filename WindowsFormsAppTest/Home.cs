@@ -54,7 +54,7 @@ namespace WindowsFormsAppTest
 
             _krXml.SetDbXml();
             _krXml.MakeXmlFileUser();
-            _krXml.MakeXmlFileDb();
+            //_krXml.MakeXmlFileDb();
 
 
             FillKlantenDropDown();
@@ -469,15 +469,12 @@ namespace WindowsFormsAppTest
         private void GetWebserviceVersion(Url url)
         {
             url.Name += "/GetWebserviceVersion";
-            _logFile.AddTextToLogFile(Environment.NewLine);
-            _logFile.AddTextToLogFile(url.Name + Environment.NewLine);
             GetResult(url, true);
             TestGetWebserviceVersion(url);
         }
 
         private void GetUrl(Url url)
         {
-            _logFile.AddTextToLogFile(Environment.NewLine);
             GetResult(url, false);
             foreach (JProperty item in _result)
             {
@@ -486,6 +483,7 @@ namespace WindowsFormsAppTest
                     _teller++;
                     _text += url.Name.Replace(_https, "").Replace(_http, "") + " --> " + item.Value.ToString() + Environment.NewLine;
                     _logFile.AddTextToLogFile(url.Name + " --> " + item.Value.ToString() + Environment.NewLine);
+                    _logFile.AddTextToLogFile(Environment.NewLine);
                 }
             }
         }
@@ -494,17 +492,12 @@ namespace WindowsFormsAppTest
         {
             foreach (JProperty item in _result)
             {
-                if (item.Value.ToString().Contains("False"))
+                if (item.Value.ToString().Contains("False") || item.Name.ToString() == "ex")
                 {
                     _teller++;
                     _text += url.Name.Replace(_https, "").Replace(_http, "") + " --> " + item.Value.ToString() + Environment.NewLine;
-                    _logFile.AddTextToLogFile(item.Value.ToString() + Environment.NewLine);
-                }
-                if (item.Name.ToString() == "ex")
-                {
-                    _teller++;
-                    _text += url.Name.Replace(_https, "").Replace(_http, "") + " --> " + item.Value.ToString() + Environment.NewLine;
-                    _logFile.AddTextToLogFile(item.Value.ToString() + Environment.NewLine);
+                    _logFile.AddTextToLogFile(url.Name + " --> " + item.Value.ToString() + Environment.NewLine);
+                    _logFile.AddTextToLogFile(Environment.NewLine);
                 }
             }
         }
@@ -525,7 +518,6 @@ namespace WindowsFormsAppTest
                 else if (url.Name == "MessageServiceSoap.svc")
                 {
                     _result = JObject.Parse(_webRequest.Get24SalesData(url.Name));
-
                 }
                 else
                 {

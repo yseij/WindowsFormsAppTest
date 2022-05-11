@@ -46,6 +46,25 @@ namespace WindowsFormsAppTest
             return urls;
         }
 
+        public List<Url> GetByWebserviceId(Guid webserviceId)
+        {
+            List<Url> urls = new List<Url>();
+
+            XDocument doc = XDocument.Load(_path);
+            IEnumerable<XElement> elements = doc.Element("DB").Element("Urls").Elements("Url")
+                .Where(p => Guid.Parse(p.Attribute("WebserviceId").Value) == webserviceId);
+            foreach (XElement element in elements)
+            {
+                Url newUrl = new Url();
+                newUrl.Id = Guid.Parse(element.Attribute("Id").Value);
+                newUrl.Name = element.Attribute("Name").Value;
+                newUrl.KlantId = Guid.Parse(element.Attribute("KlantId").Value);
+                newUrl.WebserviceId = Guid.Parse(element.Attribute("WebserviceId").Value);
+                urls.Add(newUrl);
+            }
+            return urls;
+        }
+
         public Url GetByKlantAndName(Guid klantId, string name)
         {
             XDocument doc = XDocument.Load(_path);

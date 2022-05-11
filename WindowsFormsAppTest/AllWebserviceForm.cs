@@ -17,12 +17,16 @@ namespace WindowsFormsAppTest
         private List<WebService> _webServiceDatas = new List<WebService>();
 
         WebserviceXml _webserviceXml;
+        KlantWebserviceXml _klantWebserviceXml;
+        UrlXml _urlXml;
         ErrorProvider _error;
 
         public AllWebserviceForm()
         {
             InitializeComponent();
             _webserviceXml = new WebserviceXml();
+            _klantWebserviceXml = new KlantWebserviceXml();
+            _urlXml = new UrlXml();
             _error = new ErrorProvider();
 
             GetWebservicesIfZoekOpNaamIsLeeg();
@@ -117,8 +121,17 @@ namespace WindowsFormsAppTest
 
         private void DeleteWebserviceBttn_Click(object sender, EventArgs e)
         {
-            _webserviceXml.DeleteWebservice((Guid)AllWebserviceKrLstBx.SelectedValue);
-            GetWebservicesIfZoekOpKlantenNaamIsGevuld();
+            List<KlantWebservice> klantWebservices = _klantWebserviceXml.GetByWebservice((Guid)AllWebserviceKrLstBx.SelectedValue);
+            List<Url> urls = _urlXml.GetByWebserviceId((Guid)AllWebserviceKrLstBx.SelectedValue);
+            if (klantWebservices.Count == 0 && urls.Count == 0)
+            {
+                _webserviceXml.DeleteWebservice((Guid)AllWebserviceKrLstBx.SelectedValue);
+                GetWebservicesIfZoekOpKlantenNaamIsGevuld();
+            }
+            else
+            {
+                MessageBox.Show("Er zijn nog urls die deze webservice gebruiken");
+            }
         }
 
         private void ChildFormClosingAddWebserviceForm(object sender, FormClosingEventArgs e)

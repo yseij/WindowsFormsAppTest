@@ -147,6 +147,7 @@ namespace WindowsFormsAppTest
                         FillTreeView(url, logFile);
                     }
                 }
+                logFile.AddTextToLogFile("\n");
             }
             TreeNode node = new TreeNode();
             node.Text = "|---Opgeslagen urls---|";
@@ -165,20 +166,22 @@ namespace WindowsFormsAppTest
             TreeNode node = new TreeNode();
             node.Text = url.Name;
             logFile.AddTextToLogFile("\n");
-            logFile.AddTextToLogFile(url.Name + "\n");
 
             if (checkUrl.StartsWith("false"))
             {
                 node.ForeColor = Color.FromArgb(0, 255, 0, 0);
                 node.Tag = "Webservice = " + checkUrl;
+                logFile.AddTextToLogFile(url.Name + "--> Webservice = " + checkUrl + "\n");
             }
             else if (checkUrl.StartsWith("true"))
             {
                 node.Tag = "Webservice = true";
+                logFile.AddTextToLogFile(url.Name + " --> Webservice = true" + "\n");
             }
             else
             {
                 node.Tag = "ex = " + checkUrl;
+                logFile.AddTextToLogFile(url.Name + " --> ex = " + checkUrl + "\n");
             }
             TrVwAll.Nodes.Add(node);
         }
@@ -331,8 +334,7 @@ namespace WindowsFormsAppTest
         {
             TreeNode node = new TreeNode();
             node.Text = urlData.Name;
-            logFile.AddTextToLogFile("\n");
-            logFile.AddTextToLogFile(urlData.Name + "\n");
+            logFile.AddTextToLogFile(urlData.Name);
             node.Tag = _result;
             int teller = 0;
             foreach (JProperty item in _result)
@@ -348,12 +350,12 @@ namespace WindowsFormsAppTest
                     ResponseTextBox.Text = item.Value.ToString();
                     _aantalLegeUrls = _aantalLegeUrls + 1;
                     AantalLegeUrlsTxtBx.Text = _aantalLegeUrls.ToString();
-                    logFile.AddTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
+                    logFile.AddTextToLogFile("--> " + item.Value.ToString() + "\n");
                 }
                 else if (item.Name != "id")
                 {
                     TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
-                    logFile.AddTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
+                    logFile.AddTextToLogFile("--> " + item.Value.ToString() + "\n");
                 }
             }
         }
