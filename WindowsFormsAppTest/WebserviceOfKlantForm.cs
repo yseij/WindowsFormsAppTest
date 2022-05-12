@@ -3,6 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -14,13 +15,16 @@ namespace WindowsFormsAppTest
 
         private bool _isKlant;
         private bool _isSoap;
+        private bool _isAllesTest;
 
         dynamic _result = null;
 
-        private List<Url> _urlDatas = new List<Url>();
-        private List<WebService> _webServiceDatas = new List<WebService>();
-        private List<Klant> _klantenDatas = new List<Klant>();
-        private List<KlantWebservice> _klantWebserviceDatas = new List<KlantWebservice>();
+        private int _node;
+
+        private List<Url> _urls = new List<Url>();
+        private List<WebService> _webServices = new List<WebService>();
+        private List<Klant> _klanten = new List<Klant>();
+        private List<KlantWebservice> _klantWebservices = new List<KlantWebservice>();
 
         WebRequest _webRequest;
         TestRoute _testRoute;
@@ -45,8 +49,8 @@ namespace WindowsFormsAppTest
 
             AantalLegeUrlsTxtBx.Text = string.Empty;
 
-            _webServiceDatas = _webserviceXml.GetWebservices();
-            _klantenDatas = _klantXml.GetKlanten();
+            _webServices = _webserviceXml.GetWebservices();
+            _klanten = _klantXml.GetKlanten();
 
             if (isKlant)
             {
@@ -64,14 +68,16 @@ namespace WindowsFormsAppTest
 
         private void FillCmbxWebServices()
         {
-            WebserviceOfKlantKrMaterialCmbx.FillCmbBoxWebservice(_webServiceDatas);
+            WebService webService = new WebService("Alles testen");
+            _webServices.Add(webService);
+            WebserviceOfKlantKrMaterialCmbx.FillCmbBoxWebservice(_webServices);
         }
 
         private void FillCmbxKlanten()
         {
-            Klant klantData = new Klant("Alles testen");
-            _klantenDatas.Add(klantData);
-            WebserviceOfKlantKrMaterialCmbx.FillCmbBoxKlant(_klantenDatas);
+            Klant klant = new Klant("Alles testen");
+            _klanten.Add(klant);
+            WebserviceOfKlantKrMaterialCmbx.FillCmbBoxKlant(_klanten);
         }
 
         private void TestAllBtn_Click(object sender, EventArgs e)
@@ -86,37 +92,66 @@ namespace WindowsFormsAppTest
             TrVwAll.Nodes.Clear();
             TrVwAll.BeginUpdate();
 
-            _webServiceDatas = _webserviceXml.GetWebservices();
+            _webServices = _webserviceXml.GetWebservices();
             if (_isKlant)
             {
                 if (_selectedWebserviceIdOfKlantId == Guid.Empty)
                 {
-                    _klantWebserviceDatas = _klantWebserviceXml.GetAll();
-                    _urlDatas = _urlXml.GetAll();
+                    _klantWebservices = _klantWebserviceXml.GetAll();
+                    _klantWebservices = _klantWebservices.OrderBy(x => x.Klant).ToList();
+                    _urls = _urlXml.GetAll();
                 }
                 else
                 {
-                    _klantWebserviceDatas = _klantWebserviceXml.GetByKlant(_selectedWebserviceIdOfKlantId);
-                    _urlDatas = _urlXml.GetByKlantId(_selectedWebserviceIdOfKlantId);
+                    _klantWebservices = _klantWebserviceXml.GetByKlant(_selectedWebserviceIdOfKlantId);
+                    _urls = _urlXml.GetByKlantId(_selectedWebserviceIdOfKlantId);
                 }
-                GetDataByKlant(logFile);
             }
             else
             {
-                _klantWebserviceDatas = _klantWebserviceXml.GetByWebservice(_selectedWebserviceIdOfKlantId);
-                GetDataByWebservice(logFile);
+                if (_selectedWebserviceIdOfKlantId == Guid.Empty)
+                {
+                    _klantWebservices = _klantWebserviceXml.GetAll();
+                    _urls = _urlXml.GetAll();
+                }
+                else
+                {
+                    _klantWebservices = _klantWebserviceXml.GetByWebservice(_selectedWebserviceIdOfKlantId);
+                    foreach (KlantWebservice klantWebservice in _klantWebservices)
+                    {
+                        List<Url> urlList = (_urlXml.GetByKlantWebserviceId(klantWebservice.Id));
+                        foreach (Url url in urlList)
+                        {
+                            _urls.Add(url);
+                        }
+                    }
+                }
             }
+            GetData(logFile);
             TrVwAll.EndUpdate();
+            if (_isKlant)
+            {
+                TrVwAll.Sort();
+            }
         }
 
-        private void GetDataByKlant(LogFile logFile)
+        private void GetData(LogFile logFile)
         {
-            foreach (KlantWebservice klantWebservice in _klantWebserviceDatas)
+            string oldWebservice = string.Empty;
+            string oldKlant = string.Empty;
+
+            foreach (KlantWebservice klantWebservice in _klantWebservices)
             {
                 string basisUrl = string.Empty;
                 Url url = new Url();
                 WebService webService = new WebService();
-                Klant klant = _klantenDatas.Find(k => k.Id == klantWebservice.Klant);
+                Klant klant = _klanten.Find(k => k.Id == klantWebservice.Klant);
+                if (_isKlant && _selectedWebserviceIdOfKlantId == Guid.Empty)
+                {
+                    SetTreeViewName(klant.Name, oldKlant);
+                    oldKlant = klant.Name;
+                    _isAllesTest = true;
+                }
                 if (klantWebservice.BasisUrl1)
                 {
                     basisUrl = klant.BasisUrl1;
@@ -125,13 +160,19 @@ namespace WindowsFormsAppTest
                 {
                     basisUrl = klant.BasisUrl2;
                 }
-                foreach (WebService webservice in _webServiceDatas)
+                foreach (WebService webservice in _webServices)
                 {
                     if (webservice.Id == klantWebservice.Webservice)
                     {
                         webService = webservice;
                         url.Name = basisUrl + webservice.Name;
                         _isSoap = webservice.Soap;
+                        if (!_isKlant && _selectedWebserviceIdOfKlantId == Guid.Empty)
+                        {
+                            SetTreeViewName(webService.Name, oldWebservice);
+                            oldWebservice = webservice.Name;
+                            _isAllesTest = true;
+                        }
                     }
                 }
                 for (int i = 0; i < 2; i++)
@@ -159,6 +200,18 @@ namespace WindowsFormsAppTest
                     GetResult(newUrl, false);
                     FillTreeView(newUrl, logFile);
                 }
+            }
+        }
+
+        private void SetTreeViewName(string newName, string oldName)
+        {
+            TreeNode node = new TreeNode();
+            if (newName != oldName)
+            {
+                node.Text = "|---|" + newName + "|---|";
+                node.ForeColor = Color.FromArgb(0, 0, 0, 255);
+                TrVwAll.Nodes.Add(node);
+                _node = TrVwAll.Nodes.Count - 1;
             }
         }
 
@@ -171,6 +224,7 @@ namespace WindowsFormsAppTest
 
             if (checkUrl.StartsWith("false"))
             {
+                _aantalLegeUrls++;
                 node.ForeColor = Color.FromArgb(0, 255, 0, 0);
                 node.Tag = "Webservice = " + checkUrl;
                 logFile.AddTextToLogFile(url.Name + "--> Webservice = " + checkUrl + "\n");
@@ -182,62 +236,17 @@ namespace WindowsFormsAppTest
             }
             else
             {
+                _aantalLegeUrls++;
                 node.Tag = "ex = " + checkUrl;
                 logFile.AddTextToLogFile(url.Name + " --> ex = " + checkUrl + "\n");
             }
-            TrVwAll.Nodes.Add(node);
-        }
-
-        private void GetDataByWebservice(LogFile logFile)
-        {
-            foreach (KlantWebservice klantWebservice in _klantWebserviceDatas)
+            if (_isAllesTest)
             {
-                string basisUrl = string.Empty;
-                Url url = new Url();
-                WebService webService = new WebService();
-                Klant klant = _klantenDatas.Find(k => k.Id == klantWebservice.Klant);
-                if (klantWebservice.BasisUrl1)
-                {
-                    basisUrl = klant.BasisUrl1;
-                }
-                else
-                {
-                    basisUrl = klant.BasisUrl2;
-                }
-                foreach (WebService webservice in _webServiceDatas)
-                {
-                    if (webservice.Id == klantWebservice.Webservice)
-                    {
-                        webService = webservice;
-                        url.Name = basisUrl + webservice.Name;
-                        _isSoap = webservice.Soap;
-                    }
-                }
-                for (int i = 0; i < 2; i++)
-                {
-                    if (i == 0)
-                    {
-                        CheckUrl(url, logFile);
-                    }
-                    else
-                    {
-                        url.Name += "/GetWebserviceVersion";
-                        GetResult(url, true);
-                        FillTreeView(url, logFile);
-                    }
-                }
-                logFile.AddTextToLogFile("\n");
-                List<Url> urlDatas = _urlXml.GetByKlantWebserviceId(klantWebservice.Id);
-                foreach (Url url1 in urlDatas)
-                {
-                    Url newUrl = new Url();
-                    newUrl.Id = url1.Id;
-                    newUrl.Name = basisUrl + webService.Name + "/" + url1.Name;
-                    newUrl.KlantId = klant.Id;
-                    newUrl.KlantWebserviceId = klantWebservice.Id;
-                    GetResult(newUrl, false);
-                    FillTreeView(newUrl, logFile);
-                }
+                TrVwAll.Nodes[_node].Nodes.Add(node);
+            }
+            else
+            {
+                TrVwAll.Nodes.Add(node);
             }
         }
 
@@ -370,8 +379,15 @@ namespace WindowsFormsAppTest
             {
                 if (teller == 0)
                 {
-                    TrVwAll.Nodes.Add(node);
-                    teller = teller + 1;
+                    if (_isAllesTest)
+                    {
+                        TrVwAll.Nodes[_node].Nodes.Add(node);
+                    }
+                    else
+                    {
+                        TrVwAll.Nodes.Add(node);
+                    }
+                    teller++;
                 }
                 if (item.Name == "ex")
                 {
@@ -383,7 +399,7 @@ namespace WindowsFormsAppTest
                 }
                 else if (item.Name != "id")
                 {
-                    TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
+                    TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes[TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
                     logFile.AddTextToLogFile("--> " + item.Value.ToString() + "\n");
                 }
             }

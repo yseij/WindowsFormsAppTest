@@ -8,7 +8,13 @@ namespace WindowsFormsAppTest
     {
         public WebService()
         {
+            
+        }
 
+        public WebService(string name)
+        {
+            Id = Guid.Empty;
+            Name = name;
         }
 
         public WebService(string name, bool soap, string securityId)
