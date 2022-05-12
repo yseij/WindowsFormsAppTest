@@ -13,6 +13,8 @@ namespace WindowsFormsAppTest
         private Guid _selectedWebserviceIdOfKlantId;
         private int _aantalLegeUrls;
 
+        private string _clipBoardText;
+
         private bool _isKlant;
         private bool _isSoap;
         private bool _isAllesTest;
@@ -20,6 +22,8 @@ namespace WindowsFormsAppTest
         dynamic _result = null;
 
         private int _node;
+        List<string> urls = new List<string>();
+        List<string> results = new List<string>();
 
         private List<Url> _urls = new List<Url>();
         private List<WebService> _webServices = new List<WebService>();
@@ -134,6 +138,7 @@ namespace WindowsFormsAppTest
             {
                 TrVwAll.Sort();
             }
+            SetClipBoardText();
         }
 
         private void GetData(LogFile logFile)
@@ -186,7 +191,7 @@ namespace WindowsFormsAppTest
                     {
                         url.Name += "/GetWebserviceVersion";
                         GetResult(url, true);
-                        FillTreeView(url, logFile);
+                        FillTreeView(url, logFile, true);
                     }
                 }
                 logFile.AddTextToLogFile("\n");
@@ -199,7 +204,7 @@ namespace WindowsFormsAppTest
                     newUrl.KlantId = klant.Id;
                     newUrl.KlantWebserviceId = klantWebservice.Id;
                     GetResult(newUrl, false);
-                    FillTreeView(newUrl, logFile);
+                    FillTreeView(newUrl, logFile, false);
                 }
             }
         }
@@ -209,6 +214,7 @@ namespace WindowsFormsAppTest
             TreeNode node = new TreeNode();
             if (newName != oldName)
             {
+                _clipBoardText = _clipBoardText + "|---|" + newName + "|---|" +  "\n";
                 node.Text = "|---|" + newName + "|---|";
                 node.ForeColor = Color.FromArgb(0, 0, 0, 255);
                 TrVwAll.Nodes.Add(node);
@@ -222,24 +228,27 @@ namespace WindowsFormsAppTest
             TreeNode node = new TreeNode();
             node.Text = url.Name;
             logFile.AddTextToLogFile("\n");
-
+            urls.Add(url.Name);
             if (checkUrl.StartsWith("false"))
             {
                 _aantalLegeUrls++;
                 node.ForeColor = Color.FromArgb(0, 255, 0, 0);
                 node.Tag = "Webservice = " + checkUrl;
-                logFile.AddTextToLogFile(url.Name + "--> Webservice = " + checkUrl + "\n");
+                logFile.AddTextToLogFile(url.Name + "--> Webservice = X" + checkUrl + "\n"); 
+                results.Add("Webservice = X");
             }
             else if (checkUrl.StartsWith("true"))
             {
                 node.Tag = "Webservice = true";
                 logFile.AddTextToLogFile(url.Name + " --> Webservice = true" + "\n");
+                results.Add("Webservice = ✓");
             }
             else
             {
                 _aantalLegeUrls++;
                 node.Tag = "ex = " + checkUrl;
                 logFile.AddTextToLogFile(url.Name + " --> ex = " + checkUrl + "\n");
+                results.Add("ex = " + checkUrl);
             }
             if (_isAllesTest)
             {
@@ -369,13 +378,18 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void FillTreeView(Url urlData, LogFile logFile)
+        private void FillTreeView(Url url, LogFile logFile, bool isGetWebserviceVersion)
         {
             TreeNode node = new TreeNode();
-            node.Text = urlData.Name;
-            logFile.AddTextToLogFile(urlData.Name);
+            node.Text = url.Name;
+            logFile.AddTextToLogFile(url.Name);
             node.Tag = _result;
             int teller = 0;
+            string resultText = string.Empty;
+            if (isGetWebserviceVersion)
+            {
+                urls.Add(url.Name);
+            }
             foreach (JProperty item in _result)
             {
                 if (teller == 0)
@@ -392,6 +406,10 @@ namespace WindowsFormsAppTest
                 }
                 if (item.Name == "ex")
                 {
+                    if (isGetWebserviceVersion)
+                    {
+                        resultText += item.Value.ToString();
+                    }
                     node.ForeColor = Color.FromArgb(0, 255, 0, 0);
                     ResponseTextBox.Text = item.Value.ToString();
                     _aantalLegeUrls = _aantalLegeUrls + 1;
@@ -408,9 +426,14 @@ namespace WindowsFormsAppTest
                     {
                         TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
                     }
-                    logFile.AddTextToLogFile("--> " + item.Value.ToString() + "\n");
+                    if (isGetWebserviceVersion)
+                    {
+                        resultText += item.Value.ToString();
+                    }
+                    logFile.AddTextToLogFile(item.Name + "--> " + item.Value.ToString() + "\n");
                 }
             }
+            results.Add(resultText);
         }
 
         private void BtnSort_Click(object sender, EventArgs e)
@@ -527,6 +550,31 @@ namespace WindowsFormsAppTest
                 TxtBxKraan1DatabaseVersie3_1.Text = TxtBxKraan1DatabaseVersie;
                 TxtBxKraan2DatabaseVersie3_1.Text = TxtBxKraan2DatabaseVersie;
             }
+        }
+
+        private void SetClipBoardText()
+        {
+            int maxLengte = 0;
+            foreach ( string url in urls)
+            {
+                if (url.Length > maxLengte)
+                {
+                    maxLengte = url.Length;
+                }
+            }
+            maxLengte = maxLengte + 12;
+            _clipBoardText = String.Format("{0,5} {1," + maxLengte + "}\n\n", "Urls", "Results");
+            for(int index = 0; index < urls.Count; index++)
+            {
+                int urlLengte = urls[index].Length;
+                int tussenLengte = (maxLengte + 12) - urlLengte;
+                _clipBoardText += String.Format("{0,5} {1," + tussenLengte + "}\n", urls[index], results[index]);
+            }
+            Console.WriteLine($"\n{_clipBoardText}");
+            Clipboard.SetText($"\n{_clipBoardText}");
+            _clipBoardText = string.Empty;
+            urls.Clear();
+            results.Clear();
         }
     }
 }
