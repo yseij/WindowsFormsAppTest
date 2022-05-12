@@ -53,7 +53,6 @@ namespace WindowsFormsAppTest
             this.groupBox1.Controls.Add(this.SoapWebserviceChkBx);
             this.groupBox1.Controls.Add(this.PasWebserviceAanBtn);
             this.groupBox1.Controls.Add(this.SecurityTxtBx);
-            this.groupBox1.Controls.Add(this.AddWebserviceBtn);
             this.groupBox1.Controls.Add(this.DeleteWebserviceBttn);
             this.groupBox1.Controls.Add(this.WebserviceTxtBx);
             this.groupBox1.Controls.Add(this.LblNaam);
@@ -100,7 +99,7 @@ namespace WindowsFormsAppTest
             this.PasWebserviceAanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.PasWebserviceAanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PasWebserviceAanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.PasWebserviceAanBtn.Location = new System.Drawing.Point(341, 175);
+            this.PasWebserviceAanBtn.Location = new System.Drawing.Point(354, 175);
             this.PasWebserviceAanBtn.Name = "PasWebserviceAanBtn";
             this.PasWebserviceAanBtn.Size = new System.Drawing.Size(112, 43);
             this.PasWebserviceAanBtn.TabIndex = 78;
@@ -141,7 +140,7 @@ namespace WindowsFormsAppTest
             this.SecurityTxtBx.SelectionLength = 0;
             this.SecurityTxtBx.SelectionStart = 0;
             this.SecurityTxtBx.ShortcutsEnabled = true;
-            this.SecurityTxtBx.Size = new System.Drawing.Size(363, 48);
+            this.SecurityTxtBx.Size = new System.Drawing.Size(378, 48);
             this.SecurityTxtBx.SkipLiterals = true;
             this.SecurityTxtBx.TabIndex = 91;
             this.SecurityTxtBx.TabStop = false;
@@ -158,9 +157,9 @@ namespace WindowsFormsAppTest
             this.AddWebserviceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddWebserviceBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddWebserviceBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddWebserviceBtn.Location = new System.Drawing.Point(223, 175);
+            this.AddWebserviceBtn.Location = new System.Drawing.Point(749, 108);
             this.AddWebserviceBtn.Name = "AddWebserviceBtn";
-            this.AddWebserviceBtn.Size = new System.Drawing.Size(112, 43);
+            this.AddWebserviceBtn.Size = new System.Drawing.Size(112, 48);
             this.AddWebserviceBtn.TabIndex = 77;
             this.AddWebserviceBtn.Text = "WEBSERVICE TOEVOEGEN";
             this.AddWebserviceBtn.UseVisualStyleBackColor = false;
@@ -212,7 +211,7 @@ namespace WindowsFormsAppTest
             this.WebserviceTxtBx.SelectionLength = 0;
             this.WebserviceTxtBx.SelectionStart = 0;
             this.WebserviceTxtBx.ShortcutsEnabled = true;
-            this.WebserviceTxtBx.Size = new System.Drawing.Size(363, 48);
+            this.WebserviceTxtBx.Size = new System.Drawing.Size(378, 48);
             this.WebserviceTxtBx.SkipLiterals = true;
             this.WebserviceTxtBx.TabIndex = 2;
             this.WebserviceTxtBx.TabStop = false;
@@ -333,6 +332,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.materialLabel7);
             this.Controls.Add(this.ZoekOpWebserviceNaamTxtBx);
             this.Controls.Add(this.materialLabel1);
+            this.Controls.Add(this.AddWebserviceBtn);
             this.Controls.Add(this.AllWebserviceKrLstBx);
             this.Controls.Add(this.groupBox1);
             this.MinimumSize = new System.Drawing.Size(868, 434);

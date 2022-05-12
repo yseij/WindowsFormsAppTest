@@ -237,28 +237,5 @@ namespace WindowsFormsAppTest
             var m = new AddWebserviceForm();
             m.ShowDialog();
         }
-
-        private void DeleteWebserviceBttn_Click(object sender, EventArgs e)
-        {
-            List<KlantWebservice> klantWebservices = _klantWebserviceXml.GetByWebservice((Guid)AllWebserviceKrLstBx.SelectedValue);
-            List<Url> urls = new List<Url>();
-            foreach (KlantWebservice klantWebservice in klantWebservices)
-            {
-                List<Url> urlsByKlantWebservice = _urlXml.GetByKlantWebserviceId(klantWebservice.Id);
-                foreach (Url url in urlsByKlantWebservice)
-                {
-                    urls.Add(url);
-                }
-            }
-            if (klantWebservices.Count == 0 && urls.Count == 0)
-            {
-                _webserviceXml.DeleteWebservice((Guid)AllWebserviceKrLstBx.SelectedValue);
-                GetKlantenIfZoekOpKlantenNaamIsGevuld();
-            }
-            else
-            {
-                MessageBox.Show("Er zijn nog urls die deze webservice gebruiken");
-            }
-        }
     }
 }

@@ -49,7 +49,6 @@ namespace WindowsFormsAppTest
             this.SoapWebserviceChkBx = new MaterialSkin.Controls.MaterialCheckbox();
             this.PasWebserviceAanBtn = new System.Windows.Forms.Button();
             this.AddWebserviceBtn = new System.Windows.Forms.Button();
-            this.DeleteWebserviceBttn = new System.Windows.Forms.Button();
             this.WebserviceTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
             this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.WebservicesToevoegenAanKlant = new System.Windows.Forms.Button();
@@ -393,7 +392,6 @@ namespace WindowsFormsAppTest
             this.groupBox2.Controls.Add(this.SoapWebserviceChkBx);
             this.groupBox2.Controls.Add(this.PasWebserviceAanBtn);
             this.groupBox2.Controls.Add(this.AddWebserviceBtn);
-            this.groupBox2.Controls.Add(this.DeleteWebserviceBttn);
             this.groupBox2.Controls.Add(this.WebserviceTxtBx);
             this.groupBox2.Controls.Add(this.materialLabel5);
             this.groupBox2.Location = new System.Drawing.Point(376, 478);
@@ -449,21 +447,6 @@ namespace WindowsFormsAppTest
             this.AddWebserviceBtn.Text = "WEBSERVICE TOEVOEGEN";
             this.AddWebserviceBtn.UseVisualStyleBackColor = false;
             this.AddWebserviceBtn.Click += new System.EventHandler(this.AddWebserviceBtn_Click);
-            // 
-            // DeleteWebserviceBttn
-            // 
-            this.DeleteWebserviceBttn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.DeleteWebserviceBttn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.DeleteWebserviceBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.DeleteWebserviceBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteWebserviceBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.DeleteWebserviceBttn.Location = new System.Drawing.Point(10, 117);
-            this.DeleteWebserviceBttn.Name = "DeleteWebserviceBttn";
-            this.DeleteWebserviceBttn.Size = new System.Drawing.Size(112, 43);
-            this.DeleteWebserviceBttn.TabIndex = 76;
-            this.DeleteWebserviceBttn.Text = "WEBSERVICE VERWIJDEREN";
-            this.DeleteWebserviceBttn.UseVisualStyleBackColor = false;
-            this.DeleteWebserviceBttn.Click += new System.EventHandler(this.DeleteWebserviceBttn_Click);
             // 
             // WebserviceTxtBx
             // 
@@ -610,7 +593,6 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialCheckbox SoapWebserviceChkBx;
         private System.Windows.Forms.Button PasWebserviceAanBtn;
         private System.Windows.Forms.Button AddWebserviceBtn;
-        private System.Windows.Forms.Button DeleteWebserviceBttn;
         private MaterialSkin.Controls.MaterialMaskedTextBox WebserviceTxtBx;
         private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private System.Windows.Forms.Button WebservicesToevoegenAanKlant;

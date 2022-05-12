@@ -192,25 +192,52 @@ namespace WindowsFormsAppTest
         {
             foreach (KlantWebservice klantWebservice in _klantWebserviceDatas)
             {
+                string basisUrl = string.Empty;
                 Url url = new Url();
-                WebService webservice = _webServiceDatas.Find(w => w.Id == _selectedWebserviceIdOfKlantId);
-                _isSoap = webservice.Soap;
-                foreach (Klant klant in _klantenDatas)
+                WebService webService = new WebService();
+                Klant klant = _klantenDatas.Find(k => k.Id == klantWebservice.Klant);
+                if (klantWebservice.BasisUrl1)
                 {
-                    if (klant.Id == klantWebservice.Klant)
+                    basisUrl = klant.BasisUrl1;
+                }
+                else
+                {
+                    basisUrl = klant.BasisUrl2;
+                }
+                foreach (WebService webservice in _webServiceDatas)
+                {
+                    if (webservice.Id == klantWebservice.Webservice)
                     {
-                        if (klantWebservice.BasisUrl1)
-                        {
-                            url.Name = klant.BasisUrl1 + webservice.Name;
-                        }
-                        else
-                        {
-                            url.Name = klant.BasisUrl2 + webservice.Name;
-                        }
+                        webService = webservice;
+                        url.Name = basisUrl + webservice.Name;
+                        _isSoap = webservice.Soap;
                     }
                 }
-                GetResult(url, true);
-                FillTreeView(url, logFile);
+                for (int i = 0; i < 2; i++)
+                {
+                    if (i == 0)
+                    {
+                        CheckUrl(url, logFile);
+                    }
+                    else
+                    {
+                        url.Name += "/GetWebserviceVersion";
+                        GetResult(url, true);
+                        FillTreeView(url, logFile);
+                    }
+                }
+                logFile.AddTextToLogFile("\n");
+                List<Url> urlDatas = _urlXml.GetByKlantWebserviceId(klantWebservice.Id);
+                foreach (Url url1 in urlDatas)
+                {
+                    Url newUrl = new Url();
+                    newUrl.Id = url1.Id;
+                    newUrl.Name = basisUrl + webService.Name + "/" + url1.Name;
+                    newUrl.KlantId = klant.Id;
+                    newUrl.KlantWebserviceId = klantWebservice.Id;
+                    GetResult(newUrl, false);
+                    FillTreeView(newUrl, logFile);
+                }
             }
         }
 
