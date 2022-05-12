@@ -112,6 +112,7 @@ namespace WindowsFormsAppTest
                 if (_selectedWebserviceIdOfKlantId == Guid.Empty)
                 {
                     _klantWebservices = _klantWebserviceXml.GetAll();
+                    _klantWebservices = _klantWebservices.OrderBy(x => x.Webservice).ToList();
                     _urls = _urlXml.GetAll();
                 }
                 else
@@ -129,7 +130,7 @@ namespace WindowsFormsAppTest
             }
             GetData(logFile);
             TrVwAll.EndUpdate();
-            if (_isKlant)
+            if (_isAllesTest)
             {
                 TrVwAll.Sort();
             }
@@ -399,7 +400,14 @@ namespace WindowsFormsAppTest
                 }
                 else if (item.Name != "id")
                 {
-                    TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes[TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
+                    if (_isAllesTest)
+                    {
+                        TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes[TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
+                    }
+                    else
+                    {
+                        TrVwAll.Nodes[TrVwAll.Nodes.Count - 1].Nodes.Add(item.Name + " = " + item.Value);
+                    }
                     logFile.AddTextToLogFile("--> " + item.Value.ToString() + "\n");
                 }
             }
