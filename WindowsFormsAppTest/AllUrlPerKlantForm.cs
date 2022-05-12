@@ -71,7 +71,8 @@ namespace WindowsFormsAppTest
         private void GetUrls()
         {
             UrlTxtBx.Text = string.Empty;
- 
+            _newUrls.Clear();
+
             List<KlantWebservice> klantWebservices = _klantWebserviceXml.GetAll();
             List<Url> urls = _urlXml.GetByKlantId(_selectedKlantId);
             foreach (KlantWebservice klantWebservice in klantWebservices)
@@ -100,9 +101,9 @@ namespace WindowsFormsAppTest
 
         private void FillLstBxUrls(List<Url> urls)
         {
-            AllUrlsKrLstBx.FillListBoxUrls(urls);
             if (urls.Count != 0)
             {
+                AllUrlsKrLstBx.FillListBoxUrls(urls);
                 AllUrlsKrLstBx.SelectedIndex = 0;
                 _selectedUrlId = urls[0].Id;
                 UrlTxtBx.Text = urls[0].Name;
@@ -111,6 +112,7 @@ namespace WindowsFormsAppTest
 
         private void AllKlantKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
         {
+            AllUrlsKrLstBx.ClearListBox();
             if (AllKlantKrLstBx.Items != null && AllKlantKrLstBx.SelectedValue != null)
             {
                 Guid idOfSelected = (Guid)AllKlantKrLstBx.SelectedValue;
