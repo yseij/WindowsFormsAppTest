@@ -67,7 +67,7 @@ namespace WindowsFormsAppTest
 
         private void GetWebservices()
         {
-            _webServiceDatas = _webserviceXml.GetWebservices();
+            _webServiceDatas = _webserviceXml.GetAll();
             FillLstBxWebservices();
         }
 
@@ -95,11 +95,6 @@ namespace WindowsFormsAppTest
                 }
             }
             AllWebserviceKrLstBx.FillListBoxWebserviceData(webServices);
-            if (webServices.Count != 0)
-            {
-                WebserviceTxtBx.Text = webServices[0].Name;
-                SoapWebserviceChkBx.Checked = webServices[0].Soap;
-            }
         }
 
         private void AllKlantKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
@@ -193,49 +188,13 @@ namespace WindowsFormsAppTest
             GetKlantenIfZoekOpKlantenNaamIsGevuld();
         }
 
-        private void PasWebserviceAanBtn_Click(object sender, EventArgs e)
-        {
-            WebService webService = _webserviceXml.GetKlantenByTheSameName(WebserviceTxtBx.Text);
-
-            WebService newWebService = new WebService(WebserviceTxtBx.Text, SoapWebserviceChkBx.Checked, "");
-            if (webService == null)
-            {
-                _webserviceXml.UpdateWebservice((Guid)AllWebserviceKrLstBx.SelectedValue, newWebService);
-                GetWebservices();
-            }
-            else
-            {
-                _error.SetError(WebserviceTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
-            }
-        }
-
-        private void WebservicesToevoegenAanKlant_Click(object sender, EventArgs e)
-        {
-            var m = new AddKlantWithWebservicesForm((Guid)AllKlantKrLstBx.SelectedValue);
-            m.FormClosing += new FormClosingEventHandler(ChildFormClosingAddWebserviceToKlantForm);
-            m.ShowDialog();
-        }
-
-        private void ChildFormClosingAddWebserviceToKlantForm(object sender, FormClosingEventArgs e)
-        {
-            GetWebservices();
-        }
-
         private void AllWebserviceKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (AllWebserviceKrLstBx.Items != null && AllWebserviceKrLstBx.SelectedValue != null)
             {
                 Guid idOfSelected = (Guid)AllWebserviceKrLstBx.SelectedValue;
                 WebService webService = _webServiceDatas.Find(w => w.Id == idOfSelected);
-                WebserviceTxtBx.Text = webService.Name;
-                SoapWebserviceChkBx.Checked = webService.Soap;
             }
-        }
-
-        private void AddWebserviceBtn_Click(object sender, EventArgs e)
-        {
-            var m = new AddWebserviceForm();
-            m.ShowDialog();
         }
     }
 }

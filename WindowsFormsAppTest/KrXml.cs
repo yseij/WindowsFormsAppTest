@@ -48,6 +48,21 @@ namespace WindowsFormsAppTest
                 webservices.Add(webService5);
                 db.Webservices = webservices;
 
+                //UrlForWebservice urlForWebservice1 = new UrlForWebservice("AuthService.svc", webService3.Id);
+                //UrlForWebservice urlForWebservice2 = new UrlForWebservice("CrmService.svc", webService3.Id);
+                //UrlForWebservice urlForWebservice3 = new UrlForWebservice("WorkflowService.svc", webService3.Id);
+                //UrlForWebservice urlForWebservice4 = new UrlForWebservice("MaterieelService.svc", webService3.Id);
+                //UrlForWebservice urlForWebservice5 = new UrlForWebservice("MaterieelbeheerService.svc", webService3.Id);
+                //UrlForWebservice urlForWebservice6 = new UrlForWebservice("UrenService.svc", webService3.Id);
+                //List<UrlForWebservice> urlForWebservices = new List<UrlForWebservice>();
+                //urlForWebservices.Add(urlForWebservice1);
+                //urlForWebservices.Add(urlForWebservice2);
+                //urlForWebservices.Add(urlForWebservice3);
+                //urlForWebservices.Add(urlForWebservice4);
+                //urlForWebservices.Add(urlForWebservice5);
+                //urlForWebservices.Add(urlForWebservice6);
+                //db.UrlForWebservices = urlForWebservices;
+
                 KlantWebservice klantWebservice1 = new KlantWebservice(klant1.Id, webService1.Id, true, false);
                 KlantWebservice klantWebservice2 = new KlantWebservice(klant2.Id, webService1.Id, false, true);
                 KlantWebservice klantWebservice3 = new KlantWebservice(klant3.Id, webService2.Id, true, false);

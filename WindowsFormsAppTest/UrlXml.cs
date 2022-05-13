@@ -66,23 +66,21 @@ namespace WindowsFormsAppTest
             return urls;
         }
 
-        //public List<Url> GetByWebserviceId(Guid webserviceId)
-        //{
-        //    List<Url> urls = new List<Url>();
-
-        //    XDocument doc = XDocument.Load(_path);
-        //    IEnumerable<XElement> elements = doc.Element("DB").Element("Urls").Elements("Url")
-        //        .Where(p => Guid.Parse(p.Attribute("WebserviceId").Value) == webserviceId);
-        //    foreach (XElement element in elements)
-        //    {
-        //        Url newUrl = new Url();
-        //        newUrl.Id = Guid.Parse(element.Attribute("Id").Value);
-        //        newUrl.Name = element.Attribute("Name").Value;
-        //        newUrl.KlantWebserviceId = Guid.Parse(element.Attribute("KlantWebserviceId").Value);
-        //        urls.Add(newUrl);
-        //    }
-        //    return urls;
-        //}
+        public Url GetById(Guid id)
+        { 
+            XDocument doc = XDocument.Load(_path);
+            XElement element = doc.Element("DB").Element("Urls").Elements("Url")
+                .FirstOrDefault(p => Guid.Parse(p.Attribute("Id").Value) == id);
+            Url url = new Url();
+            if (element != null)
+            {
+                url.Id = Guid.Parse(element.Attribute("Id").Value);
+                url.Name = element.Attribute("Name").Value;
+                url.KlantWebserviceId = Guid.Parse(element.Attribute("KlantWebserviceId").Value);
+                url.KlantId = Guid.Parse(element.Attribute("KlantId").Value);
+            }
+            return url;
+        }
 
         public Url GetByKlantAndName(Guid klantId, string name)
         {
@@ -108,6 +106,16 @@ namespace WindowsFormsAppTest
                                                   new XAttribute("Name", url.Name),
                                                   new XAttribute("KlantWebserviceId", url.KlantWebserviceId),
                                                   new XAttribute("KlantId", url.KlantId)));
+            SaveXmlFile(doc);
+        }
+
+        public void UpdateUrl(Guid id, Url url)
+        {
+            XDocument doc = XDocument.Load(_path);
+            XElement xmlKlant = doc.Element("DB").Element("Urls").Elements("Url").FirstOrDefault(p => Guid.Parse(p.Attribute("Id").Value) == id);
+            xmlKlant.Attribute("Name").Value = url.Name;
+            xmlKlant.Attribute("KlantWebserviceId").Value = url.KlantWebserviceId.ToString();
+            xmlKlant.Attribute("KlantId").Value = url.KlantId.ToString();
             SaveXmlFile(doc);
         }
 

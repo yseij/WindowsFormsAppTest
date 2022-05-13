@@ -2,7 +2,6 @@
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
@@ -53,7 +52,7 @@ namespace WindowsFormsAppTest
 
         private void GetWebservices()
         {
-            _webserviceDatas = _webserviceXml.GetWebservices();
+            _webserviceDatas = _webserviceXml.GetAll();
         }
 
         private void GetKlanten()
@@ -88,6 +87,20 @@ namespace WindowsFormsAppTest
                     SecurityIdTxtBx.Text = _selectedWebservice.SecurityId;
                 }
                 SetSelectedTab(url);
+            }
+        }
+
+        private void UrlDeleteBtn_Click(object sender, EventArgs e)
+        {
+            Url url = _urlXml.GetById((Guid)AllUrlsKrLstBx.SelectedValue);
+            if (url.Id != Guid.Empty)
+            {
+                _urlXml.DeleteUrl((Guid)AllUrlsKrLstBx.SelectedValue);
+                GetUrls();
+            }
+            else
+            {
+                MessageBox.Show("Deze url is een gegenereerde url dus u kan die niet verwijderen");
             }
         }
 

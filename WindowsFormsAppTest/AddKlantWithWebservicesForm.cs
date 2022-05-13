@@ -12,8 +12,16 @@ namespace WindowsFormsAppTest
         private Guid _klantId;
 
         private int _aantalFouten = -1;
+        private int _teller = 0;
 
         private bool _inError = false;
+
+        string[] kraanWebservices = { "AuthService.svc",
+                                      "CrmService.svc",
+                                      "WorkflowService.svc",
+                                      "MaterieelService.svc",
+                                      "MaterieelbeheerService.svc",
+                                      "UrenService.svc" };
 
         private List<WebService> _webserviceDatas = new List<WebService>();
 
@@ -50,7 +58,7 @@ namespace WindowsFormsAppTest
 
         private void FillTable()
         {
-            _webserviceDatas = _webserviceXml.GetWebservices();
+            _webserviceDatas = _webserviceXml.GetAll();
 
             TableLayoutHeader.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             TableLayoutWebservice.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
@@ -262,9 +270,9 @@ namespace WindowsFormsAppTest
 
             bool isChecked = false;
             string huidigeWebservice = string.Empty;
-            string url = "";
-            int teller = 0;
+            string url = string.Empty;
             int aantalFouten = 0;
+            int HuidigeTabIndex;
 
             CheckBox vorigeCheckBox = new CheckBox();
             TableLayoutControlCollection controls = TableLayoutWebservice.Controls;
@@ -278,28 +286,26 @@ namespace WindowsFormsAppTest
                     {
                         isChecked = true;
                         huidigeWebservice = c.Text;
+                        if (huidigeWebservice == "Kraan2Webservice") 
+                        {
+                            HuidigeTabIndex = c.TabIndex;
+                            UrlsGenererenKraan2Webservice(HuidigeTabIndex, huidigeWebservice);
+                        }    
                     }
                 }
                 if (isChecked)
                 {
-                    if (checkBox.Checked)
+                    if (checkBox.Checked && huidigeWebservice != "Kraan2Webservice")
                     {
-                        if (c.Tag.ToString() == "BasisUrl1")
+                        url= SetUrl(checkBox, huidigeWebservice);
+                        if (url != string.Empty)
                         {
-                            url = BasisUrl1TxtBx.Text + huidigeWebservice;
-                            teller++;
-                            UrlsLstBx.Items.Add(url);
-                        }
-                        else if (c.Tag.ToString() == "BasisUrl2")
-                        {
-                            url = BasisUrl2TxtBx.Text + huidigeWebservice;
-                            teller++;
                             UrlsLstBx.Items.Add(url);
                         }
                     }
-                    if (url == string.Empty && teller == 0 && c.Tag.ToString() == "BasisUrl2")
+                    if (url == string.Empty && _teller == 0 && c.Tag.ToString() == "BasisUrl2")
                     {
-                        teller++;
+                        _teller++;
                         aantalFouten++;
 
                         vorigeCheckBox.BackColor = Color.Red;
@@ -308,7 +314,7 @@ namespace WindowsFormsAppTest
                     if (c.Tag.ToString() == "BasisUrl2")
                     {
                         isChecked = false;
-                        teller = 0;
+                        _teller = 0;
                     }
                     url = string.Empty;
                 }
@@ -328,6 +334,41 @@ namespace WindowsFormsAppTest
             }
             ControleIfKlantIsGoed();
             _aantalFouten = -1;
+        }
+
+        private void UrlsGenererenKraan2Webservice(int tabIndex, string huidigeWebservice)
+        {
+            TableLayoutControlCollection controls = TableLayoutWebservice.Controls;
+            string basisUrl = string.Empty;
+            for (int i = 0; i < 2; i++)
+            {
+                CheckBox c = (CheckBox)controls[tabIndex + i];
+                if (c.Checked)
+                {
+                    basisUrl = SetUrl(c, huidigeWebservice);
+                }
+            }
+            for (int i = 0; i < kraanWebservices.Length; i++)
+            {
+                string url = basisUrl + "/" + kraanWebservices[i];
+                UrlsLstBx.Items.Add(url);
+            }
+        }
+
+        private string SetUrl(CheckBox c, string huidigeWebservice)
+        {
+            string url = string.Empty;
+            if (c.Tag.ToString() == "BasisUrl1")
+            {
+                url = BasisUrl1TxtBx.Text + huidigeWebservice;
+                _teller++;
+            }
+            else if (c.Tag.ToString() == "BasisUrl2")
+            {
+                url = BasisUrl2TxtBx.Text + huidigeWebservice;
+                _teller++;
+            }
+            return url;
         }
 
         private void ControleIfKlantIsGoed()

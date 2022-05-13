@@ -12,6 +12,7 @@ namespace WindowsFormsAppTest
     {
         private Guid _selectedWebserviceIdOfKlantId;
         private int _aantalLegeUrls;
+        private int _node;
 
         private string _clipBoardText;
 
@@ -21,7 +22,14 @@ namespace WindowsFormsAppTest
 
         dynamic _result = null;
 
-        private int _node;
+        string[] kraanWebservices = { "AuthService.svc",
+                                      "CrmService.svc",
+                                      "WorkflowService.svc",
+                                      "MaterieelService.svc",
+                                      "MaterieelbeheerService.svc",
+                                      "UrenService.svc" };
+
+
         List<string> urls = new List<string>();
         List<string> results = new List<string>();
 
@@ -53,7 +61,7 @@ namespace WindowsFormsAppTest
 
             AantalLegeUrlsTxtBx.Text = string.Empty;
 
-            _webServices = _webserviceXml.GetWebservices();
+            _webServices = _webserviceXml.GetAll();
             _klanten = _klantXml.GetKlanten();
 
             if (isKlant)
@@ -96,7 +104,7 @@ namespace WindowsFormsAppTest
             TrVwAll.Nodes.Clear();
             TrVwAll.BeginUpdate();
 
-            _webServices = _webserviceXml.GetWebservices();
+            _webServices = _webserviceXml.GetAll();
             if (_isKlant)
             {
                 if (_selectedWebserviceIdOfKlantId == Guid.Empty)
@@ -189,10 +197,15 @@ namespace WindowsFormsAppTest
                     }
                     else
                     {
-                        url.Name += "/GetWebserviceVersion";
-                        GetResult(url, true);
-                        FillTreeView(url, logFile, true);
+                        Url url2 = new Url();
+                        url2.Name = url.Name + "/GetWebserviceVersion";
+                        GetResult(url2, true);
+                        FillTreeView(url2, logFile, true);
                     }
+                }
+                if (webService.Name == "Kraan2Webservice")
+                {
+                    UrlsTestKraan2Webservice(url, logFile);
                 }
                 logFile.AddTextToLogFile("\n");
                 List<Url> urlDatas = _urlXml.GetByKlantWebserviceId(klantWebservice.Id);
@@ -206,6 +219,18 @@ namespace WindowsFormsAppTest
                     GetResult(newUrl, false);
                     FillTreeView(newUrl, logFile, false);
                 }
+            }
+        }
+
+        private void UrlsTestKraan2Webservice(Url url, LogFile logFile)
+        {
+            for (int i = 0; i < kraanWebservices.Length; i++)
+            {
+                Url newUrl = new Url();
+                newUrl.Name = url.Name + "/" + kraanWebservices[i];
+                GetResult(newUrl, false);
+                FillTreeView(newUrl, logFile, true);
+                newUrl.Name = string.Empty;
             }
         }
 

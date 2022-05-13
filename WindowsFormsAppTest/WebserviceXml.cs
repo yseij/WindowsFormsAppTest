@@ -9,7 +9,7 @@ namespace WindowsFormsAppTest
     class WebserviceXml
     {
         private string _path = Properties.Settings.Default["PlaceDb"].ToString();
-        public List<WebService> GetWebservices()
+        public List<WebService> GetAll()
         {
             XDocument doc = XDocument.Load(_path);
             List<WebService> webservices = new List<WebService>();
@@ -28,13 +28,13 @@ namespace WindowsFormsAppTest
 
         public List<WebService> GetWebservicesByName(string naam)
         {
-            List<WebService> AlleKWebservices = GetWebservices();
+            List<WebService> AlleKWebservices = GetAll();
             return AlleKWebservices.FindAll(w => w.Name.Contains(naam));
         }
 
         public WebService GetKlantenByTheSameName(string naam)
         {
-            List<WebService> AlleKWebservices = GetWebservices();
+            List<WebService> AlleKWebservices = GetAll();
             return AlleKWebservices.Find(w => w.Name.Equals(naam));
         }
 

@@ -14,6 +14,7 @@ namespace WindowsFormsAppTest
         private Klant _klant = new Klant();
         private List<Klant> _klanten = new List<Klant>();
         private List<Url> _newUrls = new List<Url>();
+        private Url _url = new Url();
 
         UrlXml _urlXml;
         KlantXml _klantXml;
@@ -84,6 +85,7 @@ namespace WindowsFormsAppTest
                     newUrl.Id = url.Id;
                     if (klantWebservice.Id == url.KlantWebserviceId)
                     {
+                        newUrl.MethodeName = url.Name;
                         if (klantWebservice.BasisUrl1)
                         {
                             newUrl.Name = _klant.BasisUrl1 + webService.Name + "/" + url.Name;
@@ -105,8 +107,7 @@ namespace WindowsFormsAppTest
             {
                 AllUrlsKrLstBx.FillListBoxUrls(urls);
                 AllUrlsKrLstBx.SelectedIndex = 0;
-                _selectedUrlId = urls[0].Id;
-                UrlTxtBx.Text = urls[0].Name;
+                _selectedUrlId = urls[0].Id; 
             }
         }
 
@@ -122,20 +123,28 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void DeleteUrlBttn_Click(object sender, EventArgs e)
-        {
-            _urlXml.DeleteUrl(_selectedUrlId);
-            GetUrls();
-        }
-
         private void AllUrlsKrLstBx_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (AllUrlsKrLstBx.Items != null && AllUrlsKrLstBx.SelectedValue != null)
             {
                 _selectedUrlId = (Guid)AllUrlsKrLstBx.SelectedValue;
                 Url url = (Url)AllUrlsKrLstBx.SelectedItem;
-                UrlTxtBx.Text = url.Name;
+                UrlTxtBx.Text = url.MethodeName;
             }
+        }
+
+        private void PasAanUrlBttn_Click(object sender, EventArgs e)
+        {
+            Url url = (Url)AllUrlsKrLstBx.SelectedItem;
+            url.Name = UrlTxtBx.Text;
+            _urlXml.UpdateUrl(_selectedUrlId, url);
+            GetUrls();
+        }
+
+        private void DeleteUrlBttn_Click(object sender, EventArgs e)
+        {
+            _urlXml.DeleteUrl(_selectedUrlId);
+            GetUrls();
         }
 
         private void GetKlantenIfZoekOpKlantenNaamIsGevuld()

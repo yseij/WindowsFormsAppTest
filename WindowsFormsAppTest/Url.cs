@@ -24,12 +24,11 @@ namespace WindowsFormsAppTest
         [XmlAttribute("Name")]
         public string Name { get; set; }
 
+        [XmlIgnore]
+        public string MethodeName { get; set; }
+
         [XmlAttribute("KlantId")]
         public Guid KlantId { get; set; }
-
-        //[XmlAttribute("WebserviceId")]
-        //public Guid WebserviceId { get; set; }
-
 
         [XmlAttribute("KlantWebserviceId")]
         public Guid KlantWebserviceId { get; set; }

@@ -45,17 +45,10 @@ namespace WindowsFormsAppTest
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.SoapWebserviceChkBx = new MaterialSkin.Controls.MaterialCheckbox();
-            this.PasWebserviceAanBtn = new System.Windows.Forms.Button();
-            this.AddWebserviceBtn = new System.Windows.Forms.Button();
-            this.WebserviceTxtBx = new MaterialSkin.Controls.MaterialMaskedTextBox();
-            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
             this.WebservicesToevoegenAanKlant = new System.Windows.Forms.Button();
             this.AllWebserviceKrLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.AllKlantKrLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -386,121 +379,6 @@ namespace WindowsFormsAppTest
             this.materialLabel4.TabIndex = 90;
             this.materialLabel4.Text = "Webservice";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox2.Controls.Add(this.SoapWebserviceChkBx);
-            this.groupBox2.Controls.Add(this.PasWebserviceAanBtn);
-            this.groupBox2.Controls.Add(this.AddWebserviceBtn);
-            this.groupBox2.Controls.Add(this.WebserviceTxtBx);
-            this.groupBox2.Controls.Add(this.materialLabel5);
-            this.groupBox2.Location = new System.Drawing.Point(376, 478);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(472, 166);
-            this.groupBox2.TabIndex = 89;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Webservice bewerken";
-            // 
-            // SoapWebserviceChkBx
-            // 
-            this.SoapWebserviceChkBx.AutoSize = true;
-            this.SoapWebserviceChkBx.Depth = 0;
-            this.SoapWebserviceChkBx.Location = new System.Drawing.Point(61, 70);
-            this.SoapWebserviceChkBx.Margin = new System.Windows.Forms.Padding(0);
-            this.SoapWebserviceChkBx.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.SoapWebserviceChkBx.MouseState = MaterialSkin.MouseState.HOVER;
-            this.SoapWebserviceChkBx.Name = "SoapWebserviceChkBx";
-            this.SoapWebserviceChkBx.ReadOnly = false;
-            this.SoapWebserviceChkBx.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SoapWebserviceChkBx.Ripple = true;
-            this.SoapWebserviceChkBx.Size = new System.Drawing.Size(154, 37);
-            this.SoapWebserviceChkBx.TabIndex = 89;
-            this.SoapWebserviceChkBx.Text = "Soap webservice";
-            this.SoapWebserviceChkBx.UseVisualStyleBackColor = true;
-            // 
-            // PasWebserviceAanBtn
-            // 
-            this.PasWebserviceAanBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.PasWebserviceAanBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.PasWebserviceAanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PasWebserviceAanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PasWebserviceAanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.PasWebserviceAanBtn.Location = new System.Drawing.Point(341, 117);
-            this.PasWebserviceAanBtn.Name = "PasWebserviceAanBtn";
-            this.PasWebserviceAanBtn.Size = new System.Drawing.Size(112, 43);
-            this.PasWebserviceAanBtn.TabIndex = 78;
-            this.PasWebserviceAanBtn.Text = "WEBSERVICE AANPASSEN";
-            this.PasWebserviceAanBtn.UseVisualStyleBackColor = false;
-            this.PasWebserviceAanBtn.Click += new System.EventHandler(this.PasWebserviceAanBtn_Click);
-            // 
-            // AddWebserviceBtn
-            // 
-            this.AddWebserviceBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddWebserviceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
-            this.AddWebserviceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.AddWebserviceBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddWebserviceBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddWebserviceBtn.Location = new System.Drawing.Point(223, 117);
-            this.AddWebserviceBtn.Name = "AddWebserviceBtn";
-            this.AddWebserviceBtn.Size = new System.Drawing.Size(112, 43);
-            this.AddWebserviceBtn.TabIndex = 77;
-            this.AddWebserviceBtn.Text = "WEBSERVICE TOEVOEGEN";
-            this.AddWebserviceBtn.UseVisualStyleBackColor = false;
-            this.AddWebserviceBtn.Click += new System.EventHandler(this.AddWebserviceBtn_Click);
-            // 
-            // WebserviceTxtBx
-            // 
-            this.WebserviceTxtBx.AllowPromptAsInput = true;
-            this.WebserviceTxtBx.AnimateReadOnly = false;
-            this.WebserviceTxtBx.AsciiOnly = false;
-            this.WebserviceTxtBx.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.WebserviceTxtBx.BeepOnError = false;
-            this.WebserviceTxtBx.CutCopyMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.WebserviceTxtBx.Depth = 0;
-            this.WebserviceTxtBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.WebserviceTxtBx.HidePromptOnLeave = false;
-            this.WebserviceTxtBx.HideSelection = true;
-            this.WebserviceTxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
-            this.WebserviceTxtBx.LeadingIcon = null;
-            this.WebserviceTxtBx.Location = new System.Drawing.Point(61, 19);
-            this.WebserviceTxtBx.Mask = "";
-            this.WebserviceTxtBx.MaxLength = 32767;
-            this.WebserviceTxtBx.MouseState = MaterialSkin.MouseState.OUT;
-            this.WebserviceTxtBx.Name = "WebserviceTxtBx";
-            this.WebserviceTxtBx.PasswordChar = '\0';
-            this.WebserviceTxtBx.PrefixSuffixText = null;
-            this.WebserviceTxtBx.PromptChar = '_';
-            this.WebserviceTxtBx.ReadOnly = false;
-            this.WebserviceTxtBx.RejectInputOnFirstFailure = false;
-            this.WebserviceTxtBx.ResetOnPrompt = true;
-            this.WebserviceTxtBx.ResetOnSpace = true;
-            this.WebserviceTxtBx.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.WebserviceTxtBx.SelectedText = "";
-            this.WebserviceTxtBx.SelectionLength = 0;
-            this.WebserviceTxtBx.SelectionStart = 0;
-            this.WebserviceTxtBx.ShortcutsEnabled = true;
-            this.WebserviceTxtBx.Size = new System.Drawing.Size(390, 48);
-            this.WebserviceTxtBx.SkipLiterals = true;
-            this.WebserviceTxtBx.TabIndex = 2;
-            this.WebserviceTxtBx.TabStop = false;
-            this.WebserviceTxtBx.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.WebserviceTxtBx.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludeLiterals;
-            this.WebserviceTxtBx.TrailingIcon = null;
-            this.WebserviceTxtBx.UseSystemPasswordChar = false;
-            this.WebserviceTxtBx.ValidatingType = null;
-            // 
-            // materialLabel5
-            // 
-            this.materialLabel5.AutoSize = true;
-            this.materialLabel5.Depth = 0;
-            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel5.Location = new System.Drawing.Point(7, 19);
-            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel5.Name = "materialLabel5";
-            this.materialLabel5.Size = new System.Drawing.Size(48, 19);
-            this.materialLabel5.TabIndex = 61;
-            this.materialLabel5.Text = "Naam:";
-            // 
             // WebservicesToevoegenAanKlant
             // 
             this.WebservicesToevoegenAanKlant.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -514,7 +392,6 @@ namespace WindowsFormsAppTest
             this.WebservicesToevoegenAanKlant.TabIndex = 93;
             this.WebservicesToevoegenAanKlant.Text = "Webservices van klant beheren";
             this.WebservicesToevoegenAanKlant.UseVisualStyleBackColor = false;
-            this.WebservicesToevoegenAanKlant.Click += new System.EventHandler(this.WebservicesToevoegenAanKlant_Click);
             // 
             // AllWebserviceKrLstBx
             // 
@@ -525,7 +402,7 @@ namespace WindowsFormsAppTest
             this.AllWebserviceKrLstBx.ItemHeight = 20;
             this.AllWebserviceKrLstBx.Location = new System.Drawing.Point(6, 478);
             this.AllWebserviceKrLstBx.Name = "AllWebserviceKrLstBx";
-            this.AllWebserviceKrLstBx.Size = new System.Drawing.Size(363, 164);
+            this.AllWebserviceKrLstBx.Size = new System.Drawing.Size(820, 164);
             this.AllWebserviceKrLstBx.TabIndex = 91;
             this.AllWebserviceKrLstBx.SelectedIndexChanged += new System.EventHandler(this.AllWebserviceKrLstBx_SelectedIndexChanged);
             // 
@@ -551,7 +428,6 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.label2);
             this.Controls.Add(this.materialLabel4);
             this.Controls.Add(this.AllWebserviceKrLstBx);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.ZoekOpKlantNaamTxtBx);
@@ -563,8 +439,6 @@ namespace WindowsFormsAppTest
             this.Text = "Klanten beheren";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -589,12 +463,6 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Label label2;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private KrMaterialListBox AllWebserviceKrLstBx;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private MaterialSkin.Controls.MaterialCheckbox SoapWebserviceChkBx;
-        private System.Windows.Forms.Button PasWebserviceAanBtn;
-        private System.Windows.Forms.Button AddWebserviceBtn;
-        private MaterialSkin.Controls.MaterialMaskedTextBox WebserviceTxtBx;
-        private MaterialSkin.Controls.MaterialLabel materialLabel5;
         private System.Windows.Forms.Button WebservicesToevoegenAanKlant;
     }
 }

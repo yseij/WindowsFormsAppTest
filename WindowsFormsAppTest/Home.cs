@@ -54,7 +54,7 @@ namespace WindowsFormsAppTest
 
             _krXml.SetDbXml();
             //_krXml.MakeXmlFileUser();
-            //_krXml.MakeXmlFileDb();
+            _krXml.MakeXmlFileDb();
 
             FillKlantenDropDown();
 
@@ -398,7 +398,7 @@ namespace WindowsFormsAppTest
             _text = string.Empty;
             _logFile = new LogFile();
             List<KlantWebservice> klantWebservices = _klantWebserviceXml.GetByKlant(klantKeuzeId);
-            List<WebService> webServices = _webserviceXml.GetWebservices();
+            List<WebService> webServices = _webserviceXml.GetAll();
             List<Url> urls = _urlXml.GetByKlantId(klantKeuzeId);
             if (klantWebservices.Count != 0 || urls.Count != 0)
             {

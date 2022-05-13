@@ -18,7 +18,7 @@ namespace WindowsFormsAppTest
             _webserviceXml = new WebserviceXml();
             _error = new ErrorProvider();
 
-            _webServiceDatas = _webserviceXml.GetWebservices();
+            _webServiceDatas = _webserviceXml.GetAll();
 
             AddWebserviceBttn.Enabled = false;
         }

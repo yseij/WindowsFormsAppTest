@@ -23,9 +23,12 @@ namespace WindowsFormsAppTest
         [XmlArrayItem("KlantWebservice")]
         public List<KlantWebservice> KlantWebservices { get; set; }
 
-
         [XmlArray("Urls")]
         [XmlArrayItem("Url")]
         public List<Url> Urls { get; set; }
+
+        //[XmlArray("UrlForWebservices")]
+        //[XmlArrayItem("UrlForWebservice")]
+        //public List<UrlForWebservice> UrlForWebservices { get; set; }
     }
 }

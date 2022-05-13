@@ -34,7 +34,7 @@ namespace WindowsFormsAppTest
 
         private void GetWebservicesIfZoekOpNaamIsLeeg()
         {
-            _webServiceDatas = _webserviceXml.GetWebservices();
+            _webServiceDatas = _webserviceXml.GetAll();
             FillLstBxWebServices();
 
             if (_webServiceDatas.Count > 0)
