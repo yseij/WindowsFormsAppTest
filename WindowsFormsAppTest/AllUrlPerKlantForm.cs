@@ -14,7 +14,6 @@ namespace WindowsFormsAppTest
         private Klant _klant = new Klant();
         private List<Klant> _klanten = new List<Klant>();
         private List<Url> _newUrls = new List<Url>();
-        private Url _url = new Url();
 
         UrlXml _urlXml;
         KlantXml _klantXml;

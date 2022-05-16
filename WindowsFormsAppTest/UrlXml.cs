@@ -114,8 +114,6 @@ namespace WindowsFormsAppTest
             XDocument doc = XDocument.Load(_path);
             XElement xmlKlant = doc.Element("DB").Element("Urls").Elements("Url").FirstOrDefault(p => Guid.Parse(p.Attribute("Id").Value) == id);
             xmlKlant.Attribute("Name").Value = url.Name;
-            xmlKlant.Attribute("KlantWebserviceId").Value = url.KlantWebserviceId.ToString();
-            xmlKlant.Attribute("KlantId").Value = url.KlantId.ToString();
             SaveXmlFile(doc);
         }
 
