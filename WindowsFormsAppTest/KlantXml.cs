@@ -48,8 +48,6 @@ namespace WindowsFormsAppTest
         public void AddKlant(Klant klant)
         {
             XDocument doc = XDocument.Load(_path);
-            List<Klant> klanten = new List<Klant>();
-            klanten.Add(klant);
             doc.Element("DB").Element("Klanten").Add(new XElement("Klant",
                                                      new XAttribute("Id", klant.Id),
                                                      new XAttribute("Name", klant.Name),

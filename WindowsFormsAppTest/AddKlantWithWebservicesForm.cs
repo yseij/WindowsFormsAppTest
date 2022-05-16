@@ -355,6 +355,14 @@ namespace WindowsFormsAppTest
 
         private string SetUrl(CheckBox c, string huidigeWebservice)
         {
+            if (BasisUrl1TxtBx.Text != null && !BasisUrl1TxtBx.Text.EndsWith("/"))
+            {
+                BasisUrl1TxtBx.Text += "/";
+            }
+            if (BasisUrl2TxtBx.Text != null && !BasisUrl2TxtBx.Text.EndsWith("/"))
+            {
+                BasisUrl2TxtBx.Text += "/";
+            }
             string url = string.Empty;
             if (c.Tag.ToString() == "BasisUrl1")
             {
@@ -432,6 +440,11 @@ namespace WindowsFormsAppTest
                 }
             }
             return klant;
+        }
+
+        private void AnnulerenKlantBttn_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
