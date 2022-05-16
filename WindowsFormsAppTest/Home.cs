@@ -397,6 +397,8 @@ namespace WindowsFormsAppTest
             _teller = 0;
             _text = string.Empty;
             _logFile = new LogFile();
+            string basisUrl = string.Empty;
+            WebService webService = new WebService();
             List<KlantWebservice> klantWebservices = _klantWebserviceXml.GetByKlant(klantKeuzeId);
             List<WebService> webServices = _webserviceXml.GetAll();
             List<Url> urls = _urlXml.GetByKlantId(klantKeuzeId);
@@ -407,9 +409,7 @@ namespace WindowsFormsAppTest
             }
             foreach (KlantWebservice klantWebservice in klantWebservices)
             {
-                string basisUrl = string.Empty;
                 Url url = new Url();
-                WebService webService = new WebService();
                 Klant klant = _klantDatas.Find(k => k.Id == klantWebservice.Klant);
                 if (klantWebservice.BasisUrl1)
                 {
@@ -436,13 +436,20 @@ namespace WindowsFormsAppTest
                     }
                     else
                     {
-                        GetWebserviceVersion(url);
+                        Url url2 = new Url();
+                        url2.Name = url.Name + "/GetWebserviceVersion";
+                        GetWebserviceVersion(url2);
                     }
                 }
-            }
-            foreach (Url url in urls)
-            {
-                GetUrl(url);
+                foreach (Url url1 in urls)
+                {
+                    Url newUrl = new Url();
+                    newUrl.Id = url1.Id;
+                    newUrl.Name = basisUrl + webService.Name + "/" + url1.Name;
+                    newUrl.KlantId = klant.Id;
+                    newUrl.KlantWebserviceId = klantWebservice.Id;
+                    GetUrl(newUrl);
+                }
             }
             if (_teller == 0)
             {
