@@ -397,10 +397,8 @@ namespace WindowsFormsAppTest
             _teller = 0;
             _text = string.Empty;
             _logFile = new LogFile();
-            string basisUrl = string.Empty;
-            WebService webService = new WebService();
+            
             List<KlantWebservice> klantWebservices = _klantWebserviceXml.GetByKlant(klantKeuzeId);
-            List<WebService> webServices = _webserviceXml.GetAll();
             List<Url> urls = _urlXml.GetByKlantId(klantKeuzeId);
             if (klantWebservices.Count != 0 || urls.Count != 0)
             {
@@ -411,45 +409,26 @@ namespace WindowsFormsAppTest
             {
                 Url url = new Url();
                 Klant klant = _klantDatas.Find(k => k.Id == klantWebservice.Klant);
-                if (klantWebservice.BasisUrl1)
-                {
-                    basisUrl = klant.BasisUrl1;
-                }
-                else
-                {
-                    basisUrl = klant.BasisUrl2;
-                }
-                foreach (WebService webservice in webServices)
-                {
-                    if (webservice.Id == klantWebservice.Webservice)
-                    {
-                        webService = webservice;
-                        url.Name = basisUrl + webservice.Name;
-                        _isSoap = webservice.Soap;
-                    }
-                }
-                for (int i = 0; i < 2; i++)
-                {
-                    if (i == 0)
-                    {
-                        CheckUrl(url);
-                    }
-                    else
-                    {
-                        Url url2 = new Url();
-                        url2.Name = url.Name + "/GetWebserviceVersion";
-                        GetWebserviceVersion(url2);
-                    }
-                }
-                foreach (Url url1 in urls)
-                {
-                    Url newUrl = new Url();
-                    newUrl.Id = url1.Id;
-                    newUrl.Name = basisUrl + webService.Name + "/" + url1.Name;
-                    newUrl.KlantId = klant.Id;
-                    newUrl.KlantWebserviceId = klantWebservice.Id;
-                    GetUrl(newUrl);
-                }
+
+                string basisUrl = FindBasisUrl(klantWebservice, klant);
+                WebService webService = FindWebservice(klantWebservice);
+                url.Name = basisUrl + webService.Name;
+
+                CheckUrlAndGetWebserviceVersion(url);
+            }
+            foreach (Url url1 in urls)
+            {
+                KlantWebservice klantWebservice = _klantWebserviceXml.GetByKlantWebserviceId(url1.KlantWebserviceId);
+                Klant klant = _klantDatas.Find(k => k.Id == klantWebservice.Klant);
+                string basisUrl = FindBasisUrl(klantWebservice, klant);
+                WebService webService = FindWebservice(klantWebservice);
+
+                Url newUrl = new Url();
+                newUrl.Id = url1.Id;
+                newUrl.Name = basisUrl + webService.Name + "/" + url1.Name;
+                newUrl.KlantId = klantKeuzeId;
+                newUrl.KlantWebserviceId = klantWebservice.Id;
+                GetUrl(newUrl);
             }
             if (_teller == 0)
             {
@@ -458,6 +437,49 @@ namespace WindowsFormsAppTest
             if (_text != "")
             {
                 MailClient.SendMail(keuzeNaam, _text, _logFile.FilePath);
+            }
+        }
+
+        private string FindBasisUrl(KlantWebservice klantWebservice, Klant klant)
+        {
+            if (klantWebservice.BasisUrl1)
+            {
+                return klant.BasisUrl1;
+            }
+            else
+            {
+                return klant.BasisUrl2;
+            }
+        }
+
+        private WebService FindWebservice(KlantWebservice klantWebservice)
+        {
+            List<WebService> webServices = _webserviceXml.GetAll();
+            foreach (WebService webservice in webServices)
+            {
+                if (webservice.Id == klantWebservice.Webservice)
+                {
+                    _isSoap = webservice.Soap;
+                    return webservice;
+                }
+            }
+            return null;
+        }
+
+        private void CheckUrlAndGetWebserviceVersion(Url url)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                if (i == 0)
+                {
+                    CheckUrl(url);
+                }
+                else
+                {
+                    Url url2 = new Url();
+                    url2.Name = url.Name;
+                    GetWebserviceVersion(url2);
+                }
             }
         }
 
@@ -535,10 +557,6 @@ namespace WindowsFormsAppTest
             }
             else
             {
-                if (true)
-                {
-
-                }
                 var data = _webRequest.GetWebRequestRest(url.Name,
                                                          isGetWebserviceVersion);
                 _result = JObject.Parse(data);

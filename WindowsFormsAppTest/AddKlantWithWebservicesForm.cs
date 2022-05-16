@@ -402,6 +402,7 @@ namespace WindowsFormsAppTest
                 Klant klantExist = _klantXml.GetKlantenByTheSameName(NewKlantNaamTxtBx.Text);
                 if (klantExist == null)
                 {
+                    klant = CheckBasisUrl(klant);
                     _klantXml.AddKlant(klant);
                     klantWebservice.Klant = klant.Id;
                 }
@@ -412,6 +413,25 @@ namespace WindowsFormsAppTest
                 }
             }
             return klantWebservice;
+        }
+
+        private Klant CheckBasisUrl(Klant klant)
+        {
+            if (klant.BasisUrl1 != string.Empty)
+            {
+                if (!klant.BasisUrl1.EndsWith("/"))
+                {
+                    klant.BasisUrl1 += "/";
+                }
+            }
+            if (klant.BasisUrl2 != string.Empty)
+            {
+                if (!klant.BasisUrl2.EndsWith("/"))
+                {
+                    klant.BasisUrl2 += "/";
+                }
+            }
+            return klant;
         }
     }
 }
