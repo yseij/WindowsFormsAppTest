@@ -132,9 +132,9 @@ namespace WindowsFormsAppTest
             this.GrpBxSsl.Controls.Add(this.LblCertificaatVervalDatum);
             this.GrpBxSsl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GrpBxSsl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.GrpBxSsl.Location = new System.Drawing.Point(470, 755);
+            this.GrpBxSsl.Location = new System.Drawing.Point(470, 850);
             this.GrpBxSsl.Name = "GrpBxSsl";
-            this.GrpBxSsl.Size = new System.Drawing.Size(419, 142);
+            this.GrpBxSsl.Size = new System.Drawing.Size(419, 152);
             this.GrpBxSsl.TabIndex = 27;
             this.GrpBxSsl.TabStop = false;
             this.GrpBxSsl.Text = "Results SSL certificaat";
@@ -330,7 +330,7 @@ namespace WindowsFormsAppTest
             this.ResponseTextBox.Depth = 0;
             this.ResponseTextBox.Enabled = false;
             this.ResponseTextBox.HideSelection = false;
-            this.ResponseTextBox.Location = new System.Drawing.Point(25, 764);
+            this.ResponseTextBox.Location = new System.Drawing.Point(25, 850);
             this.ResponseTextBox.MaxLength = 32767;
             this.ResponseTextBox.MouseState = MaterialSkin.MouseState.OUT;
             this.ResponseTextBox.Name = "ResponseTextBox";
@@ -341,7 +341,7 @@ namespace WindowsFormsAppTest
             this.ResponseTextBox.SelectionLength = 0;
             this.ResponseTextBox.SelectionStart = 0;
             this.ResponseTextBox.ShortcutsEnabled = true;
-            this.ResponseTextBox.Size = new System.Drawing.Size(439, 133);
+            this.ResponseTextBox.Size = new System.Drawing.Size(439, 152);
             this.ResponseTextBox.TabIndex = 32;
             this.ResponseTextBox.TabStop = false;
             this.ResponseTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -354,7 +354,7 @@ namespace WindowsFormsAppTest
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(26, 742);
+            this.materialLabel1.Location = new System.Drawing.Point(26, 828);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(28, 19);
@@ -368,7 +368,7 @@ namespace WindowsFormsAppTest
             this.TestWebserviceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TestWebserviceBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TestWebserviceBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.TestWebserviceBtn.Location = new System.Drawing.Point(672, 356);
+            this.TestWebserviceBtn.Location = new System.Drawing.Point(671, 439);
             this.TestWebserviceBtn.Name = "TestWebserviceBtn";
             this.TestWebserviceBtn.Size = new System.Drawing.Size(217, 31);
             this.TestWebserviceBtn.TabIndex = 63;
@@ -857,7 +857,7 @@ namespace WindowsFormsAppTest
             this.TbCntrlRestApiEnSoap.Controls.Add(this.SalesPage24);
             this.TbCntrlRestApiEnSoap.Controls.Add(this.SalesPage31);
             this.TbCntrlRestApiEnSoap.Depth = 0;
-            this.TbCntrlRestApiEnSoap.Location = new System.Drawing.Point(25, 448);
+            this.TbCntrlRestApiEnSoap.Location = new System.Drawing.Point(24, 531);
             this.TbCntrlRestApiEnSoap.MouseState = MaterialSkin.MouseState.HOVER;
             this.TbCntrlRestApiEnSoap.Multiline = true;
             this.TbCntrlRestApiEnSoap.Name = "TbCntrlRestApiEnSoap";
@@ -1403,7 +1403,7 @@ namespace WindowsFormsAppTest
             this.SecurityIdTxtBx.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.SecurityIdTxtBx.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.SecurityIdTxtBx.LeadingIcon = null;
-            this.SecurityIdTxtBx.Location = new System.Drawing.Point(533, 201);
+            this.SecurityIdTxtBx.Location = new System.Drawing.Point(533, 236);
             this.SecurityIdTxtBx.Margin = new System.Windows.Forms.Padding(0);
             this.SecurityIdTxtBx.MaxLength = 150;
             this.SecurityIdTxtBx.MouseState = MaterialSkin.MouseState.OUT;
@@ -1420,7 +1420,7 @@ namespace WindowsFormsAppTest
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(25, 276);
+            this.label1.Location = new System.Drawing.Point(22, 358);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(866, 2);
             this.label1.TabIndex = 78;
@@ -1433,7 +1433,7 @@ namespace WindowsFormsAppTest
             this.materialLabel9.Depth = 0;
             this.materialLabel9.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel9.Location = new System.Drawing.Point(530, 182);
+            this.materialLabel9.Location = new System.Drawing.Point(530, 217);
             this.materialLabel9.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel9.Name = "materialLabel9";
             this.materialLabel9.Size = new System.Drawing.Size(178, 19);
@@ -1447,7 +1447,7 @@ namespace WindowsFormsAppTest
             this.materialLabel8.Depth = 0;
             this.materialLabel8.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.materialLabel8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel8.Location = new System.Drawing.Point(22, 280);
+            this.materialLabel8.Location = new System.Drawing.Point(21, 363);
             this.materialLabel8.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel8.Name = "materialLabel8";
             this.materialLabel8.Size = new System.Drawing.Size(89, 19);
@@ -1470,7 +1470,7 @@ namespace WindowsFormsAppTest
             this.UrlVoorTestTxtBx.HideSelection = true;
             this.UrlVoorTestTxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
             this.UrlVoorTestTxtBx.LeadingIcon = null;
-            this.UrlVoorTestTxtBx.Location = new System.Drawing.Point(25, 302);
+            this.UrlVoorTestTxtBx.Location = new System.Drawing.Point(24, 385);
             this.UrlVoorTestTxtBx.Mask = "";
             this.UrlVoorTestTxtBx.MaxLength = 32767;
             this.UrlVoorTestTxtBx.MouseState = MaterialSkin.MouseState.OUT;
@@ -1505,7 +1505,7 @@ namespace WindowsFormsAppTest
             this.GetWebserviceVersionBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.GetWebserviceVersionBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GetWebserviceVersionBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.GetWebserviceVersionBtn.Location = new System.Drawing.Point(29, 404);
+            this.GetWebserviceVersionBtn.Location = new System.Drawing.Point(28, 487);
             this.GetWebserviceVersionBtn.Name = "GetWebserviceVersionBtn";
             this.GetWebserviceVersionBtn.Size = new System.Drawing.Size(252, 31);
             this.GetWebserviceVersionBtn.TabIndex = 86;
@@ -1518,7 +1518,7 @@ namespace WindowsFormsAppTest
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Location = new System.Drawing.Point(25, 393);
+            this.label2.Location = new System.Drawing.Point(24, 476);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(864, 2);
             this.label2.TabIndex = 87;
@@ -1528,7 +1528,7 @@ namespace WindowsFormsAppTest
             this.materialLabel10.AutoSize = true;
             this.materialLabel10.Depth = 0;
             this.materialLabel10.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel10.Location = new System.Drawing.Point(25, 358);
+            this.materialLabel10.Location = new System.Drawing.Point(24, 441);
             this.materialLabel10.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel10.Name = "materialLabel10";
             this.materialLabel10.Size = new System.Drawing.Size(144, 19);
@@ -1540,7 +1540,7 @@ namespace WindowsFormsAppTest
             this.MLblCheckOfNiet.AutoSize = true;
             this.MLblCheckOfNiet.Depth = 0;
             this.MLblCheckOfNiet.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.MLblCheckOfNiet.Location = new System.Drawing.Point(175, 358);
+            this.MLblCheckOfNiet.Location = new System.Drawing.Point(174, 441);
             this.MLblCheckOfNiet.MouseState = MaterialSkin.MouseState.HOVER;
             this.MLblCheckOfNiet.Name = "MLblCheckOfNiet";
             this.MLblCheckOfNiet.Size = new System.Drawing.Size(1, 0);
@@ -1553,7 +1553,7 @@ namespace WindowsFormsAppTest
             this.TestMethodeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.TestMethodeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TestMethodeBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.TestMethodeBtn.Location = new System.Drawing.Point(755, 404);
+            this.TestMethodeBtn.Location = new System.Drawing.Point(754, 487);
             this.TestMethodeBtn.Name = "TestMethodeBtn";
             this.TestMethodeBtn.Size = new System.Drawing.Size(134, 31);
             this.TestMethodeBtn.TabIndex = 90;
@@ -1568,7 +1568,7 @@ namespace WindowsFormsAppTest
             this.UrlOpslaanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UrlOpslaanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UrlOpslaanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.UrlOpslaanBtn.Location = new System.Drawing.Point(755, 280);
+            this.UrlOpslaanBtn.Location = new System.Drawing.Point(754, 363);
             this.UrlOpslaanBtn.Name = "UrlOpslaanBtn";
             this.UrlOpslaanBtn.Size = new System.Drawing.Size(134, 23);
             this.UrlOpslaanBtn.TabIndex = 91;
@@ -1586,7 +1586,7 @@ namespace WindowsFormsAppTest
             this.AllUrlsKrLstBx.Location = new System.Drawing.Point(25, 169);
             this.AllUrlsKrLstBx.Name = "AllUrlsKrLstBx";
             this.AllUrlsKrLstBx.ScrollAlwaysVisible = true;
-            this.AllUrlsKrLstBx.Size = new System.Drawing.Size(499, 104);
+            this.AllUrlsKrLstBx.Size = new System.Drawing.Size(499, 184);
             this.AllUrlsKrLstBx.TabIndex = 74;
             this.AllUrlsKrLstBx.SelectedIndexChanged += new System.EventHandler(this.AllUrlsKrLstBx_SelectedIndexChanged);
             // 
@@ -1624,7 +1624,7 @@ namespace WindowsFormsAppTest
             this.UrlDeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UrlDeleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UrlDeleteBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.UrlDeleteBtn.Location = new System.Drawing.Point(615, 280);
+            this.UrlDeleteBtn.Location = new System.Drawing.Point(614, 363);
             this.UrlDeleteBtn.Name = "UrlDeleteBtn";
             this.UrlDeleteBtn.Size = new System.Drawing.Size(134, 23);
             this.UrlDeleteBtn.TabIndex = 92;
@@ -1636,7 +1636,7 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(909, 909);
+            this.ClientSize = new System.Drawing.Size(909, 1014);
             this.Controls.Add(this.UrlDeleteBtn);
             this.Controls.Add(this.UrlOpslaanBtn);
             this.Controls.Add(this.TestMethodeBtn);
@@ -1658,7 +1658,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.TbCntrlRestApiEnSoap);
             this.Controls.Add(this.KlantKrMaterialCmbx);
             this.Controls.Add(this.materialLabel1);
-            this.MinimumSize = new System.Drawing.Size(909, 909);
+            this.MinimumSize = new System.Drawing.Size(909, 1014);
             this.Name = "EenUrlTestForm";
             this.Text = "Test Url";
             this.GrpBxSsl.ResumeLayout(false);

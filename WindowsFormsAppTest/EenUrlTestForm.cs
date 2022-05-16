@@ -20,6 +20,13 @@ namespace WindowsFormsAppTest
 
         dynamic _result = null;
 
+        string[] kraanWebservices = { "AuthService.svc",
+                                      "CrmService.svc",
+                                      "WorkflowService.svc",
+                                      "MaterieelService.svc",
+                                      "MaterieelbeheerService.svc",
+                                      "UrenService.svc" };
+
         private WebService _selectedWebservice = new WebService();
         private KlantWebservice _klantWebservice = new KlantWebservice();
 
@@ -177,9 +184,16 @@ namespace WindowsFormsAppTest
                 {
                     url.Name = klant.BasisUrl2 + webService.Name;
                 }
-                url.KlantId = (Guid)KlantKrMaterialCmbx.SelectedValue;
-                url.KlantWebserviceId = klantWebservice.Id;
-                urls.Add(url);
+                if (webService.Name == "Kraan2Webservice")
+                {
+                    UrlsTestKraan2Webservice(urls, url);
+                }
+                else
+                {
+                    url.KlantId = (Guid)KlantKrMaterialCmbx.SelectedValue;
+                    url.KlantWebserviceId = klantWebservice.Id;
+                    urls.Add(url);
+                }
 
                 List<Url> urlDatas = _urlXml.GetByKlantWebserviceId(klantWebservice.Id);
                 foreach (Url url1 in urlDatas)
@@ -200,6 +214,16 @@ namespace WindowsFormsAppTest
                 }
             }
             AllUrlsKrLstBx.FillListBoxUrls(urls);
+        }
+
+        private void UrlsTestKraan2Webservice(List<Url> urls, Url url)
+        {
+            for (int i = 0; i < kraanWebservices.Length; i++)
+            {
+                Url newUrl = new Url();
+                newUrl.Name = url.Name + "/" + kraanWebservices[i];
+                urls.Add(newUrl);
+            }
         }
 
         private void TestWebserviceBtn_Click(object sender, EventArgs e)
