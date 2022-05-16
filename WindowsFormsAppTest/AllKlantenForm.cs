@@ -196,5 +196,17 @@ namespace WindowsFormsAppTest
                 WebService webService = _webServiceDatas.Find(w => w.Id == idOfSelected);
             }
         }
+
+        private void WebservicesToevoegenAanKlant_Click(object sender, EventArgs e)
+        {
+            var m = new AddKlantWithWebservicesForm((Guid)AllKlantKrLstBx.SelectedValue);
+            m.FormClosing += new FormClosingEventHandler(ChildFormClosingAddWebserviceToKlantForm);
+            m.ShowDialog();
+        }
+
+        private void ChildFormClosingAddWebserviceToKlantForm(object sender, FormClosingEventArgs e)
+        {
+            GetWebservices();
+        }
     }
 }

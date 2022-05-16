@@ -1624,7 +1624,7 @@ namespace WindowsFormsAppTest
             this.UrlDeleteBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.UrlDeleteBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UrlDeleteBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.UrlDeleteBtn.Location = new System.Drawing.Point(615, 281);
+            this.UrlDeleteBtn.Location = new System.Drawing.Point(615, 280);
             this.UrlDeleteBtn.Name = "UrlDeleteBtn";
             this.UrlDeleteBtn.Size = new System.Drawing.Size(134, 23);
             this.UrlDeleteBtn.TabIndex = 92;

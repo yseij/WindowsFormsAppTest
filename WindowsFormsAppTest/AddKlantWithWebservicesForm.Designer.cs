@@ -43,6 +43,7 @@ namespace WindowsFormsAppTest
             this.LblUrlsByKlant = new MaterialSkin.Controls.MaterialLabel();
             this.UrlsGenererenBtn = new System.Windows.Forms.Button();
             this.UrlsLstBx = new System.Windows.Forms.ListBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // NewKlantNaamTxtBx
@@ -106,11 +107,11 @@ namespace WindowsFormsAppTest
             this.AddAndUpdateKlantBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AddAndUpdateKlantBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AddAndUpdateKlantBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddAndUpdateKlantBttn.Location = new System.Drawing.Point(215, 291);
+            this.AddAndUpdateKlantBttn.Location = new System.Drawing.Point(309, 291);
             this.AddAndUpdateKlantBttn.Name = "AddAndUpdateKlantBttn";
-            this.AddAndUpdateKlantBttn.Size = new System.Drawing.Size(184, 43);
+            this.AddAndUpdateKlantBttn.Size = new System.Drawing.Size(90, 43);
             this.AddAndUpdateKlantBttn.TabIndex = 28;
-            this.AddAndUpdateKlantBttn.Text = "KLANT TOEVOEGEN";
+            this.AddAndUpdateKlantBttn.Text = "OK";
             this.AddAndUpdateKlantBttn.UseVisualStyleBackColor = false;
             this.AddAndUpdateKlantBttn.Click += new System.EventHandler(this.AddKlantBttn_Click);
             // 
@@ -301,7 +302,7 @@ namespace WindowsFormsAppTest
             this.UrlsGenererenBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.UrlsGenererenBtn.Location = new System.Drawing.Point(9, 291);
             this.UrlsGenererenBtn.Name = "UrlsGenererenBtn";
-            this.UrlsGenererenBtn.Size = new System.Drawing.Size(173, 43);
+            this.UrlsGenererenBtn.Size = new System.Drawing.Size(103, 43);
             this.UrlsGenererenBtn.TabIndex = 83;
             this.UrlsGenererenBtn.Text = "Urls genereren";
             this.UrlsGenererenBtn.UseVisualStyleBackColor = false;
@@ -317,11 +318,25 @@ namespace WindowsFormsAppTest
             this.UrlsLstBx.Size = new System.Drawing.Size(912, 212);
             this.UrlsLstBx.TabIndex = 84;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(160)))), ((int)(((byte)(244)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.Control;
+            this.button1.Location = new System.Drawing.Point(212, 291);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(91, 43);
+            this.button1.TabIndex = 85;
+            this.button1.Text = "ANNUlEREN";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // AddKlantWithWebservicesForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(925, 576);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.UrlsLstBx);
             this.Controls.Add(this.UrlsGenererenBtn);
             this.Controls.Add(this.LblUrlsByKlant);
@@ -359,5 +374,6 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialLabel LblUrlsByKlant;
         private System.Windows.Forms.Button UrlsGenererenBtn;
         private System.Windows.Forms.ListBox UrlsLstBx;
+        private System.Windows.Forms.Button button1;
     }
 }

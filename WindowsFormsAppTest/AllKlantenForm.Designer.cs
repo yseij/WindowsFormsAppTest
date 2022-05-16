@@ -392,6 +392,7 @@ namespace WindowsFormsAppTest
             this.WebservicesToevoegenAanKlant.TabIndex = 93;
             this.WebservicesToevoegenAanKlant.Text = "Webservices van klant beheren";
             this.WebservicesToevoegenAanKlant.UseVisualStyleBackColor = false;
+            this.WebservicesToevoegenAanKlant.Click += new System.EventHandler(this.WebservicesToevoegenAanKlant_Click);
             // 
             // AllWebserviceKrLstBx
             // 

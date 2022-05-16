@@ -44,14 +44,12 @@ namespace WindowsFormsAppTest
             if (_klantId != Guid.Empty)
             {
                 FillKlantData();
-                AddAndUpdateKlantBttn.Text = "KLANT AANPASSEN";
             }
             else
             {
                 CheckBoxEnable(false, "BasisUrl1");
                 CheckBoxEnable(false, "BasisUrl2");
                 UrlsGenererenBtn.Enabled = false;
-                AddAndUpdateKlantBttn.Text = "KLANT TOEVOEGEN";
             }
             FillTable();
         }
