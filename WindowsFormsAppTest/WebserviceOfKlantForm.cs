@@ -587,16 +587,12 @@ namespace WindowsFormsAppTest
                     maxLengte = url.Length;
                 }
             }
-            maxLengte = maxLengte + 12;
-            _clipBoardText = String.Format("{0,5} {1," + maxLengte + "}\n\n", "Urls", "Results");
+            maxLengte = maxLengte + 10;
+            _clipBoardText = String.Format("{0,-" + maxLengte + "}" +  "{1}\n\n", "Urls", "Results");
             for(int index = 0; index < urls.Count; index++)
             {
-                int urlLengte = urls[index].Length;
-                int tussenLengte = (maxLengte + 12) - urlLengte;
-                _clipBoardText += String.Format("{0,5} {1," + tussenLengte + "}\n", urls[index], results[index]);
+                _clipBoardText += String.Format("{0,-"+ maxLengte + "}" +  "{1}\n", urls[index], results[index]);
             }
-            Console.WriteLine($"\n{_clipBoardText}");
-            Clipboard.SetText($"\n{_clipBoardText}");
             _clipBoardText = string.Empty;
             urls.Clear();
             results.Clear();
