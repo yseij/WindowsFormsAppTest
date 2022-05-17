@@ -40,28 +40,17 @@ namespace WindowsFormsAppTest
                 WebService webService3 = new WebService("Kraan2Webservice", false, "");
                 WebService webService4 = new WebService("KraanHomeDNARelease/HomeDna.svc", false, "");
                 WebService webService5 = new WebService("KraanHomeDNARelease", false, "");
+                WebService webService6 = new WebService("KraanWerkbonWebservice/Webservice.svc", false, "");
+                WebService webService7 = new WebService("KraanHandheld/HandheldService.svc/rest/GetVersion", false, "");
                 List<WebService> webservices = new List<WebService>();
                 webservices.Add(webService1);
                 webservices.Add(webService2);
                 webservices.Add(webService3);
                 webservices.Add(webService4);
                 webservices.Add(webService5);
+                webservices.Add(webService6);
+                webservices.Add(webService7);
                 db.Webservices = webservices;
-
-                //UrlForWebservice urlForWebservice1 = new UrlForWebservice("AuthService.svc", webService3.Id);
-                //UrlForWebservice urlForWebservice2 = new UrlForWebservice("CrmService.svc", webService3.Id);
-                //UrlForWebservice urlForWebservice3 = new UrlForWebservice("WorkflowService.svc", webService3.Id);
-                //UrlForWebservice urlForWebservice4 = new UrlForWebservice("MaterieelService.svc", webService3.Id);
-                //UrlForWebservice urlForWebservice5 = new UrlForWebservice("MaterieelbeheerService.svc", webService3.Id);
-                //UrlForWebservice urlForWebservice6 = new UrlForWebservice("UrenService.svc", webService3.Id);
-                //List<UrlForWebservice> urlForWebservices = new List<UrlForWebservice>();
-                //urlForWebservices.Add(urlForWebservice1);
-                //urlForWebservices.Add(urlForWebservice2);
-                //urlForWebservices.Add(urlForWebservice3);
-                //urlForWebservices.Add(urlForWebservice4);
-                //urlForWebservices.Add(urlForWebservice5);
-                //urlForWebservices.Add(urlForWebservice6);
-                //db.UrlForWebservices = urlForWebservices;
 
                 KlantWebservice klantWebservice1 = new KlantWebservice(klant1.Id, webService1.Id, true, false);
                 KlantWebservice klantWebservice2 = new KlantWebservice(klant2.Id, webService1.Id, false, true);

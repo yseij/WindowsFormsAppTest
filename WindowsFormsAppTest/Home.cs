@@ -54,7 +54,7 @@ namespace WindowsFormsAppTest
 
             _krXml.SetDbXml();
             //_krXml.MakeXmlFileUser();
-            _krXml.MakeXmlFileDb();
+            //_krXml.MakeXmlFileDb();
 
             FillKlantenDropDown();
 
