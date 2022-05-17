@@ -90,8 +90,6 @@ namespace WindowsFormsAppTest
                 {
                     if (webService.Id == klantWebservice.Webservice)
                     {
-                        Console.WriteLine(klantWebservice.BasisUrl1);
-                        Console.WriteLine(klantWebservice.BasisUrl2);
                         if (klantWebservice.BasisUrl1 && klantWebservice.BasisUrl2)
                         {
                             webService.Name += " --> BasisUrl 1 & BasisUrl 2";
