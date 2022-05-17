@@ -614,7 +614,16 @@ namespace WindowsFormsAppTest
 
         private void SetClipBoardText()
         {
-            SortUrlsAndResults();
+            if (_isAllesTest)
+            {
+                SortUrlsAndResults();
+            }
+            else
+            {
+                _newUrls = _urls;
+                _newResults = _results;
+            }
+            
             int maxLengte = 0;
             foreach (string url in _newUrls)
             {

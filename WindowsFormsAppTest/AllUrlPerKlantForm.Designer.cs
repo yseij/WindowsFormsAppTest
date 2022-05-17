@@ -261,7 +261,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.ZoekOpKlantNaamTxtBx);
             this.Controls.Add(this.AllKlantKrLstBx);
             this.Name = "AllUrlPerKlantForm";
-            this.Text = "AllUrlPerKlantForm";
+            this.Text = "Alle urls per klant";
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
