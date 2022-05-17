@@ -209,7 +209,7 @@ namespace WindowsFormsAppTest
                     url.Name = basisUrl + webService.Name;
                     CheckUrlAndGetWebserviceVersion(url, logFile);
                 }
-                if (webService.Name == "Kraan2Webservice")
+                if (webService.Name == "Kraan2Webservices")
                 {
                     UrlsTestKraan2Webservice(url, logFile);
                 }

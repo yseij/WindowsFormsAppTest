@@ -52,6 +52,7 @@ namespace WindowsFormsAppTest
                 UrlsGenererenBtn.Enabled = false;
             }
             FillTable();
+            CheckAutoScroll();
         }
 
         private void FillTable()
@@ -282,7 +283,7 @@ namespace WindowsFormsAppTest
                     {
                         isChecked = true;
                         huidigeWebservice = c.Text;
-                        if (huidigeWebservice == "Kraan2Webservice") 
+                        if (huidigeWebservice == "Kraan2Webservices") 
                         {
                             HuidigeTabIndex = c.TabIndex;
                             UrlsGenererenKraan2Webservice(HuidigeTabIndex, huidigeWebservice);
@@ -291,7 +292,7 @@ namespace WindowsFormsAppTest
                 }
                 if (isChecked)
                 {
-                    if (checkBox.Checked && huidigeWebservice != "Kraan2Webservice")
+                    if (checkBox.Checked && huidigeWebservice != "Kraan2Webservices")
                     {
                         url= SetUrl(checkBox, huidigeWebservice);
                         if (url != string.Empty)
@@ -443,6 +444,18 @@ namespace WindowsFormsAppTest
         private void AnnulerenKlantBttn_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void CheckAutoScroll()
+        {
+            if (TableLayoutWebservice.VerticalScroll.Visible)
+            {
+                TableLayoutHeader.Width = TableLayoutWebservice.Width - 18;
+            }
+            else
+            {
+                TableLayoutHeader.Width = TableLayoutWebservice.Width;
+            }
         }
     }
 }

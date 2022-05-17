@@ -184,9 +184,9 @@ namespace WindowsFormsAppTest
                 {
                     url.Name = klant.BasisUrl2 + webService.Name;
                 }
-                if (webService.Name == "Kraan2Webservice")
+                if (webService.Name == "Kraan2Webservices")
                 {
-                    UrlsTestKraan2Webservice(urls, url);
+                    UrlsTestKraan2Webservice(urls, url, klantWebservice);
                 }
                 else
                 {
@@ -216,12 +216,13 @@ namespace WindowsFormsAppTest
             AllUrlsKrLstBx.FillListBoxUrls(urls);
         }
 
-        private void UrlsTestKraan2Webservice(List<Url> urls, Url url)
+        private void UrlsTestKraan2Webservice(List<Url> urls, Url url, KlantWebservice klantWebservice)
         {
             for (int i = 0; i < kraanWebservices.Length; i++)
             {
                 Url newUrl = new Url();
                 newUrl.Name = url.Name + "/" + kraanWebservices[i];
+                newUrl.KlantWebserviceId = klantWebservice.Id;
                 urls.Add(newUrl);
             }
         }
@@ -309,7 +310,6 @@ namespace WindowsFormsAppTest
                     {
                         MessageBox.Show("Dit is geen juiste methode die je kan testen");
                     }
-
                     CheckDataSoap(_result);
                 }
             }

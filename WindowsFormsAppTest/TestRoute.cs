@@ -59,9 +59,11 @@ namespace WindowsFormsAppTest
                         break;
                     case "ex":
                         ResponseTextBox.Text = ResponseTextBox.Text + item.Value;
+                        logFile.AddTextToLogFile(item.Value.ToString() + "\n");
                         break;
                     default:
                         ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " + item.Value + Environment.NewLine;
+                        logFile.AddTextToLogFile(item.Name + " = " + item.Value.ToString() + "\n");
                         break;
                 }
             }
