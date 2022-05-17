@@ -30,10 +30,12 @@ namespace WindowsFormsAppTest
                                       "UrenService.svc" };
 
 
-        List<string> urls = new List<string>();
-        List<string> results = new List<string>();
+        List<string> _urls = new List<string>();
+        List<string> _results = new List<string>();
+        List<string> _newUrls = new List<string>();
+        List<string> _newResults = new List<string>();
 
-        private List<Url> _urls = new List<Url>();
+        private List<Url> _urls2 = new List<Url>();
         private List<WebService> _webServices = new List<WebService>();
         private List<Klant> _klanten = new List<Klant>();
         private List<KlantWebservice> _klantWebservices = new List<KlantWebservice>();
@@ -117,12 +119,12 @@ namespace WindowsFormsAppTest
                 {
                     _klantWebservices = _klantWebserviceXml.GetAll();
                     _klantWebservices = _klantWebservices.OrderBy(x => x.Klant).ToList();
-                    _urls = _urlXml.GetAll();
+                    _urls2 = _urlXml.GetAll();
                 }
                 else
                 {
                     _klantWebservices = _klantWebserviceXml.GetByKlant(_selectedWebserviceIdOfKlantId);
-                    _urls = _urlXml.GetByKlantId(_selectedWebserviceIdOfKlantId);
+                    _urls2 = _urlXml.GetByKlantId(_selectedWebserviceIdOfKlantId);
                 }
             }
             else
@@ -131,7 +133,7 @@ namespace WindowsFormsAppTest
                 {
                     _klantWebservices = _klantWebserviceXml.GetAll();
                     _klantWebservices = _klantWebservices.OrderBy(x => x.Webservice).ToList();
-                    _urls = _urlXml.GetAll();
+                    _urls2 = _urlXml.GetAll();
                 }
                 else
                 {
@@ -141,7 +143,7 @@ namespace WindowsFormsAppTest
                         List<Url> urlList = (_urlXml.GetByKlantWebserviceId(klantWebservice.Id));
                         foreach (Url url in urlList)
                         {
-                            _urls.Add(url);
+                            _urls2.Add(url);
                         }
                     }
                 }
@@ -261,11 +263,12 @@ namespace WindowsFormsAppTest
             TreeNode node = new TreeNode();
             if (newName != oldName)
             {
+                _urls.Add("|---|" + newName + "|---|");
+                _results.Add("");
                 node.Text = "|---|" + newName + "|---|";
                 node.ForeColor = Color.FromArgb(0, 0, 0, 255);
                 TrVwAll.Nodes.Add(node);
                 _node = TrVwAll.Nodes.Count - 1;
-                Console.WriteLine(_node);
             }
         }
 
@@ -275,27 +278,27 @@ namespace WindowsFormsAppTest
             TreeNode node = new TreeNode();
             node.Text = url.Name;
             logFile.AddTextToLogFile("\n");
-            urls.Add(url.Name);
+            _urls.Add(url.Name);
             if (checkUrl.StartsWith("false"))
             {
                 _aantalLegeUrls++;
                 node.ForeColor = Color.FromArgb(0, 255, 0, 0);
                 node.Tag = "Webservice = " + checkUrl;
-                logFile.AddTextToLogFile(url.Name + "--> Webservice = X" + checkUrl + "\n"); 
-                results.Add("Webservice = X");
+                logFile.AddTextToLogFile(url.Name + "--> Webservice = X" + checkUrl + "\n");
+                _results.Add("Webservice = X");
             }
             else if (checkUrl.StartsWith("true"))
             {
                 node.Tag = "Webservice = true";
                 logFile.AddTextToLogFile(url.Name + " --> Webservice = true" + "\n");
-                results.Add("Webservice = ✓");
+                _results.Add("Webservice = ✓");
             }
             else
             {
                 _aantalLegeUrls++;
                 node.Tag = "ex = " + checkUrl;
                 logFile.AddTextToLogFile(url.Name + " --> ex = " + checkUrl + "\n");
-                results.Add("ex = " + checkUrl);
+                _results.Add("ex = " + checkUrl);
             }
             if (_isAllesTest)
             {
@@ -445,7 +448,7 @@ namespace WindowsFormsAppTest
             string resultText = string.Empty;
             if (isGetWebserviceVersion)
             {
-                urls.Add(url.Name);
+                _urls.Add(url.Name);
             }
             foreach (JProperty item in _result)
             {
@@ -490,7 +493,7 @@ namespace WindowsFormsAppTest
                     logFile.AddTextToLogFile(item.Name + "--> " + item.Value.ToString() + "\n");
                 }
             }
-            results.Add(resultText);
+            _results.Add(resultText);
         }
 
         private void BtnSort_Click(object sender, EventArgs e)
@@ -611,8 +614,9 @@ namespace WindowsFormsAppTest
 
         private void SetClipBoardText()
         {
+            SortUrlsAndResults();
             int maxLengte = 0;
-            foreach ( string url in urls)
+            foreach (string url in _newUrls)
             {
                 if (url.Length > maxLengte)
                 {
@@ -620,15 +624,55 @@ namespace WindowsFormsAppTest
                 }
             }
             maxLengte = maxLengte + 10;
-            _clipBoardText = String.Format("{0,-" + maxLengte + "}" +  "{1}\n\n", "Urls", "Results");
-            for(int index = 0; index < urls.Count; index++)
+            _clipBoardText = String.Format("{0,-" + maxLengte + "}" + "{1}\n\n", "Urls", "Results");
+            for (int index = 0; index < _newUrls.Count; index++)
             {
-                _clipBoardText += String.Format("{0,-"+ maxLengte + "}" +  "{1}\n", urls[index], results[index]);
+                _clipBoardText += String.Format("{0,-" + maxLengte + "}" + "{1}\n", _newUrls[index], _newResults[index]);
             }
             Clipboard.SetText($"\n{_clipBoardText}");
             _clipBoardText = string.Empty;
-            urls.Clear();
-            results.Clear();
+            _urls.Clear();
+            _results.Clear();
+        }
+
+        private void SortUrlsAndResults()
+        {
+            bool isDeZelfde = true;
+            int teller = 0;
+            List<string> matchedUrls = _urls.FindAll(u => u.Contains("|---|"));
+            matchedUrls.Sort();
+            for (int i = 0; i < matchedUrls.Count; i++)
+            {
+                isDeZelfde = true;
+                Console.WriteLine(matchedUrls[i]);
+                int i2 = _urls.FindIndex(u => u.Equals(matchedUrls[i]));
+                Console.WriteLine(i2);
+                teller = i2;
+                _newUrls.Add(matchedUrls[i]);
+                _newResults.Add("");
+                while (isDeZelfde)
+                {
+                    teller++;
+                    if (teller >= _urls.Count)
+                    {
+                        isDeZelfde = false;
+                    }
+                    else
+                    {
+                        string findUrl = _urls.Find(u => u.Equals(_urls[teller]));
+                        int findIndex = _urls.FindIndex(u => u.Equals(findUrl));
+                        if (!findUrl.Contains("|---|") && findUrl != string.Empty)
+                        {
+                            _newUrls.Add(findUrl);
+                            _newResults.Add(_results[findIndex]);
+                        }
+                        else
+                        {
+                            isDeZelfde = false;
+                        }
+                    }
+                }
+            }
         }
     }
 }
