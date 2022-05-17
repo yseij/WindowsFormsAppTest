@@ -37,7 +37,7 @@ namespace WindowsFormsAppTest
 
                 WebService webService1 = new WebService("KraanHomeDna", true, "TEST");
                 WebService webService2 = new WebService("KraanSalesService", false, "");
-                WebService webService3 = new WebService("Kraan2Webservice", false, "");
+                WebService webService3 = new WebService("Kraan2Webservices", true, "");
                 WebService webService4 = new WebService("KraanHomeDNARelease/HomeDna.svc", false, "");
                 WebService webService5 = new WebService("KraanHomeDNARelease", false, "");
                 WebService webService6 = new WebService("KraanWerkbonWebservice/Webservice.svc", false, "");
