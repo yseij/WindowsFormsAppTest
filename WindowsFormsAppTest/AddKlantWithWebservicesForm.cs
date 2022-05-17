@@ -336,18 +336,18 @@ namespace WindowsFormsAppTest
         {
             TableLayoutControlCollection controls = TableLayoutWebservice.Controls;
             string basisUrl = string.Empty;
-            for (int i = 0; i < 2; i++)
+            for (int i = 1; i < 3; i++)
             {
                 CheckBox c = (CheckBox)controls[tabIndex + i];
                 if (c.Checked)
                 {
                     basisUrl = SetUrl(c, huidigeWebservice);
+                    for (int a = 0; a < kraanWebservices.Length; a++)
+                    {
+                        string url = basisUrl + "/" + kraanWebservices[a];
+                        UrlsLstBx.Items.Add(url);
+                    }
                 }
-            }
-            for (int i = 0; i < kraanWebservices.Length; i++)
-            {
-                string url = basisUrl + "/" + kraanWebservices[i];
-                UrlsLstBx.Items.Add(url);
             }
         }
 
