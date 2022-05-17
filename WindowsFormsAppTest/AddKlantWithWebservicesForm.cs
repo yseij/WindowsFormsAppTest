@@ -215,11 +215,9 @@ namespace WindowsFormsAppTest
                             if (c.Tag.ToString() == "BasisUrl1")
                             {
                                 klantWebservice.BasisUrl1 = true;
-                                klantWebservice.BasisUrl2 = false;
                             }
                             else if (c.Tag.ToString() == "BasisUrl2")
                             {
-                                klantWebservice.BasisUrl1 = false;
                                 klantWebservice.BasisUrl2 = true;
                             }
                         }

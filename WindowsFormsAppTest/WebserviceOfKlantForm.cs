@@ -348,7 +348,17 @@ namespace WindowsFormsAppTest
                     }
                     else if (currentClkNode.Tag.ToString().Contains("ex"))
                     {
-                        ResponseTextBox.Text = currentClkNode.Tag.ToString();
+                        if (currentClkNode.Tag.ToString().Contains("{"))
+                        {
+                            foreach (JProperty item in UrlData)
+                            {
+                                ResponseTextBox.Text = item.Value.ToString();
+                            }
+                        }
+                        else
+                        {
+                            ResponseTextBox.Text = currentClkNode.Tag.ToString();
+                        }
                     }
                     else
                     {
@@ -593,6 +603,7 @@ namespace WindowsFormsAppTest
             {
                 _clipBoardText += String.Format("{0,-"+ maxLengte + "}" +  "{1}\n", urls[index], results[index]);
             }
+            Clipboard.SetText($"\n{_clipBoardText}");
             _clipBoardText = string.Empty;
             urls.Clear();
             results.Clear();

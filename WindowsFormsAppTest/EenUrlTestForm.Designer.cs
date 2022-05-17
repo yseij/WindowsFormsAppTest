@@ -39,7 +39,6 @@ namespace WindowsFormsAppTest
             this.checkBoxKraanIni = new MaterialSkin.Controls.MaterialCheckbox();
             this.checkBoxKraanDLL = new MaterialSkin.Controls.MaterialCheckbox();
             this.LblWebserviceVersie = new MaterialSkin.Controls.MaterialLabel();
-            this.ResponseTextBox = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.TestWebserviceBtn = new System.Windows.Forms.Button();
             this.grpBxSales2_4 = new System.Windows.Forms.GroupBox();
@@ -110,6 +109,7 @@ namespace WindowsFormsAppTest
             this.AllUrlsKrLstBx = new WindowsFormsAppTest.KrMaterialListBox();
             this.KlantKrMaterialCmbx = new WindowsFormsAppTest.KrMaterialCombobox();
             this.UrlDeleteBtn = new System.Windows.Forms.Button();
+            this.ResponseTextBox = new MaterialSkin.Controls.MaterialMultiLineTextBox2();
             this.GrpBxSsl.SuspendLayout();
             this.GrpBxWebservice.SuspendLayout();
             this.grpBxSales2_4.SuspendLayout();
@@ -132,9 +132,9 @@ namespace WindowsFormsAppTest
             this.GrpBxSsl.Controls.Add(this.LblCertificaatVervalDatum);
             this.GrpBxSsl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GrpBxSsl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.GrpBxSsl.Location = new System.Drawing.Point(470, 850);
+            this.GrpBxSsl.Location = new System.Drawing.Point(470, 844);
             this.GrpBxSsl.Name = "GrpBxSsl";
-            this.GrpBxSsl.Size = new System.Drawing.Size(419, 152);
+            this.GrpBxSsl.Size = new System.Drawing.Size(419, 158);
             this.GrpBxSsl.TabIndex = 27;
             this.GrpBxSsl.TabStop = false;
             this.GrpBxSsl.Text = "Results SSL certificaat";
@@ -317,35 +317,6 @@ namespace WindowsFormsAppTest
             this.LblWebserviceVersie.Size = new System.Drawing.Size(130, 19);
             this.LblWebserviceVersie.TabIndex = 0;
             this.LblWebserviceVersie.Text = "Webservice versie:";
-            // 
-            // ResponseTextBox
-            // 
-            this.ResponseTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ResponseTextBox.AnimateReadOnly = false;
-            this.ResponseTextBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.ResponseTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
-            this.ResponseTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.ResponseTextBox.Depth = 0;
-            this.ResponseTextBox.Enabled = false;
-            this.ResponseTextBox.HideSelection = false;
-            this.ResponseTextBox.Location = new System.Drawing.Point(25, 850);
-            this.ResponseTextBox.MaxLength = 32767;
-            this.ResponseTextBox.MouseState = MaterialSkin.MouseState.OUT;
-            this.ResponseTextBox.Name = "ResponseTextBox";
-            this.ResponseTextBox.PasswordChar = '\0';
-            this.ResponseTextBox.ReadOnly = false;
-            this.ResponseTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ResponseTextBox.SelectedText = "";
-            this.ResponseTextBox.SelectionLength = 0;
-            this.ResponseTextBox.SelectionStart = 0;
-            this.ResponseTextBox.ShortcutsEnabled = true;
-            this.ResponseTextBox.Size = new System.Drawing.Size(439, 152);
-            this.ResponseTextBox.TabIndex = 32;
-            this.ResponseTextBox.TabStop = false;
-            this.ResponseTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
-            this.ResponseTextBox.UseSystemPasswordChar = false;
             // 
             // materialLabel1
             // 
@@ -1632,11 +1603,37 @@ namespace WindowsFormsAppTest
             this.UrlDeleteBtn.UseVisualStyleBackColor = false;
             this.UrlDeleteBtn.Click += new System.EventHandler(this.UrlDeleteBtn_Click);
             // 
+            // ResponseTextBox
+            // 
+            this.ResponseTextBox.AnimateReadOnly = false;
+            this.ResponseTextBox.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.ResponseTextBox.CharacterCasing = System.Windows.Forms.CharacterCasing.Normal;
+            this.ResponseTextBox.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ResponseTextBox.Depth = 0;
+            this.ResponseTextBox.HideSelection = true;
+            this.ResponseTextBox.Location = new System.Drawing.Point(25, 850);
+            this.ResponseTextBox.MaxLength = 32767;
+            this.ResponseTextBox.MouseState = MaterialSkin.MouseState.OUT;
+            this.ResponseTextBox.Name = "ResponseTextBox";
+            this.ResponseTextBox.PasswordChar = '\0';
+            this.ResponseTextBox.ReadOnly = false;
+            this.ResponseTextBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.ResponseTextBox.SelectedText = "";
+            this.ResponseTextBox.SelectionLength = 0;
+            this.ResponseTextBox.SelectionStart = 0;
+            this.ResponseTextBox.ShortcutsEnabled = true;
+            this.ResponseTextBox.Size = new System.Drawing.Size(439, 152);
+            this.ResponseTextBox.TabIndex = 93;
+            this.ResponseTextBox.TabStop = false;
+            this.ResponseTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.ResponseTextBox.UseSystemPasswordChar = false;
+            // 
             // EenUrlTestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(909, 1014);
+            this.Controls.Add(this.ResponseTextBox);
             this.Controls.Add(this.UrlDeleteBtn);
             this.Controls.Add(this.UrlOpslaanBtn);
             this.Controls.Add(this.TestMethodeBtn);
@@ -1648,7 +1645,6 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.UrlVoorTestTxtBx);
             this.Controls.Add(this.materialLabel8);
             this.Controls.Add(this.materialLabel9);
-            this.Controls.Add(this.ResponseTextBox);
             this.Controls.Add(this.TestWebserviceBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.SecurityIdTxtBx);
@@ -1692,7 +1688,6 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialLabel LblCertificaatVervalDatum;
         private MaterialSkin.Controls.MaterialTextBox SllCertificaatVervalDatumTxtBx;
         private MaterialSkin.Controls.MaterialCheckbox SslChckBx;
-        private MaterialSkin.Controls.MaterialMultiLineTextBox2 ResponseTextBox;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private System.Windows.Forms.Button TestWebserviceBtn;
         private KrMaterialCombobox KlantKrMaterialCmbx;
@@ -1764,6 +1759,7 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.Button TestMethodeBtn;
         private System.Windows.Forms.Button UrlOpslaanBtn;
         private System.Windows.Forms.Button UrlDeleteBtn;
+        private MaterialSkin.Controls.MaterialMultiLineTextBox2 ResponseTextBox;
     }
 }
 

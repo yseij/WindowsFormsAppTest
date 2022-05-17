@@ -16,7 +16,7 @@ namespace WindowsFormsAppTest
 
         private List<Klant> _klantDatas = new List<Klant>();
         private List<WebService> _webServiceDatas = new List<WebService>();
-        private List<KlantWebservice> _webServiceKlantDatas = new List<KlantWebservice>();
+        private List<KlantWebservice> _klantWebservices = new List<KlantWebservice>();
 
         UrlXml _urlXml;
         KlantXml _klantXml;
@@ -82,14 +82,28 @@ namespace WindowsFormsAppTest
 
         private void FillLstBxWebservices()
         {
-            _webServiceKlantDatas = _klantWebserviceXml.GetByKlant(_selectedKlantId);
+            _klantWebservices = _klantWebserviceXml.GetByKlant(_selectedKlantId);
             List<WebService> webServices = new List<WebService>();
             foreach (WebService webService in _webServiceDatas)
             {
-                foreach (KlantWebservice klantWebservice in _webServiceKlantDatas)
+                foreach (KlantWebservice klantWebservice in _klantWebservices)
                 {
                     if (webService.Id == klantWebservice.Webservice)
                     {
+                        Console.WriteLine(klantWebservice.BasisUrl1);
+                        Console.WriteLine(klantWebservice.BasisUrl2);
+                        if (klantWebservice.BasisUrl1 && klantWebservice.BasisUrl2)
+                        {
+                            webService.Name += " --> BasisUrl 1 & BasisUrl 2";
+                        }
+                        else if (klantWebservice.BasisUrl1)
+                        {
+                            webService.Name += " --> BasisUrl 1";
+                        }
+                        else
+                        {
+                            webService.Name += " --> BasisUrl 2";
+                        }
                         webServices.Add(webService);
                     }
                 }

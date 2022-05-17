@@ -41,7 +41,6 @@ namespace WindowsFormsAppTest
         public WebService GetWebserviceById(Guid id)
         {
             XDocument doc = XDocument.Load(_path);
-            Console.WriteLine(id);
             WebService webservice = new WebService();
             XElement element = doc.Descendants("Webservice").FirstOrDefault(k => Guid.Parse(k.Attribute("Id").Value) == id);
             WebService newWebservice = new WebService();

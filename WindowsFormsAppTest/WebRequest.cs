@@ -30,7 +30,6 @@ namespace WindowsFormsAppTest
         {
             string url = host;
             Uri uri = new Uri(url);
-            Console.WriteLine(uri);
             try
             {
                 HttpWebRequest request = HttpWebRequest.Create(host) as HttpWebRequest;

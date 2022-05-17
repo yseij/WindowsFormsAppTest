@@ -364,7 +364,7 @@ namespace WindowsFormsAppTest
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label2.Location = new System.Drawing.Point(7, 445);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(906, 2);
+            this.label2.Size = new System.Drawing.Size(842, 2);
             this.label2.TabIndex = 92;
             // 
             // materialLabel4
@@ -396,14 +396,15 @@ namespace WindowsFormsAppTest
             // 
             // AllWebserviceKrLstBx
             // 
-            this.AllWebserviceKrLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.AllWebserviceKrLstBx.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AllWebserviceKrLstBx.BackColor = System.Drawing.Color.White;
             this.AllWebserviceKrLstBx.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.AllWebserviceKrLstBx.ItemHeight = 20;
             this.AllWebserviceKrLstBx.Location = new System.Drawing.Point(6, 478);
             this.AllWebserviceKrLstBx.Name = "AllWebserviceKrLstBx";
-            this.AllWebserviceKrLstBx.Size = new System.Drawing.Size(820, 164);
+            this.AllWebserviceKrLstBx.Size = new System.Drawing.Size(842, 164);
             this.AllWebserviceKrLstBx.TabIndex = 91;
             this.AllWebserviceKrLstBx.SelectedIndexChanged += new System.EventHandler(this.AllWebserviceKrLstBx_SelectedIndexChanged);
             // 
