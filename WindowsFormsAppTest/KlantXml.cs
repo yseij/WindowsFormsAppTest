@@ -12,9 +12,7 @@ namespace WindowsFormsAppTest
 
         public List<Klant> GetKlanten()
         {
-            MessageBox.Show(_path);
             XDocument doc = XDocument.Load(_path);
-            MessageBox.Show("hier");
             List<Klant> klanten = new List<Klant>();
             foreach (XElement element in doc.Descendants("Klant"))
             {
