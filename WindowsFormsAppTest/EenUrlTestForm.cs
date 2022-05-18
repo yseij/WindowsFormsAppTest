@@ -34,6 +34,8 @@ namespace WindowsFormsAppTest
         private List<Klant> _klantDatas = new List<Klant>();
         private List<KlantWebservice> _klantWebservicesDatas = new List<KlantWebservice>();
 
+        private List<Url> _urls = new List<Url>();
+
         WebRequest _webRequest;
         TestRoute _testRoute;
 
@@ -169,32 +171,34 @@ namespace WindowsFormsAppTest
 
         private void GetUrls()
         {
+            int teller = 0;
             _klantWebservicesDatas = _klantWebserviceXml.GetByKlant((Guid)KlantKrMaterialCmbx.SelectedValue);
             Klant klant = _klantDatas.Find(k => k.Id == (Guid)KlantKrMaterialCmbx.SelectedValue);
-            List<Url> urls = new List<Url>();
+            
             foreach (KlantWebservice klantWebservice in _klantWebservicesDatas)
             {
                 WebService webService = _webserviceXml.GetWebserviceById(klantWebservice.Webservice);
-                Url url = new Url();
-                if (klantWebservice.BasisUrl1)
+                if (klantWebservice.BasisUrl1 && teller == 0)
                 {
-                    url.Name = klant.BasisUrl1 + webService.Name;
+                    Url url1 = new Url();
+                    teller++;
+                    url1.Name = klant.BasisUrl1 + webService.Name;
+                    AddUrlToList(webService, url1, klantWebservice);
+                    if (klantWebservice.BasisUrl2)
+                    {
+                        Url url2 = new Url();
+                        url2.Name = klant.BasisUrl2 + webService.Name;
+                        AddUrlToList(webService, url2, klantWebservice);
+                        teller = 0;
+                    }
                 }
                 else
                 {
-                    url.Name = klant.BasisUrl2 + webService.Name;
+                    Url url3 = new Url();
+                    url3.Name = klant.BasisUrl2 + webService.Name;
+                    AddUrlToList(webService, url3, klantWebservice);
+                    teller = 0;
                 }
-                if (webService.Name == "Kraan2Webservices")
-                {
-                    UrlsTestKraan2Webservice(urls, url, klantWebservice);
-                }
-                else
-                {
-                    url.KlantId = (Guid)KlantKrMaterialCmbx.SelectedValue;
-                    url.KlantWebserviceId = klantWebservice.Id;
-                    urls.Add(url);
-                }
-
                 List<Url> urlDatas = _urlXml.GetByKlantWebserviceId(klantWebservice.Id);
                 foreach (Url url1 in urlDatas)
                 {
@@ -203,17 +207,30 @@ namespace WindowsFormsAppTest
                     if (klantWebservice.BasisUrl1)
                     {
                         newUrl.Name = klant.BasisUrl1 + webService.Name + "/" + url1.Name;
+                        AddUrlToList(webService, newUrl, klantWebservice);
                     }
                     else
                     {
                         newUrl.Name = klant.BasisUrl2 + webService.Name + "/" + url1.Name;
+                        AddUrlToList(webService, newUrl, klantWebservice);
                     }
-                    newUrl.KlantId = (Guid)KlantKrMaterialCmbx.SelectedValue;
-                    newUrl.KlantWebserviceId = klantWebservice.Id;
-                    urls.Add(newUrl);
                 }
             }
-            AllUrlsKrLstBx.FillListBoxUrls(urls);
+            AllUrlsKrLstBx.FillListBoxUrls(_urls);
+        }
+
+        private void AddUrlToList(WebService webService, Url url, KlantWebservice klantWebservice)
+        {
+            if (webService.Name == "Kraan2Webservices")
+            {
+                UrlsTestKraan2Webservice(_urls, url, klantWebservice);
+            }
+            else
+            {
+                url.KlantId = (Guid)KlantKrMaterialCmbx.SelectedValue;
+                url.KlantWebserviceId = klantWebservice.Id;
+                _urls.Add(url);
+            }
         }
 
         private void UrlsTestKraan2Webservice(List<Url> urls, Url url, KlantWebservice klantWebservice)

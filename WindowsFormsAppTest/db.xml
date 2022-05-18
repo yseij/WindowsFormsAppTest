@@ -15,7 +15,7 @@
     <Klant Id="49e83295-4892-4f2e-b8fd-61601888203d" Name="klant 3" BasisUrl1="https://wsdev.kraan.com:1234/" BasisUrl2="https://wsdev.kraan.com/test3/" />
   </Klanten>
   <KlantWebservices>
-    <KlantWebservice Id="c4d7de06-c41e-4d52-86cd-ec13baae9280" Klant="cc9223a9-e7d9-4458-9d10-b7e02b6460ad" Webservice="05b7a693-b41a-446d-be75-835af18f91a2" BasisUrl1="true" BasisUrl2="false" />
+    <KlantWebservice Id="c4d7de06-c41e-4d52-86cd-ec13baae9280" Klant="cc9223a9-e7d9-4458-9d10-b7e02b6460ad" Webservice="05b7a693-b41a-446d-be75-835af18f91a2" BasisUrl1="true" BasisUrl2="true" />
     <KlantWebservice Id="b8f49bd5-6148-446a-9065-134ecbeb59a2" Klant="eac5a4d6-2281-4b2f-82a6-1aae67155d90" Webservice="05b7a693-b41a-446d-be75-835af18f91a2" BasisUrl1="false" BasisUrl2="true" />
     <KlantWebservice Id="47d90b21-2028-4b8f-907c-9f6a15636bf9" Klant="49e83295-4892-4f2e-b8fd-61601888203d" Webservice="f604df33-eba1-4dd9-a5aa-1acc8f320a13" BasisUrl1="true" BasisUrl2="false" />
     <KlantWebservice Id="39690dfc-b420-4979-941c-2d3c7a4fd0fc" Klant="eac5a4d6-2281-4b2f-82a6-1aae67155d90" Webservice="bb5ae735-b724-4e82-9e70-c7e6bb296cb3" BasisUrl1="true" BasisUrl2="false" />
