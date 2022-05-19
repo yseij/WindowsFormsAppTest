@@ -334,17 +334,40 @@ namespace WindowsFormsAppTest
                     m.ShowDialog();
                     MaterialMaskedTextBox userName = m._usernameTxtBx;
                     MaterialMaskedTextBox password = m._passwordTxtBx;
-                    _result = JObject.Parse(_webRequest.Get31SalesData(urlData.Name, userName, password));
+                    try
+                    {
+                        _result = JObject.Parse(_webRequest.Get31SalesData(urlData.Name, userName, password));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Deze webservice kan niet getest worden, kijk of de webservice goed is ingesteld + foutmelding:" + ex.Message);
+                    }
+                    
                 }
                 else if (urlData.Name.Contains("MessageServiceSoap.svc"))
                 {
-                    _result = JObject.Parse(_webRequest.Get24SalesData(urlData.Name));
+                    try
+                    {
+                        _result = JObject.Parse(_webRequest.Get24SalesData(urlData.Name));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Deze webservice kan niet getest worden, kijk of de webservice goed is ingesteld + foutmelding:" + ex.Message);
+                    }
+                    
                 }
                 else
                 {
                     int plaatsSlech = urlData.Name.LastIndexOf("/");
                     string service = urlData.Name.Substring(plaatsSlech + 1, urlData.Name.Length - plaatsSlech - 1);
-                    _result = JObject.Parse(_webRequest.GetWebRequestSoap(urlData.Name, service));
+                    try
+                    {
+                        _result = JObject.Parse(_webRequest.GetWebRequestSoap(urlData.Name, service));
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Deze webservice kan niet getest worden, kijk of de webservice goed is ingesteld + foutmelding:" + ex.Message);
+                    }
                 }
             }
             else
@@ -353,7 +376,6 @@ namespace WindowsFormsAppTest
                 {
                     _result = JObject.Parse(_webRequest.GetWebRequestRest(urlData.Name,
                                                         isGetWebserviceVersion));
-
                 }
                 catch (Exception ex)
                 {

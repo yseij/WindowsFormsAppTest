@@ -301,19 +301,32 @@ namespace WindowsFormsAppTest
                     m.ShowDialog();
                     MaterialMaskedTextBox userName = m._usernameTxtBx;
                     MaterialMaskedTextBox password = m._passwordTxtBx;
-                    _result = JObject.Parse(_webRequest.Get31SalesData(UrlVoorTestTxtBx.Text, userName, password));
-                    if (_result != null)
+                    try
                     {
-                        CheckData(_result, _webserviceName, 3.1);
+                        _result = JObject.Parse(_webRequest.Get31SalesData(UrlVoorTestTxtBx.Text, userName, password));
+                        if (_result != null)
+                        {
+                            CheckData(_result, _webserviceName, 3.1);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Dit is geen juiste methode die je kan testen. Foutmelding:" + ex.Message);
                     }
                 }
                 else if (UrlVoorTestTxtBx.Text.Contains("MessageServiceSoap.svc"))
                 {
-                    _result = JObject.Parse(_webRequest.Get24SalesData(UrlVoorTestTxtBx.Text));
-
-                    if (_result != null)
+                    try
                     {
-                        CheckData(_result, _webserviceName, 2.4);
+                        _result = JObject.Parse(_webRequest.Get24SalesData(UrlVoorTestTxtBx.Text));
+                        if (_result != null)
+                        {
+                            CheckData(_result, _webserviceName, 2.4);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Dit is geen juiste methode die je kan testen. Foutmelding:" + ex.Message);
                     }
                 }
                 else
@@ -323,12 +336,12 @@ namespace WindowsFormsAppTest
                     try
                     {
                         _result = JObject.Parse(_webRequest.GetWebRequestSoap(_urlTest, service));
+                        CheckDataSoap(_result);
                     }
-                    catch (Exception)
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Dit is geen juiste methode die je kan testen");
+                        MessageBox.Show("Dit is geen juiste methode die je kan testen. Foutmelding:" + ex.Message);
                     }
-                    CheckDataSoap(_result);
                 }
             }
             else
@@ -348,9 +361,9 @@ namespace WindowsFormsAppTest
                                     ResponseTextBox,
                                     _webserviceName);
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
-                    MessageBox.Show("Dit is geen juiste methode die je kan testen");
+                    MessageBox.Show("Dit is geen juiste methode die je kan testen. Foutmelding:" + ex.Message);
                 }
             }
         }
