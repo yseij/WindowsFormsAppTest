@@ -72,6 +72,7 @@ namespace WindowsFormsAppTest
 
         private void KlantKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
+            _urls.Clear();
             UrlVoorTestTxtBx.Text = string.Empty;
             ClearBox();
             GetUrls();
@@ -171,7 +172,6 @@ namespace WindowsFormsAppTest
 
         private void GetUrls()
         {
-            _urls.Clear();
             int teller = 0;
             _klantWebservicesDatas = _klantWebserviceXml.GetByKlant((Guid)KlantKrMaterialCmbx.SelectedValue);
             Klant klant = _klantDatas.Find(k => k.Id == (Guid)KlantKrMaterialCmbx.SelectedValue);
@@ -190,8 +190,8 @@ namespace WindowsFormsAppTest
                         Url url2 = new Url();
                         url2.Name = klant.BasisUrl2 + webService.Name;
                         AddUrlToList(webService, url2, klantWebservice);
-                        teller = 0;
                     }
+                    teller = 0;
                 }
                 else
                 {
@@ -224,7 +224,7 @@ namespace WindowsFormsAppTest
         {
             if (webService.Name == "Kraan2Webservices")
             {
-                UrlsTestKraan2Webservice(_urls, url, klantWebservice);
+                UrlsTestKraan2Webservice(url, klantWebservice);
             }
             else
             {
@@ -234,14 +234,14 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void UrlsTestKraan2Webservice(List<Url> urls, Url url, KlantWebservice klantWebservice)
+        private void UrlsTestKraan2Webservice(Url url, KlantWebservice klantWebservice)
         {
             for (int i = 0; i < kraanWebservices.Length; i++)
             {
                 Url newUrl = new Url();
                 newUrl.Name = url.Name + "/" + kraanWebservices[i];
                 newUrl.KlantWebserviceId = klantWebservice.Id;
-                urls.Add(newUrl);
+                _urls.Add(newUrl);
             }
         }
 
