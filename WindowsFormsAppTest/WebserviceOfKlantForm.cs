@@ -370,9 +370,7 @@ namespace WindowsFormsAppTest
                     string service = urlData.Name.Substring(plaatsSlech + 1, urlData.Name.Length - plaatsSlech - 1);
                     try
                     {
-                        dynamic tussenresult = JObject.Parse(_webRequest.GetWebRequestSoap(urlData.Name, service));
-                        Console.WriteLine(tussenresult);
-                        _result = tussenresult;
+                        _result = JObject.Parse(_webRequest.GetWebRequestSoap(urlData.Name, service)); ;
                     }
                     catch (Exception ex)
                     {

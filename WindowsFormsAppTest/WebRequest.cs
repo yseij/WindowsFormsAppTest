@@ -135,33 +135,7 @@ namespace WindowsFormsAppTest
             }
         }
 
-        public string CheckUrlAuthService(string host)
-        {
-            Uri uri = new Uri(host);
-            HttpClient client = new HttpClient();
-            HttpWebRequest request = HttpWebRequest.Create(host) as HttpWebRequest;
-            X509Certificate cert = GetCertificate(request);
-            try
-            {
-                HttpResponseMessage response1 = client.GetAsync(uri).Result;
-                if (response1.IsSuccessStatusCode)
-                {
-                    if (_certIsGoed)
-                    {
-                        return @"{ status: '" + "Werkt" + "', certVerValDatum: '" + cert.GetExpirationDateString().ToString() + "'}";
-                    }
-                    else
-                    {
-                        return @"{ status: '" + "Werkt" + "', certVerValDatum: '" + "Niet goed" + "'}";
-                    }
-                }
-                return "Werkt niet met statuscode: " + (int)response1.StatusCode + " = " + response1.StatusCode;
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
-        }
+        
 
         private X509Certificate GetCertificate(HttpWebRequest request)
         {
@@ -204,6 +178,34 @@ namespace WindowsFormsAppTest
 
             }
             return result;
+        }
+
+        public string CheckUrlAuthService(string host)
+        {
+            Uri uri = new Uri(host);
+            HttpClient client = new HttpClient();
+            HttpWebRequest request = HttpWebRequest.Create(host) as HttpWebRequest;
+            X509Certificate cert = GetCertificate(request);
+            try
+            {
+                HttpResponseMessage response1 = client.GetAsync(uri).Result;
+                if (response1.IsSuccessStatusCode)
+                {
+                    if (_certIsGoed)
+                    {
+                        return @"{ status: '" + "Werkt" + "', certVerValDatum: '" + cert.GetExpirationDateString().ToString() + "'}";
+                    }
+                    else
+                    {
+                        return @"{ status: '" + "Werkt" + "', certVerValDatum: '" + "Niet goed" + "'}";
+                    }
+                }
+                return "Werkt niet met statuscode: " + (int)response1.StatusCode + " = " + response1.StatusCode;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         private string GetVersionCrmService(string host)
@@ -414,7 +416,7 @@ namespace WindowsFormsAppTest
 
                     bool succes = client.PostMessage(null, null, ref message);
 
-                    if (_certIsGoed != null)
+                    if (_certIsGoed)
                     {
                         string data = "{\"" + message.Text[0]
                         .Replace("\r\n", "\",\"")
