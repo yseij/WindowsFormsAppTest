@@ -349,8 +349,17 @@ namespace WindowsFormsAppTest
             }
             else
             {
-                _result = JObject.Parse(_webRequest.GetWebRequestRest(urlData.Name,
-                                                     isGetWebserviceVersion));
+                try
+                {
+                    _result = JObject.Parse(_webRequest.GetWebRequestRest(urlData.Name,
+                                                        isGetWebserviceVersion));
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Deze webservice kan niet getest worden, kijk of de webservice goed is ingesteld + foutmelding:" + ex.Message);
+                }
+                
             }
         }
 
