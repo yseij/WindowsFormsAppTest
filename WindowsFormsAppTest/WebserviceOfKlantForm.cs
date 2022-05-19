@@ -192,26 +192,22 @@ namespace WindowsFormsAppTest
                 {
                     basisUrl = klant.BasisUrl1;
                     url.Name = basisUrl + webService.Name;
-                    CheckUrlAndGetWebserviceVersion(url, logFile);
-                    TestKraan2Webservices(webService, url, logFile);
+                    SoapOfRestTest(url, logFile, webService);
                     basisUrl = klant.BasisUrl2;
                     url.Name = basisUrl + webService.Name;
-                    CheckUrlAndGetWebserviceVersion(url, logFile);
-                    TestKraan2Webservices(webService, url, logFile);
+                    SoapOfRestTest(url, logFile, webService);
                 }
                 else if (klantWebservice.BasisUrl1)
                 {
                     basisUrl = klant.BasisUrl1;
                     url.Name = basisUrl + webService.Name;
-                    CheckUrlAndGetWebserviceVersion(url, logFile);
-                    TestKraan2Webservices(webService, url, logFile);
+                    SoapOfRestTest(url, logFile, webService);
                 }
                 else
                 {
                     basisUrl = klant.BasisUrl2;
                     url.Name = basisUrl + webService.Name;
-                    CheckUrlAndGetWebserviceVersion(url, logFile);
-                    TestKraan2Webservices(webService, url, logFile);
+                    SoapOfRestTest(url, logFile, webService);
                 }
                 logFile.AddTextToLogFile("\n");
                 List<Url> urlDatas = _urlXml.GetByKlantWebserviceId(klantWebservice.Id);
@@ -225,6 +221,18 @@ namespace WindowsFormsAppTest
                     GetResult(newUrl, false);
                     FillTreeView(newUrl, logFile, false);
                 }
+            }
+        }
+
+        private void SoapOfRestTest(Url url, LogFile logFile, WebService webService)
+        {
+            if (!_isSoap)
+            {
+                CheckUrlAndGetWebserviceVersion(url, logFile);
+            }
+            else
+            {
+                TestKraan2Webservices(webService, url, logFile);
             }
         }
 
@@ -692,9 +700,7 @@ namespace WindowsFormsAppTest
             for (int i = 0; i < matchedUrls.Count; i++)
             {
                 isDeZelfde = true;
-                Console.WriteLine(matchedUrls[i]);
                 int i2 = _urls.FindIndex(u => u.Equals(matchedUrls[i]));
-                Console.WriteLine(i2);
                 teller = i2;
                 _newUrls.Add(matchedUrls[i]);
                 _newResults.Add("");

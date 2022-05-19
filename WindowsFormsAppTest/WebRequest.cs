@@ -175,6 +175,9 @@ namespace WindowsFormsAppTest
                 case "MaterieelService.svc":
                     result = GetVersionMaterieelService(host);
                     break;
+                //case "MaterieelBeheerService.svc":
+                //    result = GetVersionMaterieelBeheerService(host);
+                //    break;
                 //case "Webservice.svc":
                 //    clientMaterieel = NewWebSerivce(host);
                 //    clientMaterieel.Open();
@@ -250,6 +253,26 @@ namespace WindowsFormsAppTest
 
 
         private string GetVersionMaterieelService(string host)
+        {
+            string result;
+
+            YouriWebserviceMaterieel.MaterieelServiceClient clientMaterieel;
+            clientMaterieel = NewMateriaalService(host);
+            clientMaterieel.Open();
+            try
+            {
+                result = clientMaterieel.GetVersion();
+                result = GetDataOfWebRequestSoap(result);
+            }
+            catch (Exception ex)
+            {
+                result = @"{ ex: '" + ex.Message.ToString() + "'}"; ;
+            }
+            clientMaterieel.Close();
+            return result;
+        }
+
+        private string GetVersionMaterieelBeheerService(string host)
         {
             string result;
 
@@ -495,8 +518,9 @@ namespace WindowsFormsAppTest
 
             string webserviceVersie = data.Substring(positionWebserviceVersie, positionDevExpressVersie - positionWebserviceVersie);
             string devExpressVersie = data.Substring(positionDevExpressVersie, positionDatabaseVersie - positionDevExpressVersie);
+            string dataBaseVersie = data.Substring(positionDatabaseVersie, data.Length - positionDatabaseVersie);
 
-            return "{ \"Webservice Versie\": " + "\"" + webserviceVersie.Split(':')[1] + "\"" + ", \"DevExpress versie\": " + "\"" + devExpressVersie.Split(':')[1] + "\"" + ", \"DatabaseVersie\": " + "\"" + devExpressVersie.Split(':')[1] + "\"" + "}";
+            return "{ \"Webservice Versie\": " + "\"" + webserviceVersie.Split(':')[1] + "\"" + ", \"DevExpress versie\": " + "\"" + devExpressVersie.Split(':')[1] + "\"" + ", \"DatabaseVersie\": " + "\"" + dataBaseVersie.Split(':')[1] + "\"" + "}";
         }
     }
 }
