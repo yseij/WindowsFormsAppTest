@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="ebb860bd-54cc-4e2a-be97-c4657dffe06e" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://wsdev.kraan.com/kraan2vorm/MaterieelBeheerService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="MaterieelBeheerService.xsd" MetadataType="Schema" ID="ef7dbcc8-1031-4434-bd3b-3d096b6fbebf" SourceId="1" SourceUrl="https://wsdev.kraan.com/kraan2vorm/MaterieelBeheerService.svc?xsd=xsd7" />
+    <MetadataFile FileName="MaterieelBeheerService1.xsd" MetadataType="Schema" ID="4be840fb-585b-4567-b2f4-b041ad822efc" SourceId="1" SourceUrl="https://wsdev.kraan.com/kraan2vorm/MaterieelBeheerService.svc?xsd=xsd0" />
+    <MetadataFile FileName="MaterieelBeheerService2.xsd" MetadataType="Schema" ID="dbb44abb-b21b-48d9-aa11-f3d17917d6df" SourceId="1" SourceUrl="https://wsdev.kraan.com/kraan2vorm/MaterieelBeheerService.svc?xsd=xsd1" />
+    <MetadataFile FileName="MaterieelBeheerService3.xsd" MetadataType="Schema" ID="ee3341b8-4d20-4246-80d5-43d2ba03a886" SourceId="1" SourceUrl="https://wsdev.kraan.com/kraan2vorm/MaterieelBeheerService.svc?xsd=xsd2" />
+    <MetadataFile FileName="MaterieelBeheerService4.xsd" MetadataType="Schema" ID="1d942360-05a6-481e-a69f-99f4a4a17ce0" SourceId="1" SourceUrl="https://wsdev.kraan.com/kraan2vorm/MaterieelBeheerService.svc?xsd=xsd3" />
+    <MetadataFile FileName="MaterieelBeheerService.wsdl" MetadataType="Wsdl" ID="3fc36a9f-2150-4acd-a428-896ffe878236" SourceId="1" SourceUrl="https://wsdev.kraan.com/kraan2vorm/MaterieelBeheerService.svc?wsdl" />
+    <MetadataFile FileName="MaterieelBeheerService5.xsd" MetadataType="Schema" ID="fe35a890-bbb8-41ff-bc8f-42777a3fb744" SourceId="1" SourceUrl="https://wsdev.kraan.com/kraan2vorm/MaterieelBeheerService.svc?xsd=xsd5" />
+    <MetadataFile FileName="MaterieelBeheerService6.xsd" MetadataType="Schema" ID="ef3dcf41-22c8-4cbf-84a2-a79b9b2693d2" SourceId="1" SourceUrl="https://wsdev.kraan.com/kraan2vorm/MaterieelBeheerService.svc?xsd=xsd4" />
+    <MetadataFile FileName="MaterieelBeheerService.disco" MetadataType="Disco" ID="2117744f-1f76-48d0-b426-96dd81880c6a" SourceId="1" SourceUrl="https://wsdev.kraan.com/kraan2vorm/MaterieelBeheerService.svc?disco" />
+    <MetadataFile FileName="MaterieelBeheerService7.xsd" MetadataType="Schema" ID="f31e5422-0dcf-4368-bd15-bda7b97990b0" SourceId="1" SourceUrl="https://wsdev.kraan.com/kraan2vorm/MaterieelBeheerService.svc?xsd=xsd6" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

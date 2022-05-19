@@ -219,7 +219,7 @@ namespace WindowsFormsAppTest
                     newUrl.KlantId = klant.Id;
                     newUrl.KlantWebserviceId = klantWebservice.Id;
                     GetResult(newUrl, false);
-                    FillTreeView(newUrl, logFile, false);
+                    FillTreeView(newUrl, logFile, false, false);
                 }
             }
         }
@@ -232,16 +232,16 @@ namespace WindowsFormsAppTest
             }
             else
             {
-                TestKraan2Webservices(webService, url, logFile);
-            }
-        }
-
-        private void TestKraan2Webservices(WebService webService, Url url, LogFile logFile)
-        {
-            if (webService.Name == "Kraan2Webservices")
-            {
-                UrlsTestKraan2Webservice(url, logFile);
-            }
+                if (webService.Name == "Kraan2Webservices")
+                {
+                    UrlsTestKraan2Webservice(url, logFile);
+                }
+                else
+                {
+                    GetResult(url, false);
+                    FillTreeView(url, logFile, false, true);
+                }
+            } 
         }
 
         private void CheckUrlAndGetWebserviceVersion(Url url, LogFile logFile)
@@ -257,7 +257,7 @@ namespace WindowsFormsAppTest
                     Url url2 = new Url();
                     url2.Name = url.Name + "/GetWebserviceVersion";
                     GetResult(url2, true);
-                    FillTreeView(url2, logFile, true);
+                    FillTreeView(url2, logFile, true, false);
                 }
             }
         }
@@ -269,7 +269,7 @@ namespace WindowsFormsAppTest
                 Url newUrl = new Url();
                 newUrl.Name = url.Name + "/" + kraan2Webservices[i];
                 GetResult(newUrl, false);
-                FillTreeView(newUrl, logFile, true);
+                FillTreeView(newUrl, logFile, false, true);
                 newUrl.Name = string.Empty;
             }
         }
@@ -370,7 +370,9 @@ namespace WindowsFormsAppTest
                     string service = urlData.Name.Substring(plaatsSlech + 1, urlData.Name.Length - plaatsSlech - 1);
                     try
                     {
-                        _result = JObject.Parse(_webRequest.GetWebRequestSoap(urlData.Name, service));
+                        dynamic tussenresult = JObject.Parse(_webRequest.GetWebRequestSoap(urlData.Name, service));
+                        Console.WriteLine(tussenresult);
+                        _result = tussenresult;
                     }
                     catch (Exception ex)
                     {
@@ -485,7 +487,7 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void FillTreeView(Url url, LogFile logFile, bool isGetWebserviceVersion)
+        private void FillTreeView(Url url, LogFile logFile, bool isGetWebserviceVersion, bool isGetWebserviceVersionSoap)
         {
             TreeNode node = new TreeNode();
             node.Text = url.Name;
@@ -493,7 +495,7 @@ namespace WindowsFormsAppTest
             node.Tag = _result;
             int teller = 0;
             string resultText = string.Empty;
-            if (isGetWebserviceVersion)
+            if (isGetWebserviceVersion || isGetWebserviceVersionSoap)
             {
                 _urls.Add(url.Name);
             }
@@ -513,7 +515,7 @@ namespace WindowsFormsAppTest
                 }
                 if (item.Name == "ex")
                 {
-                    if (isGetWebserviceVersion)
+                    if (isGetWebserviceVersion || isGetWebserviceVersionSoap)
                     {
                         resultText += item.Value.ToString();
                     }
@@ -536,6 +538,10 @@ namespace WindowsFormsAppTest
                     if (isGetWebserviceVersion)
                     {
                         resultText += item.Value.ToString();
+                    }
+                    if (isGetWebserviceVersionSoap)
+                    {
+                        resultText += item.Name + " = " + item.Value.ToString();
                     }
                     logFile.AddTextToLogFile(item.Name + "--> " + item.Value.ToString() + "\n");
                 }

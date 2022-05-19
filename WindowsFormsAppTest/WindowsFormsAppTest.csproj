@@ -25,7 +25,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>106</ApplicationRevision>
+    <ApplicationRevision>110</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -130,12 +130,37 @@
     <Compile Include="AllWebserviceForm.Designer.cs">
       <DependentUpon>AllWebserviceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\CrmWebservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MaterieelBeheerWebservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\MaterieelWebservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Connected Services\Sales24\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
     </Compile>
     <Compile Include="Connected Services\Sales31\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\UrenWebservice\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Connected Services\WorkFlowWebservice\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -254,6 +279,135 @@
     <EmbeddedResource Include="WebserviceOfKlantForm.resx">
       <DependentUpon>WebserviceOfKlantForm.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Connected Services\CrmWebservice\CrmService.wsdl" />
+    <None Include="Connected Services\CrmWebservice\CrmService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CrmWebservice\CrmService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CrmWebservice\CrmService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CrmWebservice\CrmService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CrmWebservice\CrmService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CrmWebservice\CrmService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\CrmWebservice\WindowsFormsAppTest.CrmWebservice.LoginRegistratie.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CrmWebservice\WindowsFormsAppTest.CrmWebservice.RelatieLijstModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\CrmWebservice\WindowsFormsAppTest.CrmWebservice.RelatieSingleModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelBeheerWebservice\MaterieelBeheerService.wsdl" />
+    <None Include="Connected Services\MaterieelBeheerWebservice\MaterieelBeheerService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MaterieelBeheerWebservice\MaterieelBeheerService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MaterieelBeheerWebservice\MaterieelBeheerService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MaterieelBeheerWebservice\MaterieelBeheerService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MaterieelBeheerWebservice\MaterieelBeheerService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MaterieelBeheerWebservice\MaterieelBeheerService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MaterieelBeheerWebservice\MaterieelBeheerService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MaterieelBeheerWebservice\MaterieelBeheerService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MaterieelBeheerWebservice\WindowsFormsAppTest.MaterieelBeheerWebservice.LoginRegistratie.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelBeheerWebservice\WindowsFormsAppTest.MaterieelBeheerWebservice.ResponseArtikelDetail.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelBeheerWebservice\WindowsFormsAppTest.MaterieelBeheerWebservice.ResponseArtikelLijstInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelBeheerWebservice\WindowsFormsAppTest.MaterieelBeheerWebservice.ResponseGetDataVanLocatie.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelBeheerWebservice\WindowsFormsAppTest.MaterieelBeheerWebservice.ResponseLocaties.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelBeheerWebservice\WindowsFormsAppTest.MaterieelBeheerWebservice.ResponseSaveVerplaatsing.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelBeheerWebservice\WindowsFormsAppTest.MaterieelBeheerWebservice.ResponseStamTabel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelBeheerWebservice\WindowsFormsAppTest.MaterieelBeheerWebservice.StamTabel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\MaterieelService.wsdl" />
+    <None Include="Connected Services\MaterieelWebservice\MaterieelService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\MaterieelService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\MaterieelService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\MaterieelService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\MaterieelService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\MaterieelService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\MaterieelService6.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\MaterieelService7.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\WindowsFormsAppTest.MaterieelWebservice.ArtikelVoorraadResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\WindowsFormsAppTest.MaterieelWebservice.LoginRegistratie.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\WindowsFormsAppTest.MaterieelWebservice.ResponseArtikelMaterieel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\WindowsFormsAppTest.MaterieelWebservice.ResponseArtikelMaterieelList.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\WindowsFormsAppTest.MaterieelWebservice.ResponseBasicMaterieel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\WindowsFormsAppTest.MaterieelWebservice.ResponseGetDataVanLocatie.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\WindowsFormsAppTest.MaterieelWebservice.ResponseLocaties.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\WindowsFormsAppTest.MaterieelWebservice.ResponseSaveRFIDTag.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\WindowsFormsAppTest.MaterieelWebservice.ResponseStamTabel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="Connected Services\Sales24\messageservice.wsdl" />
     <None Include="Connected Services\Sales24\WindowsFormsAppTest.Sales24.DeleteMessageResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -294,6 +448,113 @@
     </None>
     <None Include="Connected Services\Sales31\WindowsFormsAppTest.Sales31.MessageResponseType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\UrenService.wsdl" />
+    <None Include="Connected Services\UrenWebservice\UrenService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UrenWebservice\UrenService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UrenWebservice\UrenService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UrenWebservice\UrenService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UrenWebservice\UrenService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UrenWebservice\UrenService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.BewakingsCodeLijst.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.KostenSoortLijst.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.LoginRegistratie.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.ProductieMiddelLijst.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.ProjectenLijst.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.ResponseDefaultKmCodes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.ResponseDefaultUrenCodes.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.ResponseMeegeredenKilometers.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.ResponseRemoveDocuments.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.ResponseSaveKilometers.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.ResponseSaveUren.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.ResponseSaveUrenDefaults.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.ResponseSaveUrenProject.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.ResponseUploadDocument.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.UrenBasisGegevens.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.UrenSoortLijst.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.VerwerkProcesStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\UrenWebservice\WindowsFormsAppTest.UrenWebservice.WerkbonLijst.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkFlowWebservice\WindowsFormsAppTest.WorkFlowWebservice.GevondenMedewerkers.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkFlowWebservice\WindowsFormsAppTest.WorkFlowWebservice.LoginRegistratie.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkFlowWebservice\WindowsFormsAppTest.WorkFlowWebservice.VerwerkProcesStatus.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkFlowWebservice\WindowsFormsAppTest.WorkFlowWebservice.WorkflowModel.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\WorkFlowWebservice\WorkflowService.wsdl" />
+    <None Include="Connected Services\WorkFlowWebservice\WorkflowService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkFlowWebservice\WorkflowService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkFlowWebservice\WorkflowService2.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkFlowWebservice\WorkflowService3.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkFlowWebservice\WorkflowService4.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkFlowWebservice\WorkflowService5.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\WorkFlowWebservice\WorkflowService6.xsd">
+      <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\YouriWebserviceCrm\CrmService.wsdl" />
     <None Include="Connected Services\YouriWebserviceCrm\CrmService.xsd">
@@ -500,8 +761,13 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\CrmWebservice\" />
+    <WCFMetadataStorage Include="Connected Services\MaterieelBeheerWebservice\" />
+    <WCFMetadataStorage Include="Connected Services\MaterieelWebservice\" />
     <WCFMetadataStorage Include="Connected Services\Sales24\" />
     <WCFMetadataStorage Include="Connected Services\Sales31\" />
+    <WCFMetadataStorage Include="Connected Services\UrenWebservice\" />
+    <WCFMetadataStorage Include="Connected Services\WorkFlowWebservice\" />
     <WCFMetadataStorage Include="Connected Services\YouriWebserviceCrm\" />
     <WCFMetadataStorage Include="Connected Services\YouriWebserviceMaterieel\" />
     <WCFMetadataStorage Include="Connected Services\YouriWebserviceUren\" />
@@ -616,6 +882,41 @@
     </PublishFile>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Connected Services\MaterieelBeheerWebservice\MaterieelBeheerService.disco" />
+    <None Include="Connected Services\MaterieelBeheerWebservice\configuration91.svcinfo" />
+    <None Include="Connected Services\MaterieelBeheerWebservice\configuration.svcinfo" />
+    <None Include="Connected Services\MaterieelBeheerWebservice\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\MaterieelWebservice\MaterieelService.disco" />
+    <None Include="Connected Services\MaterieelWebservice\configuration91.svcinfo" />
+    <None Include="Connected Services\MaterieelWebservice\configuration.svcinfo" />
+    <None Include="Connected Services\MaterieelWebservice\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\WorkFlowWebservice\WorkflowService.disco" />
+    <None Include="Connected Services\WorkFlowWebservice\configuration91.svcinfo" />
+    <None Include="Connected Services\WorkFlowWebservice\configuration.svcinfo" />
+    <None Include="Connected Services\WorkFlowWebservice\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\UrenWebservice\UrenService.disco" />
+    <None Include="Connected Services\UrenWebservice\configuration91.svcinfo" />
+    <None Include="Connected Services\UrenWebservice\configuration.svcinfo" />
+    <None Include="Connected Services\UrenWebservice\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Connected Services\CrmWebservice\CrmService.disco" />
+    <None Include="Connected Services\CrmWebservice\configuration91.svcinfo" />
+    <None Include="Connected Services\CrmWebservice\configuration.svcinfo" />
+    <None Include="Connected Services\CrmWebservice\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="db.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
