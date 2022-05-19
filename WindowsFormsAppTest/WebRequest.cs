@@ -201,7 +201,7 @@ namespace WindowsFormsAppTest
             try
             {
                 result = clientCrm.GetVersion();
-                result = GetDataOfWebRequestSoap(result);
+                result = GetDataOfWebRequestSoap(result, host);
             }
             catch (Exception ex)
             {
@@ -221,7 +221,11 @@ namespace WindowsFormsAppTest
             try
             {
                 result = clientWorkflow.GetVersion();
-                result = GetDataOfWebRequestSoap(result);
+
+                HttpWebRequest request = HttpWebRequest.Create(host) as HttpWebRequest;
+                X509Certificate cert = GetCertificate(request);
+
+                result = GetDataOfWebRequestSoap(result, host);
             }
             catch (Exception ex)
             {
@@ -241,7 +245,7 @@ namespace WindowsFormsAppTest
             try
             {
                 result = clientUren.GetVersion();
-                result = GetDataOfWebRequestSoap(result);
+                result = GetDataOfWebRequestSoap(result, host);
             }
             catch (Exception ex)
             {
@@ -262,7 +266,7 @@ namespace WindowsFormsAppTest
             try
             {
                 result = clientMaterieel.GetVersion();
-                result = GetDataOfWebRequestSoap(result);
+                result = GetDataOfWebRequestSoap(result, host);
             }
             catch (Exception ex)
             {
@@ -282,7 +286,7 @@ namespace WindowsFormsAppTest
             try
             {
                 result = clientMaterieel.GetVersion();
-                result = GetDataOfWebRequestSoap(result);
+                result = GetDataOfWebRequestSoap(result, host);
             }
             catch (Exception ex)
             {
@@ -505,12 +509,14 @@ namespace WindowsFormsAppTest
                         }
                     }
                 }
-                return "Geen beveiligde verbinding mogelijk";
             }
         }
 
-        private string GetDataOfWebRequestSoap(string result)
+        private string GetDataOfWebRequestSoap(string result, string host)
         {
+            HttpWebRequest request = HttpWebRequest.Create(host) as HttpWebRequest;
+            X509Certificate cert = GetCertificate(request);
+
             string data = result.Replace("----", "");
             int positionWebserviceVersie = data.IndexOf("Webservice versie");
             int positionDevExpressVersie = data.IndexOf("DevExpress versie");
@@ -520,7 +526,20 @@ namespace WindowsFormsAppTest
             string devExpressVersie = data.Substring(positionDevExpressVersie, positionDatabaseVersie - positionDevExpressVersie);
             string dataBaseVersie = data.Substring(positionDatabaseVersie, data.Length - positionDatabaseVersie);
 
-            return "{ \"Webservice Versie\": " + "\"" + webserviceVersie.Split(':')[1] + "\"" + ", \"DevExpress versie\": " + "\"" + devExpressVersie.Split(':')[1] + "\"" + ", \"DatabaseVersie\": " + "\"" + dataBaseVersie.Split(':')[1] + "\"" + "}";
+            if (cert == null)
+            {
+                return "{ \"Webservice Versie\": " + "\"" + webserviceVersie.Split(':')[1]
+                + "\"" + ", \"DevExpress versie\": " + "\"" + devExpressVersie.Split(':')[1]
+                + "\"" + ", \"DatabaseVersie\": " + "\"" + dataBaseVersie.Split(':')[1]
+                + "\"" + ", \"certVerValDatum\": " + "\"" + "Niet goed" + "\"" + "}";
+            }
+            else
+            {
+                return "{ \"Webservice Versie\": " + "\"" + webserviceVersie.Split(':')[1]
+                + "\"" + ", \"DevExpress versie\": " + "\"" + devExpressVersie.Split(':')[1]
+                + "\"" + ", \"DatabaseVersie\": " + "\"" + dataBaseVersie.Split(':')[1]
+                + "\"" + ", \"certVerValDatum\": " + "\"" + cert.GetExpirationDateString().ToString() + "\"" + "}";
+            }
         }
     }
 }
