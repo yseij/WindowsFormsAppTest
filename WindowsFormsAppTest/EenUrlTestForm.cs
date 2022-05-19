@@ -171,6 +171,7 @@ namespace WindowsFormsAppTest
 
         private void GetUrls()
         {
+            _urls.Clear();
             int teller = 0;
             _klantWebservicesDatas = _klantWebserviceXml.GetByKlant((Guid)KlantKrMaterialCmbx.SelectedValue);
             Klant klant = _klantDatas.Find(k => k.Id == (Guid)KlantKrMaterialCmbx.SelectedValue);
