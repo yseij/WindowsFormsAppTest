@@ -193,25 +193,25 @@ namespace WindowsFormsAppTest
                     basisUrl = klant.BasisUrl1;
                     url.Name = basisUrl + webService.Name;
                     CheckUrlAndGetWebserviceVersion(url, logFile);
+                    TestKraan2Webservices(webService, url, logFile);
                     basisUrl = klant.BasisUrl2;
                     url.Name = basisUrl + webService.Name;
                     CheckUrlAndGetWebserviceVersion(url, logFile);
+                    TestKraan2Webservices(webService, url, logFile);
                 }
                 else if (klantWebservice.BasisUrl1)
                 {
                     basisUrl = klant.BasisUrl1;
                     url.Name = basisUrl + webService.Name;
                     CheckUrlAndGetWebserviceVersion(url, logFile);
+                    TestKraan2Webservices(webService, url, logFile);
                 }
                 else
                 {
                     basisUrl = klant.BasisUrl2;
                     url.Name = basisUrl + webService.Name;
                     CheckUrlAndGetWebserviceVersion(url, logFile);
-                }
-                if (webService.Name == "Kraan2Webservices")
-                {
-                    UrlsTestKraan2Webservice(url, logFile);
+                    TestKraan2Webservices(webService, url, logFile);
                 }
                 logFile.AddTextToLogFile("\n");
                 List<Url> urlDatas = _urlXml.GetByKlantWebserviceId(klantWebservice.Id);
@@ -225,6 +225,14 @@ namespace WindowsFormsAppTest
                     GetResult(newUrl, false);
                     FillTreeView(newUrl, logFile, false);
                 }
+            }
+        }
+
+        private void TestKraan2Webservices(WebService webService, Url url, LogFile logFile)
+        {
+            if (webService.Name == "Kraan2Webservices")
+            {
+                UrlsTestKraan2Webservice(url, logFile);
             }
         }
 
