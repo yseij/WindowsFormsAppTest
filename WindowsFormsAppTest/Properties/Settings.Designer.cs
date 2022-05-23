@@ -154,5 +154,29 @@ namespace WindowsFormsAppTest.Properties {
                 this["PlaceDb"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("d:")]
+        public string PlaceSelfDb {
+            get {
+                return ((string)(this["PlaceSelfDb"]));
+            }
+            set {
+                this["PlaceSelfDb"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("///")]
+        public string StartUpPathDb {
+            get {
+                return ((string)(this["StartUpPathDb"]));
+            }
+            set {
+                this["StartUpPathDb"] = value;
+            }
+        }
     }
 }

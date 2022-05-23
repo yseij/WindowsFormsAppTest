@@ -35,5 +35,11 @@
     <Setting Name="PlaceDb" Type="System.String" Scope="User">
       <Value Profile="(Default)">///</Value>
     </Setting>
+    <Setting Name="PlaceSelfDb" Type="System.String" Scope="User">
+      <Value Profile="(Default)">d:</Value>
+    </Setting>
+    <Setting Name="StartUpPathDb" Type="System.String" Scope="User">
+      <Value Profile="(Default)">///</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows;
 using System.Xml.Linq;
@@ -83,6 +84,10 @@ namespace WindowsFormsAppTest
             {
                 MessageBox.Show(ex.Message);
             }
+
+            string sourcePath = Properties.Settings.Default.StartUpPathDb;
+            string desPath = Properties.Settings.Default.PlaceSelfDb + "/db.xml";
+            File.Copy(sourcePath, desPath, true);
         }
     }
 }

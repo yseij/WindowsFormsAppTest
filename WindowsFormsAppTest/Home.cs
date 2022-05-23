@@ -51,6 +51,7 @@ namespace WindowsFormsAppTest
             menuStrip.ForeColor = Color.FromArgb(0, 0, 0);
 
             ToolStripMenuItem1.Enabled = false;
+            Properties.Settings.Default.StartUpPathDb = Path.Combine(Application.StartupPath, "db.xml");
 
             _krXml.SetDbXml();
             _krXml.MakeXmlFileUser();
@@ -565,6 +566,17 @@ namespace WindowsFormsAppTest
 
         private void Home_FormClosing(object sender, FormClosingEventArgs e)
         {
+            try
+            {
+                string sourcePath = Properties.Settings.Default.StartUpPathDb;
+                string desPath = Properties.Settings.Default.PlaceSelfDb + "/db.xml";
+                File.Copy(sourcePath, desPath, true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
             Properties.Settings.Default.Save();
         }
 
@@ -604,14 +616,36 @@ namespace WindowsFormsAppTest
             {
                 string SelectedPath = fbd.SelectedPath;
                 ZetConfEnProp("SaveDbPlace", SelectedPath);
+                dbxmlLadenTlStrpMnItm.Enabled = true;
             }
         }
 
         private void dbxmlLadenTlStrpMnItm_Click(object sender, EventArgs e)
         {
-            string desPath = Path.Combine(Application.StartupPath, "db.xml");
-            string sourcePath = Properties.Settings.Default.SaveDbPlace + "/db.xml";
-            File.Copy(sourcePath, desPath, true);
+            try
+            {
+                string desPath = Path.Combine(Application.StartupPath, "db.xml");
+                string sourcePath = Properties.Settings.Default.SaveDbPlace + "/db.xml";
+                File.Copy(sourcePath, desPath, true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            
+        }
+
+        private void plaatsOpslaanDbxmlTlStrpMnItm_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.Description = "Custom Description";
+            fbd.SelectedPath = Properties.Settings.Default.PlaceSelfDb;
+
+            if (fbd.ShowDialog() == DialogResult.OK)
+            {
+                string SelectedPath = fbd.SelectedPath;
+                ZetConfEnProp("PlaceSelfDb", SelectedPath);
+            }
         }
     }
 }
