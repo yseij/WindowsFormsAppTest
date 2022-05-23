@@ -511,6 +511,13 @@ namespace WindowsFormsAppTest
                     case "DatabaseVersie":
                         TxtBxDatabaseVersie.Text = item.Value.ToString().Replace("{", "").Replace("}", "");
                         break;
+                    case "certVerValDatum":
+                        if (item.Value.ToString() != "")
+                        {
+                            SslChckBx.Checked = true;
+                            SllCertificaatVervalDatumTxtBx.Text = item.Value.ToString();
+                        }
+                        break;
                 }
                 ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " + item.Value + Environment.NewLine;
             }

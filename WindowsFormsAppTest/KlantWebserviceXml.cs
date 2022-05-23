@@ -170,9 +170,17 @@ namespace WindowsFormsAppTest
                 MessageBox.Show(ex.Message);
             }
 
-            string sourcePath = Properties.Settings.Default.StartUpPathDb;
-            string desPath = Properties.Settings.Default.PlaceSelfDb + "/db.xml";
-            File.Copy(sourcePath, desPath, true);
+            try
+            {
+                string sourcePath = Properties.Settings.Default.StartUpPathDb;
+                string desPath = Properties.Settings.Default.PlaceSelfDb + "/db.xml";
+                File.Copy(sourcePath, desPath, true);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }
