@@ -29,6 +29,8 @@ namespace WindowsFormsAppTest
                                       "MaterieelbeheerService.svc",
                                       "UrenService.svc" };
 
+        string[] kraanSalesService = { "MessageServiceSoap.svc",
+                                       "MessageServiceSoap31.svc"};
 
         List<string> _urls = new List<string>();
         List<string> _results = new List<string>();
@@ -192,22 +194,22 @@ namespace WindowsFormsAppTest
                 {
                     basisUrl = klant.BasisUrl1;
                     url.Name = basisUrl + webService.Name;
-                    SoapOfRestTest(url, logFile, webService);
+                    SoapOfRestTest(url, logFile, webService, klantWebservice);
                     basisUrl = klant.BasisUrl2;
                     url.Name = basisUrl + webService.Name;
-                    SoapOfRestTest(url, logFile, webService);
+                    SoapOfRestTest(url, logFile, webService, klantWebservice);
                 }
                 else if (klantWebservice.BasisUrl1)
                 {
                     basisUrl = klant.BasisUrl1;
                     url.Name = basisUrl + webService.Name;
-                    SoapOfRestTest(url, logFile, webService);
+                    SoapOfRestTest(url, logFile, webService, klantWebservice);
                 }
                 else
                 {
                     basisUrl = klant.BasisUrl2;
                     url.Name = basisUrl + webService.Name;
-                    SoapOfRestTest(url, logFile, webService);
+                    SoapOfRestTest(url, logFile, webService, klantWebservice);
                 }
                 logFile.AddTextToLogFile("\n");
                 List<Url> urlDatas = _urlXml.GetByKlantWebserviceId(klantWebservice.Id);
@@ -224,11 +226,20 @@ namespace WindowsFormsAppTest
             }
         }
 
-        private void SoapOfRestTest(Url url, LogFile logFile, WebService webService)
+        private void SoapOfRestTest(Url url, LogFile logFile, WebService webService, KlantWebservice klantWebservice)
         {
             if (!_isSoap)
             {
-                CheckUrlAndGetWebserviceVersion(url, logFile);
+                if (webService.Name == "KraanHomeDNA")
+                {
+                    url.Name += "/HomeDna.svc/GetWebserviceVersion";
+                    GetResult(url, true);
+                    FillTreeView(url, logFile, false, false);
+                }
+                else
+                {
+                    CheckUrlAndGetWebserviceVersion(url, logFile);
+                }
             }
             else
             {
@@ -236,12 +247,40 @@ namespace WindowsFormsAppTest
                 {
                     UrlsTestKraan2Webservice(url, logFile);
                 }
+                else if (webService.Name == "KraanSalesService")
+                {
+                    UrlsTestKraanSalesService(url, klantWebservice, logFile);
+                }
+                else if (webService.Name == "KraanWerkbonWebservice")
+                {
+                    url.Name += "/Webservice.svc";
+                    GetResult(url, false);
+                    FillTreeView(url, logFile, false, false);
+                }
+                else if (webService.Name == "KraanHandheld")
+                {
+                    url.Name += "/HandheldService.svc/rest/GetVersion";
+                    GetResult(url, false);
+                    FillTreeView(url, logFile, false, false);
+                }
                 else
                 {
                     GetResult(url, false);
                     FillTreeView(url, logFile, false, true);
                 }
             } 
+        }
+
+        private void UrlsTestKraanSalesService(Url url, KlantWebservice klantWebservice, LogFile logFile)
+        {
+            for (int i = 0; i < kraanSalesService.Length; i++)
+            {
+                Url newUrl = new Url();
+                newUrl.Name = url.Name + "/" + kraanSalesService[i];
+                newUrl.KlantWebserviceId = klantWebservice.Id;
+                GetResult(newUrl, false);
+                FillTreeView(newUrl, logFile, false, false);
+            }
         }
 
         private void CheckUrlAndGetWebserviceVersion(Url url, LogFile logFile)

@@ -23,6 +23,9 @@ namespace WindowsFormsAppTest
                                       "MaterieelbeheerService.svc",
                                       "UrenService.svc" };
 
+        string[] kraanSalesService = { "MessageServiceSoap.svc",
+                                       "MessageServiceSoap31.svc"};
+
         private List<WebService> _webserviceDatas = new List<WebService>();
 
         ErrorProvider _error;
@@ -250,6 +253,10 @@ namespace WindowsFormsAppTest
             {
                 _klantWebserviceXml.AddKlantWebservice(klantWebservice);
             }
+            else if (klantWebservice1.BasisUrl1 != klantWebservice.BasisUrl1 || klantWebservice1.BasisUrl2 != klantWebservice.BasisUrl2)
+            {
+                _klantWebserviceXml.UpdateKlantWebservice(klantWebservice.Klant, klantWebservice.Webservice, klantWebservice);
+            }
         }
 
         private void DeleteKlantWebservice(KlantWebservice klantWebservice)
@@ -283,18 +290,20 @@ namespace WindowsFormsAppTest
                     {
                         isChecked = true;
                         huidigeWebservice = c.Text;
-                        if (huidigeWebservice == "Kraan2Webservices") 
-                        {
-                            HuidigeTabIndex = c.TabIndex;
-                            UrlsGenererenKraan2Webservice(HuidigeTabIndex, huidigeWebservice);
-                        }    
+                        HuidigeTabIndex = c.TabIndex;
+                        CheckWebservice(huidigeWebservice, HuidigeTabIndex);
                     }
                 }
                 if (isChecked)
                 {
-                    if (checkBox.Checked && huidigeWebservice != "Kraan2Webservices")
+                    if (checkBox.Checked &&
+                    huidigeWebservice != "Kraan2Webservices" &&
+                    huidigeWebservice != "KraanWerkbonWebservice" &&
+                    huidigeWebservice != "KraanSalesService" &&
+                    huidigeWebservice != "KraanHandheld" &&
+                    huidigeWebservice != "KraanHomeDNA")
                     {
-                        url= SetUrl(checkBox, huidigeWebservice);
+                        url = SetUrl(checkBox, huidigeWebservice);
                         if (url != string.Empty)
                         {
                             UrlsLstBx.Items.Add(url);
@@ -333,6 +342,30 @@ namespace WindowsFormsAppTest
             _aantalFouten = -1;
         }
 
+        private void CheckWebservice(string huidigeWebservice, int HuidigeTabIndex)
+        {
+            if (huidigeWebservice == "Kraan2Webservices")
+            {
+                UrlsGenererenKraan2Webservice(HuidigeTabIndex, huidigeWebservice);
+            }
+            else if (huidigeWebservice == "KraanSalesService")
+            {
+                UrlsGenererenKraanSalesService(HuidigeTabIndex, huidigeWebservice);
+            }
+            else if (huidigeWebservice == "KraanWerkbonWebservice")
+            {
+                UrlsGenererenKraanWerkbonWebservice(HuidigeTabIndex, huidigeWebservice);
+            }
+            else if (huidigeWebservice == "KraanHandheld")
+            {
+                UrlsGenererenKraanHandheld(HuidigeTabIndex, huidigeWebservice);
+            }
+            else if (huidigeWebservice == "KraanHomeDNA")
+            {
+                UrlsGenererenKraanHomeDna(HuidigeTabIndex, huidigeWebservice);
+            }
+        }
+
         private void UrlsGenererenKraan2Webservice(int tabIndex, string huidigeWebservice)
         {
             TableLayoutControlCollection controls = TableLayoutWebservice.Controls;
@@ -348,6 +381,73 @@ namespace WindowsFormsAppTest
                         string url = basisUrl + "/" + kraanWebservices[a];
                         UrlsLstBx.Items.Add(url);
                     }
+                }
+            }
+        }
+
+        private void UrlsGenererenKraanSalesService(int tabIndex, string huidigeWebservice)
+        {
+            TableLayoutControlCollection controls = TableLayoutWebservice.Controls;
+            string basisUrl = string.Empty;
+            for (int i = 1; i < 3; i++)
+            {
+                CheckBox c = (CheckBox)controls[tabIndex + i];
+                if (c.Checked)
+                {
+                    basisUrl = SetUrl(c, huidigeWebservice);
+                    for (int a = 0; a < kraanSalesService.Length; a++)
+                    {
+                        string url = basisUrl + "/" + kraanSalesService[a];
+                        UrlsLstBx.Items.Add(url);
+                    }
+                }
+            }
+        }
+
+        private void UrlsGenererenKraanWerkbonWebservice(int tabIndex, string huidigeWebservice)
+        {
+            TableLayoutControlCollection controls = TableLayoutWebservice.Controls;
+            string basisUrl = string.Empty;
+            for (int i = 1; i < 3; i++)
+            {
+                CheckBox c = (CheckBox)controls[tabIndex + i];
+                if (c.Checked)
+                {
+                    basisUrl = SetUrl(c, huidigeWebservice);
+                    string url = basisUrl + "/Webservice.svc";
+                    UrlsLstBx.Items.Add(url);
+                }
+            }
+        }
+
+        private void UrlsGenererenKraanHandheld(int tabIndex, string huidigeWebservice)
+        {
+            TableLayoutControlCollection controls = TableLayoutWebservice.Controls;
+            string basisUrl = string.Empty;
+            for (int i = 1; i < 3; i++)
+            {
+                CheckBox c = (CheckBox)controls[tabIndex + i];
+                if (c.Checked)
+                {
+                    basisUrl = SetUrl(c, huidigeWebservice);
+                    string url = basisUrl + "/HandheldService.svc/rest/GetVersion";
+                    UrlsLstBx.Items.Add(url);
+                }
+            }
+        }
+
+        private void UrlsGenererenKraanHomeDna(int tabIndex, string huidigeWebservice)
+        {
+            TableLayoutControlCollection controls = TableLayoutWebservice.Controls;
+            string basisUrl = string.Empty;
+            for (int i = 1; i < 3; i++)
+            {
+                CheckBox c = (CheckBox)controls[tabIndex + i];
+                if (c.Checked)
+                {
+                    basisUrl = SetUrl(c, huidigeWebservice);
+                    string url = basisUrl + "/HomeDna.svc/GetWebserviceVersion";
+                    UrlsLstBx.Items.Add(url);
                 }
             }
         }

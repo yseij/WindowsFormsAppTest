@@ -101,42 +101,49 @@ namespace WindowsFormsAppTest
         private void BttnUrl_Click(object sender, EventArgs e)
         {
             var m = new EenUrlTestForm();
+            m.TopMost = false;
             m.ShowDialog();
         }
 
         private void BttnWebservice_Click(object sender, EventArgs e)
         {
             var m = new WebserviceOfKlantForm(false);
+            m.TopMost = false;
             m.ShowDialog();
         }
 
         private void BtnKlant_Click(object sender, EventArgs e)
         {
             var m = new WebserviceOfKlantForm(true);
+            m.TopMost = false;
             m.ShowDialog();
         }
 
         private void BtnShowWebservices_Click(object sender, EventArgs e)
         {
             var m = new AllWebserviceForm();
+            m.TopMost = false;
             m.ShowDialog();
         }
 
         private void BtnShowKlanten_Click(object sender, EventArgs e)
         {
             var m = new AllKlantenForm();
+            m.TopMost = false;
             m.ShowDialog();
         }
 
         private void BtnShowUrlsPerKlant_Click(object sender, EventArgs e)
         {
             var m = new AllUrlPerKlantForm();
+            m.TopMost = false;
             m.ShowDialog();
         }
 
         private void EmailTlStrpMnItm_Click_1(object sender, EventArgs e)
         {
             var m = new UserForm();
+            m.TopMost = false;
             m.FormClosing += new FormClosingEventHandler(ChildFormClosingSetEmail);
             m.ShowDialog();
         }

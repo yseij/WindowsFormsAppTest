@@ -325,11 +325,11 @@ namespace WindowsFormsAppTest
             this.AnnulerenKlantBttn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AnnulerenKlantBttn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.AnnulerenKlantBttn.ForeColor = System.Drawing.SystemColors.Control;
-            this.AnnulerenKlantBttn.Location = new System.Drawing.Point(212, 291);
+            this.AnnulerenKlantBttn.Location = new System.Drawing.Point(207, 291);
             this.AnnulerenKlantBttn.Name = "AnnulerenKlantBttn";
-            this.AnnulerenKlantBttn.Size = new System.Drawing.Size(91, 43);
+            this.AnnulerenKlantBttn.Size = new System.Drawing.Size(96, 43);
             this.AnnulerenKlantBttn.TabIndex = 85;
-            this.AnnulerenKlantBttn.Text = "ANNUlEREN";
+            this.AnnulerenKlantBttn.Text = "ANNULEREN";
             this.AnnulerenKlantBttn.UseVisualStyleBackColor = false;
             this.AnnulerenKlantBttn.Click += new System.EventHandler(this.AnnulerenKlantBttn_Click);
             // 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <DB xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Webservices>
-    <Webservice Id="05b7a693-b41a-446d-be75-835af18f91a2" Name="KraanHomeDna" Soap="true" SecurityId="TEST" />
-    <Webservice Id="f604df33-eba1-4dd9-a5aa-1acc8f320a13" Name="KraanSalesService" Soap="false" SecurityId="" />
+    <Webservice Id="05b7a693-b41a-446d-be75-835af18f91a2" Name="KraanHomeDNA" Soap="false" SecurityId="TEST" />
+    <Webservice Id="f604df33-eba1-4dd9-a5aa-1acc8f320a13" Name="KraanSalesService" Soap="true" SecurityId="" />
     <Webservice Id="44fd72d0-a184-4d89-a23a-9f32f7bbb398" Name="Kraan2Webservices" Soap="true" SecurityId="" />
     <Webservice Id="bb5ae735-b724-4e82-9e70-c7e6bb296cb3" Name="KraanHomeDNARelease/HomeDna.svc" Soap="false" SecurityId="" />
     <Webservice Id="45aa4d14-342e-46fb-b1c8-a1d76adfde98" Name="KraanHomeDNARelease" Soap="false" SecurityId="" />

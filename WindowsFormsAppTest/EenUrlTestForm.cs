@@ -27,6 +27,9 @@ namespace WindowsFormsAppTest
                                       "MaterieelbeheerService.svc",
                                       "UrenService.svc" };
 
+        string[] kraanSalesService = { "MessageServiceSoap.svc",
+                                       "MessageServiceSoap31.svc"};
+
         private WebService _selectedWebservice = new WebService();
         private KlantWebservice _klantWebservice = new KlantWebservice();
 
@@ -172,6 +175,7 @@ namespace WindowsFormsAppTest
 
         private void GetUrls()
         {
+            _urls.Clear();
             int teller = 0;
             _klantWebservicesDatas = _klantWebserviceXml.GetByKlant((Guid)KlantKrMaterialCmbx.SelectedValue);
             Klant klant = _klantDatas.Find(k => k.Id == (Guid)KlantKrMaterialCmbx.SelectedValue);
@@ -226,11 +230,41 @@ namespace WindowsFormsAppTest
             {
                 UrlsTestKraan2Webservice(url, klantWebservice);
             }
+            else if (webService.Name == "KraanSalesService")
+            {
+                UrlsTestKraanSalesService(url, klantWebservice);
+            }
+            else if (webService.Name == "KraanHomeDNA")
+            {
+                url.Name += "/HomeDna.svc/GetWebserviceVersion";
+                _urls.Add(url);
+            }
+            else if (webService.Name == "KraanWerkbonWebservice")
+            {
+                url.Name += "/Webservice.svc";
+                _urls.Add(url);
+            }
+            else if (webService.Name == "KraanHandheld")
+            {
+                url.Name += "/HandheldService.svc/rest/GetVersion";
+                _urls.Add(url);
+            }
             else
             {
                 url.KlantId = (Guid)KlantKrMaterialCmbx.SelectedValue;
                 url.KlantWebserviceId = klantWebservice.Id;
                 _urls.Add(url);
+            }
+        }
+
+        private void UrlsTestKraanSalesService(Url url, KlantWebservice klantWebservice)
+        {
+            for (int i = 0; i < kraanSalesService.Length; i++)
+            {
+                Url newUrl = new Url();
+                newUrl.Name = url.Name + "/" + kraanSalesService[i];
+                newUrl.KlantWebserviceId = klantWebservice.Id;
+                _urls.Add(newUrl);
             }
         }
 
