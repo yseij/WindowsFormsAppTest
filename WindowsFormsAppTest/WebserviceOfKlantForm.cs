@@ -229,47 +229,41 @@ namespace WindowsFormsAppTest
 
         private void SoapOfRestTest(Url url, LogFile logFile, WebService webService, KlantWebservice klantWebservice)
         {
-            if (!_isSoap)
+            if (webService.Name == "KraanHomeDNA")
             {
-                if (webService.Name == "KraanHomeDNA")
-                {
-                    url.Name += "/HomeDna.svc/GetWebserviceVersion";
-                    GetResult(url, true);
-                    FillTreeView(url, logFile, false, false);
-                }
-                else
-                {
-                    CheckUrlAndGetWebserviceVersion(url, logFile);
-                }
+                url.Name += "/HomeDna.svc/GetWebserviceVersion";
+                GetResult(url, true);
+                FillTreeView(url, logFile, false, false);
+            }
+            else if (webService.Name == "Kraan2Webservices")
+            {
+                UrlsTestKraan2Webservice(url, logFile);
+            }
+            else if (webService.Name == "KraanSalesService")
+            {
+                UrlsTestKraanSalesService(url, klantWebservice, logFile);
+            }
+            else if (webService.Name == "KraanWerkbonWebservice")
+            {
+                url.Name += "/Webservice.svc";
+                GetResult(url, false);
+                FillTreeView(url, logFile, false, false);
+            }
+            else if (webService.Name == "KraanHandheld")
+            {
+                url.Name += "/HandheldService.svc/rest/GetVersion";
+                GetResult(url, false);
+                FillTreeView(url, logFile, false, false);
+            }
+            else if (!_isSoap)
+            {
+                CheckUrlAndGetWebserviceVersion(url, logFile);
             }
             else
             {
-                if (webService.Name == "Kraan2Webservices")
-                {
-                    UrlsTestKraan2Webservice(url, logFile);
-                }
-                else if (webService.Name == "KraanSalesService")
-                {
-                    UrlsTestKraanSalesService(url, klantWebservice, logFile);
-                }
-                else if (webService.Name == "KraanWerkbonWebservice")
-                {
-                    url.Name += "/Webservice.svc";
-                    GetResult(url, false);
-                    FillTreeView(url, logFile, false, false);
-                }
-                else if (webService.Name == "KraanHandheld")
-                {
-                    url.Name += "/HandheldService.svc/rest/GetVersion";
-                    GetResult(url, false);
-                    FillTreeView(url, logFile, false, false);
-                }
-                else
-                {
-                    GetResult(url, false);
-                    FillTreeView(url, logFile, false, true);
-                }
-            } 
+                GetResult(url, false);
+                FillTreeView(url, logFile, false, true);
+            }
         }
 
         private void UrlsTestKraanSalesService(Url url, KlantWebservice klantWebservice, LogFile logFile)

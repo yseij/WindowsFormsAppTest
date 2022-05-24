@@ -25,6 +25,16 @@ namespace WindowsFormsAppTest
 
         private int _teller;
 
+        string[] kraan2Webservices = { "AuthService.svc",
+                                      "CrmService.svc",
+                                      "WorkflowService.svc",
+                                      "MaterieelService.svc",
+                                      "MaterieelbeheerService.svc",
+                                      "UrenService.svc" };
+
+        string[] kraanSalesService = { "MessageServiceSoap.svc",
+                                       "MessageServiceSoap31.svc"};
+
         private List<Klant> _klantDatas = new List<Klant>();
 
         WebRequest _webRequest;
@@ -69,6 +79,7 @@ namespace WindowsFormsAppTest
 
         private void GetSettings()
         {
+            bool isChecked = false;
             ConfigurationManager.AppSettings["Tijd"] = Properties.Settings.Default.Tijd;
             ConfigurationManager.AppSettings["TestAanOfUit"] = Properties.Settings.Default.TestAanOfUit;
             ConfigurationManager.AppSettings["SaveLogFilePlace"] = Properties.Settings.Default.SaveLogFilePlace;
@@ -86,12 +97,19 @@ namespace WindowsFormsAppTest
                         toolStripMenuItem.Checked = true;
                         _klantKeuzeId = (Guid)toolStripMenuItem.Tag;
                         _klantKeuzeNaam = toolStripMenuItem.Text;
+                        isChecked = true;
                     }
                     else
                     {
                         toolStripMenuItem.Checked = false;
                     }
                 }
+            }
+            if (!isChecked)
+            {
+                AanToolStripMenuItem.Checked = false;
+                UitToolStripMenuItem.Checked = true;
+                ConfigurationManager.AppSettings["TestAanOfUit"] = "uit";
             }
             ToolStripMenuItem1.Enabled = _klantKeuzeId != Guid.Empty && Properties.Settings.Default.Email != "";
 
@@ -130,7 +148,13 @@ namespace WindowsFormsAppTest
         {
             var m = new AllKlantenForm();
             m.TopMost = false;
+            m.FormClosing += new FormClosingEventHandler(ChildFormClosingSetShowKlanten);
             m.ShowDialog();
+        }
+
+        private void ChildFormClosingSetShowKlanten(object sender, FormClosingEventArgs e)
+        {
+            FillKlantenDropDown();
         }
 
         private void BtnShowUrlsPerKlant_Click(object sender, EventArgs e)
@@ -349,6 +373,7 @@ namespace WindowsFormsAppTest
 
         private void FillKlantenDropDown()
         {
+            KlantKeuzeToolStripMenuItem.DropDownItems.Clear();
             _klantDatas = _klantXml.GetKlanten();
             foreach (Klant klantData in _klantDatas)
             {
@@ -415,14 +440,31 @@ namespace WindowsFormsAppTest
             }
             foreach (KlantWebservice klantWebservice in klantWebservices)
             {
+                string basisUrl = string.Empty;
                 Url url = new Url();
                 Klant klant = _klantDatas.Find(k => k.Id == klantWebservice.Klant);
-
-                string basisUrl = FindBasisUrl(klantWebservice, klant);
                 WebService webService = FindWebservice(klantWebservice);
-                url.Name = basisUrl + webService.Name;
-
-                CheckUrlAndGetWebserviceVersion(url);
+                if (klantWebservice.BasisUrl1 && klantWebservice.BasisUrl2)
+                {
+                    basisUrl = klant.BasisUrl1;
+                    url.Name = basisUrl + webService.Name;
+                    SoapOfRestTest(url, webService, klantWebservice);
+                    basisUrl = klant.BasisUrl2;
+                    url.Name = basisUrl + webService.Name;
+                    SoapOfRestTest(url,  webService, klantWebservice);
+                }
+                else if (klantWebservice.BasisUrl1)
+                {
+                    basisUrl = klant.BasisUrl1;
+                    url.Name = basisUrl + webService.Name;
+                    SoapOfRestTest(url, webService, klantWebservice);
+                }
+                else
+                {
+                    basisUrl = klant.BasisUrl2;
+                    url.Name = basisUrl + webService.Name;
+                    SoapOfRestTest(url, webService, klantWebservice);
+                }
             }
             foreach (Url url1 in urls)
             {
@@ -445,6 +487,63 @@ namespace WindowsFormsAppTest
             if (_text != "")
             {
                 MailClient.SendMail(keuzeNaam, _text, _logFile.FilePath);
+            }
+        }
+
+        private void SoapOfRestTest(Url url, WebService webService, KlantWebservice klantWebservice)
+        {
+            if (webService.Name == "KraanHomeDNA")
+            {
+                url.Name += "/HomeDna.svc";
+                GetWebserviceVersion(url);
+            }
+            else if (webService.Name == "Kraan2Webservices")
+            {
+                UrlsTestKraan2Webservice(url, klantWebservice);
+            }
+            else if (webService.Name == "KraanSalesService")
+            {
+                UrlsTestKraanSalesService(url, klantWebservice);
+            }
+            else if (webService.Name == "KraanWerkbonWebservice")
+            {
+                url.Name += "/Webservice.svc";
+                GetUrl(url);
+            }
+            else if (webService.Name == "KraanHandheld")
+            {
+                url.Name += "/HandheldService.svc/rest/GetVersion";
+                GetUrl(url);
+            }
+            else if (!_isSoap)
+            {
+                CheckUrlAndGetWebserviceVersion(url);
+            }
+            else
+            {
+                GetResult(url, false);
+            }
+        }
+
+        private void UrlsTestKraanSalesService(Url url, KlantWebservice klantWebservice)
+        {
+            for (int i = 0; i < kraanSalesService.Length; i++)
+            {
+                Url newUrl = new Url();
+                newUrl.Name = url.Name + "/" + kraanSalesService[i];
+                newUrl.KlantWebserviceId = klantWebservice.Id;
+                GetUrl(newUrl);
+            }
+        }
+
+        private void UrlsTestKraan2Webservice(Url url, KlantWebservice klantWebservice)
+        {
+            for (int i = 0; i < kraan2Webservices.Length; i++)
+            {
+                Url newUrl = new Url();
+                newUrl.Name = url.Name + "/" + kraan2Webservices[i];
+                GetUrl(newUrl);
+                newUrl.Name = string.Empty;
             }
         }
 
@@ -542,11 +641,11 @@ namespace WindowsFormsAppTest
         {
             if (_isSoap && url.Name.EndsWith(".svc"))
             {
-                if (url.Name == "MessageServiceSoap31.svc")
+                if (url.Name.Contains("MessageServiceSoap31.svc"))
                 {
                     _result = JObject.Parse(@"{ ex: '" + "Deze service heeft een inlog nodig dus die moet je appart testen" + "'}");
                 }
-                else if (url.Name == "MessageServiceSoap.svc")
+                else if (url.Name.Contains("MessageServiceSoap.svc"))
                 {
                     _result = JObject.Parse(_webRequest.Get24SalesData(url.Name));
                 }
