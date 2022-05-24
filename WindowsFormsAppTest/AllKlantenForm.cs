@@ -150,6 +150,7 @@ namespace WindowsFormsAppTest
         private void PasKlantAanBtn_Click(object sender, EventArgs e)
         {
             Klant klant = new Klant((Guid)AllKlantKrLstBx.SelectedValue, _changedKlant, BasisUrl1TxtBx.Text, BasisUrl2TxtBx.Text);
+            klant = CheckBasisUrl(klant);
             if (_huidigeKlantNaam == KlantTxtBx.Text)
             {
                 _klantXml.UpdateKlant((Guid)AllKlantKrLstBx.SelectedValue, klant);
@@ -220,6 +221,25 @@ namespace WindowsFormsAppTest
         private void ChildFormClosingAddWebserviceToKlantForm(object sender, FormClosingEventArgs e)
         {
             GetWebservices();
+        }
+
+        private Klant CheckBasisUrl(Klant klant)
+        {
+            if (klant.BasisUrl1 != string.Empty)
+            {
+                if (!klant.BasisUrl1.EndsWith("/"))
+                {
+                    klant.BasisUrl1 += "/";
+                }
+            }
+            if (klant.BasisUrl2 != string.Empty)
+            {
+                if (!klant.BasisUrl2.EndsWith("/"))
+                {
+                    klant.BasisUrl2 += "/";
+                }
+            }
+            return klant;
         }
     }
 }

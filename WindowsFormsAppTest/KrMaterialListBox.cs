@@ -15,10 +15,10 @@ namespace WindowsFormsAppTest
             SetMembers();
         }
 
-        private void SetMembers()
+        public void SetMembers()
         {
-            DisplayMember = "Name";
             ValueMember = "Id";
+            DisplayMember = "Name";
         }
 
         public void FillListBoxKlantData(List<Klant> klanten)

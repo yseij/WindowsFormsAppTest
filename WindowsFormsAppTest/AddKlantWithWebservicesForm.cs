@@ -454,11 +454,11 @@ namespace WindowsFormsAppTest
 
         private string SetUrl(CheckBox c, string huidigeWebservice)
         {
-            if (BasisUrl1TxtBx.Text != null && !BasisUrl1TxtBx.Text.EndsWith("/"))
+            if (BasisUrl1TxtBx.Text != string.Empty && !BasisUrl1TxtBx.Text.EndsWith("/"))
             {
                 BasisUrl1TxtBx.Text += "/";
             }
-            if (BasisUrl2TxtBx.Text != null && !BasisUrl2TxtBx.Text.EndsWith("/"))
+            if (BasisUrl2TxtBx.Text != string.Empty && !BasisUrl2TxtBx.Text.EndsWith("/"))
             {
                 BasisUrl2TxtBx.Text += "/";
             }

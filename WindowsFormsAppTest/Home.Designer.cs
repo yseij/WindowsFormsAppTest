@@ -39,6 +39,7 @@ namespace WindowsFormsAppTest
             this.dbXmlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.plaatsOphalenDbxmlToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dbxmlLadenTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
+            this.plaatsOpslaanDbxmlTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.EmailTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.StripMenuItemTestTijd = new System.Windows.Forms.ToolStripMenuItem();
             this.KlantKeuzeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,7 +66,6 @@ namespace WindowsFormsAppTest
             this.BtnShowUrlsPerKlant = new System.Windows.Forms.Button();
             this.BtnShowWebservices = new System.Windows.Forms.Button();
             this.BtnShowKlanten = new System.Windows.Forms.Button();
-            this.plaatsOpslaanDbxmlTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,7 +118,7 @@ namespace WindowsFormsAppTest
             this.menuStrip.Location = new System.Drawing.Point(3, 426);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip.Size = new System.Drawing.Size(386, 24);
+            this.menuStrip.Size = new System.Drawing.Size(275, 24);
             this.menuStrip.TabIndex = 9;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -127,14 +127,14 @@ namespace WindowsFormsAppTest
             this.StripMenuItemLogFile.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.plaatsOpslaanLogFileToolStripMenuItem});
             this.StripMenuItemLogFile.Name = "StripMenuItemLogFile";
-            this.StripMenuItemLogFile.Size = new System.Drawing.Size(58, 20);
-            this.StripMenuItemLogFile.Text = "Log file";
+            this.StripMenuItemLogFile.Size = new System.Drawing.Size(57, 20);
+            this.StripMenuItemLogFile.Text = "LogFile";
             // 
             // plaatsOpslaanLogFileToolStripMenuItem
             // 
             this.plaatsOpslaanLogFileToolStripMenuItem.Name = "plaatsOpslaanLogFileToolStripMenuItem";
-            this.plaatsOpslaanLogFileToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.plaatsOpslaanLogFileToolStripMenuItem.Text = "Plaats opslaan log file";
+            this.plaatsOpslaanLogFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.plaatsOpslaanLogFileToolStripMenuItem.Text = "Opslaan in map";
             this.plaatsOpslaanLogFileToolStripMenuItem.Click += new System.EventHandler(this.PlaatsOpslaanLogFileToolStripMenuItem_Click);
             this.plaatsOpslaanLogFileToolStripMenuItem.MouseHover += new System.EventHandler(this.PlaatsOpslaanLogFileToolStripMenuItem_MouseHover);
             // 
@@ -145,22 +145,29 @@ namespace WindowsFormsAppTest
             this.dbxmlLadenTlStrpMnItm,
             this.plaatsOpslaanDbxmlTlStrpMnItm});
             this.dbXmlToolStripMenuItem.Name = "dbXmlToolStripMenuItem";
-            this.dbXmlToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
-            this.dbXmlToolStripMenuItem.Text = "Db xml";
+            this.dbXmlToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.dbXmlToolStripMenuItem.Text = "Database";
             // 
             // plaatsOphalenDbxmlToolStripMenuItem
             // 
             this.plaatsOphalenDbxmlToolStripMenuItem.Name = "plaatsOphalenDbxmlToolStripMenuItem";
-            this.plaatsOphalenDbxmlToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
-            this.plaatsOphalenDbxmlToolStripMenuItem.Text = "Plaats ophalen db.xml";
+            this.plaatsOphalenDbxmlToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.plaatsOphalenDbxmlToolStripMenuItem.Text = "Openen in map";
             this.plaatsOphalenDbxmlToolStripMenuItem.Click += new System.EventHandler(this.plaatsOphalenDbxmlTlStrpMnItm_Click);
             // 
             // dbxmlLadenTlStrpMnItm
             // 
             this.dbxmlLadenTlStrpMnItm.Name = "dbxmlLadenTlStrpMnItm";
-            this.dbxmlLadenTlStrpMnItm.Size = new System.Drawing.Size(191, 22);
-            this.dbxmlLadenTlStrpMnItm.Text = "db.xml laden";
+            this.dbxmlLadenTlStrpMnItm.Size = new System.Drawing.Size(206, 22);
+            this.dbxmlLadenTlStrpMnItm.Text = "Gegevens opnieuw laden";
             this.dbxmlLadenTlStrpMnItm.Click += new System.EventHandler(this.dbxmlLadenTlStrpMnItm_Click);
+            // 
+            // plaatsOpslaanDbxmlTlStrpMnItm
+            // 
+            this.plaatsOpslaanDbxmlTlStrpMnItm.Name = "plaatsOpslaanDbxmlTlStrpMnItm";
+            this.plaatsOpslaanDbxmlTlStrpMnItm.Size = new System.Drawing.Size(206, 22);
+            this.plaatsOpslaanDbxmlTlStrpMnItm.Text = "Opslaan in map";
+            this.plaatsOpslaanDbxmlTlStrpMnItm.Click += new System.EventHandler(this.plaatsOpslaanDbxmlTlStrpMnItm_Click);
             // 
             // EmailTlStrpMnItm
             // 
@@ -183,7 +190,7 @@ namespace WindowsFormsAppTest
             // KlantKeuzeToolStripMenuItem
             // 
             this.KlantKeuzeToolStripMenuItem.Name = "KlantKeuzeToolStripMenuItem";
-            this.KlantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.KlantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.KlantKeuzeToolStripMenuItem.Text = "Klant keuze";
             // 
             // tijdToolStripMenuItem
@@ -194,7 +201,7 @@ namespace WindowsFormsAppTest
             this.MinToolStripMenuItem2,
             this.UurTlStrpMnItm});
             this.tijdToolStripMenuItem.Name = "tijdToolStripMenuItem";
-            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.tijdToolStripMenuItem.Text = "Tijd";
             // 
             // MinToolStripMenuItem
@@ -231,7 +238,7 @@ namespace WindowsFormsAppTest
             this.AanToolStripMenuItem,
             this.UitToolStripMenuItem});
             this.ToolStripMenuItem1.Name = "ToolStripMenuItem1";
-            this.ToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
+            this.ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.ToolStripMenuItem1.Text = "Aan of Uit";
             // 
             // AanToolStripMenuItem
@@ -402,13 +409,6 @@ namespace WindowsFormsAppTest
             this.BtnShowKlanten.Text = "KLANTEN";
             this.BtnShowKlanten.UseVisualStyleBackColor = false;
             this.BtnShowKlanten.Click += new System.EventHandler(this.BtnShowKlanten_Click);
-            // 
-            // plaatsOpslaanDbxmlTlStrpMnItm
-            // 
-            this.plaatsOpslaanDbxmlTlStrpMnItm.Name = "plaatsOpslaanDbxmlTlStrpMnItm";
-            this.plaatsOpslaanDbxmlTlStrpMnItm.Size = new System.Drawing.Size(191, 22);
-            this.plaatsOpslaanDbxmlTlStrpMnItm.Text = "Plaats opslaan db.xml";
-            this.plaatsOpslaanDbxmlTlStrpMnItm.Click += new System.EventHandler(this.plaatsOpslaanDbxmlTlStrpMnItm_Click);
             // 
             // Home
             // 

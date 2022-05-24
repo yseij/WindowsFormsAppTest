@@ -7,6 +7,7 @@ using System.Net.Http.Headers;
 using System.Security.Cryptography.X509Certificates;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
+using System.Windows.Forms;
 using System.Xml;
 
 namespace WindowsFormsAppTest
@@ -449,12 +450,13 @@ namespace WindowsFormsAppTest
         {
             using (Sales31.MessageServiceSoapClient client = NewSales31Client(host))
             {
-                client.ClientCredentials.UserName.UserName = TxtBxUsername.Text.Trim();
-                client.ClientCredentials.UserName.Password = TxtBxPassword.Text.Trim();
-                if (client.ClientCredentials.UserName.UserName == string.Empty || client.ClientCredentials.UserName.Password == string.Empty)
+                if (TxtBxUsername.Text.Trim() == string.Empty || TxtBxPassword.Text.Trim() == string.Empty)
                 {
+                    MessageBox.Show("Geen gebruikersnaam of wachtwoord ingevuld");
                     return @"{ ex: '" + "gebruikersnaam of wachtwoord is niet ingevuld" + "'}";
                 }
+                client.ClientCredentials.UserName.UserName = TxtBxUsername.Text.Trim();
+                client.ClientCredentials.UserName.Password = TxtBxPassword.Text.Trim();
                 try
                 {
                     client.Open();
@@ -496,6 +498,7 @@ namespace WindowsFormsAppTest
                     }
                     catch (Exception ex)
                     {
+                        MessageBox.Show(ex.Message.ToString());
                         return @"{ ex: '" + ex.Message.ToString() + "'}"; ;
                     }
                 }

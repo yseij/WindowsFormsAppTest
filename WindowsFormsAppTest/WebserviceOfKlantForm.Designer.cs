@@ -116,7 +116,7 @@ namespace WindowsFormsAppTest
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TrVwAll.Location = new System.Drawing.Point(476, 201);
             this.TrVwAll.Name = "TrVwAll";
-            this.TrVwAll.Size = new System.Drawing.Size(450, 451);
+            this.TrVwAll.Size = new System.Drawing.Size(432, 447);
             this.TrVwAll.TabIndex = 3;
             this.TrVwAll.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TrVwAll_NodeMouseClick);
             // 
@@ -137,7 +137,7 @@ namespace WindowsFormsAppTest
             this.ZetLogVastChkBx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ZetLogVastChkBx.AutoSize = true;
             this.ZetLogVastChkBx.Depth = 0;
-            this.ZetLogVastChkBx.Location = new System.Drawing.Point(21, 652);
+            this.ZetLogVastChkBx.Location = new System.Drawing.Point(21, 648);
             this.ZetLogVastChkBx.Margin = new System.Windows.Forms.Padding(0);
             this.ZetLogVastChkBx.MouseLocation = new System.Drawing.Point(-1, -1);
             this.ZetLogVastChkBx.MouseState = MaterialSkin.MouseState.HOVER;
@@ -160,7 +160,7 @@ namespace WindowsFormsAppTest
             this.groupBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.groupBox2.Location = new System.Drawing.Point(476, 98);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(450, 97);
+            this.groupBox2.Size = new System.Drawing.Size(432, 97);
             this.groupBox2.TabIndex = 31;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Urls die niet goed gingen";
@@ -183,7 +183,7 @@ namespace WindowsFormsAppTest
             this.AantalLegeUrlsTxtBx.Multiline = false;
             this.AantalLegeUrlsTxtBx.Name = "AantalLegeUrlsTxtBx";
             this.AantalLegeUrlsTxtBx.ReadOnly = true;
-            this.AantalLegeUrlsTxtBx.Size = new System.Drawing.Size(358, 50);
+            this.AantalLegeUrlsTxtBx.Size = new System.Drawing.Size(341, 50);
             this.AantalLegeUrlsTxtBx.TabIndex = 7;
             this.AantalLegeUrlsTxtBx.Text = "";
             this.AantalLegeUrlsTxtBx.TrailingIcon = null;
@@ -224,7 +224,7 @@ namespace WindowsFormsAppTest
             this.ResponseTextBox.SelectionLength = 0;
             this.ResponseTextBox.SelectionStart = 0;
             this.ResponseTextBox.ShortcutsEnabled = true;
-            this.ResponseTextBox.Size = new System.Drawing.Size(450, 108);
+            this.ResponseTextBox.Size = new System.Drawing.Size(432, 104);
             this.ResponseTextBox.TabIndex = 32;
             this.ResponseTextBox.TabStop = false;
             this.ResponseTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -1231,7 +1231,7 @@ namespace WindowsFormsAppTest
             this.BtnSort.ForeColor = System.Drawing.SystemColors.Control;
             this.BtnSort.Location = new System.Drawing.Point(476, 658);
             this.BtnSort.Name = "BtnSort";
-            this.BtnSort.Size = new System.Drawing.Size(450, 31);
+            this.BtnSort.Size = new System.Drawing.Size(432, 31);
             this.BtnSort.TabIndex = 74;
             this.BtnSort.Text = "Sorteer op urls die niet goed gingen";
             this.BtnSort.UseVisualStyleBackColor = false;
@@ -1246,7 +1246,7 @@ namespace WindowsFormsAppTest
             this.GrpBxSsl.Controls.Add(this.LblCertificaatVervalDatum);
             this.GrpBxSsl.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.GrpBxSsl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.GrpBxSsl.Location = new System.Drawing.Point(21, 695);
+            this.GrpBxSsl.Location = new System.Drawing.Point(21, 691);
             this.GrpBxSsl.Name = "GrpBxSsl";
             this.GrpBxSsl.Size = new System.Drawing.Size(435, 120);
             this.GrpBxSsl.TabIndex = 75;
@@ -1335,7 +1335,7 @@ namespace WindowsFormsAppTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(936, 821);
+            this.ClientSize = new System.Drawing.Size(918, 817);
             this.Controls.Add(this.GrpBxSsl);
             this.Controls.Add(this.BtnSort);
             this.Controls.Add(this.TbCntrlRestApiEnSoap);
@@ -1346,6 +1346,7 @@ namespace WindowsFormsAppTest
             this.Controls.Add(this.ZetLogVastChkBx);
             this.Controls.Add(this.LblWebserviceOfKlant);
             this.Controls.Add(this.TrVwAll);
+            this.MinimumSize = new System.Drawing.Size(918, 817);
             this.Name = "WebserviceOfKlantForm";
             this.Text = "Per Webservice Testen";
             this.TopMost = true;

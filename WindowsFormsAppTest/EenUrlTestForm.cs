@@ -13,6 +13,7 @@ namespace WindowsFormsAppTest
         private string _urlHttp = string.Empty;
         private string _urlTest = string.Empty;
         private string _basisUrl = string.Empty;
+        private string _selectedKlant = string.Empty;
 
         private bool _isSoap = false;
 
@@ -75,8 +76,13 @@ namespace WindowsFormsAppTest
 
         private void KlantKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
-            _urls.Clear();
             UrlVoorTestTxtBx.Text = string.Empty;
+            Klant klant = (Klant)KlantKrMaterialCmbx.SelectedItem;
+            _selectedKlant = klant.Name;
+            if (AllUrlsKrLstBx.Items.Count > 0)
+            {
+                AllUrlsKrLstBx.SelectedIndex = 0;
+            }
             ClearBox();
             GetUrls();
         }
@@ -226,13 +232,15 @@ namespace WindowsFormsAppTest
 
         private void AddUrlToList(WebService webService, Url url, KlantWebservice klantWebservice)
         {
+            url.KlantId = (Guid)KlantKrMaterialCmbx.SelectedValue;
+            url.KlantWebserviceId = klantWebservice.Id;
             if (webService.Name == "Kraan2Webservices")
             {
-                UrlsTestKraan2Webservice(url, klantWebservice);
+                UrlsTestKraan2Webservice(url);
             }
             else if (webService.Name == "KraanSalesService")
             {
-                UrlsTestKraanSalesService(url, klantWebservice);
+                UrlsTestKraanSalesService(url);
             }
             else if (webService.Name == "KraanHomeDNA")
             {
@@ -251,30 +259,28 @@ namespace WindowsFormsAppTest
             }
             else
             {
-                url.KlantId = (Guid)KlantKrMaterialCmbx.SelectedValue;
-                url.KlantWebserviceId = klantWebservice.Id;
                 _urls.Add(url);
             }
         }
 
-        private void UrlsTestKraanSalesService(Url url, KlantWebservice klantWebservice)
+        private void UrlsTestKraanSalesService(Url url)
         {
             for (int i = 0; i < kraanSalesService.Length; i++)
             {
                 Url newUrl = new Url();
                 newUrl.Name = url.Name + "/" + kraanSalesService[i];
-                newUrl.KlantWebserviceId = klantWebservice.Id;
+                newUrl.KlantWebserviceId = url.KlantWebserviceId;
                 _urls.Add(newUrl);
             }
         }
 
-        private void UrlsTestKraan2Webservice(Url url, KlantWebservice klantWebservice)
+        private void UrlsTestKraan2Webservice(Url url)
         {
             for (int i = 0; i < kraanWebservices.Length; i++)
             {
                 Url newUrl = new Url();
                 newUrl.Name = url.Name + "/" + kraanWebservices[i];
-                newUrl.KlantWebserviceId = klantWebservice.Id;
+                newUrl.KlantWebserviceId = url.KlantWebserviceId;
                 _urls.Add(newUrl);
             }
         }
@@ -299,7 +305,10 @@ namespace WindowsFormsAppTest
             _urlTest = UrlVoorTestTxtBx.Text;
             if (!_isSoap)
             {
-                _urlTest = UrlVoorTestTxtBx.Text + "/GetWebserviceVersion";
+                if (!UrlVoorTestTxtBx.Text.EndsWith("GetWebserviceVersion"))
+                {
+                    _urlTest = UrlVoorTestTxtBx.Text + "/GetWebserviceVersion";
+                }
             }
             GetResult(true);
         }
@@ -330,7 +339,7 @@ namespace WindowsFormsAppTest
             {
                 if (UrlVoorTestTxtBx.Text.Contains("MessageServiceSoap31.svc"))
                 {
-                    var m = new Sales31CredentialsForm();
+                    var m = new Sales31CredentialsForm(UrlVoorTestTxtBx.Text, _selectedKlant);
                     m.TopMost = true;
                     m.ShowDialog();
                     MaterialMaskedTextBox userName = m._usernameTxtBx;
@@ -414,6 +423,7 @@ namespace WindowsFormsAppTest
             clearGroupBox(grpBxSales2_4);
             clearGroupBox(grpBxSales3_1);
             clearGroupBox(grpBxSoap);
+            textBoxWebservice.Text = string.Empty;
             MLblCheckOfNiet.Text = string.Empty;
             ResponseTextBox.Text = string.Empty;
         }

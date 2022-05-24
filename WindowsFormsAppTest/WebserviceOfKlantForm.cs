@@ -15,6 +15,7 @@ namespace WindowsFormsAppTest
         private int _node;
 
         private string _clipBoardText;
+        private string _selectedWebserviceOfKlant;
 
         private bool _isKlant;
         private bool _isSoap;
@@ -368,6 +369,16 @@ namespace WindowsFormsAppTest
         private void WebserviceOfKlantKrMaterialCmbx_SelectedIndexChanged(object sender, EventArgs e)
         {
             _selectedWebserviceIdOfKlantId = (Guid)WebserviceOfKlantKrMaterialCmbx.SelectedValue;
+            try
+            {
+                Klant klant = (Klant)WebserviceOfKlantKrMaterialCmbx.SelectedItem;
+                _selectedWebserviceOfKlant = klant.Name;
+            }
+            catch
+            {
+                WebService webService = (WebService)WebserviceOfKlantKrMaterialCmbx.SelectedItem;
+                _selectedWebserviceOfKlant = webService.Name;
+            }
         }
 
         private void GetResult(Url urlData, bool isGetWebserviceVersion)
@@ -376,7 +387,7 @@ namespace WindowsFormsAppTest
             {
                 if (urlData.Name.Contains("MessageServiceSoap31.svc"))
                 {
-                    var m = new Sales31CredentialsForm();
+                    var m = new Sales31CredentialsForm(urlData.Name, _selectedWebserviceOfKlant);
                     m.TopMost = true;
                     m.ShowDialog();
                     MaterialMaskedTextBox userName = m._usernameTxtBx;
@@ -468,7 +479,7 @@ namespace WindowsFormsAppTest
                         }
                         else
                         {
-                            ResponseTextBox.Text = currentClkNode.Tag.ToString();
+                            ResponseTextBox.Text = currentClkNode.Tag.ToString().Replace("ex ", "");
                         }
                     }
                     else
@@ -638,7 +649,14 @@ namespace WindowsFormsAppTest
             {
                 if (item.Name != "id")
                 {
-                    ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " + item.Value + Environment.NewLine;
+                    if (item.Name == "ex")
+                    {
+                        ResponseTextBox.Text = item.Value + Environment.NewLine;
+                    }
+                    else
+                    {
+                        ResponseTextBox.Text = ResponseTextBox.Text + item.Name + " = " + item.Value + Environment.NewLine;
+                    }
                 }
                 switch (item.Name)
                 {

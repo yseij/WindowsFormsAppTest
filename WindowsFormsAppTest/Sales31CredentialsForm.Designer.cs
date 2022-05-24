@@ -34,6 +34,12 @@ namespace WindowsFormsAppTest
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.DoorgaanBtn = new System.Windows.Forms.Button();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.TextUrlForCredentials = new MaterialSkin.Controls.MaterialLabel();
+            this.TextForCredentialsKlant = new MaterialSkin.Controls.MaterialLabel();
+            this.TextUrlForCredentialsSet = new MaterialSkin.Controls.MaterialLabel();
+            this.TextForCredentialsKlantSet = new MaterialSkin.Controls.MaterialLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // PasswordTxtBx
@@ -52,7 +58,7 @@ namespace WindowsFormsAppTest
             this.PasswordTxtBx.HideSelection = true;
             this.PasswordTxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
             this.PasswordTxtBx.LeadingIcon = null;
-            this.PasswordTxtBx.Location = new System.Drawing.Point(132, 121);
+            this.PasswordTxtBx.Location = new System.Drawing.Point(138, 241);
             this.PasswordTxtBx.Mask = "";
             this.PasswordTxtBx.MaxLength = 32767;
             this.PasswordTxtBx.MouseState = MaterialSkin.MouseState.OUT;
@@ -69,7 +75,7 @@ namespace WindowsFormsAppTest
             this.PasswordTxtBx.SelectionLength = 0;
             this.PasswordTxtBx.SelectionStart = 0;
             this.PasswordTxtBx.ShortcutsEnabled = true;
-            this.PasswordTxtBx.Size = new System.Drawing.Size(233, 48);
+            this.PasswordTxtBx.Size = new System.Drawing.Size(444, 48);
             this.PasswordTxtBx.SkipLiterals = true;
             this.PasswordTxtBx.TabIndex = 86;
             this.PasswordTxtBx.TabStop = false;
@@ -95,7 +101,7 @@ namespace WindowsFormsAppTest
             this.UserNameTxtBx.HideSelection = true;
             this.UserNameTxtBx.InsertKeyMode = System.Windows.Forms.InsertKeyMode.Default;
             this.UserNameTxtBx.LeadingIcon = null;
-            this.UserNameTxtBx.Location = new System.Drawing.Point(132, 68);
+            this.UserNameTxtBx.Location = new System.Drawing.Point(138, 188);
             this.UserNameTxtBx.Mask = "";
             this.UserNameTxtBx.MaxLength = 32767;
             this.UserNameTxtBx.MouseState = MaterialSkin.MouseState.OUT;
@@ -112,7 +118,7 @@ namespace WindowsFormsAppTest
             this.UserNameTxtBx.SelectionLength = 0;
             this.UserNameTxtBx.SelectionStart = 0;
             this.UserNameTxtBx.ShortcutsEnabled = true;
-            this.UserNameTxtBx.Size = new System.Drawing.Size(233, 48);
+            this.UserNameTxtBx.Size = new System.Drawing.Size(444, 48);
             this.UserNameTxtBx.SkipLiterals = true;
             this.UserNameTxtBx.TabIndex = 85;
             this.UserNameTxtBx.TabStop = false;
@@ -127,7 +133,7 @@ namespace WindowsFormsAppTest
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(9, 134);
+            this.materialLabel1.Location = new System.Drawing.Point(15, 254);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(90, 19);
@@ -141,7 +147,7 @@ namespace WindowsFormsAppTest
             this.DoorgaanBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.DoorgaanBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DoorgaanBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.DoorgaanBtn.Location = new System.Drawing.Point(243, 176);
+            this.DoorgaanBtn.Location = new System.Drawing.Point(460, 295);
             this.DoorgaanBtn.Name = "DoorgaanBtn";
             this.DoorgaanBtn.Size = new System.Drawing.Size(122, 43);
             this.DoorgaanBtn.TabIndex = 83;
@@ -154,18 +160,82 @@ namespace WindowsFormsAppTest
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(9, 80);
+            this.materialLabel2.Location = new System.Drawing.Point(15, 200);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(117, 19);
             this.materialLabel2.TabIndex = 82;
             this.materialLabel2.Text = "Gebruikersnaam";
             // 
+            // TextUrlForCredentials
+            // 
+            this.TextUrlForCredentials.AutoSize = true;
+            this.TextUrlForCredentials.Depth = 0;
+            this.TextUrlForCredentials.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TextUrlForCredentials.Location = new System.Drawing.Point(6, 24);
+            this.TextUrlForCredentials.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TextUrlForCredentials.Name = "TextUrlForCredentials";
+            this.TextUrlForCredentials.Size = new System.Drawing.Size(141, 19);
+            this.TextUrlForCredentials.TabIndex = 87;
+            this.TextUrlForCredentials.Text = "Credentials voor url:";
+            // 
+            // TextForCredentialsKlant
+            // 
+            this.TextForCredentialsKlant.AutoSize = true;
+            this.TextForCredentialsKlant.Depth = 0;
+            this.TextForCredentialsKlant.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TextForCredentialsKlant.Location = new System.Drawing.Point(6, 77);
+            this.TextForCredentialsKlant.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TextForCredentialsKlant.Name = "TextForCredentialsKlant";
+            this.TextForCredentialsKlant.Size = new System.Drawing.Size(259, 19);
+            this.TextForCredentialsKlant.TabIndex = 88;
+            this.TextForCredentialsKlant.Text = "Credentials voor klant of webservice:";
+            // 
+            // TextUrlForCredentialsSet
+            // 
+            this.TextUrlForCredentialsSet.AutoSize = true;
+            this.TextUrlForCredentialsSet.Depth = 0;
+            this.TextUrlForCredentialsSet.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TextUrlForCredentialsSet.Location = new System.Drawing.Point(6, 47);
+            this.TextUrlForCredentialsSet.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TextUrlForCredentialsSet.Name = "TextUrlForCredentialsSet";
+            this.TextUrlForCredentialsSet.Size = new System.Drawing.Size(107, 19);
+            this.TextUrlForCredentialsSet.TabIndex = 89;
+            this.TextUrlForCredentialsSet.Text = "materialLabel3";
+            // 
+            // TextForCredentialsKlantSet
+            // 
+            this.TextForCredentialsKlantSet.AutoSize = true;
+            this.TextForCredentialsKlantSet.Depth = 0;
+            this.TextForCredentialsKlantSet.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.TextForCredentialsKlantSet.Location = new System.Drawing.Point(271, 77);
+            this.TextForCredentialsKlantSet.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TextForCredentialsKlantSet.Name = "TextForCredentialsKlantSet";
+            this.TextForCredentialsKlantSet.Size = new System.Drawing.Size(107, 19);
+            this.TextForCredentialsKlantSet.TabIndex = 90;
+            this.TextForCredentialsKlantSet.Text = "materialLabel4";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox1.Controls.Add(this.TextForCredentialsKlantSet);
+            this.groupBox1.Controls.Add(this.TextUrlForCredentialsSet);
+            this.groupBox1.Controls.Add(this.TextForCredentialsKlant);
+            this.groupBox1.Controls.Add(this.TextUrlForCredentials);
+            this.groupBox1.Location = new System.Drawing.Point(4, 67);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(576, 115);
+            this.groupBox1.TabIndex = 91;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Gegevens url voor sales 31 credentials";
+            // 
             // Sales31CredentialsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(377, 225);
+            this.ClientSize = new System.Drawing.Size(588, 348);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.PasswordTxtBx);
             this.Controls.Add(this.UserNameTxtBx);
             this.Controls.Add(this.materialLabel1);
@@ -174,6 +244,8 @@ namespace WindowsFormsAppTest
             this.MinimumSize = new System.Drawing.Size(377, 225);
             this.Name = "Sales31CredentialsForm";
             this.Text = "Credentials 3.1 sales";
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,5 +258,10 @@ namespace WindowsFormsAppTest
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private System.Windows.Forms.Button DoorgaanBtn;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialLabel TextUrlForCredentials;
+        private MaterialSkin.Controls.MaterialLabel TextForCredentialsKlant;
+        private MaterialSkin.Controls.MaterialLabel TextUrlForCredentialsSet;
+        private MaterialSkin.Controls.MaterialLabel TextForCredentialsKlantSet;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }

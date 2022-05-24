@@ -544,12 +544,7 @@ namespace WindowsFormsAppTest
             {
                 if (url.Name == "MessageServiceSoap31.svc")
                 {
-                    var m = new Sales31CredentialsForm();
-                    m.TopMost = true;
-                    m.ShowDialog();
-                    MaterialMaskedTextBox userName = m._usernameTxtBx;
-                    MaterialMaskedTextBox password = m._passwordTxtBx;
-                    _result = JObject.Parse(_webRequest.Get31SalesData(url.Name, userName, password));
+                    _result = JObject.Parse(@"{ ex: '" + "Deze service heeft een inlog nodig dus die moet je appart testen" + "'}");
                 }
                 else if (url.Name == "MessageServiceSoap.svc")
                 {

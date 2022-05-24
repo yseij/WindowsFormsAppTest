@@ -7,9 +7,12 @@ namespace WindowsFormsAppTest
     {
         public MaterialMaskedTextBox _usernameTxtBx;
         public MaterialMaskedTextBox _passwordTxtBx;
-        public Sales31CredentialsForm()
+
+        public Sales31CredentialsForm(string url, string klant)
         {
             InitializeComponent();
+            TextUrlForCredentialsSet.Text = url;
+            TextForCredentialsKlantSet.Text = klant;
         }
 
         private void DoorgaanBtn_Click(object sender, EventArgs e)
