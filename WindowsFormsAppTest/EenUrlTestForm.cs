@@ -126,7 +126,7 @@ namespace WindowsFormsAppTest
         private void UrlOpslaanBtn_Click(object sender, EventArgs e)
         {
             int i = -1;
-            string methode = UrlVoorTestTxtBx.Text.Replace(_basisUrl + "/", "");
+            string methode = FindMethode();
             Url newUrl = new Url(methode, (Guid)KlantKrMaterialCmbx.SelectedValue, _klantWebservice.Id);
             Url url = _urlXml.GetByKlantAndName((Guid)KlantKrMaterialCmbx.SelectedValue, UrlVoorTestTxtBx.Text);
             i = AllUrlsKrLstBx.FindStringExact(UrlVoorTestTxtBx.Text);
@@ -139,6 +139,47 @@ namespace WindowsFormsAppTest
                 MessageBox.Show("Deze url hoort al bij deze klant");
             }
             GetUrls();
+        }
+
+        private string FindMethode()
+        {
+            if (UrlVoorTestTxtBx.Text.Contains("Kraan2Webservices"))
+            {
+                for (int i = 0; i < kraanWebservices.Length; i++)
+                {
+                    if (UrlVoorTestTxtBx.Text.Contains(kraanWebservices[i]))
+                    {
+                        return kraanWebservices[i] + UrlVoorTestTxtBx.Text.Replace(_basisUrl, "");
+                    }
+                }
+            }
+            else if (UrlVoorTestTxtBx.Text.Contains("KraanSalesService"))
+            {
+                for (int i = 0; i < kraanSalesService.Length; i++)
+                {
+                    if (UrlVoorTestTxtBx.Text.Contains(kraanSalesService[i]))
+                    {
+                        return kraanSalesService[i] + UrlVoorTestTxtBx.Text.Replace(_basisUrl, "");
+                    }
+                }
+            }
+            else if (UrlVoorTestTxtBx.Text.Contains("KraanHomeDNA") && !UrlVoorTestTxtBx.Text.Contains("KraanHomeDNARelease"))
+            {
+                return "/HomeDna.svc/GetWebserviceVersion" + UrlVoorTestTxtBx.Text.Replace(_basisUrl, "");
+            }
+            else if (UrlVoorTestTxtBx.Text.Contains("KraanWerkbonWebservice"))
+            {
+                return "/Webservice.svc" + UrlVoorTestTxtBx.Text.Replace(_basisUrl + " /", "");
+            }
+            else if (UrlVoorTestTxtBx.Text.Contains("KraanHandheld"))
+            {
+                return "/HandheldService.svc/rest/GetVersion" + UrlVoorTestTxtBx.Text.Replace(_basisUrl, "");
+            }
+            else
+            {
+                return UrlVoorTestTxtBx.Text.Replace(_basisUrl + "/", "");
+            }
+            return string.Empty;
         }
 
         private void UrlVoorTestTxtBx_TextChanged(object sender, EventArgs e)
@@ -218,12 +259,16 @@ namespace WindowsFormsAppTest
                     if (klantWebservice.BasisUrl1)
                     {
                         newUrl.Name = klant.BasisUrl1 + webService.Name + "/" + url1.Name;
-                        AddUrlToList(webService, newUrl, klantWebservice);
+                        newUrl.KlantId = (Guid)KlantKrMaterialCmbx.SelectedValue;
+                        newUrl.KlantWebserviceId = klantWebservice.Id;
+                        _urls.Add(newUrl);
                     }
                     else
                     {
                         newUrl.Name = klant.BasisUrl2 + webService.Name + "/" + url1.Name;
-                        AddUrlToList(webService, newUrl, klantWebservice);
+                        newUrl.KlantId = (Guid)KlantKrMaterialCmbx.SelectedValue;
+                        newUrl.KlantWebserviceId = klantWebservice.Id;
+                        _urls.Add(newUrl);
                     }
                 }
             }
@@ -426,6 +471,7 @@ namespace WindowsFormsAppTest
             textBoxWebservice.Text = string.Empty;
             MLblCheckOfNiet.Text = string.Empty;
             ResponseTextBox.Text = string.Empty;
+            SecurityIdTxtBx.Text = string.Empty;
         }
 
         private void clearGroupBox(GroupBox groupBox)

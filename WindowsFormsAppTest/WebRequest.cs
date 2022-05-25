@@ -137,8 +137,6 @@ namespace WindowsFormsAppTest
             }
         }
 
-        
-
         private X509Certificate GetCertificate(HttpWebRequest request)
         {
             X509Certificate cert = request.ServicePoint.Certificate;
