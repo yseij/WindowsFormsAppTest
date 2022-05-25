@@ -504,21 +504,23 @@ namespace WindowsFormsAppTest
             {
                 klantWebservice.Klant = _klantId;
             }
+            klant = CheckBasisUrl(klant);
+            Klant klantExist = _klantXml.GetKlantenByTheSameName(NewKlantNaamTxtBx.Text);
+            if (klantExist != null && (klantExist.BasisUrl1 != klant.BasisUrl1 || klantExist.BasisUrl2 != klant.BasisUrl2))
+            {
+                _klantXml.UpdateKlant(klantExist.Id, klant);
+            }
+            else if (klantExist != null)
+            {
+                _error.SetError(NewKlantNaamTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
+                _inError = true;
+            }
             else
             {
-                Klant klantExist = _klantXml.GetKlantenByTheSameName(NewKlantNaamTxtBx.Text);
-                if (klantExist == null)
-                {
-                    klant = CheckBasisUrl(klant);
-                    _klantXml.AddKlant(klant);
-                    klantWebservice.Klant = klant.Id;
-                }
-                else
-                {
-                    _error.SetError(NewKlantNaamTxtBx, ConfigurationManager.AppSettings["BestaatAlInDb"]);
-                    _inError = true;
-                }
+                _klantXml.AddKlant(klant);
+                klantWebservice.Klant = klant.Id;
             }
+
             return klantWebservice;
         }
 

@@ -220,6 +220,7 @@ namespace WindowsFormsAppTest
 
         private void ChildFormClosingAddWebserviceToKlantForm(object sender, FormClosingEventArgs e)
         {
+            GetKlantenIfZoekOpKlantenNaamIsGevuld();
             GetWebservices();
         }
 
