@@ -164,18 +164,31 @@ namespace WindowsFormsAppTest
             m.ShowDialog();
         }
 
-        private void EmailTlStrpMnItm_Click_1(object sender, EventArgs e)
+        private void ChildFormClosingSetEmail(object sender, FormClosingEventArgs e)
+        {
+            ToolStripMenuItem1.Enabled = _klantKeuzeId != Guid.Empty && Properties.Settings.Default.Email != "";
+            CheckEmail();
+        }
+
+        private void serverInstellenTlStrpMnItm_Click(object sender, EventArgs e)
+        {
+            var m = new MailServerForm();
+            m.TopMost = false;
+            m.FormClosing += new FormClosingEventHandler(ChildFormClosingSetMailServer);
+            m.ShowDialog();
+        }
+
+        private void ChildFormClosingSetMailServer(object sender, FormClosingEventArgs e)
+        {
+            CheckEmail();
+        }
+
+        private void eigenEmailTlStrpMnItm_Click(object sender, EventArgs e)
         {
             var m = new UserForm();
             m.TopMost = false;
             m.FormClosing += new FormClosingEventHandler(ChildFormClosingSetEmail);
             m.ShowDialog();
-        }
-
-        private void ChildFormClosingSetEmail(object sender, FormClosingEventArgs e)
-        {
-            ToolStripMenuItem1.Enabled = _klantKeuzeId != Guid.Empty && Properties.Settings.Default.Email != "";
-            CheckEmail();
         }
 
         private void PlaatsOpslaanLogFileToolStripMenuItem_Click(object sender, EventArgs e)
@@ -695,7 +708,10 @@ namespace WindowsFormsAppTest
 
         private void CheckEmail()
         {
-            if (Properties.Settings.Default.Email != string.Empty)
+            if (Properties.Settings.Default.Email != string.Empty &&
+                Properties.Settings.Default.MailServerNaam != string.Empty &&
+                Properties.Settings.Default.MailServerPoort != 0 &&
+                Properties.Settings.Default.MailVerzendenVanuitEmail != string.Empty)
             {
                 StripMenuItemTestTijd.Enabled = true;
                 ServiceTlStrpMnItm.Enabled = true;
@@ -704,6 +720,7 @@ namespace WindowsFormsAppTest
             {
                 StripMenuItemTestTijd.Enabled = false;
                 ServiceTlStrpMnItm.Enabled = false;
+                ConfigurationManager.AppSettings["TestAanOfUit"] = "uit";
             }
         }
 

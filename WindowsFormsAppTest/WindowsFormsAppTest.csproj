@@ -25,7 +25,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>121</ApplicationRevision>
+    <ApplicationRevision>123</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -191,6 +191,12 @@
     <Compile Include="KrXml.cs" />
     <Compile Include="LogFile.cs" />
     <Compile Include="MailClient.cs" />
+    <Compile Include="MailServerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MailServerForm.Designer.cs">
+      <DependentUpon>MailServerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="NodeSorter.cs" />
     <Compile Include="NodeSorter2.cs" />
     <Compile Include="Program.cs" />
@@ -240,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MailServerForm.resx">
+      <DependentUpon>MailServerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

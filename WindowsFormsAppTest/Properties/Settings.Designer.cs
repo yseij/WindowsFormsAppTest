@@ -178,5 +178,65 @@ namespace WindowsFormsAppTest.Properties {
                 this["StartUpPathDb"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MailServerNaam {
+            get {
+                return ((string)(this["MailServerNaam"]));
+            }
+            set {
+                this["MailServerNaam"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int MailServerPoort {
+            get {
+                return ((int)(this["MailServerPoort"]));
+            }
+            set {
+                this["MailServerPoort"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MailServerGebruikersnaam {
+            get {
+                return ((string)(this["MailServerGebruikersnaam"]));
+            }
+            set {
+                this["MailServerGebruikersnaam"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MailServerWachtwoord {
+            get {
+                return ((string)(this["MailServerWachtwoord"]));
+            }
+            set {
+                this["MailServerWachtwoord"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string MailVerzendenVanuitEmail {
+            get {
+                return ((string)(this["MailVerzendenVanuitEmail"]));
+            }
+            set {
+                this["MailVerzendenVanuitEmail"] = value;
+            }
+        }
     }
 }

@@ -66,6 +66,8 @@ namespace WindowsFormsAppTest
             this.BtnShowUrlsPerKlant = new System.Windows.Forms.Button();
             this.BtnShowWebservices = new System.Windows.Forms.Button();
             this.BtnShowKlanten = new System.Windows.Forms.Button();
+            this.serverInstellenTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
+            this.eigenEmailTlStrpMnItm = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -118,7 +120,7 @@ namespace WindowsFormsAppTest
             this.menuStrip.Location = new System.Drawing.Point(3, 426);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip.Size = new System.Drawing.Size(275, 24);
+            this.menuStrip.Size = new System.Drawing.Size(389, 24);
             this.menuStrip.TabIndex = 9;
             this.menuStrip.Text = "menuStrip1";
             // 
@@ -133,7 +135,7 @@ namespace WindowsFormsAppTest
             // plaatsOpslaanLogFileToolStripMenuItem
             // 
             this.plaatsOpslaanLogFileToolStripMenuItem.Name = "plaatsOpslaanLogFileToolStripMenuItem";
-            this.plaatsOpslaanLogFileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.plaatsOpslaanLogFileToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
             this.plaatsOpslaanLogFileToolStripMenuItem.Text = "Opslaan in map";
             this.plaatsOpslaanLogFileToolStripMenuItem.Click += new System.EventHandler(this.PlaatsOpslaanLogFileToolStripMenuItem_Click);
             this.plaatsOpslaanLogFileToolStripMenuItem.MouseHover += new System.EventHandler(this.PlaatsOpslaanLogFileToolStripMenuItem_MouseHover);
@@ -171,10 +173,12 @@ namespace WindowsFormsAppTest
             // 
             // EmailTlStrpMnItm
             // 
+            this.EmailTlStrpMnItm.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.serverInstellenTlStrpMnItm,
+            this.eigenEmailTlStrpMnItm});
             this.EmailTlStrpMnItm.Name = "EmailTlStrpMnItm";
-            this.EmailTlStrpMnItm.Size = new System.Drawing.Size(48, 20);
-            this.EmailTlStrpMnItm.Text = "Email";
-            this.EmailTlStrpMnItm.Click += new System.EventHandler(this.EmailTlStrpMnItm_Click_1);
+            this.EmailTlStrpMnItm.Size = new System.Drawing.Size(42, 20);
+            this.EmailTlStrpMnItm.Text = "Mail";
             // 
             // StripMenuItemTestTijd
             // 
@@ -190,7 +194,7 @@ namespace WindowsFormsAppTest
             // KlantKeuzeToolStripMenuItem
             // 
             this.KlantKeuzeToolStripMenuItem.Name = "KlantKeuzeToolStripMenuItem";
-            this.KlantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.KlantKeuzeToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.KlantKeuzeToolStripMenuItem.Text = "Klant keuze";
             // 
             // tijdToolStripMenuItem
@@ -201,7 +205,7 @@ namespace WindowsFormsAppTest
             this.MinToolStripMenuItem2,
             this.UurTlStrpMnItm});
             this.tijdToolStripMenuItem.Name = "tijdToolStripMenuItem";
-            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.tijdToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
             this.tijdToolStripMenuItem.Text = "Tijd";
             // 
             // MinToolStripMenuItem
@@ -238,7 +242,7 @@ namespace WindowsFormsAppTest
             this.AanToolStripMenuItem,
             this.UitToolStripMenuItem});
             this.ToolStripMenuItem1.Name = "ToolStripMenuItem1";
-            this.ToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.ToolStripMenuItem1.Size = new System.Drawing.Size(134, 22);
             this.ToolStripMenuItem1.Text = "Aan of Uit";
             // 
             // AanToolStripMenuItem
@@ -410,6 +414,20 @@ namespace WindowsFormsAppTest
             this.BtnShowKlanten.UseVisualStyleBackColor = false;
             this.BtnShowKlanten.Click += new System.EventHandler(this.BtnShowKlanten_Click);
             // 
+            // serverInstellenTlStrpMnItm
+            // 
+            this.serverInstellenTlStrpMnItm.Name = "serverInstellenTlStrpMnItm";
+            this.serverInstellenTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
+            this.serverInstellenTlStrpMnItm.Text = "Server instellen";
+            this.serverInstellenTlStrpMnItm.Click += new System.EventHandler(this.serverInstellenTlStrpMnItm_Click);
+            // 
+            // eigenEmailTlStrpMnItm
+            // 
+            this.eigenEmailTlStrpMnItm.Name = "eigenEmailTlStrpMnItm";
+            this.eigenEmailTlStrpMnItm.Size = new System.Drawing.Size(180, 22);
+            this.eigenEmailTlStrpMnItm.Text = "Eigen email";
+            this.eigenEmailTlStrpMnItm.Click += new System.EventHandler(this.eigenEmailTlStrpMnItm_Click);
+            // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -475,5 +493,7 @@ namespace WindowsFormsAppTest
         private System.Windows.Forms.ToolStripMenuItem plaatsOphalenDbxmlToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dbxmlLadenTlStrpMnItm;
         private System.Windows.Forms.ToolStripMenuItem plaatsOpslaanDbxmlTlStrpMnItm;
+        private System.Windows.Forms.ToolStripMenuItem serverInstellenTlStrpMnItm;
+        private System.Windows.Forms.ToolStripMenuItem eigenEmailTlStrpMnItm;
     }
 }
