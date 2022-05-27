@@ -55,7 +55,8 @@ namespace WindowsFormsAppTest
             // The userState can be any object that allows your callback
             // method to identify this send operation.
             // For this example, the userToken is a string constant.
-            if (Properties.Settings.Default.MailServerGebruikersnaam != string.Empty && Properties.Settings.Default.MailServerWachtwoord != string.Empty)
+            if (Properties.Settings.Default.MailServerGebruikersnaam != string.Empty 
+                && Properties.Settings.Default.MailServerWachtwoord != string.Empty)
             {
                 client.Credentials = new NetworkCredential(Properties.Settings.Default.MailServerGebruikersnaam,
                                                            Properties.Settings.Default.MailServerWachtwoord);

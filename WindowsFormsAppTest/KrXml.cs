@@ -89,6 +89,11 @@ namespace WindowsFormsAppTest
                         writer.WriteElementString("SaveLogFilePlace", Properties.Settings.Default.SaveLogFilePlace);
                         writer.WriteElementString("Email", Properties.Settings.Default.Email);
                         writer.WriteElementString("PlaceDb", Properties.Settings.Default.PlaceDb);
+                        writer.WriteElementString("MailServerNaam", Properties.Settings.Default.MailServerNaam);
+                        writer.WriteElementString("MailServerPoort", Properties.Settings.Default.MailServerPoort.ToString());
+                        writer.WriteElementString("MailVerzendenVanuitEmail", Properties.Settings.Default.MailVerzendenVanuitEmail);
+                        writer.WriteElementString("MailServerGebruikersnaam", Properties.Settings.Default.MailServerGebruikersnaam);
+                        writer.WriteElementString("MailServerWachtwoord", Properties.Settings.Default.MailServerWachtwoord);
                         writer.WriteEndElement();
                         writer.Flush();
                     }
@@ -126,6 +131,21 @@ namespace WindowsFormsAppTest
                             break;
                         case "PlaceDb":
                             aNode.FirstChild.Value = Properties.Settings.Default.PlaceDb;
+                            break;
+                        case "MailServerNaam":
+                            aNode.FirstChild.Value = Properties.Settings.Default.MailServerNaam;
+                            break;
+                        case "MailServerPoort":
+                            aNode.FirstChild.Value = Properties.Settings.Default.MailServerPoort.ToString();
+                            break;
+                        case "MailVerzendenVanuitEmail":
+                            aNode.FirstChild.Value = Properties.Settings.Default.MailVerzendenVanuitEmail;
+                            break;
+                        case "MailServerGebruikersnaam":
+                            aNode.FirstChild.Value = Properties.Settings.Default.MailServerGebruikersnaam;
+                            break;
+                        case "MailServerWachtwoord":
+                            aNode.FirstChild.Value = Properties.Settings.Default.MailServerWachtwoord;
                             break;
                         default:
                             break;
