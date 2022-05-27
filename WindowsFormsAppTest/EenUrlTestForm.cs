@@ -115,6 +115,10 @@ namespace WindowsFormsAppTest
             if (url.Id != Guid.Empty)
             {
                 _urlXml.DeleteUrl((Guid)AllUrlsKrLstBx.SelectedValue);
+                if (AllUrlsKrLstBx.Items.Count > 0)
+                {
+                    AllUrlsKrLstBx.SelectedIndex = 0;
+                }
                 GetUrls();
             }
             else

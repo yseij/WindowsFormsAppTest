@@ -122,24 +122,31 @@ namespace WindowsFormsAppTest
 
         private void DeleteWebserviceBttn_Click(object sender, EventArgs e)
         {
-            List<KlantWebservice> klantWebservices = _klantWebserviceXml.GetByWebservice((Guid)AllWebserviceKrLstBx.SelectedValue);
-            List<Url> urls = new List<Url>();
-            foreach (KlantWebservice klantWebservice in klantWebservices)
+            if ((Guid)AllWebserviceKrLstBx.SelectedValue != Guid.Empty)
             {
-                List<Url> urlsByKlantWebservice = _urlXml.GetByKlantWebserviceId(klantWebservice.Id);
-                foreach (Url url in urlsByKlantWebservice)
+                List<KlantWebservice> klantWebservices = _klantWebserviceXml.GetByWebservice((Guid)AllWebserviceKrLstBx.SelectedValue);
+                List<Url> urls = new List<Url>();
+                foreach (KlantWebservice klantWebservice in klantWebservices)
                 {
-                    urls.Add(url);
+                    List<Url> urlsByKlantWebservice = _urlXml.GetByKlantWebserviceId(klantWebservice.Id);
+                    foreach (Url url in urlsByKlantWebservice)
+                    {
+                        urls.Add(url);
+                    }
                 }
-            }
-            if (klantWebservices.Count == 0 && urls.Count == 0)
-            {
-                _webserviceXml.DeleteWebservice((Guid)AllWebserviceKrLstBx.SelectedValue);
-                GetWebservicesIfZoekOpKlantenNaamIsGevuld();
+                if (klantWebservices.Count == 0 && urls.Count == 0)
+                {
+                    _webserviceXml.DeleteWebservice((Guid)AllWebserviceKrLstBx.SelectedValue);
+                    GetWebservicesIfZoekOpKlantenNaamIsGevuld();
+                }
+                else
+                {
+                    MessageBox.Show("Er zijn nog urls die deze webservice gebruiken");
+                }
             }
             else
             {
-                MessageBox.Show("Er zijn nog urls die deze webservice gebruiken");
+                MessageBox.Show("Geen webservice geselecteerd");
             }
         }
 

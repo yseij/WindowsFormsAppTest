@@ -14,6 +14,7 @@ namespace WindowsFormsAppTest
         private int _aantalFouten = -1;
         private int _teller = 0;
 
+        private bool _checkboxAangepast = false;
         private bool _inError = false;
 
         string[] kraanWebservices = { "AuthService.svc",
@@ -126,6 +127,7 @@ namespace WindowsFormsAppTest
         private void CheckBox_CheckedChanged(object sender, EventArgs e)
         {
             AddAndUpdateKlantBttn.Enabled = false;
+            _checkboxAangepast = true;
         }
 
         private void NewKlantNaamTxtBx_TextChanged(object sender, EventArgs e)
@@ -499,6 +501,7 @@ namespace WindowsFormsAppTest
 
         private KlantWebservice KlantExist(KlantWebservice klantWebservice)
         {
+            _inError = false;
             Klant klant = new Klant(NewKlantNaamTxtBx.Text, BasisUrl1TxtBx.Text, BasisUrl2TxtBx.Text);
             if (_klantId != Guid.Empty)
             {
@@ -506,7 +509,10 @@ namespace WindowsFormsAppTest
             }
             klant = CheckBasisUrl(klant);
             Klant klantExist = _klantXml.GetKlantenByTheSameName(NewKlantNaamTxtBx.Text);
-            if (klantExist != null && (klantExist.BasisUrl1 != klant.BasisUrl1 || klantExist.BasisUrl2 != klant.BasisUrl2))
+            if (klantExist != null 
+                && (klantExist.BasisUrl1 != klant.BasisUrl1 
+                || klantExist.BasisUrl2 != klant.BasisUrl2 
+                || _checkboxAangepast))
             {
                 _klantXml.UpdateKlant(klantExist.Id, klant);
             }

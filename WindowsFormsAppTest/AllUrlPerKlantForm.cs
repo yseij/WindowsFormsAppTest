@@ -1,6 +1,7 @@
 ﻿using MaterialSkin.Controls;
 using System;
 using System.Collections.Generic;
+using System.Windows.Forms;
 
 namespace WindowsFormsAppTest
 {
@@ -134,15 +135,30 @@ namespace WindowsFormsAppTest
 
         private void PasAanUrlBttn_Click(object sender, EventArgs e)
         {
-            Url url = (Url)AllUrlsKrLstBx.SelectedItem;
-            url.Name = UrlTxtBx.Text;
-            _urlXml.UpdateUrl(_selectedUrlId, url);
+            if (AllUrlsKrLstBx.SelectedItem != null)
+            {
+                Url url = (Url)AllUrlsKrLstBx.SelectedItem;
+                url.Name = UrlTxtBx.Text;
+                _urlXml.UpdateUrl(_selectedUrlId, url);
+            }
+            else
+            {
+                MessageBox.Show("Geen url geselecteerd");
+            }
             GetUrls();
         }
 
         private void DeleteUrlBttn_Click(object sender, EventArgs e)
         {
-            _urlXml.DeleteUrl(_selectedUrlId);
+            if (_selectedUrlId != Guid.Empty)
+            {
+                _urlXml.DeleteUrl(_selectedUrlId);
+            }
+            else
+            {
+                MessageBox.Show("Geen url geselecteerd");
+            }
+            AllUrlsKrLstBx.ClearListBox();
             GetUrls();
         }
 

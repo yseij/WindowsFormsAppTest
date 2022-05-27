@@ -233,7 +233,7 @@ namespace WindowsFormsAppTest
             {
                 url.Name += "/HomeDna.svc/GetWebserviceVersion";
                 GetResult(url, true);
-                FillTreeView(url, logFile, false, false);
+                FillTreeView(url, logFile, true, false);
             }
             else if (webService.Name == "Kraan2Webservices")
             {
@@ -247,13 +247,13 @@ namespace WindowsFormsAppTest
             {
                 url.Name += "/Webservice.svc";
                 GetResult(url, false);
-                FillTreeView(url, logFile, false, false);
+                FillTreeView(url, logFile, true, false);
             }
             else if (webService.Name == "KraanHandheld")
             {
                 url.Name += "/HandheldService.svc/rest/GetVersion";
                 GetResult(url, false);
-                FillTreeView(url, logFile, false, false);
+                FillTreeView(url, logFile, true, false);
             }
             else if (!_isSoap)
             {
@@ -274,7 +274,7 @@ namespace WindowsFormsAppTest
                 newUrl.Name = url.Name + "/" + kraanSalesService[i];
                 newUrl.KlantWebserviceId = klantWebservice.Id;
                 GetResult(newUrl, false);
-                FillTreeView(newUrl, logFile, false, false);
+                FillTreeView(newUrl, logFile, false, true);
             }
         }
 
@@ -533,7 +533,7 @@ namespace WindowsFormsAppTest
         {
             TreeNode node = new TreeNode();
             node.Text = url.Name;
-            logFile.AddTextToLogFile(url.Name);
+            logFile.AddTextToLogFile(url.Name + Environment.NewLine);
             node.Tag = _result;
             int teller = 0;
             string resultText = string.Empty;

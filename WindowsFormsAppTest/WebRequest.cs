@@ -419,7 +419,7 @@ namespace WindowsFormsAppTest
                     if (_certIsGoed)
                     {
                         string data = "{\"" + message.Text[0]
-                        .Replace("\r\n", "\",\"")
+                        .Replace("\r\n", "\",\" ")
                         .Replace(": ", "\": \"")
                         .Replace(@"\", " ")
                         .Replace("Versie\": \"", "Versie: ") + "\", \"certVerValDatum\": " + "\"" + cert.GetExpirationDateString().ToString() + "\"" + "}";
@@ -473,7 +473,7 @@ namespace WindowsFormsAppTest
                         {
                             string data = "{\""
                                     + antwoord.Message.MsgContent.Trim()
-                                    .Replace("\r\n", "\", \"")
+                                    .Replace("\r\n", "\", \" ")
                                     .Replace(": ", "\": \"")
                                     .Replace(@"\", " ")
                                     .Replace("application\": \"", "application: ")
@@ -540,16 +540,16 @@ namespace WindowsFormsAppTest
             if (!_certIsGoed)
             {
                 return "{ \"Webservice Versie\": " + "\"" + webserviceVersie.Split(':')[1]
-                + "\"" + ", \"DevExpress versie\": " + "\"" + devExpressVersie.Split(':')[1]
-                + "\"" + ", \"DatabaseVersie\": " + "\"" + dataBaseVersie.Split(':')[1]
-                + " \"" + ", \"certVerValDatum\": " + "\"" + "Niet goed" + "\"" + "}";
+                + "\" " + ", \"DevExpress versie\": " + "\"" + devExpressVersie.Split(':')[1]
+                + "\" " + ", \"DatabaseVersie\": " + "\"" + dataBaseVersie.Split(':')[1]
+                + " \" " + ", \"certVerValDatum\": " + "\"" + "Niet goed" + "\"" + "}";
             }
             else
             {
                 return "{ \"Webservice Versie\": " + "\"" + webserviceVersie.Split(':')[1]
-                + "\"" + ", \"DevExpress versie\": " + "\"" + devExpressVersie.Split(':')[1]
-                + "\"" + ", \"DatabaseVersie\": " + "\"" + dataBaseVersie.Split(':')[1]
-                + " \"" + ", \"certVerValDatum\": " + "\"" + cert.GetExpirationDateString().ToString() + "\"" + "}";
+                + "\" " + ", \"DevExpress versie\": " + "\"" + devExpressVersie.Split(':')[1]
+                + "\" " + ", \"DatabaseVersie\": " + "\"" + dataBaseVersie.Split(':')[1]
+                + " \" " + ", \"certVerValDatum\": " + "\"" + cert.GetExpirationDateString().ToString() + "\"" + "}";
             }
         }
     }
