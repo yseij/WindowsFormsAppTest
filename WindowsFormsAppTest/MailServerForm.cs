@@ -16,6 +16,7 @@ namespace WindowsFormsAppTest
             MailVerzendenVanuitEmailTxtBx.Text = Properties.Settings.Default.MailVerzendenVanuitEmail;
             GebruikersnaamTxtBx.Text = Properties.Settings.Default.MailServerGebruikersnaam;
             WachtwoordTxtBx.Text = Properties.Settings.Default.MailServerWachtwoord;
+
             if (Properties.Settings.Default.MailServerGebruikersnaam == "///")
             {
                 GebruikersnaamTxtBx.Text = string.Empty;
@@ -24,7 +25,14 @@ namespace WindowsFormsAppTest
             {
                 WachtwoordTxtBx.Text = string.Empty;
             }
-
+            if (Properties.Settings.Default.MailVerzendenVanuitEmail == "///")
+            {
+                MailVerzendenVanuitEmailTxtBx.Text = string.Empty;
+            }
+            if (Properties.Settings.Default.MailServerNaam == "///")
+            {
+                ServerNaamTxtBx.Text = string.Empty;
+            }
         }
 
         private void GegevensOpslaanBtn_Click(object sender, EventArgs e)
