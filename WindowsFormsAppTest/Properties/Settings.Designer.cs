@@ -181,7 +181,7 @@ namespace WindowsFormsAppTest.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("///")]
         public string MailServerNaam {
             get {
                 return ((string)(this["MailServerNaam"]));
@@ -205,7 +205,7 @@ namespace WindowsFormsAppTest.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("///")]
         public string MailServerGebruikersnaam {
             get {
                 return ((string)(this["MailServerGebruikersnaam"]));
@@ -217,7 +217,7 @@ namespace WindowsFormsAppTest.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("///")]
         public string MailServerWachtwoord {
             get {
                 return ((string)(this["MailServerWachtwoord"]));
@@ -229,7 +229,7 @@ namespace WindowsFormsAppTest.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("///")]
         public string MailVerzendenVanuitEmail {
             get {
                 return ((string)(this["MailVerzendenVanuitEmail"]));

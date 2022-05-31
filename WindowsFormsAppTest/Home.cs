@@ -708,10 +708,10 @@ namespace WindowsFormsAppTest
 
         private void CheckEmail()
         {
-            if (Properties.Settings.Default.Email != string.Empty &&
-                Properties.Settings.Default.MailServerNaam != string.Empty &&
+            if (Properties.Settings.Default.Email != "///" &&
+                Properties.Settings.Default.MailServerNaam != "///" &&
                 Properties.Settings.Default.MailServerPoort != 0 &&
-                Properties.Settings.Default.MailVerzendenVanuitEmail != string.Empty)
+                Properties.Settings.Default.MailVerzendenVanuitEmail != "///")
             {
                 StripMenuItemTestTijd.Enabled = true;
                 ServiceTlStrpMnItm.Enabled = true;

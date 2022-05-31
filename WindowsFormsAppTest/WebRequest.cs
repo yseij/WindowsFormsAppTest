@@ -31,7 +31,6 @@ namespace WindowsFormsAppTest
         {
             string url = host;
             Uri uri = new Uri(url);
-            Console.WriteLine(uri.OriginalString);
             try
             {
                 HttpWebRequest request = HttpWebRequest.Create(host) as HttpWebRequest;
@@ -429,7 +428,7 @@ namespace WindowsFormsAppTest
                     else
                     {
                         string data = "{\"" + message.Text[0]
-                        .Replace("\r\n", "\",\"")
+                        .Replace("\r\n", "\",\" ")
                         .Replace(": ", "\": \"")
                         .Replace(@"\", " ")
                         .Replace("Versie\": \"", "Versie: ") + "\", \"certVerValDatum\": " + "\"" + "Niet goed" + "\"" + "}";
@@ -485,7 +484,7 @@ namespace WindowsFormsAppTest
                         {
                             string data = "{\""
                                     + antwoord.Message.MsgContent.Trim()
-                                    .Replace("\r\n", "\", \"")
+                                    .Replace("\r\n", "\", \" ")
                                     .Replace(": ", "\": \"")
                                     .Replace(@"\", " ")
                                     .Replace("application\": \"", "application: ")

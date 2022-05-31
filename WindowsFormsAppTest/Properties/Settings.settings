@@ -42,19 +42,19 @@
       <Value Profile="(Default)">///</Value>
     </Setting>
     <Setting Name="MailServerNaam" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">///</Value>
     </Setting>
     <Setting Name="MailServerPoort" Type="System.Int32" Scope="User">
       <Value Profile="(Default)">0</Value>
     </Setting>
     <Setting Name="MailServerGebruikersnaam" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">///</Value>
     </Setting>
     <Setting Name="MailServerWachtwoord" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">///</Value>
     </Setting>
     <Setting Name="MailVerzendenVanuitEmail" Type="System.String" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">///</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -657,29 +657,29 @@ namespace WindowsFormsAppTest
                     case "Versie MessageService":
                         TxtBxMessageVersie = item.Value.ToString().Split(':')[0];
                         break;
-                    case "KraanDLL aanwezig":
+                    case " KraanDLL aanwezig":
                         ChkBxKraanDLL = item.Value.ToString().Contains("True");
                         TxtBxKraanDllVersie = item.Value.ToString().Split(':')[1];
                         break;
-                    case "Kraan.ini aanwezig":
+                    case " Kraan.ini aanwezig":
                         ChkBxKraanIni = item.Value.ToString().Contains("True");
                         break;
-                    case "InterBase server":
+                    case " InterBase server":
                         TxtBxInterbaseVersie = item.Value.ToString().Split(':')[0];
                         break;
-                    case "MSSQL server":
+                    case " MSSQL server":
                         TxtBxMssqlServer = item.Value.ToString().Split(':')[0];
                         break;
-                    case "MSSQL catalog":
+                    case " MSSQL catalog":
                         TxtBxMssqlCatalog = item.Value.ToString().Split(':')[0];
                         break;
-                    case "Databaseconnectie gelukt":
+                    case " Databaseconnectie gelukt":
                         ChkBxKraanDatabase = item.Value.ToString().Contains("True");
                         break;
-                    case "Kraan 1 databaseversie":
+                    case " Kraan 1 databaseversie":
                         TxtBxKraan1DatabaseVersie = item.Value.ToString().Split(':')[0];
                         break;
-                    case "Kraan 2 databaseversie":
+                    case " Kraan 2 databaseversie":
                         TxtBxKraan2DatabaseVersie = item.Value.ToString().Split(':')[0];
                         break;
                 }
